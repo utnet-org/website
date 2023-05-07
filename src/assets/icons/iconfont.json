@@ -1,0 +1,58 @@
+{
+  "id": "4022610",
+  "name": "utility-website",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "431779",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "724427",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "8356570",
+      "name": "推特1",
+      "font_class": "tuite",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "12004326",
+      "name": "Search",
+      "font_class": "search",
+      "unicode": "ea94",
+      "unicode_decimal": 60052
+    },
+    {
+      "icon_id": "19451432",
+      "name": "油管",
+      "font_class": "Youtube",
+      "unicode": "ead1",
+      "unicode_decimal": 60113
+    },
+    {
+      "icon_id": "24493753",
+      "name": "igw-f-moon",
+      "font_class": "dark",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "30044900",
+      "name": "太阳-fill",
+      "font_class": "light",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    }
+  ]
+}
