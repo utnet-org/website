@@ -3,6 +3,8 @@ import util from "@/utils";
 import MainStore from '@/store'
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n' //国际化
+const { t, locale } = useI18n() //国际化
 const { home } = MainStore() //使用store
 let { themeShow } = storeToRefs(home)
 const themeSh = ref(false);      // 主题显示
@@ -28,6 +30,19 @@ function setHomebackcor(str: string) { // 设置首页背景颜色
     home.homeObj.SgyiTMMFrboWvNt2.setBackgroundColor(str)
     home.homeObj.k4JRyXh7Gy1jhj.setBackgroundColor(str)
 }
+
+// 语言切换
+const changeLang = (lang: string) => {
+    locale.value = lang
+    localStorage.setItem('upaclang', lang)
+}
+const setLang = () => {
+    if (locale.value === 'en') {
+        changeLang('zh')
+    } else {
+        changeLang('en')
+    }
+}
 </script>
 <script lang="ts">
 export default { name: "AppTopnav" }
@@ -43,17 +58,17 @@ export default { name: "AppTopnav" }
                     <div class="logo-title">Utility</div>
                 </router-link>
                 <div class="nav-bar">
-                    <RouterLink class="nav-bar-item" to="/">Learn</RouterLink>
-                    <RouterLink class="nav-bar-item" to="/">Developers</RouterLink>
-                    <RouterLink class="nav-bar-item" to="/">Enterprise</RouterLink>
-                    <RouterLink class="nav-bar-item" to="/">Community</RouterLink>
+                    <RouterLink class="nav-bar-item" to="/">{{ $t('nav.Learn') }}</RouterLink>
+                    <RouterLink class="nav-bar-item" to="/">{{ $t('nav.Developers') }}</RouterLink>
+                    <RouterLink class="nav-bar-item" to="/">{{ $t('nav.Enterprise') }}</RouterLink>
+                    <RouterLink class="nav-bar-item" to="/">{{ $t('nav.Community') }}</RouterLink>
                 </div>
             </div>
             <!-- 右侧 -->
             <div class="nav-right">
                 <div class="search">
                     <input type="text">
-                    <i class="iconfont icon-search"></i>
+                    <i class="iconfont icon-search" @click="setLang"></i>
                 </div>
                 <div class="theme" @click="changeTheme" :style="{ background: themeSh ? '' : '' }">
                     <i class="iconfont icon-dark" v-if="themeSh"></i>
@@ -117,8 +132,9 @@ export default { name: "AppTopnav" }
                     height: 100%;
                     padding: 0 10px;
                     font-size: 20px;
-                    font-weight: 500;
+                    font-weight: 400;
                     display: flex;
+                    // font-family: Manrope-Chinese;
                     align-items: center;
                     text-decoration: none;
 

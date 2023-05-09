@@ -77,7 +77,7 @@ export default { name: "Home" }
 <template>
     <div class="home">
         <!--小球轨道动画 -->
-        <div class="ivEMfk9ulAFRBn22">
+        <div class="ivEMfk9ulAFRBn22">   
             <!-- 主题蒙版 -->
             <div :class="[home.temS ? 'nav-theme-dark' : 'nav-theme-light']"></div>
             <!-- 通过引入的动画部分 -->

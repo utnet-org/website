@@ -14,11 +14,13 @@ import router from './router/index'
 import { createPinia } from 'pinia'
 // 导入全局组件
 import plugin from './components/index'
-
+// 导入 国际化
+import i18n from './locale'
 let pinia = createPinia()
 
 createApp(App)
   .use(router)
   .use(pinia)
+  .use(i18n)
   .use(plugin)
   .mount('#app')
