@@ -93,16 +93,18 @@ const stepsList = [
                     <div class="swiper_side_text">Connect with peers, inspire conversations,& stay updated on BNB Chain’s
                         advancements.</div>
                 </div>
-                <div class="swiper_section">
-                    <div class="lowest_level"></div>
-                    <div class="middle_level"></div>
-                    <div class="upper_level"></div>
-                    <img src="@/assets/images/communtity_swiper_images1.png" alt="">
-                </div>
-                <div class="swiper_rightmost">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="swiper_right">
+                    <div class="swiper_section">
+                        <div class="lowest_level"></div>
+                        <div class="middle_level"></div>
+                        <div class="upper_level"></div>
+                        <img src="@/assets/images/communtity_swiper_images1.png" alt="">
+                    </div>
+                    <div class="swiper_rightmost">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
             </div>
             <div class="community_options">
@@ -263,71 +265,75 @@ const stepsList = [
             }
         }
 
-        .swiper_section {
-            width: 578px;
-            height: 379px;
-            margin-right: 14px;
-            position: relative;
-
-            .lowest_level {
-                width: 503.779px;
-                height: 341.419px;
-                border-radius: 10px;
-                background: #F6F9F9;
-                position: absolute;
-                top: 0;
-                left: 36.18px;
-                z-index: 2;
-            }
-
-            .middle_level {
-                width: 541.817px;
-                height: 341.389px;
-                border-radius: 10px;
-                background: #ECF5F7;
-                position: absolute;
-                bottom: 19.06px;
-                left: 17.63px;
-                z-index: 3;
-            }
-
-            .upper_level {
-                width: 578px;
-                height: 342px;
-                border-radius: 10px;
-                background: #E2F2F5;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                z-index: 4;
-            }
-
-            img {
-                width: 305px;
-                height: 329px;
-                position: absolute;
-                bottom: 12px;
-                left: 142px;
-                z-index: 5;
-            }
-        }
-
-        .swiper_rightmost {
-            margin-top: 151px;
+        .swiper_right {
             display: flex;
-            flex-direction: column;
 
-            div {
-                width: 6px;
-                height: 6px;
-                border-radius: 3px;
-                background-color: #3EDFCF;
-                opacity: 0.3;
-                margin-bottom: 10px;
-                cursor: pointer;
+            .swiper_section {
+                width: 578px;
+                height: 379px;
+                margin-right: 14px;
+                position: relative;
 
-                &:first-child {
-                    opacity: 1;
+                .lowest_level {
+                    width: 503.779px;
+                    height: 341.419px;
+                    border-radius: 10px;
+                    background: #F6F9F9;
+                    position: absolute;
+                    top: 0;
+                    left: 36.18px;
+                    z-index: 2;
+                }
+
+                .middle_level {
+                    width: 541.817px;
+                    height: 341.389px;
+                    border-radius: 10px;
+                    background: #ECF5F7;
+                    position: absolute;
+                    bottom: 19.06px;
+                    left: 17.63px;
+                    z-index: 3;
+                }
+
+                .upper_level {
+                    width: 578px;
+                    height: 342px;
+                    border-radius: 10px;
+                    background: #E2F2F5;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 4;
+                }
+
+                img {
+                    width: 305px;
+                    height: 329px;
+                    position: absolute;
+                    bottom: 12px;
+                    left: 142px;
+                    z-index: 5;
+                }
+            }
+
+            .swiper_rightmost {
+                margin-top: 151px;
+                display: flex;
+                flex-direction: column;
+
+                div {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 3px;
+                    background-color: #3EDFCF;
+                    opacity: 0.3;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+
+                    &:first-child {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -571,7 +577,133 @@ const stepsList = [
             }
         }
     }
+}
 
+@media (max-width: 834px) {
+    .container {
+        .header {
+            height: 516px;
+            padding: 0 5%;
+            background: url('@/assets/images/phone_community.png') no-repeat;
+            justify-content: center;
 
+            .header_content {
+                width: 100%;
+                height: max-content;
+                flex-shrink: 0;
+                padding: 40px 28px;
+                margin: 0;
+                margin-bottom: 25px;
+
+                .header_content_text {
+                    width: 100%;
+                    margin: 18px 0 24px;
+                }
+
+                .header_content_button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 151px;
+                    height: 42px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(21, 28, 26, 0.9);
+                    color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 150%;
+                    cursor: pointer;
+
+                    img {
+                        width: 16px;
+                        height: 16px;
+                        margin-left: 8px;
+                    }
+
+                    &:hover {
+                        border: 1px solid #3EDFCF;
+                        background-color: #3EDFCF;
+                    }
+                }
+            }
+        }
+
+        .swiper {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 44px 5% 58px;
+            height: max-content;
+
+            .swiper_side {
+                width: 100%;
+                margin: 0 0 14px;
+
+                .swiper_side_title {
+                    margin-bottom: 14px;
+                }
+
+                .swiper_side_text {
+                    margin-bottom: 28px;
+                }
+            }
+
+            .swiper_right {
+
+                .swiper_section {
+                    width: 336px;
+                    height: 229px;
+                    margin-right: 8px;
+
+                    .lowest_level {
+                        width: 275px;
+                        height: 185px;
+                        top: 0;
+                        left: 31px;
+                    }
+
+                    .middle_level {
+                        width: 307px;
+                        height: 185px;
+                        bottom: 30px;
+                        left: 14px;
+                    }
+
+                    .upper_level {
+                        width: 336px;
+                        height: 198px;
+                    }
+
+                    img {
+                        width: 184.804px;
+                        height: 195.007px;
+                        bottom: 2px;
+                        left: 76px;
+                    }
+                }
+
+                .swiper_rightmost {
+                    margin-top: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    div {
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 3px;
+                        background-color: #3EDFCF;
+                        opacity: 0.3;
+                        margin-bottom: 10px;
+                        cursor: pointer;
+
+                        &:first-child {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>
