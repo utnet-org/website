@@ -59,16 +59,32 @@ let router = createRouter({
               component: () => import("@/views/soloutions/utility_wallet.vue"),
             },
             {
+              path: "/soloutions/mp_utility_wallet",
+              component: () => import("@/views/soloutions/mp_utility_wallet.vue"),
+            },
+            {
               path: "/soloutions/hashing_power",
               component: () => import("@/views/soloutions/hashing_power.vue"),
+            },
+            {
+              path: "/soloutions/mp_hashing_power",
+              component: () => import("@/views/soloutions/mp_hashing_power.vue"),
             },
             {
               path: "/soloutions/mining_tool",
               component: () => import("@/views/soloutions/mining_tool.vue"),
             },
             {
+              path: "/soloutions/mp_mining_tool",
+              component: () => import("@/views/soloutions/mp_mining_tool.vue"),
+            },
+            {
               path: "/soloutions/ai_model",
               component: () => import("@/views/soloutions/ai_model.vue"),
+            },
+            {
+              path: "/soloutions/mp_ai_model",
+              component: () => import("@/views/soloutions/mp_ai_model.vue"),
             },
           ],
         },

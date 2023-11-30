@@ -137,7 +137,6 @@ const thirdCheckQuestionMessage = ref(-1);
         display: flex;
         align-items: flex-end;
         justify-content: flex-start;
-
         .header_content {
             width: 640px;
             height: 310px;
