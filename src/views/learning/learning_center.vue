@@ -364,12 +364,9 @@ const thirdCheckQuestionMessage = ref(-1);
 @media (max-width: 834px) {
     .container {
         .header {
-            width: 100%;
             height: 457px;
             padding: 0 5%;
             background: url('@/assets/images/phone_learning_center.png') no-repeat;
-            background-size: cover;
-            display: flex;
             justify-content: center;
 
             .header_content {
@@ -377,8 +374,9 @@ const thirdCheckQuestionMessage = ref(-1);
                 width: 100%;
                 height: none;
                 flex-shrink: 0;
-                padding: 0 48px;
-                margin: 0 20px 41px;
+                padding: 0 28px;
+                margin: 0;
+                margin-bottom: 41px;
 
                 .header_content_text {
                     margin: 18px 0 24px;

@@ -104,8 +104,8 @@ const changeCheckIndex = (index: any) => {
                 <div class="faq_title">FAQ</div>
                 <div class="faq_question_list">
                     <div class="faq_item_question" v-for="(citem, cindex) in questionList" :key="cindex"
-                        @click="changeCheckIndex(cindex)" :class="checkQuestionIndex == cindex ? 'active' : ''">
-                        <div class="faq_item_question_title">
+                        :class="checkQuestionIndex == cindex ? 'active' : ''">
+                        <div class="faq_item_question_title" @click="changeCheckIndex(cindex)">
                             <div class="faq_item_question_title_side">
                                 <div class="faq_item_question_title_side_index">{{ citem.id }}/</div>
                                 <div class="item_question_text">{{ citem.question }}</div>
@@ -365,9 +365,25 @@ const changeCheckIndex = (index: any) => {
 
             .active {
                 .faq_item_question_title {
-                    img {
-                        transform: rotateZ(180deg);
+                    .faq_item_question_title_side {
+                        margin-left: 20px;
                     }
+
+                    img {
+                        animation: identifier 0.2s linear 1 forwards;
+                    }
+                }
+
+
+            }
+
+            @keyframes identifier {
+                0% {
+                    transform: rotateZ(0deg);
+                }
+
+                100% {
+                    transform: rotateZ(180deg);
                 }
             }
         }
@@ -377,12 +393,9 @@ const changeCheckIndex = (index: any) => {
 @media (max-width: 834px) {
     .container {
         .header {
-            width: 100%;
             height: 484px;
             padding: 0 5%;
-            background: url('@/assets/images/phone_learning_center.png') no-repeat;
-            background-size: cover;
-            display: flex;
+            background: url('@/assets/images/phone_poci.png') no-repeat;
             justify-content: center;
 
             .header_content {
@@ -390,7 +403,7 @@ const changeCheckIndex = (index: any) => {
                 width: 100%;
                 height: none;
                 flex-shrink: 0;
-                padding: 0 48px;
+                padding: 0 28px;
                 margin: 0;
                 margin-bottom: 32px;
 
@@ -434,6 +447,12 @@ const changeCheckIndex = (index: any) => {
                     }
                 }
             }
+        }
+
+        .faq {
+            padding: 44px 5% 14px;
+
+            .faq_question_list {}
         }
     }
 }

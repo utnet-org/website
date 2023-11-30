@@ -59,72 +59,67 @@ const optionsList = [
 ]
 </script>
 <template>
-    <div>
+    <div class="container">
         <div class="header">
-            <div class="header_container">
-                <div class="header_content">
-                    <div class="header_content_header">{{ $t("utilityNetwork.header_title") }}?</div>
-                    <div class="header_content_text">{{ $t("utilityNetwork.header_message") }}</div>
-                    <div class="header_content_button">
-                        <div>{{ $t("utilityNetwork.read_more") }}</div>
-                        <img :src="arrowButton" alt="">
-                    </div>
+            <div class="header_content">
+                <div class="header_content_header">{{ $t("utilityNetwork.header_title") }}?</div>
+                <div class="header_content_text">{{ $t("utilityNetwork.header_message") }}</div>
+                <div class="header_content_button">
+                    <div>{{ $t("utilityNetwork.read_more") }}</div>
+                    <img :src="arrowButton" alt="">
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="message">
-                <div class="first_level_title">
-                    <div class="title">{{ $t("utilityNetwork.header_title") }}</div>
-                    <div class="text">{{ $t("utilityNetwork.title_text") }}</div>
+        <div class="message">
+            <div class="first_level_title">
+                <div class="title">{{ $t("utilityNetwork.header_title") }}</div>
+                <div class="text">{{ $t("utilityNetwork.title_text") }}</div>
+            </div>
+            <div class="message_card_list">
+                <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
+                    <div class="message_card_list_item_title">
+                        <div class="message_card_list_item_title_line"></div>
+                        <div>{{ $t(item.title) }}</div>
+                    </div>
+                    <div class="message_card_list_item_text">{{ $t(item.text) }}</div>
                 </div>
-                <div class="message_card_list">
-                    <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
-                        <div class="message_card_list_item_title">
-                            <div class="message_card_list_item_title_line"></div>
-                            <div>{{ $t(item.title) }}</div>
+            </div>
+            <div class="options_header">
+                <div class="options_header_title">{{ $t('utilityNetwork.defining_chips_with_blockchain') }}</div>
+                <div class="options_header_subtitle">{{ $t('utilityNetwork.defining_chips_with_blockchain_subtitle') }}
+                </div>
+                <div class="options_header_title_text" v-for="(item, index) in definingChipsWithBlockchainTextList"
+                    :key="index">
+                    <div class="options_header_title_text_underline"></div>
+                    <div>{{ $t(item) }}</div>
+                </div>
+            </div>
+            <div class="options_list">
+                <div class="options_item" v-for="(item, index) in optionsList" :key="index">
+                    <div class="options_item_header">
+                        <div class="options_item_header_icon">
+                            <img :src="item.image" alt="">
                         </div>
-                        <div class="message_card_list_item_text">{{ $t(item.text) }}</div>
+                        <div class="options_item_header_title">{{ item.title }}</div>
                     </div>
-                </div>
-                <div class="options_header">
-                    <div class="options_header_title">{{ $t('utilityNetwork.defining_chips_with_blockchain') }}</div>
-                    <div class="options_header_subtitle">{{ $t('utilityNetwork.defining_chips_with_blockchain_subtitle') }}
-                    </div>
-                    <div class="options_header_title_text" v-for="(item, index) in definingChipsWithBlockchainTextList"
-                        :key="index">
-                        <div class="options_header_title_text_underline"></div>
-                        <div>{{ $t(item) }}</div>
-                    </div>
-                </div>
-                <div class="options_list">
-                    <div class="options_item" v-for="(item, index) in optionsList" :key="index">
-                        <div class="options_item_header">
-                            <div class="options_item_header_icon">
-                                <img :src="item.image" alt="">
-                            </div>
-                            <div class="options_item_header_title">{{ item.title }}</div>
-                        </div>
-                        <div class="options_item_message">{{ item.text }}</div>
-                    </div>
+                    <div class="options_item_message">{{ item.text }}</div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <style scoped lang="less">
-.header {
-    width: 100%;
-    height: 558px;
-    background: url('@/assets/images/utility_explain.png') no-repeat;
-    background-size: 100% 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+.container {
+    background-color: #FFFEFB;
 
-    .header_container {
-        max-width: 1728px;
-
+    .header {
+        width: 100%;
+        height: 558px;
+        background: url('@/assets/images/utility_explain.png') no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
 
         .header_content {
             width: 640px;
@@ -185,10 +180,6 @@ const optionsList = [
             }
         }
     }
-}
-
-.container {
-    background-color: #FFFEFB;
 
     .message {
         padding: 99px 11.5% 74px;
@@ -393,5 +384,114 @@ const optionsList = [
         }
     }
 
+}
+
+@media (max-width: 834px) {
+    .container {
+        .header {
+            height: 457px;
+            padding: 0 5%;
+            background: url('@/assets/images/phone_utility_explain.png') no-repeat;
+            justify-content: center;
+
+            .header_content {
+                // width: 350px;
+                width: 100%;
+                height: max-content;
+                flex-shrink: 0;
+                padding: 40px 28px 44px;
+                margin: 0;
+                margin-bottom: 41px;
+
+                .header_content_text {
+                    margin: 18px 0 24px;
+                }
+            }
+        }
+
+        .message {
+            padding: 32px 5% 28px;
+
+            .first_level_title {
+                .title {
+                    margin-bottom: 16px;
+                }
+            }
+
+            .message_card_list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+                grid-column-gap: 12px;
+                grid-row-gap: 12px;
+                margin-bottom: 14px;
+
+                .message_card_list_item {
+                    width: 100%;
+                    min-height: 257px;
+                    padding: 0 14px;
+                    background: linear-gradient(260deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+                    background-size: 100%;
+                    justify-content: start;
+                    padding-top: 20px;
+                }
+            }
+
+            .options_header {
+                margin-bottom: 0;
+                padding-bottom: 48px;
+
+                .options_header_title {
+                    margin-bottom: 16px;
+
+                }
+
+                .options_header_subtitle {
+                    margin-bottom: 18px;
+                }
+
+                .options_header_title_text {
+                    margin-bottom: 14px;
+                }
+            }
+
+            .options_list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+                grid-column-gap: 12px;
+                /* 项目之间的水平间距 */
+                grid-row-gap: 56px;
+
+                .options_item {
+                    width: 100%;
+                    height: 280px;
+                    justify-content: start;
+
+                    .options_item_header {
+                        .options_item_header_icon {
+                            width: 56px;
+                            height: 56px;
+                            top: -28px;
+                            left: calc(50% - 28px);
+                        }
+
+                        .options_item_header_title {
+                            margin-top: 62px;
+                            margin-bottom: 16px;
+                        }
+                    }
+
+                    &:hover {
+                        border: 1px solid #535856;
+
+                        .options_item_header {
+                            .options_item_header_title {
+                                color: #151C1A;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>

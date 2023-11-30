@@ -46,111 +46,156 @@ const messageCardList = [
         secondLevelText: 'utilityNetwork.maria_age_second_text'
     },
 ]
+const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
 </script>
 <template>
-    <div>
-        <div class="container">
-            <div class="header">
-                <div class="header_content">
-                    <div class="header_content_header">
-                        <div class="header_content_header_title">
-                            Current UNC (USD)
+    <div class="container">
+        <div class="header">
+            <div class="header_content">
+                <div class="header_content_header">
+                    <div class="header_content_header_title">
+                        Current UNC (USD)
+                    </div>
+                    <div class="header_content_header_title_div">
+                        <div class="dots"></div>
+                        <div class="time_text">Last 24 hours</div>
+                    </div>
+                </div>
+                <div class="header_content_acount">
+                    $0.00931
+                </div>
+                <div class="header_content_line_chart">
+                    <img :src="LineChart" alt="">
+                </div>
+                <div class="header_content_button">
+                    <div>Price rises by 3%</div>
+                    <img :src="ToRight" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="message">
+            <div class="main_title_message">
+                <div class="main_title">{{ $t('utilityNetwork.learn_about_unc_token_title') }}</div>
+                <div class="main_text">{{ $t('utilityNetwork.learn_about_unc_token_text') }}</div>
+            </div>
+            <div class="subtitle">
+                <div class="subtitle_options" v-if="viewableWidth > 834">
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options1.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.fundamentals_of_blockchain_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.fundamentals_of_blockchain_text')
+                            }}</div>
                         </div>
-                        <div class="header_content_header_title_div">
-                            <div class="dots"></div>
-                            <div class="time_text">Last 24 hours</div>
+                    </div>
+                    <div class="subtitle_options_item">
+
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.superb_application_of_smart_contracts_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.superb_application_of_smart_contracts_text')
+                            }}</div>
+                        </div>
+                        <img src="@/assets/images/unc_token_options2.png" alt="">
+                    </div>
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options3.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.incentive_mechanism_for_innovation_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.incentive_mechanism_for_innovation_text')
+                            }}</div>
                         </div>
                     </div>
-                    <div class="header_content_acount">
-                        $0.00931
+                    <div class="subtitle_options_item">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.digital_interpretation_of_blockchain_governance_title')
+                            }}
+                            </div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.digital_interpretation_of_blockchain_governance_text')
+                            }}</div>
+                        </div>
+
+                        <img src="@/assets/images/unc_token_options4.png" alt="">
                     </div>
-                    <div class="header_content_line_chart">
-                        <img :src="LineChart" alt="">
+                </div>
+                <div class="subtitle_options" v-else>
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options1.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.fundamentals_of_blockchain_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.fundamentals_of_blockchain_text')
+                            }}</div>
+                        </div>
                     </div>
-                    <div class="header_content_button">
-                        <div>Price rises by 3%</div>
-                        <img :src="ToRight" alt="">
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options2.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.superb_application_of_smart_contracts_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.superb_application_of_smart_contracts_text')
+                            }}</div>
+                        </div>
+                    </div>
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options3.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.incentive_mechanism_for_innovation_title')
+                            }}</div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.incentive_mechanism_for_innovation_text')
+                            }}</div>
+                        </div>
+                    </div>
+                    <div class="subtitle_options_item">
+                        <img src="@/assets/images/unc_token_options4.png" alt="">
+                        <div>
+                            <div class="subtitle_options_item_title">{{
+                                $t('utilityNetwork.digital_interpretation_of_blockchain_governance_title')
+                            }}
+                            </div>
+                            <div class="subtitle_options_item_text">{{
+                                $t('utilityNetwork.digital_interpretation_of_blockchain_governance_text')
+                            }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="message">
-                <div class="main_title_message">
-                    <div class="main_title">{{ $t('utilityNetwork.learn_about_unc_token_title') }}</div>
-                    <div class="main_text">{{ $t('utilityNetwork.learn_about_unc_token_text') }}</div>
-                </div>
-                <div class="subtitle">
-                    <div class="subtitle_options">
-                        <div class="subtitle_options_item">
-                            <img src="@/assets/images/unc_token_options1.png" alt="">
-                            <div>
-                                <div class="subtitle_options_item_title">{{
-                                    $t('utilityNetwork.fundamentals_of_blockchain_title')
-                                }}</div>
-                                <div class="subtitle_options_item_text">{{
-                                    $t('utilityNetwork.fundamentals_of_blockchain_text')
-                                }}</div>
-                            </div>
-                        </div>
-                        <div class="subtitle_options_item">
-
-                            <div>
-                                <div class="subtitle_options_item_title">{{
-                                    $t('utilityNetwork.superb_application_of_smart_contracts_title')
-                                }}</div>
-                                <div class="subtitle_options_item_text">{{
-                                    $t('utilityNetwork.superb_application_of_smart_contracts_text')
-                                }}</div>
-                            </div>
-                            <img src="@/assets/images/unc_token_options2.png" alt="">
-                        </div>
-                        <div class="subtitle_options_item">
-                            <img src="@/assets/images/unc_token_options3.png" alt="">
-                            <div>
-                                <div class="subtitle_options_item_title">{{
-                                    $t('utilityNetwork.incentive_mechanism_for_innovation_title')
-                                }}</div>
-                                <div class="subtitle_options_item_text">{{
-                                    $t('utilityNetwork.incentive_mechanism_for_innovation_text')
-                                }}</div>
-                            </div>
-                        </div>
-                        <div class="subtitle_options_item">
-
-                            <div>
-                                <div class="subtitle_options_item_title">{{
-                                    $t('utilityNetwork.digital_interpretation_of_blockchain_governance_title')
-                                }}
-                                </div>
-                                <div class="subtitle_options_item_text">{{
-                                    $t('utilityNetwork.digital_interpretation_of_blockchain_governance_text')
-                                }}</div>
-                            </div>
-
-                            <img src="@/assets/images/unc_token_options4.png" alt="">
-                        </div>
+            <div class="message_card_title">{{ $t('utilityNetwork.how_to_earn_unc') }}</div>
+            <div class="message_card_list">
+                <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
+                    <div class="message_card_list_item_title">
+                        <div class="message_card_list_item_title_line"></div>
+                        <div>{{ $t(item.title) }}</div>
                     </div>
+                    <div class="message_card_list_item_text">{{ $t(item.firstLevelText) }}</div>
+                    <div class="message_card_list_item_text">{{ $t(item.secondLevelText) }}</div>
                 </div>
-                <div class="message_card_title">{{ $t('utilityNetwork.how_to_earn_unc') }}</div>
-                <div class="message_card_list">
-                    <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
-                        <div class="message_card_list_item_title">
-                            <div class="message_card_list_item_title_line"></div>
-                            <div>{{ $t(item.title) }}</div>
-                        </div>
-                        <div class="message_card_list_item_text">{{ $t(item.firstLevelText) }}</div>
-                        <div class="message_card_list_item_text">{{ $t(item.secondLevelText) }}</div>
+            </div>
+            <div class="options_list_header">{{ $t('utilityNetwork.unc_tading_market_title') }}</div>
+            <div class="options_list">
+                <div class="options_item" v-for="(item, index) in optionsList" :key="index">
+                    <img :src="item.image" alt="">
+                    <div class="options_item_header">
+                        <div class="options_item_header_title">{{ item.title }}</div>
+                        <div class="options_item_header_text">{{ $t(item.text) }}</div>
                     </div>
-                </div>
-                <div class="options_list_header">{{ $t('utilityNetwork.unc_tading_market_title') }}</div>
-                <div class="options_list">
-                    <div class="options_item" v-for="(item, index) in optionsList" :key="index">
-                        <img :src="item.image" alt="">
-                        <div class="options_item_header">
-                            <div class="options_item_header_title">{{ item.title }}</div>
-                            <div class="options_item_header_text">{{ $t(item.text) }}</div>
-                        </div>
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -230,6 +275,11 @@ const messageCardList = [
                 width: 530px;
                 height: 97px;
                 margin: 41px 0 51px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             .header_content_button {
@@ -251,7 +301,6 @@ const messageCardList = [
                 img {
                     width: 16px;
                     height: 16px;
-                    margin-left: 8px;
                 }
             }
         }
@@ -286,14 +335,6 @@ const messageCardList = [
         }
 
         .subtitle {
-            .subtitle_title {
-                color: rgba(21, 28, 26, 0.90);
-                font-family: Lantinghei SC;
-                font-size: 18px;
-                font-weight: 700;
-                margin: 65px 0 32px;
-            }
-
             .subtitle_options {
                 margin-bottom: 62px;
                 display: flex;
@@ -481,17 +522,6 @@ const messageCardList = [
                     align-items: flex-start;
                     justify-content: flex-start;
 
-                    .options_item_header_icon {
-                        width: 70px;
-                        height: 70px;
-                        border-radius: 35px;
-                        margin-right: 24px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background: linear-gradient(160deg, rgba(21, 28, 26, 0.70) 10.52%, rgba(21, 28, 26, 0.90) 46.61%, rgba(21, 28, 26, 0.67) 83.46%);
-                    }
-
                     .options_item_header_title {
                         color: rgba(21, 28, 26, 0.90);
                         font-family: Inter;
@@ -513,16 +543,6 @@ const messageCardList = [
                     }
                 }
 
-                .options_item_message {
-                    color: #151C1A;
-                    font-family: Inter;
-                    font-size: 12px;
-                    font-weight: 400;
-                    line-height: 149%;
-                    /* 17.88px */
-                    opacity: 0.7;
-                }
-
                 &:hover {
                     background: url('@/assets/images/unc_token_options_background.png') no-repeat;
                     background-size: cover;
@@ -531,5 +551,196 @@ const messageCardList = [
         }
     }
 
+}
+
+@media (max-width: 834px) {
+    .container {
+        .header {
+            height: 457px;
+            padding: 0 5%;
+            background: url('@/assets/images/phone_unc_token.png') no-repeat;
+            justify-content: center;
+
+            .header_content {
+                width: 100%;
+                height: 308px;
+                flex-shrink: 0;
+                padding: 28px 18px;
+                margin: 0;
+                margin-bottom: 23px;
+
+                .header_content_header {
+                    .header_content_header_title {
+                        font-size: 12px;
+                    }
+                }
+
+                .header_content_acount {
+                    font-size: 24px;
+                }
+
+                .header_content_line_chart {
+                    width: 100%;
+                    height: 104px;
+                    margin: 22px 0 32px;
+                }
+
+                .header_content_button {
+                    width: 100%;
+                    height: 32px;
+                    font-size: 12px;
+                    padding: 0 14px;
+                    background-color: #96EBE3;
+                }
+            }
+        }
+
+        .message {
+            padding: 32px 5% 37px;
+
+            .main_title_message {
+                .main_title {
+                    font-size: 20px;
+                    margin-bottom: 16px;
+                }
+
+                .main_text {
+                    margin-bottom: 28px;
+                }
+            }
+
+            .subtitle {
+                .subtitle_options {
+                    margin-bottom: 16px;
+
+                    .subtitle_options_item {
+                        width: 100%;
+                        height: 600px;
+                        margin-bottom: 0px;
+                        border-radius: 12px;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-start;
+
+                        &:first-child {
+                            background: linear-gradient(180deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+                            padding: 0 24px;
+
+                            img {
+                                width: 130px;
+                                height: 248px;
+                                margin: 38px 0 24px;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            background: linear-gradient(180deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+                            padding: 0 24px;
+
+                            img {
+                                width: 234px;
+                                height: 227px;
+                                margin: 40px 0 43px;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            background: linear-gradient(180deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+                            padding: 0 24px;
+
+                            img {
+                                width: 151px;
+                                height: 198px;
+                                margin: 46px 0 49px;
+                            }
+                        }
+
+                        &:last-child {
+                            background: linear-gradient(180deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+                            padding: 0 24px;
+
+                            img {
+                                width: 116px;
+                                height: 247px;
+                                margin: 8px 0 38px;
+                            }
+                        }
+
+                        .subtitle_options_item_text {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .message_card_title {
+                margin-bottom: 24px;
+            }
+
+            .message_card_list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+                grid-column-gap: 14px;
+                grid-row-gap: 14px;
+                margin-bottom: 20px;
+
+                .message_card_list_item {
+                    width: 100%;
+                    height: max-content;
+                    padding: 28px 18px 18px;
+
+                    .message_card_list_item_text {
+                        color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+                        font-family: Inter;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 161%;
+                        /* 22.54px */
+                        opacity: 0.8;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            .options_list_header {
+                color: rgba(21, 28, 26, 0.90);
+                font-family: Lantinghei SC;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 24px;
+                text-align: center;
+            }
+
+            .options_list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+                grid-column-gap: 12px;
+                /* 项目之间的水平间距 */
+                grid-row-gap: 12px;
+
+                .options_item {
+                    min-width: 90%;
+                    height: max-content;
+                    margin-right: 0px;
+                    margin-bottom: 0px;
+
+                    img {
+                        margin-right: 20px;
+                    }
+
+                    .options_item_header {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                    }
+
+                    &:hover {
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
 }
 </style>

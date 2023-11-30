@@ -330,7 +330,7 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
 
             .active {
               // transform: rotateZ(180deg);
-              animation: identifier 0.1s linear 1 forwards;
+              animation: identifier 0.2s linear 1 forwards;
             }
 
             @keyframes identifier {
