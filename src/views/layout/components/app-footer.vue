@@ -1,154 +1,292 @@
-<script lang="ts" setup name="AppFooter"></script>
-<script lang="ts">
-export default { name: "AppFooter" }
+<script lang="ts" setup name="AppFooter">
+import LogoSvg from "@/assets/images/footer_logo.svg";
+import Twitter from "@/assets/svgs/twitter.svg";
+import Github from "@/assets/svgs/github.svg";
+import Youtube from "@/assets/svgs/youtube.svg";
+import Wechat from "@/assets/svgs/wechat.svg";
+import Arrow from "@/assets/svgs/footer_arrow.svg";
+const top_right = [
+  {
+    title: "footer.Resources",
+    children: [
+      { text: "footer.White_Paper", isOut: true, link: "" },
+      { text: "footer.Green_Paper", isOut: true, link: "" },
+    ],
+  },
+  {
+    title: "footer.Use_Utility",
+    children: [
+      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet" },
+      { text: "footer.Blockchain_Explorer", isOut: false, link: "" },
+      { text: "footer.Faucet", isOut: true, link: "" },
+      { text: "footer.Ecosystem_dApps", isOut: false, link: "" },
+      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
+      { text: "footer.GetPower", isOut: false, link: "/get_power" },
+      { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
+    ],
+  },
+  {
+    title: "footer.Learning",
+    children: [
+      { text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center" },
+      { text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain" },
+      { text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token" },
+      { text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus" },
+    ],
+  },
+  {
+    title: "footer.Developers",
+    children: [
+      { text: "footer.Developer_Hub", isOut: false, link: "" },
+      { text: "footer.Discord", isOut: true, link: "" },
+      { text: "footer.Github", isOut: true, link: "" },
+      { text: "footer.Forum", isOut: true, link: "" },
+    ],
+  },
+  {
+    title: "footer.Community",
+    children: [
+      { text: "footer.Community_Hub", isOut: false, link: "" },
+      { text: "footer.Online_Community", isOut: true, link: "" },
+      { text: "footer.Utility_Foundation", isOut: false, link: "" },
+      { text: "footer.Activity", isOut: false, link: "" },
+    ],
+  },
+  {
+    title: "footer.Activity",
+    children: [{ text: "footer.Chips", isOut: false, link: "" }],
+  },
+  {
+    title: "footer.About",
+    children: [
+      { text: "footer.Privacy_policy", isOut: false, link: "" },
+      { text: "footer.Terms_of_use", isOut: false, link: "" },
+      { text: "footer.Contact_us", isOut: false, link: "" },
+    ],
+  },
+];
+// 打印窗口宽度
+const printWidth = () => {
+  console.log(window.innerWidth);
+};
 </script>
-
 <template>
-    <footer class="app_footer">
-        <div class="container">
-            <div class="socialize">
-                <span>社交媒体</span>
-                <div>
-                    <i class="iconfont icon-tuite"></i>
-                    <i class="iconfont icon-github"></i>
-                    <i class="iconfont icon-Youtube"></i>
-                    <i class="iconfont icon-weixin"></i>
-                </div>
+  <footer class="app_footer">
+    <div class="container">
+      <div class="top">
+        <div class="left">
+          <div class="logo">
+            <LogoSvg />
+            <div class="logo_text">Utility</div>
+          </div>
+          <div class="social">
+            <div class="icon">
+              <Twitter style="color;: black" />
             </div>
-            <div class="linktext">
-                <div class="linktext-item">
-                    <div class="linktext-item-title">使用Utility</div>
-                    <div class="linktext-item-content">
-                        <span>连接钱包</span>
-                        <span>获取UNC</span>
-                        <span>参与Mining</span>
-                        <span>开始构建</span>
-                    </div>
-                </div>
-                <div class="linktext-item">
-                    <div class="linktext-item-title">学习Utility</div>
-                    <div class="linktext-item-content">
-                        <span>什么是尤特</span>
-                        <span>合理的资产配置</span>
-                        <span>面向服务能力的基础设施</span>
-                        <span>开放式的网络</span>
-                    </div>
-                </div>
-                <div class="linktext-item">
-                    <div class="linktext-item-title">开发者</div>
-                    <div class="linktext-item-content">
-                        <span>开始</span>
-                        <span>教程</span>
-                        <span>搭建本地环境</span>
-                    </div>
-                </div>
-                <div class="linktext-item">
-                    <div class="linktext-item-title">社区</div>
-                    <div class="linktext-item-content">
-                        <span>论坛</span>
-                        <span>帮助</span>
-                    </div>
-                </div>
-                <div class="linktext-item">
-                    <div class="linktext-item-title">关于我们</div>
-                    <div class="linktext-item-content">
-                        <span>服务协议</span>
-                        <span>相关条款</span>
-                    </div>
-                </div>
+            <div class="icon">
+              <Github />
             </div>
-            <div class="socialize">
-                <span class="bom">@ All Rights Reserved</span>
-                <span class="bom">EntySquare Technology</span>
+            <div class="icon">
+              <Youtube />
             </div>
+            <div class="icon">
+              <Wechat />
+            </div>
+          </div>
         </div>
-    </footer>
+        <div class="right">
+          <div class="right_item" v-for="(item, i) in top_right" :key="i">
+            <div class="title_text">
+              {{ $t(item.title) }}
+            </div>
+            <div :class="['item', 'right_text', c_item.isOut ? 'item_hover' : '']" v-for="(c_item, id) in item.children"
+              :key="id">
+              <RouterLink :to="c_item.link">
+                <span class="item_span">
+                  {{ $t(c_item.text) }}
+                  <div class="arrow">
+                    <Arrow />
+                  </div>
+                </span>
+              </RouterLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped lang="less">
 .app_footer {
-    min-height: 446px;
-    border-top: 1px solid #5D6BB2;
-    font-family: Manrope-Regular;
+  min-height: 516px;
+  width: 100%;
+  padding: 0 9.25vw;
+  background-color: #f6f9f9;
+  overflow: hidden;
 
-    .container {
-        height: 100%;
-        padding: 35px;
+  .container {
+    height: 100%;
+    max-width: 1408px;
+
+    hr {
+      opacity: 0.1;
+      background: rgba(21, 28, 26, 0.9);
+      margin: 0 !important;
+    }
+
+    .top {
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+      .left {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 60px;
+
+        .logo {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          font-family: Hiragino Kaku Gothic ProN;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+
+        .social {
+          display: flex;
+          gap: 24px;
+
+          .icon {
+            cursor: pointer;
+            filter: brightness(0%);
+            opacity: 0.17;
+
+            &:hover {
+              filter: brightness(100%);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .right {
+        display: flex;
         justify-content: space-between;
 
-        .linktext {
-            padding: 80px 58px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 13px;
-
-            .linktext-item {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 20px;
-
-                .linktext-item-title {
-                    font-weight: 700;
-                    font-size: 24px;
-                    line-height: 29px;
-                    cursor: pointer;
-                }
-
-                .linktext-item-content {
-                    font-weight: 400;
-                    font-size: 20px;
-                    line-height: 24px;
-                    opacity: 0.5;
-                    display: flex;
-                    flex-direction: column;
-
-                    span {
-                        margin-top: 15px;
-                        cursor: pointer;
-                    }
-                }
-            }
+        .right_item {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
         }
 
-        .socialize {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        .item {
+          height: 16px;
+          flex-shrink: 0;
+          transition: opacity 0.2s;
 
-            span {
-                font-family: Manrope-Regular;
-                font-weight: 400;
-                font-size: 24px;
-                line-height: 29px;
+          a {
+            .item_span {
+              position: relative;
+
+              .arrow {
+                position: absolute;
+                right: -16px;
+                bottom: -4px;
+                display: none;
+              }
+
+              &::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 1px;
+                background: var(--Light-dark, rgba(21, 28, 26, 0.9));
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: width 0.2s;
+              }
             }
 
-            div {
-                display: flex;
-                align-items: center;
-                gap: 30px;
+            &:hover {
 
-                .iconfont {
-                    cursor: pointer;
-                    opacity: 0.5;
-                    font-size: 24px;
-
-                    &:nth-child(3) {
-                        font-size: 30px;
-                    }
-                }
+              text-shadow: 0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9)),
+                -0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9));
+              opacity: 0.8;
             }
-
-            .bom {
-                text-align: center;
-                word-wrap: normal;
-                padding-bottom: 10px;
-            }
+          }
         }
+
+        .item_hover {
+          &:hover {
+            a {
+              .item_span {
+                &::after {
+                  width: 100%;
+                }
+
+                .arrow {
+                  filter: brightness(0%);
+                  display: block;
+                  animation: identifier 0.3s linear 1 forwards;
+                }
+              }
+            }
+          }
+        }
+      }
     }
+
+    .btm {
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    .title_text {
+      cursor: pointer;
+      color: #3edfcf;
+      font-family: Lantinghei SC;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      white-space: nowrap;
+    }
+
+    .right_text {
+      a {
+        cursor: pointer;
+        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        opacity: 0.6;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+@keyframes identifier {
+  0% {
+    transform: translateX(-2px) translateY(2px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
 }
 </style>

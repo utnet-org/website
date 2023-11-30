@@ -1,0 +1,182 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+const props = defineProps({
+    accordionTitle: {
+        type: String,
+        default: ''
+    },
+    accordionList: {
+        type: Object,
+        default: {}
+    },
+    checkIndex: {
+        type: String,
+        default: '0'
+    }
+});
+const checkIndex = ref(props.checkIndex);
+const updateCheckIndex = (index: string) => {
+    checkIndex.value = index;
+};
+const handleScroll = (event: { deltaY: any; }) => {
+    // event.deltaY 表示垂直方向上的滚动距离
+    const deltaY = event.deltaY;
+
+    // 根据滚动方向进行相应的处理
+    if (deltaY > 0) {
+        console.log('向下滚动');
+        // 执行向下滚动时的逻辑
+    } else if (deltaY < 0) {
+        console.log('向上滚动');
+        // 执行向上滚动时的逻辑
+    }
+};
+const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const touchStartLocation = ref(0);
+const touchEndLocation = ref(0);
+
+const changeAccordionCardStart = (e: any) => {
+    touchStartLocation.value = e.touches[0].clientX;
+}
+const changeAccordionCardMove = (e: any) => {
+    touchEndLocation.value = touchStartLocation.value - e.touches[0].clientX;
+}
+const changeAccordionCardEnd = (e: any) => {
+    if (touchEndLocation.value < 0) {
+        if (Math.abs(touchEndLocation.value) > viewableWidth.value / 4) {
+            if (checkIndex.value == '0') {
+                return;
+            }
+            checkIndex.value = (Number(checkIndex.value) - 1).toString();
+        }
+    } else {
+        if (Math.abs(touchEndLocation.value) > viewableWidth.value / 4) {
+            if (checkIndex.value == (props.accordionList.length - 1).toString()) {
+                return;
+            }
+            checkIndex.value = (Number(checkIndex.value) + 1).toString();
+        }
+    }
+    touchStartLocation.value = 0;
+    touchEndLocation.value = 0;
+
+}
+</script>
+<template>
+    <div class="accordion" @wheel="handleScroll" v-if="viewableWidth > 834">
+        <div class="accordion_title">{{ accordionTitle }}</div>
+        <div v-for="(item, index) in accordionList" :key="index">
+            <div class="accordion_item">
+                <div class="accordion_item_title" @click="updateCheckIndex(index)"
+                    :style="checkIndex == index ? 'color:#3EDFCF;' : ''">{{ item.title }}</div>
+                <div class="accordion_item_content" v-if="checkIndex == index">
+                    <div class="accordion_item_content_title">{{
+                        accordionList[checkIndex].messageTitle
+                    }}</div>
+                    <div class="accordion_item_content_text">{{ accordionList[checkIndex].messageText }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else class="phone_accordion">
+        <div class="accordion_title">{{ accordionTitle }}</div>
+        <div class="phone_accordion_options" @touchstart="changeAccordionCardStart" @touchmove="changeAccordionCardMove"
+            @touchend="changeAccordionCardEnd">
+            <div v-for="(item, index) in accordionList" :key="index" class="phone_accordion_item">
+                <div class="accordion_item_title" :style="checkIndex == index ? 'color:#3EDFCF;' : ''">{{ item.title }}
+                </div>
+                <div class="accordion_item_content" v-if="checkIndex == index">
+                    <div class="accordion_item_content_title">{{
+                        accordionList[checkIndex].messageTitle
+                    }}</div>
+                    <div class="accordion_item_content_text">{{ accordionList[checkIndex].messageText }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<style scoped lang="less">
+.accordion {
+    width: 100%;
+    height: 491px;
+    background-color: #F6F9F9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .accordion_title {
+        width: 413px;
+        color: rgba(21, 28, 26, 0.90);
+        font-family: Lantinghei SC;
+        font-size: 22px;
+        font-weight: 700;
+        text-align: right;
+        margin-bottom: 38px;
+    }
+
+    .accordion_item {
+        margin-right: 200px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 22px 0;
+
+        .accordion_item_title {
+            min-width: 413px;
+            max-width: 413px;
+            color: rgba(21, 28, 26, 0.90);
+            text-align: right;
+            font-family: Lantinghei SC;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .accordion_item_content {
+            padding-left: 138px;
+
+            .accordion_item_content_title {
+                color: rgba(21, 28, 26, 0.90);
+                font-family: Inter;
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .accordion_item_content_text {
+                color: rgba(21, 28, 26, 0.90);
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 161%;
+                /* 22.54px */
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+@media (max-width: 834px) {
+    .phone_accordion {
+        .accordion_title {
+            color: rgba(21, 28, 26, 0.90);
+            font-family: Lantinghei SC;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            padding: 29px 20px 24px;
+        }
+
+        .phone_accordion_options {
+            width: 100%;
+            background-color: #F6F9F9;
+            overflow-x: auto;
+            display: flex;
+
+            .phone_accordion_item {
+                width: 100%;
+                padding: 32px 20px;
+            }
+        }
+    }
+}
+</style>

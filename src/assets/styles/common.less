@@ -6,40 +6,16 @@
 html {
     height: 100%;
     font-size: 14px;
-    overflow-x: hidden;
 }
 
-
-//引入字体
-@font-face {
-    font-family: 'Manrope-Bold';
-    src: url('../font/Manrope-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'Manrope-ExtraBold';
-    src: url('../font/Manrope-ExtraBold.ttf');
-}
-
-@font-face {
-    font-family: 'Manrope-Regular';
-    src: url('../font/Manrope-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Manrope-Chinese';
-    src: url('../font/Manrope-China.otf');
-}
 
 
 body {
     height: 100%;
     width: 100vw;
-    font: 1em/1.4;
-    //无法选中文字
-    user-select: none;
-    overflow-x: hidden;
-    position: relative;
+    // color: #fff;
+    user-select: none; // 不能选中文字
+    overflow-x: hidden; // 隐藏x轴滚动条
 }
 
 ul,
@@ -54,13 +30,13 @@ dd {
 }
 
 a {
-    text-decoration: none;
-    color: #000;
-    outline: none;
+    text-decoration: none; // 去掉下划线
+    color: #fff; // 链接颜色
+    outline: none; // 去掉点击时的边框
 }
 
 i {
-    font-style: normal;
+    font-style: normal; // 防止字体图标变成斜体
 }
 
 input[type="text"],
@@ -70,7 +46,7 @@ input[type="checkbox"] {
     padding: 0;
     outline: none;
     border: none;
-    -webkit-appearance: none;
+    -webkit-appearance: none; // 去掉默认样式
 
     &::placeholder {
         color: #ccc;
@@ -88,15 +64,15 @@ ul {
 }
 
 #app {
-    // 不能选中文字
-    user-select: none;
-    // transition: all 0.3s ease-in-out; // 过渡动画
-    background: @themeColor;
+    user-select: none; // 不能选中文字
+    display: flex; // flex布局
+    flex-direction: column; // 垂直布局
+    justify-content: space-between; // 两端对齐
+    height: 100%;
 }
 
 .container {
     max-width: 1728px;
-    padding: 0;
     margin: 0 auto;
     position: relative;
 }
@@ -213,4 +189,14 @@ ul {
             transform: none;
         }
     }
+}
+
+
+.text_style_top {
+    color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+    font-family: Lantinghei SC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }

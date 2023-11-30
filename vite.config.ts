@@ -1,26 +1,22 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import svgLoader from 'vite-svg-loader';
 import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
-  plugins: [vue()],
-  // 配置项
-  resolve: {
-    // 配置别名
+  base: "/", // 设置打包路径
+  plugins: [vue(), svgLoader()], // 引入插件
+  resolve: { // 配置别名
     alias: {
-      // path.resolve：拼接路径
-      // __dirname：当得当前文件的绝对路径
-      "@": path.resolve(__dirname, "./src"),
-      'element-plus$': 'element-plus/lib/index.esm.js',
+      "@": path.resolve(__dirname, "./src"), // 设置 `@` 指向 `src` 目录
+      'element-plus$': 'element-plus/lib/index.esm.js', // 9月更新
     },
   },
-  // 自动导入 less 文件
   css: {
-    preprocessorOptions: {
+    preprocessorOptions: { // 引入全局less
       less: {
         additionalData: `
-          @import '@/assets/styles/variables.less';
+          @import '@/assets/styles/variables.less'; 
           @import '@/assets/styles/mixins.less';
           @import '@/assets/styles/responsive.less';
         `,
@@ -28,11 +24,9 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist",
-    // 9月更新
+    outDir: "dist", //指定输出路径
     assetsDir: "assets", //指定静态资源存放路径
     sourcemap: false, //是否构建source map 文件
-    // 10月更新
     minify: "terser", // 混淆器，terser 构建后文件体积更小，'terser' | 'esbuild'
     chunkSizeWarningLimit: 1500, //chunk 大小警告的限制，默认500KB
     rollupOptions: {
@@ -51,12 +45,10 @@ export default defineConfig({
       },
     },
     terserOptions: {
-      // 生产环境移除console
       compress: {
-        drop_console: true,
-        drop_debugger: true,
+        drop_console: true, // 去掉console
+        drop_debugger: true, // 去掉debugger
       },
-      // 10月更新
       output: {
         comments: true, // 去掉注释内容
       },
@@ -73,13 +65,13 @@ export default defineConfig({
         target: "", // 后台接口
         changeOrigin: true,
         secure: false, // 如果是https接口，需要配置这个参数
-        // ws: true, //websocket支持
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        ws: true, //websocket支持
+        rewrite: (path) => path.replace(/^\/api/, ""), // 重写接口
       },
     },
   },
   // 引入第三方的配置
   optimizeDeps: {
-    include: [],
+    include: [], // 引入第三方的配置
   },
 });
