@@ -211,7 +211,7 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
             class="list_caption_select_item_option"
             v-for="(citem, cindex) in item.children"
             :key="cindex"
-            v-if="selectIndex == index"
+            v-show="selectIndex == index"
             @click="routerSubPage(index, citem, cindex)"
           >
             <div class="list_caption_select_item_option_image">
