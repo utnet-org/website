@@ -1,5 +1,5 @@
 <script setup lang="ts" name="HomeView">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 import arrow from "@/assets/svgs/arrow.svg";
 import hover from "@/assets/svgs/hover.svg";
@@ -222,14 +222,177 @@ const navigation = ref({
   nextEl: ".swiper-button-next",
   prevEl: ".swiper-button-prev",
 });
+
+const show = ref(false);
+const show1 = ref(false);
+// 监听show的变化
+watch(show, (newVal) => {
+  if (newVal) {
+    show1.value = true;
+  }
+});
+
+// 滚动条监听
+const scroll = ref(0);
+window.addEventListener("scroll", () => {
+  scroll.value = document.documentElement.scrollTop;
+  if (
+    timer1.value === undefined &&
+    scroll.value > 1030 &&
+    scroll.value < 1220
+  ) {
+    text1.value = !text1.value;
+    timer1.value = setInterval(() => {
+      text1.value = !text1.value;
+    }, 2500);
+  } else if (
+    timer2.value === undefined &&
+    scroll.value > 1230 &&
+    scroll.value < 1420
+  ) {
+    text2.value = !text2.value;
+    timer2.value = setInterval(() => {
+      text2.value = !text2.value;
+    }, 2500);
+  } else if (
+    timer3.value === undefined &&
+    scroll.value > 1320 &&
+    scroll.value < 1520
+  ) {
+    text3.value = !text3.value;
+    timer3.value = setInterval(() => {
+      text3.value = !text3.value;
+    }, 2500);
+  } else if (
+    timer4.value === undefined &&
+    scroll.value > 1520 &&
+    scroll.value < 1720
+  ) {
+    text4.value = !text4.value;
+    timer4.value = setInterval(() => {
+      text4.value = !text4.value;
+    }, 2500);
+  } else if (
+    timer5.value === undefined &&
+    scroll.value > 1630 &&
+    scroll.value < 1888
+  ) {
+    text5.value = !text5.value;
+    timer5.value = setInterval(() => {
+      text5.value = !text5.value;
+    }, 2500);
+  } else if (scroll.value < 1030 || scroll.value > 1888) {
+    clearInterval(timer1.value);
+    timer1.value = undefined;
+    text1.value = false;
+    clearInterval(timer2.value);
+    text2.value = false;
+    timer2.value = undefined;
+    clearInterval(timer3.value);
+    text3.value = false;
+    timer3.value = undefined;
+    clearInterval(timer4.value);
+    text4.value = false;
+    timer4.value = undefined;
+    clearInterval(timer5.value);
+    text5.value = false;
+    timer5.value = undefined;
+  }
+});
+
+// 定时器
+const text1 = ref(false);
+const timer1 = ref();
+const text2 = ref(false);
+const timer2 = ref();
+const text3 = ref(false);
+const timer3 = ref();
+const text4 = ref(false);
+const timer4 = ref();
+const text5 = ref(false);
+const timer5 = ref();
+
+// 监听窗口宽度
+const width = ref(window.innerWidth / 2);
+const height = ref(window.innerHeight / 2);
+window.addEventListener("resize", () => {
+  width.value = window.innerWidth / 2;
+  height.value = window.innerHeight / 2;
+});
 </script>
 <template>
   <div class="home_view">
+    <div class="animation_box">
+      <Animation v-model:show="show"></Animation>
+      <div class="animation_text_box">
+        <div
+          :style="{ top: `${height - 300}px`, left: `${width + 100}px` }"
+          :class="[
+            'animation_text',
+            text1 && scroll > 1030 ? 'animation_text_animation' : '',
+            !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
+          ]"
+        >
+          <span>Jenna1</span>
+          Hi! Welcome to Utility
+        </div>
+        <div
+          :style="{ top: `${height + 300}px`, left: `${width - 100}px` }"
+          :class="[
+            'animation_text',
+            text2 && scroll > 1230 ? 'animation_text_animation' : '',
+            !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
+          ]"
+        >
+          <span>Jenna2</span>
+          Hi! Welcome to Utility
+        </div>
+        <div
+          :style="{ top: `${height + 100}px`, left: `${width - 400}px` }"
+          :class="[
+            'animation_text',
+            text3 && scroll > 1320 ? 'animation_text_animation' : '',
+            !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
+          ]"
+        >
+          <span>Jenna3</span>
+          Hi! Welcome to Utility
+        </div>
+        <div
+          :style="{ top: `${height + 100}px`, left: `${width + 400}px` }"
+          :class="[
+            'animation_text',
+            text4 && scroll > 1520 ? 'animation_text_animation' : '',
+            !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
+          ]"
+        >
+          <span>Jenna4</span>
+          Hi! Welcome to Utility
+        </div>
+        <div
+          :style="{ top: `${height - 200}px`, left: `${width - 500}px` }"
+          :class="[
+            'animation_text',
+            text5 && scroll > 1630 ? 'animation_text_animation' : '',
+            !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
+          ]"
+        >
+          <span>Jenna5</span>
+          Hi! Welcome to Utility
+        </div>
+      </div>
+    </div>
     <div class="container">
       <!--! 大大的背景图和图上的welcome -->
+      <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
       <div class="bg">
-        <img src="@/assets/images/bgc_white.png" alt="" />
-        <div class="Welcome">
+        <div
+          :class="[
+            'Welcome',
+            { WelcomeAnimation: show },
+            { WelcomeAnimationf: !show && show1 },
+          ]"
+        >
           <div class="Language">
             <div class="point"></div>
             <div class="lang">
@@ -237,7 +400,7 @@ const navigation = ref({
             </div>
           </div>
           <div class="Utility">
-            <div class="Utility_text">Utility:</div>
+            <div :class="['Utility_text']">Utility:{{ show }}{{ scroll }}</div>
             <div class="Welcome_text_title">
               {{ $t("home.Welcome_to_utility") }}
             </div>
@@ -513,12 +676,127 @@ const navigation = ref({
   </div>
 </template>
 <style scoped lang="less">
+.animation_box {
+  height: 4200px;
+  position: relative;
+
+  .animation_text_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    @keyframes identifier22 {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: top left;
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+        transform-origin: top left;
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: top left;
+      }
+    }
+
+    @keyframes identifier22f {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: top left;
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: top left;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: top left;
+      }
+    }
+
+    .animation_text_animation {
+      animation: identifier22 0.5s ease-in forwards;
+    }
+
+    .animation_text_animationf {
+      animation: identifier22f 0.5s ease-in forwards;
+    }
+
+    .animation_text {
+      position: absolute;
+      opacity: 0;
+      // 动画 3秒循环一次
+      // top: 50%;
+      // left: 50%;
+      z-index: 1;
+      // transform: translate(-50%, -50%);
+      color: #22fffb;
+      font-size: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.105);
+      backdrop-filter: blur(9px);
+      span {
+        position: absolute;
+        top: -30px;
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &::before {
+          content: "";
+          display: block;
+          border-radius: 5px;
+          width: 10px;
+          height: 10px;
+          background: #22fffb;
+        }
+      }
+
+      // &:nth-child(1) {
+      //   top: var(50% - 150px);
+      //   left: var(50% - 50px);
+      // }
+      // &:nth-child(2) {
+      //   top: var(50% - 50px);
+      //   left: var(50% - 50px);
+      // }
+      // &:nth-child(3) {
+      //   top: var(50% - 50px);
+      //   left: var(50% - 50px);
+      // }
+      // &:nth-child(4) {
+      //   top: var(50% - 50px);
+      //   left: var(50% - 50px);
+      // }
+      // &:nth-child(5) {
+      //   top: var(50% - 50px);
+      //   left: var(50% - 50px);
+      // }
+    }
+  }
+}
 .home_view {
   background-color: #fffefb;
   .bg {
     // height: 1100px;
     width: 100%;
-    position: relative;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    // max-width: 1500px;
+    // margin: 0 20px;
   }
   .container {
     display: flex;
@@ -526,20 +804,45 @@ const navigation = ref({
     justify-content: center;
     align-items: center;
 
+    @keyframes identifier {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(290px);
+      }
+    }
+
+    @keyframes identifierf {
+      0% {
+        transform: translateY(290px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .WelcomeAnimation {
+      animation: identifier 0.3s ease-in forwards;
+    }
+    .WelcomeAnimationf {
+      animation: identifierf 0.3s ease-in forwards;
+    }
+
     .Welcome {
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 290px;
       align-items: center;
-      border-radius: 10px;
+      // border-radius: 10px;
       background: linear-gradient(
         180deg,
-        rgba(244, 248, 248, 0.08) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
+        rgba(244, 248, 248, 0.035) 0.13%,
+        rgba(244, 248, 248, 0.043) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.58) inset,
-        0px 4px 50px 0px #dde3e1;
+      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
+      //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);
       position: absolute;
       left: 0;
@@ -547,8 +850,9 @@ const navigation = ref({
       .Utility {
         display: flex;
         align-items: center;
+
         .Utility_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           text-align: center;
           // font-family: Lantinghei SC;
           font-size: 38px;
@@ -559,7 +863,7 @@ const navigation = ref({
         }
         .Welcome_text_title {
           font-size: 34px;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           font-weight: 400;
           font-family: Lantinghei SC;
         }
@@ -580,7 +884,7 @@ const navigation = ref({
           margin-right: 5px;
         }
         .lang {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          color: var(--Light-dark, rgba(255, 255, 255, 0.9));
           text-align: center;
           font-family: JejuGothic;
           font-size: 20px;
@@ -595,7 +899,7 @@ const navigation = ref({
         max-width: 1149px;
         font-size: 14px;
         font-weight: 300;
-        color: rgba(21, 28, 26, 0.9);
+        color: rgba(255, 255, 255, 0.9);
 
         text-align: center;
         line-height: 20px;
@@ -617,17 +921,17 @@ const navigation = ref({
         &:hover {
           background: linear-gradient(
             177deg,
-            #fff -24.77%,
+            #ffffff48 -24.77%,
             rgba(255, 255, 255, 0) 97.53%
           );
           /* shadow for navbar hover */
-          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
         }
 
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
         img {
@@ -647,16 +951,16 @@ const navigation = ref({
         &:hover {
           background: linear-gradient(
             177deg,
-            #fff -24.77%,
+            #ffffff48 -24.77%,
             rgba(255, 255, 255, 0) 97.53%
           );
           /* shadow for navbar hover */
-          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
         }
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
         img {

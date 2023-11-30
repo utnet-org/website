@@ -2,14 +2,14 @@
 import Logo from "@/assets/images/logo.svg";
 import { ref } from "vue";
 const isfocus = ref(true);
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(Number(localStorage.getItem("viewableWidth") ?? 0));
 const selectType = ref(false);
 const blockSelect = () => {
   selectType.value = !selectType.value;
-  document.addEventListener('wheel', (event) => {
+  document.addEventListener("wheel", (event) => {
     event.preventDefault();
   });
-}
+};
 const nav_arr = ref([
   {
     name: "nav.Learning",
@@ -121,8 +121,8 @@ const nav_arr = ref([
     children: [],
   },
   {
-    name: 'nav.Language',
-    link: '',
+    name: "nav.Language",
+    link: "",
     children: [
       {
         icon: "",
@@ -138,12 +138,12 @@ const nav_arr = ref([
         desc: "zh",
         link: "",
       },
-    ]
-  }
+    ],
+  },
 ]);
 const selectIndex = ref(-1);
 const changeSelectIndex = (item: any, index: any) => {
-  if (item.link != '') {
+  if (item.link != "") {
     window.location.href = item.link;
     selectIndex.value = -1;
   }
@@ -152,21 +152,21 @@ const changeSelectIndex = (item: any, index: any) => {
     return;
   }
   selectIndex.value = index;
-}
+};
 const routerSubPage = (index: any, citem: any, cindex: any) => {
   if (index == 5) {
     localStorage.setItem("upaclang", citem.desc);
     document
       .querySelector("html")!
       .setAttribute("lang", localStorage.getItem("upaclang") || "en");
-  } else if (citem.link == '') {
+  } else if (citem.link == "") {
     return;
   }
 
   window.location.href = citem.link;
   selectType.value = false;
   selectIndex.value = -1;
-}
+};
 </script>
 <template>
   <nav class="app-topnav">
@@ -182,26 +182,53 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
       </div>
-      <img class="list_caption_image" src="@/assets/images/list_caption.png" alt="" v-else @click="blockSelect">
+      <img
+        class="list_caption_image"
+        src="@/assets/images/list_caption.png"
+        alt=""
+        v-else
+        @click="blockSelect"
+      />
       <div v-if="selectType == true" class="list_caption_select">
-        <div class="list_caption_select_item" v-for="(item, index) in nav_arr" :key="index">
-          <div class="list_caption_select_item_header" @click="changeSelectIndex(item, index)">
+        <div
+          class="list_caption_select_item"
+          v-for="(item, index) in nav_arr"
+          :key="index"
+        >
+          <div
+            class="list_caption_select_item_header"
+            @click="changeSelectIndex(item, index)"
+          >
             <div>{{ $t(item.name) }}</div>
-            <img v-if="index != 3 && index != 4" src="@/assets/images/poci_to_bottom.png" alt=""
-              :class="selectIndex == index ? 'active' : ''">
+            <img
+              v-if="index != 3 && index != 4"
+              src="@/assets/images/poci_to_bottom.png"
+              alt=""
+              :class="selectIndex == index ? 'active' : ''"
+            />
           </div>
-          <div class="list_caption_select_item_option" v-for="(citem, cindex) in item.children" :key="cindex"
-            v-if="selectIndex == index" @click="routerSubPage(index, citem, cindex)">
+          <div
+            class="list_caption_select_item_option"
+            v-for="(citem, cindex) in item.children"
+            :key="cindex"
+            v-if="selectIndex == index"
+            @click="routerSubPage(index, citem, cindex)"
+          >
             <div class="list_caption_select_item_option_image">
-              <img :src="citem.icon" alt="">
+              <img :src="citem.icon" alt="" />
             </div>
             <div class="list_caption_select_item_option_text">
-              <div class="list_caption_select_item_option_text_title">{{ index == 5 ? citem.title : $t(citem.title) }}
+              <div class="list_caption_select_item_option_text_title">
+                {{ index == 5 ? citem.title : $t(citem.title) }}
               </div>
-              <div class="list_caption_select_item_option_text_desc" v-if="index != 5">{{ $t(citem.desc) }}</div>
+              <div
+                class="list_caption_select_item_option_text_desc"
+                v-if="index != 5"
+              >
+                {{ $t(citem.desc) }}
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -214,8 +241,8 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   top: 0;
   left: 0;
   z-index: 999;
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: 0px 4px 24px 0px #dee7e5;
+  background: #fffefb;
+  // box-shadow: 0px 4px 24px 0px #dee7e5;
   backdrop-filter: blur(8px);
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;
@@ -255,8 +282,6 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   }
 }
 
-
-
 @media (max-width: 834px) {
   .app-topnav {
     .container {
@@ -275,11 +300,11 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
         z-index: 999;
         min-height: calc(100vh - 69px);
         padding: 20px 20px 0;
-        background-color: #FFFEFB;
+        background-color: #fffefb;
         // opacity: 0.9;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        border-bottom: 1px solid #E5E5E5;
+        border-bottom: 1px solid #e5e5e5;
 
         .list_caption_select_item {
           display: flex;
@@ -293,11 +318,10 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
             margin-bottom: 20px;
 
             div {
-              color: rgba(21, 28, 26, 0.90);
+              color: rgba(21, 28, 26, 0.9);
               font-family: Lantinghei SC;
               font-size: 14px;
               font-weight: 700;
-
             }
 
             img {
@@ -319,7 +343,6 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
                 transform: rotateZ(180deg);
               }
             }
-
           }
 
           .list_caption_select_item_option {
@@ -335,9 +358,8 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
             }
 
             .list_caption_select_item_option_text {
-
               .list_caption_select_item_option_text_title {
-                color: rgba(21, 28, 26, 0.90);
+                color: rgba(21, 28, 26, 0.9);
                 font-family: Lantinghei SC;
                 font-size: 13px;
                 font-weight: 700;
@@ -345,7 +367,7 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
               }
 
               .list_caption_select_item_option_text_desc {
-                color: rgba(21, 28, 26, 0.90);
+                color: rgba(21, 28, 26, 0.9);
                 font-family: Inter;
                 font-size: 12px;
                 font-weight: 400;
@@ -354,7 +376,6 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
                 opacity: 0.8;
               }
             }
-
           }
         }
       }
