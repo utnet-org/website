@@ -2,6 +2,10 @@
 import { number } from 'echarts';
 import { ref } from 'vue';
 const props = defineProps({
+    fromPage: {
+        type: String,
+        default: ''
+    },
     accordionTitle: {
         type: String,
         default: ''
@@ -99,14 +103,21 @@ const changeAccordionCardEnd = (e: any) => {
         <div class="accordion_title">{{ accordionTitle }}</div>
         <div class="phone_accordion_options" @touchstart="changeAccordionCardStart" @touchmove="changeAccordionCardMove"
             @touchend="changeAccordionCardEnd" :style="`transform: translateX(-${defaultTransformPx}%)`">
-            <div v-for="(item, index) in accordionList" :key="index" class="phone_accordion_item">
-                <div class="phone_accordion_item_title">{{ item.title }}</div>
-                <div class="phone_accordion_item_content_title">{{ item.messageTitle }}</div>
+            <div v-for="(item, index) in accordionList" :key="index" class="phone_accordion_item"
+                :style="props.fromPage == 'community' ? 'padding: 28px 30px 0;height: 315px;' : ''">
+                <div class="phone_accordion_item_title"
+                    :class="props.fromPage == 'community' ? 'phone_accordion_item_title_from_community' : ''">{{
+                        item.title }}</div>
+                <div class="phone_accordion_item_content_title"
+                    :class="props.fromPage == 'community' ? 'phone_accordion_item_content_titlefrom_community' : ''">{{
+                        item.messageTitle }}</div>
+                <img src="@/assets/images/toggle_menu_icon.png" alt="" v-if="props.fromPage == 'community'"
+                    class="phone_accordion_item_image_from_community">
                 <div class="phone_accordion_item_content_text">{{ item.messageText }}</div>
             </div>
         </div>
         <div class="phone_accordion_options_dot">
-            <div class="phone_accordion_options_dot_item" v-for="(item, index) in 3" :key="index"
+            <div class="phone_accordion_options_dot_item" v-for="(item, index) in accordionList.length" :key="index"
                 :class="Number(checkIndex) == index ? 'active' : ''"></div>
         </div>
     </div>
@@ -206,6 +217,11 @@ const changeAccordionCardEnd = (e: any) => {
                     font-weight: 700;
                 }
 
+                .phone_accordion_item_title_from_community {
+                    color: rgba(21, 28, 26, 0.90);
+                    text-align: left;
+                }
+
                 .phone_accordion_item_content_title {
                     color: rgba(21, 28, 26, 0.90);
                     text-align: center;
@@ -213,6 +229,20 @@ const changeAccordionCardEnd = (e: any) => {
                     font-size: 16px;
                     font-weight: 600;
                     padding: 19px 0 10px;
+                }
+
+                .phone_accordion_item_content_titlefrom_community {
+                    text-align: left;
+                    padding: 8px 0 32px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    opacity: 0.8;
+                }
+
+                .phone_accordion_item_image_from_community {
+                    width: 37px;
+                    height: 31px;
+                    margin-bottom: 20px;
                 }
 
                 .phone_accordion_item_content_text {
