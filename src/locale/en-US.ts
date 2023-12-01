@@ -22,7 +22,7 @@ export default {
     White_Paper_details: "UNC utility and tokennomics",
     Utility_Wallet: "Utility Wallet",
     Utility_Wallet_details: "Connect to UtilityNet and manage your >>>br funds",
-    Hashing_Power: "Hashing Power",
+    Hashing_Power: "Core System",
     Hashing_Power_details: "Rent distributed computing power",
     Mining_Tool: "Mining Tool",
     Mining_Tool_details:
@@ -37,6 +37,8 @@ export default {
     Discord_details: "Join our Discord community",
     Github: "Github",
     Github_details: "View Utility's codebase",
+    English: "English",
+    Chinese: "Chinese",
   },
   footer: {
     Resources: "Resources",

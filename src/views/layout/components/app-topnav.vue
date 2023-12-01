@@ -128,14 +128,14 @@ const nav_arr = ref([
       {
         icon: new URL("@/assets/images/language_english_icon.png", import.meta.url).href,
         png: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
-        title: "English",
+        title: "nav.English",
         desc: "en",
         link: "",
       },
       {
         icon: new URL("@/assets/images/language_chinese_icon.png", import.meta.url).href,
         png: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
-        title: "中文简体",
+        title: "nav.Chinese",
         desc: "zh",
         link: "",
       },
@@ -163,7 +163,6 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   } else if (citem.link == "") {
     return;
   }
-
   window.location.href = citem.link;
   selectType.value = false;
   selectIndex.value = -1;
@@ -200,7 +199,7 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
             </div>
             <div class="list_caption_select_item_option_text">
               <div class="list_caption_select_item_option_text_title" :style="index == 5 ? 'margin-bottom: 0px;' : ''">
-                {{ index == 5 ? citem.title : $t(citem.title) }}
+                {{ $t(citem.title) }}
               </div>
               <div class="list_caption_select_item_option_text_desc" v-if="index != 5">
                 {{ $t(citem.desc) }}

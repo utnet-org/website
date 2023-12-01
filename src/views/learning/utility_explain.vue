@@ -324,7 +324,7 @@ const optionsList = [
                 padding: 0 35px;
                 margin: auto;
                 border-radius: 12px;
-                border: 1px solid #535856;
+                border: 1px solid #d9d9d5;
                 display: flex;
                 flex-direction: column;
                 align-items: center;

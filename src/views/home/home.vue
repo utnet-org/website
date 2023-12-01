@@ -3,7 +3,6 @@ import { ref, watch } from "vue";
 
 import arrow from "@/assets/svgs/arrow.svg";
 import hover from "@/assets/svgs/hover.svg";
-
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
 
@@ -17,7 +16,8 @@ import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
-
+import { useRouter } from "vue-router";
+const route = useRouter();
 //! Where to Start的数据
 const Where_arr = ref([
   {
@@ -25,24 +25,28 @@ const Where_arr = ref([
     text: "home.You_can_try",
     hover: false,
     button: "home.Build_DOC",
+    link: 'https://wiki.utlab.io/docs/node/introduction'
   },
   {
     title: "home.MINER",
     text: "home.You_can_get_UNC",
     hover: false,
     button: "home.Learn_More",
+    link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
   },
   {
     title: "home.UNC_WALLET",
     text: "home.The_UNC_Wallet",
     hover: false,
     button: "home.Explore_Wallet",
+    link: '/soloutions/utility_wallet'
   },
   {
     title: "home.Computing_Power_users",
     text: "home.You_can_rent",
     hover: false,
     button: "home.Develop",
+    link: '/get_power'
   },
 ]);
 //! Where to Start 鼠标移入
@@ -373,89 +377,75 @@ window.addEventListener("wheel", (e) => {
     document.documentElement.scrollTop = 2980;
   }
 });
+const openNewPage = (link: string) => {
+  if (link.startsWith("http://") || link.startsWith("https://")) {
+    window.open(link, '_blank');
+
+  } else {
+    route.push(link);
+  }
+}
 </script>
 <template>
   <div class="home_view">
-    <div
-      class="animation_box"
-      :style="{
-        zIndex: !videoshow ? 1 : -1,
-        height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
-      }"
-    >
-      <Animation
-        v-model:show="show"
-        v-model:show1="showtwo"
-        v-show="scroll < 2980 || scroll == 0"
-      ></Animation>
+    <div class="animation_box" :style="{
+      zIndex: !videoshow ? 1 : -1,
+      height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
+    }">
+      <Animation v-model:show="show" v-model:show1="showtwo" v-show="scroll < 2980 || scroll == 0"></Animation>
       <div class="animation_text_box">
-        <div
-          :style="{
-            top: `${height - 300 + (height * 2) / 5}px`,
-            left: `${width + 100 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text1 && scroll > 1030 ? 'animation_text_animation' : '',
-            !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height - 300 + (height * 2) / 5}px`,
+          left: `${width + 100 - pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text1 && scroll > 1030 ? 'animation_text_animation' : '',
+  !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna1</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height + 300 - (height * 2) / 5}px`,
-            left: `${width - 100 + pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text2 && scroll > 1230 ? 'animation_text_animation' : '',
-            !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 300 - (height * 2) / 5}px`,
+          left: `${width - 100 + pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text2 && scroll > 1230 ? 'animation_text_animation' : '',
+  !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna2</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width - 400 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text3 && scroll > 1320 ? 'animation_text_animation' : '',
-            !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 100 - (height * 2) / 5}px`,
+          left: `${width - 400 + pyw / 2}px`,
+        }" :class="[
+  'animation_text',
+  text3 && scroll > 1320 ? 'animation_text_animation' : '',
+  !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna3</span>
           Hi! Welcome to Utility{{ pyw }}
         </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width + 400 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text4 && scroll > 1520 ? 'animation_text_animation' : '',
-            !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 100 - (height * 2) / 5}px`,
+          left: `${width + 400 - pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text4 && scroll > 1520 ? 'animation_text_animation' : '',
+  !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna4</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height - 200 + (height * 2) / 5}px`,
-            left: `${width - 500 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text5 && scroll > 1630 ? 'animation_text_animation' : '',
-            !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height - 200 + (height * 2) / 5}px`,
+          left: `${width - 500 + pyw / 2}px`,
+        }" :class="[
+  'animation_text',
+  text5 && scroll > 1630 ? 'animation_text_animation' : '',
+  !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna5</span>
           Hi! Welcome to Utility
         </div>
@@ -463,10 +453,7 @@ window.addEventListener("wheel", (e) => {
       <div class="animatino_video" v-if="scroll > 2960">
         <video src="@/assets/mv/55_1701258800.mp4" autoplay muted></video>
       </div>
-      <div
-        class="animation_button"
-        :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
-      >
+      <div class="animation_button" :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }">
         <div @click="video_next()" class="animation_button_text">跳过</div>
       </div>
     </div>
@@ -474,13 +461,11 @@ window.addEventListener("wheel", (e) => {
       <!--! 大大的背景图和图上的welcome -->
       <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
       <div class="bg" v-if="!videoshow">
-        <div
-          :class="[
-            'Welcome',
-            { WelcomeAnimation: show.one },
-            { WelcomeAnimationf: !show.one && show1 },
-          ]"
-        >
+        <div :class="[
+          'Welcome',
+          { WelcomeAnimation: show.one },
+          { WelcomeAnimationf: !show.one && show1 },
+        ]">
           <div class="Language">
             <div class="point"></div>
             <div class="lang">
@@ -524,16 +509,10 @@ window.addEventListener("wheel", (e) => {
           {{ $t("home.Where_to_Start") }}
         </div>
         <div class="Four_boxes">
-          <div
-            @mouseover="WhereChange(index)"
-            @mouseleave="WhereChangeli"
-            class="box"
+          <div @mouseover="WhereChange(index)" @mouseleave="WhereChangeli" @click="openNewPage(item.link)" class="box"
             :style="{
               border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }"
-            v-for="(item, index) in Where_arr"
-            :key="index"
-          >
+            }" v-for="(item, index) in Where_arr" :key="index">
             <div>
               <div class="box_title">
                 {{ $t(item.title) }}
@@ -553,11 +532,7 @@ window.addEventListener("wheel", (e) => {
       <div class="Data_and_circles">
         <div class="Data">
           <div class="value_father">
-            <div
-              class="data_value"
-              v-for="(item, index) in Data_arr"
-              :key="index"
-            >
+            <div class="data_value" v-for="(item, index) in Data_arr" :key="index">
               <div class="amount" v-html="item.amount"></div>
               <div class="data_text">
                 {{ $t(item.text) }}
@@ -615,42 +590,23 @@ window.addEventListener("wheel", (e) => {
           {{ $t("home.Utility_Chain_Scaling_Solutions") }}
         </div>
         <div class="Utility_Chain_box">
-          <div
-            style="flex: 25%"
-            v-for="(item, index) in Utility_arr"
-            :key="index"
-          >
-            <div
-              class="box_item"
-              @mouseover="UtilityChainChange(index)"
-              @mouseleave="UtilityChainChangeli"
-            >
+          <div style="flex: 25%" v-for="(item, index) in Utility_arr" :key="index">
+            <div class="box_item" @mouseover="UtilityChainChange(index)" @mouseleave="UtilityChainChangeli">
               <div class="item_img">
-                <hover
-                  :style="{
-                    opacity: item.isclick ? 1 : 0,
-                  }"
-                  class="hover"
-                />
-                <img
-                  class="item_img_img"
-                  :src="item.img"
-                  :style="{
-                    filter: item.isclick
-                      ? 'brightness(0%)'
-                      : 'brightness(100%)',
-                  }"
-                  alt=""
-                />
+                <hover :style="{
+                  opacity: item.isclick ? 1 : 0,
+                }" class="hover" />
+                <img class="item_img_img" :src="item.img" :style="{
+                  filter: item.isclick
+                    ? 'brightness(0%)'
+                    : 'brightness(100%)',
+                }" alt="" />
               </div>
 
               <div class="Utility_Chain_box_item_button">
                 {{ $t("home.Testnet") }}
               </div>
-              <div
-                class="item_title"
-                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
-              >
+              <div class="item_title" :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }">
                 {{ $t(item.title) }}
               </div>
               <div class="item_text">
@@ -663,25 +619,14 @@ window.addEventListener("wheel", (e) => {
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
     <div class="icons">
-      <div
-        class="carousel-container"
-        @mouseenter="startCarousel"
-        @mouseleave="stopCarousel"
-      >
+      <div class="carousel-container" @mouseenter="startCarousel" @mouseleave="stopCarousel">
         <!-- 轮播内容，绑定动态样式以实现移动效果 -->
-        <div
-          class="carousel-content"
-          :class="{
-            forward: isPlaying && isForward,
-            backward: isPlaying && !isForward,
-          }"
-        >
+        <div class="carousel-content" :class="{
+          forward: isPlaying && isForward,
+          backward: isPlaying && !isForward,
+        }">
           <!-- 遍历所有图片资源，为每张图片创建一个轮播项 -->
-          <div
-            v-for="(imgSrc, index) in duplicatedImages"
-            :key="index"
-            class="carousel-item"
-          >
+          <div v-for="(imgSrc, index) in duplicatedImages" :key="index" class="carousel-item">
             <!-- 显示图片 -->
             <img :src="imgSrc" alt="" />
           </div>
@@ -697,26 +642,13 @@ window.addEventListener("wheel", (e) => {
         </div>
 
         <div class="swiper-button-prev"></div>
-        <swiper
-          :ref="mySwiper"
-          :slidesPerView="3.5"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :navigation="navigation"
-          class="swiper"
-          @slideChange="onSlideChange"
-        >
+        <swiper :ref="mySwiper" :slidesPerView="3.5" :spaceBetween="16" :modules="modules" :loop="false"
+          :navigation="navigation" class="swiper" @slideChange="onSlideChange">
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
-          <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
-            @click="$router.push('/news')"
-          >
+          <swiper-slide v-for="(item, index) in merryGoRound_arr" :key="index" class="swiper-slide"
+            @mouseenter="item.isswiperenter = true" @mouseleave="item.isswiperenter = false"
+            @click="$router.push('/news')">
             <div v-if="item.isswiperenter" class="icon">
               <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
@@ -768,6 +700,7 @@ window.addEventListener("wheel", (e) => {
   position: relative;
   background: #000;
   z-index: 2;
+
   .animation_button {
     position: fixed;
     // bottom: 0;
@@ -781,6 +714,7 @@ window.addEventListener("wheel", (e) => {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .animation_button_text {
       font-weight: 500;
     }
@@ -792,12 +726,14 @@ window.addEventListener("wheel", (e) => {
     left: 0;
     width: 100%;
     height: 100%;
+
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
   }
+
   .animation_text_box {
     position: fixed;
     top: 0;
@@ -811,11 +747,13 @@ window.addEventListener("wheel", (e) => {
         transform: scale(0);
         transform-origin: top left;
       }
+
       50% {
         opacity: 1;
         transform: scale(1.1);
         transform-origin: top left;
       }
+
       100% {
         opacity: 1;
         transform: scale(1);
@@ -829,11 +767,13 @@ window.addEventListener("wheel", (e) => {
         transform: scale(1);
         transform-origin: top left;
       }
+
       50% {
         opacity: 1;
         transform: scale(1);
         transform-origin: top left;
       }
+
       100% {
         opacity: 0;
         transform: scale(0);
@@ -863,6 +803,7 @@ window.addEventListener("wheel", (e) => {
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.105);
       backdrop-filter: blur(9px);
+
       span {
         position: absolute;
         top: -30px;
@@ -871,6 +812,7 @@ window.addEventListener("wheel", (e) => {
         display: flex;
         align-items: center;
         gap: 10px;
+
         &::before {
           content: "";
           display: block;
@@ -904,8 +846,10 @@ window.addEventListener("wheel", (e) => {
     }
   }
 }
+
 .home_view {
   background-color: #fffefb;
+
   .bg {
     // height: 1100px;
     width: 100%;
@@ -916,6 +860,7 @@ window.addEventListener("wheel", (e) => {
     // max-width: 1500px;
     // margin: 0 20px;
   }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -926,6 +871,7 @@ window.addEventListener("wheel", (e) => {
       0% {
         transform: translateY(0);
       }
+
       100% {
         transform: translateY(290px);
       }
@@ -935,6 +881,7 @@ window.addEventListener("wheel", (e) => {
       0% {
         transform: translateY(290px);
       }
+
       100% {
         transform: translateY(0);
       }
@@ -943,6 +890,7 @@ window.addEventListener("wheel", (e) => {
     .WelcomeAnimation {
       animation: identifier 0.3s ease-in forwards;
     }
+
     .WelcomeAnimationf {
       animation: identifierf 0.3s ease-in forwards;
     }
@@ -954,17 +902,16 @@ window.addEventListener("wheel", (e) => {
       height: 290px;
       align-items: center;
       // border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.035) 0.13%,
+          rgba(244, 248, 248, 0.043) 99.87%);
       // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
       //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);
       position: absolute;
       left: 0;
       bottom: 0;
+
       .Utility {
         display: flex;
         align-items: center;
@@ -979,6 +926,7 @@ window.addEventListener("wheel", (e) => {
           line-height: normal;
           letter-spacing: 0.76px;
         }
+
         .Welcome_text_title {
           font-size: 34px;
           color: rgba(255, 255, 255, 0.9);
@@ -1001,6 +949,7 @@ window.addEventListener("wheel", (e) => {
           border-radius: 50%;
           margin-right: 5px;
         }
+
         .lang {
           color: var(--Light-dark, rgba(255, 255, 255, 0.9));
           text-align: center;
@@ -1024,10 +973,12 @@ window.addEventListener("wheel", (e) => {
         margin-top: 15px;
         margin-bottom: 28px;
       }
+
       .button_father {
         display: flex;
         justify-content: center;
       }
+
       .button {
         display: flex;
         justify-content: center;
@@ -1036,12 +987,11 @@ window.addEventListener("wheel", (e) => {
         height: 42px;
         border-radius: 6px;
         border: 1px solid #3edfcf;
+
         &:hover {
-          background: linear-gradient(
-            177deg,
-            #ffffff48 -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
+          background: linear-gradient(177deg,
+              #ffffff48 -24.77%,
+              rgba(255, 255, 255, 0) 97.53%);
           /* shadow for navbar hover */
           box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
         }
@@ -1052,11 +1002,13 @@ window.addEventListener("wheel", (e) => {
           color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
         }
       }
+
       .button_right {
         display: flex;
         justify-content: center;
@@ -1066,34 +1018,38 @@ window.addEventListener("wheel", (e) => {
         border-radius: 6px;
         border: 1px solid #3edfcf;
         margin-left: 32px;
+
         &:hover {
-          background: linear-gradient(
-            177deg,
-            #ffffff48 -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
+          background: linear-gradient(177deg,
+              #ffffff48 -24.77%,
+              rgba(255, 255, 255, 0) 97.53%);
           /* shadow for navbar hover */
           box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
         }
+
         .text {
           font-size: 14px;
           font-weight: 500;
           color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
         }
       }
     }
+
     .get_the_app {
       height: 1095px;
+
       img {
         width: 100%;
         height: 100%;
       }
     }
+
     .Where_to_Start {
       width: 100%;
       padding: 72px 0px 24px 0px;
@@ -1106,6 +1062,7 @@ window.addEventListener("wheel", (e) => {
         padding-left: 140px;
         margin-bottom: 20px;
       }
+
       .Four_boxes {
         display: flex;
         //多行对齐
@@ -1118,11 +1075,9 @@ window.addEventListener("wheel", (e) => {
           height: 394px;
           margin: 0px 8px 16px 8px;
           border-radius: 12px;
-          background: linear-gradient(
-            177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
+          background: linear-gradient(177deg,
+              #fff -24.77%,
+              rgba(255, 255, 255, 0) 97.53%);
           opacity: 0.8;
           display: flex;
           flex-direction: column;
@@ -1131,6 +1086,7 @@ window.addEventListener("wheel", (e) => {
           box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
           padding: 50px 0 43px 50px;
           transition: all 0.5s;
+
           s &:hover {
             //过渡
             transition: all 0.5s;
@@ -1142,6 +1098,7 @@ window.addEventListener("wheel", (e) => {
             font-weight: 400;
             color: #3edfcf;
           }
+
           .box_text {
             max-width: 420px;
             margin-top: 14px;
@@ -1152,9 +1109,11 @@ window.addEventListener("wheel", (e) => {
             font-style: normal;
             font-weight: 400;
           }
+
           .box_button {
             height: 45px;
-            padding: 12px 16px; /* 添加适当的内边距 */
+            padding: 12px 16px;
+            /* 添加适当的内边距 */
             background: #fffefb;
             border-radius: 6px;
             border: 1px solid #3edfcf;
@@ -1164,18 +1123,18 @@ window.addEventListener("wheel", (e) => {
             font-size: 14px;
             font-weight: 500;
             color: rgba(21, 28, 26, 0.9);
+
             &:hover {
               box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
-              background: linear-gradient(
-                177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -s4.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
         }
       }
     }
+
     .Data_and_circles {
       width: 100%;
       padding-top: 78px;
@@ -1183,6 +1142,7 @@ window.addEventListener("wheel", (e) => {
       display: flex;
       justify-content: center;
       align-items: center;
+
       .Data {
         width: 100%;
         height: 100%;
@@ -1197,6 +1157,7 @@ window.addEventListener("wheel", (e) => {
           flex-wrap: wrap;
           justify-content: start;
           margin-right: 105px;
+
           .data_value {
             margin-left: 98px;
             margin-bottom: 40px;
@@ -1213,6 +1174,7 @@ window.addEventListener("wheel", (e) => {
               border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
               padding-right: 11px;
             }
+
             .data_text {
               color: var(--Light-dark, rgba(21, 28, 26, 0.9));
               font-family: Inter;
@@ -1224,6 +1186,7 @@ window.addEventListener("wheel", (e) => {
           }
         }
       }
+
       .circles {
         position: relative;
 
@@ -1231,15 +1194,18 @@ window.addEventListener("wheel", (e) => {
           display: flex;
           align-items: center;
         }
+
         .point_one {
           z-index: 100;
           position: absolute;
           right: 44px;
           top: 68px;
+
           .point_text {
             margin-left: 8px;
           }
         }
+
         .thisAPoint {
           width: 16px;
           height: 16px;
@@ -1249,6 +1215,7 @@ window.addEventListener("wheel", (e) => {
           margin-right: 5px;
           border: 2px solid #fff;
         }
+
         .round_one {
           width: 614px;
           height: 614px;
@@ -1262,6 +1229,7 @@ window.addEventListener("wheel", (e) => {
           top: 0;
           //旋转100deg
           transform: rotate(85deg);
+
           .point_two {
             z-index: 100;
             //旋转100deg
@@ -1271,6 +1239,7 @@ window.addEventListener("wheel", (e) => {
             top: 480px;
           }
         }
+
         .round_two {
           width: 542px;
           height: 542px;
@@ -1281,6 +1250,7 @@ window.addEventListener("wheel", (e) => {
           position: absolute;
           left: 9.2px;
           top: 10px;
+
           .point_three {
             z-index: 100;
             //旋转100deg
@@ -1290,6 +1260,7 @@ window.addEventListener("wheel", (e) => {
             top: 448px;
           }
         }
+
         .round_three {
           width: 468px;
           height: 468px;
@@ -1299,6 +1270,7 @@ window.addEventListener("wheel", (e) => {
           position: absolute;
           left: 9.6px;
           top: 10px;
+
           .point_four {
             z-index: 100;
             //旋转100deg
@@ -1308,6 +1280,7 @@ window.addEventListener("wheel", (e) => {
             top: 274px;
           }
         }
+
         .round_four {
           width: 388px;
           height: 388px;
@@ -1317,6 +1290,7 @@ window.addEventListener("wheel", (e) => {
           position: absolute;
           left: 12px;
           top: 10px;
+
           .point_five {
             z-index: 100;
             //旋转100deg
@@ -1326,6 +1300,7 @@ window.addEventListener("wheel", (e) => {
             top: 348px;
           }
         }
+
         .round_five {
           width: 310px;
           height: 310px;
@@ -1335,6 +1310,7 @@ window.addEventListener("wheel", (e) => {
           position: absolute;
           left: 11px;
           top: 10px;
+
           .point_six {
             z-index: 100;
             //旋转100deg
@@ -1344,6 +1320,7 @@ window.addEventListener("wheel", (e) => {
             top: 220px;
           }
         }
+
         .round_six {
           width: 226px;
           height: 226px;
@@ -1353,6 +1330,7 @@ window.addEventListener("wheel", (e) => {
           position: absolute;
           left: 13px;
           top: 10px;
+
           .point_seven {
             z-index: 100;
             //旋转100deg
@@ -1364,6 +1342,7 @@ window.addEventListener("wheel", (e) => {
         }
       }
     }
+
     .Utility_Chain {
       width: 100%;
       padding: 59px 140px 0 140px;
@@ -1371,6 +1350,7 @@ window.addEventListener("wheel", (e) => {
 
       flex-direction: column;
       align-items: center;
+
       .title {
         color: rgba(21, 28, 26, 0.9);
         margin-bottom: 90px;
@@ -1379,6 +1359,7 @@ window.addEventListener("wheel", (e) => {
         font-size: 24px;
         font-weight: 400;
       }
+
       .Utility_Chain_box {
         display: flex;
         flex-wrap: wrap;
@@ -1400,6 +1381,7 @@ window.addEventListener("wheel", (e) => {
             //过渡
             transition: all 0.3s;
           }
+
           .item_text {
             color: rgba(21, 28, 26, 0.7);
             font-family: Inter;
@@ -1410,21 +1392,21 @@ window.addEventListener("wheel", (e) => {
             margin-top: 6px;
             margin-bottom: 22px;
           }
+
           .item_img {
             width: 60px;
             height: 60px;
             margin-bottom: 9px;
             position: relative;
 
-            background: linear-gradient(
-              97deg,
-              #f1f7f6 40%,
-              rgba(164, 229, 221, 0.2) 100.1%
-            );
+            background: linear-gradient(97deg,
+                #f1f7f6 40%,
+                rgba(164, 229, 221, 0.2) 100.1%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
               width: 70%;
               height: 70%;
@@ -1441,6 +1423,7 @@ window.addEventListener("wheel", (e) => {
               transition: all 0.3s;
             }
           }
+
           .Utility_Chain_box_item_button {
             width: 59px;
             height: 22px;
@@ -1463,6 +1446,7 @@ window.addEventListener("wheel", (e) => {
       width: 100%;
       height: 672px;
       padding: 0 110px;
+
       .title {
         color: #3edfcf;
         font-size: 22px;
@@ -1477,14 +1461,17 @@ window.addEventListener("wheel", (e) => {
         width: 93%;
         height: 394px;
         position: relative;
+
         .swiper-slide {
           display: flex;
           flex-direction: column;
           position: relative;
           cursor: pointer; ///鼠标移上去变成手指
+
           .swiper_img {
             border-radius: 8px;
           }
+
           .icon {
             position: absolute;
             top: 18px;
@@ -1497,27 +1484,32 @@ window.addEventListener("wheel", (e) => {
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
               width: 100%;
               height: 100%;
             }
           }
+
           .time {
             color: #151c1a;
             font-family: Jaldi;
             font-size: 15px;
             font-style: normal;
             font-weight: 400;
-            line-height: 21px; /* 21.825px */
+            line-height: 21px;
+            /* 21.825px */
             letter-spacing: 0.3px;
             margin-top: 11px;
           }
+
           .text {
             color: #151c1a;
             font-family: Inter;
             font-size: 17px;
             font-weight: 600;
-            line-height: 24.055px; /* 24.055px */
+            line-height: 24.055px;
+            /* 24.055px */
           }
         }
 
@@ -1528,13 +1520,13 @@ window.addEventListener("wheel", (e) => {
           left: 0px;
           top: 0;
           bottom: 0;
-          background: linear-gradient(
-            90deg,
-            #fff 13.44%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          z-index: 2; /* 确保阴影在内容之上 */
+          background: linear-gradient(90deg,
+              #fff 13.44%,
+              rgba(255, 255, 255, 0) 100%);
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
+
         // *这将在滑动器的右侧创建模糊效果
         .shadow_right {
           width: 212px;
@@ -1542,12 +1534,11 @@ window.addEventListener("wheel", (e) => {
           right: 0px;
           top: 0;
           bottom: 0;
-          background: linear-gradient(
-            270deg,
-            #fff 13.44%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          z-index: 2; /* 确保阴影在内容之上 */
+          background: linear-gradient(270deg,
+              #fff 13.44%,
+              rgba(255, 255, 255, 0) 100%);
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
       }
 
@@ -1564,12 +1555,14 @@ window.addEventListener("wheel", (e) => {
         background-color: rgba(21, 28, 26, 0.9) !important;
         color: #fff !important;
       }
+
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
         background-color: #fff !important;
         border: 1px solid #000 !important;
         color: #000 !important;
-        opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
+        opacity: 1 !important;
+        /* 可以设置不透明度来表示禁用状态 */
         pointer-events: auto;
         cursor: not-allowed !important;
       }
@@ -1577,9 +1570,11 @@ window.addEventListener("wheel", (e) => {
       .swiper-button-prev {
         left: 100px;
       }
+
       .swiper-button-next {
         right: 100px;
       }
+
       .swiper-button-prev::after,
       .swiper-button-next::after {
         font-size: 20px !important;
@@ -1596,16 +1591,15 @@ window.addEventListener("wheel", (e) => {
       justify-content: end;
       background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
       position: relative;
+
       .Create_a_lighter {
         width: 757px;
         height: 394px;
         flex-shrink: 0;
         border-radius: 10px;
-        background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
-        );
+        background: linear-gradient(180deg,
+            rgba(244, 248, 248, 0.05) 0.13%,
+            rgba(244, 248, 248, 0) 99.87%);
         box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         backdrop-filter: blur(4px);
         position: absolute;
@@ -1615,6 +1609,7 @@ window.addEventListener("wheel", (e) => {
         flex-direction: column;
         align-items: center;
         padding-top: 64px;
+
         .title_one {
           color: var(--Dark, #151c1a);
           font-family: Inter;
@@ -1622,6 +1617,7 @@ window.addEventListener("wheel", (e) => {
           font-weight: 600;
           max-width: 570px;
         }
+
         .text {
           margin-top: 24px;
           max-width: 454px;
@@ -1631,6 +1627,7 @@ window.addEventListener("wheel", (e) => {
           font-weight: 400;
           line-height: 20px;
         }
+
         .button_father {
           display: flex;
 
@@ -1645,6 +1642,7 @@ window.addEventListener("wheel", (e) => {
             display: flex;
             justify-content: center;
             align-items: center;
+
             .button_text {
               font-size: 14px;
               font-weight: 500;
@@ -1653,42 +1651,41 @@ window.addEventListener("wheel", (e) => {
               margin-left: 12px;
             }
           }
+
           .button_left {
             margin-right: 60px;
+
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -24.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
+
           .button_right {
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -24.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
         }
       }
+
       .square {
         display: flex;
         justify-content: center;
         width: 912px;
         height: 608px;
-        background: var(
-          --light-small,
-          linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
-        );
+        background: var(--light-small,
+            linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%));
         filter: blur(40px);
 
         opacity: 0.7;
       }
+
       .Utility_img {
         width: 630px;
         height: 582px;
@@ -1698,6 +1695,7 @@ window.addEventListener("wheel", (e) => {
       }
     }
   }
+
   .icons {
     width: 100%;
     height: 110px;
@@ -1707,32 +1705,41 @@ window.addEventListener("wheel", (e) => {
     background: #f7f7f4;
     margin-top: 60px;
     margin-bottom: 20px;
+
     // 正向滚动动画
     @keyframes scrollBackward {
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-1700px);
       }
     }
+
     /* 逆向滚动动画 */
     @keyframes scrollForward {
       0% {
         transform: translateX(-1700px);
       }
+
       100% {
         transform: translateX(0);
       }
     }
+
     //  鼠标移出
     .carousel-content.forward {
-      animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollForward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     // 鼠标移入
     .carousel-content.backward {
-      animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollBackward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     .carousel-container {
       overflow: hidden;
       position: relative;
@@ -1745,12 +1752,15 @@ window.addEventListener("wheel", (e) => {
       height: 100%;
       display: flex;
       align-items: center;
-      will-change: transform; /* 提升性能 */
+      will-change: transform;
+      /* 提升性能 */
     }
 
     .carousel-item {
-      transition: all 0.5s; /* 设置动画 */
+      transition: all 0.5s;
+      /* 设置动画 */
       margin: 0 42px;
+
       img {
         max-width: none;
         max-height: none;
