@@ -73,8 +73,8 @@ const nav_arr = ref([
         show: false,
         title: "nav.Hashing_Power",
         desc: "nav.Hashing_Power_details",
-        // link: "/soloutions/hashing_power",
-        link: "",
+        link: "/get_power",
+        // link: "",
       },
       {
         icon: new URL("@/assets/gifs/solot_3.gif", import.meta.url).href,
@@ -172,16 +172,11 @@ function set(i: number, id: number) {
   <div role="navigation">
     <div class="nav_menu-item-wrap">
       <!--* 每一项 begin -->
-      <div
-        :class="[
-          'nav_link-wrapper',
-          activeIndex == i && show ? 'select_navlink' : '',
-        ]"
-        v-for="(item, i) in nav_arr"
-        :key="i"
-        @mouseenter="(activeIndex = i), (show = true)"
-        @mouseleave="show = false"
-      >
+      <div :class="[
+        'nav_link-wrapper',
+        activeIndex == i && show ? 'select_navlink' : '',
+      ]" v-for="(item, i) in nav_arr" :key="i" @mouseenter="(activeIndex = i), (show = true)"
+        @mouseleave="show = false">
         <div v-if="item.link == ''" class="nav_link text_style_top">
           {{ $t(item.name) }}
         </div>
@@ -191,74 +186,51 @@ function set(i: number, id: number) {
       </div>
       <!--* 每一项 end -->
 
-      <div
-        class="nav_dropdown-wrap"
-        :style="{
-          transform: `translate3d(${nav_arr[activeIndex].left}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      <div class="nav_dropdown-wrap" :style="{
+        transform: `translate3d(${nav_arr[activeIndex].left}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+            rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
+        transformStyle: `preserve-3d`,
+        width: show ? `${nav_arr[activeIndex].width}px` : 0,
+        height: show ? `${nav_arr[activeIndex].height}px` : 0,
+        transition: show
+          ? 'all 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
+          : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
+      }" @mouseenter="show = true" @mouseleave="show = false">
+        <div v-for="(item, i) in nav_arr" :key="i" :style="{
+          padding: '16px',
+          position: 'absolute',
+          transform: `translate3d(${setXpx(
+            i
+          )}, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
             rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
           transformStyle: `preserve-3d`,
-          width: show ? `${nav_arr[activeIndex].width}px` : 0,
-          height: show ? `${nav_arr[activeIndex].height}px` : 0,
+          width: `${i == activeIndex ? nav_arr[i].width : 0}px`,
+          height: `${i == activeIndex ? nav_arr[i].height : 0}px`,
           transition: show
-            ? 'all 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
-            : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
-        }"
-        @mouseenter="show = true"
-        @mouseleave="show = false"
-      >
-        <div
-          v-for="(item, i) in nav_arr"
-          :key="i"
-          :style="{
-            padding: '16px',
-            position: 'absolute',
-            transform: `translate3d(${setXpx(
-              i
-            )}, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-            rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
-            transformStyle: `preserve-3d`,
-            width: `${i == activeIndex ? nav_arr[i].width : 0}px`,
-            height: `${i == activeIndex ? nav_arr[i].height : 0}px`,
-            transition: show
-              ? 'transform 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8),opacity 0.12s'
-              : 'transform 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16),opacity 0.12s',
-            opacity: i == activeIndex ? 1 : 0,
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexDirection: 'column',
-            overflow: 'hidden',
-          }"
-        >
-          <div
-            v-for="(c_item, id) in item.children"
-            :key="id"
-            @click="show = false"
-          >
+            ? 'transform 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8),opacity 0.12s'
+            : 'transform 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16),opacity 0.12s',
+          opacity: i == activeIndex ? 1 : 0,
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'column',
+          overflow: 'hidden',
+        }">
+          <div v-for="(c_item, id) in item.children" :key="id" @click="show = false">
             <RouterLink :to="c_item.link">
               <div class="popup_content" @mouseenter="set(i, id)">
                 <div class="left">
-                  <img
-                    :src="c_item.icon"
-                    :style="{
-                      display: i == activeIndex ? 'block' : 'none',
-                    }"
-                  />
-                  <img
-                    :src="c_item.png"
-                    :style="{
-                      display: i == activeIndex ? 'block' : 'none',
-                    }"
-                    :class="{ animated_svg: i == 2 && id > 1 }"
-                  />
+                  <img :src="c_item.icon" :style="{
+                    display: i == activeIndex ? 'block' : 'none',
+                  }" />
+                  <img :src="c_item.png" :style="{
+                    display: i == activeIndex ? 'block' : 'none',
+                  }" :class="{ animated_svg: i == 2 && id > 1 }" />
                 </div>
                 <div class="right">
                   <div class="title">
                     {{ $t(c_item.title) }}
                   </div>
-                  <div
-                    class="desc"
-                    v-html="`${$t(c_item.desc).split('>>>br').join('<br>')}`"
-                  ></div>
+                  <div class="desc" v-html="`${$t(c_item.desc).split('>>>br').join('<br>')}`"></div>
                 </div>
               </div>
             </RouterLink>

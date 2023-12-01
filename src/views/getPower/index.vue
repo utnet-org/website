@@ -4,7 +4,7 @@ import wallet_img1 from '@/assets/images/get_power_img1.png';
 import wallet_img2 from '@/assets/images/get_power_img2.png';
 import wallet_img3 from '@/assets/images/get_power_img3.png';
 import { ref } from 'vue';
-const headerTitle = 'GetPower';
+const headerTitle = 'Core System';
 const switchList = ['COIWN', 'COIWN', 'COIWN', 'COIWN'];
 const firstLevelTitle = 'About Us';
 const firstLevelText = 'Ankr is a great addition to the Celo Alliance, their unique applications make them a valuable contributor to the Celo ecosystem. The cLabs team enjoys working with Ankr to democratize participation in the Celo protocol.';

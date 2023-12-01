@@ -33,6 +33,8 @@ export default {
     Discord_details: "通过Discord提出您开发中的问题与建议",
     Github: "代码仓库",
     Github_details: "在Github上浏览更多代码详情",
+    English: "English",
+    Chinese: "中文",
   },
   footer: {
     Resources: "资源",
@@ -42,7 +44,7 @@ export default {
     Utility_Wallet: "Utility钱包",
     Blockchain_Explorer: "区块链浏览器",
     Faucet: "水龙头",
-    Ecosystem_dApps: "生态系统dApp",
+    Ecosystem_dApps: "生态系统dApps",
     Mining_Management_Tool: "Mining管理工具",
     GetPower: "淘算力",
     AI_Model: "AI模型",
