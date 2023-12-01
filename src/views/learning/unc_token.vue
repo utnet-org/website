@@ -46,7 +46,7 @@ const messageCardList = [
         secondLevelText: 'utilityNetwork.maria_age_second_text'
     },
 ]
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 </script>
 <template>
     <div class="container">

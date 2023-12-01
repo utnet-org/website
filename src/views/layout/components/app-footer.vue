@@ -13,7 +13,7 @@ import Wechat from "@/assets/svgs/wechat.svg";
 import Arrow from "@/assets/svgs/footer_arrow.svg";
 import { ref } from "vue";
 
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mp_left = [
   {
     title: "footer.Resources",
@@ -511,4 +511,5 @@ const printWidth = () => {
   100% {
     transform: translateX(0px) translateY(0px);
   }
-}</style>
+}
+</style>

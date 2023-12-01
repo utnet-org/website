@@ -36,7 +36,7 @@ const handleScroll = (event: { deltaY: any; }) => {
         // 执行向上滚动时的逻辑
     }
 };
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const touchStartLocation = ref(0);
 const touchEndLocation = ref(0);
 const defaultTransformPx = ref(0);
