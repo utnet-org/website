@@ -11,41 +11,41 @@ import Github from "@/assets/svgs/github.svg";
 import Youtube from "@/assets/svgs/youtube.svg";
 import Wechat from "@/assets/svgs/wechat.svg";
 import Arrow from "@/assets/svgs/footer_arrow.svg";
-import {ref} from "vue";
+import { ref } from "vue";
 
 const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
 const mp_left = [
   {
     title: "footer.Resources",
     children: [
-      {text: "footer.White_Paper", isOut: true, link: ""},
-      {text: "footer.Green_Paper", isOut: true, link: ""},
+      { text: "footer.White_Paper", isOut: true, link: "" },
+      { text: "footer.Green_Paper", isOut: true, link: "" },
     ],
   },
   {
     title: "footer.Learning",
     children: [
-      {text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center"},
-      {text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain"},
-      {text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token"},
-      {text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus"},
+      { text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center" },
+      { text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain" },
+      { text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token" },
+      { text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus" },
     ],
   },
   {
     title: "footer.Developers",
     children: [
-      {text: "footer.Developer_Hub", isOut: false, link: ""},
-      {text: "footer.Discord", isOut: true, link: ""},
-      {text: "footer.Github", isOut: true, link: ""},
-      {text: "footer.Forum", isOut: true, link: ""},
+      { text: "footer.Developer_Hub", isOut: false, link: "" },
+      { text: "footer.Discord", isOut: true, link: "" },
+      { text: "footer.Github", isOut: true, link: "" },
+      { text: "footer.Forum", isOut: true, link: "" },
     ],
   },
   {
     title: "footer.About",
     children: [
-      {text: "footer.Privacy_policy", isOut: false, link: ""},
-      {text: "footer.Terms_of_use", isOut: false, link: ""},
-      {text: "footer.Contact_us", isOut: false, link: ""},
+      { text: "footer.Privacy_policy", isOut: false, link: "" },
+      { text: "footer.Terms_of_use", isOut: false, link: "" },
+      { text: "footer.Contact_us", isOut: false, link: "" },
     ],
   },
 ];
@@ -53,86 +53,86 @@ const mp_right = [
   {
     title: "footer.Use_Utility",
     children: [
-      {text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet"},
-      {text: "footer.Blockchain_Explorer", isOut: false, link: ""},
-      {text: "footer.Faucet", isOut: true, link: ""},
-      {text: "footer.Ecosystem_dApps", isOut: false, link: ""},
-      {text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool"},
-      {text: "footer.GetPower", isOut: false, link: "/get_power"},
-      {text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model"},
+      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet" },
+      { text: "footer.Blockchain_Explorer", isOut: false, link: "" },
+      { text: "footer.Faucet", isOut: true, link: "" },
+      { text: "footer.Ecosystem_dApps", isOut: false, link: "" },
+      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
+      { text: "footer.GetPower", isOut: false, link: "/get_power" },
+      { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
     ],
   },
   {
     title: "footer.Community",
     children: [
-      {text: "footer.Community_Hub", isOut: false, link: ""},
-      {text: "footer.Online_Community", isOut: true, link: ""},
-      {text: "footer.Utility_Foundation", isOut: false, link: ""},
-      {text: "footer.Activity", isOut: false, link: ""},
+      { text: "footer.Community_Hub", isOut: false, link: "" },
+      { text: "footer.Online_Community", isOut: true, link: "" },
+      { text: "footer.Utility_Foundation", isOut: false, link: "" },
+      { text: "footer.Activity", isOut: false, link: "" },
     ],
   },
   {
     title: "footer.Activity",
-    children: [{text: "footer.Chips", isOut: false, link: ""}],
+    children: [{ text: "footer.Chips", isOut: false, link: "" }],
   },
 ];
 const top_right = [
   {
     title: "footer.Resources",
     children: [
-      {text: "footer.White_Paper", isOut: true, link: ""},
-      {text: "footer.Green_Paper", isOut: true, link: ""},
+      { text: "footer.White_Paper", isOut: true, link: "" },
+      { text: "footer.Green_Paper", isOut: true, link: "" },
     ],
   },
   {
     title: "footer.Use_Utility",
     children: [
-      {text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet"},
-      {text: "footer.Blockchain_Explorer", isOut: false, link: ""},
-      {text: "footer.Faucet", isOut: true, link: ""},
-      {text: "footer.Ecosystem_dApps", isOut: false, link: ""},
-      {text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool"},
-      {text: "footer.GetPower", isOut: false, link: "/get_power"},
-      {text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model"},
+      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet" },
+      { text: "footer.Blockchain_Explorer", isOut: false, link: "" },
+      { text: "footer.Faucet", isOut: true, link: "" },
+      { text: "footer.Ecosystem_dApps", isOut: false, link: "" },
+      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
+      { text: "footer.GetPower", isOut: false, link: "/get_power" },
+      { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
     ],
   },
   {
     title: "footer.Learning",
     children: [
-      {text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center"},
-      {text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain"},
-      {text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token"},
-      {text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus"},
+      { text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center" },
+      { text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain" },
+      { text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token" },
+      { text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus" },
     ],
   },
   {
     title: "footer.Developers",
     children: [
-      {text: "footer.Developer_Hub", isOut: false, link: ""},
-      {text: "footer.Discord", isOut: true, link: ""},
-      {text: "footer.Github", isOut: true, link: ""},
-      {text: "footer.Forum", isOut: true, link: ""},
+      { text: "footer.Developer_Hub", isOut: false, link: "" },
+      { text: "footer.Discord", isOut: true, link: "" },
+      { text: "footer.Github", isOut: true, link: "" },
+      { text: "footer.Forum", isOut: true, link: "" },
     ],
   },
   {
     title: "footer.Community",
     children: [
-      {text: "footer.Community_Hub", isOut: false, link: ""},
-      {text: "footer.Online_Community", isOut: true, link: ""},
-      {text: "footer.Utility_Foundation", isOut: false, link: ""},
-      {text: "footer.Activity", isOut: false, link: ""},
+      { text: "footer.Community_Hub", isOut: false, link: "" },
+      { text: "footer.Online_Community", isOut: true, link: "" },
+      { text: "footer.Utility_Foundation", isOut: false, link: "" },
+      { text: "footer.Activity", isOut: false, link: "" },
     ],
   },
   {
     title: "footer.Activity",
-    children: [{text: "footer.Chips", isOut: false, link: ""}],
+    children: [{ text: "footer.Provider", isOut: false, link: "" }],
   },
   {
     title: "footer.About",
     children: [
-      {text: "footer.Privacy_policy", isOut: false, link: ""},
-      {text: "footer.Terms_of_use", isOut: false, link: ""},
-      {text: "footer.Contact_us", isOut: false, link: ""},
+      { text: "footer.Privacy_policy", isOut: false, link: "" },
+      { text: "footer.Terms_of_use", isOut: false, link: "" },
+      { text: "footer.Contact_us", isOut: false, link: "" },
     ],
   },
 ];
@@ -147,21 +147,21 @@ const printWidth = () => {
       <div class="top">
         <div class="left">
           <div class="logo">
-            <LogoSvg/>
+            <LogoSvg />
             <div class="logo_text">Utility</div>
           </div>
           <div class="social">
             <div class="icon">
-              <Twitter style="color;: black"/>
+              <Twitter style="color;: black" />
             </div>
             <div class="icon">
-              <Github/>
+              <Github />
             </div>
             <div class="icon">
-              <Youtube/>
+              <Youtube />
             </div>
             <div class="icon">
-              <Wechat/>
+              <Wechat />
             </div>
           </div>
         </div>
@@ -171,12 +171,12 @@ const printWidth = () => {
               {{ $t(item.title) }}
             </div>
             <div :class="['item', 'right_text', c_item.isOut ? 'item_hover' : '']" v-for="(c_item, id) in item.children"
-                 :key="id">
+              :key="id">
               <RouterLink :to="c_item.link">
                 <span class="item_span">
                   {{ $t(c_item.text) }}
                   <div class="arrow">
-                    <Arrow/>
+                    <Arrow />
                   </div>
                 </span>
               </RouterLink>
@@ -189,37 +189,37 @@ const printWidth = () => {
   <footer class="app_footer" v-else>
     <div class="container">
       <div class="container_top">
-        <LogoSvg02/>
+        <LogoSvg02 />
         <div class="container_top_title">Utility</div>
       </div>
       <div class="container_icon">
         <div class="container_icon_tw">
-          <Twitter02/>
+          <Twitter02 />
         </div>
         <div class="container_icon_tw">
-          <Github02/>
+          <Github02 />
         </div>
         <div class="container_icon_tw">
-          <Youtube02/>
+          <Youtube02 />
         </div>
         <div class="container_icon_tw">
-          <Wechat02/>
+          <Wechat02 />
         </div>
       </div>
       <div class="container_box">
         <div class="container_left">
-          <div class="resources_box" v-for="(item,index) in mp_left" :key="index">
+          <div class="resources_box" v-for="(item, index) in mp_left" :key="index">
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2,index) in item.children" :key="index">
+            <div class="resources_text" v-for="(item2, index) in item.children" :key="index">
               {{ $t(item2.text) }}
             </div>
           </div>
         </div>
 
         <div class="container_right">
-          <div class="resources_box" v-for="(item,index) in mp_right" :key="index">
+          <div class="resources_box" v-for="(item, index) in mp_right" :key="index">
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2,index) in item.children" :key="index">
+            <div class="resources_text" v-for="(item2, index) in item.children" :key="index">
               {{ $t(item2.text) }}
             </div>
           </div>
@@ -230,7 +230,6 @@ const printWidth = () => {
 
     </div>
   </footer>
-
 </template>
 
 <style scoped lang="less">
@@ -335,7 +334,7 @@ const printWidth = () => {
             &:hover {
 
               text-shadow: 0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9)),
-              -0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9));
+                -0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9));
               opacity: 0.8;
             }
           }
@@ -432,16 +431,19 @@ const printWidth = () => {
       }
     }
 
-    .container_box{
+    .container_box {
       display: flex;
-      .container_left{
+
+      .container_left {
         flex: 1;
-        .resources_box{
+
+        .resources_box {
           text-align: center;
           //border: 1px solid red;
           //margin-left: 20px;
           margin-top: 10px;
-          .resources_title{
+
+          .resources_title {
             color: #3EDFCF;
             font-family: Lantinghei SC;
             font-size: 12px;
@@ -450,7 +452,8 @@ const printWidth = () => {
             line-height: normal;
             margin-bottom: 8px;
           }
-          .resources_text{
+
+          .resources_text {
             color: rgba(21, 28, 26, 0.90);
             font-family: Inter;
             font-size: 12px;
@@ -465,15 +468,17 @@ const printWidth = () => {
 
     }
 
-    .container_right{
+    .container_right {
       flex: 1;
-      .resources_box{
+
+      .resources_box {
         text-align: center;
 
         //border: 1px solid red;
         //margin-left: 20px;
         margin-top: 10px;
-        .resources_title{
+
+        .resources_title {
           color: #3EDFCF;
           font-family: Lantinghei SC;
           font-size: 12px;
@@ -482,7 +487,8 @@ const printWidth = () => {
           line-height: normal;
           margin-bottom: 8px;
         }
-        .resources_text{
+
+        .resources_text {
           color: rgba(21, 28, 26, 0.90);
           font-family: Inter;
           font-size: 12px;
@@ -505,5 +511,4 @@ const printWidth = () => {
   100% {
     transform: translateX(0px) translateY(0px);
   }
-}
-</style>
+}</style>

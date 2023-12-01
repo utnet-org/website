@@ -449,7 +449,7 @@ function updateCircles() {
       vertices[i],
       vertices[i + 1],
       vertices[i + 2] * newDistanceToCenter -
-        Math.sin((x + vertices[0]) * 2.6) * bendAmount * 2.4
+      Math.sin((x + vertices[0]) * 2.6) * bendAmount * 2.4
     ); // 原始位置
 
     const rotateMatrix = new THREE.Matrix4().makeRotationY(rotateAmount * 4);
@@ -500,8 +500,8 @@ function updateCircles() {
       let shrinkSpeed = Math.max(
         0.002,
         (newrotateAmount * (i - (y + vertices[1]) * (y + vertices[1]))) /
-          600 /
-          distance
+        600 /
+        distance
       ); // 0.02 是最小速度
 
       // 计算向目标点的方向
@@ -519,14 +519,14 @@ function updateCircles() {
       // positions[i + 1] = currentPosition.y - rotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.08;
       positions[i + 1] =
         currentPosition.y *
-          (1 +
-            Math.sin(
-              newrotateAmount *
-                (Math.abs(vertices[1]) - y - newrotateAmount) *
-                (Math.abs(vertices[1]) - y - newrotateAmount) *
-                0.6
-            ) *
-              0.1) -
+        (1 +
+          Math.sin(
+            newrotateAmount *
+            (Math.abs(vertices[1]) - y - newrotateAmount) *
+            (Math.abs(vertices[1]) - y - newrotateAmount) *
+            0.6
+          ) *
+          0.1) -
         newrotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.04 -
         newrotateAmount * newrotateAmount * 0.6;
       positions[i + 2] = currentPosition.z * (1 - newrotateAmount * 0.4);
@@ -672,6 +672,7 @@ onUnmounted(() => {
 .animation {
   height: 100%;
   width: 100%;
+
   .body {
     height: 100%;
     width: 100%;

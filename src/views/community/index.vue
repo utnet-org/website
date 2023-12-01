@@ -71,6 +71,42 @@ const stepsList = [
         reason: 'Already ended.'
     }
 ]
+const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const accordionTitle = 'Consensus Chip';
+const accordionList = [
+    {
+        title: 'Initialize Generation',
+        messageTitle: 'Strengthen Utility Net',
+        messageText: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+    },
+    {
+        title: 'Data Transmission',
+        messageTitle: 'Data Transmission',
+        messageText: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+    },
+    {
+        title: 'Data Validation',
+        messageTitle: 'Data Validation',
+        messageText: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+    }
+]
+const questionList = [
+    {
+        id: '01',
+        question: 'Why Using TPU?',
+        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
+    },
+    {
+        id: '02',
+        question: 'Why Using TPU?',
+        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
+    },
+    {
+        id: '03',
+        question: 'Why Using TPU?',
+        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
+    },
+]
 </script>
 <template>
     <div>
@@ -117,35 +153,39 @@ const stepsList = [
                 </div>
             </div>
             <div class="toggle_menu">
-                <div class="toggle_menu_header">
-                    <div class="toggle_menu_header_title">Voice from Our Partners</div>
-                    <div class="toggle_menu_header_icon">
-                        <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
-                            @mouseleave="hoverCheckIndex = -1">
-                            <img v-if="hoverCheckIndex == 1" :src="PreviousCheck" alt="">
-                            <img v-else :src="PreviousDefault" alt="">
+                <div>
+                    <div class="toggle_menu_header" v-if="viewableWidth > 834">
+                        <div class="toggle_menu_header_title">Voice from Our Partners</div>
+                        <div class="toggle_menu_header_icon">
+                            <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
+                                @mouseleave="hoverCheckIndex = -1">
+                                <img v-if="hoverCheckIndex == 1" :src="PreviousCheck" alt="">
+                                <img v-else :src="PreviousDefault" alt="">
+                            </div>
+                            <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 2"
+                                @mouseleave="hoverCheckIndex = -1">
+                                <img v-if="hoverCheckIndex == 2" :src="NextCheck" alt="">
+                                <img v-else :src="NextDefault" alt="">
+                            </div>
                         </div>
-                        <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 2"
-                            @mouseleave="hoverCheckIndex = -1">
-                            <img v-if="hoverCheckIndex == 2" :src="NextCheck" alt="">
-                            <img v-else :src="NextDefault" alt="">
+                    </div>
+                    <div class="toggle_menu_list" v-if="viewableWidth > 834">
+                        <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
+                            <div class="item_first_title">{{ item.firstTitle }}</div>
+                            <div class="item_second_title">{{ item.secondTitle }}</div>
+                            <img :src="ToggleMenuIcon" alt="">
+                            <div class="item_text">{{ item.text }}</div>
                         </div>
                     </div>
                 </div>
-                <div class="toggle_menu_list">
-                    <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
-                        <div class="item_first_title">{{ item.firstTitle }}</div>
-                        <div class="item_second_title">{{ item.secondTitle }}</div>
-                        <img :src="ToggleMenuIcon" alt="">
-                        <div class="item_text">{{ item.text }}</div>
-                    </div>
-                </div>
+                <Accordion :accordionTitle="accordionTitle" :fromPage="'community'" :accordionList="accordionList"
+                    v-if="viewableWidth < 834" />
                 <div class="steps">
                     <div class="steps_title">Utility Activities</div>
                     <div class="steps_text">
                         <div>Welcome to our event and meet us. If you are interested in organizing offline events, please
-                            contact us here:</div>
-                        <div>Community Slack</div>
+                            contact us here:<span>Community Slack</span></div>
+                        <!-- <div>Community Slack</div> -->
 
                     </div>
                     <div v-for="(stepsItem, stepsIndex) in stepsList" :key="stepsIndex" class="steps_item">
@@ -489,7 +529,7 @@ const stepsList = [
         }
 
         .steps {
-            margin: 100px 92px 0px 100px;
+            padding: 100px 92px 0px 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -513,11 +553,13 @@ const stepsList = [
                 margin: 22px 0 40px;
 
                 /* 22.54px */
-                &>div:last-child {
-                    margin-left: 7px;
-                    color: #3EDFCF;
-                    text-decoration-line: underline;
-                    cursor: pointer;
+                div {
+                    span {
+                        margin-left: 7px;
+                        color: #3EDFCF;
+                        text-decoration-line: underline;
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -701,6 +743,65 @@ const stepsList = [
                             opacity: 1;
                         }
                     }
+                }
+            }
+        }
+
+        .community_options {
+            padding: 22px 5% 8px;
+            // background-color: #F6F9F9;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            flex-direction: column;
+
+            .community_options_item {
+                width: 100%;
+                height: max-content;
+                margin-bottom: 14px;
+
+                &:hover {
+                    border: 1px solid transparent;
+                }
+
+                img {
+                    width: 100%;
+                    height: 234px;
+                }
+
+                &>div {
+                    margin: 24px 14px 37px;
+
+                    .community_options_item_title {
+                        margin-bottom: 6px;
+                    }
+                }
+            }
+        }
+
+        .toggle_menu {
+            padding: 0;
+
+            .steps {
+                padding: 46px 5% 60px;
+
+                .steps_title {
+                    color: rgba(21, 28, 26, 0.90);
+                    text-align: center;
+                    font-family: Lantinghei SC;
+                    font-size: 22px;
+                    font-weight: 700;
+                }
+
+                .steps_text {
+                    display: flex;
+                    align-items: center;
+                    color: rgba(21, 28, 26, 0.90);
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 161%;
+                    margin: 16px 0 32px;
                 }
             }
         }

@@ -33,28 +33,28 @@ const definingChipsWithBlockchainTextList = [
 const optionsList = [
     {
         image: UtilityExplainOptions1,
-        title: 'POCI Consensus',
-        text: 'new proof mechanism that indirectly proves computing power through trusted computing power ownership is a model of chip computing power ownership. In our Ute network chain, the utility will use high-performance SophonTPU computing chips to form a powerful computing power network, and will be used to provide users with decentralized mining and artificial intelligence training services in the future.'
+        title: 'utilityNetwork.poci_consensus_title',
+        text: 'utilityNetwork.poci_consensus_text'
     },
     {
         image: UtilityExplainOptions2,
-        title: 'POWER SCHEDULING',
-        text: 'new proof mechanism that indirectly proves computing power through trusted computing power ownership is a model of chip computing power ownership. In our Ute network chain, the utility will use high-performance SophonTPU computing chips to form a powerful computing power network, and will be used to provide users with decentralized mining and artificial intelligence training services in the future.'
+        title: 'utilityNetwork.power_scheduling_title',
+        text: 'utilityNetwork.power_scheduling_text'
     },
     {
         image: UtilityExplainOptions3,
-        title: 'MINING',
-        text: 'new proof mechanism that indirectly proves computing power through trusted computing power ownership is a model of chip computing power ownership. In our Ute network chain, the utility will use high-performance SophonTPU computing chips to form a powerful computing power network, and will be used to provide users with decentralized mining and artificial intelligence training services in the future.'
+        title: 'utilityNetwork.virtualization_and_isolation_execution_environment_title',
+        text: 'utilityNetwork.virtualization_and_isolation_execution_environment_text'
     },
     {
         image: UtilityExplainOptions4,
-        title: 'TOKEN REDUCTION',
-        text: 'new proof mechanism that indirectly proves computing power through trusted computing power ownership is a model of chip computing power ownership. In our Ute network chain, the utility will use high-performance SophonTPU computing chips to form a powerful computing power network, and will be used to provide users with decentralized mining and artificial intelligence training services in the future.'
+        title: 'utilityNetwork.multiple_execution_virtual_machines_support_title',
+        text: 'utilityNetwork.multiple_execution_virtual_machines_support_text'
     },
     {
         image: UtilityExplainOptions5,
-        title: 'MACHINE RENTAL ORDERS',
-        text: 'new proof mechanism that indirectly proves computing power through trusted computing power ownership is a model of chip computing power ownership. In our Ute network chain, the utility will use high-performance SophonTPU computing chips to form a powerful computing power network, and will be used to provide users with decentralized mining and artificial intelligence training services in the future.'
+        title: 'utilityNetwork.complete_economic_system_model_title',
+        text: 'utilityNetwork.complete_economic_system_model_text'
     },
 ]
 </script>
@@ -100,9 +100,9 @@ const optionsList = [
                         <div class="options_item_header_icon">
                             <img :src="item.image" alt="">
                         </div>
-                        <div class="options_item_header_title">{{ item.title }}</div>
+                        <div class="options_item_header_title">{{ $t(item.title) }}</div>
                     </div>
-                    <div class="options_item_message">{{ item.text }}</div>
+                    <div class="options_item_message">{{ $t(item.text) }}</div>
                 </div>
             </div>
         </div>
