@@ -71,7 +71,7 @@ const stepsList = [
         reason: 'Already ended.'
     }
 ]
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const accordionTitle = 'Consensus Chip';
 const accordionList = [
     {

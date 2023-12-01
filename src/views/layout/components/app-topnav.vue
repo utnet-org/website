@@ -1,8 +1,10 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
+import list_caption from "@/assets/images/list_caption.png";
+import list_caption_close from "@/assets/images/list_caption_close.png";
 import { ref } from "vue";
 const isfocus = ref(true);
-const viewableWidth = ref(Number(localStorage.getItem("viewableWidth") ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const selectType = ref(false);
 const blockSelect = () => {
   selectType.value = !selectType.value;
@@ -124,14 +126,14 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: "",
+        icon: new URL("@/assets/images/language_english_icon.png", import.meta.url).href,
         png: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
         title: "English",
         desc: "en",
         link: "",
       },
       {
-        icon: "",
+        icon: new URL("@/assets/images/language_chinese_icon.png", import.meta.url).href,
         png: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
         title: "中文简体",
         desc: "zh",
@@ -171,7 +173,7 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   <nav class="app-topnav">
     <div class="container">
       <RouterLink to="/">
-        <div class="logo_box">
+        <div class="logo_box" @click="selectType = false">
           <Logo />
           <span class="logo_text">Utility</span>
         </div>
@@ -181,49 +183,26 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
       </div>
-      <img
-        class="list_caption_image"
-        src="@/assets/images/list_caption.png"
-        alt=""
-        v-else
-        @click="blockSelect"
-      />
-      <div v-if="selectType == true" class="list_caption_select">
-        <div
-          class="list_caption_select_item"
-          v-for="(item, index) in nav_arr"
-          :key="index"
-        >
-          <div
-            class="list_caption_select_item_header"
-            @click="changeSelectIndex(item, index)"
-          >
+      <img class="list_caption_image" :src="selectType ? list_caption_close : list_caption" alt="" v-else
+        @click="blockSelect" />
+      <div v-show="selectType == true" class="list_caption_select">
+        <div class="list_caption_select_item" v-for="(item, index) in nav_arr" :key="index">
+          <div class="list_caption_select_item_header" @click="changeSelectIndex(item, index)">
             <div>{{ $t(item.name) }}</div>
-            <img
-              v-if="index != 3 && index != 4"
-              src="@/assets/images/poci_to_bottom.png"
-              alt=""
-              :class="selectIndex == index ? 'active' : ''"
-            />
+            <img v-if="index != 3 && index != 4" src="@/assets/images/poci_to_bottom.png" alt=""
+              :class="selectIndex == index ? 'active' : ''" />
           </div>
-          <div
-            class="list_caption_select_item_option"
-            v-for="(citem, cindex) in item.children"
-            :key="cindex"
-            v-show="selectIndex == index"
-            @click="routerSubPage(index, citem, cindex)"
-          >
+          <div class="list_caption_select_item_option" v-for="(citem, cindex) in item.children" :key="cindex"
+            v-show="selectIndex == index" @click="routerSubPage(index, citem, cindex)"
+            :style="index == 5 ? 'align-items: center;' : ''">
             <div class="list_caption_select_item_option_image">
               <img :src="citem.icon" alt="" />
             </div>
             <div class="list_caption_select_item_option_text">
-              <div class="list_caption_select_item_option_text_title">
+              <div class="list_caption_select_item_option_text_title" :style="index == 5 ? 'margin-bottom: 0px;' : ''">
                 {{ index == 5 ? citem.title : $t(citem.title) }}
               </div>
-              <div
-                class="list_caption_select_item_option_text_desc"
-                v-if="index != 5"
-              >
+              <div class="list_caption_select_item_option_text_desc" v-if="index != 5">
                 {{ $t(citem.desc) }}
               </div>
             </div>
