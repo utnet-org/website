@@ -474,7 +474,7 @@ window.addEventListener("wheel", (e) => {
     <div class="container">
       <!--! 大大的背景图和图上的welcome -->
       <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
-      <div class="bg" v-if="!videoshow && width * 2 > 996">
+      <div class="bg" v-if="width * 2 > 996">
         <div
           :class="[
             'Welcome',
@@ -911,6 +911,7 @@ window.addEventListener("wheel", (e) => {
     // height: 1100px;
     width: 100%;
     position: fixed;
+    z-index: 3;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
