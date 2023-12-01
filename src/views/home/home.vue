@@ -223,19 +223,47 @@ const navigation = ref({
   prevEl: ".swiper-button-prev",
 });
 
-const show = ref(false);
+const show = ref({
+  one: false,
+});
 const show1 = ref(false);
 // 监听show的变化
 watch(show, (newVal) => {
-  if (newVal) {
+  if (newVal.one) {
     show1.value = true;
   }
 });
-
+const showtwo = ref(false);
+const videoshow = ref(false);
 // 滚动条监听
 const scroll = ref(0);
+const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
+  if (scroll.value > 1900) {
+    if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
+      ani_btn.value = 175;
+    } else if (scroll.value > 2210 && scroll.value < 2960) {
+      ani_btn.value = 175 + (scroll.value - 2210) / 3.3;
+    } else if (scroll.value > 2960 && scroll.value < 2970) {
+      ani_btn.value = 474;
+    } else if (scroll.value > 2970) {
+      ani_btn.value = 10;
+    } else {
+      ani_btn.value = -80;
+    }
+    if (scroll.value > 2415) {
+      ant_btn_w.value = 200;
+    } else {
+      ant_btn_w.value = 80;
+    }
+  }
+
+  if (scroll.value > 2980 && !videoshow.value) {
+    // 设置滚动条的位置
+    document.documentElement.scrollTop = 2980;
+  }
+
   if (
     timer1.value === undefined &&
     scroll.value > 1030 &&
@@ -298,6 +326,7 @@ window.addEventListener("scroll", () => {
     text5.value = false;
     timer5.value = undefined;
   }
+  console.log("scroll.value:", scroll.value);
 });
 
 // 定时器
@@ -315,18 +344,56 @@ const timer5 = ref();
 // 监听窗口宽度
 const width = ref(window.innerWidth / 2);
 const height = ref(window.innerHeight / 2);
+const pyw = ref(0);
+if (width.value * 2 < 1548) {
+  pyw.value = 1548 - width.value * 2;
+}
 window.addEventListener("resize", () => {
   width.value = window.innerWidth / 2;
   height.value = window.innerHeight / 2;
+  if (width.value * 2 < 1548) {
+    pyw.value = 1548 - width.value * 2;
+  }
+});
+const ani_btn = ref(-80);
+
+const video_next = () => {
+  videoshow.value = true;
+  document.documentElement.scrollTop = 2980 + window.innerHeight;
+};
+// 监听是否有向上滚动的动作
+window.addEventListener("wheel", (e) => {
+  if (
+    e.deltaY < 0 &&
+    videoshow.value &&
+    scroll.value > 2980 &&
+    scroll.value < 2980 + window.innerHeight
+  ) {
+    videoshow.value = false;
+    document.documentElement.scrollTop = 2980;
+  }
 });
 </script>
 <template>
   <div class="home_view">
-    <div class="animation_box">
-      <Animation v-model:show="show"></Animation>
+    <div
+      class="animation_box"
+      :style="{
+        zIndex: !videoshow ? 1 : -1,
+        height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
+      }"
+    >
+      <Animation
+        v-model:show="show"
+        v-model:show1="showtwo"
+        v-show="scroll < 2980 || scroll == 0"
+      ></Animation>
       <div class="animation_text_box">
         <div
-          :style="{ top: `${height - 300}px`, left: `${width + 100}px` }"
+          :style="{
+            top: `${height - 300 + (height * 2) / 5}px`,
+            left: `${width + 100 - pyw / 3}px`,
+          }"
           :class="[
             'animation_text',
             text1 && scroll > 1030 ? 'animation_text_animation' : '',
@@ -337,7 +404,10 @@ window.addEventListener("resize", () => {
           Hi! Welcome to Utility
         </div>
         <div
-          :style="{ top: `${height + 300}px`, left: `${width - 100}px` }"
+          :style="{
+            top: `${height + 300 - (height * 2) / 5}px`,
+            left: `${width - 100 + pyw / 3}px`,
+          }"
           :class="[
             'animation_text',
             text2 && scroll > 1230 ? 'animation_text_animation' : '',
@@ -348,7 +418,10 @@ window.addEventListener("resize", () => {
           Hi! Welcome to Utility
         </div>
         <div
-          :style="{ top: `${height + 100}px`, left: `${width - 400}px` }"
+          :style="{
+            top: `${height + 100 - (height * 2) / 5}px`,
+            left: `${width - 400 + pyw / 2}px`,
+          }"
           :class="[
             'animation_text',
             text3 && scroll > 1320 ? 'animation_text_animation' : '',
@@ -356,10 +429,13 @@ window.addEventListener("resize", () => {
           ]"
         >
           <span>Jenna3</span>
-          Hi! Welcome to Utility
+          Hi! Welcome to Utility{{ pyw }}
         </div>
         <div
-          :style="{ top: `${height + 100}px`, left: `${width + 400}px` }"
+          :style="{
+            top: `${height + 100 - (height * 2) / 5}px`,
+            left: `${width + 400 - pyw / 3}px`,
+          }"
           :class="[
             'animation_text',
             text4 && scroll > 1520 ? 'animation_text_animation' : '',
@@ -370,7 +446,10 @@ window.addEventListener("resize", () => {
           Hi! Welcome to Utility
         </div>
         <div
-          :style="{ top: `${height - 200}px`, left: `${width - 500}px` }"
+          :style="{
+            top: `${height - 200 + (height * 2) / 5}px`,
+            left: `${width - 500 + pyw / 2}px`,
+          }"
           :class="[
             'animation_text',
             text5 && scroll > 1630 ? 'animation_text_animation' : '',
@@ -381,16 +460,25 @@ window.addEventListener("resize", () => {
           Hi! Welcome to Utility
         </div>
       </div>
+      <div class="animatino_video" v-if="scroll > 2960">
+        <video src="@/assets/mv/55_1701258800.mp4" autoplay muted></video>
+      </div>
+      <div
+        class="animation_button"
+        :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
+      >
+        <div @click="video_next()" class="animation_button_text">跳过</div>
+      </div>
     </div>
     <div class="container">
       <!--! 大大的背景图和图上的welcome -->
       <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
-      <div class="bg">
+      <div class="bg" v-if="!videoshow">
         <div
           :class="[
             'Welcome',
-            { WelcomeAnimation: show },
-            { WelcomeAnimationf: !show && show1 },
+            { WelcomeAnimation: show.one },
+            { WelcomeAnimationf: !show.one && show1 },
           ]"
         >
           <div class="Language">
@@ -400,7 +488,7 @@ window.addEventListener("resize", () => {
             </div>
           </div>
           <div class="Utility">
-            <div :class="['Utility_text']">Utility:{{ show }}{{ scroll }}</div>
+            <div :class="['Utility_text']">Utility:</div>
             <div class="Welcome_text_title">
               {{ $t("home.Welcome_to_utility") }}
             </div>
@@ -677,9 +765,39 @@ window.addEventListener("resize", () => {
 </template>
 <style scoped lang="less">
 .animation_box {
-  height: 4200px;
   position: relative;
+  background: #000;
+  z-index: 2;
+  .animation_button {
+    position: fixed;
+    // bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    // width: 80px;
+    height: 80px;
+    background: rgb(0, 255, 255);
+    border-radius: 40px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .animation_button_text {
+      font-weight: 500;
+    }
+  }
 
+  .animatino_video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   .animation_text_box {
     position: fixed;
     top: 0;

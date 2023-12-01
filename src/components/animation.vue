@@ -1,15 +1,22 @@
 <script setup lang="ts">
+import { el } from "element-plus/es/locale";
 import * as THREE from "three";
-import { defineProps, onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps({
   show: {
+    type: Object,
+    default: {
+      one: false,
+    },
+  },
+  show1: {
     type: Boolean,
     default: false,
   },
 });
 
-const emit = defineEmits(["update:show"]);
+const emit = defineEmits(["update:show", "update:show1"]);
 
 const Y = [
   7060, 7061, 7062, 7063, 7064, 7065, 7421, 7422, 7423, 7424, 7425, 7781, 7782,
@@ -383,9 +390,9 @@ function updateCircles() {
     interpolationFactor1;
   interpolationFactor1 = interpolationFactor1 > 1 ? 1 : interpolationFactor1; // 确保插值因子不超过 1
   if (interpolationFactor1 > 0.9995) {
-    emit("update:show", true);
+    emit("update:show", { one: true });
   } else {
-    emit("update:show", false);
+    emit("update:show", { one: false });
   }
   // if (interpolationFactor1 < 1.0 && interpolationFactor1 > 0.9995) {
   //     for (let i = 0; i < positions.length; i += 3) {
@@ -554,6 +561,9 @@ function updateCircles() {
 
 // 窗口大小改变时，更新渲染器的宽度和高度
 let onWindowResize = () => {
+  if (window.innerWidth < 996) {
+    return;
+  }
   const width = window.innerWidth;
   const height = window.innerHeight;
   renderer.setSize(width, height);
@@ -572,21 +582,28 @@ let onWindowMouseMove = (event: { clientX: any; clientY: any }) => {
 
 // 监听鼠标滚轮事件
 let onWindowScroll = () => {
+  if (window.innerWidth < 996) {
+    return;
+  }
   const y = window.scrollY;
   targetInterpolationFactor1 = ((y / 2) * (y / 2)) / 200000;
-  if (targetInterpolationFactor1 == 1) {
-    // console.log('y:', y)
-    // console.log('interpolationFactor1:', interpolationFactor1)
-  }
+  // if (targetInterpolationFactor1 == 1) {
+  // console.log('y:', y)
+  // console.log('interpolationFactor1:', interpolationFactor1)
+  // }
   interpolationFactor1 = interpolationFactor1 > 1 ? 1 : interpolationFactor1; // 确保插值因子不超过 1
   if (interpolationFactor1 >= 1) {
     if (targetRotateAmount < 0.15) {
       targetRotateAmount = (y - 400) / 10000;
+      emit("update:show1", false);
     } else {
+      emit("update:show1", true);
       let delta = y - baseScrollY;
       targetRotateAmount += delta * accelerationFactor;
       // targetRotateAmount = (y - 400) / 10000;
     }
+  } else {
+    emit("update:show1", false);
   }
   // 更新基准点
   baseScrollY = y;
