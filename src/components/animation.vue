@@ -157,7 +157,20 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // animation_container.appendChild(renderer.domElement);
 
 // 设置定位为固定定位
-renderer.domElement.style.position = "fixed";
+if (window.innerWidth < 1548 && window.innerWidth > 996) {
+  // 根据宽度计算相机位置 距离增加
+  cameraPositionZ = 11 + (1548 - window.innerWidth) / 100;
+  camera.position.set(0, 0, cameraPositionZ);
+}
+if (window.innerWidth < 996) {
+  console.log("1:", 1);
+  // 根据宽度计算相机位置 距离增加
+  cameraPositionZ = 11 + (996 - window.innerWidth) / 100;
+  camera.position.set(0, 0, cameraPositionZ);
+} else {
+  cameraPositionZ = 11;
+  camera.position.set(0, 0, cameraPositionZ);
+}
 
 // 画布背景色设置为白色
 renderer.setClearColor(0x000000, 1);
@@ -231,7 +244,12 @@ function createCircles() {
 
   for (let i = 0; i < vertices.length; i += 3) {
     vertices[i + 2] += 0.4;
-    const random = Math.random() * 15 - 15.2;
+    let random;
+    if (window.innerWidth > 996) {
+      random = Math.random() * 15 - 15.2;
+    } else {
+      random = Math.random() * 30 - 30.2;
+    }
     vertices[i + 2] -= random;
     for (let j = 0; j < textArray.length; j++) {
       if (textArray[j] == i / 3) {
@@ -449,7 +467,7 @@ function updateCircles() {
       vertices[i],
       vertices[i + 1],
       vertices[i + 2] * newDistanceToCenter -
-      Math.sin((x + vertices[0]) * 2.6) * bendAmount * 2.4
+        Math.sin((x + vertices[0]) * 2.6) * bendAmount * 2.4
     ); // 原始位置
 
     const rotateMatrix = new THREE.Matrix4().makeRotationY(rotateAmount * 4);
@@ -500,8 +518,8 @@ function updateCircles() {
       let shrinkSpeed = Math.max(
         0.002,
         (newrotateAmount * (i - (y + vertices[1]) * (y + vertices[1]))) /
-        600 /
-        distance
+          600 /
+          distance
       ); // 0.02 是最小速度
 
       // 计算向目标点的方向
@@ -519,14 +537,14 @@ function updateCircles() {
       // positions[i + 1] = currentPosition.y - rotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.08;
       positions[i + 1] =
         currentPosition.y *
-        (1 +
-          Math.sin(
-            newrotateAmount *
-            (Math.abs(vertices[1]) - y - newrotateAmount) *
-            (Math.abs(vertices[1]) - y - newrotateAmount) *
-            0.6
-          ) *
-          0.1) -
+          (1 +
+            Math.sin(
+              newrotateAmount *
+                (Math.abs(vertices[1]) - y - newrotateAmount) *
+                (Math.abs(vertices[1]) - y - newrotateAmount) *
+                0.6
+            ) *
+              0.1) -
         newrotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.04 -
         newrotateAmount * newrotateAmount * 0.6;
       positions[i + 2] = currentPosition.z * (1 - newrotateAmount * 0.4);
@@ -559,18 +577,23 @@ function updateCircles() {
   }
 }
 
+let widthdd = window.innerWidth;
+
 // 窗口大小改变时，更新渲染器的宽度和高度
 let onWindowResize = () => {
   if (window.innerWidth < 996) {
     return;
   }
+  widthdd = window.innerWidth;
   const width = window.innerWidth;
   const height = window.innerHeight;
   renderer.setSize(width, height);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
 };
-
+if (widthdd > 996) {
+  renderer.domElement.style.position = "fixed";
+}
 // 鼠标移动时，更新旋转角度
 let onWindowMouseMove = (event: { clientX: any; clientY: any }) => {
   const x = event.clientX;
@@ -582,7 +605,7 @@ let onWindowMouseMove = (event: { clientX: any; clientY: any }) => {
 
 // 监听鼠标滚轮事件
 let onWindowScroll = () => {
-  if (window.innerWidth < 996) {
+  if (widthdd < 996) {
     return;
   }
   const y = window.scrollY;

@@ -259,7 +259,7 @@ window.addEventListener("scroll", () => {
     }
   }
 
-  if (scroll.value > 2980 && !videoshow.value) {
+  if (scroll.value > 2980 && !videoshow.value && width.value * 2 > 996) {
     // 设置滚动条的位置
     document.documentElement.scrollTop = 2980;
   }
@@ -388,7 +388,7 @@ window.addEventListener("wheel", (e) => {
         v-model:show1="showtwo"
         v-show="scroll < 2980 || scroll == 0"
       ></Animation>
-      <div class="animation_text_box">
+      <div class="animation_text_box" v-if="width * 2 > 996">
         <div
           :style="{
             top: `${height - 300 + (height * 2) / 5}px`,
@@ -460,12 +460,13 @@ window.addEventListener("wheel", (e) => {
           Hi! Welcome to Utility
         </div>
       </div>
-      <div class="animatino_video" v-if="scroll > 2960">
+      <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video src="@/assets/mv/55_1701258800.mp4" autoplay muted></video>
       </div>
       <div
         class="animation_button"
         :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
+        v-if="width * 2 > 996"
       >
         <div @click="video_next()" class="animation_button_text">跳过</div>
       </div>
@@ -473,7 +474,7 @@ window.addEventListener("wheel", (e) => {
     <div class="container">
       <!--! 大大的背景图和图上的welcome -->
       <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
-      <div class="bg" v-if="!videoshow">
+      <div class="bg" v-if="!videoshow && width * 2 > 996">
         <div
           :class="[
             'Welcome',

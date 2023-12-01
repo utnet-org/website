@@ -166,6 +166,11 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   selectType.value = false;
   selectIndex.value = -1;
 };
+const width = ref(window.innerWidth);
+window.onresize = () => {
+  // 监听窗口大小变化
+  width.value = window.innerWidth;
+};
 </script>
 <template>
   <nav class="app-topnav">
@@ -176,8 +181,8 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
           <span class="logo_text">Utility</span>
         </div>
       </RouterLink>
-      <UTTOPNAV v-if="viewableWidth > 834" />
-      <div class="right" v-if="viewableWidth > 834">
+      <UTTOPNAV v-if="width > 834" />
+      <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
       </div>
