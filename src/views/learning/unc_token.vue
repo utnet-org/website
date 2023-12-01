@@ -64,9 +64,9 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 <div class="header_content_acount">
                     $0.00931
                 </div>
-                <div class="header_content_line_chart">
+                <!-- <div class="header_content_line_chart">
                     <img :src="LineChart" alt="">
-                </div>
+                </div> -->
                 <div class="header_content_button">
                     <div>Price rises by 3%</div>
                     <img :src="ToRight" alt="">
@@ -216,13 +216,16 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 
         .header_content {
             width: 646px;
-            height: 356px;
+            height: 271px;
             border-radius: 10px;
             background: linear-gradient(180deg, rgba(244, 248, 248, 0.05) 0.13%, rgba(244, 248, 248, 0.00) 99.87%);
             box-shadow: 0px 1px 1px 1px #DFE7E6 inset;
             backdrop-filter: blur(4px);
-            margin: 0 0 73px 111px;
+            margin: 0 0 132px 121px;
             padding: 26px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
             .header_content_header {
                 display: flex;
@@ -269,6 +272,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 font-family: Lantinghei SC;
                 font-size: 28px;
                 font-weight: 700;
+                margin-bottom: 57px;
             }
 
             .header_content_line_chart {
@@ -507,6 +511,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.50);
                 display: flex;
                 cursor: pointer;
+                border: 1px solid transparent;
 
                 img {
                     width: 40px;
@@ -544,7 +549,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 }
 
                 &:hover {
-                    background: url('@/assets/images/unc_token_options_background.png') no-repeat;
+                    // background: url('@/assets/images/unc_token_options_background.png') no-repeat;
+                    border: 1px solid #3EDFCF;
                     background-size: cover;
                 }
             }
@@ -556,18 +562,18 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 @media (max-width: 834px) {
     .container {
         .header {
-            height: 457px;
+            height: 480px;
             padding: 0 5%;
             background: url('@/assets/images/phone_unc_token.png') no-repeat;
             justify-content: center;
 
             .header_content {
                 width: 100%;
-                height: 308px;
+                height: 206px;
                 flex-shrink: 0;
                 padding: 28px 18px;
                 margin: 0;
-                margin-bottom: 23px;
+                margin-bottom: 95px;
 
                 .header_content_header {
                     .header_content_header_title {
@@ -577,6 +583,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 
                 .header_content_acount {
                     font-size: 24px;
+                    margin-bottom: 24px;
                 }
 
                 .header_content_line_chart {

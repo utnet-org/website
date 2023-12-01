@@ -20,7 +20,8 @@ import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
-
+import { useRouter } from "vue-router";
+const route = useRouter();
 //! Where to Start的数据
 const Where_arr = ref([
   {
@@ -28,24 +29,28 @@ const Where_arr = ref([
     text: "home.You_can_try",
     hover: false,
     button: "home.Build_DOC",
+    link: 'https://wiki.utlab.io/docs/node/introduction'
   },
   {
     title: "home.MINER",
     text: "home.You_can_get_UNC",
     hover: false,
     button: "home.Learn_More",
+    link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
   },
   {
     title: "home.UNC_WALLET",
     text: "home.The_UNC_Wallet",
     hover: false,
     button: "home.Explore_Wallet",
+    link: '/soloutions/utility_wallet'
   },
   {
     title: "home.Computing_Power_users",
     text: "home.You_can_rent",
     hover: false,
     button: "home.Develop",
+    link: '/get_power'
   },
 ]);
 //! Where to Start 鼠标移入
@@ -418,6 +423,14 @@ const next222 = () => {
     video_next();
   }
 };
+const openNewPage = (link: string) => {
+  if (link.startsWith("http://") || link.startsWith("https://")) {
+    window.open(link, '_blank');
+
+  } else {
+    route.push(link);
+  }
+}
 </script>
 <template>
   <div class="home_view">
@@ -434,73 +447,58 @@ const next222 = () => {
         v-show="scroll < 2980 || scroll == 0"
       ></Animation>
       <div class="animation_text_box" v-if="width * 2 > 996">
-        <div
-          :style="{
-            top: `${height - 300 + (height * 2) / 5}px`,
-            left: `${width + 100 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text1 && scroll > 1030 ? 'animation_text_animation' : '',
-            !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height - 300 + (height * 2) / 5}px`,
+          left: `${width + 100 - pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text1 && scroll > 1030 ? 'animation_text_animation' : '',
+  !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna1</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height + 300 - (height * 2) / 5}px`,
-            left: `${width - 100 + pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text2 && scroll > 1230 ? 'animation_text_animation' : '',
-            !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 300 - (height * 2) / 5}px`,
+          left: `${width - 100 + pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text2 && scroll > 1230 ? 'animation_text_animation' : '',
+  !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna2</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width - 400 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text3 && scroll > 1320 ? 'animation_text_animation' : '',
-            !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 100 - (height * 2) / 5}px`,
+          left: `${width - 400 + pyw / 2}px`,
+        }" :class="[
+  'animation_text',
+  text3 && scroll > 1320 ? 'animation_text_animation' : '',
+  !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna3</span>
           Hi! Welcome to Utility{{ pyw }}
         </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width + 400 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text4 && scroll > 1520 ? 'animation_text_animation' : '',
-            !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height + 100 - (height * 2) / 5}px`,
+          left: `${width + 400 - pyw / 3}px`,
+        }" :class="[
+  'animation_text',
+  text4 && scroll > 1520 ? 'animation_text_animation' : '',
+  !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna4</span>
           Hi! Welcome to Utility
         </div>
-        <div
-          :style="{
-            top: `${height - 200 + (height * 2) / 5}px`,
-            left: `${width - 500 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text5 && scroll > 1630 ? 'animation_text_animation' : '',
-            !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
-          ]"
-        >
+        <div :style="{
+          top: `${height - 200 + (height * 2) / 5}px`,
+          left: `${width - 500 + pyw / 2}px`,
+        }" :class="[
+  'animation_text',
+  text5 && scroll > 1630 ? 'animation_text_animation' : '',
+  !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
+]">
           <span>Jenna5</span>
           Hi! Welcome to Utility
         </div>
@@ -595,16 +593,10 @@ const next222 = () => {
           {{ $t("home.Where_to_Start") }}
         </div>
         <div class="Four_boxes">
-          <div
-            @mouseover="WhereChange(index)"
-            @mouseleave="WhereChangeli"
-            class="box"
+          <div @mouseover="WhereChange(index)" @mouseleave="WhereChangeli" @click="openNewPage(item.link)" class="box"
             :style="{
               border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }"
-            v-for="(item, index) in Where_arr"
-            :key="index"
-          >
+            }" v-for="(item, index) in Where_arr" :key="index">
             <div>
               <div class="box_title">
                 {{ $t(item.title) }}
@@ -624,11 +616,7 @@ const next222 = () => {
       <div class="Data_and_circles">
         <div class="Data">
           <div class="value_father">
-            <div
-              class="data_value"
-              v-for="(item, index) in Data_arr"
-              :key="index"
-            >
+            <div class="data_value" v-for="(item, index) in Data_arr" :key="index">
               <div class="amount" v-html="item.amount"></div>
               <div class="data_text">
                 {{ $t(item.text) }}
@@ -686,42 +674,23 @@ const next222 = () => {
           {{ $t("home.Utility_Chain_Scaling_Solutions") }}
         </div>
         <div class="Utility_Chain_box">
-          <div
-            style="flex: 25%"
-            v-for="(item, index) in Utility_arr"
-            :key="index"
-          >
-            <div
-              class="box_item"
-              @mouseover="UtilityChainChange(index)"
-              @mouseleave="UtilityChainChangeli"
-            >
+          <div style="flex: 25%" v-for="(item, index) in Utility_arr" :key="index">
+            <div class="box_item" @mouseover="UtilityChainChange(index)" @mouseleave="UtilityChainChangeli">
               <div class="item_img">
-                <hover
-                  :style="{
-                    opacity: item.isclick ? 1 : 0,
-                  }"
-                  class="hover"
-                />
-                <img
-                  class="item_img_img"
-                  :src="item.img"
-                  :style="{
-                    filter: item.isclick
-                      ? 'brightness(0%)'
-                      : 'brightness(100%)',
-                  }"
-                  alt=""
-                />
+                <hover :style="{
+                  opacity: item.isclick ? 1 : 0,
+                }" class="hover" />
+                <img class="item_img_img" :src="item.img" :style="{
+                  filter: item.isclick
+                    ? 'brightness(0%)'
+                    : 'brightness(100%)',
+                }" alt="" />
               </div>
 
               <div class="Utility_Chain_box_item_button">
                 {{ $t("home.Testnet") }}
               </div>
-              <div
-                class="item_title"
-                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
-              >
+              <div class="item_title" :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }">
                 {{ $t(item.title) }}
               </div>
               <div class="item_text">
@@ -734,25 +703,14 @@ const next222 = () => {
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
     <div class="icons">
-      <div
-        class="carousel-container"
-        @mouseenter="startCarousel"
-        @mouseleave="stopCarousel"
-      >
+      <div class="carousel-container" @mouseenter="startCarousel" @mouseleave="stopCarousel">
         <!-- 轮播内容，绑定动态样式以实现移动效果 -->
-        <div
-          class="carousel-content"
-          :class="{
-            forward: isPlaying && isForward,
-            backward: isPlaying && !isForward,
-          }"
-        >
+        <div class="carousel-content" :class="{
+          forward: isPlaying && isForward,
+          backward: isPlaying && !isForward,
+        }">
           <!-- 遍历所有图片资源，为每张图片创建一个轮播项 -->
-          <div
-            v-for="(imgSrc, index) in duplicatedImages"
-            :key="index"
-            class="carousel-item"
-          >
+          <div v-for="(imgSrc, index) in duplicatedImages" :key="index" class="carousel-item">
             <!-- 显示图片 -->
             <img :src="imgSrc" alt="" />
           </div>
@@ -768,26 +726,13 @@ const next222 = () => {
         </div>
 
         <div class="swiper-button-prev"></div>
-        <swiper
-          :ref="mySwiper"
-          :slidesPerView="3.5"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :navigation="navigation"
-          class="swiper"
-          @slideChange="onSlideChange"
-        >
+        <swiper :ref="mySwiper" :slidesPerView="3.5" :spaceBetween="16" :modules="modules" :loop="false"
+          :navigation="navigation" class="swiper" @slideChange="onSlideChange">
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
-          <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
-            @click="$router.push('/news')"
-          >
+          <swiper-slide v-for="(item, index) in merryGoRound_arr" :key="index" class="swiper-slide"
+            @mouseenter="item.isswiperenter = true" @mouseleave="item.isswiperenter = false"
+            @click="$router.push('/news')">
             <div v-if="item.isswiperenter" class="icon">
               <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
@@ -839,6 +784,7 @@ const next222 = () => {
   position: relative;
   background: #000;
   z-index: 2;
+
   .animation_button {
     position: fixed;
     overflow: hidden;
@@ -879,12 +825,14 @@ const next222 = () => {
     left: 0;
     width: 100%;
     height: 100%;
+
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
   }
+
   .animation_text_box {
     position: fixed;
     top: 0;
@@ -898,11 +846,13 @@ const next222 = () => {
         transform: scale(0);
         transform-origin: top left;
       }
+
       50% {
         opacity: 1;
         transform: scale(1.1);
         transform-origin: top left;
       }
+
       100% {
         opacity: 1;
         transform: scale(1);
@@ -916,11 +866,13 @@ const next222 = () => {
         transform: scale(1);
         transform-origin: top left;
       }
+
       50% {
         opacity: 1;
         transform: scale(1);
         transform-origin: top left;
       }
+
       100% {
         opacity: 0;
         transform: scale(0);
@@ -950,6 +902,7 @@ const next222 = () => {
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.105);
       backdrop-filter: blur(9px);
+
       span {
         position: absolute;
         top: -30px;
@@ -958,6 +911,7 @@ const next222 = () => {
         display: flex;
         align-items: center;
         gap: 10px;
+
         &::before {
           content: "";
           display: block;
@@ -991,8 +945,10 @@ const next222 = () => {
     }
   }
 }
+
 .home_view {
   background-color: #fffefb;
+
   .bg {
     // height: 1100px;
     width: 100%;
@@ -1004,6 +960,7 @@ const next222 = () => {
     // max-width: 1500px;
     // margin: 0 20px;
   }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -1014,6 +971,7 @@ const next222 = () => {
       0% {
         transform: translateY(0);
       }
+
       100% {
         transform: translateY(290px);
       }
@@ -1023,6 +981,7 @@ const next222 = () => {
       0% {
         transform: translateY(290px);
       }
+
       100% {
         transform: translateY(0);
       }
@@ -1031,6 +990,7 @@ const next222 = () => {
     .WelcomeAnimation {
       animation: identifier 0.3s ease-in forwards;
     }
+
     .WelcomeAnimationf {
       animation: identifierf 0.3s ease-in forwards;
     }
@@ -1042,17 +1002,16 @@ const next222 = () => {
       height: 290px;
       align-items: center;
       // border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.035) 0.13%,
+          rgba(244, 248, 248, 0.043) 99.87%);
       // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
       //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);
       position: absolute;
       left: 0;
       bottom: 0;
+
       .Utility {
         display: flex;
         align-items: center;
@@ -1067,6 +1026,7 @@ const next222 = () => {
           line-height: normal;
           letter-spacing: 0.76px;
         }
+
         .Welcome_text_title {
           font-size: 34px;
           color: rgba(255, 255, 255, 0.9);
@@ -1089,6 +1049,7 @@ const next222 = () => {
           border-radius: 50%;
           margin-right: 5px;
         }
+
         .lang {
           color: var(--Light-dark, rgba(255, 255, 255, 0.9));
           text-align: center;
@@ -1112,10 +1073,12 @@ const next222 = () => {
         margin-top: 15px;
         margin-bottom: 28px;
       }
+
       .button_father {
         display: flex;
         justify-content: center;
       }
+
       .button {
         display: flex;
         justify-content: center;
@@ -1124,6 +1087,7 @@ const next222 = () => {
         height: 42px;
         border-radius: 6px;
         border: 1px solid #3edfcf;
+
         &:hover {
           // background: linear-gradient(
           //   177deg,
@@ -1139,11 +1103,13 @@ const next222 = () => {
           color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
         }
       }
+
       .button_right {
         display: flex;
         justify-content: center;
@@ -1153,6 +1119,7 @@ const next222 = () => {
         border-radius: 6px;
         border: 1px solid #3edfcf;
         margin-left: 32px;
+
         &:hover {
           // background: linear-gradient(
           //   177deg,
@@ -1162,25 +1129,30 @@ const next222 = () => {
           /* shadow for navbar hover */
           box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
         }
+
         .text {
           font-size: 14px;
           font-weight: 500;
           color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
         }
       }
     }
+
     .get_the_app {
       height: 1095px;
+
       img {
         width: 100%;
         height: 100%;
       }
     }
+
     .Where_to_Start {
       width: 100%;
       padding: 72px 0px 24px 0px;
@@ -1193,6 +1165,7 @@ const next222 = () => {
         padding-left: 140px;
         margin-bottom: 20px;
       }
+
       .Four_boxes {
         display: flex;
         //多行对齐
@@ -1205,11 +1178,9 @@ const next222 = () => {
           height: 394px;
           margin: 0px 8px 16px 8px;
           border-radius: 12px;
-          background: linear-gradient(
-            177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
+          background: linear-gradient(177deg,
+              #fff -24.77%,
+              rgba(255, 255, 255, 0) 97.53%);
           opacity: 0.8;
           display: flex;
           flex-direction: column;
@@ -1218,6 +1189,7 @@ const next222 = () => {
           box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
           padding: 50px 0 43px 50px;
           transition: all 0.5s;
+
           s &:hover {
             //过渡
             transition: all 0.5s;
@@ -1229,6 +1201,7 @@ const next222 = () => {
             font-weight: 400;
             color: #3edfcf;
           }
+
           .box_text {
             max-width: 420px;
             margin-top: 14px;
@@ -1239,9 +1212,11 @@ const next222 = () => {
             font-style: normal;
             font-weight: 400;
           }
+
           .box_button {
             height: 45px;
-            padding: 12px 16px; /* 添加适当的内边距 */
+            padding: 12px 16px;
+            /* 添加适当的内边距 */
             background: #fffefb;
             border-radius: 6px;
             border: 1px solid #3edfcf;
@@ -1251,18 +1226,18 @@ const next222 = () => {
             font-size: 14px;
             font-weight: 500;
             color: rgba(21, 28, 26, 0.9);
+
             &:hover {
               box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
-              background: linear-gradient(
-                177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -s4.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
         }
       }
     }
+
     .Data_and_circles {
       width: 100%;
       padding-top: 78px;
@@ -1270,6 +1245,7 @@ const next222 = () => {
       display: flex;
       justify-content: center;
       align-items: center;
+
       .Data {
         width: 100%;
         height: 100%;
@@ -1284,6 +1260,7 @@ const next222 = () => {
           flex-wrap: wrap;
           justify-content: start;
           margin-right: 105px;
+
           .data_value {
             margin-left: 98px;
             margin-bottom: 40px;
@@ -1300,6 +1277,7 @@ const next222 = () => {
               border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
               padding-right: 11px;
             }
+
             .data_text {
               color: var(--Light-dark, rgba(21, 28, 26, 0.9));
               font-family: Inter;
@@ -1311,6 +1289,7 @@ const next222 = () => {
           }
         }
       }
+
       .circles {
         position: relative;
 
@@ -1318,15 +1297,18 @@ const next222 = () => {
           display: flex;
           align-items: center;
         }
+
         .point_one {
           z-index: 100;
           position: absolute;
           right: 44px;
           top: 68px;
+
           .point_text {
             margin-left: 8px;
           }
         }
+
         .thisAPoint {
           width: 16px;
           height: 16px;
@@ -1336,6 +1318,7 @@ const next222 = () => {
           margin-right: 5px;
           border: 2px solid #fff;
         }
+
         .round_one {
           width: 614px;
           height: 614px;
@@ -1349,6 +1332,7 @@ const next222 = () => {
           top: 0;
           //旋转100deg
           transform: rotate(85deg);
+
           .point_two {
             z-index: 100;
             //旋转100deg
@@ -1358,6 +1342,7 @@ const next222 = () => {
             top: 480px;
           }
         }
+
         .round_two {
           width: 542px;
           height: 542px;
@@ -1368,6 +1353,7 @@ const next222 = () => {
           position: absolute;
           left: 9.2px;
           top: 10px;
+
           .point_three {
             z-index: 100;
             //旋转100deg
@@ -1377,6 +1363,7 @@ const next222 = () => {
             top: 448px;
           }
         }
+
         .round_three {
           width: 468px;
           height: 468px;
@@ -1386,6 +1373,7 @@ const next222 = () => {
           position: absolute;
           left: 9.6px;
           top: 10px;
+
           .point_four {
             z-index: 100;
             //旋转100deg
@@ -1395,6 +1383,7 @@ const next222 = () => {
             top: 274px;
           }
         }
+
         .round_four {
           width: 388px;
           height: 388px;
@@ -1404,6 +1393,7 @@ const next222 = () => {
           position: absolute;
           left: 12px;
           top: 10px;
+
           .point_five {
             z-index: 100;
             //旋转100deg
@@ -1413,6 +1403,7 @@ const next222 = () => {
             top: 348px;
           }
         }
+
         .round_five {
           width: 310px;
           height: 310px;
@@ -1422,6 +1413,7 @@ const next222 = () => {
           position: absolute;
           left: 11px;
           top: 10px;
+
           .point_six {
             z-index: 100;
             //旋转100deg
@@ -1431,6 +1423,7 @@ const next222 = () => {
             top: 220px;
           }
         }
+
         .round_six {
           width: 226px;
           height: 226px;
@@ -1440,6 +1433,7 @@ const next222 = () => {
           position: absolute;
           left: 13px;
           top: 10px;
+
           .point_seven {
             z-index: 100;
             //旋转100deg
@@ -1451,6 +1445,7 @@ const next222 = () => {
         }
       }
     }
+
     .Utility_Chain {
       width: 100%;
       padding: 59px 140px 0 140px;
@@ -1458,6 +1453,7 @@ const next222 = () => {
 
       flex-direction: column;
       align-items: center;
+
       .title {
         color: rgba(21, 28, 26, 0.9);
         margin-bottom: 90px;
@@ -1466,6 +1462,7 @@ const next222 = () => {
         font-size: 24px;
         font-weight: 400;
       }
+
       .Utility_Chain_box {
         display: flex;
         flex-wrap: wrap;
@@ -1487,6 +1484,7 @@ const next222 = () => {
             //过渡
             transition: all 0.3s;
           }
+
           .item_text {
             color: rgba(21, 28, 26, 0.7);
             font-family: Inter;
@@ -1497,21 +1495,21 @@ const next222 = () => {
             margin-top: 6px;
             margin-bottom: 22px;
           }
+
           .item_img {
             width: 60px;
             height: 60px;
             margin-bottom: 9px;
             position: relative;
 
-            background: linear-gradient(
-              97deg,
-              #f1f7f6 40%,
-              rgba(164, 229, 221, 0.2) 100.1%
-            );
+            background: linear-gradient(97deg,
+                #f1f7f6 40%,
+                rgba(164, 229, 221, 0.2) 100.1%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
               width: 70%;
               height: 70%;
@@ -1528,6 +1526,7 @@ const next222 = () => {
               transition: all 0.3s;
             }
           }
+
           .Utility_Chain_box_item_button {
             width: 59px;
             height: 22px;
@@ -1550,6 +1549,7 @@ const next222 = () => {
       width: 100%;
       height: 672px;
       padding: 0 110px;
+
       .title {
         color: #3edfcf;
         font-size: 22px;
@@ -1564,14 +1564,17 @@ const next222 = () => {
         width: 93%;
         height: 394px;
         position: relative;
+
         .swiper-slide {
           display: flex;
           flex-direction: column;
           position: relative;
           cursor: pointer; ///鼠标移上去变成手指
+
           .swiper_img {
             border-radius: 8px;
           }
+
           .icon {
             position: absolute;
             top: 18px;
@@ -1584,27 +1587,32 @@ const next222 = () => {
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
               width: 100%;
               height: 100%;
             }
           }
+
           .time {
             color: #151c1a;
             font-family: Jaldi;
             font-size: 15px;
             font-style: normal;
             font-weight: 400;
-            line-height: 21px; /* 21.825px */
+            line-height: 21px;
+            /* 21.825px */
             letter-spacing: 0.3px;
             margin-top: 11px;
           }
+
           .text {
             color: #151c1a;
             font-family: Inter;
             font-size: 17px;
             font-weight: 600;
-            line-height: 24.055px; /* 24.055px */
+            line-height: 24.055px;
+            /* 24.055px */
           }
         }
 
@@ -1615,13 +1623,13 @@ const next222 = () => {
           left: 0px;
           top: 0;
           bottom: 0;
-          background: linear-gradient(
-            90deg,
-            #fff 13.44%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          z-index: 2; /* 确保阴影在内容之上 */
+          background: linear-gradient(90deg,
+              #fff 13.44%,
+              rgba(255, 255, 255, 0) 100%);
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
+
         // *这将在滑动器的右侧创建模糊效果
         .shadow_right {
           width: 212px;
@@ -1629,12 +1637,11 @@ const next222 = () => {
           right: 0px;
           top: 0;
           bottom: 0;
-          background: linear-gradient(
-            270deg,
-            #fff 13.44%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          z-index: 2; /* 确保阴影在内容之上 */
+          background: linear-gradient(270deg,
+              #fff 13.44%,
+              rgba(255, 255, 255, 0) 100%);
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
       }
 
@@ -1651,12 +1658,14 @@ const next222 = () => {
         background-color: rgba(21, 28, 26, 0.9) !important;
         color: #fff !important;
       }
+
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
         background-color: #fff !important;
         border: 1px solid #000 !important;
         color: #000 !important;
-        opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
+        opacity: 1 !important;
+        /* 可以设置不透明度来表示禁用状态 */
         pointer-events: auto;
         cursor: not-allowed !important;
       }
@@ -1664,9 +1673,11 @@ const next222 = () => {
       .swiper-button-prev {
         left: 100px;
       }
+
       .swiper-button-next {
         right: 100px;
       }
+
       .swiper-button-prev::after,
       .swiper-button-next::after {
         font-size: 20px !important;
@@ -1683,16 +1694,15 @@ const next222 = () => {
       justify-content: end;
       background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
       position: relative;
+
       .Create_a_lighter {
         width: 757px;
         height: 394px;
         flex-shrink: 0;
         border-radius: 10px;
-        background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
-        );
+        background: linear-gradient(180deg,
+            rgba(244, 248, 248, 0.05) 0.13%,
+            rgba(244, 248, 248, 0) 99.87%);
         box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         backdrop-filter: blur(4px);
         position: absolute;
@@ -1702,6 +1712,7 @@ const next222 = () => {
         flex-direction: column;
         align-items: center;
         padding-top: 64px;
+
         .title_one {
           color: var(--Dark, #151c1a);
           font-family: Inter;
@@ -1709,6 +1720,7 @@ const next222 = () => {
           font-weight: 600;
           max-width: 570px;
         }
+
         .text {
           margin-top: 24px;
           max-width: 454px;
@@ -1718,6 +1730,7 @@ const next222 = () => {
           font-weight: 400;
           line-height: 20px;
         }
+
         .button_father {
           display: flex;
 
@@ -1732,6 +1745,7 @@ const next222 = () => {
             display: flex;
             justify-content: center;
             align-items: center;
+
             .button_text {
               font-size: 14px;
               font-weight: 500;
@@ -1740,42 +1754,41 @@ const next222 = () => {
               margin-left: 12px;
             }
           }
+
           .button_left {
             margin-right: 60px;
+
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -24.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
+
           .button_right {
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  #fff -24.77%,
+                  rgba(255, 255, 255, 0) 97.53%);
             }
           }
         }
       }
+
       .square {
         display: flex;
         justify-content: center;
         width: 912px;
         height: 608px;
-        background: var(
-          --light-small,
-          linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
-        );
+        background: var(--light-small,
+            linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%));
         filter: blur(40px);
 
         opacity: 0.7;
       }
+
       .Utility_img {
         width: 630px;
         height: 582px;
@@ -1785,6 +1798,7 @@ const next222 = () => {
       }
     }
   }
+
   .icons {
     width: 100%;
     height: 110px;
@@ -1794,32 +1808,41 @@ const next222 = () => {
     background: #f7f7f4;
     margin-top: 60px;
     margin-bottom: 20px;
+
     // 正向滚动动画
     @keyframes scrollBackward {
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-1700px);
       }
     }
+
     /* 逆向滚动动画 */
     @keyframes scrollForward {
       0% {
         transform: translateX(-1700px);
       }
+
       100% {
         transform: translateX(0);
       }
     }
+
     //  鼠标移出
     .carousel-content.forward {
-      animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollForward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     // 鼠标移入
     .carousel-content.backward {
-      animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollBackward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     .carousel-container {
       overflow: hidden;
       position: relative;
@@ -1832,12 +1855,15 @@ const next222 = () => {
       height: 100%;
       display: flex;
       align-items: center;
-      will-change: transform; /* 提升性能 */
+      will-change: transform;
+      /* 提升性能 */
     }
 
     .carousel-item {
-      transition: all 0.5s; /* 设置动画 */
+      transition: all 0.5s;
+      /* 设置动画 */
       margin: 0 42px;
+
       img {
         max-width: none;
         max-height: none;
