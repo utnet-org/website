@@ -2,7 +2,7 @@
 import arrowRight from "@/assets/svgs/arrow.svg";
 import ArrowTopRight from "@/assets/images/arrow_top_right.png";
 import { ref } from "vue";
-const viewableWidth = ref(Number(localStorage.getItem('viewableWidth') ?? 0));
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
 const questionList = [
     'How to use it?',
@@ -137,6 +137,7 @@ const thirdCheckQuestionMessage = ref(-1);
         display: flex;
         align-items: flex-end;
         justify-content: flex-start;
+
         .header_content {
             width: 640px;
             height: 310px;
