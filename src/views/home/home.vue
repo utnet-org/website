@@ -80,7 +80,7 @@ const Data_arr = ref([
   },
   {
     amount: "1631,122,1120<span style='font-size: 26px;'> tflops</span>",
-    text: "home.UNC_PRICE",
+    text: "home.Computational_Power_Synthesis",
   },
 ]);
 
