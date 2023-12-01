@@ -1,8 +1,11 @@
 <script setup lang="ts" name="HomeView">
 import { ref, watch } from "vue";
 
-import arrow from "@/assets/svgs/arrow.svg";
+import arrow from "@/assets/svgs/right.svg";
 import hover from "@/assets/svgs/hover.svg";
+import blue from "@/assets/svgs/blue.svg";
+import start from "@/assets/svgs/start.svg";
+import stopss from "@/assets/svgs/stop.svg";
 
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
@@ -247,16 +250,27 @@ window.addEventListener("scroll", () => {
       ani_btn.value = 175 + (scroll.value - 2210) / 3.3;
     } else if (scroll.value > 2960 && scroll.value < 2970) {
       ani_btn.value = 474;
+      if (ani_btn_s.value) {
+        ani_btn_s.value = 0;
+        ant_btn_w.value = 80;
+        setTimeout(() => {
+          ant_btn_w.value = 300;
+        }, 300);
+      }
     } else if (scroll.value > 2970) {
       ani_btn.value = 10;
     } else {
       ani_btn.value = -80;
     }
     if (scroll.value > 2415) {
-      ant_btn_w.value = 200;
+      if (ani_btn_s.value === 0) {
+        ant_btn_w.value = 300;
+      }
     } else {
       ant_btn_w.value = 80;
     }
+  } else {
+    ani_btn.value = -80;
   }
 
   if (scroll.value > 2980 && !videoshow.value && width.value * 2 > 996) {
@@ -326,7 +340,7 @@ window.addEventListener("scroll", () => {
     text5.value = false;
     timer5.value = undefined;
   }
-  console.log("scroll.value:", scroll.value);
+  // console.log("scroll.value:", scroll.value);
 });
 
 // 定时器
@@ -361,7 +375,7 @@ const video_next = () => {
   videoshow.value = true;
   document.documentElement.scrollTop = 2980 + window.innerHeight;
 };
-// 监听是否有向上滚动的动作
+
 window.addEventListener("wheel", (e) => {
   if (
     e.deltaY < 0 &&
@@ -373,13 +387,44 @@ window.addEventListener("wheel", (e) => {
     document.documentElement.scrollTop = 2980;
   }
 });
+
+const ani_btn_s = ref(0);
+// 监听是否有向上滚动的动作
+const onVideoEnded = () => {
+  console.log("视频播放完毕");
+  ani_btn_s.value = 1;
+  ant_btn_w.value = 80;
+  setTimeout(() => {
+    ant_btn_w.value = 240;
+  }, 300);
+};
+// const onVideoEnded1 = () => {
+//   console.log("视频播放完毕");
+//   ani_btn_s.value = 2;
+//   ant_btn_w.value = 80;
+//   setTimeout(() => {
+//     ant_btn_w.value = 300;
+//   }, 300);
+// };
+const next222 = () => {
+  if (ani_btn_s.value === 1) {
+    console.log("视频播放完毕");
+    ani_btn_s.value = 2;
+    ant_btn_w.value = 80;
+    setTimeout(() => {
+      ant_btn_w.value = 300;
+    }, 300);
+  } else {
+    video_next();
+  }
+};
 </script>
 <template>
   <div class="home_view">
     <div
       class="animation_box"
       :style="{
-        zIndex: !videoshow ? 1 : -1,
+        zIndex: !videoshow ? 2 : -1,
         height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
       }"
     >
@@ -461,14 +506,39 @@ window.addEventListener("wheel", (e) => {
         </div>
       </div>
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
-        <video src="@/assets/mv/55_1701258800.mp4" autoplay muted></video>
+        <video
+          v-if="ani_btn_s == 0 || ani_btn_s == 1"
+          src="@/assets/mv/55_1701258800.mp4"
+          autoplay
+          muted
+          @ended="onVideoEnded"
+        ></video>
+        <video
+          v-if="ani_btn_s == 2"
+          src="@/assets/mv/55_1701258800.mp4"
+          autoplay
+          muted
+        ></video>
       </div>
       <div
         class="animation_button"
         :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
         v-if="width * 2 > 996"
       >
-        <div @click="video_next()" class="animation_button_text">跳过</div>
+        <div
+          v-if="ant_btn_w != 80"
+          class="animation_button_text"
+        >
+          <span v-if="ani_btn_s == 0 || ani_btn_s == 2">
+            Skip the description
+          </span>
+          <span v-else> Chip Consensus </span>
+        </div>
+        <div style="min-width: 66px" @click="next222">
+          <blue v-if="ani_btn !== 10"></blue>
+          <stopss v-if="ani_btn == 10 && (ani_btn_s == 0 || ani_btn_s == 2)" />
+          <start v-if="ani_btn == 10 && ani_btn_s == 1"></start>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -771,19 +841,35 @@ window.addEventListener("wheel", (e) => {
   z-index: 2;
   .animation_button {
     position: fixed;
+    overflow: hidden;
     // bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     // width: 80px;
     height: 80px;
-    background: rgb(0, 255, 255);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.105);
+    backdrop-filter: blur(9px);
     border-radius: 40px;
     transition: 0.3s;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    padding: 0 7px;
     .animation_button_text {
+      flex: 1;
+      color: #fffefb;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
       font-weight: 500;
+      line-height: 150%; /* 24px */
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
     }
   }
 
@@ -1039,13 +1125,12 @@ window.addEventListener("wheel", (e) => {
         border-radius: 6px;
         border: 1px solid #3edfcf;
         &:hover {
-          background: linear-gradient(
-            177deg,
-            #ffffff48 -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
-          /* shadow for navbar hover */
-          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
+          // background: linear-gradient(
+          //   177deg,
+          //   #ffffff48 -24.77%,
+          //   rgba(255, 255, 255, 0) 97.53%
+          // );
+          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
         }
 
         .text {
@@ -1069,13 +1154,13 @@ window.addEventListener("wheel", (e) => {
         border: 1px solid #3edfcf;
         margin-left: 32px;
         &:hover {
-          background: linear-gradient(
-            177deg,
-            #ffffff48 -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
+          // background: linear-gradient(
+          //   177deg,
+          //   #ffffff48 -24.77%,
+          //   rgba(255, 255, 255, 0) 97.53%
+          // );
           /* shadow for navbar hover */
-          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.133);
+          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
         }
         .text {
           font-size: 14px;
