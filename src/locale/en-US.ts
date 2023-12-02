@@ -224,14 +224,14 @@ export default {
       "Multifaceted Cryptocurrency Platform",
   },
   community: {
-      h1_1:"Welcome to Community",
-      h1_2:"Let's redefine the future of blockchain and computing together",
-      h1_3:"Read More",
+    h1_1: "Welcome to Community",
+    h1_2: "Let's redefine the future of blockchain and computing together",
+    h1_3: "Read More",
 
-      h2_1:"Experience sharing",
-      h2_2:"Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
-          "                      A dedicated technical discussion area for developers and technical staff to exchange ideas and solve problems.\n" +
-          "                      Users and developers can make suggestions for improvements or report potential problems, and jointly promote the development of the Ute Network.",
+    h2_1: "Experience sharing",
+    h2_2: "Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
+      "                      A dedicated technical discussion area for developers and technical staff to exchange ideas and solve problems.\n" +
+      "                      Users and developers can make suggestions for improvements or report potential problems, and jointly promote the development of the Ute Network.",
     optionsList1: {
       title: 'Join Online Community',
       text: 'Join our community to discuss, learn and share with us'
@@ -277,7 +277,7 @@ export default {
       }
     ],
 
-    stepsList:[
+    stepsList: [
       {
         time: '2023 10/31 8:00（UTC+8）',
         message: 'PoCI、PIEE 和 CAT 深入分析',
@@ -289,5 +289,12 @@ export default {
         reason: 'Online Meeting'
       },
     ]
+  },
+  docs: {
+    At_this_stage_UNC: ' At this stage, UNC token issuance takes place, the public chain foundation is established, and the community and public chain are in the development phase. During this stage, the first internal test will be initiated, focusing on incentive model testing based on the Binance Smart Chain.',
+    Empower_the_Network: 'Empower the Network: Join as a Node',
+    Contribute_Computing_Power: 'Contribute Computing Power: Enhance Network Performance',
+    Innovate_with_Us: 'Innovate with Us: Develop on Utility Network',
+    Explore_Our_Foundation: 'Explore Our Foundation: Understand Our Vision',
   }
 };

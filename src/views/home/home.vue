@@ -1139,7 +1139,13 @@ const next222 = () => {
   .bg {
     // height: 1100px;
     width: 100%;
-    position: relative;
+    position: fixed;
+    z-index: 3;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    // max-width: 1500px;
+    // margin: 0 20px;
   }
   .container {
     display: flex;
@@ -1147,52 +1153,120 @@ const next222 = () => {
     justify-content: center;
     align-items: center;
 
+    @keyframes identifier {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(290px);
+      }
+    }
+
+    @keyframes identifierf {
+      0% {
+        transform: translateY(290px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .WelcomeAnimation {
+      animation: identifier 0.3s ease-in forwards;
+    }
+
+    .WelcomeAnimationf {
+      animation: identifierf 0.3s ease-in forwards;
+    }
+
     .Welcome {
       display: flex;
       flex-direction: column;
       width: 100%;
-      min-height: 290px;
+      height: 290px;
       align-items: center;
-      border-radius: 10px;
+      // border-radius: 10px;
       background: linear-gradient(
         180deg,
-        rgba(244, 248, 248, 0.08) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
+        rgba(244, 248, 248, 0.035) 0.13%,
+        rgba(244, 248, 248, 0.043) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.58) inset,
-        0px 4px 50px 0px #dde3e1;
+      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
+      //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);
       position: absolute;
       left: 0;
       bottom: 0;
-      padding-bottom: 40px;
+
       .Utility {
-        text-align: center;
+        display: flex;
+        align-items: center;
+
         .Utility_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           text-align: center;
+          // font-family: Lantinghei SC;
+          font-size: 38px;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+          letter-spacing: 0.76px;
         }
+
         .Welcome_text_title {
           font-size: 34px;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           font-weight: 400;
           font-family: Lantinghei SC;
         }
       }
 
+      .Language {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 33px;
+        margin-bottom: 18px;
+
+        .point {
+          width: 9px;
+          height: 9px;
+          background-color: rgba(62, 223, 207, 1);
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+
+        .lang {
+          color: var(--Light-dark, rgba(255, 255, 255, 0.9));
+          text-align: center;
+          font-family: JejuGothic;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: -0.2px;
+        }
+      }
+
       .Anapplication {
+        max-width: 1149px;
         font-size: 14px;
         font-weight: 300;
-        color: rgba(21, 28, 26, 0.9);
+        color: rgba(255, 255, 255, 0.9);
+
         text-align: center;
+        line-height: 20px;
+        margin-top: 15px;
+        margin-bottom: 28px;
       }
+
       .button_father {
         display: flex;
         justify-content: center;
       }
+
       .button {
         display: flex;
         justify-content: center;
@@ -1201,17 +1275,29 @@ const next222 = () => {
         height: 42px;
         border-radius: 6px;
         border: 1px solid #3edfcf;
+
+        &:hover {
+          // background: linear-gradient(
+          //   177deg,
+          //   #ffffff48 -24.77%,
+          //   rgba(255, 255, 255, 0) 97.53%
+          // );
+          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
+        }
+
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
         }
       }
+
       .button_right {
         display: flex;
         justify-content: center;
@@ -1221,20 +1307,24 @@ const next222 = () => {
         border-radius: 6px;
         border: 1px solid #3edfcf;
         margin-left: 32px;
+
         &:hover {
-          background: linear-gradient(
-            177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
-          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+          // background: linear-gradient(
+          //   177deg,
+          //   #ffffff48 -24.77%,
+          //   rgba(255, 255, 255, 0) 97.53%
+          // );
+          /* shadow for navbar hover */
+          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
         }
+
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(21, 28, 26, 0.9);
+          color: rgba(255, 255, 255, 0.9);
           margin-right: 8px;
         }
+
         img {
           width: 17px;
           height: 16px;
