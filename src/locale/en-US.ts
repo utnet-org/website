@@ -1,3 +1,7 @@
+import CommunityOptions1 from "@/assets/images/community_options1.png";
+import CommunityOptions2 from "@/assets/images/community_options2.png";
+import CommunityOptions3 from "@/assets/images/community_options3.png";
+
 export default {
   nav: {
     Learning: "Learning",
@@ -38,7 +42,7 @@ export default {
     Github: "Github",
     Github_details: "View Utility's codebase",
     English: "English",
-    Chinese: "Chinese",
+    Chinese: "中文",
   },
   footer: {
     Resources: "Resources",
@@ -219,4 +223,71 @@ export default {
     multifacetedc_ryptocurrency_platform:
       "Multifaceted Cryptocurrency Platform",
   },
+  community: {
+      h1_1:"Welcome to Community",
+      h1_2:"Let's redefine the future of blockchain and computing together",
+      h1_3:"Read More",
+
+      h2_1:"Experience sharing",
+      h2_2:"Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
+          "                      A dedicated technical discussion area for developers and technical staff to exchange ideas and solve problems.\n" +
+          "                      Users and developers can make suggestions for improvements or report potential problems, and jointly promote the development of the Ute Network.",
+    optionsList1: {
+      title: 'Join Online Community',
+      text: 'Join our community to discuss, learn and share with us'
+    },
+    optionsList2: {
+      title: 'Contribute to the Project',
+      text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
+    },
+    optionsList3: {
+      title: 'Utility Activities',
+      text: 'Provide in-depth understanding and participation'
+    },
+    // communityOptionsList2:{
+    //   // image: CommunityOptions2,
+    //   title: 'Contribute to the Project',
+    //   text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
+    // },
+    // communityOptionsList3:{
+    //   // image: CommunityOptions3,
+    //   title: 'Utility Activities',
+    //   text: 'Provide in-depth understanding and participation'
+    // },
+    toggleMenuList: [
+      {
+        firstTitle: 'Emily Johnson',
+        secondTitle: 'From the other side of the sea',
+        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+      },
+      {
+        firstTitle: 'Michael Davis',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+      },
+      {
+        firstTitle: 'David Miller',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+      },
+      {
+        firstTitle: 'Matthew Martinez',
+        secondTitle: 'From the other side of the sea',
+        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
+      }
+    ],
+
+    stepsList:[
+      {
+        time: '2023 10/31 8:00（UTC+8）',
+        message: 'PoCI、PIEE 和 CAT 深入分析',
+        reason: 'Online Meeting'
+      },
+      {
+        time: '2023 10/29/ 8:00（UTC+8）',
+        message: 'In-depth Analysis of PoCI, PIEE & CAT',
+        reason: 'Online Meeting'
+      },
+    ]
+  }
 };

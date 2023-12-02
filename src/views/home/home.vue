@@ -16,7 +16,7 @@ import { defineComponent } from "vue";
 // & 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import { openNewPage } from "../../utils/request.ts";
+import { openNewPage } from "@/utils/request";
 // & 单独导入所需的Swiper模块
 import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 // & 导入Swiper的样式

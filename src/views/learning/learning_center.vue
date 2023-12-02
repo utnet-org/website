@@ -4,7 +4,7 @@ import ArrowTopRight from "@/assets/images/arrow_top_right.png";
 import { ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
-import { openNewPage } from "../../utils/request.ts";
+import { openNewPage } from "@/utils/request";
 const questionList = [
     'How to use it?',
     'Enhance Utility Network'

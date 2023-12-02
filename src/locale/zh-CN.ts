@@ -1,3 +1,7 @@
+import CommunityOptions1 from "@/assets/images/community_options1.png";
+import CommunityOptions2 from "@/assets/images/community_options2.png";
+import CommunityOptions3 from "@/assets/images/community_options3.png";
+
 export default {
   nav: {
     Learning: "学习使用",
@@ -216,4 +220,63 @@ export default {
     digital_asset_trading: "数字资产交易",
     multifacetedc_ryptocurrency_platform: "多元数字货币平台",
   },
+  community: {
+    h1_1:"欢迎来到社区",
+    h1_2:"我们一起重新定义区块链和计算的未来",
+    h1_3:"阅读更多",
+
+    h2_1:"交流与分享",
+    h2_2:"用户可以分享他们使用尤特网络的实际体验，包括挖矿、智能合约开发等。\n" +
+        "专门的技术讨论区，供开发者和技术人员交流心得、解决问题。\n" +
+        "用户和开发者可以提出改进建议或报告潜在问题，共同促进尤特网络的发展。",
+    optionsList1: {
+      title: '加入在线社区',
+      text: '加入我们的社区，与我们一起探讨、学习和分享'
+    },
+    optionsList2: {
+      title: '为项目做出贡献',
+      text: '欢迎有兴趣的个人和团队为我们的项目贡献力量，共同实现我们的愿景。'
+    },
+    optionsList3: {
+      title: '活动',
+      text: '提供深度了解与参与'
+    },
+
+    toggleMenuList: [
+      {
+        firstTitle: 'Emily Johnson',
+        secondTitle: 'From the other side of the sea',
+        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+      },
+      {
+        firstTitle: 'Michael Davis',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+      },
+      {
+        firstTitle: 'David Miller',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+      },
+      {
+        firstTitle: 'Matthew Martinez',
+        secondTitle: 'From the other side of the sea',
+        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
+      }
+    ],
+
+    stepsList:[
+      {
+        time: '2023 10/31 8:00（UTC+8）',
+        message: 'PoCI、PIEE 和 CAT 深入分析',
+        reason: 'Online Meeting'
+      },
+      {
+        time: '2023 10/29/ 8:00（UTC+8）',
+        message: 'In-depth Analysis of PoCI, PIEE & CAT',
+        reason: 'Online Meeting'
+      },
+    ]
+  }
+
 };
