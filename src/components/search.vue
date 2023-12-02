@@ -13,7 +13,7 @@ const handleClick = () => {
 };
 </script>
 <template>
-  <div class="ut_search"><Search /></div>
+<!--  <div class="ut_search"><Search /></div>-->
 </template>
 <style scoped lang="less">
 .ut_search {

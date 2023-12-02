@@ -4,6 +4,7 @@ import ArrowTopRight from "@/assets/images/arrow_top_right.png";
 import { ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
+import { openNewPage } from "../../utils/request.ts";
 const questionList = [
     'How to use it?',
     'Enhance Utility Network'
@@ -18,16 +19,19 @@ const questionMessageList = [
                 id: 1,
                 title: 'What is Utility',
                 text: 'Start from here as a beginner',
+                link:'/learning/utility_explain',
             },
             {
                 id: 2,
                 title: 'What is UNC Token',
                 text: 'Start UNC Token (UNC) is the currency of the Utility network and its ecosystem',
+                link:'/learning/unc_token',
             },
             {
                 id: 3,
                 title: 'What is POCI Consensus',
                 text: 'It is a brand-new proof mechanism, which indirectly proves computing power through the possession of trusted computing power.',
+                link:'/learning/poci_consensus',
             }
         ]
     },
@@ -39,11 +43,13 @@ const questionMessageList = [
                 id: 4,
                 title: 'U Wallet',
                 text: 'A digital wallet holds the credentials you need to prove your identity and access your important places.',
+                link:'/soloutions/utility_wallet',
             },
             {
                 id: 5,
                 title: 'Purchase U Platform',
                 text: 'The first computing power rental platform issued by the Utility.',
+              link:'/get_power',
             }
         ]
     },
@@ -55,16 +61,19 @@ const questionMessageList = [
                 id: 6,
                 title: 'Running Nodes',
                 text: 'Participate in running nodes and make important contributions.',
+                link:'https://wiki.utlab.io/docs/node/introduction',
             },
             {
                 id: 7,
                 title: 'Mining and Rental Supply',
                 text: 'Learn how to mining and rental in the Utility network.',
+                link:'https://wiki.utlab.io/docs/computing-power-supplier/introduce',
             },
             {
                 id: 8,
                 title: 'Join the Community',
                 text: 'A home for Utility developers, technical experts, designers, users and cryptocurrency enthusiasts.',
+                link:'/community',
             }
         ]
     }
@@ -80,7 +89,7 @@ const thirdCheckQuestionMessage = ref(-1);
                 <div class="header_content_text">A guide for you to enter the world of Utility.
                     Know about how Utility works so you can connect to it.
                     This page includes technical articles, guides, and resources.</div>
-                <div class="header_content_button">
+                <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
                     <div>White paper</div>
                     <arrowRight />
                 </div>
@@ -106,17 +115,19 @@ const thirdCheckQuestionMessage = ref(-1);
                     <div class="section_right_item_title">{{ item.messageTitle }}</div>
                     <div class="section_right_item_text">{{ item.messageText }}</div>
                     <div class="section_right_item_card">
-                        <div class="section_right_item_card_item" v-for="(citem, cindex) in item.messageList" :key="cindex">
-                            <div class="section_right_item_card_item_header">
+                        <div v-for="(citem, cindex) in item.messageList" :key="cindex">
+                            <div  class="section_right_item_card_item" @click="openNewPage(citem.link)">
+                              <div class="section_right_item_card_item_header">
                                 <div class="section_right_item_card_item_header_title">{{ citem.title }}</div>
                                 <div class="section_right_item_card_item_header_text">{{ citem.text }}</div>
-                            </div>
-                            <div class="section_right_item_card_item_button">
+                              </div>
+                              <div class="section_right_item_card_item_button">
                                 <img v-if="firstCheckQuestionMessage === citem.id || viewableWidth < 834"
-                                    src="@/assets/images/learning_center_enter.png" alt="">
+                                     src="@/assets/images/learning_center_enter.png" alt="">
                                 <img v-else src="@/assets/images/learning_center_enter_default.png" alt="">
                                 <div @mouseenter="firstCheckQuestionMessage = citem.id"
-                                    @mouseleave="firstCheckQuestionMessage = -1">Learn More</div>
+                                     @mouseleave="firstCheckQuestionMessage = -1">Learn More</div>
+                              </div>
                             </div>
                         </div>
                     </div>

@@ -6,22 +6,27 @@ import OptionsItem2 from "@/assets/images/unc_token_options_item2.png";
 import OptionsItem3 from "@/assets/images/unc_token_options_item3.png";
 import ToRight from "@/assets/images/unc_token_to_right.png";
 import LineChart from "@/assets/images/unc_token_line_chart.png";
+import {openNewPage} from "@/utils/request";
 import { ref } from "vue";
 const optionsList = [
     {
         image: OptionsItem1,
         title: 'Pancakeswap',
-        text: 'utilityNetwork.decentralized_exchange'
+        text: 'utilityNetwork.decentralized_exchange',
+        link:'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a',
+
     },
     {
         image: OptionsItem2,
         title: 'Hotcoin Global',
-        text: 'utilityNetwork.digital_asset_trading'
+        text: 'utilityNetwork.digital_asset_trading',
+        link: 'https://www.hotcoin.global/spot/trade?symbol=UNC_USDT'
     },
     {
         image: OptionsItem3,
         title: 'CoinW',
-        text: 'utilityNetwork.multifacetedc_ryptocurrency_platform'
+        text: 'utilityNetwork.multifacetedc_ryptocurrency_platform',
+        link: 'https://www.coinw.com/frontSpot/spottrade?symbol=1382'
     }
 ]
 const messageCardList = [
@@ -62,13 +67,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                     </div>
                 </div>
                 <div class="header_content_acount">
-                    $0.00931
+                    $0.20963
                 </div>
                 <!-- <div class="header_content_line_chart">
                     <img :src="LineChart" alt="">
                 </div> -->
-                <div class="header_content_button">
-                    <div>Price rises by 3%</div>
+                <div class="header_content_button" @click="openNewPage('https://www.bscscan.com/address/0x35Da89A339DE2c78F8FB1c5e1A9a9C6539e2FA8A')">
+                    <div>view details</div>
                     <img :src="ToRight" alt="">
                 </div>
             </div>
@@ -189,11 +194,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             </div>
             <div class="options_list_header">{{ $t('utilityNetwork.unc_tading_market_title') }}</div>
             <div class="options_list">
-                <div class="options_item" v-for="(item, index) in optionsList" :key="index">
-                    <img :src="item.image" alt="">
-                    <div class="options_item_header">
+                <div v-for="(item, index) in optionsList" :key="index">
+                    <div class="options_item" @click="openNewPage(item.link)">
+                      <img :src="item.image" alt="">
+                      <div class="options_item_header">
                         <div class="options_item_header_title">{{ item.title }}</div>
                         <div class="options_item_header_text">{{ $t(item.text) }}</div>
+                      </div>
                     </div>
 
                 </div>
