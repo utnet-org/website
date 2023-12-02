@@ -24,5 +24,12 @@ request.interceptors.response.use(
     }
 )
 // 暴露对象
-export default request
-
+import router from "../router/index";
+export const openNewPage = (link: string) => {
+    console.log("go to : ", link);
+    if (link.startsWith("http://") || link.startsWith("https://")) {
+        window.open(link, '_blank');
+    } else {
+        router.push(link);
+    }
+}

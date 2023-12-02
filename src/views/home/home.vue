@@ -14,6 +14,8 @@ const { locale } = useI18n();
 import { defineComponent } from "vue";
 // & 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { Swiper, SwiperSlide } from "swiper/vue";
+
+import { openNewPage } from "../../utils/request.ts";
 // & 单独导入所需的Swiper模块
 import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 // & 导入Swiper的样式
@@ -22,6 +24,8 @@ import "swiper/less";
 import "swiper/less/navigation";
 import { useRouter } from "vue-router";
 const route = useRouter();
+const windowWidth = ref(window.innerWidth);
+const windowHeight = ref(window.innerHeight);
 //! Where to Start的数据
 const Where_arr = ref([
   {
@@ -54,7 +58,7 @@ const Where_arr = ref([
   },
 ]);
 //! Where to Start 鼠标移入
-function WhereChange(index: number) {
+function WhereChange(index: Number) {
   //当前的为true
   Where_arr.value[index].hover = true;
   //其他的为false
@@ -190,27 +194,31 @@ function stopCarousel() {
 // & 轮播图数据
 const merryGoRound_arr = ref([
   {
-    img: "/src/assets/images/Round_one.png",
+    id: 0,
+    img: "/src/assets/images/article_bgc_two.png",
     time: "September 21, 2023",
-    text: "home.UtilityNet_white_paper",
+    text: "计算需求分析和下一个风口",
     isswiperenter: false,
   },
   {
-    img: "/src/assets/images/Round_two.png",
+    id: 1,
+    img: "/src/assets/images/article_bgc_two.png",
     time: "September 21, 2023",
-    text: "home.Arithmetic_demand_explodes",
+    text: "计算需求分析和下一个风口",
     isswiperenter: false,
   },
   {
-    img: "/src/assets/images/Round_three.png",
+    id: 2,
+    img: "/src/assets/images/article_bgc_three.png",
     time: "September 21, 2023",
-    text: "home.How_to_face_the",
+    text: "去中心化算力等于边缘计算",
     isswiperenter: false,
   },
   {
-    img: "/src/assets/images/Round_three.png",
+    id: 3,
+    img: "/src/assets/images/article_bgc_four.png",
     time: "September 21, 2023",
-    text: "home.How_to_face_the",
+    text: "无算力浪费的加密世界",
     isswiperenter: false,
   },
 ]);
@@ -241,6 +249,14 @@ watch(show, (newVal) => {
     show1.value = true;
   }
 });
+const jumpNews = (index: number) => {
+  route.push({
+    path: "/news",
+    query: {
+      msg: index,
+    },
+  });
+};
 const showtwo = ref(false);
 const videoshow = ref(false);
 // 滚动条监听
@@ -374,7 +390,7 @@ window.addEventListener("resize", () => {
     pyw.value = 1548 - width.value * 2;
   }
 });
-const ani_btn = ref(-80);
+const ani_btn = ref(-70);
 
 const video_next = () => {
   videoshow.value = true;
@@ -423,14 +439,14 @@ const next222 = () => {
     video_next();
   }
 };
-const openNewPage = (link: string) => {
-  if (link.startsWith("http://") || link.startsWith("https://")) {
-    window.open(link, '_blank');
-
-  } else {
-    route.push(link);
-  }
-}
+// const openNewPage = (link: string) => {
+//   if (link.startsWith("http://") || link.startsWith("https://")) {
+//     window.open(link, '_blank');
+//
+//   } else {
+//     route.push(link);
+//   }
+// }
 </script>
 <template>
   <div class="home_view">
@@ -456,7 +472,8 @@ const openNewPage = (link: string) => {
   !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
 ]">
           <span>Jenna1</span>
-          Hi! Welcome to Utility
+          Instruction signature consensus
+          <!--指令签名共识-->
         </div>
         <div :style="{
           top: `${height + 300 - (height * 2) / 5}px`,
@@ -467,7 +484,8 @@ const openNewPage = (link: string) => {
   !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
 ]">
           <span>Jenna2</span>
-          Hi! Welcome to Utility
+          Heterogeneous parallel architecture
+<!--          异构并行架构-->
         </div>
         <div :style="{
           top: `${height + 100 - (height * 2) / 5}px`,
@@ -478,7 +496,9 @@ const openNewPage = (link: string) => {
   !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
 ]">
           <span>Jenna3</span>
-          Hi! Welcome to Utility{{ pyw }}
+<!--          Hi! Welcome to Utility{{ pyw }}-->
+          Scaling of parallel computing
+<!--          并行计算规模化-->
         </div>
         <div :style="{
           top: `${height + 100 - (height * 2) / 5}px`,
@@ -489,7 +509,8 @@ const openNewPage = (link: string) => {
   !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
 ]">
           <span>Jenna4</span>
-          Hi! Welcome to Utility
+          Proof of Trusted Computing Power
+<!--          可信算力证明-->
         </div>
         <div :style="{
           top: `${height - 200 + (height * 2) / 5}px`,
@@ -500,7 +521,8 @@ const openNewPage = (link: string) => {
   !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
 ]">
           <span>Jenna5</span>
-          Hi! Welcome to Utility
+          Chip based blockchain network
+<!--          基于芯片的区块链网络-->
         </div>
       </div>
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
@@ -567,13 +589,13 @@ const openNewPage = (link: string) => {
           </div>
           <div class="button_father">
             <div class="button">
-              <div class="text">
+              <div class="text" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf',useRouter)">
                 {{ $t("home.White_Paper") }}
               </div>
               <arrow />
             </div>
             <div class="button_right">
-              <div class="text">
+              <div class="text" @click="openNewPage('/learning/learning_center',useRouter)">
                 {{ $t("home.More") }}
               </div>
               <arrow />
@@ -583,21 +605,18 @@ const openNewPage = (link: string) => {
       </div>
 
       <!--! 一张背景图 -->
-      <div class="get_the_app">
-        <img src="/src/assets/images/get_the_app.png" alt="" />
-      </div>
+<!--      <div class="get_the_app">-->
+<!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
+<!--      </div>-->
 
       <!--! Where to Start -->
       <div class="Where_to_Start">
         <div class="title">
           {{ $t("home.Where_to_Start") }}
         </div>
-        <div class="Four_boxes">
-          <div @mouseover="WhereChange(index)" @mouseleave="WhereChangeli" @click="openNewPage(item.link)" class="box"
-            :style="{
-              border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }" v-for="(item, index) in Where_arr" :key="index">
-            <div>
+        <div v-if="windowWidth < 834" class="Four_boxes">
+          <div class="box" v-for="(item, index) in Where_arr" :key="index">
+            <div @click="openNewPage(item.link)">
               <div class="box_title">
                 {{ $t(item.title) }}
               </div>
@@ -606,7 +625,32 @@ const openNewPage = (link: string) => {
               </div>
             </div>
             <div>
-              <el-button class="box_button"> {{ $t(item.button) }}</el-button>
+              <el-button class="box_button" @click="openNewPage(item.link)"> {{ $t(item.button) }}</el-button>
+            </div>
+          </div>
+        </div>
+        <div v-else class="Four_boxes">
+          <div
+              @mouseover="WhereChange(index)"
+              @mouseleave="WhereChangeli"
+              class="box"
+              :style="{
+              border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
+            }"
+              v-for="(item, index) in Where_arr"
+              :key="index"
+          >
+            <div @click="openNewPage(item.link)">
+              <div>{{item.link}}</div>
+              <div class="box_title">
+                {{ $t(item.title) }}
+              </div>
+              <div class="box_text">
+                {{ $t(item.text) }}
+              </div>
+            </div>
+            <div>
+              <el-button class="box_button" @click="openNewPage(item.link)"> {{ $t(item.button) }}</el-button>
             </div>
           </div>
         </div>
@@ -614,54 +658,59 @@ const openNewPage = (link: string) => {
 
       <!--!数据 和 圆 Data and circles -->
       <div class="Data_and_circles">
-        <div class="Data">
-          <div class="value_father">
-            <div class="data_value" v-for="(item, index) in Data_arr" :key="index">
-              <div class="amount" v-html="item.amount"></div>
-              <div class="data_text">
-                {{ $t(item.text) }}
+        <div class="circles">
+          <div class="point point_one">
+            <img v-if="windowWidth < 834" src="/src/assets/svgs/m_round.svg" />
+            <img v-else src="/src/assets/svgs/Group_1.svg" alt="" />
+            <div class="point_text">Utility</div>
+          </div>
+          <div class="round_one">
+            <div class="point point_two">
+              <div class="thisAPoint"></div>
+              <div class="point_text">BDC Chips</div>
+            </div>
+            <div class="round_two">
+              <div class="point point_three">
+                <div class="thisAPoint"></div>
+                <div class="point_text">Computation Capacity</div>
+              </div>
+              <div class="round_three">
+                <div class="point point_four">
+                  <div class="thisAPoint"></div>
+                  <div class="point_text">Wallet</div>
+                </div>
+                <div class="round_four">
+                  <div class="point point_five">
+                    <div class="thisAPoint"></div>
+                    <div class="point_text">Explorer</div>
+                  </div>
+                  <div class="round_five">
+                    <div class="point point_six">
+                      <div class="thisAPoint"></div>
+                      <div class="point_text">Mining</div>
+                    </div>
+                    <div class="round_six">
+                      <div class="point point_seven">
+                        <div class="thisAPoint"></div>
+                        <div class="point_text">Node</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="circles">
-            <div class="point point_one">
-              <img src="/src/assets/svgs/Group_1.svg" alt="" />
-              <div class="point_text">Utility</div>
-            </div>
-            <div class="round_one">
-              <div class="point point_two">
-                <div class="thisAPoint"></div>
-                <div class="point_text">BDC Chips</div>
-              </div>
-              <div class="round_two">
-                <div class="point point_three">
-                  <div class="thisAPoint"></div>
-                  <div class="point_text">Computation Capacity</div>
-                </div>
-                <div class="round_three">
-                  <div class="point point_four">
-                    <div class="thisAPoint"></div>
-                    <div class="point_text">Wallet</div>
-                  </div>
-                  <div class="round_four">
-                    <div class="point point_five">
-                      <div class="thisAPoint"></div>
-                      <div class="point_text">Explorer</div>
-                    </div>
-                    <div class="round_five">
-                      <div class="point point_six">
-                        <div class="thisAPoint"></div>
-                        <div class="point_text">Mining</div>
-                      </div>
-                      <div class="round_six">
-                        <div class="point point_seven">
-                          <div class="thisAPoint"></div>
-                          <div class="point_text">Node</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        </div>
+        <div class="Data">
+          <div class="value_father">
+            <div
+                class="data_value"
+                v-for="(item, index) in Data_arr"
+                :key="index"
+            >
+              <div class="amount" v-html="item.amount"></div>
+              <div class="data_text">
+                {{ $t(item.text) }}
               </div>
             </div>
           </div>
@@ -674,23 +723,38 @@ const openNewPage = (link: string) => {
           {{ $t("home.Utility_Chain_Scaling_Solutions") }}
         </div>
         <div class="Utility_Chain_box">
-          <div style="flex: 25%" v-for="(item, index) in Utility_arr" :key="index">
-            <div class="box_item" @mouseover="UtilityChainChange(index)" @mouseleave="UtilityChainChangeli">
+          <div v-for="(item, index) in Utility_arr" :key="index">
+            <div
+                class="box_item"
+                @mouseover="UtilityChainChange(index)"
+                @mouseleave="UtilityChainChangeli"
+            >
               <div class="item_img">
-                <hover :style="{
-                  opacity: item.isclick ? 1 : 0,
-                }" class="hover" />
-                <img class="item_img_img" :src="item.img" :style="{
-                  filter: item.isclick
-                    ? 'brightness(0%)'
-                    : 'brightness(100%)',
-                }" alt="" />
+                <hover
+                    :style="{
+                    opacity: item.isclick ? 1 : 0,
+                  }"
+                    class="hover"
+                />
+                <img
+                    class="item_img_img"
+                    :src="item.img"
+                    :style="{
+                    filter: item.isclick
+                      ? 'brightness(0%)'
+                      : 'brightness(100%)',
+                  }"
+                    alt=""
+                />
               </div>
 
               <div class="Utility_Chain_box_item_button">
                 {{ $t("home.Testnet") }}
               </div>
-              <div class="item_title" :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }">
+              <div
+                  class="item_title"
+                  :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
+              >
                 {{ $t(item.title) }}
               </div>
               <div class="item_text">
@@ -702,37 +766,95 @@ const openNewPage = (link: string) => {
       </div>
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
-    <div class="icons">
-      <div class="carousel-container" @mouseenter="startCarousel" @mouseleave="stopCarousel">
-        <!-- 轮播内容，绑定动态样式以实现移动效果 -->
-        <div class="carousel-content" :class="{
-          forward: isPlaying && isForward,
-          backward: isPlaying && !isForward,
-        }">
-          <!-- 遍历所有图片资源，为每张图片创建一个轮播项 -->
-          <div v-for="(imgSrc, index) in duplicatedImages" :key="index" class="carousel-item">
-            <!-- 显示图片 -->
-            <img :src="imgSrc" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
+<!--    <div class="icons">-->
+<!--      &lt;!&ndash;@mouseenter="startCarousel"-->
+<!--        @mouseleave="stopCarousel" &ndash;&gt;-->
+<!--      <div class="carousel-container">-->
+<!--        &lt;!&ndash; 轮播内容，绑定动态样式以实现移动效果 &ndash;&gt;-->
+<!--        <div-->
+<!--            class="carousel-content"-->
+<!--            :class="{-->
+<!--            forward: isPlaying && isForward,-->
+<!--            backward: isPlaying && !isForward,-->
+<!--          }"-->
+<!--        >-->
+<!--          &lt;!&ndash; 遍历所有图片资源，为每张图片创建一个轮播项 &ndash;&gt;-->
+<!--          <div-->
+<!--              v-for="(imgSrc, index) in duplicatedImages"-->
+<!--              :key="index"-->
+<!--              class="carousel-item"-->
+<!--          >-->
+<!--            &lt;!&ndash; 显示图片 &ndash;&gt;-->
+<!--            <img :src="imgSrc" alt="" />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
     <!-- !另一个 container -->
     <div class="container">
       <!-- !轮播图 -->
-      <div class="merry_go_round">
+      <div v-if="windowWidth < 834" class="merry_go_round">
+        <div class="title">
+          {{ $t("home.What_is_New") }}
+        </div>
+
+        <swiper
+            :ref="mySwiper"
+            :slidesPerView="1"
+            :spaceBetween="16"
+            :modules="modules"
+            :loop="false"
+            :pagination="{ clickable: true }"
+            class="swiper"
+            @slideChange="onSlideChange"
+        >
+          <swiper-slide
+              v-for="(item, index) in merryGoRound_arr"
+              :key="index"
+              class="swiper-slide"
+              @mouseenter="item.isswiperenter = true"
+              @mouseleave="item.isswiperenter = false"
+              @click="jumpNews(item.id)"
+          >
+            <div v-if="item.isswiperenter" class="icon">
+              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+            </div>
+            <img class="swiper_img" :src="item.img" alt="" />
+            <div class="time">
+              {{ item.time }}
+            </div>
+            <div class="text">
+              {{ $t(item.text) }}
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div v-else class="merry_go_round">
         <div class="title">
           {{ $t("home.What_is_New") }}
         </div>
 
         <div class="swiper-button-prev"></div>
-        <swiper :ref="mySwiper" :slidesPerView="3.5" :spaceBetween="16" :modules="modules" :loop="false"
-          :navigation="navigation" class="swiper" @slideChange="onSlideChange">
+        <swiper
+            :ref="mySwiper"
+            :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
+            :spaceBetween="16"
+            :modules="modules"
+            :loop="false"
+            :navigation="navigation"
+            class="swiper"
+            @slideChange="onSlideChange"
+        >
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
-          <swiper-slide v-for="(item, index) in merryGoRound_arr" :key="index" class="swiper-slide"
-            @mouseenter="item.isswiperenter = true" @mouseleave="item.isswiperenter = false"
-            @click="$router.push('/news')">
+          <swiper-slide
+              v-for="(item, index) in merryGoRound_arr"
+              :key="index"
+              class="swiper-slide"
+              @mouseenter="item.isswiperenter = true"
+              @mouseleave="item.isswiperenter = false"
+              @click="jumpNews(item.id)"
+          >
             <div v-if="item.isswiperenter" class="icon">
               <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
@@ -750,28 +872,41 @@ const openNewPage = (link: string) => {
 
       <!-- ! square Contribute to Utility together -->
       <div class="Contribute_to_Utility">
-        <img class="Utility_img" src="/src/assets/images/square.png" alt="" />
-        <div class="square"></div>
-        <div class="Create_a_lighter">
-          <div class="title_one">
-            {{ $t("home.Help_Utility_open") }}
-          </div>
-
-          <div class="text">
-            {{ $t("home.Utility_is_a_revolutionary") }}
-          </div>
-          <div class="button_father">
-            <div class="button_left">
-              <div class="button_text">
-                {{ $t("home.Join_us") }}
-              </div>
-              <arrow />
+        <div class="Contribute_to_Utility_bg">
+<!--          <img-->
+<!--              v-if="windowWidth < 834"-->
+<!--              class="Utility_img"-->
+<!--              src="/src/assets/images/m_Objects.png"-->
+<!--              alt=""-->
+<!--          />-->
+          <!-- <img
+          v-else
+          class="Utility_img"
+          src="/src/assets/images/square.png"
+          alt=""
+        /> -->
+          <div v-if="windowWidth > 834" class="square"></div>
+          <div class="Create_a_lighter">
+            <div class="title_one">
+              {{ $t("home.Help_Utility_open") }}
             </div>
-            <div class="button_right">
-              <div class="button_text">
-                {{ $t("footer.Github") }}
+
+            <div class="text">
+              {{ $t("home.Utility_is_a_revolutionary") }}
+            </div>
+            <div class="button_father">
+              <div class="button_left">
+                <div class="button_text">
+                  {{ $t("home.Join_us") }}
+                </div>
+                <arrow />
               </div>
-              <arrow />
+              <div class="button_right">
+                <div class="button_text">
+                  {{ $t("footer.Github") }}
+                </div>
+                <arrow />
+              </div>
             </div>
           </div>
         </div>
@@ -1155,7 +1290,7 @@ const openNewPage = (link: string) => {
 
     .Where_to_Start {
       width: 100%;
-      padding: 72px 0px 24px 0px;
+      padding: 172px 0px 24px 0px;
 
       .title {
         font-family: Lantinghei SC;
@@ -1243,24 +1378,22 @@ const openNewPage = (link: string) => {
       padding-top: 78px;
       padding-bottom: 68px;
       display: flex;
+      flex-direction: row-reverse;
       justify-content: center;
       align-items: center;
-
+      //多行对齐
+      flex-wrap: wrap;
       .Data {
-        width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-
+        margin-top: 30px;
         .value_father {
           width: 836px;
           display: flex;
           //多行对齐
           flex-wrap: wrap;
           justify-content: start;
-          margin-right: 105px;
-
           .data_value {
             margin-left: 98px;
             margin-bottom: 40px;
@@ -1277,7 +1410,6 @@ const openNewPage = (link: string) => {
               border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
               padding-right: 11px;
             }
-
             .data_text {
               color: var(--Light-dark, rgba(21, 28, 26, 0.9));
               font-family: Inter;
@@ -1289,7 +1421,6 @@ const openNewPage = (link: string) => {
           }
         }
       }
-
       .circles {
         position: relative;
 
@@ -1297,18 +1428,15 @@ const openNewPage = (link: string) => {
           display: flex;
           align-items: center;
         }
-
         .point_one {
           z-index: 100;
           position: absolute;
           right: 44px;
           top: 68px;
-
           .point_text {
             margin-left: 8px;
           }
         }
-
         .thisAPoint {
           width: 16px;
           height: 16px;
@@ -1318,7 +1446,6 @@ const openNewPage = (link: string) => {
           margin-right: 5px;
           border: 2px solid #fff;
         }
-
         .round_one {
           width: 614px;
           height: 614px;
@@ -1332,7 +1459,6 @@ const openNewPage = (link: string) => {
           top: 0;
           //旋转100deg
           transform: rotate(85deg);
-
           .point_two {
             z-index: 100;
             //旋转100deg
@@ -1342,7 +1468,6 @@ const openNewPage = (link: string) => {
             top: 480px;
           }
         }
-
         .round_two {
           width: 542px;
           height: 542px;
@@ -1353,7 +1478,6 @@ const openNewPage = (link: string) => {
           position: absolute;
           left: 9.2px;
           top: 10px;
-
           .point_three {
             z-index: 100;
             //旋转100deg
@@ -1363,7 +1487,6 @@ const openNewPage = (link: string) => {
             top: 448px;
           }
         }
-
         .round_three {
           width: 468px;
           height: 468px;
@@ -1373,7 +1496,6 @@ const openNewPage = (link: string) => {
           position: absolute;
           left: 9.6px;
           top: 10px;
-
           .point_four {
             z-index: 100;
             //旋转100deg
@@ -1383,7 +1505,6 @@ const openNewPage = (link: string) => {
             top: 274px;
           }
         }
-
         .round_four {
           width: 388px;
           height: 388px;
@@ -1393,7 +1514,6 @@ const openNewPage = (link: string) => {
           position: absolute;
           left: 12px;
           top: 10px;
-
           .point_five {
             z-index: 100;
             //旋转100deg
@@ -1403,7 +1523,6 @@ const openNewPage = (link: string) => {
             top: 348px;
           }
         }
-
         .round_five {
           width: 310px;
           height: 310px;
@@ -1413,7 +1532,6 @@ const openNewPage = (link: string) => {
           position: absolute;
           left: 11px;
           top: 10px;
-
           .point_six {
             z-index: 100;
             //旋转100deg
@@ -1423,7 +1541,6 @@ const openNewPage = (link: string) => {
             top: 220px;
           }
         }
-
         .round_six {
           width: 226px;
           height: 226px;
@@ -1433,7 +1550,6 @@ const openNewPage = (link: string) => {
           position: absolute;
           left: 13px;
           top: 10px;
-
           .point_seven {
             z-index: 100;
             //旋转100deg
@@ -1570,11 +1686,9 @@ const openNewPage = (link: string) => {
           flex-direction: column;
           position: relative;
           cursor: pointer; ///鼠标移上去变成手指
-
           .swiper_img {
             border-radius: 8px;
           }
-
           .icon {
             position: absolute;
             top: 18px;
@@ -1587,61 +1701,63 @@ const openNewPage = (link: string) => {
             display: flex;
             justify-content: center;
             align-items: center;
-
             img {
               width: 100%;
               height: 100%;
             }
           }
-
           .time {
             color: #151c1a;
             font-family: Jaldi;
             font-size: 15px;
             font-style: normal;
             font-weight: 400;
-            line-height: 21px;
-            /* 21.825px */
+            line-height: 21px; /* 21.825px */
             letter-spacing: 0.3px;
             margin-top: 11px;
           }
-
           .text {
             color: #151c1a;
             font-family: Inter;
             font-size: 17px;
             font-weight: 600;
-            line-height: 24.055px;
-            /* 24.055px */
+            line-height: 24.055px; /* 24.055px */
           }
         }
 
         // *这将在滑动器的左侧创建模糊效果
         .shadow_left {
-          width: 212px;
+          transform: rotate(180deg);
+          width: 202px;
+          height: 404px;
           position: absolute;
-          left: 0px;
-          top: 0;
+          left: -50px;
+          top: -50px;
           bottom: 0;
-          background: linear-gradient(90deg,
-              #fff 13.44%,
-              rgba(255, 255, 255, 0) 100%);
-          z-index: 2;
-          /* 确保阴影在内容之上 */
+          background: linear-gradient(
+              -90deg,
+              #fff 43.44%,
+              rgba(255, 255, 255, 0) 90%
+          );
+          z-index: 2; /* 确保阴影在内容之上 */
         }
-
         // *这将在滑动器的右侧创建模糊效果
         .shadow_right {
-          width: 212px;
+          // 旋转100deg;
+          transform: rotate(180deg);
+          width: 262px;
+          height: 404px;
           position: absolute;
-          right: 0px;
-          top: 0;
+          right: -100px;
+          top: -10px;
           bottom: 0;
-          background: linear-gradient(270deg,
-              #fff 13.44%,
-              rgba(255, 255, 255, 0) 100%);
-          z-index: 2;
-          /* 确保阴影在内容之上 */
+          background: linear-gradient(
+              90deg,
+              #fff 43.44%,
+              rgba(255, 255, 255, 0) 90%
+          );
+          //模糊
+          z-index: 2; /* 确保阴影在内容之上 */
         }
       }
 
@@ -1658,26 +1774,22 @@ const openNewPage = (link: string) => {
         background-color: rgba(21, 28, 26, 0.9) !important;
         color: #fff !important;
       }
-
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
         background-color: #fff !important;
         border: 1px solid #000 !important;
         color: #000 !important;
-        opacity: 1 !important;
-        /* 可以设置不透明度来表示禁用状态 */
+        opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
         pointer-events: auto;
         cursor: not-allowed !important;
       }
 
       .swiper-button-prev {
-        left: 100px;
+        left: 80px;
       }
-
       .swiper-button-next {
-        right: 100px;
+        right: 80px;
       }
-
       .swiper-button-prev::after,
       .swiper-button-next::after {
         font-size: 20px !important;
@@ -1694,7 +1806,16 @@ const openNewPage = (link: string) => {
       justify-content: end;
       background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
       position: relative;
-
+      .Contribute_to_Utility_bg {
+        width: 100%;
+        height: 100%;
+        background: url("/src/assets/images/Contribute_to_Utility.png")
+        no-repeat center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: end;
+      }
       .Create_a_lighter {
         width: 757px;
         height: 394px;
@@ -1869,6 +1990,626 @@ const openNewPage = (link: string) => {
         max-height: none;
       }
     }
+  }
+}
+
+@media (max-width: 834px) {
+  .home_view {
+    .container {
+      .Welcome {
+        padding-top: 24px;
+
+        .Utility {
+          max-width: 306px;
+          .Utility_text {
+            font-size: 24px;
+            line-height: 36px; /* 36.12px */
+            letter-spacing: 0.48px;
+          }
+          .Welcome_text_title {
+            font-size: 21px;
+            font-style: normal;
+            line-height: 150.5%;
+          }
+        }
+
+        .Anapplication {
+          margin-top: 10px;
+          margin-bottom: 22px;
+          max-width: 259px;
+          font-family: Inter;
+          font-size: 10px;
+          font-style: normal;
+          line-height: 15px; /* 15.5px */
+        }
+      }
+      .get_the_app {
+        height: 422px;
+        width: 100%;
+        background-color: #cfcfcf;
+      }
+      .Where_to_Start {
+        padding-top: 30px;
+        .title {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-left: 20px;
+        }
+        .Four_boxes {
+          .box {
+            width: 350px;
+            border-radius: 8px;
+            min-height: 189px;
+            margin: 12px 0px 10px 0px;
+            border-radius: 8px;
+            background: linear-gradient(
+                177deg,
+                  #fff -24.77%,
+                rgba(255, 255, 255, 0) 97.53%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 12px;
+            box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+            padding: 14px;
+            transition: all 0.5s;
+
+            .box_title {
+              color: #3edfcf;
+              font-family: Lantinghei SC;
+              font-size: 14px;
+              font-weight: 400;
+              text-transform: uppercase;
+            }
+            .box_text {
+              max-width: 322px;
+              margin-top: 14px;
+              margin-bottom: 26px;
+              color: rgba(21, 28, 26, 0.9);
+              font-family: Lantinghei SC;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 21px;
+              letter-spacing: 0.42px;
+            }
+            .box_button {
+              height: 33px;
+              padding: 6px 10px; /* 添加适当的内边距 */
+              background: #fffefb;
+              border-radius: 8px;
+              border: 1px solid #3edfcf;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+              font-weight: 500;
+              color: rgba(21, 28, 26, 0.9);
+            }
+          }
+        }
+      }
+      .Data_and_circles {
+        width: 100%;
+        display: flex;
+        padding: 60px 20px 26px 20px;
+        //更改主轴的方向
+        flex-direction: column;
+        align-items: center;
+        .Data {
+          width: 100%;
+          margin-top: 28px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .value_father {
+            width: 100%;
+            display: flex;
+            //多行对齐
+            flex-wrap: wrap;
+            justify-content: start;
+
+            .data_value {
+              width: 100%;
+              margin-bottom: 30px;
+              margin-left: 0px;
+              .amount {
+                width: 100%;
+                padding-bottom: 4px;
+                margin-bottom: 4px;
+                border-bottom: 1px solid rgba(21, 28, 26, 0.2);
+                color: rgba(28, 23, 21, 0.9);
+                font-family: Lantinghei SC;
+                font-size: 20px;
+                font-weight: 400;
+              }
+              .data_text {
+                color: #b9bbba;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+            }
+          }
+        }
+        .circles {
+          position: relative;
+
+          .point {
+            display: flex;
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Lantinghei SC;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .point_one {
+            z-index: 100;
+            position: absolute;
+            right: 10px;
+            top: 46px;
+            .point_text {
+              margin-left: 4px;
+            }
+          }
+          .thisAPoint {
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            background-color: #3edfcf;
+            border-radius: 50%;
+            margin-right: 4px;
+            border: 1px solid #fff;
+          }
+          .round_one {
+            width: 350px;
+            height: 350px;
+            background-color: #fffefb;
+            border-radius: 50%;
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: relative;
+            left: 0;
+            top: 0;
+
+            .point_two {
+              z-index: 100;
+              position: absolute;
+              left: 34px;
+              top: 62px;
+              .point_text {
+                width: 20px;
+              }
+            }
+          }
+          .round_two {
+            width: 308px;
+            height: 308px;
+            background-color: rgba(247, 247, 244, 1);
+            border-radius: 50%;
+
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: absolute;
+            right: 4.5px;
+            top: 6px;
+            .point_three {
+              width: 100px;
+              z-index: 100;
+              position: absolute;
+              left: -2px;
+              top: 180px;
+            }
+          }
+          .round_three {
+            width: 266px;
+            height: 266px;
+            background-color: rgba(255, 254, 251, 1);
+            border-radius: 50%;
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: absolute;
+            right: 5px;
+            top: 6px;
+            .point_four {
+              z-index: 100;
+              position: absolute;
+              left: 63px;
+              top: 242px;
+            }
+          }
+          .round_four {
+            width: 222px;
+            height: 222px;
+            background-color: rgba(247, 247, 244, 1);
+            border-radius: 50%;
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: absolute;
+            right: 5px;
+            top: 6px;
+            .point_five {
+              z-index: 100;
+              position: absolute;
+              left: -4px;
+              top: 118px;
+            }
+          }
+          .round_five {
+            width: 176px;
+            height: 176px;
+            background-color: rgba(255, 254, 251, 1);
+            border-radius: 50%;
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: absolute;
+            right: 5px;
+            top: 6px;
+            .point_six {
+              z-index: 100;
+              position: absolute;
+              left: 45px;
+              top: 162px;
+            }
+          }
+          .round_six {
+            width: 130px;
+            height: 130px;
+            background-color: rgba(247, 247, 244, 1);
+            border-radius: 50%;
+            border: 1px solid rgba(21, 28, 26, 0.1);
+            position: absolute;
+            right: 5px;
+            top: 6px;
+            .point_seven {
+              z-index: 100;
+              position: absolute;
+              left: -4px;
+              top: 62px;
+            }
+          }
+        }
+      }
+      .Utility_Chain {
+        width: 100%;
+        display: flex;
+        padding: 0 20px;
+        flex-direction: column;
+
+        .title {
+          margin-bottom: 32px;
+          color: rgba(21, 28, 26, 0.9);
+          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          font-family: Lantinghei SC;
+          font-size: 18px;
+          font-weight: 400;
+        }
+        .Utility_Chain_box {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          .box_item {
+            width: 160px;
+            border-radius: 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 26px;
+            .item_title {
+              color: #151c1a;
+              font-family: Inter;
+              font-size: 12px;
+              font-weight: 600;
+              text-transform: uppercase;
+              //过渡
+              transition: all 0.3s;
+            }
+            .item_text {
+              color: #151c1a;
+              font-family: Inter;
+              font-size: 8px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 11px; /* 11.92px */
+              max-width: 160px;
+              margin-top: 2px;
+            }
+            .item_img {
+              width: 60px;
+              height: 60px;
+              margin-bottom: 9px;
+              position: relative;
+
+              background: linear-gradient(
+                  97deg,
+                  #f1f7f6 40%,
+                  rgba(164, 229, 221, 0.2) 100.1%
+              );
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img {
+                width: 70%;
+                height: 70%;
+                //过渡
+                transition: all 0.5s;
+              }
+
+              .hover {
+                position: absolute;
+                right: -4px;
+                top: -4px;
+                z-index: 1;
+                //过渡
+                transition: all 0.3s;
+              }
+            }
+            .Utility_Chain_box_item_button {
+              width: 48px;
+              height: 19px;
+              border-radius: 2px;
+              border: 1px solid #3edfcf;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 12px;
+              font-weight: 400;
+              margin-bottom: 10px;
+              background-color: #fff;
+              color: #3edfcf;
+            }
+          }
+        }
+      }
+
+      .merry_go_round {
+        width: 100%;
+        padding-top: 36px;
+        padding: 36px 20px 0 20px;
+
+        .title {
+          color: #3edfcf;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+
+          margin-bottom: 23px;
+        }
+
+        .swiper {
+          width: 100%;
+          height: 394px;
+          display: flex;
+          justify-content: center;
+
+          position: relative;
+          .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            cursor: pointer; ///鼠标移上去变成手指
+            .swiper_img {
+              border-radius: 8px;
+              width: 350px;
+              height: 286px;
+            }
+            .icon {
+              position: absolute;
+              top: 18px;
+              right: 18px;
+              width: 34px;
+              height: 34px;
+              flex-shrink: 0;
+              border-radius: 50%;
+              background-color: #000;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .time {
+              color: #151c1a;
+              margin-top: 11px;
+              font-family: Jaldi;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px; /* 20.37px */
+              letter-spacing: 0.28px;
+              opacity: 0.8;
+            }
+            .text {
+              color: #151c1a;
+              font-family: Inter;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 22px; /* 22.64px */
+            }
+          }
+          /* 设置未激活状态下的圆点颜色 */
+          :deep(.swiper-pagination .swiper-pagination-bullet) {
+            width: 8px;
+            height: 8px;
+            background: #a5a5a5;
+            border-radius: 8px;
+          }
+
+          /* 设置激活（当前选中）状态下的圆点颜色 */
+          :deep(.swiper-pagination .swiper-pagination-bullet-active) {
+            width: 8px;
+            height: 8px;
+            background: rgba(106, 209, 197, 1);
+            border-radius: 8px;
+          }
+        }
+      }
+
+      .Contribute_to_Utility {
+        width: 100%;
+        height: 402px;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
+        position: relative;
+        //margin-bottom: 53px;
+        .Create_a_lighter {
+          width: 350px;
+          height: 161px;
+          flex-shrink: 0;
+          border-radius: 10px;
+          position: absolute;
+          left: 25%;
+          bottom: 27px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 17px;
+
+          background: linear-gradient(
+              180deg,
+              rgba(244, 248, 248, 0.05) 0.13%,
+              rgba(244, 248, 248, 0) 99.87%
+          );
+          box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+          .title_one {
+            color: #151c1a;
+            font-family: Inter;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 18px; /* 18.187px */
+            max-width: 295px;
+          }
+          .text {
+            margin-top: 8px;
+            max-width: 297px;
+            height: 62px;
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Inter;
+            font-size: 8px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 12px; /* 11.6px */
+          }
+          .button_father {
+            display: flex;
+            justify-content: start;
+            width: 100%;
+            padding-left: 34px;
+            .button_left,
+            .button_right {
+              height: 24px;
+              border-radius: 6px;
+              border: 1px solid #3edfcf;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .button_text {
+                color: rgba(21, 28, 26, 0.9);
+                text-align: center;
+                font-family: Inter;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%; /* 12px */
+                margin-right: 3px;
+              }
+            }
+            .button_left {
+              width: 62px;
+              margin-right: 9px;
+            }
+            .button_right {
+              width: 59px;
+            }
+          }
+        }
+
+        .Utility_img {
+          height: 227.263px;
+          flex-shrink: 0;
+          margin-top: 36px;
+        }
+      }
+    }
+    .icons {
+      width: 100%;
+      height: 87px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f7f7f4;
+      margin-top: 18px;
+      // 正向滚动动画
+      @keyframes scrollBackward {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-1766px);
+        }
+      }
+      /* 逆向滚动动画 */
+      @keyframes scrollForward {
+        0% {
+          transform: translateX(-1766px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      //  鼠标移出
+      .carousel-content.forward {
+        animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      }
+      // 鼠标移入
+      .carousel-content.backward {
+        animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      }
+      .carousel-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        will-change: transform; /* 提升性能 */
+      }
+
+      .carousel-item {
+        transition: all 0.5s; /* 设置动画 */
+        margin: 0 16px;
+        img {
+          max-width: none;
+          max-height: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1323px) {
+  .Create_a_lighter {
+    left: 18% !important;
+  }
+}
+
+@media (max-width: 432px) {
+  .Create_a_lighter {
+    left: 2% !important;
+    width: 320px !important;
   }
 }
 </style>
