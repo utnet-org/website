@@ -45,7 +45,7 @@ const nav_arr = ref([
         icon: new URL("@/assets/gifs/learning_5.gif", import.meta.url).href,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "",
+        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
       },
     ],
   },
@@ -94,19 +94,19 @@ const nav_arr = ref([
         title: "nav.Solution_Provider",
         desc: "nav.Solution_Provider_details",
         // link: "/developers/solution_provider",
-        link: "",
+        link: "https://discord.com/",
       },
       {
         icon: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
         title: "nav.Discord",
         desc: "nav.Discord_details",
-        link: "",
+        link: "https://discord.com/",
       },
       {
         icon: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
         title: "nav.Github",
         desc: "nav.Github_details",
-        link: "",
+        link: "https://github.com/utnet-org",
       },
     ],
   },
@@ -118,7 +118,7 @@ const nav_arr = ref([
   {
     name: "nav.Mining",
     // link: "/mining",
-    link: "",
+    link: "https://miner.utnet.org/#/index",
     children: [],
   },
   {
@@ -155,6 +155,7 @@ const changeSelectIndex = (item: any, index: any) => {
   selectIndex.value = index;
 };
 const routerSubPage = (index: any, citem: any, cindex: any) => {
+  console.log("====>",index, citem, cindex)
   if (index == 5) {
     localStorage.setItem("upaclang", citem.desc);
     document
@@ -163,9 +164,14 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   } else if (citem.link == "") {
     return;
   }
-  window.location.href = citem.link;
-  selectType.value = false;
-  selectIndex.value = -1;
+  if (citem.link.startsWith("http://") || citem.link.startsWith("https://")) {
+    window.open(citem.link, '_blank');
+  }else {
+    window.location.href = citem.link;
+    selectType.value = false;
+    selectIndex.value = -1;
+  }
+
 };
 const width = ref(window.innerWidth);
 window.onresize = () => {

@@ -23,7 +23,8 @@ import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
 import { useRouter } from "vue-router";
-const route = useRouter();
+import router from "@/router";
+
 const windowWidth = ref(window.innerWidth);
 const windowHeight = ref(window.innerHeight);
 //! Where to Start的数据
@@ -641,7 +642,6 @@ const next222 = () => {
               :key="index"
           >
             <div @click="openNewPage(item.link)">
-              <div>{{item.link}}</div>
               <div class="box_title">
                 {{ $t(item.title) }}
               </div>
@@ -895,17 +895,17 @@ const next222 = () => {
               {{ $t("home.Utility_is_a_revolutionary") }}
             </div>
             <div class="button_father">
-              <div class="button_left">
+              <div class="button_left" @click="openNewPage('/community')">
                 <div class="button_text">
                   {{ $t("home.Join_us") }}
                 </div>
-                <arrow />
+<!--                <arrow />-->
               </div>
-              <div class="button_right">
+              <div class="button_right" @click="openNewPage('https://github.com/utnet-org')">
                 <div class="button_text">
                   {{ $t("footer.Github") }}
                 </div>
-                <arrow />
+<!--                <arrow />-->
               </div>
             </div>
           </div>

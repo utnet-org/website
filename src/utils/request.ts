@@ -30,6 +30,6 @@ export const openNewPage = (link: string) => {
     if (link.startsWith("http://") || link.startsWith("https://")) {
         window.open(link, '_blank');
     } else {
-        router.push(link);
+            router.push(link);
     }
 }

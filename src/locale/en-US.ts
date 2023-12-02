@@ -98,7 +98,7 @@ export default {
       "Rent high-performance computing power from utility providers to develop and efficiently use underlying SDKS and eco-enabled applications.",
     Develop: "Develop",
 
-    Utility_Chain_Scaling_Solutions: "Utility Chain Scaling Solutions",
+    Utility_Chain_Scaling_Solutions: "Utility Scaling Solutions",
     UNC_Node: "UNC NODE",
     Provides_solutions_for:
       "Optional mode node, easy to switch between full node and pruning node.",
