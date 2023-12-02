@@ -659,6 +659,9 @@ const next222 = () => {
               <video
                   src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
                   autoplay
+                  controls
+                  :width="windowWidth"
+                  height=""
               ></video>
       </div>
 
