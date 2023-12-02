@@ -2,6 +2,7 @@
 import { ref } from "vue";
 const activeIndex = ref(1);
 const show = ref(false);
+import { openNewPage } from "@/utils/request.ts";
 const nav_arr = ref([
   {
     name: "nav.Learning",
@@ -48,7 +49,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "",
+        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
       },
     ],
   },
@@ -116,7 +117,7 @@ const nav_arr = ref([
         title: "nav.Solution_Provider",
         desc: "nav.Solution_Provider_details",
         // link: "/developers/solution_provider",
-        link: "",
+        link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
       },
       {
         icon: "",
@@ -124,7 +125,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.Discord",
         desc: "nav.Discord_details",
-        link: "",
+        link:  "https://discord.com/",
       },
       {
         icon: "",
@@ -132,7 +133,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.Github",
         desc: "nav.Github_details",
-        link: "",
+        link: "https://github.com/utnet-org",
       },
     ],
   },
@@ -144,7 +145,7 @@ const nav_arr = ref([
   {
     name: "nav.Mining",
     // link: "/mining",
-    link: "",
+    link: "https://miner.utnet.org/#/index",
     children: [],
   },
 ]);
@@ -180,7 +181,7 @@ function set(i: number, id: number) {
         <div v-if="item.link == ''" class="nav_link text_style_top">
           {{ $t(item.name) }}
         </div>
-        <RouterLink v-else :to="item.link" class="nav_link text_style_top">
+        <RouterLink v-else  :to="(item.link.startsWith('http://') || item.link.startsWith('https://'))?'':item.link"  class="nav_link text_style_top">
           {{ $t(item.name) }}
         </RouterLink>
       </div>
@@ -216,8 +217,8 @@ function set(i: number, id: number) {
           overflow: 'hidden',
         }">
           <div v-for="(c_item, id) in item.children" :key="id" @click="show = false">
-            <RouterLink :to="c_item.link">
-              <div class="popup_content" @mouseenter="set(i, id)">
+            <RouterLink  :to="(c_item.link.startsWith('http://') || c_item.link.startsWith('https://'))?'':c_item.link" >
+              <div class="popup_content" @mouseenter="set(i, id)" @click="openNewPage(c_item.link)" >
                 <div class="left">
                   <img :src="c_item.icon" :style="{
                     display: i == activeIndex ? 'block' : 'none',
