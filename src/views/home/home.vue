@@ -1,7 +1,8 @@
 <script setup lang="ts" name="HomeView">
-import { ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 
 import arrow from "@/assets/svgs/right.svg";
+import m_arrow from "@/assets/svgs/m_arrow.svg";
 import hover from "@/assets/svgs/hover.svg";
 import blue from "@/assets/svgs/blue.svg";
 import start from "@/assets/svgs/start.svg";
@@ -23,10 +24,26 @@ import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
 import { useRouter } from "vue-router";
+import "swiper/css/pagination"; // 轮播图底面的小圆点
+
 import router from "@/router";
 
+// 创建响应式引用，用于存储窗口宽度和高度
 const windowWidth = ref(window.innerWidth);
-const windowHeight = ref(window.innerHeight);
+
+// 更新窗口尺寸的函数
+const updateWindowSize = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// 当组件挂载时设置监听器，并在卸载时移除
+onMounted(() => {
+  window.addEventListener("resize", updateWindowSize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateWindowSize);
+});
 //! Where to Start的数据
 const Where_arr = ref([
   {
@@ -34,32 +51,32 @@ const Where_arr = ref([
     text: "home.You_can_try",
     hover: false,
     button: "home.Build_DOC",
-    link: 'https://wiki.utlab.io/docs/node/introduction'
+    link: "https://wiki.utlab.io/docs/node/introduction",
   },
   {
     title: "home.MINER",
     text: "home.You_can_get_UNC",
     hover: false,
     button: "home.Learn_More",
-    link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
+    link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
   },
   {
     title: "home.UNC_WALLET",
     text: "home.The_UNC_Wallet",
     hover: false,
     button: "home.Explore_Wallet",
-    link: '/soloutions/utility_wallet'
+    link: "/soloutions/utility_wallet",
   },
   {
     title: "home.Computing_Power_users",
     text: "home.You_can_rent",
     hover: false,
     button: "home.Develop",
-    link: '/get_power'
+    link: "/get_power",
   },
 ]);
 //! Where to Start 鼠标移入
-function WhereChange(index: Number) {
+function WhereChange(index: number) {
   //当前的为true
   Where_arr.value[index].hover = true;
   //其他的为false
@@ -80,7 +97,10 @@ function WhereChangeli() {
 //* 数据 和 圆 Data and circles的数据
 const Data_arr = ref([
   {
-    amount: "<span style='font-size: 26px;'>$</span>1,920.21",
+    amount:
+      windowWidth.value > 834
+        ? "<span style='font-size: 26px;'>$</span>1,920.21"
+        : "$1,920.21",
     text: "home.UNC_PRICE",
   },
   {
@@ -88,11 +108,17 @@ const Data_arr = ref([
     text: "home.NODES",
   },
   {
-    amount: "<span style='font-size: 26px;'>$</span>122,1120",
+    amount:
+      windowWidth.value > 834
+        ? "<span style='font-size: 26px;'>$</span>122,1120"
+        : "$122,1120",
     text: "home.Transaction_Today",
   },
   {
-    amount: "1631,122,1120<span style='font-size: 26px;'> tflops</span>",
+    amount:
+      windowWidth.value > 834
+        ? "1631,122,1120<span style='font-size: 26px;'> tflops</span>"
+        : "1631,122,1120 tflops",
     text: "home.Computational_Power_Synthesis",
   },
 ]);
@@ -250,11 +276,11 @@ watch(show, (newVal) => {
     show1.value = true;
   }
 });
-const jumpNews = (index: number) => {
-  route.push({
+const jumpNews = (id: number) => {
+  router.push({
     path: "/news",
     query: {
-      msg: index,
+      msg: id,
     },
   });
 };
@@ -464,66 +490,81 @@ const next222 = () => {
         v-show="scroll < 2980 || scroll == 0"
       ></Animation>
       <div class="animation_text_box" v-if="width * 2 > 996">
-        <div :style="{
-          top: `${height - 300 + (height * 2) / 5}px`,
-          left: `${width + 100 - pyw / 3}px`,
-        }" :class="[
-  'animation_text',
-  text1 && scroll > 1030 ? 'animation_text_animation' : '',
-  !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
-]">
+        <div
+          :style="{
+            top: `${height - 300 + (height * 2) / 5}px`,
+            left: `${width + 100 - pyw / 3}px`,
+          }"
+          :class="[
+            'animation_text',
+            text1 && scroll > 1030 ? 'animation_text_animation' : '',
+            !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
+          ]"
+        >
           <span>Jenna1</span>
           Instruction signature consensus
           <!--指令签名共识-->
         </div>
-        <div :style="{
-          top: `${height + 300 - (height * 2) / 5}px`,
-          left: `${width - 100 + pyw / 3}px`,
-        }" :class="[
-  'animation_text',
-  text2 && scroll > 1230 ? 'animation_text_animation' : '',
-  !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
-]">
+        <div
+          :style="{
+            top: `${height + 300 - (height * 2) / 5}px`,
+            left: `${width - 100 + pyw / 3}px`,
+          }"
+          :class="[
+            'animation_text',
+            text2 && scroll > 1230 ? 'animation_text_animation' : '',
+            !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
+          ]"
+        >
           <span>Jenna2</span>
           Heterogeneous parallel architecture
-<!--          异构并行架构-->
+          <!--          异构并行架构-->
         </div>
-        <div :style="{
-          top: `${height + 100 - (height * 2) / 5}px`,
-          left: `${width - 400 + pyw / 2}px`,
-        }" :class="[
-  'animation_text',
-  text3 && scroll > 1320 ? 'animation_text_animation' : '',
-  !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
-]">
+        <div
+          :style="{
+            top: `${height + 100 - (height * 2) / 5}px`,
+            left: `${width - 400 + pyw / 2}px`,
+          }"
+          :class="[
+            'animation_text',
+            text3 && scroll > 1320 ? 'animation_text_animation' : '',
+            !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
+          ]"
+        >
           <span>Jenna3</span>
-<!--          Hi! Welcome to Utility{{ pyw }}-->
+          <!--          Hi! Welcome to Utility{{ pyw }}-->
           Scaling of parallel computing
-<!--          并行计算规模化-->
+          <!--          并行计算规模化-->
         </div>
-        <div :style="{
-          top: `${height + 100 - (height * 2) / 5}px`,
-          left: `${width + 400 - pyw / 3}px`,
-        }" :class="[
-  'animation_text',
-  text4 && scroll > 1520 ? 'animation_text_animation' : '',
-  !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
-]">
+        <div
+          :style="{
+            top: `${height + 100 - (height * 2) / 5}px`,
+            left: `${width + 400 - pyw / 3}px`,
+          }"
+          :class="[
+            'animation_text',
+            text4 && scroll > 1520 ? 'animation_text_animation' : '',
+            !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
+          ]"
+        >
           <span>Jenna4</span>
           Proof of Trusted Computing Power
-<!--          可信算力证明-->
+          <!--          可信算力证明-->
         </div>
-        <div :style="{
-          top: `${height - 200 + (height * 2) / 5}px`,
-          left: `${width - 500 + pyw / 2}px`,
-        }" :class="[
-  'animation_text',
-  text5 && scroll > 1630 ? 'animation_text_animation' : '',
-  !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
-]">
+        <div
+          :style="{
+            top: `${height - 200 + (height * 2) / 5}px`,
+            left: `${width - 500 + pyw / 2}px`,
+          }"
+          :class="[
+            'animation_text',
+            text5 && scroll > 1630 ? 'animation_text_animation' : '',
+            !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
+          ]"
+        >
           <span>Jenna5</span>
           Chip based blockchain network
-<!--          基于芯片的区块链网络-->
+          <!--          基于芯片的区块链网络-->
         </div>
       </div>
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
@@ -546,10 +587,7 @@ const next222 = () => {
         :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
         v-if="width * 2 > 996"
       >
-        <div
-          v-if="ant_btn_w != 80"
-          class="animation_button_text"
-        >
+        <div v-if="ant_btn_w != 80" class="animation_button_text">
           <span v-if="ani_btn_s == 0 || ani_btn_s == 2">
             Skip the description
           </span>
@@ -590,13 +628,21 @@ const next222 = () => {
           </div>
           <div class="button_father">
             <div class="button">
-              <div class="text" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf',useRouter)">
+              <div
+                class="text"
+                @click="
+                  openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
+                "
+              >
                 {{ $t("home.White_Paper") }}
               </div>
               <arrow />
             </div>
             <div class="button_right">
-              <div class="text" @click="openNewPage('/learning/learning_center',useRouter)">
+              <div
+                class="text"
+                @click="openNewPage('/learning/learning_center')"
+              >
                 {{ $t("home.More") }}
               </div>
               <arrow />
@@ -606,9 +652,9 @@ const next222 = () => {
       </div>
 
       <!--! 一张背景图 -->
-<!--      <div class="get_the_app">-->
-<!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
-<!--      </div>-->
+      <!--      <div class="get_the_app">-->
+      <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
+      <!--      </div>-->
 
       <!--! Where to Start -->
       <div class="Where_to_Start">
@@ -626,20 +672,22 @@ const next222 = () => {
               </div>
             </div>
             <div>
-              <el-button class="box_button" @click="openNewPage(item.link)"> {{ $t(item.button) }}</el-button>
+              <el-button class="box_button" @click="openNewPage(item.link)">
+                {{ $t(item.button) }}</el-button
+              >
             </div>
           </div>
         </div>
         <div v-else class="Four_boxes">
           <div
-              @mouseover="WhereChange(index)"
-              @mouseleave="WhereChangeli"
-              class="box"
-              :style="{
+            @mouseover="WhereChange(index)"
+            @mouseleave="WhereChangeli"
+            class="box"
+            :style="{
               border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
             }"
-              v-for="(item, index) in Where_arr"
-              :key="index"
+            v-for="(item, index) in Where_arr"
+            :key="index"
           >
             <div @click="openNewPage(item.link)">
               <div class="box_title">
@@ -650,7 +698,9 @@ const next222 = () => {
               </div>
             </div>
             <div>
-              <el-button class="box_button" @click="openNewPage(item.link)"> {{ $t(item.button) }}</el-button>
+              <el-button class="box_button" @click="openNewPage(item.link)">
+                {{ $t(item.button) }}</el-button
+              >
             </div>
           </div>
         </div>
@@ -704,9 +754,9 @@ const next222 = () => {
         <div class="Data">
           <div class="value_father">
             <div
-                class="data_value"
-                v-for="(item, index) in Data_arr"
-                :key="index"
+              class="data_value"
+              v-for="(item, index) in Data_arr"
+              :key="index"
             >
               <div class="amount" v-html="item.amount"></div>
               <div class="data_text">
@@ -725,26 +775,26 @@ const next222 = () => {
         <div class="Utility_Chain_box">
           <div v-for="(item, index) in Utility_arr" :key="index">
             <div
-                class="box_item"
-                @mouseover="UtilityChainChange(index)"
-                @mouseleave="UtilityChainChangeli"
+              class="box_item"
+              @mouseover="UtilityChainChange(index)"
+              @mouseleave="UtilityChainChangeli"
             >
               <div class="item_img">
                 <hover
-                    :style="{
+                  :style="{
                     opacity: item.isclick ? 1 : 0,
                   }"
-                    class="hover"
+                  class="hover"
                 />
                 <img
-                    class="item_img_img"
-                    :src="item.img"
-                    :style="{
+                  class="item_img_img"
+                  :src="item.img"
+                  :style="{
                     filter: item.isclick
                       ? 'brightness(0%)'
                       : 'brightness(100%)',
                   }"
-                    alt=""
+                  alt=""
                 />
               </div>
 
@@ -752,8 +802,8 @@ const next222 = () => {
                 {{ $t("home.Testnet") }}
               </div>
               <div
-                  class="item_title"
-                  :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
+                class="item_title"
+                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
               >
                 {{ $t(item.title) }}
               </div>
@@ -766,30 +816,30 @@ const next222 = () => {
       </div>
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
-<!--    <div class="icons">-->
-<!--      &lt;!&ndash;@mouseenter="startCarousel"-->
-<!--        @mouseleave="stopCarousel" &ndash;&gt;-->
-<!--      <div class="carousel-container">-->
-<!--        &lt;!&ndash; 轮播内容，绑定动态样式以实现移动效果 &ndash;&gt;-->
-<!--        <div-->
-<!--            class="carousel-content"-->
-<!--            :class="{-->
-<!--            forward: isPlaying && isForward,-->
-<!--            backward: isPlaying && !isForward,-->
-<!--          }"-->
-<!--        >-->
-<!--          &lt;!&ndash; 遍历所有图片资源，为每张图片创建一个轮播项 &ndash;&gt;-->
-<!--          <div-->
-<!--              v-for="(imgSrc, index) in duplicatedImages"-->
-<!--              :key="index"-->
-<!--              class="carousel-item"-->
-<!--          >-->
-<!--            &lt;!&ndash; 显示图片 &ndash;&gt;-->
-<!--            <img :src="imgSrc" alt="" />-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="icons">-->
+    <!--      &lt;!&ndash;@mouseenter="startCarousel"-->
+    <!--        @mouseleave="stopCarousel" &ndash;&gt;-->
+    <!--      <div class="carousel-container">-->
+    <!--        &lt;!&ndash; 轮播内容，绑定动态样式以实现移动效果 &ndash;&gt;-->
+    <!--        <div-->
+    <!--            class="carousel-content"-->
+    <!--            :class="{-->
+    <!--            forward: isPlaying && isForward,-->
+    <!--            backward: isPlaying && !isForward,-->
+    <!--          }"-->
+    <!--        >-->
+    <!--          &lt;!&ndash; 遍历所有图片资源，为每张图片创建一个轮播项 &ndash;&gt;-->
+    <!--          <div-->
+    <!--              v-for="(imgSrc, index) in duplicatedImages"-->
+    <!--              :key="index"-->
+    <!--              class="carousel-item"-->
+    <!--          >-->
+    <!--            &lt;!&ndash; 显示图片 &ndash;&gt;-->
+    <!--            <img :src="imgSrc" alt="" />-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
     <!-- !另一个 container -->
     <div class="container">
       <!-- !轮播图 -->
@@ -799,24 +849,24 @@ const next222 = () => {
         </div>
 
         <swiper
-            :ref="mySwiper"
-            :slidesPerView="1"
-            :spaceBetween="16"
-            :modules="modules"
-            :loop="false"
-            :pagination="{ clickable: true }"
-            class="swiper"
-            @slideChange="onSlideChange"
+          :ref="mySwiper"
+          :slidesPerView="1"
+          :spaceBetween="16"
+          :modules="modules"
+          :loop="false"
+          :pagination="{ clickable: true }"
+          class="swiper"
+          @slideChange="onSlideChange"
         >
           <swiper-slide
-              v-for="(item, index) in merryGoRound_arr"
-              :key="index"
-              class="swiper-slide"
-              @mouseenter="item.isswiperenter = true"
-              @mouseleave="item.isswiperenter = false"
-              @click="jumpNews(item.id)"
+            v-for="(item, index) in merryGoRound_arr"
+            :key="index"
+            class="swiper-slide"
+            @mouseenter="item.isswiperenter = true"
+            @mouseleave="item.isswiperenter = false"
+            @click="jumpNews(item.id)"
           >
-            <div v-if="item.isswiperenter" class="icon">
+            <div v-if="item.isswiperenter && windowWidth > 834" class="icon">
               <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
@@ -836,24 +886,24 @@ const next222 = () => {
 
         <div class="swiper-button-prev"></div>
         <swiper
-            :ref="mySwiper"
-            :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
-            :spaceBetween="16"
-            :modules="modules"
-            :loop="false"
-            :navigation="navigation"
-            class="swiper"
-            @slideChange="onSlideChange"
+          :ref="mySwiper"
+          :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
+          :spaceBetween="16"
+          :modules="modules"
+          :loop="false"
+          :navigation="navigation"
+          class="swiper"
+          @slideChange="onSlideChange"
         >
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
           <swiper-slide
-              v-for="(item, index) in merryGoRound_arr"
-              :key="index"
-              class="swiper-slide"
-              @mouseenter="item.isswiperenter = true"
-              @mouseleave="item.isswiperenter = false"
-              @click="jumpNews(item.id)"
+            v-for="(item, index) in merryGoRound_arr"
+            :key="index"
+            class="swiper-slide"
+            @mouseenter="item.isswiperenter = true"
+            @mouseleave="item.isswiperenter = false"
+            @click="jumpNews(item.id)"
           >
             <div v-if="item.isswiperenter" class="icon">
               <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
@@ -873,12 +923,12 @@ const next222 = () => {
       <!-- ! square Contribute to Utility together -->
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
-<!--          <img-->
-<!--              v-if="windowWidth < 834"-->
-<!--              class="Utility_img"-->
-<!--              src="/src/assets/images/m_Objects.png"-->
-<!--              alt=""-->
-<!--          />-->
+          <!--          <img-->
+          <!--              v-if="windowWidth < 834"-->
+          <!--              class="Utility_img"-->
+          <!--              src="/src/assets/images/m_Objects.png"-->
+          <!--              alt=""-->
+          <!--          />-->
           <!-- <img
           v-else
           class="Utility_img"
@@ -899,13 +949,16 @@ const next222 = () => {
                 <div class="button_text">
                   {{ $t("home.Join_us") }}
                 </div>
-<!--                <arrow />-->
+                <!--                <arrow />-->
               </div>
-              <div class="button_right" @click="openNewPage('https://github.com/utnet-org')">
+              <div
+                class="button_right"
+                @click="openNewPage('https://github.com/utnet-org')"
+              >
                 <div class="button_text">
                   {{ $t("footer.Github") }}
                 </div>
-<!--                <arrow />-->
+                <!--                <arrow />-->
               </div>
             </div>
           </div>
@@ -1083,137 +1136,63 @@ const next222 = () => {
 
 .home_view {
   background-color: #fffefb;
-
   .bg {
     // height: 1100px;
     width: 100%;
-    position: fixed;
-    z-index: 3;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    // max-width: 1500px;
-    // margin: 0 20px;
+    position: relative;
   }
-
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    @keyframes identifier {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(290px);
-      }
-    }
-
-    @keyframes identifierf {
-      0% {
-        transform: translateY(290px);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .WelcomeAnimation {
-      animation: identifier 0.3s ease-in forwards;
-    }
-
-    .WelcomeAnimationf {
-      animation: identifierf 0.3s ease-in forwards;
-    }
-
     .Welcome {
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 290px;
+      min-height: 290px;
       align-items: center;
-      // border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.035) 0.13%,
-          rgba(244, 248, 248, 0.043) 99.87%);
-      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
-      //   0px 4px 50px 0px #dde3e153;
+      border-radius: 10px;
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.08) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
+      box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.58) inset,
+        0px 4px 50px 0px #dde3e1;
       backdrop-filter: blur(9px);
       position: absolute;
       left: 0;
       bottom: 0;
-
+      padding-bottom: 40px;
       .Utility {
-        display: flex;
-        align-items: center;
-
+        text-align: center;
         .Utility_text {
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(21, 28, 26, 0.9);
           text-align: center;
-          // font-family: Lantinghei SC;
-          font-size: 38px;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
-          letter-spacing: 0.76px;
         }
-
         .Welcome_text_title {
           font-size: 34px;
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(21, 28, 26, 0.9);
           font-weight: 400;
           font-family: Lantinghei SC;
         }
       }
 
-      .Language {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 33px;
-        margin-bottom: 18px;
-
-        .point {
-          width: 9px;
-          height: 9px;
-          background-color: rgba(62, 223, 207, 1);
-          border-radius: 50%;
-          margin-right: 5px;
-        }
-
-        .lang {
-          color: var(--Light-dark, rgba(255, 255, 255, 0.9));
-          text-align: center;
-          font-family: JejuGothic;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: -0.2px;
-        }
-      }
-
       .Anapplication {
-        max-width: 1149px;
         font-size: 14px;
         font-weight: 300;
-        color: rgba(255, 255, 255, 0.9);
-
+        color: rgba(21, 28, 26, 0.9);
         text-align: center;
-        line-height: 20px;
-        margin-top: 15px;
-        margin-bottom: 28px;
       }
-
       .button_father {
         display: flex;
         justify-content: center;
       }
-
       .button {
         display: flex;
         justify-content: center;
@@ -1222,29 +1201,17 @@ const next222 = () => {
         height: 42px;
         border-radius: 6px;
         border: 1px solid #3edfcf;
-
-        &:hover {
-          // background: linear-gradient(
-          //   177deg,
-          //   #ffffff48 -24.77%,
-          //   rgba(255, 255, 255, 0) 97.53%
-          // );
-          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
-        }
-
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(21, 28, 26, 0.9);
           margin-right: 8px;
         }
-
         img {
           width: 17px;
           height: 16px;
         }
       }
-
       .button_right {
         display: flex;
         justify-content: center;
@@ -1254,43 +1221,170 @@ const next222 = () => {
         border-radius: 6px;
         border: 1px solid #3edfcf;
         margin-left: 32px;
-
         &:hover {
-          // background: linear-gradient(
-          //   177deg,
-          //   #ffffff48 -24.77%,
-          //   rgba(255, 255, 255, 0) 97.53%
-          // );
-          /* shadow for navbar hover */
-          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
+          background: linear-gradient(
+            177deg,
+            #fff -24.77%,
+            rgba(255, 255, 255, 0) 97.53%
+          );
+          box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
         }
-
         .text {
           font-size: 14px;
           font-weight: 500;
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(21, 28, 26, 0.9);
           margin-right: 8px;
         }
-
         img {
           width: 17px;
           height: 16px;
         }
       }
     }
-
     .get_the_app {
       height: 1095px;
-
       img {
         width: 100%;
         height: 100%;
       }
     }
+  }
+  .icons {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f7f4;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    // 正向滚动动画
+    @keyframes scrollBackward {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-1700px);
+      }
+    }
+    /* 逆向滚动动画 */
+    @keyframes scrollForward {
+      0% {
+        transform: translateX(-1700px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    //  鼠标移出
+    .carousel-content.forward {
+      animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+    }
+    // 鼠标移入
+    .carousel-content.backward {
+      animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+    }
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 110px;
+    }
 
+    .carousel-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      will-change: transform; /* 提升性能 */
+    }
+
+    .carousel-item {
+      transition: all 0.5s; /* 设置动画 */
+      margin: 0 42px;
+      img {
+        max-width: none;
+        max-height: none;
+      }
+    }
+  }
+}
+@media (min-width: 835px) {
+  .home_view {
+    .Welcome {
+      .Utility {
+        .Utility_text {
+          font-size: 38px;
+          letter-spacing: 0.76px;
+        }
+      }
+    }
+    .Language {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 33px;
+      margin-bottom: 18px;
+
+      .point {
+        width: 9px;
+        height: 9px;
+        background-color: rgba(62, 223, 207, 1);
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      .lang {
+        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        text-align: center;
+        font-family: JejuGothic;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.2px;
+      }
+    }
+    .Anapplication {
+      max-width: 1119px;
+      line-height: 20px;
+      margin-top: 15px;
+      margin-bottom: 28px;
+    }
+    .button {
+      &:hover {
+        background: linear-gradient(
+          177deg,
+          #fff -24.77%,
+          rgba(255, 255, 255, 0) 97.53%
+        );
+        /* shadow for navbar hover */
+        box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+      }
+    }
+    .button_right {
+      &:hover {
+        background: linear-gradient(
+          177deg,
+          #fff -24.77%,
+          rgba(255, 255, 255, 0) 97.53%
+        );
+        box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+      }
+    }
     .Where_to_Start {
       width: 100%;
-      padding: 172px 0px 24px 0px;
+      padding: 72px 0px 24px 0px;
+
+      .title {
+        font-size: 22px;
+
+        padding-left: 140px;
+        margin-bottom: 20px;
+      }
+    }
+    .Where_to_Start {
+      width: 100%;
+      padding: 72px 0px 24px 0px;
 
       .title {
         font-family: Lantinghei SC;
@@ -1300,7 +1394,6 @@ const next222 = () => {
         padding-left: 140px;
         margin-bottom: 20px;
       }
-
       .Four_boxes {
         display: flex;
         //多行对齐
@@ -1313,9 +1406,11 @@ const next222 = () => {
           height: 394px;
           margin: 0px 8px 16px 8px;
           border-radius: 12px;
-          background: linear-gradient(177deg,
-              #fff -24.77%,
-              rgba(255, 255, 255, 0) 97.53%);
+          background: linear-gradient(
+            177deg,
+            #fff -24.77%,
+            rgba(255, 255, 255, 0) 97.53%
+          );
           opacity: 0.8;
           display: flex;
           flex-direction: column;
@@ -1324,8 +1419,7 @@ const next222 = () => {
           box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
           padding: 50px 0 43px 50px;
           transition: all 0.5s;
-
-          s &:hover {
+          &:hover {
             //过渡
             transition: all 0.5s;
             box-shadow: none;
@@ -1336,7 +1430,6 @@ const next222 = () => {
             font-weight: 400;
             color: #3edfcf;
           }
-
           .box_text {
             max-width: 420px;
             margin-top: 14px;
@@ -1347,11 +1440,9 @@ const next222 = () => {
             font-style: normal;
             font-weight: 400;
           }
-
           .box_button {
             height: 45px;
-            padding: 12px 16px;
-            /* 添加适当的内边距 */
+            padding: 12px 16px; /* 添加适当的内边距 */
             background: #fffefb;
             border-radius: 6px;
             border: 1px solid #3edfcf;
@@ -1361,18 +1452,18 @@ const next222 = () => {
             font-size: 14px;
             font-weight: 500;
             color: rgba(21, 28, 26, 0.9);
-
             &:hover {
               box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
-              background: linear-gradient(177deg,
-                  #fff -s4.77%,
-                  rgba(255, 255, 255, 0) 97.53%);
+              background: linear-gradient(
+                177deg,
+                #fff -s4.77%,
+                rgba(255, 255, 255, 0) 97.53%
+              );
             }
           }
         }
       }
     }
-
     .Data_and_circles {
       width: 100%;
       padding-top: 78px;
@@ -1561,7 +1652,6 @@ const next222 = () => {
         }
       }
     }
-
     .Utility_Chain {
       width: 100%;
       padding: 59px 140px 0 140px;
@@ -1569,7 +1659,7 @@ const next222 = () => {
 
       flex-direction: column;
       align-items: center;
-
+      justify-content: center;
       .title {
         color: rgba(21, 28, 26, 0.9);
         margin-bottom: 90px;
@@ -1578,20 +1668,19 @@ const next222 = () => {
         font-size: 24px;
         font-weight: 400;
       }
-
       .Utility_Chain_box {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-
+        justify-content: space-evenly;
         .box_item {
           padding: 0px 0 0 20px;
-          margin-bottom: 17px;
+          margin-bottom: 62px;
           border-radius: 12px;
           border-radius: 8px;
           width: 340px;
           display: flex;
           flex-direction: column;
+          justify-content: space-evenly;
 
           .item_title {
             font-size: 16px;
@@ -1600,7 +1689,6 @@ const next222 = () => {
             //过渡
             transition: all 0.3s;
           }
-
           .item_text {
             color: rgba(21, 28, 26, 0.7);
             font-family: Inter;
@@ -1609,23 +1697,22 @@ const next222 = () => {
             line-height: 20px;
             max-width: 300px;
             margin-top: 6px;
-            margin-bottom: 22px;
           }
-
           .item_img {
             width: 60px;
             height: 60px;
             margin-bottom: 9px;
             position: relative;
 
-            background: linear-gradient(97deg,
-                #f1f7f6 40%,
-                rgba(164, 229, 221, 0.2) 100.1%);
+            background: linear-gradient(
+              97deg,
+              #f1f7f6 40%,
+              rgba(164, 229, 221, 0.2) 100.1%
+            );
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-
             img {
               width: 70%;
               height: 70%;
@@ -1642,7 +1729,6 @@ const next222 = () => {
               transition: all 0.3s;
             }
           }
-
           .Utility_Chain_box_item_button {
             width: 59px;
             height: 22px;
@@ -1735,9 +1821,9 @@ const next222 = () => {
           top: -50px;
           bottom: 0;
           background: linear-gradient(
-              -90deg,
-              #fff 43.44%,
-              rgba(255, 255, 255, 0) 90%
+            -90deg,
+            #fff 43.44%,
+            rgba(255, 255, 255, 0) 90%
           );
           z-index: 2; /* 确保阴影在内容之上 */
         }
@@ -1752,9 +1838,9 @@ const next222 = () => {
           top: -10px;
           bottom: 0;
           background: linear-gradient(
-              90deg,
-              #fff 43.44%,
-              rgba(255, 255, 255, 0) 90%
+            90deg,
+            #fff 43.44%,
+            rgba(255, 255, 255, 0) 90%
           );
           //模糊
           z-index: 2; /* 确保阴影在内容之上 */
@@ -1764,7 +1850,7 @@ const next222 = () => {
       .swiper-button-prev,
       .swiper-button-next {
         position: absolute;
-        top: 24%;
+        top: 22%;
         width: 40px;
         height: 40px;
         z-index: 100;
@@ -1799,41 +1885,42 @@ const next222 = () => {
     .Contribute_to_Utility {
       //超出隐藏
       overflow: hidden;
+
       margin-top: 50px;
       width: 100%;
       height: 633px;
-      display: flex;
-      justify-content: end;
+
       background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
-      position: relative;
+
       .Contribute_to_Utility_bg {
         width: 100%;
         height: 100%;
         background: url("/src/assets/images/Contribute_to_Utility.png")
-        no-repeat center;
+          no-repeat center;
         background-size: cover;
         position: relative;
         display: flex;
         justify-content: end;
       }
       .Create_a_lighter {
-        width: 757px;
+        width: 657px;
         height: 394px;
         flex-shrink: 0;
         border-radius: 10px;
-        background: linear-gradient(180deg,
-            rgba(244, 248, 248, 0.05) 0.13%,
-            rgba(244, 248, 248, 0) 99.87%);
+        background: linear-gradient(
+          180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%
+        );
         box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         backdrop-filter: blur(4px);
         position: absolute;
-        left: 25%;
+        left: 20%;
         top: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 64px;
-
         .title_one {
           color: var(--Dark, #151c1a);
           font-family: Inter;
@@ -1841,7 +1928,6 @@ const next222 = () => {
           font-weight: 600;
           max-width: 570px;
         }
-
         .text {
           margin-top: 24px;
           max-width: 454px;
@@ -1851,7 +1937,6 @@ const next222 = () => {
           font-weight: 400;
           line-height: 20px;
         }
-
         .button_father {
           display: flex;
 
@@ -1866,7 +1951,6 @@ const next222 = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-
             .button_text {
               font-size: 14px;
               font-weight: 500;
@@ -1875,41 +1959,42 @@ const next222 = () => {
               margin-left: 12px;
             }
           }
-
           .button_left {
             margin-right: 60px;
-
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(177deg,
-                  #fff -24.77%,
-                  rgba(255, 255, 255, 0) 97.53%);
+              background: linear-gradient(
+                177deg,
+                #fff -24.77%,
+                rgba(255, 255, 255, 0) 97.53%
+              );
             }
           }
-
           .button_right {
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(177deg,
-                  #fff -24.77%,
-                  rgba(255, 255, 255, 0) 97.53%);
+              background: linear-gradient(
+                177deg,
+                #fff -24.77%,
+                rgba(255, 255, 255, 0) 97.53%
+              );
             }
           }
         }
       }
-
       .square {
         display: flex;
         justify-content: center;
         width: 912px;
         height: 608px;
-        background: var(--light-small,
-            linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%));
+        background: var(
+          --light-small,
+          linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
+        );
         filter: blur(40px);
 
         opacity: 0.7;
       }
-
       .Utility_img {
         width: 630px;
         height: 582px;
@@ -1919,81 +2004,18 @@ const next222 = () => {
       }
     }
   }
-
-  .icons {
-    width: 100%;
-    height: 110px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f7f7f4;
-    margin-top: 60px;
-    margin-bottom: 20px;
-
-    // 正向滚动动画
-    @keyframes scrollBackward {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-1700px);
-      }
-    }
-
-    /* 逆向滚动动画 */
-    @keyframes scrollForward {
-      0% {
-        transform: translateX(-1700px);
-      }
-
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    //  鼠标移出
-    .carousel-content.forward {
-      animation: scrollForward 5s linear forwards;
-      /* 调整时间以匹配您的需求 */
-    }
-
-    // 鼠标移入
-    .carousel-content.backward {
-      animation: scrollBackward 5s linear forwards;
-      /* 调整时间以匹配您的需求 */
-    }
-
-    .carousel-container {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      height: 110px;
-    }
-
-    .carousel-content {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      will-change: transform;
-      /* 提升性能 */
-    }
-
-    .carousel-item {
-      transition: all 0.5s;
-      /* 设置动画 */
-      margin: 0 42px;
-
-      img {
-        max-width: none;
-        max-height: none;
-      }
-    }
-  }
 }
-
 @media (max-width: 834px) {
+  .Contribute_to_Utility_bg {
+    width: 100%;
+    height: 100%;
+    background: url("/src/assets/images/Contribute_to_Utility.png") no-repeat
+      center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: end;
+  }
   .home_view {
     .container {
       .Welcome {
@@ -2045,9 +2067,9 @@ const next222 = () => {
             margin: 12px 0px 10px 0px;
             border-radius: 8px;
             background: linear-gradient(
-                177deg,
-                  #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
+              177deg,
+              #fff -24.77%,
+              rgba(255, 255, 255, 0) 97.53%
             );
             display: flex;
             flex-direction: column;
@@ -2323,9 +2345,9 @@ const next222 = () => {
               position: relative;
 
               background: linear-gradient(
-                  97deg,
-                  #f1f7f6 40%,
-                  rgba(164, 229, 221, 0.2) 100.1%
+                97deg,
+                #f1f7f6 40%,
+                rgba(164, 229, 221, 0.2) 100.1%
               );
               border-radius: 50%;
               display: flex;
@@ -2474,9 +2496,9 @@ const next222 = () => {
           padding-top: 17px;
 
           background: linear-gradient(
-              180deg,
-              rgba(244, 248, 248, 0.05) 0.13%,
-              rgba(244, 248, 248, 0) 99.87%
+            180deg,
+            rgba(244, 248, 248, 0.05) 0.13%,
+            rgba(244, 248, 248, 0) 99.87%
           );
           box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
           .title_one {
