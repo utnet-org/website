@@ -570,7 +570,7 @@ const next222 = () => {
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video
           v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="@/assets/mv/55_1701258800.mp4"
+          src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
           autoplay
           muted
           @ended="onVideoEnded"
