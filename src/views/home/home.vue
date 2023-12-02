@@ -1188,11 +1188,9 @@ const next222 = () => {
       height: 290px;
       align-items: center;
       // border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.035) 0.13%,
+          rgba(244, 248, 248, 0.043) 99.87%);
       // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
       //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);

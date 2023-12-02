@@ -184,7 +184,6 @@ const thirdCheckQuestionMessage = ref(-1);
 
   .header {
     width: 100%;
-    height: 558px;
     background: url("@/assets/images/learning_center_background.png") no-repeat;
     background-size: cover;
     display: flex;
@@ -192,8 +191,11 @@ const thirdCheckQuestionMessage = ref(-1);
     justify-content: flex-start;
 
     .header_content {
-      width: 640px;
       height: 310px;
+      width: 640px;
+      margin: 0 0 94px 140px;
+      padding: 0 60px;
+
       flex-shrink: 0;
       border-radius: 10px;
       background: linear-gradient(
@@ -203,8 +205,7 @@ const thirdCheckQuestionMessage = ref(-1);
       );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
-      margin: 0 0 94px 140px;
-      padding: 0 60px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -347,7 +348,6 @@ const thirdCheckQuestionMessage = ref(-1);
           align-items: center;
 
           .section_right_item_card_item {
-            width: 369px;
             height: 246px;
             padding: 35px 40px 40px;
             margin-right: 14px;
@@ -362,6 +362,8 @@ const thirdCheckQuestionMessage = ref(-1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            margin-bottom: 16px;
 
             &:hover {
               background: url("@/assets/images/learning_center_card_background.png")
@@ -421,6 +423,14 @@ const thirdCheckQuestionMessage = ref(-1);
     }
   }
 }
+@media (min-width: 834px) {
+  .header {
+    height: 558px;
+  }
+  .section_right_item_card_item {
+    width: 369px;
+  }
+}
 
 @media (max-width: 834px) {
   .container {
@@ -431,7 +441,7 @@ const thirdCheckQuestionMessage = ref(-1);
       justify-content: center;
 
       .header_content {
-        // width: 350px;
+        width: 350px;
         width: 100%;
         height: none;
         flex-shrink: 0;
@@ -448,11 +458,11 @@ const thirdCheckQuestionMessage = ref(-1);
     .section {
       .section_right {
         width: 100%;
-        padding: 0 5%;
+        padding: 0 0;
         padding-bottom: 41px;
 
         .section_right_item {
-          margin-bottom: 0;
+          margin: 0;
 
           .section_right_item_title {
             margin-top: 40px;
@@ -461,13 +471,20 @@ const thirdCheckQuestionMessage = ref(-1);
           }
 
           .section_right_item_text {
+            padding: 0 20px;
             opacity: 0.8;
             margin: 16px 0 20px;
           }
 
           .section_right_item_card {
+            width: 100%;
+            padding: 0 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
             .section_right_item_card_item {
-              width: 350px;
+              width: 350px !important;
               height: 206px;
               padding: 30px 20px;
               margin: 0;
