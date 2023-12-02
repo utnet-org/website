@@ -43,11 +43,13 @@ const questionMessageList = [
                 id: 4,
                 title: 'U Wallet',
                 text: 'A digital wallet holds the credentials you need to prove your identity and access your important places.',
+                link:'/soloutions/utility_wallet',
             },
             {
                 id: 5,
                 title: 'Purchase U Platform',
                 text: 'The first computing power rental platform issued by the Utility.',
+              link:'/get_power',
             }
         ]
     },
@@ -59,16 +61,19 @@ const questionMessageList = [
                 id: 6,
                 title: 'Running Nodes',
                 text: 'Participate in running nodes and make important contributions.',
+                link:'https://wiki.utlab.io/docs/node/introduction',
             },
             {
                 id: 7,
                 title: 'Mining and Rental Supply',
                 text: 'Learn how to mining and rental in the Utility network.',
+                link:'https://wiki.utlab.io/docs/computing-power-supplier/introduce',
             },
             {
                 id: 8,
                 title: 'Join the Community',
                 text: 'A home for Utility developers, technical experts, designers, users and cryptocurrency enthusiasts.',
+                link:'/community',
             }
         ]
     }
@@ -110,17 +115,19 @@ const thirdCheckQuestionMessage = ref(-1);
                     <div class="section_right_item_title">{{ item.messageTitle }}</div>
                     <div class="section_right_item_text">{{ item.messageText }}</div>
                     <div class="section_right_item_card">
-                        <div class="section_right_item_card_item" v-for="(citem, cindex) in item.messageList" :key="cindex">
-                            <div class="section_right_item_card_item_header">
+                        <div v-for="(citem, cindex) in item.messageList" :key="cindex">
+                            <div  class="section_right_item_card_item" @click="openNewPage(citem.link)">
+                              <div class="section_right_item_card_item_header">
                                 <div class="section_right_item_card_item_header_title">{{ citem.title }}</div>
                                 <div class="section_right_item_card_item_header_text">{{ citem.text }}</div>
-                            </div>
-                            <div class="section_right_item_card_item_button">
+                              </div>
+                              <div class="section_right_item_card_item_button">
                                 <img v-if="firstCheckQuestionMessage === citem.id || viewableWidth < 834"
-                                    src="@/assets/images/learning_center_enter.png" alt="">
+                                     src="@/assets/images/learning_center_enter.png" alt="">
                                 <img v-else src="@/assets/images/learning_center_enter_default.png" alt="">
                                 <div @mouseenter="firstCheckQuestionMessage = citem.id"
-                                    @mouseleave="firstCheckQuestionMessage = -1">Learn More</div>
+                                     @mouseleave="firstCheckQuestionMessage = -1">Learn More</div>
+                              </div>
                             </div>
                         </div>
                     </div>

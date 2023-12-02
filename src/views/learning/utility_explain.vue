@@ -7,6 +7,7 @@ import UtilityExplainOptions4 from "@/assets/images/utility_explain_options4.png
 import UtilityExplainOptions5 from "@/assets/images/utility_explain_options5.png";
 import { title } from "process";
 import { ref } from "vue";
+import {openNewPage} from "@/utils/request";
 const messageCardList = [
     {
         title: 'utilityNetwork.decentralized_computing_service_platform',
@@ -64,7 +65,7 @@ const optionsList = [
             <div class="header_content">
                 <div class="header_content_header">{{ $t("utilityNetwork.header_title") }}?</div>
                 <div class="header_content_text">{{ $t("utilityNetwork.header_message") }}</div>
-                <div class="header_content_button">
+                <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
                     <div>{{ $t("utilityNetwork.read_more") }}</div>
                     <img :src="arrowButton" alt="">
                 </div>
