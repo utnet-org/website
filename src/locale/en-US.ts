@@ -229,20 +229,21 @@ export default {
     h1_3: "Read More",
 
     h2_1: "Experience sharing",
-    h2_2: "Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
+    h2_2:
+      "Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
       "                      A dedicated technical discussion area for developers and technical staff to exchange ideas and solve problems.\n" +
       "                      Users and developers can make suggestions for improvements or report potential problems, and jointly promote the development of the Ute Network.",
     optionsList1: {
-      title: 'Join Online Community',
-      text: 'Join our community to discuss, learn and share with us'
+      title: "Join Online Community",
+      text: "Join our community to discuss, learn and share with us",
     },
     optionsList2: {
-      title: 'Contribute to the Project',
-      text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
+      title: "Contribute to the Project",
+      text: "Interested individuals and teams are welcome to contribute to our projects and realize our vision together.",
     },
     optionsList3: {
-      title: 'Utility Activities',
-      text: 'Provide in-depth understanding and participation'
+      title: "Utility Activities",
+      text: "Provide in-depth understanding and participation",
     },
     // communityOptionsList2:{
     //   // image: CommunityOptions2,
@@ -256,45 +257,90 @@ export default {
     // },
     toggleMenuList: [
       {
-        firstTitle: 'Emily Johnson',
-        secondTitle: 'From the other side of the sea',
-        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+        firstTitle: "Emily Johnson",
+        secondTitle: "From the other side of the sea",
+        text: "I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.",
       },
       {
-        firstTitle: 'Michael Davis',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+        firstTitle: "Michael Davis",
+        secondTitle: "From the other side of the sea",
+        text: "This project is really exciting and I'm sure it will be a huge success in the future. I've already seen some impressive progress, which gives me confidence in the project's prospects.",
       },
       {
-        firstTitle: 'David Miller',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+        firstTitle: "David Miller",
+        secondTitle: "From the other side of the sea",
+        text: "This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.",
       },
       {
-        firstTitle: 'Matthew Martinez',
-        secondTitle: 'From the other side of the sea',
-        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
-      }
+        firstTitle: "Matthew Martinez",
+        secondTitle: "From the other side of the sea",
+        text: "I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community's input.",
+      },
     ],
 
     stepsList: [
       {
-        time: '2023 10/31 8:00（UTC+8）',
-        message: 'PoCI、PIEE 和 CAT 深入分析',
-        reason: 'Online Meeting'
+        time: "2023 10/31 8:00（UTC+8）",
+        message: "PoCI、PIEE 和 CAT 深入分析",
+        reason: "Online Meeting",
       },
       {
-        time: '2023 10/29/ 8:00（UTC+8）',
-        message: 'In-depth Analysis of PoCI, PIEE & CAT',
-        reason: 'Online Meeting'
+        time: "2023 10/29/ 8:00（UTC+8）",
+        message: "In-depth Analysis of PoCI, PIEE & CAT",
+        reason: "Online Meeting",
       },
-    ]
+    ],
+    voice_from_our_partners_title: "Voice from Our Partners",
+    utility_activities_title: "Utility Activities",
+    utility_activities_text:
+      "Welcome to our event and meet us. If you are interested in organizing offline events, please contact us here:",
   },
   docs: {
-    At_this_stage_UNC: ' At this stage, UNC token issuance takes place, the public chain foundation is established, and the community and public chain are in the development phase. During this stage, the first internal test will be initiated, focusing on incentive model testing based on the Binance Smart Chain.',
-    Empower_the_Network: 'Empower the Network: Join as a Node',
-    Contribute_Computing_Power: 'Contribute Computing Power: Enhance Network Performance',
-    Innovate_with_Us: 'Innovate with Us: Develop on Utility Network',
-    Explore_Our_Foundation: 'Explore Our Foundation: Understand Our Vision',
-  }
+    At_this_stage_UNC:
+      " At this stage, UNC token issuance takes place, the public chain foundation is established, and the community and public chain are in the development phase. During this stage, the first internal test will be initiated, focusing on incentive model testing based on the Binance Smart Chain.",
+    Empower_the_Network: "Empower the Network: Join as a Node",
+    Contribute_Computing_Power:
+      "Contribute Computing Power: Enhance Network Performance",
+    Innovate_with_Us: "Innovate with Us: Develop on Utility Network",
+    Explore_Our_Foundation: "Explore Our Foundation: Understand Our Vision",
+  },
+  soloutions: {
+    utility_wallet: "Utility Wallet",
+    about_us_title: "About Us",
+    about_us_text:
+      "Utility Wallet is an innovative blockchain wallet designed specifically for the Utility chain, providing a comprehensive digital asset management solution. It not only includes an easy-to-use web wallet plug-in, but also a full-featured App wallet. Through this wallet, users can easily transfer money, rent computing power, view rental orders, and interact with various dapps. In addition, Utility Wallet has a built-in blockchain browser, allowing users to view transactions and blockchain activities in real time.",
+    key_features_title: "Key Features",
+    key_features_text:
+      "Multifunctional wallet: combines web plug-ins and mobile applications to provide flexible asset management.Transfer and computing power leasing: Users can easily transfer and rent computing power and manage rental orders.Dapp interaction: Seamlessly connects with the Utility dapp ecosystem to expand the possibilities of blockchain applications.Blockchain Browser: The built-in browser allows users to monitor blockchain activities in real time, ensuring transaction transparency.",
+    asset_management: "Asset Management",
+    multifunctional_wallet: "Multifunctional Wallet",
+    dapp_interaction: "Dapp Interaction",
+    core_system: "Core System",
+    computing_power_rental_platform: "Computing power rental platform",
+    score: "score",
+    diversified_computing_power: "Diversified computing power",
+    customized_configuration: "Customized configuration",
+    core_system_about_us_text:
+      "Core System is an innovative computing power rental platform launched by Utility, focusing on providing computing power rental and purchase services. Our team consists of experts in the blockchain and computing fields, who bring together extensive technical knowledge and market insights to meet the market's diverse needs for computing resources. In Core System, we are committed to creating a simple, efficient and transparent platform that allows users to easily rent or purchase computing power. By introducing an innovative scoring system and providing a variety of computing power types, we aim to provide users with the highest quality services and the most suitable computing resources.",
+    core_system_key_features_text:
+      "Core System provides users with a series of core features to optimize the computing power leasing experience. The platform supports the rental and purchase of computing power to meet the needs of different users. In order to ensure service quality and transparency, an order scoring system has been introduced. After each order is completed, users can evaluate the service. This not only improves the quality of service providers, but also helps other users make more informed choices.The platform provides a variety of computing power types for users to rent to adapt to different computing needs and budget constraints. Whether it is large-scale data processing or complex AI training, users can find suitable computing resources in Core System. In addition, the platform also provides customized configuration services, allowing users to customize the computing power configuration they want to rent according to their specific needs. This flexibility and personalized services make Core System an ideal platform to meet various computing needs. Whether users are start-ups, research institutions or individual developers, they can find the computing resources they need here.",
+    mining_tools: "Mining Tools",
+    mining_tools_options1: "Computing power management",
+    mining_tools_options2: "Machine operation and maintenance",
+    mining_tools_options3: "Lease transparency",
+    mining_tools_about_us_text:
+      "The Mining Tool project focuses on providing one-stop computing power management solutions for miners on the Utility network. Our team is composed of experienced developers and blockchain experts, dedicated to building an efficient, reliable, and easy-to-operate mining tool. By integrating state-of-the-art technology and user-friendly interfaces, we aim to simplify miners' daily operation and maintenance tasks and improve their management efficiency of computing resources.",
+    mining_tools_key_features_text:
+      "Mining Tool provides a comprehensive computing power management solution for Utility network miners. This tool can realize cluster scheduling of computing power, allowing miners to effectively allocate and manage large amounts of computing resources. The real-time monitoring system in the tool enables miners to understand the operating status of the machine at any time, handle any problems in a timely manner, and ensure stable operation. Through a clear interface display, miners can easily view the current rented and idle computing power and optimize resource allocation. It also includes a machine status monitoring function to help miners monitor and maintain the health of the mining machine. The rental log function provides miners with detailed rental records and simplifies the computing power rental process. Network status monitoring ensures that miners' network connections are always in optimal condition, ensuring stable mining activities. Through these comprehensive functions, Mining Tool greatly improves miners' ability to manage and optimize computing resources.",
+    ai_model: "AI Model",
+    ai_model_options1: "AI bazaar",
+    ai_model_options2: "shared",
+    ai_model_options3: "AI training",
+    ai_model_about_us_text:
+      "We have created a cutting-edge and large AI model market, aiming to provide users with a platform so that they can not only share and publish their own AI models, but also use the diverse models on the market to conduct AI-related activities and research. Our team firmly believes that by breaking down technical barriers and promoting knowledge sharing, the development and application of AI technology can be accelerated. We are committed to building an inclusive and innovative community so that every individual interested in AI technology can find the resources they need on this platform, thereby promoting the progress of the entire AI industry.",
+    ai_model_key_features_text:
+      "Model sharing: Users can publish their own AI models and share them with users and researchers around the world.Model use: There are a variety of AI models on the market, and users can choose and use these models according to their own needs.Computing power rental: In order to support AI training and computing, users can rent the required computing power resources on the Utility network.Innovation support: The project encourages innovation and experimentation, and supports users’ exploration and development in the field of AI.The AI ​​Model project is not only a model market, but also an innovation platform that promotes the development and application of AI technology.",
+
+    ongoing: "Ongoing",
+  },
 };

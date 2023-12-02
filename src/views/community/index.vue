@@ -29,24 +29,24 @@ const communityOptionsList = [
 const hoverCheckIndex = ref(-1)
 const toggleMenuList = [
     {
-        firstTitle: 'Emily Johnson',
-        secondTitle: 'From the other side of the sea',
-        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+        firstTitle: 'community.toggleMenuList[0].firstTitle',
+        secondTitle: 'community.toggleMenuList[0].secondTitle',
+        text: 'community.toggleMenuList[0].text'
     },
     {
-        firstTitle: 'Michael Davis',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+        firstTitle: 'community.toggleMenuList[1].firstTitle',
+        secondTitle: 'community.toggleMenuList[1].secondTitle',
+        text: 'community.toggleMenuList[1].text'
     },
     {
-        firstTitle: 'David Miller',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+        firstTitle: 'community.toggleMenuList[2].firstTitle',
+        secondTitle: 'community.toggleMenuList[2].secondTitle',
+        text: 'community.toggleMenuList[2].text'
     },
     {
-        firstTitle: 'Matthew Martinez',
-        secondTitle: 'From the other side of the sea',
-        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
+        firstTitle: 'community.toggleMenuList[3].firstTitle',
+        secondTitle: 'community.toggleMenuList[3].secondTitle',
+        text: 'community.toggleMenuList[3].text'
     }
 ]
 const stepsList = [
@@ -62,7 +62,7 @@ const stepsList = [
     },
 ]
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
-const accordionTitle = 'Consensus Chip';
+const accordionTitle = 'community.Consensus Chip';
 const accordionList = [
     {
         title: 'Initialize Generation',
@@ -99,7 +99,7 @@ const accordionList = [
                 <div class="swiper_side">
                     <div class="swiper_side_title">{{ $t('community.h2_1') }}</div>
                     <div class="swiper_side_text">
-                      {{ $t('community.h2_2') }}
+                        {{ $t('community.h2_2') }}
                     </div>
                 </div>
                 <div class="swiper_right">
@@ -118,39 +118,39 @@ const accordionList = [
             </div>
             <div class="community_options">
 
-              <div class="community_options_item">
-                <img :src="CommunityOptions1" alt="">
-                <div>
-                  <div class="community_options_item_title">{{ $t('community.optionsList1.title') }}</div>
-                  <div class="community_options_item_text">{{ $t('community.optionsList1.text') }}</div>
+                <div class="community_options_item">
+                    <img :src="CommunityOptions1" alt="">
+                    <div>
+                        <div class="community_options_item_title">{{ $t('community.optionsList1.title') }}</div>
+                        <div class="community_options_item_text">{{ $t('community.optionsList1.text') }}</div>
+                    </div>
                 </div>
-              </div>
-              <div class="community_options_item">
-                <img :src="CommunityOptions2" alt="">
-                <div>
-                  <div class="community_options_item_title">{{ $t('community.optionsList2.title') }}</div>
-                  <div class="community_options_item_text">{{ $t('community.optionsList2.text') }}</div>
+                <div class="community_options_item">
+                    <img :src="CommunityOptions2" alt="">
+                    <div>
+                        <div class="community_options_item_title">{{ $t('community.optionsList2.title') }}</div>
+                        <div class="community_options_item_text">{{ $t('community.optionsList2.text') }}</div>
+                    </div>
                 </div>
-              </div>
-              <div class="community_options_item">
-                <img :src="CommunityOptions3" alt="">
-                <div>
-                  <div class="community_options_item_title">{{ $t('community.optionsList3.title') }}</div>
-                  <div class="community_options_item_text">{{ $t('community.optionsList3.text') }}</div>
+                <div class="community_options_item">
+                    <img :src="CommunityOptions3" alt="">
+                    <div>
+                        <div class="community_options_item_title">{{ $t('community.optionsList3.title') }}</div>
+                        <div class="community_options_item_text">{{ $t('community.optionsList3.text') }}</div>
+                    </div>
                 </div>
-              </div>
-<!--                <div class="community_options_item" v-for="(item, index) in communityOptionsList" :key="index">-->
-<!--                    <img :src="item.image" alt="">-->
-<!--                    <div>-->
-<!--                        <div class="community_options_item_title">{{ item.title }}</div>-->
-<!--                        <div class="community_options_item_text">{{ item.text }}</div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="community_options_item" v-for="(item, index) in communityOptionsList" :key="index">-->
+                <!--                    <img :src="item.image" alt="">-->
+                <!--                    <div>-->
+                <!--                        <div class="community_options_item_title">{{ item.title }}</div>-->
+                <!--                        <div class="community_options_item_text">{{ item.text }}</div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="toggle_menu">
                 <div>
                     <div class="toggle_menu_header" v-if="viewableWidth > 834">
-                        <div class="toggle_menu_header_title">Voice from Our Partners</div>
+                        <div class="toggle_menu_header_title">{{ $t('community.voice_from_our_partners_title') }}</div>
                         <div class="toggle_menu_header_icon">
                             <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
                                 @mouseleave="hoverCheckIndex = -1">
@@ -166,20 +166,19 @@ const accordionList = [
                     </div>
                     <div class="toggle_menu_list" v-if="viewableWidth > 834">
                         <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
-                            <div class="item_first_title">{{ item.firstTitle }}</div>
-                            <div class="item_second_title">{{ item.secondTitle }}</div>
+                            <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
+                            <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
                             <img :src="ToggleMenuIcon" alt="">
-                            <div class="item_text">{{ item.text }}</div>
+                            <div class="item_text">{{ $t(item.text) }}</div>
                         </div>
                     </div>
                 </div>
                 <Accordion :accordionTitle="accordionTitle" :fromPage="'community'" :accordionList="accordionList"
                     v-if="viewableWidth < 834" />
                 <div class="steps">
-                    <div class="steps_title">Utility Activities</div>
+                    <div class="steps_title">{{ $t('community.utility_activities_title') }}</div>
                     <div class="steps_text">
-                        <div>Welcome to our event and meet us. If you are interested in organizing offline events, please
-                            contact us here:<span>Community Slack</span></div>
+                        <div>{{ $t('community.utility_activities_text') }}<span>Community Slack</span></div>
                         <!-- <div>Community Slack</div> -->
 
                     </div>
@@ -623,6 +622,7 @@ const accordionList = [
             height: 516px;
             padding: 0 5%;
             background: url('@/assets/images/phone_community.png') no-repeat;
+            background-size: cover;
             justify-content: center;
 
             .header_content {
@@ -687,6 +687,7 @@ const accordionList = [
             }
 
             .swiper_right {
+                justify-content: center;
 
                 .swiper_section {
                     width: 336px;

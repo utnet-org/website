@@ -217,54 +217,76 @@ export default {
     multifacetedc_ryptocurrency_platform: "多元数字货币平台",
   },
   poci_consensus: {
-    poci_or_Proof: 'POCI，即可信计算完整性证明，是一种区块链共识机制，用于证明计算力。它与传统的基于工作量证明（Proof of Work，PoW）的计算力证明不同，PoW 需要通过解决复杂的数学问题来消耗计算资源。相反，POCI依赖于链上的随机数和算力竞争来选举合适的矿工生成新区块',
-    the_introduction_of: 'POCI的引入也意味着网络的更公平竞争和更高的安全性。通过链上随机数和算力竞争，POCI公平地选举出合适的矿工生成新区块，这不仅确保了算力的有效利用，还保护了网络不受恶意行为的影响。此外，POCI使Utility网络避免了大量无效的计算，这些计算在传统区块链中常用于对抗拜占庭将军问题。这种效率的提高使得99%的运算能力可以被释放出来，用于更实用的服务，如分布式训练和推理计算，从而实现大规模应用。',
-    POCI_not_only: 'POCI在Utility网络中不仅提高了计算效率和安全性，还促进了网络的公平和透明度，为用户提供了更高效和可靠的服务，推动了区块链技术的进步和应用。',
-    The_use_of_high_performance: '高性能计算芯片的使用：',
-    POCI_uses_high_performance: 'POCI使用高性能的Sophon TPU计算芯片，这些芯片专为人工智能设计，具备每秒万亿次浮点运算的能力，专注于深度学习计算​​。',
-    Computing_power_ownership: '计算力拥有权模式：',
-    POCI_abandons_the: 'POCI摒弃了高成本、高能耗的计算模式，转而采用基于芯片计算力拥有权的模式​​。',
-    On_chain_random_number: '链上随机数和算力竞争：',
-    POCI_selects_appropriate: 'POCI通过链上随机数和算力竞争来选择合适的矿工生成新区块，保证了矿工的算力可用性和网络中的公平竞争​​。',
-    The_SPACC_module_is: 'SPACC模块用于执行加密学运算，如AES（Advanced Encryption Standard）加解密运算。这个模块保证了芯片的私密性和唯一性，使得芯片的秘密身份和关键信息不会被外部暴露。SPACC模块的存在是为了增强整个网络的安全性，确保信息和操作的私密性',
-    The_PKA_module_is_responsible: 'PKA模块负责进行私钥签名和验证操作。在椭圆曲线加密算法（Ellipse Curve Cryptography, ECC）中，PKA模块用于生成公钥和私钥，为加密通信提供基础。这个模块的作用是确保数字签名的安全性和可靠性，进一步强化了网络的安全性',
-    Efuse_Storage_area: 'Efuse存储区域',
-    The_Efuse_storage_area: 'Efuse存储区域用于刻蚀唯一的序列号和128位AES密钥（即“安全钥匙”）。这个安全钥匙是芯片的重要部分，保证了每个芯片的唯一身份和安全性。Efuse区域中的信息是不可更改的，确保了芯片的安全特性和身份验证的可靠性',
-    How_is_POCI_different: 'POCI与传统的PoW（工作量证明）有什么不同？',
-    Unlike_PoW_which: '不同于PoW需要通过解决复杂数学问题来证明计算力，POCI采用链上随机数和算力竞争来选举矿工，更加高效和节能。',
-    How_does_POCI_ensure: 'POCI如何保证网络的安全性？',
-    POCI_ensures_the_security: 'POCI通过验证节点的计算能力和使用芯片内部的加密技术来保证网络的安全性。',
-    How_does_POCI_contribute: 'POCI对区块链的可扩展性有什么贡献？',
-    POCI_contributes_to: 'POCI通过提高计算效率和降低成本，有助于区块链技术的扩展和更广泛的应用。',
-    How_does_POCI_support: 'POCI如何支持去中心化？',
-    POCI_supports_decentralized: 'POCI通过公平的算力证明和随机数生成，支持去中心化和分布式的网络结构。',
-    What_role_does_POCI: 'POCI在未来的区块链发展中扮演什么角色？',
-    As_an_efficient_and_environmentally: 'POCI作为一种高效和环保的共识机制，预计将在区块链技术的未来发展中扮演关键角色，特别是在提高网络性能和扩展区块链应用方面。',
+    poci_or_Proof:
+      "POCI，即可信计算完整性证明，是一种区块链共识机制，用于证明计算力。它与传统的基于工作量证明（Proof of Work，PoW）的计算力证明不同，PoW 需要通过解决复杂的数学问题来消耗计算资源。相反，POCI依赖于链上的随机数和算力竞争来选举合适的矿工生成新区块",
+    the_introduction_of:
+      "POCI的引入也意味着网络的更公平竞争和更高的安全性。通过链上随机数和算力竞争，POCI公平地选举出合适的矿工生成新区块，这不仅确保了算力的有效利用，还保护了网络不受恶意行为的影响。此外，POCI使Utility网络避免了大量无效的计算，这些计算在传统区块链中常用于对抗拜占庭将军问题。这种效率的提高使得99%的运算能力可以被释放出来，用于更实用的服务，如分布式训练和推理计算，从而实现大规模应用。",
+    POCI_not_only:
+      "POCI在Utility网络中不仅提高了计算效率和安全性，还促进了网络的公平和透明度，为用户提供了更高效和可靠的服务，推动了区块链技术的进步和应用。",
+    The_use_of_high_performance: "高性能计算芯片的使用：",
+    POCI_uses_high_performance:
+      "POCI使用高性能的Sophon TPU计算芯片，这些芯片专为人工智能设计，具备每秒万亿次浮点运算的能力，专注于深度学习计算​​。",
+    Computing_power_ownership: "计算力拥有权模式：",
+    POCI_abandons_the:
+      "POCI摒弃了高成本、高能耗的计算模式，转而采用基于芯片计算力拥有权的模式​​。",
+    On_chain_random_number: "链上随机数和算力竞争：",
+    POCI_selects_appropriate:
+      "POCI通过链上随机数和算力竞争来选择合适的矿工生成新区块，保证了矿工的算力可用性和网络中的公平竞争​​。",
+    The_SPACC_module_is:
+      "SPACC模块用于执行加密学运算，如AES（Advanced Encryption Standard）加解密运算。这个模块保证了芯片的私密性和唯一性，使得芯片的秘密身份和关键信息不会被外部暴露。SPACC模块的存在是为了增强整个网络的安全性，确保信息和操作的私密性",
+    The_PKA_module_is_responsible:
+      "PKA模块负责进行私钥签名和验证操作。在椭圆曲线加密算法（Ellipse Curve Cryptography, ECC）中，PKA模块用于生成公钥和私钥，为加密通信提供基础。这个模块的作用是确保数字签名的安全性和可靠性，进一步强化了网络的安全性",
+    Efuse_Storage_area: "Efuse存储区域",
+    The_Efuse_storage_area:
+      "Efuse存储区域用于刻蚀唯一的序列号和128位AES密钥（即“安全钥匙”）。这个安全钥匙是芯片的重要部分，保证了每个芯片的唯一身份和安全性。Efuse区域中的信息是不可更改的，确保了芯片的安全特性和身份验证的可靠性",
+    How_is_POCI_different: "POCI与传统的PoW（工作量证明）有什么不同？",
+    Unlike_PoW_which:
+      "不同于PoW需要通过解决复杂数学问题来证明计算力，POCI采用链上随机数和算力竞争来选举矿工，更加高效和节能。",
+    How_does_POCI_ensure: "POCI如何保证网络的安全性？",
+    POCI_ensures_the_security:
+      "POCI通过验证节点的计算能力和使用芯片内部的加密技术来保证网络的安全性。",
+    How_does_POCI_contribute: "POCI对区块链的可扩展性有什么贡献？",
+    POCI_contributes_to:
+      "POCI通过提高计算效率和降低成本，有助于区块链技术的扩展和更广泛的应用。",
+    How_does_POCI_support: "POCI如何支持去中心化？",
+    POCI_supports_decentralized:
+      "POCI通过公平的算力证明和随机数生成，支持去中心化和分布式的网络结构。",
+    What_role_does_POCI: "POCI在未来的区块链发展中扮演什么角色？",
+    As_an_efficient_and_environmentally:
+      "POCI作为一种高效和环保的共识机制，预计将在区块链技术的未来发展中扮演关键角色，特别是在提高网络性能和扩展区块链应用方面。",
   },
   learning_center: {
-    Learning_center: '学习中心',
-    A_guide_and_help_center: '给予初学者们在Utility上了解和使用多样化技术的指引和帮助中心',
-    How_to_use_it: '如何使用它',
-    What_is_Utility: '什么是Utility',
-    Enhance_Utility_Network: '增强Utility网络',
-    Utility_Network_has_made: 'Utility Network在传统区块链的基础上做出了很多创新。它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多并开始：',
-    Start_from_here: '从这里开始作为初学者',
-    What_is_UNC_Token: '什么是 UNC 令牌',
-    Start_UNC_Token_UNC: 'Start UNC 代币（UNC）是公用事业网络及其生态系统的货币',
-    What_is_POCI_Consensus: '什么是 POCI 共识',
-    it_is_a_brand_new: '这是一种全新的证明机制，通过拥有可信算力来间接证明算力。',
-    How_to_use_Utility: '如何使用Utility',
-    Utility_can_be_used_in: 'Utility可以用于多种场景，例如通过计算资源进行支付、训练语言模型等。',
-    A_digital_wallet_holds: '数字钱包保存着您证明身份和访问重要地点所需的凭证。',
-    the_first_computing_power: 'Utility发行的第一个算力租赁平台。',
-    Enhancing_Utility_Network: '增强Utility网络',
-    Building_Utility_Network: '构建Utility网络并通过区块链和计算资源租赁获得奖励（UNC）。',
-    Running_Nodes: '正在运行的节点',
-    Participate_in_running: '参与运行节点并做出重要贡献。',
-    Mining_and_Rental_Supply: '采矿和租赁供应',
-    Learn_how_to_mining: '学习如何在Utility网络中采矿和租赁。',
-    Join_the_Community: '加入社区',
-    A_home_for_Utility_developers: 'Utility开发人员、技术专家、设计师、用户和加密货币爱好者的家园。'
+    Learning_center: "学习中心",
+    A_guide_and_help_center:
+      "给予初学者们在Utility上了解和使用多样化技术的指引和帮助中心",
+    How_to_use_it: "如何使用它",
+    What_is_Utility: "什么是Utility",
+    Enhance_Utility_Network: "增强Utility网络",
+    Utility_Network_has_made:
+      "Utility Network在传统区块链的基础上做出了很多创新。它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多并开始：",
+    Start_from_here: "从这里开始作为初学者",
+    What_is_UNC_Token: "什么是 UNC 令牌",
+    Start_UNC_Token_UNC:
+      "Start UNC 代币（UNC）是公用事业网络及其生态系统的货币",
+    What_is_POCI_Consensus: "什么是 POCI 共识",
+    it_is_a_brand_new:
+      "这是一种全新的证明机制，通过拥有可信算力来间接证明算力。",
+    How_to_use_Utility: "如何使用Utility",
+    Utility_can_be_used_in:
+      "Utility可以用于多种场景，例如通过计算资源进行支付、训练语言模型等。",
+    A_digital_wallet_holds:
+      "数字钱包保存着您证明身份和访问重要地点所需的凭证。",
+    the_first_computing_power: "Utility发行的第一个算力租赁平台。",
+    Enhancing_Utility_Network: "增强Utility网络",
+    Building_Utility_Network:
+      "构建Utility网络并通过区块链和计算资源租赁获得奖励（UNC）。",
+    Running_Nodes: "正在运行的节点",
+    Participate_in_running: "参与运行节点并做出重要贡献。",
+    Mining_and_Rental_Supply: "采矿和租赁供应",
+    Learn_how_to_mining: "学习如何在Utility网络中采矿和租赁。",
+    Join_the_Community: "加入社区",
+    A_home_for_Utility_developers:
+      "Utility开发人员、技术专家、设计师、用户和加密货币爱好者的家园。",
   },
   community: {
     h1_1: "欢迎来到社区",
@@ -272,65 +294,111 @@ export default {
     h1_3: "阅读更多",
 
     h2_1: "交流与分享",
-    h2_2: "用户可以分享他们使用尤特网络的实际体验，包括挖矿、智能合约开发等。\n" +
+    h2_2:
+      "用户可以分享他们使用尤特网络的实际体验，包括挖矿、智能合约开发等。\n" +
       "专门的技术讨论区，供开发者和技术人员交流心得、解决问题。\n" +
       "用户和开发者可以提出改进建议或报告潜在问题，共同促进尤特网络的发展。",
     optionsList1: {
-      title: '加入在线社区',
-      text: '加入我们的社区，与我们一起探讨、学习和分享'
+      title: "加入在线社区",
+      text: "加入我们的社区，与我们一起探讨、学习和分享",
     },
     optionsList2: {
-      title: '为项目做出贡献',
-      text: '欢迎有兴趣的个人和团队为我们的项目贡献力量，共同实现我们的愿景。'
+      title: "为项目做出贡献",
+      text: "欢迎有兴趣的个人和团队为我们的项目贡献力量，共同实现我们的愿景。",
     },
     optionsList3: {
-      title: '活动',
-      text: '提供深度了解与参与'
+      title: "活动",
+      text: "提供深度了解与参与",
     },
 
     toggleMenuList: [
       {
-        firstTitle: 'Emily Johnson',
-        secondTitle: 'From the other side of the sea',
-        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+        firstTitle: "Emily Johnson",
+        secondTitle: "From the other side of the sea",
+        text: "我一直在这个社区中参与了一段时间，我非常喜欢这个友好和充满活力的社区。大家总是那么乐于助人，这让我感到温暖和受欢迎。",
       },
       {
-        firstTitle: 'Michael Davis',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+        firstTitle: "Michael Davis",
+        secondTitle: "From the other side of the sea",
+        text: "这个项目真的很令人兴奋，我相信它将在未来取得巨大的成功。我已经看到了一些令人印象深刻的进展，这让我对项目的前景充满信心。",
       },
       {
-        firstTitle: 'David Miller',
-        secondTitle: 'From the other side of the sea',
-        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+        firstTitle: "David Miller",
+        secondTitle: "From the other side of the sea",
+        text: "这个项目对我们的行业有着重要的影响。它解决了一些现实中的问题，我期待着看到它如何改变我们的未来。",
       },
       {
-        firstTitle: 'Matthew Martinez',
-        secondTitle: 'From the other side of the sea',
-        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
-      }
+        firstTitle: "Matthew Martinez",
+        secondTitle: "From the other side of the sea",
+        text: "我要特别感谢项目团队的辛勤工作和透明度。他们总是乐意回答问题，解决疑虑，并听取社区的意见。",
+      },
     ],
 
     stepsList: [
       {
-        time: '2023 10/31 8:00（UTC+8）',
-        message: 'PoCI、PIEE 和 CAT 深入分析',
-        reason: 'Online Meeting'
+        time: "2023 10/31 8:00（UTC+8）",
+        message: "PoCI、PIEE 和 CAT 深入分析",
+        reason: "Online Meeting",
       },
       {
-        time: '2023 10/29/ 8:00（UTC+8）',
-        message: 'In-depth Analysis of PoCI, PIEE & CAT',
-        reason: 'Online Meeting'
+        time: "2023 10/29/ 8:00（UTC+8）",
+        message: "In-depth Analysis of PoCI, PIEE & CAT",
+        reason: "Online Meeting",
       },
-    ]
+    ],
+    voice_from_our_partners_title: "来自我们合作伙伴的声音",
+    utility_activities_title: "公用事业活动",
+    utility_activities_text:
+      "欢迎参加我们的活动并与我们见面。如果您有兴趣组织线下活动，请通过此处联系我们：",
   },
   docs: {
-    At_this_stage_UNC: '此阶段进行UNC代币发行、公链基础建立、社区和公链正处于开发阶段。在此阶段，将进行第一次内部测试启动，重点进行基于币安智能链的激励模型测试。',
-    Empower_the_Network: '这个入口鼓励用户参与网络，通过运行节点来支持和加强尤特网络的去中心化和安全性。',
-    Contribute_Computing_Power: '此部分鼓励用户提供他们的计算能力，支持尤特网络的运算需求，从而提高网络的整体性能和效率。',
-    Innovate_with_Us: '这一部分面向开发者，鼓励他们在尤特平台上构建去中心化应用（DApp），突出其创新和协作的机会。',
-    Explore_Our_Foundation: '此入口提供尤特项目的白皮书，旨在帮助访问者深入了解项目的基础、愿景和技术细节',
-
-  }
-
+    At_this_stage_UNC:
+      "此阶段进行UNC代币发行、公链基础建立、社区和公链正处于开发阶段。在此阶段，将进行第一次内部测试启动，重点进行基于币安智能链的激励模型测试。",
+    Empower_the_Network:
+      "这个入口鼓励用户参与网络，通过运行节点来支持和加强尤特网络的去中心化和安全性。",
+    Contribute_Computing_Power:
+      "此部分鼓励用户提供他们的计算能力，支持尤特网络的运算需求，从而提高网络的整体性能和效率。",
+    Innovate_with_Us:
+      "这一部分面向开发者，鼓励他们在尤特平台上构建去中心化应用（DApp），突出其创新和协作的机会。",
+    Explore_Our_Foundation:
+      "此入口提供尤特项目的白皮书，旨在帮助访问者深入了解项目的基础、愿景和技术细节",
+  },
+  soloutions: {
+    utility_wallet: "Utility钱包",
+    about_us_title: "关于我们",
+    about_us_text:
+      "Utility Wallet 是一款创新的区块链钱包，专为Utility链设计，提供全面的数字资产管理解决方案。它不仅包括一个易用的网页钱包插件，还有一个功能全面的App钱包。通过这款钱包，用户可以轻松转账、租赁算力、查看租赁订单，并与各种dapp进行互动。此外，Utility Wallet还内置了区块链浏览器，使用户能够实时查看交易和区块链活动。",
+    key_features_title: "主要特征",
+    key_features_text:
+      "多功能钱包：结合网页插件和移动应用，提供灵活的资产管理。转账与算力租赁：用户可以轻松转账和租赁算力，管理租赁订单。dapp互动：与Utility dapp生态无缝连接，拓展区块链应用的可能性。区块链浏览器：内置浏览器让用户能够实时监控区块链活动，确保交易的透明度。",
+    asset_management: "资产管理",
+    multifunctional_wallet: "多功能钱包",
+    dapp_interaction: "dapp互动",
+    core_system: "核心系统",
+    computing_power_rental_platform: "算力租赁平台",
+    score: "评分",
+    diversified_computing_power: "多样化算力",
+    customized_configuration: "定制化配置",
+    core_system_about_us_text:
+      "Core System是由Utility推出的创新算力租赁平台，专注于提供算力出租和购买服务。我们的团队由区块链和计算领域的专家组成，他们汇聚了广泛的技术知识和市场洞察，以满足市场对算力资源的多元化需求。在Core System中，我们致力于打造一个简单、高效且透明的平台，使用户能够轻松出租或购买算力。通过引入创新的评分系统和提供多种算力类型，我们旨在为用户提供最优质的服务和最适合的算力资源。",
+    core_system_key_features_text:
+      "Core System为用户提供了一系列核心特性，以优化算力租赁体验。平台支持算力的出租和购买，满足不同用户的需求。为了保证服务质量和透明度，引入了订单评分体系，每笔订单完成后，用户可以对服务进行评价，这不仅提升了服务提供者的质量，也帮助其他用户做出更明智的选择。平台提供了多种算力类型供用户租用，从而适应不同的计算需求和预算限制。不论是进行大规模数据处理还是复杂的AI训练，用户都能在Core System中找到合适的算力资源。此外，平台还提供了定制化配置服务，使用户能够根据自己的具体需求，定制想要租用的算力配置。这种灵活性和个性化的服务使Core System成为了一个满足各种计算需求的理想平台，无论用户是初创企业、研究机构还是个人开发者，都能在这里找到所需的算力资源。",
+    mining_tools: "Mining管理工具",
+    mining_tools_options1: "算力管理",
+    mining_tools_options2: "机器运维",
+    mining_tools_options3: "租赁透明化",
+    mining_tools_about_us_text:
+      "Mining Tool项目专注于为Utility网络的矿工提供一站式的算力管理解决方案。我们的团队由经验丰富的开发者和区块链专家组成，致力于打造一个高效、可靠、易于操作的矿工工具。通过集成最先进的技术和用户友好的界面，我们旨在简化矿工的日常运维任务，提高他们对算力资源的管理效率。",
+    mining_tools_key_features_text:
+      "Mining Tool为Utility网络矿工提供了全面的算力管理解决方案。这款工具能够实现算力的集群调度，让矿工有效分配和管理大量算力资源。工具中的实时监控系统使矿工能够随时了解机器运行状况，及时处理任何问题，保证稳定运行。通过清晰的界面展示，矿工可以轻松查看当前出租和闲置的算力，优化资源配置。还包含机器状态监控功能，帮助矿工监测和维护矿机的健康状况。租赁日志功能则为矿工提供了详细的租赁记录，简化了算力出租过程。网络状态监控保证矿工的网络连接始终处于最佳状态，确保稳定的挖矿活动。Mining Tool通过这些综合功能，极大地提升了矿工管理和优化算力资源的能力。",
+    ai_model: "AI模型",
+    ai_model_options1: "AI集市",
+    ai_model_options2: "共享",
+    ai_model_options3: "AI训练",
+    ai_model_about_us_text:
+      "我们打造了一个前沿且庞大的AI模型市场，旨在为用户提供一个平台，让他们不仅能分享和发布自己的AI模型，还能利用市场上的多样化模型进行AI相关的活动和研究。我们的团队深信，通过打破技术壁垒和促进知识共享，可以加速AI技术的发展和应用。我们致力于建设一个包容、创新的社区，让每一个对AI技术有兴趣的个体都能在这个平台上找到所需的资源，从而推动整个AI行业的进步。",
+    ai_model_key_features_text:
+      "模型共享：用户可以发布自己的AI模型，与全球范围内的用户和研究者分享。模型使用：市场上拥有丰富多样的AI模型，用户可以根据自己的需求选择和使用这些模型。算力租赁：为了支持AI训练和运算，用户可以在Utility网络上租赁所需的算力资源。创新支持：项目鼓励创新和实验，支持用户在AI领域的探索和发展。AI Model项目不仅是一个模型市场，更是一个促进AI技术发展和应用的创新平台。",
+    ongoing: "进行中",
+  },
 };

@@ -44,17 +44,8 @@ const options_list = ref([
       </div>
     </div>
     <div class="options_list">
-      <div
-        v-for="(item, index) in options_list"
-        :key="index"
-        class="options_item"
-      >
-        <img
-          :src="item.images"
-          alt=""
-          :style="item.style"
-          style="margin: 50px"
-        />
+      <div v-for="(item, index) in options_list" :key="index" class="options_item">
+        <img :src="item.images" alt="" :style="item.style" style="margin: 50px" />
         <div class="options_item_title">{{ item.title }}</div>
         <div class="options_item_text">
           {{ $t(item.text) }}
@@ -67,6 +58,7 @@ const options_list = ref([
 .container {
   background: #fffefb;
 }
+
 @media (min-width: 835px) {
   .header {
     width: 100%;
@@ -102,6 +94,7 @@ const options_list = ref([
       }
     }
   }
+
   .options_list {
     display: flex;
     justify-content: center;
@@ -109,6 +102,7 @@ const options_list = ref([
     flex-wrap: wrap;
     padding: 60px 0 100px 0;
   }
+
   .options_item {
     width: 716px;
     height: 394px;
@@ -144,6 +138,7 @@ const options_list = ref([
     }
   }
 }
+
 @media (max-width: 835px) {
   .header {
     width: 100%;
@@ -155,17 +150,17 @@ const options_list = ref([
     align-items: center;
     justify-content: center;
     padding: 0 20px 30px 20px;
+
     .header_image {
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%);
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       padding: 40px 28px;
     }
+
     .header_title {
       color: rgba(21, 28, 26, 0.9);
       // font-family: Lantinghei SC;
@@ -175,15 +170,18 @@ const options_list = ref([
       line-height: normal;
       margin-bottom: 18px;
     }
+
     .header_text {
       color: rgba(21, 28, 26, 0.9);
       font-family: Inter;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
-      line-height: 154%; /* 24.64px */
+      line-height: 154%;
+      /* 24.64px */
     }
   }
+
   .options_list {
     display: flex;
     justify-content: center;
@@ -191,21 +189,21 @@ const options_list = ref([
     flex-wrap: wrap;
     padding: 32px 20px 44px 20px;
   }
+
   .options_item {
     width: 342px;
     height: 350px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: linear-gradient(
-      180deg,
-      rgba(149, 235, 227, 0.17) 1.02%,
-      rgba(149, 235, 227, 0) 38.87%
-    );
+    background: linear-gradient(180deg,
+        rgba(149, 235, 227, 0.17) 1.02%,
+        rgba(149, 235, 227, 0) 38.87%);
     display: flex;
     // 更改主轴方向
     flex-direction: column;
     align-items: center;
     padding: 0 26px 56px 26px;
+
     .options_item_title {
       color: #3edfcf;
       // text-align: center;
@@ -218,6 +216,7 @@ const options_list = ref([
 
       margin-bottom: 14px;
     }
+
     .options_item_text {
       color: rgba(21, 28, 26, 0.9);
       text-align: center;
@@ -225,7 +224,8 @@ const options_list = ref([
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
-      line-height: 142%; /* 22.72px */
+      line-height: 142%;
+      /* 22.72px */
       letter-spacing: 0.48px;
     }
   }

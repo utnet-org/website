@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Url } from 'url';
 import { ref } from 'vue';
 const props = defineProps({
     headerImage: String,
@@ -12,12 +13,12 @@ const props = defineProps({
     secondLevelTextThird: String,
     imageList: Array<string>,
 });
-const switchList = [
-    'COIWN',
-    'COIWN',
-    'COIWN',
-    'COIWN'
-]
+// const switchList = [
+//     'COIWN',
+//     'COIWN',
+//     'COIWN',
+//     'COIWN'
+// ]
 const switchId = ref(0);
 const changeSwitchId = (id: number) => {
     switchId.value = id;
@@ -28,28 +29,32 @@ const changeSwitchId = (id: number) => {
         <div class="header">
             <div class="header_image">
                 <img :src="headerImage" alt="">
-                <div class="header_title">{{ headerTitle }}</div>
+                <div class="header_title">{{ $t(headerTitle as string) }}</div>
                 <div class="header_switch">
                     <!-- @click="changeSwitchId(index)" -->
-                    <div v-for="(item, index) in switchList" :key="index" :class="switchId == index ? 'active' : ''">{{ item
+                    <div v-for="(item, index) in switchList" :key="index" :class="switchId == index ? 'active' : ''">{{
+                        $t(item as string)
                     }}</div>
                 </div>
             </div>
         </div>
         <div class="first_level_message">
-            <div class="first_level_title">{{ firstLevelTitle }}</div>
-            <div class="first_level_text">{{ firstLevelText }}</div>
+            <div class="first_level_title">{{ $t(firstLevelTitle as string) }}</div>
+            <div class="first_level_text">{{ $t(firstLevelText as string) }}</div>
         </div>
         <div class="second_level_message">
-            <div class="second_level_title">{{ secondLevelTitle }}</div>
+            <div class="second_level_title">{{ $t(secondLevelTitle as string) }}</div>
             <div class="second_level_text">
-                <div>{{ secondLevelTextFirst }}</div>
-                <div>{{ secondLevelTextSecond }}</div>
-                <div>{{ secondLevelTextThird }}</div>
+                <div>{{ $t(secondLevelTextFirst as string) }}</div>
+                <div>{{ $t(secondLevelTextSecond as string) }}</div>
+                <div>{{ $t(secondLevelTextThird as string) }}</div>
             </div>
         </div>
         <div class="images_list">
-            <img v-for="(item, index) in imageList" :key="index" :src="item" alt="">
+            <div v-for="(item, index) in imageList" :key="index"
+                :style="`background: url(${item}) no-repeat;background-size: cover;`">
+                {{ $t('soloutions.ongoing') }}
+            </div>
         </div>
     </div>
 </template>
@@ -90,7 +95,7 @@ const changeSwitchId = (id: number) => {
                 margin: 29px 0 55px;
 
                 div {
-                    width: 85px;
+                    padding: 0 18px;
                     height: 27px;
                     line-height: 27px;
                     border-radius: 20px;
@@ -100,7 +105,7 @@ const changeSwitchId = (id: number) => {
                 }
 
                 .active {
-                    background: #3EDFCF;
+                    // background: #3EDFCF;
                 }
             }
         }
@@ -167,11 +172,18 @@ const changeSwitchId = (id: number) => {
         justify-content: flex-start;
         padding: 40px 11% 100px;
 
-        img {
+        div {
             width: 440px;
             height: 275px;
             border-radius: 8px;
             margin-right: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white, #FFF);
+            font-family: Lantinghei SC;
+            font-size: 22px;
+            font-weight: 400;
         }
     }
 }
