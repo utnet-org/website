@@ -70,10 +70,7 @@ const optionsList = [
         <div class="header_content_text">
           {{ $t("utilityNetwork.header_message") }}
         </div>
-        <div
-          class="header_content_button"
-          @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')"
-        >
+        <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
           <div>{{ $t("utilityNetwork.read_more") }}</div>
           <img :src="arrowButton" alt="" />
         </div>
@@ -85,11 +82,7 @@ const optionsList = [
         <div class="text">{{ $t("utilityNetwork.title_text") }}</div>
       </div>
       <div class="message_card_list">
-        <div
-          class="message_card_list_item"
-          v-for="(item, index) in messageCardList"
-          :key="index"
-        >
+        <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
           <div class="message_card_list_item_title">
             <div class="message_card_list_item_title_line"></div>
             <div>{{ $t(item.title) }}</div>
@@ -104,21 +97,13 @@ const optionsList = [
         <div class="options_header_subtitle">
           {{ $t("utilityNetwork.defining_chips_with_blockchain_subtitle") }}
         </div>
-        <div
-          class="options_header_title_text"
-          v-for="(item, index) in definingChipsWithBlockchainTextList"
-          :key="index"
-        >
+        <div class="options_header_title_text" v-for="(item, index) in definingChipsWithBlockchainTextList" :key="index">
           <div class="options_header_title_text_underline"></div>
           <div>{{ $t(item) }}</div>
         </div>
       </div>
       <div class="options_list">
-        <div
-          class="options_item"
-          v-for="(item, index) in optionsList"
-          :key="index"
-        >
+        <div class="options_item" v-for="(item, index) in optionsList" :key="index">
           <div class="options_item_header">
             <div class="options_item_header_icon">
               <img :src="item.image" alt="" />
@@ -149,11 +134,9 @@ const optionsList = [
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%);
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -248,12 +231,10 @@ const optionsList = [
         margin: auto;
         padding: 0 50px;
         border-radius: 12px;
-        background: linear-gradient(
-          90deg,
-          rgba(207, 238, 235, 0) 25%,
-          rgba(179, 236, 229, 0.17) 50%,
-          rgba(179, 236, 229, 1) 25%
-        );
+        background: linear-gradient(90deg,
+            rgba(207, 238, 235, 0) 25%,
+            rgba(179, 236, 229, 0.17) 50%,
+            rgba(179, 236, 229, 1) 25%);
         background-size: 200% 100%;
         transition: background-position 0.5s ease;
         display: flex;
@@ -335,11 +316,9 @@ const optionsList = [
         .options_header_title_text_underline {
           width: 205px;
           height: 3px;
-          background: linear-gradient(
-            104deg,
-            #3edfcf 13.06%,
-            rgba(168, 249, 241, 0) 93.47%
-          );
+          background: linear-gradient(104deg,
+              #3edfcf 13.06%,
+              rgba(168, 249, 241, 0) 93.47%);
           position: absolute;
           top: 18px;
         }
@@ -376,19 +355,16 @@ const optionsList = [
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(
-              132deg,
-              #535856 0%,
-              #333937 53.27%,
-              #616563 100%
-            );
+            background: linear-gradient(132deg,
+                #535856 0%,
+                #333937 53.27%,
+                #616563 100%);
             position: absolute;
             top: -35px;
             left: 185px;
             z-index: 2;
 
-            img {
-            }
+            img {}
           }
 
           .options_item_header_title {
@@ -431,6 +407,7 @@ const optionsList = [
       height: 457px;
       padding: 0 5%;
       background: url("@/assets/images/phone_utility_explain.png") no-repeat;
+      background-size: cover;
       justify-content: center;
 
       .header_content {
@@ -468,11 +445,9 @@ const optionsList = [
           width: 100%;
           min-height: 257px;
           padding: 0 14px;
-          background: linear-gradient(
-            260deg,
-            rgba(149, 235, 227, 0.17) 1.02%,
-            rgba(149, 235, 227, 0) 38.87%
-          );
+          background: linear-gradient(260deg,
+              rgba(149, 235, 227, 0.17) 1.02%,
+              rgba(149, 235, 227, 0) 38.87%);
           background-size: 100%;
           justify-content: start;
           padding-top: 20px;

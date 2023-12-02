@@ -6,50 +6,45 @@
     <div class="header">
       <div class="header_content">
         <div class="header_content_bg"></div>
-        <div class="header_content_header">Utility Wallet</div>
+        <div class="header_content_header">{{ $t('soloutions.utility_wallet') }}</div>
         <div class="header_content_button">
-          <div class="header_content_button_one all">资产管理 </div>
-          <div class="header_content_button_two all">多功能钱包 </div>
-          <div class="header_content_button_three all">dapp互动 </div>
-<!--          <div class="header_content_button_four all">COIWN </div>-->
+          <div class="header_content_button_one all">{{ $t('soloutions.asset_management') }} </div>
+          <div class="header_content_button_two all">{{ $t('soloutions.multifunctional_wallet') }} </div>
+          <div class="header_content_button_three all">{{ $t('soloutions.dapp_interaction') }}</div>
+          <!--          <div class="header_content_button_four all">COIWN </div>-->
         </div>
       </div>
     </div>
     <div class="section">
       <div class="section_title">
-        About Us
+        {{ $t('soloutions.about_us_title') }}
       </div>
       <div class="section_text">
-        Utility Wallet 是一款创新的区块链钱包，专为Utility链设计，提供全面的数字资产管理解决方案。它不仅包括一个易用的网页钱包插件，还有一个功能全面的App钱包。通过这款钱包，
-        用户可以轻松转账、租赁算力、查看租赁订单，并与各种dapp进行互动。此外，Utility Wallet还内置了区块链浏览器，使用户能够实时查看交易和区块链活动。
-      </div>
+        {{ $t('soloutions.about_us_text') }}</div>
     </div>
     <div class="section">
       <div class="section_title">
-        Key Features
+        {{ $t('soloutions.key_features_title') }}
       </div>
       <div class="section_text">
-        多功能钱包：结合网页插件和移动应用，提供灵活的资产管理。
-        转账与算力租赁：用户可以轻松转账和租赁算力，管理租赁订单。
-        dapp互动：与Utility dapp生态无缝连接，拓展区块链应用的可能性。
-        区块链浏览器：内置浏览器让用户能够实时监控区块链活动，确保交易的透明度。
+        {{ $t('soloutions.key_features_text') }}
       </div>
       <div class="text_img">
-        <img  alt="" src="@/assets/images/mp_wallet_ong.png">
+        <img alt="" src="@/assets/images/mp_wallet_ong.png">
       </div>
       <div class="text_img">
-        <img  alt="" src="@/assets/images/mp_wallet_ong2.png">
+        <img alt="" src="@/assets/images/mp_wallet_ong2.png">
       </div>
     </div>
 
   </div>
 </template>
 <style scoped lang="less">
-
 @media (max-width: 834px) {
   .container {
     background-color: #FFFEFB;
     margin-bottom: 50px;
+
     .header {
       width: 100%;
       height: 380px;
@@ -64,15 +59,16 @@
         flex-shrink: 0;
         //padding: 0 20px;
         margin: 120px 0 0;
+
         //border: 1px solid red;
-        .header_content_bg{
+        .header_content_bg {
           width: 100px;
           height: 100px;
           margin: 0 auto;
           background: url('@/assets/images/mp_wallet_logo.png') no-repeat;
         }
 
-        .header_content_header{
+        .header_content_header {
           color: var(--Light-dark, rgba(21, 28, 26, 0.90));
           text-align: center;
           font-family: Lantinghei SC;
@@ -83,11 +79,12 @@
           margin-top: 18px;
         }
 
-        .header_content_button{
+        .header_content_button {
           display: flex;
           justify-content: space-around;
           margin-top: 26px;
-          .all{
+
+          .all {
             display: flex;
             padding: 5px 14px;
             justify-content: center;
@@ -96,8 +93,9 @@
             border-radius: 20px;
             border: 1px solid #3EDFCF;
           }
-          .all:hover{
-            background: #3EDFCF;
+
+          .all:hover {
+            // background: #3EDFCF;
           }
         }
       }
@@ -107,7 +105,7 @@
       //border: 1px solid red;
       padding: 0 20px;
 
-      .section_title{
+      .section_title {
         color: var(--Light-dark, rgba(21, 28, 26, 0.90));
         text-align: center;
         font-family: Lantinghei SC;
@@ -118,18 +116,19 @@
         margin: 50px 0 14px;
       }
 
-      .section_text{
+      .section_text {
         color: var(--Light-dark, rgba(21, 28, 26, 0.90));
         font-family: Lantinghei SC;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 181%; /* 25.34px */
+        line-height: 181%;
+        /* 25.34px */
         opacity: 0.8;
         text-align: left;
       }
 
-      .text_img{
+      .text_img {
         width: 350px;
         height: 224px;
         flex-shrink: 0;

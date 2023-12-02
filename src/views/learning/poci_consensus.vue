@@ -99,11 +99,7 @@ const changeCheckIndex = (index: any) => {
           </div>
         </div>
         <div class="options_list">
-          <div
-            class="options_item"
-            v-for="(item, index) in optionsList"
-            :key="index"
-          >
+          <div class="options_item" v-for="(item, index) in optionsList" :key="index">
             <div class="options_item_header">
               <div class="options_item_header_index">{{ index + 1 }}</div>
               <div class="options_item_header_title">{{ $t(item.title) }}</div>
@@ -112,23 +108,13 @@ const changeCheckIndex = (index: any) => {
           </div>
         </div>
       </div>
-      <Accordion
-        :accordionTitle="accordionTitle"
-        :accordionList="accordionList"
-      />
+      <Accordion :accordionTitle="accordionTitle" :accordionList="accordionList" />
       <div class="faq">
         <div class="faq_title">FAQ</div>
         <div class="faq_question_list">
-          <div
-            class="faq_item_question"
-            v-for="(citem, cindex) in questionList"
-            :key="cindex"
-            :class="checkQuestionIndex == cindex ? 'active' : ''"
-          >
-            <div
-              class="faq_item_question_title"
-              @click="changeCheckIndex(cindex)"
-            >
+          <div class="faq_item_question" v-for="(citem, cindex) in questionList" :key="cindex"
+            :class="checkQuestionIndex == cindex ? 'active' : ''">
+            <div class="faq_item_question_title" @click="changeCheckIndex(cindex)">
               <div class="faq_item_question_title_side">
                 <div class="faq_item_question_title_side_index">
                   {{ citem.id }}/
@@ -137,10 +123,7 @@ const changeCheckIndex = (index: any) => {
               </div>
               <img src="@/assets/images/poci_to_bottom.png" alt="" />
             </div>
-            <div
-              v-if="checkQuestionIndex == cindex"
-              class="faq_item_question_answer"
-            >
+            <div v-if="checkQuestionIndex == cindex" class="faq_item_question_answer">
               {{ $t(citem.answer) }}
             </div>
           </div>
@@ -167,11 +150,9 @@ const changeCheckIndex = (index: any) => {
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%);
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -268,8 +249,7 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: url("@/assets/images/poci_consensus_options_default.png")
-          no-repeat;
+        background: url("@/assets/images/poci_consensus_options_default.png") no-repeat;
         background-size: cover;
         margin-bottom: 16px;
         display: flex;
@@ -278,8 +258,7 @@ const changeCheckIndex = (index: any) => {
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
 
         &:hover {
-          background: url("@/assets/images/poci_consensus_options_hover.png")
-            no-repeat;
+          background: url("@/assets/images/poci_consensus_options_hover.png") no-repeat;
           background-size: cover;
         }
 
@@ -428,6 +407,7 @@ const changeCheckIndex = (index: any) => {
       height: 484px;
       padding: 0 5%;
       background: url("@/assets/images/phone_poci.png") no-repeat;
+      background-size: cover;
       justify-content: center;
 
       .header_content {
@@ -474,8 +454,7 @@ const changeCheckIndex = (index: any) => {
           margin-bottom: 12px;
 
           &:hover {
-            background: url("@/assets/images/poci_consensus_options_default.png")
-              no-repeat;
+            background: url("@/assets/images/poci_consensus_options_default.png") no-repeat;
             background-size: cover;
           }
         }
@@ -485,8 +464,7 @@ const changeCheckIndex = (index: any) => {
     .faq {
       padding: 44px 5% 14px;
 
-      .faq_question_list {
-      }
+      .faq_question_list {}
     }
   }
 }
