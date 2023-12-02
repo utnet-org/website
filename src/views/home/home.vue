@@ -39,6 +39,7 @@ const updateWindowSize = () => {
 // 当组件挂载时设置监听器，并在卸载时移除
 onMounted(() => {
   window.addEventListener("resize", updateWindowSize);
+  // window.location.reload();
 });
 
 onUnmounted(() => {
@@ -291,6 +292,7 @@ const scroll = ref(0);
 const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
+  console.log(scroll.value)
   if (scroll.value > 1900) {
     if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
       ani_btn.value = 175;
@@ -443,6 +445,8 @@ const onVideoEnded = () => {
   ani_btn_s.value = 1;
   ant_btn_w.value = 80;
   setTimeout(() => {
+    ani_btn_s.value = 1;
+    ant_btn_w.value = 80;
     ant_btn_w.value = 240;
   }, 300);
 };
@@ -455,12 +459,17 @@ const onVideoEnded = () => {
 //   }, 300);
 // };
 const next222 = () => {
+  console.log("视频播放完毕 next222");
+  console.log(ani_btn_s.value)
+  console.log(ant_btn_w.value)
   if (ani_btn_s.value === 1) {
-    console.log("视频播放完毕");
+    // console.log("视频播放完毕");
     ani_btn_s.value = 2;
     ant_btn_w.value = 80;
     setTimeout(() => {
       ant_btn_w.value = 300;
+      // videoshow.value = false;//视频结束
+
     }, 300);
   } else {
     video_next();
@@ -570,14 +579,14 @@ const next222 = () => {
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video
           v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
+          src="http://oss2.xuanwoo.com/unc/20%20Seconds%20Version.mp4"
           autoplay
           muted
           @ended="onVideoEnded"
         ></video>
         <video
           v-if="ani_btn_s == 2"
-          src="@/assets/mv/55_1701258800.mp4"
+          src="http://oss2.xuanwoo.com/unc/PART%202.mp4"
           autoplay
           muted
         ></video>

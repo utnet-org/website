@@ -205,6 +205,7 @@ const accordionList = [
         width: 100%;
         height: 558px;
         background: url('@/assets/images/community_background.png') no-repeat;
+      background-position: right;
         background-size: cover;
         display: flex;
         align-items: flex-end;

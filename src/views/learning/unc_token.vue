@@ -20,7 +20,7 @@ const optionsList = [
         image: OptionsItem2,
         title: 'Hotcoin Global',
         text: 'utilityNetwork.digital_asset_trading',
-        link: 'https://www.hotcoin.global/spot/trade?symbol=UNC_USDT'
+        link: 'https://www.hotcoin.com/'
     },
     {
         image: OptionsItem3,
