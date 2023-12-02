@@ -447,7 +447,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 padding: 50px 50px 0;
                 border-radius: 12px;
                 background: #F6F9F9;
-                box-shadow: 4px 4px 24px 0px rgba(228, 233, 232, 0.80);
+                //box-shadow: 4px 4px 24px 0px rgba(228, 233, 232, 0.80);
                 display: flex;
                 flex-direction: column;
                 // justify-content: center;

@@ -19,7 +19,7 @@ const mp_left = [
     title: "footer.Resources",
     children: [
       { text: "footer.White_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
-      { text: "footer.Green_Paper", isOut: true, link: "" },
+      { text: "footer.Green_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
     ],
   },
   {
@@ -211,7 +211,7 @@ const printWidth = () => {
         <div class="container_left">
           <div class="resources_box" v-for="(item, index) in mp_left" :key="index">
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2, index) in item.children" :key="index">
+            <div class="resources_text" v-for="(item2, index) in item.children" :key="index"  @click="openNewPage(item2.link)">
               {{ $t(item2.text) }}
             </div>
           </div>
@@ -220,7 +220,7 @@ const printWidth = () => {
         <div class="container_right">
           <div class="resources_box" v-for="(item, index) in mp_right" :key="index">
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2, index) in item.children" :key="index">
+            <div class="resources_text" v-for="(item2, index) in item.children" :key="index"  @click="openNewPage(item2.link)">
               {{ $t(item2.text) }}
             </div>
           </div>

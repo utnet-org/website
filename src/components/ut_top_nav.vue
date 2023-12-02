@@ -2,7 +2,7 @@
 import { ref } from "vue";
 const activeIndex = ref(1);
 const show = ref(false);
-import { openNewPage } from "@/utils/request.ts";
+import { openNewPage } from "@/utils/request";
 const nav_arr = ref([
   {
     name: "nav.Learning",

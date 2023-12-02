@@ -13,63 +13,53 @@ const communityOptionsList = [
     {
         image: CommunityOptions1,
         title: 'Join Online Community',
-        text: 'Find your community and join it with other Utility enthusiasts'
+        text: 'Join our community to discuss, learn and share with us'
     },
     {
         image: CommunityOptions2,
         title: 'Contribute to the Project',
-        text: 'Find your community and join it with other Utility enthusiasts'
+        text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
     },
     {
         image: CommunityOptions3,
         title: 'Utility Activities',
-        text: 'Find your community and join it with other Utility enthusiasts'
+        text: 'Provide in-depth understanding and participation'
     },
 ]
 const hoverCheckIndex = ref(-1)
 const toggleMenuList = [
     {
-        firstTitle: 'Isayama Tsubasa',
+        firstTitle: 'Emily Johnson',
         secondTitle: 'From the other side of the sea',
-        text: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
     },
     {
-        firstTitle: 'Isayama Tsubasa',
+        firstTitle: 'Michael Davis',
         secondTitle: 'From the other side of the sea',
-        text: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
     },
     {
-        firstTitle: 'Isayama Tsubasa',
+        firstTitle: 'David Miller',
         secondTitle: 'From the other side of the sea',
-        text: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
     },
     {
-        firstTitle: 'Isayama Tsubasa',
+        firstTitle: 'Matthew Martinez',
         secondTitle: 'From the other side of the sea',
-        text: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
     }
 ]
 const stepsList = [
     {
-        time: 'September 21, 2023',
-        message: 'Utility Press Conference',
-        reason: 'Already ended.'
+        time: '2023 10/31 8:00（UTC+8）',
+        message: 'PoCI、PIEE 和 CAT 深入分析',
+        reason: 'Online Meeting'
     },
     {
-        time: 'September 21, 2023',
-        message: 'Utility Press Conference',
-        reason: 'Already ended.'
+        time: '2023 10/29/ 8:00（UTC+8）',
+        message: 'In-depth Analysis of PoCI, PIEE & CAT',
+        reason: 'Online Meeting'
     },
-    {
-        time: 'September 21, 2023',
-        message: 'Utility Press Conference',
-        reason: 'Already ended.'
-    },
-    {
-        time: 'September 21, 2023',
-        message: 'Utility Press Conference',
-        reason: 'Already ended.'
-    }
 ]
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const accordionTitle = 'Consensus Chip';
@@ -90,44 +80,27 @@ const accordionList = [
         messageText: 'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
     }
 ]
-const questionList = [
-    {
-        id: '01',
-        question: 'Why Using TPU?',
-        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
-    },
-    {
-        id: '02',
-        question: 'Why Using TPU?',
-        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
-    },
-    {
-        id: '03',
-        question: 'Why Using TPU?',
-        answer: 'Provide users with decentralized mining and artificial intelligence training services. TPU(Tensor Processing Unit) is an accelerator chip designed for artificial intelligence, tasked with deep learning computing tasks, features include: up to teraflops of high performance; Beautiful teraflops; Low power consumption; Optimized hardware design and flexibility for compatibility with multiple development framework software libraries such as TensorFlow and PyTorch.'
-    },
-]
 </script>
 <template>
     <div>
         <div class="container">
             <div class="header">
                 <div class="header_content">
-                    <div class="header_content_header">Welcome to Community</div>
-                    <div class="header_content_text">Developers, businesses, and everyday users around the world are working
-                        together to build the digital commonwealth. Join the Utility Community to build faster, smarter, and
-                        without limits.</div>
+                    <div class="header_content_header">{{ $t('community.h1_1') }}</div>
+                    <div class="header_content_text">{{ $t('community.h1_2') }}
+                    </div>
                     <div class="header_content_button">
-                        <div>Read More</div>
+                        <div>{{ $t('community.h1_3') }}</div>
                         <img :src="arrowButton" alt="">
                     </div>
                 </div>
             </div>
             <div class="swiper">
                 <div class="swiper_side">
-                    <div class="swiper_side_title">Make a Difference to the World</div>
-                    <div class="swiper_side_text">Connect with peers, inspire conversations,& stay updated on BNB Chain’s
-                        advancements.</div>
+                    <div class="swiper_side_title">{{ $t('community.h2_1') }}</div>
+                    <div class="swiper_side_text">
+                      {{ $t('community.h2_2') }}
+                    </div>
                 </div>
                 <div class="swiper_right">
                     <div class="swiper_section">
@@ -144,13 +117,35 @@ const questionList = [
                 </div>
             </div>
             <div class="community_options">
-                <div class="community_options_item" v-for="(item, index) in communityOptionsList" :key="index">
-                    <img :src="item.image" alt="">
-                    <div>
-                        <div class="community_options_item_title">{{ item.title }}</div>
-                        <div class="community_options_item_text">{{ item.text }}</div>
-                    </div>
+
+              <div class="community_options_item">
+                <img :src="CommunityOptions1" alt="">
+                <div>
+                  <div class="community_options_item_title">{{ $t('community.optionsList1.title') }}</div>
+                  <div class="community_options_item_text">{{ $t('community.optionsList1.text') }}</div>
                 </div>
+              </div>
+              <div class="community_options_item">
+                <img :src="CommunityOptions2" alt="">
+                <div>
+                  <div class="community_options_item_title">{{ $t('community.optionsList2.title') }}</div>
+                  <div class="community_options_item_text">{{ $t('community.optionsList2.text') }}</div>
+                </div>
+              </div>
+              <div class="community_options_item">
+                <img :src="CommunityOptions3" alt="">
+                <div>
+                  <div class="community_options_item_title">{{ $t('community.optionsList3.title') }}</div>
+                  <div class="community_options_item_text">{{ $t('community.optionsList3.text') }}</div>
+                </div>
+              </div>
+<!--                <div class="community_options_item" v-for="(item, index) in communityOptionsList" :key="index">-->
+<!--                    <img :src="item.image" alt="">-->
+<!--                    <div>-->
+<!--                        <div class="community_options_item_title">{{ item.title }}</div>-->
+<!--                        <div class="community_options_item_text">{{ item.text }}</div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="toggle_menu">
                 <div>

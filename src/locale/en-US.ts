@@ -1,3 +1,7 @@
+import CommunityOptions1 from "@/assets/images/community_options1.png";
+import CommunityOptions2 from "@/assets/images/community_options2.png";
+import CommunityOptions3 from "@/assets/images/community_options3.png";
+
 export default {
   nav: {
     Learning: "Learning",
@@ -38,7 +42,7 @@ export default {
     Github: "Github",
     Github_details: "View Utility's codebase",
     English: "English",
-    Chinese: "Chinese",
+    Chinese: "中文",
   },
   footer: {
     Resources: "Resources",
@@ -219,55 +223,71 @@ export default {
     multifacetedc_ryptocurrency_platform:
       "Multifaceted Cryptocurrency Platform",
   },
+  community: {
+      h1_1:"Welcome to Community",
+      h1_2:"Let's redefine the future of blockchain and computing together",
+      h1_3:"Read More",
 
-  poci_consensus: {
-    poci_or_Proof: 'POCI, or Proof of Trusted Computing Integrity, is a blockchain consensus mechanism used to prove computing power. It is different from the traditional Proof of computational power based on Proof of Work (PoW), which requires consuming computational resources by solving complex mathematical problems. Instead, POCI relies on random numbers and power competition on the chain to elect suitable miners to generate new blocks.',
-    the_introduction_of: 'The introduction of POCI also means more fair competition and higher security in the network. Through on-chain random numbers and computing power competition, POCI fairly elects the right miners to generate new blocks, which not only ensures the efficient use of computing power, but also protects the network from malicious behavior. In addition, POCI enables the Utility network to avoid a large number of ineffective calculations that are often used in traditional blockchains to combat the Byzantine checkmate problem. This increase in efficiency allows 99% of computing power to be freed up for more practical services, such as distributed training and inference computing, enabling large-scale applications.',
-    POCI_not_only: 'POCI not only improves computing efficiency and security in the Utility network, but also promotes the fairness and transparency of the network, provides users with more efficient and reliable services, and promotes the progress and application of blockchain technology.',
-    The_use_of_high_performance: 'The use of high-performance computing chips:',
-    POCI_uses_high_performance: 'POCI uses high-performance Sophon TPU computing chips designed for artificial intelligence with the capability of teraflops, with a focus on deep learning computing.',
-    Computing_power_ownership: 'Computing power ownership model:',
-    POCI_abandons_the: 'POCI abandons the high cost and high energy consumption computing model, and adopts the model based on chip computing power ownership.',
-    On_chain_random_number: 'On-chain random numbers and computing power competition:',
-    POCI_selects_appropriate: 'POCI selects appropriate miners to generate new blocks through on-chain random numbers and computing power competition, ensuring the availability of computing power for miners and fair competition in the network.',
-    The_SPACC_module_is: 'The SPACC module is used to perform cryptographic operations, such as Advanced Encryption Standard (AES) encryption and decryption. This module ensures the privacy and uniqueness of the chip, so that the secret identity and key information of the chip will not be exposed to the outside world. The SPACC module exists to enhance the security of the entire network, ensuring the privacy of information and operations',
-    The_PKA_module_is_responsible: 'The PKA module is responsible for signing and verifying the private key. In Ellipse Curve Cryptography (ECC), the PKA module is used to generate public and private keys that provide the basis for encrypted communication. The function of this module is to ensure the security and reliability of digital signatures, further strengthening the security of the network',
-    Efuse_Storage_area: 'Efuse Storage area:',
-    The_Efuse_storage_area: 'The Efuse storage area is used to etch a unique serial number and 128-bit AES key (the "security key"). This security key is an important part of the chip, ensuring the unique identity and security of each chip. The information in the Efuse area is immutable, ensuring the security features of the chip and the reliability of the authentication',
-    How_is_POCI_different: 'How is POCI different from traditional PoW (Proof of Work)?',
-    Unlike_PoW_which: 'Unlike PoW, which needs to prove computational power by solving complex mathematical problems, POCI uses on-chain random numbers and computational power competition to elect miners, which is more efficient and energy-saving.',
-    How_does_POCI_ensure: 'How does POCI ensure network security?',
-    POCI_ensures_the_security: 'POCI ensures the security of the network by verifying the computing power of the node and using the encryption technology inside the chip.',
-    How_does_POCI_contribute: 'How does POCI contribute to the scalability of blockchain?',
-    POCI_contributes_to: 'POCI contributes to the expansion and wider application of blockchain technology by improving computing efficiency and reducing costs.',
-    How_does_POCI_support: 'How does POCI support decentralization?',
-    POCI_supports_decentralized: 'POCI supports decentralized and distributed network structure through fair computing power proof and random number generation.',
-    What_role_does_POCI: 'What role does POCI play in the future development of blockchain?',
-    As_an_efficient_and_environmentally: 'As an efficient and environmentally friendly consensus mechanism, POCI is expected to play a key role in the future development of blockchain technology, especially in improving network performance and expanding blockchain applications.',
-  },
-  learning_center: {
-    Learning_center: 'Learning Center',
-    A_guide_and_help_center: 'A guide and help center for beginners to understand and use a variety of technologies on Utility',
-    How_to_use_it: 'How to use it',
-    What_is_Utility: 'What is Utility',
-    Enhance_Utility_Network: 'Enhance Utility Network',
-    Utility_Network_has_made: 'Utility Network has made many innovations based on traditional blockchain. It defines chip in a different way and computing power can be used effectively. Learn more and get started:',
-    Start_from_here: 'Start from here as a beginner',
-    What_is_UNC_Token: 'What is UNC Token',
-    Start_UNC_Token_UNC: 'Start UNC Token (UNC) is the currency of the Utility network and its ecosystem',
-    What_is_POCI_Consensus: 'What is POCI Consensus',
-    It_is_a_brand_new: 'It is a brand-new proof mechanism, which indirectly proves computing power through the possession of trusted computing power.',
-    How_to_use_Utility: 'How to use Utility',
-    Utility_can_be_used_in: 'Utility can be used in a variety of scenarios, such as payment and trainning language models by computing resources.',
-    A_digital_wallet_holds: 'A digital wallet holds the credentials you need to prove your identity and access your important places.',
-    the_first_computing_power: 'The first computing power rental platform issued by the Utility.',
-    Enhancing_Utility_Network: 'Enhancing Utility Network',
-    Building_Utility_Network: 'Building Utility Network and receiving reward (UNC) by blockchain and computing resources rental.',
-    Running_Nodes: 'Running Nodes',
-    Participate_in_running: 'Participate in running nodes and make important contributions.',
-    Mining_and_Rental_Supply: 'Mining and Rental Supply',
-    Learn_how_to_mining: 'Learn how to mining and rental in the Utility network.',
-    Join_the_Community: 'Join the Community',
-    A_home_for_Utility_developers: 'A home for Utility developers, technical experts, designers, users and cryptocurrency enthusiasts.'
+      h2_1:"Experience sharing",
+      h2_2:"Users can share their actual experiences using the Ute Network, including mining, smart contract development, etc.\n" +
+          "                      A dedicated technical discussion area for developers and technical staff to exchange ideas and solve problems.\n" +
+          "                      Users and developers can make suggestions for improvements or report potential problems, and jointly promote the development of the Ute Network.",
+    optionsList1: {
+      title: 'Join Online Community',
+      text: 'Join our community to discuss, learn and share with us'
+    },
+    optionsList2: {
+      title: 'Contribute to the Project',
+      text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
+    },
+    optionsList3: {
+      title: 'Utility Activities',
+      text: 'Provide in-depth understanding and participation'
+    },
+    // communityOptionsList2:{
+    //   // image: CommunityOptions2,
+    //   title: 'Contribute to the Project',
+    //   text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
+    // },
+    // communityOptionsList3:{
+    //   // image: CommunityOptions3,
+    //   title: 'Utility Activities',
+    //   text: 'Provide in-depth understanding and participation'
+    // },
+    toggleMenuList: [
+      {
+        firstTitle: 'Emily Johnson',
+        secondTitle: 'From the other side of the sea',
+        text: 'I have been involved in this community for a while and I absolutely love how friendly and vibrant the community is. Everyone is always so helpful and it makes me feel warm and welcome.'
+      },
+      {
+        firstTitle: 'Michael Davis',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project is really exciting and I\'m sure it will be a huge success in the future. I\'ve already seen some impressive progress, which gives me confidence in the project\'s prospects.'
+      },
+      {
+        firstTitle: 'David Miller',
+        secondTitle: 'From the other side of the sea',
+        text: 'This project has an important impact on our industry. It solves some real-world problems and I look forward to seeing how it changes our future.'
+      },
+      {
+        firstTitle: 'Matthew Martinez',
+        secondTitle: 'From the other side of the sea',
+        text: 'I would like to especially thank the project team for their hard work and transparency. They are always happy to answer questions, address concerns, and listen to the community\'s input.'
+      }
+    ],
+
+    stepsList:[
+      {
+        time: '2023 10/31 8:00（UTC+8）',
+        message: 'PoCI、PIEE 和 CAT 深入分析',
+        reason: 'Online Meeting'
+      },
+      {
+        time: '2023 10/29/ 8:00（UTC+8）',
+        message: 'In-depth Analysis of PoCI, PIEE & CAT',
+        reason: 'Online Meeting'
+      },
+    ]
   }
 };
