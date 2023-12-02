@@ -1,11 +1,11 @@
 <script setup lang="ts" name="HomeNew">
 import authorSvg from "@/assets/svgs/author.svg";
-import {computed, onMounted, onUnmounted, ref} from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
-import {Swiper, SwiperSlide} from "swiper/vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
 // 单独导入所需的Swiper模块
 import {
   Navigation,
@@ -25,16 +25,17 @@ import SwiperCore from "swiper";
 
 SwiperCore.use([Pagination]);
 
-import {useRoute, useRouter} from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 
 const router = useRouter();
 const articleId = Number(route.query.msg);
+const selectedArticle = computed(() =>
+  news_arr.value.find((article) => article.id === articleId)
+);
 
 const jumpNews = (id: number) => {
-  // articleId
-  selectedArticle.value = news_arr.value.find((article) => article.id ===id);
   router.push({
     path: "/news",
     query: {
@@ -45,46 +46,46 @@ const jumpNews = (id: number) => {
 
 //TODO 保留 下面的link_arr是底部的链接，可以根据需要添加或者删除
 const link_arr = ref([
-//   {
-//     name: "Website",
-//     link: "https://polygon.technology/",
-//   },
-//   {
-//     name: "Twitter",
-//     link: "https://twitter.com/0xPolygonLabs",
-//   },
-//   {
-//     name: "Developer Twitter",
-//     link: "https://twitter.com/0xPolygonDevs",
-//   },
-//   {
-//     name: "Forum",
-//     link: "https://forum.polygon.technology/",
-//   },
-//   {
-//     name: "Telegram",
-//     link: "https://t.me/polygonofficial",
-//   },
-//   {
-//     name: "Reddit",
-//     link: "https://www.reddit.com/r/0xPolygon/",
-//   },
-//   {
-//     name: "Discord",
-//     link: "https://discord.gg/XvpHAxZ",
-//   },
-//   {
-//     name: "Instagram",
-//     link: "https://www.instagram.com/0xpolygon/",
-//   },
-//   {
-//     name: "Facebook",
-//     link: "https://www.facebook.com/0xpolygon.Technology",
-//   },
-//   {
-//     name: "LinkedIn",
-//     link: "https://linkedin.com/company/13449964/",
-//   },
+  //   {
+  //     name: "Website",
+  //     link: "https://polygon.technology/",
+  //   },
+  //   {
+  //     name: "Twitter",
+  //     link: "https://twitter.com/0xPolygonLabs",
+  //   },
+  //   {
+  //     name: "Developer Twitter",
+  //     link: "https://twitter.com/0xPolygonDevs",
+  //   },
+  //   {
+  //     name: "Forum",
+  //     link: "https://forum.polygon.technology/",
+  //   },
+  //   {
+  //     name: "Telegram",
+  //     link: "https://t.me/polygonofficial",
+  //   },
+  //   {
+  //     name: "Reddit",
+  //     link: "https://www.reddit.com/r/0xPolygon/",
+  //   },
+  //   {
+  //     name: "Discord",
+  //     link: "https://discord.gg/XvpHAxZ",
+  //   },
+  //   {
+  //     name: "Instagram",
+  //     link: "https://www.instagram.com/0xpolygon/",
+  //   },
+  //   {
+  //     name: "Facebook",
+  //     link: "https://www.facebook.com/0xpolygon.Technology",
+  //   },
+  //   {
+  //     name: "LinkedIn",
+  //     link: "https://linkedin.com/company/13449964/",
+  //   },
 ]);
 
 // & 轮播图数据
@@ -138,19 +139,16 @@ const navigation = ref({
 
 // 创建响应式引用，用于存储窗口宽度和高度
 const windowWidth = ref(window.innerWidth);
-const windowHeight = ref(window.innerHeight);
-
 // 更新窗口尺寸的函数
 const updateWindowSize = () => {
   windowWidth.value = window.innerWidth;
-  windowHeight.value = window.innerHeight;
 };
-const selectedArticle = ref({});
+
 // 当组件挂载时设置监听器，并在卸载时移除
 onMounted(() => {
-  console.log("  onMounted: ",Number(route.query.msg))
-  news_arr.value.find((article) => article.id === Number(route.query.msg))
-  selectedArticle.value = news_arr.value.find((article) => article.id === Number(route.query.msg));
+  console.log("  onMounted: ", Number(route.query.msg));
+  news_arr.value.find((article) => article.id === Number(route.query.msg));
+
   // const selectedArticle = ref(computed(() =>
   //     news_arr.value.find((article) => article.id === articleId)
   // ));
@@ -163,7 +161,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", updateWindowSize);
 });
-// /{{  }}
 // 根据articleId查找对应的文章
 const news_arr = ref([
   {
@@ -362,7 +359,7 @@ const news_arr = ref([
         <!-- !图片，Utility 和 Edited by Terrill -->
         <div class="author">
           <div class="author_img">
-            <authorSvg/>
+            <authorSvg />
           </div>
           <div class="author_right">
             <div class="author_name">Utility Labs</div>
@@ -371,30 +368,29 @@ const news_arr = ref([
         </div>
         <!-- !文章的背景图 -->
         <div class="article_bgc">
-          <img :src="selectedArticle?.article_bgc" alt=""/>
+          <img :src="selectedArticle?.article_bgc" alt="" />
         </div>
         <!-- ! 文章内容 -->
         <div class="article_text_one">
           <div v-html="selectedArticle?.content"></div>
         </div>
         <!--!文章底部的可以点击跳转的文字 -->
-        <div class="link">
+        <!-- <div class="link">
           <div class="link_list">
             <div
-                class="link_list_item"
-                v-for="(item, index) in link_arr"
-                :key="index"
+              class="link_list_item"
+              v-for="(item, index) in link_arr"
+              :key="index"
             >
               <a :href="item.link" target="_blank"
-              >{{
-                  item.name
+                >{{ item.name
                 }}<span class="Vertical_line" v-if="index < link_arr.length - 1"
-                >|
+                  >|
                 </span>
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- ! 轮播图模块 -->
       <div v-if="windowWidth > 835" class="Carousel_map_f">
@@ -408,29 +404,29 @@ const news_arr = ref([
           </div>
           <!-- ! 轮播图 -->
           <swiper
-              :ref="mySwiper"
-              :slidesPerView="3"
-              :spaceBetween="0"
-              :modules="modules"
-              :loop="false"
-              :navigation="navigation"
-              class="swiper"
-              @slideChange="onSlideChange"
+            :ref="mySwiper"
+            :slidesPerView="3"
+            :spaceBetween="0"
+            :modules="modules"
+            :loop="false"
+            :navigation="navigation"
+            class="swiper"
+            @slideChange="onSlideChange"
           >
             <swiper-slide
-                v-for="(item, index) in merryGoRound_arr"
-                :key="index"
-                class="swiper-slide"
-                :class="indexNum === index - 1 ? 'centered-slide' : ''"
-                @mouseenter="item.isswiperenter = true"
-                @mouseleave="item.isswiperenter = false"
-                @click="jumpNews(item.id)"
+              v-for="(item, index) in merryGoRound_arr"
+              :key="index"
+              class="swiper-slide"
+              :class="indexNum === index - 1 ? 'centered-slide' : ''"
+              @mouseenter="item.isswiperenter = true"
+              @mouseleave="item.isswiperenter = false"
+              @click="jumpNews(item.id)"
             >
               <!-- ! 图片右上角的箭头 -->
               <div v-if="item.isswiperenter" class="icon">
-                <img src="/src/assets/svgs/Arrow_Up.svg" alt=""/>
+                <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
               </div>
-              <img class="swiper_img" :src="item.img" alt=""/>
+              <img class="swiper_img" :src="item.img" alt="" />
               <div class="swiper_time">
                 {{ item.time }}
               </div>
@@ -451,29 +447,29 @@ const news_arr = ref([
 
         <!-- ! 轮播图 -->
         <swiper
-            :ref="mySwiper"
-            :slidesPerView="1"
-            :spaceBetween="0"
-            :modules="modules"
-            :loop="false"
-            class="swiper"
-            :pagination="{ clickable: true }"
-            @slideChange="onSlideChange"
+          :ref="mySwiper"
+          :slidesPerView="1"
+          :spaceBetween="0"
+          :modules="modules"
+          :loop="false"
+          class="swiper"
+          :pagination="{ clickable: true }"
+          @slideChange="onSlideChange"
         >
           <swiper-slide
-              v-for="(item, index) in merryGoRound_arr"
-              :key="index"
-              class="swiper-slide"
-              :class="indexNum === index - 1 ? 'centered-slide' : ''"
-              @mouseenter="item.isswiperenter = true"
-              @mouseleave="item.isswiperenter = false"
-              @click="jumpNews(item.id)"
+            v-for="(item, index) in merryGoRound_arr"
+            :key="index"
+            class="swiper-slide"
+            :class="indexNum === index - 1 ? 'centered-slide' : ''"
+            @mouseenter="item.isswiperenter = true"
+            @mouseleave="item.isswiperenter = false"
+            @click="jumpNews(item.id)"
           >
             <!-- ! 图片右上角的箭头 -->
             <div v-if="item.isswiperenter" class="icon">
-              <img src="/src/assets/svgs/Arrow_Up.svg" alt=""/>
+              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
-            <img class="swiper_img" :src="item.img" alt=""/>
+            <img class="swiper_img" :src="item.img" alt="" />
             <div class="swiper_time">
               {{ item.time }}
             </div>
@@ -1083,7 +1079,7 @@ const news_arr = ref([
             }
 
             .swiper_title {
-              margin-bottom: 10px;
+              margin-bottom: 40px;
               color: #151c1a;
               font-family: Lantinghei SC;
               font-size: 17px;

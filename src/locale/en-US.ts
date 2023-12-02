@@ -75,6 +75,7 @@ export default {
     Contact_us: "Contact us",
   },
   home: {
+    Computational_Power_Synthesis: "Computational Power Synthesis",
     Welcome_to_utility: "Next Generation Edge Computing and AI Infrastructure",
     An_application:
       "A decentralized edge computing blockchain network composed of chips defined through the block chain provides resources for AI-directed computing and a variety of heterogeneous computing.",
