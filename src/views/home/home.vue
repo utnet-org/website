@@ -662,24 +662,27 @@ const next222 = () => {
           {{ $t("home.Where_to_Start") }}
         </div>
         <div v-if="windowWidth < 834" class="Four_boxes">
-          <div class="box" v-for="(item, index) in Where_arr" :key="index">
-            <div @click="openNewPage(item.link)">
-              <div class="box_title">
-                {{ $t(item.title) }}
+          <div class="box" v-for="(item, index) in Where_arr" :key="index" style="">
+            <div  class="box"  @click="openNewPage(item.link)">
+              <div>
+                <div class="box_title">
+                  {{ $t(item.title) }}
+                </div>
+                <div class="box_text">
+                  {{ $t(item.text) }}
+                </div>
               </div>
-              <div class="box_text">
-                {{ $t(item.text) }}
+              <div>
+                <el-button class="box_button">
+                  {{ $t(item.button) }}</el-button
+                >
               </div>
-            </div>
-            <div>
-              <el-button class="box_button" @click="openNewPage(item.link)">
-                {{ $t(item.button) }}</el-button
-              >
             </div>
           </div>
         </div>
         <div v-else class="Four_boxes">
           <div
+             @click="openNewPage(item.link)"
             @mouseover="WhereChange(index)"
             @mouseleave="WhereChangeli"
             class="box"
@@ -689,7 +692,7 @@ const next222 = () => {
             v-for="(item, index) in Where_arr"
             :key="index"
           >
-            <div @click="openNewPage(item.link)">
+            <div>
               <div class="box_title">
                 {{ $t(item.title) }}
               </div>
