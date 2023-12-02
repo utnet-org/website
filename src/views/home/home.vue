@@ -655,6 +655,13 @@ const next222 = () => {
       <!--      <div class="get_the_app">-->
       <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
       <!--      </div>-->
+      <div v-if="windowWidth < 834">
+              <video
+                  src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
+                  autoplay
+              ></video>
+      </div>
+
 
       <!--! Where to Start -->
       <div class="Where_to_Start">
@@ -702,8 +709,7 @@ const next222 = () => {
             </div>
             <div>
               <el-button class="box_button" @click="openNewPage(item.link)">
-                {{ $t(item.button) }}</el-button
-              >
+                {{ $t(item.button) }}</el-button>
             </div>
           </div>
         </div>
