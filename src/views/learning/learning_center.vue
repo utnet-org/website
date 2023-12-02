@@ -4,6 +4,7 @@ import ArrowTopRight from "@/assets/images/arrow_top_right.png";
 import { ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
+import { openNewPage } from "../../utils/request.ts";
 const questionList = [
     'How to use it?',
     'Enhance Utility Network'
@@ -18,16 +19,19 @@ const questionMessageList = [
                 id: 1,
                 title: 'What is Utility',
                 text: 'Start from here as a beginner',
+                link:'/learning/utility_explain',
             },
             {
                 id: 2,
                 title: 'What is UNC Token',
                 text: 'Start UNC Token (UNC) is the currency of the Utility network and its ecosystem',
+                link:'/learning/unc_token',
             },
             {
                 id: 3,
                 title: 'What is POCI Consensus',
                 text: 'It is a brand-new proof mechanism, which indirectly proves computing power through the possession of trusted computing power.',
+                link:'/learning/poci_consensus',
             }
         ]
     },
@@ -80,7 +84,7 @@ const thirdCheckQuestionMessage = ref(-1);
                 <div class="header_content_text">A guide for you to enter the world of Utility.
                     Know about how Utility works so you can connect to it.
                     This page includes technical articles, guides, and resources.</div>
-                <div class="header_content_button">
+                <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
                     <div>White paper</div>
                     <arrowRight />
                 </div>
