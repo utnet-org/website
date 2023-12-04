@@ -292,7 +292,7 @@ const scroll = ref(0);
 const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
-  console.log(scroll.value);
+  // console.log(scroll.value);
   if (scroll.value > 1900) {
     if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
       ani_btn.value = 175;
