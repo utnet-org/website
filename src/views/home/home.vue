@@ -292,7 +292,7 @@ const scroll = ref(0);
 const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
-  // console.log(scroll.value)
+  // console.log(scroll.value);
   if (scroll.value > 1900) {
     if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
       ani_btn.value = 175;
@@ -460,8 +460,8 @@ const onVideoEnded = () => {
 // };
 const next222 = () => {
   console.log("视频播放完毕 next222");
-  console.log(ani_btn_s.value)
-  console.log(ant_btn_w.value)
+  console.log(ani_btn_s.value);
+  console.log(ant_btn_w.value);
   if (ani_btn_s.value === 1) {
     // console.log("视频播放完毕");
     ani_btn_s.value = 2;
@@ -469,7 +469,6 @@ const next222 = () => {
     setTimeout(() => {
       ant_btn_w.value = 300;
       // videoshow.value = false;//视频结束
-
     }, 300);
   } else {
     video_next();
@@ -665,15 +664,14 @@ const next222 = () => {
       <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
       <!--      </div>-->
       <div v-if="windowWidth < 834">
-              <video
-                  src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
-                  autoplay
-                  controls
-                  :width="windowWidth"
-                  height=""
-              ></video>
+        <video
+          src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
+          autoplay
+          controls
+          :width="windowWidth"
+          height=""
+        ></video>
       </div>
-
 
       <!--! Where to Start -->
       <div class="Where_to_Start">
@@ -681,27 +679,29 @@ const next222 = () => {
           {{ $t("home.Where_to_Start") }}
         </div>
         <div v-if="windowWidth < 834" class="Four_boxes">
-          <div class="box" v-for="(item, index) in Where_arr" :key="index" style="">
-            <div  class="box"  @click="openNewPage(item.link)">
-              <div>
-                <div class="box_title">
-                  {{ $t(item.title) }}
-                </div>
-                <div class="box_text">
-                  {{ $t(item.text) }}
-                </div>
+          <div
+            class="box"
+            v-for="(item, index) in Where_arr"
+            :key="index"
+            style=""
+            @click="openNewPage(item.link)"
+          >
+            <div>
+              <div class="box_title">
+                {{ $t(item.title) }}
               </div>
-              <div>
-                <el-button class="box_button">
-                  {{ $t(item.button) }}</el-button
-                >
+              <div class="box_text">
+                {{ $t(item.text) }}
               </div>
+            </div>
+            <div>
+              <el-button class="box_button"> {{ $t(item.button) }}</el-button>
             </div>
           </div>
         </div>
         <div v-else class="Four_boxes">
           <div
-             @click="openNewPage(item.link)"
+            @click="openNewPage(item.link)"
             @mouseover="WhereChange(index)"
             @mouseleave="WhereChangeli"
             class="box"
@@ -721,7 +721,8 @@ const next222 = () => {
             </div>
             <div>
               <el-button class="box_button" @click="openNewPage(item.link)">
-                {{ $t(item.button) }}</el-button>
+                {{ $t(item.button) }}</el-button
+              >
             </div>
           </div>
         </div>
@@ -944,43 +945,44 @@ const next222 = () => {
       <!-- ! square Contribute to Utility together -->
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
-          <!--          <img-->
-          <!--              v-if="windowWidth < 834"-->
-          <!--              class="Utility_img"-->
-          <!--              src="/src/assets/images/m_Objects.png"-->
-          <!--              alt=""-->
-          <!--          />-->
-          <!-- <img
+          <img src="/src/assets/images/Contribute_to_Utility.png" alt="" />
+        </div>
+        <!-- <img
+                 v-if="windowWidth < 834"
+                 class="Utility_img"
+                 src="/src/assets/images/m_Objects.png"
+                 alt=""
+             /> -->
+        <!-- <img
           v-else
           class="Utility_img"
           src="/src/assets/images/square.png"
           alt=""
         /> -->
-          <div v-if="windowWidth > 834" class="square"></div>
-          <div class="Create_a_lighter">
-            <div class="title_one">
-              {{ $t("home.Help_Utility_open") }}
-            </div>
+        <div class="square"></div>
+        <div class="Create_a_lighter">
+          <div class="title_one">
+            {{ $t("home.Help_Utility_open") }}
+          </div>
 
-            <div class="text">
-              {{ $t("home.Utility_is_a_revolutionary") }}
+          <div class="text">
+            {{ $t("home.Utility_is_a_revolutionary") }}
+          </div>
+          <div class="button_father">
+            <div class="button_left" @click="openNewPage('/community')">
+              <div class="button_text">
+                {{ $t("home.Join_us") }}
+              </div>
+              <!--                <arrow />-->
             </div>
-            <div class="button_father">
-              <div class="button_left" @click="openNewPage('/community')">
-                <div class="button_text">
-                  {{ $t("home.Join_us") }}
-                </div>
-                <!--                <arrow />-->
+            <div
+              class="button_right"
+              @click="openNewPage('https://github.com/utnet-org')"
+            >
+              <div class="button_text">
+                {{ $t("footer.Github") }}
               </div>
-              <div
-                class="button_right"
-                @click="openNewPage('https://github.com/utnet-org')"
-              >
-                <div class="button_text">
-                  {{ $t("footer.Github") }}
-                </div>
-                <!--                <arrow />-->
-              </div>
+              <!--                <arrow />-->
             </div>
           </div>
         </div>
@@ -1209,9 +1211,11 @@ const next222 = () => {
       height: 290px;
       align-items: center;
       // border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.035) 0.13%,
-          rgba(244, 248, 248, 0.043) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.035) 0.13%,
+        rgba(244, 248, 248, 0.043) 99.87%
+      );
       // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
       //   0px 4px 50px 0px #dde3e153;
       backdrop-filter: blur(9px);
@@ -1286,7 +1290,8 @@ const next222 = () => {
         justify-content: center;
       }
 
-      .button {
+      .button,
+      .button_right {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1318,36 +1323,9 @@ const next222 = () => {
       }
 
       .button_right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 107px;
         height: 42px;
-        border-radius: 6px;
-        border: 1px solid #3edfcf;
         margin-left: 32px;
-
-        &:hover {
-          // background: linear-gradient(
-          //   177deg,
-          //   #ffffff48 -24.77%,
-          //   rgba(255, 255, 255, 0) 97.53%
-          // );
-          /* shadow for navbar hover */
-          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
-        }
-
-        .text {
-          font-size: 14px;
-          font-weight: 500;
-          color: rgba(255, 255, 255, 0.9);
-          margin-right: 8px;
-        }
-
-        img {
-          width: 17px;
-          height: 16px;
-        }
       }
     }
     .get_the_app {
@@ -1355,6 +1333,275 @@ const next222 = () => {
       img {
         width: 100%;
         height: 100%;
+      }
+    }
+    .Where_to_Start {
+      width: 100%;
+      .title {
+        font-family: Lantinghei SC;
+        color: rgba(21, 28, 26, 0.9);
+      }
+      .Four_boxes {
+        display: flex;
+        //多行对齐
+        flex-wrap: wrap;
+        justify-content: center;
+        .box {
+          background: linear-gradient(
+            177deg,
+            #fff -24.77%,
+            rgba(255, 255, 255, 0) 97.53%
+          );
+          opacity: 0.8;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+          transition: all 0.5s;
+          .box_title {
+            font-family: Lantinghei SC;
+            color: #3edfcf;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+          .box_text {
+            margin-top: 14px;
+            margin-bottom: 26px;
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Lantinghei SC;
+            font-style: normal;
+            font-weight: 400;
+          }
+          .box_button {
+            background: #fffefb;
+            border: 1px solid #3edfcf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(21, 28, 26, 0.9);
+          }
+        }
+      }
+    }
+    .Data_and_circles {
+      .Data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .value_father {
+          display: flex;
+          //多行对齐
+          flex-wrap: wrap;
+          justify-content: start;
+          .amount {
+            color: rgba(28, 23, 21, 0.9);
+            font-family: Lantinghei SC;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .data_text {
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+      }
+      .circles {
+        position: relative;
+        .point {
+          display: flex;
+          color: rgba(21, 28, 26, 0.9);
+          font-family: Lantinghei SC;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+        .point_one {
+          z-index: 100;
+          position: absolute;
+        }
+        .thisAPoint {
+          flex-shrink: 0;
+          background-color: #3edfcf;
+          border-radius: 50%;
+        }
+        .round_one,
+        .round_three,
+        .round_five {
+          background-color: #fffefb;
+          border-radius: 50%;
+          border: 1px solid rgba(21, 28, 26, 0.1);
+        }
+        .round_two,
+        .round_four,
+        .round_six {
+          background-color: rgba(247, 247, 244, 1);
+          border-radius: 50%;
+          border: 1px solid rgba(21, 28, 26, 0.1);
+        }
+      }
+    }
+    .Utility_Chain {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .title {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Lantinghei SC;
+        font-weight: 400;
+      }
+      .Utility_Chain_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .item_title {
+          color: #151c1a;
+          font-family: Inter;
+          text-transform: uppercase;
+        }
+        .item_img {
+          width: 60px;
+          height: 60px;
+          margin-bottom: 9px;
+          position: relative;
+
+          background: linear-gradient(
+            97deg,
+            #f1f7f6 40%,
+            rgba(164, 229, 221, 0.2) 100.1%
+          );
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 70%;
+            height: 70%;
+            //过渡
+            transition: all 0.5s;
+          }
+
+          .hover {
+            position: absolute;
+            right: -4px;
+            top: -4px;
+            z-index: 1;
+            //过渡
+            transition: all 0.3s;
+          }
+        }
+        .Utility_Chain_box_item_button {
+          border: 1px solid #3edfcf;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 12px;
+          font-weight: 400;
+          background-color: #fff;
+          color: #3edfcf;
+        }
+      }
+    }
+    .merry_go_round {
+      width: 100%;
+      .title {
+        color: #3edfcf;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: 23px;
+      }
+      .swiper {
+        height: 394px;
+        position: relative;
+        .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          cursor: pointer; ///鼠标移上去变成手指
+          .swiper_img {
+            border-radius: 8px;
+          }
+          .icon {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .time {
+            color: #151c1a;
+            font-family: Jaldi;
+            font-style: normal;
+            font-weight: 400;
+            margin-top: 11px;
+            opacity: 0.8;
+          }
+          .text {
+            color: #151c1a;
+            font-family: Inter;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .Contribute_to_Utility {
+      .Contribute_to_Utility_bg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        top: 0;
+        z-index: 1;
+      }
+      .Create_a_lighter {
+        flex-shrink: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%
+        );
+        box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 100;
+
+        .title_one {
+          font-weight: 600;
+          color: #151c1a;
+          font-family: Inter;
+        }
+        .text {
+          color: rgba(21, 28, 26, 0.9);
+          font-family: Inter;
+          font-weight: 400;
+        }
+        .button_left,
+        .button_right {
+          border-radius: 6px;
+          border: 1px solid #3edfcf;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
@@ -1428,38 +1675,15 @@ const next222 = () => {
         }
       }
     }
-    .Language {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 33px;
-      margin-bottom: 18px;
 
-      .point {
-        width: 9px;
-        height: 9px;
-        background-color: rgba(62, 223, 207, 1);
-        border-radius: 50%;
-        margin-right: 5px;
-      }
-      .lang {
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-        text-align: center;
-        font-family: JejuGothic;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.2px;
-      }
-    }
     .Anapplication {
       max-width: 1119px;
       line-height: 20px;
       margin-top: 15px;
       margin-bottom: 28px;
     }
-    .button {
+    .button,
+    .button_right {
       &:hover {
         background: linear-gradient(
           177deg,
@@ -1470,97 +1694,39 @@ const next222 = () => {
         box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
       }
     }
-    .button_right {
-      &:hover {
-        background: linear-gradient(
-          177deg,
-          #fff -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
-        box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
-      }
-    }
+
     .Where_to_Start {
-      width: 100%;
       padding: 72px 0px 24px 0px;
 
       .title {
-        font-size: 22px;
-
-        padding-left: 140px;
-        margin-bottom: 20px;
-      }
-    }
-    .Where_to_Start {
-      width: 100%;
-      padding: 72px 0px 24px 0px;
-
-      .title {
-        font-family: Lantinghei SC;
-        color: rgba(21, 28, 26, 0.9);
         font-size: 22px;
         font-weight: 400;
         padding-left: 140px;
         margin-bottom: 20px;
       }
       .Four_boxes {
-        display: flex;
-        //多行对齐
-        flex-wrap: wrap;
-        justify-content: center;
-
         .box {
           width: 716px;
           border-radius: 12px;
           height: 394px;
           margin: 0px 8px 16px 8px;
-          border-radius: 12px;
-          background: linear-gradient(
-            177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
-          );
-          opacity: 0.8;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          border-radius: 12px;
-          box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+
           padding: 50px 0 43px 50px;
-          transition: all 0.5s;
           &:hover {
             //过渡
             transition: all 0.5s;
             box-shadow: none;
           }
 
-          .box_title {
-            font-size: 14px;
-            font-weight: 400;
-            color: #3edfcf;
-          }
           .box_text {
             max-width: 420px;
-            margin-top: 14px;
-            margin-bottom: 26px;
             line-height: 30px;
-            color: rgba(23, 25, 24, 0.9);
             font-size: 23px;
-            font-style: normal;
-            font-weight: 400;
           }
           .box_button {
             height: 45px;
             padding: 12px 16px; /* 添加适当的内边距 */
-            background: #fffefb;
-            border-radius: 6px;
-            border: 1px solid #3edfcf;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(21, 28, 26, 0.9);
+            border-radius: 8px;
             &:hover {
               box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
               background: linear-gradient(
@@ -1584,55 +1750,35 @@ const next222 = () => {
       //多行对齐
       flex-wrap: wrap;
       .Data {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-top: 30px;
         .value_father {
           width: 836px;
-          display: flex;
-          //多行对齐
-          flex-wrap: wrap;
-          justify-content: start;
+
           .data_value {
             margin-left: 98px;
             margin-bottom: 40px;
 
             .amount {
-              color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-              font-family: Lantinghei SC;
               font-size: 44px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
               padding-bottom: 10px;
               margin-bottom: 18px;
               border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
               padding-right: 11px;
             }
             .data_text {
-              color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-              font-family: Inter;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
+              color: rgba(21, 28, 26, 0.9);
             }
           }
         }
       }
       .circles {
-        position: relative;
-
         .point {
-          display: flex;
           align-items: center;
+          font-size: 14px;
         }
         .point_one {
-          z-index: 100;
-          position: absolute;
-          right: 44px;
-          top: 68px;
+          right: 39px;
+          top: 80px;
           .point_text {
             margin-left: 8px;
           }
@@ -1640,152 +1786,103 @@ const next222 = () => {
         .thisAPoint {
           width: 16px;
           height: 16px;
-          flex-shrink: 0;
-          background-color: #3edfcf;
-          border-radius: 50%;
           margin-right: 5px;
           border: 2px solid #fff;
         }
         .round_one {
           width: 614px;
           height: 614px;
-          background-color: #fffefb;
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
-          // display: flex;
-          // justify-content: center;
           position: relative;
           left: 0;
           top: 0;
-          //旋转100deg
-          transform: rotate(85deg);
           .point_two {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            right: 468px;
-            top: 480px;
+            left: 58px;
+            top: 108px;
           }
         }
         .round_two {
+          position: absolute;
           width: 542px;
           height: 542px;
-          background-color: rgba(247, 247, 244, 1);
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
-
-          position: absolute;
-          left: 9.2px;
-          top: 10px;
+          right: 4px;
+          top: 16px;
           .point_three {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            right: 110px;
-            top: 448px;
+            left: -4px;
+            top: 310px;
           }
         }
         .round_three {
           width: 468px;
           height: 468px;
-          background-color: rgba(255, 254, 251, 1);
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
           position: absolute;
-          left: 9.6px;
+          right: 9.6px;
           top: 10px;
           .point_four {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            right: -20px;
-            top: 274px;
+            left: 104px;
+            bottom: 22px;
           }
         }
         .round_four {
           width: 388px;
           height: 388px;
-          background-color: rgba(247, 247, 244, 1);
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
           position: absolute;
-          left: 12px;
+          right: 12px;
           top: 10px;
           .point_five {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            right: 160px;
-            top: 348px;
+            left: -10px;
+            top: 206px;
           }
         }
         .round_five {
           width: 310px;
           height: 310px;
-          background-color: rgba(255, 254, 251, 1);
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
+
           position: absolute;
-          left: 11px;
+          right: 11px;
           top: 10px;
           .point_six {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            right: 0px;
-            top: 220px;
+            left: 70px;
+            bottom: 14px;
           }
         }
         .round_six {
           width: 226px;
           height: 226px;
-          background-color: rgba(247, 247, 244, 1);
-          border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
           position: absolute;
-          left: 13px;
+          right: 13px;
           top: 10px;
           .point_seven {
             z-index: 100;
-            //旋转100deg
-            transform: rotate(-85deg);
             position: absolute;
-            left: 96px;
-            top: 196px;
+            left: -10px;
+            bottom: 98px;
           }
         }
       }
     }
     .Utility_Chain {
-      width: 100%;
       padding: 59px 140px 0 140px;
-      display: flex;
 
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       .title {
-        color: rgba(21, 28, 26, 0.9);
         margin-bottom: 90px;
         text-align: center;
-        font-family: Lantinghei SC;
         font-size: 24px;
-        font-weight: 400;
       }
       .Utility_Chain_box {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
         .box_item {
           padding: 0px 0 0 20px;
           margin-bottom: 62px;
           border-radius: 12px;
-          border-radius: 8px;
           width: 340px;
           display: flex;
           flex-direction: column;
@@ -1793,7 +1890,6 @@ const next222 = () => {
 
           .item_title {
             font-size: 16px;
-            font-style: normal;
             font-weight: 700;
             //过渡
             transition: all 0.3s;
@@ -1807,115 +1903,37 @@ const next222 = () => {
             max-width: 300px;
             margin-top: 6px;
           }
-          .item_img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 9px;
-            position: relative;
 
-            background: linear-gradient(
-              97deg,
-              #f1f7f6 40%,
-              rgba(164, 229, 221, 0.2) 100.1%
-            );
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 70%;
-              height: 70%;
-              //过渡
-              transition: all 0.5s;
-            }
-
-            .hover {
-              position: absolute;
-              right: -4px;
-              top: -4px;
-              z-index: 1;
-              //过渡
-              transition: all 0.3s;
-            }
-          }
           .Utility_Chain_box_item_button {
             width: 59px;
             height: 22px;
             border-radius: 4px;
-            border: 1px solid #3edfcf;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            font-weight: 400;
             margin-bottom: 14px;
-            background-color: #fff;
-            color: #3edfcf;
           }
         }
       }
     }
 
     .merry_go_round {
-      width: 100%;
-      height: 672px;
+      // height: 672px;
       padding: 0 110px;
 
       .title {
-        color: #3edfcf;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 400;
         margin-left: 30px;
         margin-top: 123px;
-        margin-bottom: 23px;
       }
 
       .swiper {
         width: 93%;
-        height: 394px;
-        position: relative;
 
         .swiper-slide {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          cursor: pointer; ///鼠标移上去变成手指
-          .swiper_img {
-            border-radius: 8px;
-          }
-          .icon {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            width: 34px;
-            height: 34px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 100%;
-              height: 100%;
-            }
-          }
           .time {
-            color: #151c1a;
-            font-family: Jaldi;
             font-size: 15px;
-            font-style: normal;
-            font-weight: 400;
             line-height: 21px; /* 21.825px */
             letter-spacing: 0.3px;
-            margin-top: 11px;
           }
           .text {
-            color: #151c1a;
-            font-family: Inter;
             font-size: 17px;
-            font-weight: 600;
             line-height: 24.055px; /* 24.055px */
           }
         }
@@ -1994,56 +2012,34 @@ const next222 = () => {
     .Contribute_to_Utility {
       //超出隐藏
       overflow: hidden;
-
       margin-top: 50px;
       width: 100%;
       height: 633px;
-
-      background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
-
+      position: relative;
+      // background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
       .Contribute_to_Utility_bg {
-        width: 100%;
-        height: 100%;
-        background: url("/src/assets/images/Contribute_to_Utility.png")
-          no-repeat center;
-        background-size: cover;
-        position: relative;
-        display: flex;
         justify-content: end;
+        position: absolute;
+        right: 10px;
       }
       .Create_a_lighter {
         width: 657px;
         height: 394px;
-        flex-shrink: 0;
+
         border-radius: 10px;
-        background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
-        );
-        box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         backdrop-filter: blur(4px);
         position: absolute;
         left: 20%;
         top: 20%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         padding-top: 64px;
         .title_one {
-          color: var(--Dark, #151c1a);
-          font-family: Inter;
           font-size: 30px;
-          font-weight: 600;
           max-width: 570px;
         }
         .text {
           margin-top: 24px;
           max-width: 454px;
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Inter;
           font-size: 14px;
-          font-weight: 400;
           line-height: 20px;
         }
         .button_father {
@@ -2055,11 +2051,7 @@ const next222 = () => {
           .button_right {
             width: 133px;
             height: 42px;
-            border-radius: 6px;
-            border: 1px solid #3edfcf;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
             .button_text {
               font-size: 14px;
               font-weight: 500;
@@ -2068,18 +2060,9 @@ const next222 = () => {
               margin-left: 12px;
             }
           }
-          .button_left {
-            margin-right: 60px;
-            &:hover {
-              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
-              );
-            }
-          }
+          .button_left,
           .button_right {
+            margin-right: 60px;
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
               background: linear-gradient(
@@ -2103,6 +2086,10 @@ const next222 = () => {
         filter: blur(40px);
 
         opacity: 0.7;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
       }
       .Utility_img {
         width: 630px;
@@ -2115,16 +2102,6 @@ const next222 = () => {
   }
 }
 @media (max-width: 834px) {
-  .Contribute_to_Utility_bg {
-    width: 100%;
-    height: 100%;
-    background: url("/src/assets/images/Contribute_to_Utility.png") no-repeat
-      center;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    justify-content: end;
-  }
   .home_view {
     .container {
       .Welcome {
@@ -2163,62 +2140,34 @@ const next222 = () => {
         padding-top: 30px;
         .title {
           font-size: 18px;
-          font-style: normal;
           font-weight: 400;
           line-height: normal;
           margin-left: 20px;
+          margin-bottom: 12px;
         }
         .Four_boxes {
           .box {
             width: 350px;
             border-radius: 8px;
             min-height: 189px;
-            margin: 12px 0px 10px 0px;
+            margin: 0px 4px 10px 4px;
             border-radius: 8px;
-            background: linear-gradient(
-              177deg,
-              #fff -24.77%,
-              rgba(255, 255, 255, 0) 97.53%
-            );
+            opacity: 0.8;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-radius: 12px;
-            box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
             padding: 14px;
-            transition: all 0.5s;
 
-            .box_title {
-              color: #3edfcf;
-              font-family: Lantinghei SC;
-              font-size: 14px;
-              font-weight: 400;
-              text-transform: uppercase;
-            }
             .box_text {
               max-width: 322px;
-              margin-top: 14px;
-              margin-bottom: 26px;
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Lantinghei SC;
               font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
               line-height: 21px;
               letter-spacing: 0.42px;
             }
             .box_button {
               height: 33px;
               padding: 6px 10px; /* 添加适当的内边距 */
-              background: #fffefb;
-              border-radius: 8px;
-              border: 1px solid #3edfcf;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 14px;
-              font-weight: 500;
-              color: rgba(21, 28, 26, 0.9);
+              border-radius: 6px;
             }
           }
         }
@@ -2233,57 +2182,32 @@ const next222 = () => {
         .Data {
           width: 100%;
           margin-top: 28px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
 
           .value_father {
             width: 100%;
-            display: flex;
-            //多行对齐
-            flex-wrap: wrap;
-            justify-content: start;
 
             .data_value {
               width: 100%;
               margin-bottom: 30px;
-              margin-left: 0px;
               .amount {
                 width: 100%;
                 padding-bottom: 4px;
                 margin-bottom: 4px;
                 border-bottom: 1px solid rgba(21, 28, 26, 0.2);
-                color: rgba(28, 23, 21, 0.9);
-                font-family: Lantinghei SC;
                 font-size: 20px;
                 font-weight: 400;
               }
               .data_text {
                 color: #b9bbba;
-                font-family: Inter;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
               }
             }
           }
         }
         .circles {
-          position: relative;
-
           .point {
-            display: flex;
-            color: rgba(21, 28, 26, 0.9);
-            font-family: Lantinghei SC;
             font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
           }
           .point_one {
-            z-index: 100;
-            position: absolute;
             right: 10px;
             top: 46px;
             .point_text {
@@ -2293,22 +2217,15 @@ const next222 = () => {
           .thisAPoint {
             width: 8px;
             height: 8px;
-            flex-shrink: 0;
-            background-color: #3edfcf;
-            border-radius: 50%;
             margin-right: 4px;
             border: 1px solid #fff;
           }
           .round_one {
             width: 350px;
             height: 350px;
-            background-color: #fffefb;
-            border-radius: 50%;
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: relative;
             left: 0;
             top: 0;
-
             .point_two {
               z-index: 100;
               position: absolute;
@@ -2322,10 +2239,6 @@ const next222 = () => {
           .round_two {
             width: 308px;
             height: 308px;
-            background-color: rgba(247, 247, 244, 1);
-            border-radius: 50%;
-
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: absolute;
             right: 4.5px;
             top: 6px;
@@ -2340,9 +2253,6 @@ const next222 = () => {
           .round_three {
             width: 266px;
             height: 266px;
-            background-color: rgba(255, 254, 251, 1);
-            border-radius: 50%;
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: absolute;
             right: 5px;
             top: 6px;
@@ -2356,9 +2266,6 @@ const next222 = () => {
           .round_four {
             width: 222px;
             height: 222px;
-            background-color: rgba(247, 247, 244, 1);
-            border-radius: 50%;
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: absolute;
             right: 5px;
             top: 6px;
@@ -2372,9 +2279,6 @@ const next222 = () => {
           .round_five {
             width: 176px;
             height: 176px;
-            background-color: rgba(255, 254, 251, 1);
-            border-radius: 50%;
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: absolute;
             right: 5px;
             top: 6px;
@@ -2388,9 +2292,6 @@ const next222 = () => {
           .round_six {
             width: 130px;
             height: 130px;
-            background-color: rgba(247, 247, 244, 1);
-            border-radius: 50%;
-            border: 1px solid rgba(21, 28, 26, 0.1);
             position: absolute;
             right: 5px;
             top: 6px;
@@ -2405,37 +2306,22 @@ const next222 = () => {
       }
       .Utility_Chain {
         width: 100%;
-        display: flex;
         padding: 0 20px;
-        flex-direction: column;
 
         .title {
           margin-bottom: 32px;
-          color: rgba(21, 28, 26, 0.9);
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-          font-family: Lantinghei SC;
           font-size: 18px;
-          font-weight: 400;
         }
         .Utility_Chain_box {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
           .box_item {
             width: 160px;
-            border-radius: 12px;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             margin-bottom: 26px;
             .item_title {
-              color: #151c1a;
-              font-family: Inter;
               font-size: 12px;
               font-weight: 600;
-              text-transform: uppercase;
-              //过渡
-              transition: all 0.3s;
             }
             .item_text {
               color: #151c1a;
@@ -2447,121 +2333,39 @@ const next222 = () => {
               max-width: 160px;
               margin-top: 2px;
             }
-            .item_img {
-              width: 60px;
-              height: 60px;
-              margin-bottom: 9px;
-              position: relative;
 
-              background: linear-gradient(
-                97deg,
-                #f1f7f6 40%,
-                rgba(164, 229, 221, 0.2) 100.1%
-              );
-              border-radius: 50%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              img {
-                width: 70%;
-                height: 70%;
-                //过渡
-                transition: all 0.5s;
-              }
-
-              .hover {
-                position: absolute;
-                right: -4px;
-                top: -4px;
-                z-index: 1;
-                //过渡
-                transition: all 0.3s;
-              }
-            }
             .Utility_Chain_box_item_button {
               width: 48px;
               height: 19px;
               border-radius: 2px;
-              border: 1px solid #3edfcf;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 12px;
-              font-weight: 400;
               margin-bottom: 10px;
-              background-color: #fff;
-              color: #3edfcf;
             }
           }
         }
       }
 
       .merry_go_round {
-        width: 100%;
-        padding-top: 36px;
         padding: 36px 20px 0 20px;
-
-        .title {
-          color: #3edfcf;
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 400;
-
-          margin-bottom: 23px;
-        }
 
         .swiper {
           width: 100%;
-          height: 394px;
-          display: flex;
           justify-content: center;
-
-          position: relative;
           .swiper-slide {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            position: relative;
-            cursor: pointer; ///鼠标移上去变成手指
+
             .swiper_img {
-              border-radius: 8px;
               width: 350px;
               height: 286px;
             }
-            .icon {
-              position: absolute;
-              top: 18px;
-              right: 18px;
-              width: 34px;
-              height: 34px;
-              flex-shrink: 0;
-              border-radius: 50%;
-              background-color: #000;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              img {
-                width: 100%;
-                height: 100%;
-              }
-            }
+
             .time {
-              color: #151c1a;
-              margin-top: 11px;
-              font-family: Jaldi;
               font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
               line-height: 20px; /* 20.37px */
               letter-spacing: 0.28px;
-              opacity: 0.8;
             }
             .text {
-              color: #151c1a;
-              font-family: Inter;
               font-size: 16px;
               font-style: normal;
-              font-weight: 600;
               line-height: 22px; /* 22.64px */
             }
           }
@@ -2588,34 +2392,28 @@ const next222 = () => {
         height: 402px;
         display: flex;
         justify-content: center;
-        background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
+        // background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
         position: relative;
         //margin-bottom: 53px;
+
+        .Contribute_to_Utility_bg {
+          position: absolute;
+          justify-content: center;
+          right: 0;
+        }
+
         .Create_a_lighter {
           width: 350px;
           height: 161px;
-          flex-shrink: 0;
-          border-radius: 10px;
           position: absolute;
-          left: 25%;
-          bottom: 27px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          bottom: 28px;
+          left: 50;
           padding-top: 17px;
+          border-radius: 8px;
 
-          background: linear-gradient(
-            180deg,
-            rgba(244, 248, 248, 0.05) 0.13%,
-            rgba(244, 248, 248, 0) 99.87%
-          );
-          box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
           .title_one {
-            color: #151c1a;
-            font-family: Inter;
             font-size: 13px;
             font-style: normal;
-            font-weight: 600;
             line-height: 18px; /* 18.187px */
             max-width: 295px;
           }
@@ -2623,11 +2421,8 @@ const next222 = () => {
             margin-top: 8px;
             max-width: 297px;
             height: 62px;
-            color: rgba(21, 28, 26, 0.9);
-            font-family: Inter;
             font-size: 8px;
             font-style: normal;
-            font-weight: 400;
             line-height: 12px; /* 11.6px */
           }
           .button_father {
@@ -2638,10 +2433,7 @@ const next222 = () => {
             .button_left,
             .button_right {
               height: 24px;
-              border-radius: 6px;
-              border: 1px solid #3edfcf;
-              display: flex;
-              justify-content: center;
+
               align-items: center;
               .button_text {
                 color: rgba(21, 28, 26, 0.9);
@@ -2731,15 +2523,9 @@ const next222 = () => {
     }
   }
 }
-@media (max-width: 1323px) {
-  .Create_a_lighter {
-    left: 18% !important;
-  }
-}
 
 @media (max-width: 432px) {
   .Create_a_lighter {
-    left: 2% !important;
     width: 320px !important;
   }
 }
