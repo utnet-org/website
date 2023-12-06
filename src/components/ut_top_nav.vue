@@ -203,6 +203,7 @@ function set(i: number, id: number) {
       <div
         class="nav_dropdown-wrap"
         :style="{
+          border: !show ? 'none' : '1px solid rgba(21, 28, 26, 0.15)',
           transform: `translate3d(${nav_arr[activeIndex].left}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
             rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
           transformStyle: `preserve-3d`,
@@ -306,7 +307,6 @@ function set(i: number, id: number) {
   left: -100px;
   overflow: hidden;
   display: flex;
-  border: 1px solid rgba(21, 28, 26, 0.15);
 }
 
 .nav_link-wrapper {

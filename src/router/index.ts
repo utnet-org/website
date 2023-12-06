@@ -123,7 +123,7 @@ let router = createRouter({
 // 在路由切换前显示进度条
 router.beforeEach((to, from, next) => {
   NProgress.start(); //进度条开始
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   next();
 });
 
