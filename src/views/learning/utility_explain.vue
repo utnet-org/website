@@ -119,7 +119,7 @@ const optionsList = [
 <style scoped lang="less">
 .container {
   background-color: #fffefb;
-
+  padding-top: 70px;
   .header {
     width: 100%;
     height: 558px;

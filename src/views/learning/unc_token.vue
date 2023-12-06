@@ -212,7 +212,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 <style scoped lang="less">
 .container {
     background-color: #FFFEFB;
-
+    padding-top: 70px;
     .header {
         width: 100%;
         height: 578px;

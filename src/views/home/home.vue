@@ -326,7 +326,11 @@ window.addEventListener("scroll", () => {
 
   if (scroll.value > 2980 && !videoshow.value && width.value * 2 > 996) {
     // 设置滚动条的位置
-    document.documentElement.scrollTop = 2980;
+    document.body.style.overflow = "hidden";
+    // document.documentElement.scrollTop = 2980;
+    // 禁止滚动
+  } else {
+    document.body.style.overflow = "";
   }
 
   if (
@@ -423,6 +427,7 @@ window.addEventListener("resize", () => {
 const ani_btn = ref(-70);
 
 const video_next = () => {
+  document.body.style.overflow = "";
   videoshow.value = true;
   document.documentElement.scrollTop = 2980 + window.innerHeight - 20;
 };
@@ -436,6 +441,11 @@ window.addEventListener("wheel", (e) => {
   ) {
     videoshow.value = false;
     document.documentElement.scrollTop = 2980;
+  }
+  if(e.deltaY<0 &&
+    !videoshow.value &&
+    scroll.value > 2980){
+    document.body.style.overflow = "";
   }
 });
 
@@ -469,9 +479,10 @@ const next222 = () => {
     ant_btn_w.value = 80;
     setTimeout(() => {
       ant_btn_w.value = 300;
-      // videoshow.value = false;//视频结束
+      videoshow.value = false; //视频结束
     }, 300);
   } else {
+    ani_btn_s.value = 0;
     video_next();
   }
 };
@@ -483,14 +494,18 @@ const next222 = () => {
 //     route.push(link);
 //   }
 // }
+
 </script>
 <template>
-  <div class="home_view">
+  <div
+    :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
+    class="home_view"
+  >
     <div
       class="animation_box"
       :style="{
         zIndex: !videoshow ? 120 : -1,
-        height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
+        height: width * 2 > 996 ? '4220px' : height * 2 + 'px',
       }"
     >
       <Animation
