@@ -277,6 +277,7 @@ watch(show, (newVal) => {
     show1.value = true;
   }
 });
+
 const jumpNews = (id: number) => {
   router.push({
     path: "/news",
@@ -423,7 +424,7 @@ const ani_btn = ref(-70);
 
 const video_next = () => {
   videoshow.value = true;
-  document.documentElement.scrollTop = 2980 + window.innerHeight;
+  document.documentElement.scrollTop = 2980 + window.innerHeight - 20;
 };
 
 window.addEventListener("wheel", (e) => {
@@ -488,7 +489,7 @@ const next222 = () => {
     <div
       class="animation_box"
       :style="{
-        zIndex: !videoshow ? 2 : -1,
+        zIndex: !videoshow ? 120 : -1,
         height: width * 2 > 996 ? '4200px' : height * 2 + 'px',
       }"
     >
@@ -1163,7 +1164,7 @@ const next222 = () => {
     // height: 1100px;
     width: 100%;
     position: fixed;
-    z-index: 3;
+    z-index: 121;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
