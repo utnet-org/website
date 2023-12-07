@@ -589,14 +589,14 @@ const next222 = () => {
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video
           v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="http://oss2.xuanwoo.com/unc/20%20Seconds%20Version.mp4"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
           autoplay
           muted
           @ended="onVideoEnded"
         ></video>
         <video
           v-if="ani_btn_s == 2"
-          src="http://oss2.xuanwoo.com/unc/PART%202.mp4"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/PART2.mp4"
           autoplay
           muted
         ></video>
@@ -711,7 +711,7 @@ const next222 = () => {
       <!--      </div>-->
       <div v-if="windowWidth < 834">
         <video
-          src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4"
           autoplay
           controls
           :width="windowWidth"
@@ -950,7 +950,7 @@ const next222 = () => {
                 alt=""
               />
             </div>
-            <img class="swiper_img" :src="item.img" alt="" />
+            <img class="" :src="item.img" style="" alt="" />
             <div class="time">
               {{ item.time }}
             </div>
