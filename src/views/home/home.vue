@@ -47,9 +47,9 @@ onMounted(async () => {
   Data_arr.value = [
     {
       amount:
-        windowWidth.value > 834
-          ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
-          : `$${res.value?.aiPower.toLocaleString()}`,
+          windowWidth.value > 834
+              ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
+              : `$${res.value?.aiPower.toLocaleString()}`,
       text: "home.UNC_PRICE",
     },
     {
@@ -58,16 +58,16 @@ onMounted(async () => {
     },
     {
       amount:
-        windowWidth.value > 834
-          ? "<span style='font-size: 26px;'>$</span>122,1120"
-          : "$122,1120",
+          windowWidth.value > 834
+              ? "<span style='font-size: 26px;'>$</span>122,1120"
+              : "$122,1120",
       text: "home.Transaction_Today",
     },
     {
       amount:
-        windowWidth.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} tflops`,
+          windowWidth.value > 834
+              ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
+              : `${res.value?.activeMiners.toLocaleString()} tflops`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
@@ -230,28 +230,28 @@ function stopCarousel() {
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
+    img: "/src/assets/images/article_bgc_two.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 1,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
+    img: "/src/assets/images/article_bgc_two.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 2,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
+    img: "/src/assets/images/article_bgc_three.png",
     time: "September 21, 2023",
     text: "Decentralized computing power equals edge computing",
     isswiperenter: false,
   },
   {
     id: 3,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
+    img: "/src/assets/images/article_bgc_four.png",
     time: "September 21, 2023",
     text: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -301,15 +301,6 @@ const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
   // console.log(scroll.value);
-
-  if (scroll.value <10){
-    dl2.value = true;
-  }else {
-    dl2.value = false;
-  }
-
-  console.log(scroll.value)
-  // console.log(scroll.value);
   if (scroll.value > 1900) {
     if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
       ani_btn.value = 175;
@@ -350,45 +341,45 @@ window.addEventListener("scroll", () => {
   }
 
   if (
-    timer1.value === undefined &&
-    scroll.value > 1030 &&
-    scroll.value < 1220
+      timer1.value === undefined &&
+      scroll.value > 1030 &&
+      scroll.value < 1220
   ) {
     text1.value = !text1.value;
     timer1.value = setInterval(() => {
       text1.value = !text1.value;
     }, 2500);
   } else if (
-    timer2.value === undefined &&
-    scroll.value > 1230 &&
-    scroll.value < 1420
+      timer2.value === undefined &&
+      scroll.value > 1230 &&
+      scroll.value < 1420
   ) {
     text2.value = !text2.value;
     timer2.value = setInterval(() => {
       text2.value = !text2.value;
     }, 2500);
   } else if (
-    timer3.value === undefined &&
-    scroll.value > 1320 &&
-    scroll.value < 1520
+      timer3.value === undefined &&
+      scroll.value > 1320 &&
+      scroll.value < 1520
   ) {
     text3.value = !text3.value;
     timer3.value = setInterval(() => {
       text3.value = !text3.value;
     }, 2500);
   } else if (
-    timer4.value === undefined &&
-    scroll.value > 1520 &&
-    scroll.value < 1720
+      timer4.value === undefined &&
+      scroll.value > 1520 &&
+      scroll.value < 1720
   ) {
     text4.value = !text4.value;
     timer4.value = setInterval(() => {
       text4.value = !text4.value;
     }, 2500);
   } else if (
-    timer5.value === undefined &&
-    scroll.value > 1630 &&
-    scroll.value < 1888
+      timer5.value === undefined &&
+      scroll.value > 1630 &&
+      scroll.value < 1888
   ) {
     text5.value = !text5.value;
     timer5.value = setInterval(() => {
@@ -450,10 +441,10 @@ const video_next = () => {
 
 window.addEventListener("wheel", (e) => {
   if (
-    e.deltaY < 0 &&
-    videoshow.value &&
-    scroll.value > 2980 &&
-    scroll.value < 2980 + window.innerHeight
+      e.deltaY < 0 &&
+      videoshow.value &&
+      scroll.value > 2980 &&
+      scroll.value < 2980 + window.innerHeight
   ) {
     videoshow.value = false;
     document.documentElement.scrollTop = 2980;
@@ -464,7 +455,6 @@ window.addEventListener("wheel", (e) => {
 });
 
 const ani_btn_s = ref(0);
-const dl2 = ref(true);
 // 监听是否有向上滚动的动作
 const onVideoEnded = () => {
   console.log("视频播放完毕");
@@ -509,46 +499,31 @@ const next222 = () => {
 //     route.push(link);
 //   }
 // }
-
 </script>
 <template>
   <div
-    :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
-    class="home_view"
+      :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
+      class="home_view"
   >
     <div
-      class="animation_box"
-      :style="{
-        zIndex: !videoshow ? 120 : -1,
-        height: width * 2 > 996 ? '4220px' : height * 2 + 'px',
-      }"
-    >
-      <div style="height: 80px"></div>
-     <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg">
-    </div>
-    <div
-        :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
-        class="home_view"
-    >
-    <div
-      class="animation_box"
-      :style="{
+        class="animation_box"
+        :style="{
         zIndex: !videoshow ? 120 : -1,
         height: width * 2 > 996 ? '4220px' : height * 2 + 'px',
       }"
     >
       <Animation
-        v-model:show="show"
-        v-model:show1="showtwo"
-        v-show="scroll < 2980 || scroll == 0"
+          v-model:show="show"
+          v-model:show1="showtwo"
+          v-show="scroll < 2980 || scroll == 0"
       ></Animation>
       <div class="animation_text_box" v-if="width * 2 > 996">
         <div
-          :style="{
+            :style="{
             top: `${height - 300 + (height * 2) / 5}px`,
             left: `${width + 100 - pyw / 3}px`,
           }"
-          :class="[
+            :class="[
             'animation_text',
             text1 && scroll > 1030 ? 'animation_text_animation' : '',
             !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
@@ -559,11 +534,11 @@ const next222 = () => {
           <!--指令签名共识-->
         </div>
         <div
-          :style="{
+            :style="{
             top: `${height + 300 - (height * 2) / 5}px`,
             left: `${width - 100 + pyw / 3}px`,
           }"
-          :class="[
+            :class="[
             'animation_text',
             text2 && scroll > 1230 ? 'animation_text_animation' : '',
             !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
@@ -574,11 +549,11 @@ const next222 = () => {
           <!--          异构并行架构-->
         </div>
         <div
-          :style="{
+            :style="{
             top: `${height + 100 - (height * 2) / 5}px`,
             left: `${width - 400 + pyw / 2}px`,
           }"
-          :class="[
+            :class="[
             'animation_text',
             text3 && scroll > 1320 ? 'animation_text_animation' : '',
             !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
@@ -590,11 +565,11 @@ const next222 = () => {
           <!--          并行计算规模化-->
         </div>
         <div
-          :style="{
+            :style="{
             top: `${height + 100 - (height * 2) / 5}px`,
             left: `${width + 400 - pyw / 3}px`,
           }"
-          :class="[
+            :class="[
             'animation_text',
             text4 && scroll > 1520 ? 'animation_text_animation' : '',
             !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
@@ -605,11 +580,11 @@ const next222 = () => {
           <!--          可信算力证明-->
         </div>
         <div
-          :style="{
+            :style="{
             top: `${height - 200 + (height * 2) / 5}px`,
             left: `${width - 500 + pyw / 2}px`,
           }"
-          :class="[
+            :class="[
             'animation_text',
             text5 && scroll > 1630 ? 'animation_text_animation' : '',
             !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
@@ -622,23 +597,23 @@ const next222 = () => {
       </div>
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video
-          v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
-          autoplay
-          muted
-          @ended="onVideoEnded"
+            v-if="ani_btn_s == 0 || ani_btn_s == 1"
+            src="http://oss2.xuanwoo.com/unc/20%20Seconds%20Version.mp4"
+            autoplay
+            muted
+            @ended="onVideoEnded"
         ></video>
         <video
-          v-if="ani_btn_s == 2"
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/PART2.mp4"
-          autoplay
-          muted
+            v-if="ani_btn_s == 2"
+            src="http://oss2.xuanwoo.com/unc/PART%202.mp4"
+            autoplay
+            muted
         ></video>
       </div>
       <div
-        class="animation_button"
-        :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
-        v-if="width * 2 > 996"
+          class="animation_button"
+          :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
+          v-if="width * 2 > 996"
       >
         <div v-if="ant_btn_w != 80" class="animation_button_text">
           <span v-if="ani_btn_s == 0 || ani_btn_s == 2">
@@ -658,7 +633,7 @@ const next222 = () => {
       <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
       <div class="bg" v-if="width * 2 > 996">
         <div
-          :class="[
+            :class="[
             'Welcome',
             { WelcomeAnimation: show.one },
             { WelcomeAnimationf: !show.one && show1 },
@@ -682,76 +657,9 @@ const next222 = () => {
           <div class="button_father">
             <div class="button">
               <div
-                class="text"
-                @click="
-                  openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
-                "
-              >
-                {{ $t("home.White_Paper") }}
-              </div>
-              <arrow />
-            </div>
-            <div class="button_right">
-              <div
-                class="text"
-                @click="openNewPage('/learning/learning_center')"
-              >
-                {{ $t("home.More") }}
-              </div>
-              <arrow />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--! 一张背景图 -->
-      <!--      <div class="get_the_app">-->
-      <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
-      <!--      </div>-->
-      <div v-if="windowWidth < 834">
-        <video
-          src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
-          autoplay
-          controls
-          :width="windowWidth"
-          height=""
-        ></video>
-<!--      flex-direction: column;-->
-<!--      width: 100%;-->
-<!--      height: 290px;-->
-<!--      align-items: center;-->
-<!--      // border-radius: 10px;-->
-<!--      background: linear-gradient(180deg,-->
-<!--      rgba(244, 248, 248, 0.035) 0.13%,-->
-<!--      rgba(244, 248, 248, 0.043) 99.87%);-->
-<!--      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,-->
-<!--      //   0px 4px 50px 0px #dde3e153;-->
-<!--      backdrop-filter: blur(9px);-->
-<!--      position: absolute;-->
-<!--      left: 0;-->
-<!--      bottom: 0;-->
-      <div class="bg2" v-if="windowWidth < 834 && dl2" >
-        <div class="Welcome">
-          <div class="Language">
-            <div class="point"></div>
-            <div class="lang">
-              {{ locale === "en" ? "English" : "中文简体" }}
-            </div>
-          </div>
-          <div class="">
-            <div style="text-align: center;color: snow;font-size: larger">
-              Utility {{ $t("home.Welcome_to_utility") }}
-            </div>
-          </div>
-          <div class="Anapplication">
-            {{ $t("home.An_application") }}
-          </div>
-          <div class="button_father">
-            <div class="button">
-              <div
                   class="text"
                   @click="
-                  openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+                  openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
                 "
               >
                 {{ $t("home.White_Paper") }}
@@ -770,15 +678,19 @@ const next222 = () => {
           </div>
         </div>
       </div>
-      <div v-if="windowWidth < 834" style="background-color: black">
-              <video
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4"
-                  autoplay
-                  controls
-                  muted
-                  :width="windowWidth"
-                  height=""
-              ></video>
+
+      <!--! 一张背景图 -->
+      <!--      <div class="get_the_app">-->
+      <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
+      <!--      </div>-->
+      <div v-if="windowWidth < 834">
+        <video
+            src="http://oss2.xuanwoo.com/unc/441_1701512030.mp4"
+            autoplay
+            controls
+            :width="windowWidth"
+            height=""
+        ></video>
       </div>
 
       <!--! Where to Start -->
@@ -788,11 +700,11 @@ const next222 = () => {
         </div>
         <div v-if="windowWidth < 834" class="Four_boxes">
           <div
-            class="box"
-            v-for="(item, index) in Where_arr"
-            :key="index"
-            style=""
-            @click="openNewPage(item.link)"
+              class="box"
+              v-for="(item, index) in Where_arr"
+              :key="index"
+              style=""
+              @click="openNewPage(item.link)"
           >
             <div>
               <div class="box_title">
@@ -804,39 +716,20 @@ const next222 = () => {
             </div>
             <div>
               <el-button class="box_button"> {{ $t(item.button) }}</el-button>
-          <div class="box" v-for="(item, index) in Where_arr" :key="index" style="">
-<!--            <div  class="box"  @click=" index ==2?openNewPage(item.link)">-->
-            <div  class="box"  @click="
-            index ==2?openNewPage('soloutions/mp_utility_wallet') :
-            index ==3?openNewPage('soloutions/mp_hashing_power') :
-            openNewPage(item.link)">
-              <div>
-                <div class="box_title">
-                  {{ $t(item.title) }}
-                </div>
-                <div class="box_text">
-                  {{ $t(item.text) }}
-                </div>
-              </div>
-              <div>
-                <el-button class="box_button">
-                  {{ $t(item.button) }}</el-button
-                >
-              </div>
             </div>
           </div>
         </div>
         <div v-else class="Four_boxes">
           <div
-            @click="openNewPage(item.link)"
-            @mouseover="WhereChange(index)"
-            @mouseleave="WhereChangeli"
-            class="box"
-            :style="{
+              @click="openNewPage(item.link)"
+              @mouseover="WhereChange(index)"
+              @mouseleave="WhereChangeli"
+              class="box"
+              :style="{
               border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
             }"
-            v-for="(item, index) in Where_arr"
-            :key="index"
+              v-for="(item, index) in Where_arr"
+              :key="index"
           >
             <div>
               <div class="box_title">
@@ -859,8 +752,8 @@ const next222 = () => {
       <div class="Data_and_circles">
         <div class="circles">
           <div class="point point_one">
-            <img v-if="windowWidth < 834" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/m_round.svg" />
-            <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Group_1.svg" alt="" />
+            <img v-if="windowWidth < 834" src="/src/assets/svgs/m_round.svg" />
+            <img v-else src="/src/assets/svgs/Group_1.svg" alt="" />
             <div class="point_text">Utility</div>
           </div>
           <div class="round_one">
@@ -903,9 +796,9 @@ const next222 = () => {
         <div class="Data">
           <div class="value_father">
             <div
-              class="data_value"
-              v-for="(item, index) in Data_arr"
-              :key="index"
+                class="data_value"
+                v-for="(item, index) in Data_arr"
+                :key="index"
             >
               <div class="amount" v-html="item.amount"></div>
               <div class="data_text">
@@ -924,26 +817,26 @@ const next222 = () => {
         <div class="Utility_Chain_box">
           <div v-for="(item, index) in Utility_arr" :key="index">
             <div
-              class="box_item"
-              @mouseover="UtilityChainChange(index)"
-              @mouseleave="UtilityChainChangeli"
+                class="box_item"
+                @mouseover="UtilityChainChange(index)"
+                @mouseleave="UtilityChainChangeli"
             >
               <div class="item_img">
                 <hover
-                  :style="{
+                    :style="{
                     opacity: item.isclick ? 1 : 0,
                   }"
-                  class="hover"
+                    class="hover"
                 />
                 <img
-                  class="item_img_img"
-                  :src="item.img"
-                  :style="{
+                    class="item_img_img"
+                    :src="item.img"
+                    :style="{
                     filter: item.isclick
                       ? 'brightness(0%)'
                       : 'brightness(100%)',
                   }"
-                  alt=""
+                    alt=""
                 />
               </div>
 
@@ -951,8 +844,8 @@ const next222 = () => {
                 {{ $t("home.Testnet") }}
               </div>
               <div
-                class="item_title"
-                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
+                  class="item_title"
+                  :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
               >
                 {{ $t(item.title) }}
               </div>
@@ -998,25 +891,25 @@ const next222 = () => {
         </div>
 
         <swiper
-          :ref="mySwiper"
-          :slidesPerView="1"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :pagination="{ clickable: true }"
-          class="swiper"
-          @slideChange="onSlideChange"
+            :ref="mySwiper"
+            :slidesPerView="1"
+            :spaceBetween="16"
+            :modules="modules"
+            :loop="false"
+            :pagination="{ clickable: true }"
+            class="swiper"
+            @slideChange="onSlideChange"
         >
           <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
-            @click="jumpNews(item.id)"
+              v-for="(item, index) in merryGoRound_arr"
+              :key="index"
+              class="swiper-slide"
+              @mouseenter="item.isswiperenter = true"
+              @mouseleave="item.isswiperenter = false"
+              @click="jumpNews(item.id)"
           >
             <div v-if="item.isswiperenter && windowWidth > 834" class="icon">
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
+              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="time">
@@ -1035,27 +928,27 @@ const next222 = () => {
 
         <div class="swiper-button-prev"></div>
         <swiper
-          :ref="mySwiper"
-          :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :navigation="navigation"
-          class="swiper"
-          @slideChange="onSlideChange"
+            :ref="mySwiper"
+            :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
+            :spaceBetween="16"
+            :modules="modules"
+            :loop="false"
+            :navigation="navigation"
+            class="swiper"
+            @slideChange="onSlideChange"
         >
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
           <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
-            @click="jumpNews(item.id)"
+              v-for="(item, index) in merryGoRound_arr"
+              :key="index"
+              class="swiper-slide"
+              @mouseenter="item.isswiperenter = true"
+              @mouseleave="item.isswiperenter = false"
+              @click="jumpNews(item.id)"
           >
             <div v-if="item.isswiperenter" class="icon">
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
+              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="time">
@@ -1103,8 +996,8 @@ const next222 = () => {
               <!--                <arrow />-->
             </div>
             <div
-              class="button_right"
-              @click="openNewPage('https://github.com/utnet-org')"
+                class="button_right"
+                @click="openNewPage('https://github.com/utnet-org')"
             >
               <div class="button_text">
                 {{ $t("footer.Github") }}
@@ -1297,18 +1190,6 @@ const next222 = () => {
     // max-width: 1500px;
     // margin: 0 20px;
   }
-  .bg2 {
-    // height: 1100px;
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    // max-width: 1500px;
-    // margin: 0 20px;
-    //transition: transform 3.3s ease;
-  }
   .container {
     display: flex;
     flex-direction: column;
@@ -1351,9 +1232,9 @@ const next222 = () => {
       align-items: center;
       // border-radius: 10px;
       background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
+          180deg,
+          rgba(244, 248, 248, 0.035) 0.13%,
+          rgba(244, 248, 248, 0.043) 99.87%
       );
       // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
       //   0px 4px 50px 0px #dde3e153;
@@ -1361,6 +1242,7 @@ const next222 = () => {
       position: absolute;
       left: 0;
       bottom: 0;
+
       .Utility {
         display: flex;
         align-items: center;
@@ -1486,9 +1368,9 @@ const next222 = () => {
         justify-content: center;
         .box {
           background: linear-gradient(
-            177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
+              177deg,
+                #fff -24.77%,
+              rgba(255, 255, 255, 0) 97.53%
           );
           opacity: 0.8;
           display: flex;
@@ -1612,9 +1494,9 @@ const next222 = () => {
           position: relative;
 
           background: linear-gradient(
-            97deg,
-            #f1f7f6 40%,
-            rgba(164, 229, 221, 0.2) 100.1%
+              97deg,
+              #f1f7f6 40%,
+              rgba(164, 229, 221, 0.2) 100.1%
           );
           border-radius: 50%;
           display: flex;
@@ -1712,9 +1594,9 @@ const next222 = () => {
       .Create_a_lighter {
         flex-shrink: 0;
         background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
+            180deg,
+            rgba(244, 248, 248, 0.05) 0.13%,
+            rgba(244, 248, 248, 0) 99.87%
         );
         box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         display: flex;
@@ -1824,9 +1706,9 @@ const next222 = () => {
     .button_right {
       &:hover {
         background: linear-gradient(
-          177deg,
-          #fff -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
+            177deg,
+              #fff -24.77%,
+            rgba(255, 255, 255, 0) 97.53%
         );
         /* shadow for navbar hover */
         box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
@@ -1868,9 +1750,9 @@ const next222 = () => {
             &:hover {
               box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
               background: linear-gradient(
-                177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
+                  177deg,
+                  #fff -s4.77%,
+                  rgba(255, 255, 255, 0) 97.53%
               );
             }
           }
@@ -2086,9 +1968,9 @@ const next222 = () => {
           top: -50px;
           bottom: 0;
           background: linear-gradient(
-            -90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+              -90deg,
+              #fff 43.44%,
+              rgba(255, 255, 255, 0) 90%
           );
           z-index: 2; /* 确保阴影在内容之上 */
         }
@@ -2103,9 +1985,9 @@ const next222 = () => {
           top: -10px;
           bottom: 0;
           background: linear-gradient(
-            90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+              90deg,
+              #fff 43.44%,
+              rgba(255, 255, 255, 0) 90%
           );
           //模糊
           z-index: 2; /* 确保阴影在内容之上 */
@@ -2204,9 +2086,9 @@ const next222 = () => {
             &:hover {
               box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
               background: linear-gradient(
-                177deg,
-                #fff -24.77%,
-                rgba(255, 255, 255, 0) 97.53%
+                  177deg,
+                    #fff -24.77%,
+                  rgba(255, 255, 255, 0) 97.53%
               );
             }
           }
@@ -2218,8 +2100,8 @@ const next222 = () => {
         width: 912px;
         height: 608px;
         background: var(
-          --light-small,
-          linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
+            --light-small,
+            linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
         );
         filter: blur(40px);
 
@@ -2659,12 +2541,6 @@ const next222 = () => {
         }
       }
     }
-  }
-}
-
-@media (max-width: 1323px) {
-  .Create_a_lighter {
-    left: 18% !important;
   }
 }
 
