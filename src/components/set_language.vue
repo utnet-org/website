@@ -36,6 +36,7 @@ const setLang = () => {
       :style="{
         width: `120px`,
         height: show ? `94px` : 0,
+        border: show ? `1px solid rgba(21, 28, 26, 0.15)` : `none`,
         transition: show
           ? 'height 0.1s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
           : 'height 0.1s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
@@ -102,6 +103,7 @@ const setLang = () => {
   transform: translateX(-50%);
   overflow: hidden;
   display: flex;
+  box-sizing: border-box;
 
   .options {
     width: 100%;

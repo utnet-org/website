@@ -45,7 +45,7 @@ const nav_arr = ref([
         icon: new URL("@/assets/gifs/learning_5.gif", import.meta.url).href,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
       },
     ],
   },
@@ -126,14 +126,20 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: new URL("@/assets/images/language_english_icon.png", import.meta.url).href,
+        icon: new URL(
+          "@/assets/images/language_english_icon.png",
+          import.meta.url
+        ).href,
         png: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
         title: "nav.English",
         desc: "en",
         link: "",
       },
       {
-        icon: new URL("@/assets/images/language_chinese_icon.png", import.meta.url).href,
+        icon: new URL(
+          "@/assets/images/language_chinese_icon.png",
+          import.meta.url
+        ).href,
         png: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
         title: "nav.Chinese",
         desc: "zh",
@@ -155,7 +161,7 @@ const changeSelectIndex = (item: any, index: any) => {
   selectIndex.value = index;
 };
 const routerSubPage = (index: any, citem: any, cindex: any) => {
-  console.log("====>",index, citem, cindex)
+  console.log("====>", index, citem, cindex);
   if (index == 5) {
     localStorage.setItem("upaclang", citem.desc);
     document
@@ -165,13 +171,12 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
     return;
   }
   if (citem.link.startsWith("http://") || citem.link.startsWith("https://")) {
-    window.open(citem.link, '_blank');
-  }else {
+    window.open(citem.link, "_blank");
+  } else {
     window.location.href = citem.link;
     selectType.value = false;
     selectIndex.value = -1;
   }
-
 };
 const width = ref(window.innerWidth);
 window.onresize = () => {
@@ -193,26 +198,53 @@ window.onresize = () => {
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
       </div>
-      <img class="list_caption_image" :src="selectType ? list_caption_close : list_caption" alt="" v-else
-        @click="blockSelect" />
+      <img
+        class="list_caption_image"
+        :src="selectType ? list_caption_close : list_caption"
+        alt=""
+        v-else
+        @click="blockSelect"
+      />
       <div v-show="selectType == true" class="list_caption_select">
-        <div class="list_caption_select_item" v-for="(item, index) in nav_arr" :key="index">
-          <div class="list_caption_select_item_header" @click="changeSelectIndex(item, index)">
+        <div
+          class="list_caption_select_item"
+          v-for="(item, index) in nav_arr"
+          :key="index"
+        >
+          <div
+            class="list_caption_select_item_header"
+            @click="changeSelectIndex(item, index)"
+          >
             <div>{{ $t(item.name) }}</div>
-            <img v-if="index != 3 && index != 4" src="@/assets/images/poci_to_bottom.png" alt=""
-              :class="selectIndex == index ? 'active' : ''" />
+            <img
+              v-if="index != 3 && index != 4"
+              src="@/assets/images/poci_to_bottom.png"
+              alt=""
+              :class="selectIndex == index ? 'active' : ''"
+            />
           </div>
-          <div class="list_caption_select_item_option" v-for="(citem, cindex) in item.children" :key="cindex"
-            v-show="selectIndex == index" @click="routerSubPage(index, citem, cindex)"
-            :style="index == 5 ? 'align-items: center;' : ''">
+          <div
+            class="list_caption_select_item_option"
+            v-for="(citem, cindex) in item.children"
+            :key="cindex"
+            v-show="selectIndex == index"
+            @click="routerSubPage(index, citem, cindex)"
+            :style="index == 5 ? 'align-items: center;' : ''"
+          >
             <div class="list_caption_select_item_option_image">
               <img :src="citem.icon" alt="" />
             </div>
             <div class="list_caption_select_item_option_text">
-              <div class="list_caption_select_item_option_text_title" :style="index == 5 ? 'margin-bottom: 0px;' : ''">
+              <div
+                class="list_caption_select_item_option_text_title"
+                :style="index == 5 ? 'margin-bottom: 0px;' : ''"
+              >
                 {{ $t(citem.title) }}
               </div>
-              <div class="list_caption_select_item_option_text_desc" v-if="index != 5">
+              <div
+                class="list_caption_select_item_option_text_desc"
+                v-if="index != 5"
+              >
                 {{ $t(citem.desc) }}
               </div>
             </div>
@@ -230,7 +262,7 @@ window.onresize = () => {
   left: 0;
   z-index: 999;
   background: #fffefb;
-  // box-shadow: 0px 4px 24px 0px #dee7e5;
+  box-shadow: 0px 4px 24px 0px #dee7e54c;
   backdrop-filter: blur(8px);
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;

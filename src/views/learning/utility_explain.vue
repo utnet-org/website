@@ -70,7 +70,7 @@ const optionsList = [
         <div class="header_content_text">
           {{ $t("utilityNetwork.header_message") }}
         </div>
-        <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
+        <div class="header_content_button" @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')">
           <div>{{ $t("utilityNetwork.read_more") }}</div>
           <img :src="arrowButton" alt="" />
         </div>
@@ -119,7 +119,7 @@ const optionsList = [
 <style scoped lang="less">
 .container {
   background-color: #fffefb;
-
+  padding-top: 70px;
   .header {
     width: 100%;
     height: 558px;

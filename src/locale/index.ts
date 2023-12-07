@@ -9,18 +9,18 @@ const messages = {
   zh,
 };
 
-const language = (navigator.language || "zh").toLocaleLowerCase(); // 这是获取浏览器的语言
+const language = (navigator.language || "en").toLocaleLowerCase(); // 这是获取浏览器的语言
 
 document
   .querySelector("html")!
   .setAttribute(
     "lang",
-    localStorage.getItem("upaclang") || language.split("-")[0] || "zh"
+    localStorage.getItem("upaclang") || language.split("-")[0] || "en"
   );
 
 const i18n = createI18n({
-  locale: localStorage.getItem("upaclang") || language.split("-")[0] || "zh", // 默认语言
-  fallbackLocale: "zh", // 不存在默认则为英文
+  locale: localStorage.getItem("upaclang") || language.split("-")[0] || "en", // 默认语言
+  fallbackLocale: "en", // 不存在默认则为英文
   allowComposition: true, // 允许组合式api
   messages,
 });

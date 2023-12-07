@@ -1,6 +1,5 @@
 <script setup lang="ts" name="HomeNew">
-import authorSvg from "@/assets/svgs/author.svg";
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { defineComponent } from "vue";
@@ -28,11 +27,20 @@ SwiperCore.use([Pagination]);
 import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
-
 const router = useRouter();
-const articleId = Number(route.query.msg);
+const articleId = ref(Number(route.query.msg));
 const selectedArticle = computed(() =>
-  news_arr.value.find((article) => article.id === articleId)
+  news_arr.value.find((article) => article.id === articleId.value)
+);
+
+// 监听路由查询参数的变化
+watch(
+  () => route.query.msg,
+  (newMsg) => {
+    articleId.value = Number(newMsg); // 更新 articleId 的值
+    // 这里可以添加其他逻辑，比如根据新的 articleId 重新获取数据
+  },
+  { immediate: true }
 );
 
 const jumpNews = (id: number) => {
@@ -92,28 +100,28 @@ const link_arr = ref([
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     time: "September 21, 2023",
     title: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 1,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     time: "September 21, 2023",
     title: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 2,
-    img: "/src/assets/images/article_bgc_three.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     time: "September 21, 2023",
     title: "Decentralized computing power equals edge computing",
     isswiperenter: false,
   },
   {
     id: 3,
-    img: "/src/assets/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     time: "September 21, 2023",
     title: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -166,7 +174,7 @@ const news_arr = ref([
   {
     id: 0,
     X_title: "Calculate demand analysis and the next tuyere",
-    article_bgc: "/src/assets/images/article_bgc_two.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     content: `<p>
       Computing demand refers to the need to use computers and related technologies to process, analyze, predict, and optimize data in various fields. Computing needs can involve large amounts of data, requiring the use of computers and related technologies for efficient processing and analysis in order to better understand the data and make better decisions.
 Computing has a wide range of uses. In scientific research, computing helps researchers process and analyze large amounts of data to better understand and explain phenomena. In engineering, computing can be used to simulate and optimize various systems and processes in order to better design and improve products. In the business world, computing can be used to analyze market and customer data to better understand customer needs and market trends to make better business decisions. In the medical field, computing can be used to analyze patient data to better diagnose disease and develop treatment options.
@@ -202,7 +210,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 1,
     X_title: "Calculate demand analysis and the next tuyere",
-    article_bgc: "/src/assets/images/article_bgc_two.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     content: `<p>
       Computing demand refers to the need to use computers and related technologies to process, analyze, predict, and optimize data in various fields. Computing needs can involve large amounts of data, requiring the use of computers and related technologies for efficient processing and analysis in order to better understand the data and make better decisions.
 Computing has a wide range of uses. In scientific research, computing helps researchers process and analyze large amounts of data to better understand and explain phenomena. In engineering, computing can be used to simulate and optimize various systems and processes in order to better design and improve products. In the business world, computing can be used to analyze market and customer data to better understand customer needs and market trends to make better business decisions. In the medical field, computing can be used to analyze patient data to better diagnose disease and develop treatment options.
@@ -238,7 +246,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 2,
     X_title: "Decentralized computing power equals edge computing",
-    article_bgc: "/src/assets/images/article_bgc_three.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     content: `<p>
       What is edge computing?
           </p>
@@ -308,7 +316,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 3,
     X_title: "An encrypted world without wasted computing power",
-    article_bgc: "/src/assets/images/article_bgc_four.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     content: `<p>
       UtilityNet is a decentralized digital chip network based on chips defined by BDC (Blockchain Define Chip). It uses chip self-verification to prove and efficiently provide powerful on-chain resources at zero cost. Among them, UtilityNet proposed the PoCI (Proof of Computation Integrity) consensus to abandon the high-cost and high-consumption computing model and replace it with a model of ownership of chip computing power. How to reach PoCI consensus? They used a 128-bit AES (Advanced Encryption Standard) key etched in a small section of the chip called eFuse storage area, that is, the "secure key", and sent the security key into the chip's SPACC (security protocol accelerator) module for encryption. learning operation (AES encryption and decryption operation), while ensuring that it is not exposed. The numerical tuple generated by the chip's own secret and mixed encryption will be submitted to the define type transaction of UtilityNet, and all nodes participating in UtilityNet will It will reach a consensus and know the encrypted private key and the corresponding public key of each chip. In this way, "the chip proves the existence of the chip", and there is no need to spend extra computing power to prove the existence of this chip.          </p>
           <p>
@@ -356,7 +364,11 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         <!-- !图片，Utility 和 Edited by Terrill -->
         <div class="author">
           <div class="author_img">
-            <authorSvg />
+            <img
+              style="width: 100%; height: 100%"
+              src="/src/assets/svgs/author.svg"
+              alt=""
+            />
           </div>
           <div class="author_right">
             <div class="author_name">Utility Labs</div>
@@ -421,7 +433,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             >
               <!-- ! 图片右上角的箭头 -->
               <div v-if="item.isswiperenter" class="icon">
-                <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+                <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
               </div>
               <img class="swiper_img" :src="item.img" alt="" />
               <div class="swiper_time">
@@ -464,7 +476,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           >
             <!-- ! 图片右上角的箭头 -->
             <div v-if="item.isswiperenter" class="icon">
-              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="swiper_time">
@@ -483,85 +495,243 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   </div>
 </template>
 <style lang="less" scoped>
-@media (min-width: 835px) {
-  .news {
+.news {
+  width: 100%;
+  background-color: #fffefb;
+  .container {
     width: 100%;
-    background-color: #fffefb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .article {
+      .time {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Lantinghei SC;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 114.286% */
+        letter-spacing: 1.68px;
+        margin-bottom: 12px;
+      }
+      .Originals {
+        display: flex;
+        .line {
+          width: 3px;
+          height: 15px;
+          flex-shrink: 0;
+          background: #3edfcf;
+          margin-right: 8px;
+        }
 
-    .container {
+        .Originals_text {
+          color: rgba(21, 28, 26, 0.9);
+          font-family: Lantinghei SC;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px; /* 133.333% */
+          text-transform: uppercase;
+        }
+      }
+      .X_title {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Lantinghei SC;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+      }
+      .finance {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Inter;
+        font-style: normal;
+
+        :deep(.highlight_H) {
+          color: rgba(21, 28, 26, 0.9);
+          font-family: Inter;
+          font-style: normal;
+          text-decoration-line: underline;
+          //线的宽度
+          text-decoration-thickness: 1.5px; /* 设置下划线的粗细 */
+          //线的颜色
+          text-decoration-color: rgba(21, 28, 26, 0.5);
+        }
+      }
+      .author {
+        display: flex;
+        align-items: center;
+        .author_img {
+          width: 48px;
+          height: 48px;
+          flex-shrink: 0;
+          margin-right: 16px;
+          border-radius: 50%;
+          background-color: #fff;
+        }
+
+        .author_right {
+          display: flex;
+          flex-direction: column;
+
+          .author_name {
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Inter;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+          .author_text {
+            margin-top: 8px;
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Inter;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            opacity: 0.8;
+          }
+        }
+      }
+
+      :deep(.highlight) {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration-line: underline;
+      }
+      .article_text_one {
+        color: rgba(21, 28, 26, 0.9);
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        border-bottom: 1px solid rgba(21, 28, 26, 0.1);
+      }
+
+      .link {
+        .link_list {
+          display: flex;
+          flex-wrap: wrap;
+
+          .link_list_item {
+            a {
+              color: #3edfcf;
+              font-family: Inter;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 300;
+              line-height: 24px; /* 24px */
+              text-decoration-line: underline;
+            }
+          }
+        }
+      }
+    }
+    .Carousel_map {
+      position: relative;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      width: 100%;
+      .title {
+        color: rgba(21, 28, 26, 0.9);
+        text-align: center;
+        font-family: Lantinghei SC;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .swiper {
+        width: 100%;
+        position: relative;
 
+        .swiper-slide {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          cursor: pointer; ///鼠标移上去变成手指
+          .swiper_img {
+            border-radius: 8px;
+            flex-shrink: 0;
+          }
+          .icon {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .swiper_time {
+            color: #151c1a;
+            font-family: Jaldi;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21px; /* 21.825px */
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+          }
+          .swiper_title {
+            color: #151c1a;
+            font-family: Lantinghei SC;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px; /* 24.735px */
+          }
+          .swiper_text {
+            color: #151c1a;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21.42px; /* 21.42px */
+          }
+        }
+        .centered-slide {
+          border-left: 1px solid rgba(21, 28, 26, 0.1); /* 左边框 */
+          border-right: 1px solid rgba(21, 28, 26, 0.1); /* 右边框 */
+        }
+      }
+    }
+  }
+}
+@media (min-width: 835px) {
+  .news {
+    .container {
       .article {
         max-width: 1086px;
         padding: 146px 21px 0 21px;
 
-        .time {
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Lantinghei SC;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 16px; /* 114.286% */
-          letter-spacing: 1.68px;
-          margin-bottom: 12px;
-        }
-
         .Originals {
-          display: flex;
           margin-bottom: 26px;
-
-          .line {
-            width: 3px;
-            height: 15px;
-            flex-shrink: 0;
-            background: #3edfcf;
-            margin-right: 8px;
-          }
-
-          .Originals_text {
-            color: rgba(21, 28, 26, 0.9);
-            font-family: Lantinghei SC;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 16px; /* 133.333% */
-            text-transform: uppercase;
-          }
         }
 
         .X_title {
           margin-bottom: 40px;
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-          font-family: Lantinghei SC;
-          font-size: 32px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 53px; /* 165.625% */
         }
 
         .finance {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-          font-family: Inter;
           font-size: 22px;
-          font-style: normal;
           font-weight: 300;
           line-height: 33px; /* 33px */
 
           :deep(.highlight_H) {
-            color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-            font-family: Inter;
             font-size: 22px;
-            font-style: normal;
             font-weight: 300;
             line-height: 33px; /* 33px */
-            text-decoration-line: underline;
-            //线的宽度
-            text-decoration-thickness: 1.5px; /* 设置下划线的粗细 */
-            //线的颜色
-            text-decoration-color: rgba(21, 28, 26, 0.5);
 
             &:hover {
               color: #3edfcf;
@@ -571,49 +741,12 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         }
 
         .author {
-          display: flex;
-          align-items: center;
           // margin-top: 66px;
           margin-bottom: 38px;
-
-          .author_img {
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-            margin-right: 16px;
-            border-radius: 50%;
-            background-color: #fff;
-          }
-
-          .author_right {
-            display: flex;
-            flex-direction: column;
-
-            .author_name {
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Inter;
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: normal;
-            }
-
-            .author_text {
-              margin-top: 8px;
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Inter;
-              font-size: 12px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              opacity: 0.8;
-            }
-          }
         }
 
         .article_bgc {
           width: 100%;
-
           margin-bottom: 50px;
 
           img {
@@ -622,13 +755,8 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         }
 
         :deep(.highlight) {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-          font-family: Inter;
           font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 25.76px;
-          text-decoration-line: underline;
 
           &:hover {
             color: #3edfcf;
@@ -636,14 +764,9 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         }
 
         .article_text_one {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-          font-family: Inter;
           font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 161%;
           padding-bottom: 16px;
-          border-bottom: 1px solid rgba(21, 28, 26, 0.1);
           margin-bottom: 24px;
 
           :deep(.p_buttom) {
@@ -653,20 +776,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
 
         .link {
           .link_list {
-            display: flex;
-            flex-wrap: wrap;
-
             .link_list_item {
-              a {
-                color: #3edfcf;
-                font-family: Inter;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 300;
-                line-height: 150%; /* 24px */
-                text-decoration-line: underline;
-              }
-
               .Vertical_line {
                 margin-left: 5px;
                 margin-right: 5px;
@@ -681,103 +791,34 @@ Computing has a wide range of uses. In scientific research, computing helps rese
       }
 
       .Carousel_map {
-        position: relative;
-        width: 100%;
-        height: 797px;
         margin-top: 132px;
-        display: flex;
-        flex-direction: column;
+        padding-bottom: 100px;
         align-items: center;
         justify-content: start;
 
         .title {
           margin-bottom: 51px;
-          color: rgba(21, 28, 26, 0.9);
-          text-align: center;
-          font-family: Lantinghei SC;
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
         }
 
         .swiper {
-          width: 100%;
-          position: relative;
-
           .swiper-slide {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            cursor: pointer; ///鼠标移上去变成手指
             padding: 0 35px;
 
-            .swiper_img {
-              border-radius: 8px;
-              flex-shrink: 0;
-            }
-
             .icon {
-              position: absolute;
               top: 21px;
-              right: 53px;
-              width: 34px;
-              height: 34px;
-              flex-shrink: 0;
-              border-radius: 50%;
-              background-color: #000;
-
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-              img {
-                width: 100%;
-                height: 100%;
-              }
+              right: 50px;
             }
 
             .swiper_time {
-              color: #151c1a;
-              font-family: Jaldi;
-              font-size: 15px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 21px; /* 21.825px */
-              letter-spacing: 0.3px;
-              opacity: 0.8;
               margin-top: 24px;
               margin-bottom: 3px;
             }
 
             .swiper_title {
               margin-bottom: 10px;
-              color: #151c1a;
-              font-family: Lantinghei SC;
-              font-size: 17px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 24px; /* 24.735px */
             }
-
-            .swiper_text {
-              color: #151c1a;
-              font-family: Inter;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 21.42px; /* 21.42px */
-            }
-          }
-
-          .centered-slide {
-            border-left: 1px solid rgba(21, 28, 26, 0.1); /* 左边框 */
-            border-right: 1px solid rgba(21, 28, 26, 0.1); /* 右边框 */
           }
         }
-
-        /* 添加在Swiper中居中的项的边框 */
 
         .swiper_button {
           display: flex;
@@ -823,126 +864,38 @@ Computing has a wide range of uses. In scientific research, computing helps rese
 
 @media (max-width: 834px) {
   .news {
-    width: 100%;
-    background-color: #fffefb;
-
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 390px;
       padding: 0 20px;
 
       .article {
         width: 100%;
-        padding-top: 149px;
-
-        .time {
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Lantinghei SC;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 16px; /* 114.286% */
-          letter-spacing: 1.68px;
-          margin-bottom: 12px;
-        }
+        padding-top: 110px;
 
         .Originals {
-          display: flex;
           margin-bottom: 24px;
-
-          .line {
-            width: 3px;
-            height: 15px;
-            flex-shrink: 0;
-            background: #3edfcf;
-            margin-right: 8px;
-          }
-
-          .Originals_text {
-            color: rgba(21, 28, 26, 0.9);
-            font-family: Lantinghei SC;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 16px; /* 133.333% */
-            text-transform: uppercase;
-          }
         }
 
         .X_title {
           margin-bottom: 12px;
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Lantinghei SC;
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 32px; /* 145.455% */
         }
 
         .finance {
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Inter;
           font-size: 14px;
-          font-style: normal;
           font-weight: 400;
           line-height: 20px; /* 20.3px */
 
           :deep(.highlight_H) {
-            color: rgba(21, 28, 26, 0.9);
-            font-family: Inter;
             font-size: 14px;
-            font-style: normal;
+
             font-weight: 400;
             line-height: 20px; /* 20.3px */
-            text-decoration-line: underline;
-            //线的宽度
-            text-decoration-thickness: 1.5px; /* 设置下划线的粗细 */
-            //线的颜色
-            text-decoration-color: rgba(21, 28, 26, 0.5);
           }
         }
 
         .author {
-          display: flex;
-          align-items: center;
           // margin-top: 30px;
           margin-bottom: 18px;
-
-          .author_img {
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-            margin-right: 16px;
-            border-radius: 50%;
-            background-color: #fff;
-          }
-
-          .author_right {
-            display: flex;
-            flex-direction: column;
-
-            .author_name {
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Inter;
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: normal;
-            }
-
-            .author_text {
-              margin-top: 8px;
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Inter;
-              font-size: 12px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              opacity: 0.8;
-            }
-          }
         }
 
         .article_bgc {
@@ -952,24 +905,14 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         }
 
         :deep(.highlight) {
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Inter;
           font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 22px; /* 22.26px */
-          text-decoration-line: underline;
         }
 
         .article_text_one {
-          color: rgba(21, 28, 26, 0.9);
-          font-family: Inter;
           font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
           line-height: 159%;
           padding-bottom: 24px;
-          border-bottom: 1px solid rgba(21, 28, 26, 0.1);
           margin-bottom: 12px;
 
           :deep(p) {
@@ -979,20 +922,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
 
         .link {
           .link_list {
-            display: flex;
-            flex-wrap: wrap;
-
             .link_list_item {
-              a {
-                color: #3edfcf;
-                font-family: Inter;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 300;
-                line-height: 24px; /* 24.08px */
-                text-decoration-line: underline;
-              }
-
               .Vertical_line {
                 color: #3edfcf;
                 font-family: Inter;
@@ -1009,22 +939,11 @@ Computing has a wide range of uses. In scientific research, computing helps rese
       }
 
       .Carousel_map {
-        position: relative;
-        width: 100%;
-        height: 607px;
         padding-top: 48px;
-        display: flex;
-        flex-direction: column;
+        padding-bottom: 94px;
 
         .title {
           margin-bottom: 24px;
-          color: rgba(21, 28, 26, 0.9);
-          text-align: center;
-          font-family: Lantinghei SC;
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
         }
 
         .swiper {
@@ -1032,73 +951,23 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           position: relative;
 
           .swiper-slide {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            cursor: pointer; ///鼠标移上去变成手指
-            .swiper_img {
-              border-radius: 8px;
-              flex-shrink: 0;
-            }
-
             .icon {
-              position: absolute;
-              top: 21px;
-              right: 21px;
-              width: 34px;
-              height: 34px;
-              flex-shrink: 0;
-              border-radius: 50%;
-              background-color: #000;
-
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-              img {
-                width: 100%;
-                height: 100%;
-              }
+              top: 20px;
+              right: 20px;
             }
 
             .swiper_time {
-              color: #151c1a;
-              font-family: Jaldi;
-              font-size: 15px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 21px; /* 21.825px */
-              letter-spacing: 0.3px;
-              opacity: 0.8;
               margin-top: 18px;
               margin-bottom: 2px;
             }
 
             .swiper_title {
               margin-bottom: 40px;
-              color: #151c1a;
-              font-family: Lantinghei SC;
-              font-size: 17px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 24px; /* 24.735px */
             }
 
             .swiper_text {
-              color: #151c1a;
-              font-family: Inter;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 21.42px; /* 21.42px */
               margin-bottom: 34px;
             }
-          }
-
-          .centered-slide {
-            border-left: 1px solid rgba(21, 28, 26, 0.1); /* 左边框 */
-            border-right: 1px solid rgba(21, 28, 26, 0.1); /* 右边框 */
           }
         }
 

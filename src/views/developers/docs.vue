@@ -57,6 +57,7 @@ const options_list = ref([
 <style scoped lang="less">
 .container {
   background: #fffefb;
+  padding-top: 70px;
 }
 
 @media (min-width: 835px) {

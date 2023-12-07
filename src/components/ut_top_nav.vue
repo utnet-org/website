@@ -49,7 +49,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
       },
     ],
   },
@@ -125,7 +125,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.Discord",
         desc: "nav.Discord_details",
-        link:  "https://discord.com/",
+        link: "https://discord.com/",
       },
       {
         icon: "",
@@ -173,65 +173,113 @@ function set(i: number, id: number) {
   <div role="navigation">
     <div class="nav_menu-item-wrap">
       <!--* 每一项 begin -->
-      <div :class="[
-        'nav_link-wrapper',
-        activeIndex == i && show ? 'select_navlink' : '',
-      ]" v-for="(item, i) in nav_arr" :key="i" @mouseenter="(activeIndex = i), (show = true)"
-        @mouseleave="show = false">
+      <div
+        :class="[
+          'nav_link-wrapper',
+          activeIndex == i && show ? 'select_navlink' : '',
+        ]"
+        v-for="(item, i) in nav_arr"
+        :key="i"
+        @mouseenter="(activeIndex = i), (show = true)"
+        @mouseleave="show = false"
+      >
         <div v-if="item.link == ''" class="nav_link text_style_top">
           {{ $t(item.name) }}
         </div>
-        <RouterLink v-else  :to="(item.link.startsWith('http://') || item.link.startsWith('https://'))?'':item.link"  class="nav_link text_style_top">
+        <RouterLink
+          v-else
+          :to="
+            item.link.startsWith('http://') || item.link.startsWith('https://')
+              ? ''
+              : item.link
+          "
+          class="nav_link text_style_top"
+        >
           {{ $t(item.name) }}
         </RouterLink>
       </div>
       <!--* 每一项 end -->
 
-      <div class="nav_dropdown-wrap" :style="{
-        transform: `translate3d(${nav_arr[activeIndex].left}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-            rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
-        transformStyle: `preserve-3d`,
-        width: show ? `${nav_arr[activeIndex].width}px` : 0,
-        height: show ? `${nav_arr[activeIndex].height}px` : 0,
-        transition: show
-          ? 'all 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
-          : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
-      }" @mouseenter="show = true" @mouseleave="show = false">
-        <div v-for="(item, i) in nav_arr" :key="i" :style="{
-          padding: '16px',
-          position: 'absolute',
-          transform: `translate3d(${setXpx(
-            i
-          )}, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      <div
+        class="nav_dropdown-wrap"
+        :style="{
+          border: !show ? 'none' : '1px solid rgba(21, 28, 26, 0.15)',
+          transform: `translate3d(${nav_arr[activeIndex].left}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
             rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
           transformStyle: `preserve-3d`,
-          width: `${i == activeIndex ? nav_arr[i].width : 0}px`,
-          height: `${i == activeIndex ? nav_arr[i].height : 0}px`,
+          width: show ? `${nav_arr[activeIndex].width}px` : 0,
+          height: show ? `${nav_arr[activeIndex].height}px` : 0,
           transition: show
-            ? 'transform 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8),opacity 0.12s'
-            : 'transform 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16),opacity 0.12s',
-          opacity: i == activeIndex ? 1 : 0,
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexDirection: 'column',
-          overflow: 'hidden',
-        }">
-          <div v-for="(c_item, id) in item.children" :key="id" @click="show = false">
-            <RouterLink  :to="(c_item.link.startsWith('http://') || c_item.link.startsWith('https://'))?'':c_item.link" >
-              <div class="popup_content" @mouseenter="set(i, id)" @click="openNewPage(c_item.link)" >
+            ? 'all 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
+            : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
+        }"
+        @mouseenter="show = true"
+        @mouseleave="show = false"
+      >
+        <div
+          v-for="(item, i) in nav_arr"
+          :key="i"
+          :style="{
+            padding: '16px',
+            position: 'absolute',
+            transform: `translate3d(${setXpx(
+              i
+            )}, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+            rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
+            transformStyle: `preserve-3d`,
+            width: `${i == activeIndex ? nav_arr[i].width : 0}px`,
+            height: `${i == activeIndex ? nav_arr[i].height : 0}px`,
+            transition: show
+              ? 'transform 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8),opacity 0.12s'
+              : 'transform 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16),opacity 0.12s',
+            opacity: i == activeIndex ? 1 : 0,
+            display: 'flex',
+            justifyContent: 'space-between',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          }"
+        >
+          <div
+            v-for="(c_item, id) in item.children"
+            :key="id"
+            @click="show = false"
+          >
+            <RouterLink
+              :to="
+                c_item.link.startsWith('http://') ||
+                c_item.link.startsWith('https://')
+                  ? ''
+                  : c_item.link
+              "
+            >
+              <div
+                class="popup_content"
+                @mouseenter="set(i, id)"
+                @click="openNewPage(c_item.link)"
+              >
                 <div class="left">
-                  <img :src="c_item.icon" :style="{
-                    display: i == activeIndex ? 'block' : 'none',
-                  }" />
-                  <img :src="c_item.png" :style="{
-                    display: i == activeIndex ? 'block' : 'none',
-                  }" :class="{ animated_svg: i == 2 && id > 1 }" />
+                  <img
+                    :src="c_item.icon"
+                    :style="{
+                      display: i == activeIndex ? 'block' : 'none',
+                    }"
+                  />
+                  <img
+                    :src="c_item.png"
+                    :style="{
+                      display: i == activeIndex ? 'block' : 'none',
+                    }"
+                    :class="{ animated_svg: i == 2 && id > 1 }"
+                  />
                 </div>
                 <div class="right">
                   <div class="title">
                     {{ $t(c_item.title) }}
                   </div>
-                  <div class="desc" v-html="`${$t(c_item.desc).split('>>>br').join('<br>')}`"></div>
+                  <div
+                    class="desc"
+                    v-html="`${$t(c_item.desc).split('>>>br').join('<br>')}`"
+                  ></div>
                 </div>
               </div>
             </RouterLink>
@@ -272,14 +320,14 @@ function set(i: number, id: number) {
   &:hover {
     .nav_link {
       position: relative;
-
+      color: #3edfcf;
       &::before {
         content: "";
         position: absolute;
         z-index: -1;
         width: 100%;
         height: 20px;
-        background: #3edfcf;
+        // background: #3edfcf;
         filter: blur(10px);
       }
     }
@@ -289,14 +337,14 @@ function set(i: number, id: number) {
 .select_navlink {
   .nav_link {
     position: relative;
-
+    color: #3edfcf;
     &::before {
       content: "";
       position: absolute;
       z-index: -1;
       width: 100%;
       height: 20px;
-      background: #3edfcf;
+      // background: #3edfcf;
       filter: blur(10px);
     }
   }
@@ -368,8 +416,14 @@ function set(i: number, id: number) {
 
   &:hover {
     // background: #f6f9f9;
-    border: #3edfcf 1px solid;
-
+    // border: #3edfcf 1px solid;
+    border-radius: 6px;
+    border: 1px solid #3edfcf;
+    background: var(
+      --,
+      linear-gradient(177deg, #fff -24.77%, rgba(255, 255, 255, 0) 97.53%)
+    );
+    box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
     .title {
       color: #3edfcf;
     }

@@ -91,7 +91,10 @@ const thirdCheckQuestionMessage = ref(-1);
         <div class="header_content_text">
           {{ $t("learning_center.A_guide_and_help_center") }}
         </div>
-        <div class="header_content_button" @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')">
+        <div
+          class="header_content_button"
+          @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')"
+        >
           <div>White paper</div>
           <arrowRight />
         </div>
@@ -105,23 +108,39 @@ const thirdCheckQuestionMessage = ref(-1);
             {{ $t("learning_center.What_is_Utility") }}？
           </div>
           <div class="text_list">
-            <div class="section_side_text" v-for="(item, index) in questionList" :key="index"
-              @mouseenter="mouseCheckIndex = index" @mouseleave="mouseCheckIndex = -1">
+            <div
+              class="section_side_text"
+              v-for="(item, index) in questionList"
+              :key="index"
+              @mouseenter="mouseCheckIndex = index"
+              @mouseleave="mouseCheckIndex = -1"
+            >
               <div>{{ $t(item) }}</div>
-              <img v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index" :src="ArrowTopRight" alt="" />
+              <img
+                v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index"
+                :src="ArrowTopRight"
+                alt=""
+              />
             </div>
           </div>
         </div>
       </div>
       <div class="section_right">
-        <div class="section_right_item" v-for="(item, index) in questionMessageList" :key="index">
+        <div
+          class="section_right_item"
+          v-for="(item, index) in questionMessageList"
+          :key="index"
+        >
           <div class="section_right_item_title">
             {{ $t(item.messageTitle) }}
           </div>
           <div class="section_right_item_text">{{ $t(item.messageText) }}</div>
           <div class="section_right_item_card">
             <div v-for="(citem, cindex) in item.messageList" :key="cindex">
-              <div class="section_right_item_card_item" @click="openNewPage(citem.link)">
+              <div
+                class="section_right_item_card_item"
+                @click="openNewPage(citem.link)"
+              >
                 <div class="section_right_item_card_item_header">
                   <div class="section_right_item_card_item_header_title">
                     {{ $t(citem.title) }}
@@ -131,11 +150,23 @@ const thirdCheckQuestionMessage = ref(-1);
                   </div>
                 </div>
                 <div class="section_right_item_card_item_button">
-                  <img v-if="firstCheckQuestionMessage === citem.id ||
-                    viewableWidth < 834
-                    " src="@/assets/images/learning_center_enter.png" alt="" />
-                  <img v-else src="@/assets/images/learning_center_enter_default.png" alt="" />
-                  <div @mouseenter="firstCheckQuestionMessage = citem.id" @mouseleave="firstCheckQuestionMessage = -1">
+                  <img
+                    v-if="
+                      firstCheckQuestionMessage === citem.id ||
+                      viewableWidth < 834
+                    "
+                    src="@/assets/images/learning_center_enter.png"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/images/learning_center_enter_default.png"
+                    alt=""
+                  />
+                  <div
+                    @mouseenter="firstCheckQuestionMessage = citem.id"
+                    @mouseleave="firstCheckQuestionMessage = -1"
+                  >
                     Learn More
                   </div>
                 </div>
@@ -150,6 +181,7 @@ const thirdCheckQuestionMessage = ref(-1);
 <style scoped lang="less">
 .container {
   background-color: #fffefb;
+  padding-top: 70px;
 
   .header {
     width: 100%;
@@ -167,9 +199,11 @@ const thirdCheckQuestionMessage = ref(-1);
 
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
 
@@ -232,9 +266,11 @@ const thirdCheckQuestionMessage = ref(-1);
         height: 100%;
         border-radius: 8px;
         // opacity: 0.4;
-        background: linear-gradient(177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%);
+        background: linear-gradient(
+          177deg,
+          #fff -24.77%,
+          rgba(255, 255, 255, 0) 97.53%
+        );
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
         opacity: 0.4;
         position: absolute;
@@ -318,9 +354,11 @@ const thirdCheckQuestionMessage = ref(-1);
             margin-right: 14px;
             border-radius: 8px;
             border: 1px solid rgba(115, 255, 247, 0);
-            background: linear-gradient(90deg,
-                #fffefb 49.96%,
-                rgba(62, 223, 207, 0) 302.95%);
+            background: linear-gradient(
+              90deg,
+              #fffefb 49.96%,
+              rgba(62, 223, 207, 0) 302.95%
+            );
             box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
             display: flex;
             flex-direction: column;
@@ -329,7 +367,8 @@ const thirdCheckQuestionMessage = ref(-1);
             margin-bottom: 16px;
 
             &:hover {
-              background: url("@/assets/images/learning_center_card_background.png") no-repeat;
+              background: url("@/assets/images/learning_center_card_background.png")
+                no-repeat;
               background-size: cover;
             }
 
@@ -366,7 +405,7 @@ const thirdCheckQuestionMessage = ref(-1);
                 margin-right: 8px;
               }
 
-              &>div {
+              & > div {
                 color: rgba(21, 28, 26, 0.9);
                 font-family: Inter;
                 font-size: 14px;
@@ -466,7 +505,7 @@ const thirdCheckQuestionMessage = ref(-1);
               }
 
               .section_right_item_card_item_button {
-                &>div {
+                & > div {
                   text-decoration: underline #3edfcf;
                   color: #3edfcf;
                 }

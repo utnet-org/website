@@ -67,7 +67,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                     </div>
                 </div>
                 <div class="header_content_acount">
-                    $0.20963
+                    $0.20150
                 </div>
                 <!-- <div class="header_content_line_chart">
                     <img :src="LineChart" alt="">
@@ -212,7 +212,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 <style scoped lang="less">
 .container {
     background-color: #FFFEFB;
-
+    padding-top: 70px;
     .header {
         width: 100%;
         height: 578px;
