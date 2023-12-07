@@ -49,7 +49,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
       },
     ],
   },
@@ -125,7 +125,7 @@ const nav_arr = ref([
         show: false,
         title: "nav.Discord",
         desc: "nav.Discord_details",
-        link: "https://discord.com/",
+        link:  "https://discord.com/",
       },
       {
         icon: "",

@@ -148,6 +148,39 @@ export default {
     Utility_is_a_revolutionary:
       "Utility is a revolutionary blockchain built by all community volunteers and developers who aim to build the foundation of application-oriented Web3. Welcome to become a member of our team.",
   },
+  learning_center: {
+    Learning_center: "Learning centre",
+    A_guide_and_help_center:
+        " Guide and help center for beginners to understand and use various technologies on Utility",
+    How_to_use_it: "how to use it",
+    What_is_Utility: "What is Utility",
+    Enhance_Utility_Network: "Enhance Utility Network",
+    Utility_Network_has_made:
+        "Utility Network has made many innovations based on traditional blockchain. It defines the chip in a different way and allows efficient use of computing power. Learn more and get started:",
+    Start_from_here: "Start here as a beginner",
+    What_is_UNC_Token: "What is a UNC token",
+    Start_UNC_Token_UNC:
+        "Start UNC Token (UNC) is the currency of the utility network and its ecosystem",
+    What_is_POCI_Consensus: "What is POCI consensus",
+    it_is_a_brand_new:
+        "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
+    How_to_use_Utility: "How to use Utility",
+    Utility_can_be_used_in:
+        "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
+    A_digital_wallet_holds:
+        "Digital wallets hold the credentials you need to prove your identity and access important places",
+    the_first_computing_power: "The first computing power rental platform issued by Utility.",
+    Enhancing_Utility_Network: "Enhance Utility Network",
+    Building_Utility_Network:
+        "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
+    Running_Nodes: "Running node",
+    Participate_in_running: "Participate in running nodes and make important contributions.",
+    Mining_and_Rental_Supply: "Mining and Lease Supply",
+    Learn_how_to_mining: "Learn how to mine and rent in the Utility network.",
+    Join_the_Community: "Join community",
+    A_home_for_Utility_developers:
+        "Utility is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
+  },
   utilityNetwork: {
     header_title: "Utility Network",
     header_message:

@@ -100,28 +100,28 @@ const link_arr = ref([
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     time: "September 21, 2023",
     title: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 1,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     time: "September 21, 2023",
     title: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 2,
-    img: "/src/assets/images/article_bgc_three.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     time: "September 21, 2023",
     title: "Decentralized computing power equals edge computing",
     isswiperenter: false,
   },
   {
     id: 3,
-    img: "/src/assets/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     time: "September 21, 2023",
     title: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -174,7 +174,7 @@ const news_arr = ref([
   {
     id: 0,
     X_title: "Calculate demand analysis and the next tuyere",
-    article_bgc: "/src/assets/images/article_bgc_two.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     content: `<p>
       Computing demand refers to the need to use computers and related technologies to process, analyze, predict, and optimize data in various fields. Computing needs can involve large amounts of data, requiring the use of computers and related technologies for efficient processing and analysis in order to better understand the data and make better decisions.
 Computing has a wide range of uses. In scientific research, computing helps researchers process and analyze large amounts of data to better understand and explain phenomena. In engineering, computing can be used to simulate and optimize various systems and processes in order to better design and improve products. In the business world, computing can be used to analyze market and customer data to better understand customer needs and market trends to make better business decisions. In the medical field, computing can be used to analyze patient data to better diagnose disease and develop treatment options.
@@ -210,7 +210,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 1,
     X_title: "Calculate demand analysis and the next tuyere",
-    article_bgc: "/src/assets/images/article_bgc_two.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     content: `<p>
       Computing demand refers to the need to use computers and related technologies to process, analyze, predict, and optimize data in various fields. Computing needs can involve large amounts of data, requiring the use of computers and related technologies for efficient processing and analysis in order to better understand the data and make better decisions.
 Computing has a wide range of uses. In scientific research, computing helps researchers process and analyze large amounts of data to better understand and explain phenomena. In engineering, computing can be used to simulate and optimize various systems and processes in order to better design and improve products. In the business world, computing can be used to analyze market and customer data to better understand customer needs and market trends to make better business decisions. In the medical field, computing can be used to analyze patient data to better diagnose disease and develop treatment options.
@@ -246,7 +246,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 2,
     X_title: "Decentralized computing power equals edge computing",
-    article_bgc: "/src/assets/images/article_bgc_three.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     content: `<p>
       What is edge computing?
           </p>
@@ -316,7 +316,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
   {
     id: 3,
     X_title: "An encrypted world without wasted computing power",
-    article_bgc: "/src/assets/images/article_bgc_four.png",
+    article_bgc: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     content: `<p>
       UtilityNet is a decentralized digital chip network based on chips defined by BDC (Blockchain Define Chip). It uses chip self-verification to prove and efficiently provide powerful on-chain resources at zero cost. Among them, UtilityNet proposed the PoCI (Proof of Computation Integrity) consensus to abandon the high-cost and high-consumption computing model and replace it with a model of ownership of chip computing power. How to reach PoCI consensus? They used a 128-bit AES (Advanced Encryption Standard) key etched in a small section of the chip called eFuse storage area, that is, the "secure key", and sent the security key into the chip's SPACC (security protocol accelerator) module for encryption. learning operation (AES encryption and decryption operation), while ensuring that it is not exposed. The numerical tuple generated by the chip's own secret and mixed encryption will be submitted to the define type transaction of UtilityNet, and all nodes participating in UtilityNet will It will reach a consensus and know the encrypted private key and the corresponding public key of each chip. In this way, "the chip proves the existence of the chip", and there is no need to spend extra computing power to prove the existence of this chip.          </p>
           <p>
@@ -433,7 +433,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             >
               <!-- ! 图片右上角的箭头 -->
               <div v-if="item.isswiperenter" class="icon">
-                <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+                <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
               </div>
               <img class="swiper_img" :src="item.img" alt="" />
               <div class="swiper_time">
@@ -476,7 +476,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           >
             <!-- ! 图片右上角的箭头 -->
             <div v-if="item.isswiperenter" class="icon">
-              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="swiper_time">

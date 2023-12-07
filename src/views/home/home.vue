@@ -230,28 +230,28 @@ function stopCarousel() {
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 1,
-    img: "/src/assets/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 2,
-    img: "/src/assets/images/article_bgc_three.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     time: "September 21, 2023",
     text: "Decentralized computing power equals edge computing",
     isswiperenter: false,
   },
   {
     id: 3,
-    img: "/src/assets/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     time: "September 21, 2023",
     text: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -300,6 +300,15 @@ const scroll = ref(0);
 const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
   scroll.value = document.documentElement.scrollTop;
+  // console.log(scroll.value);
+
+  if (scroll.value <10){
+    dl2.value = true;
+  }else {
+    dl2.value = false;
+  }
+
+  console.log(scroll.value)
   // console.log(scroll.value);
   if (scroll.value > 1900) {
     if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
@@ -455,6 +464,7 @@ window.addEventListener("wheel", (e) => {
 });
 
 const ani_btn_s = ref(0);
+const dl2 = ref(true);
 // 监听是否有向上滚动的动作
 const onVideoEnded = () => {
   console.log("视频播放完毕");
@@ -499,12 +509,27 @@ const next222 = () => {
 //     route.push(link);
 //   }
 // }
+
 </script>
 <template>
   <div
     :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
     class="home_view"
   >
+    <div
+      class="animation_box"
+      :style="{
+        zIndex: !videoshow ? 120 : -1,
+        height: width * 2 > 996 ? '4220px' : height * 2 + 'px',
+      }"
+    >
+      <div style="height: 80px"></div>
+     <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg">
+    </div>
+    <div
+        :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
+        class="home_view"
+    >
     <div
       class="animation_box"
       :style="{
@@ -598,14 +623,14 @@ const next222 = () => {
       <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
         <video
           v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="http://oss2.xuanwoo.com/unc/20%20Seconds%20Version.mp4"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
           autoplay
           muted
           @ended="onVideoEnded"
         ></video>
         <video
           v-if="ani_btn_s == 2"
-          src="http://oss2.xuanwoo.com/unc/PART%202.mp4"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/PART2.mp4"
           autoplay
           muted
         ></video>
@@ -659,7 +684,7 @@ const next222 = () => {
               <div
                 class="text"
                 @click="
-                  openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
+                  openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
                 "
               >
                 {{ $t("home.White_Paper") }}
@@ -691,6 +716,69 @@ const next222 = () => {
           :width="windowWidth"
           height=""
         ></video>
+<!--      flex-direction: column;-->
+<!--      width: 100%;-->
+<!--      height: 290px;-->
+<!--      align-items: center;-->
+<!--      // border-radius: 10px;-->
+<!--      background: linear-gradient(180deg,-->
+<!--      rgba(244, 248, 248, 0.035) 0.13%,-->
+<!--      rgba(244, 248, 248, 0.043) 99.87%);-->
+<!--      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,-->
+<!--      //   0px 4px 50px 0px #dde3e153;-->
+<!--      backdrop-filter: blur(9px);-->
+<!--      position: absolute;-->
+<!--      left: 0;-->
+<!--      bottom: 0;-->
+      <div class="bg2" v-if="windowWidth < 834 && dl2" >
+        <div class="Welcome">
+          <div class="Language">
+            <div class="point"></div>
+            <div class="lang">
+              {{ locale === "en" ? "English" : "中文简体" }}
+            </div>
+          </div>
+          <div class="">
+            <div style="text-align: center;color: snow;font-size: larger">
+              Utility {{ $t("home.Welcome_to_utility") }}
+            </div>
+          </div>
+          <div class="Anapplication">
+            {{ $t("home.An_application") }}
+          </div>
+          <div class="button_father">
+            <div class="button">
+              <div
+                  class="text"
+                  @click="
+                  openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+                "
+              >
+                {{ $t("home.White_Paper") }}
+              </div>
+              <arrow />
+            </div>
+            <div class="button_right">
+              <div
+                  class="text"
+                  @click="openNewPage('/learning/learning_center')"
+              >
+                {{ $t("home.More") }}
+              </div>
+              <arrow />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-if="windowWidth < 834" style="background-color: black">
+              <video
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4"
+                  autoplay
+                  controls
+                  muted
+                  :width="windowWidth"
+                  height=""
+              ></video>
       </div>
 
       <!--! Where to Start -->
@@ -716,6 +804,25 @@ const next222 = () => {
             </div>
             <div>
               <el-button class="box_button"> {{ $t(item.button) }}</el-button>
+          <div class="box" v-for="(item, index) in Where_arr" :key="index" style="">
+<!--            <div  class="box"  @click=" index ==2?openNewPage(item.link)">-->
+            <div  class="box"  @click="
+            index ==2?openNewPage('soloutions/mp_utility_wallet') :
+            index ==3?openNewPage('soloutions/mp_hashing_power') :
+            openNewPage(item.link)">
+              <div>
+                <div class="box_title">
+                  {{ $t(item.title) }}
+                </div>
+                <div class="box_text">
+                  {{ $t(item.text) }}
+                </div>
+              </div>
+              <div>
+                <el-button class="box_button">
+                  {{ $t(item.button) }}</el-button
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -752,8 +859,8 @@ const next222 = () => {
       <div class="Data_and_circles">
         <div class="circles">
           <div class="point point_one">
-            <img v-if="windowWidth < 834" src="/src/assets/svgs/m_round.svg" />
-            <img v-else src="/src/assets/svgs/Group_1.svg" alt="" />
+            <img v-if="windowWidth < 834" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/m_round.svg" />
+            <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Group_1.svg" alt="" />
             <div class="point_text">Utility</div>
           </div>
           <div class="round_one">
@@ -909,7 +1016,7 @@ const next222 = () => {
             @click="jumpNews(item.id)"
           >
             <div v-if="item.isswiperenter && windowWidth > 834" class="icon">
-              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="time">
@@ -948,7 +1055,7 @@ const next222 = () => {
             @click="jumpNews(item.id)"
           >
             <div v-if="item.isswiperenter" class="icon">
-              <img src="/src/assets/svgs/Arrow_Up.svg" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" alt="" />
             <div class="time">
@@ -1190,6 +1297,18 @@ const next222 = () => {
     // max-width: 1500px;
     // margin: 0 20px;
   }
+  .bg2 {
+    // height: 1100px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    // max-width: 1500px;
+    // margin: 0 20px;
+    //transition: transform 3.3s ease;
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -1242,7 +1361,6 @@ const next222 = () => {
       position: absolute;
       left: 0;
       bottom: 0;
-
       .Utility {
         display: flex;
         align-items: center;
@@ -2541,6 +2659,12 @@ const next222 = () => {
         }
       }
     }
+  }
+}
+
+@media (max-width: 1323px) {
+  .Create_a_lighter {
+    left: 18% !important;
   }
 }
 

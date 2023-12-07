@@ -45,7 +45,7 @@ const nav_arr = ref([
         icon: new URL("@/assets/gifs/learning_5.gif", import.meta.url).href,
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
-        link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf",
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
       },
     ],
   },

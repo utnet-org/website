@@ -93,7 +93,7 @@ const thirdCheckQuestionMessage = ref(-1);
         </div>
         <div
           class="header_content_button"
-          @click="openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')"
+          @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')"
         >
           <div>White paper</div>
           <arrowRight />
@@ -108,19 +108,10 @@ const thirdCheckQuestionMessage = ref(-1);
             {{ $t("learning_center.What_is_Utility") }}？
           </div>
           <div class="text_list">
-            <div
-              class="section_side_text"
-              v-for="(item, index) in questionList"
-              :key="index"
-              @mouseenter="mouseCheckIndex = index"
-              @mouseleave="mouseCheckIndex = -1"
-            >
+            <div class="section_side_text" v-for="(item, index) in questionList" :key="index"
+              @mouseenter="mouseCheckIndex = index" @mouseleave="mouseCheckIndex = -1">
               <div>{{ $t(item) }}</div>
-              <img
-                v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index"
-                :src="ArrowTopRight"
-                alt=""
-              />
+              <img v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index" :src="ArrowTopRight" alt="" />
             </div>
           </div>
         </div>

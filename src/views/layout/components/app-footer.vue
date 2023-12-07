@@ -1,6 +1,6 @@
 <script lang="ts" setup name="AppFooter">
 import LogoSvg from "@/assets/images/footer_logo.svg";
-import LogoSvg02 from "@/assets/images/logo02.svg";
+import LogoSvg02 from "@/assets/svgs/Layer_1.svg";
 
 import Twitter02 from "@/assets/images/Twitter.svg";
 import Github02 from "@/assets/images/Github.svg";
@@ -18,8 +18,8 @@ const mp_left = [
   {
     title: "footer.Resources",
     children: [
-      { text: "footer.White_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
-      { text: "footer.Green_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
+      { text: "footer.White_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
+      { text: "footer.Green_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
     ],
   },
   {
@@ -53,13 +53,13 @@ const mp_right = [
   {
     title: "footer.Use_Utility",
     children: [
-      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet" },
+      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/mp_utility_wallet" },
       { text: "footer.Blockchain_Explorer", isOut: true, link: "https://uncscan.com/" },
       { text: "footer.Faucet", isOut: true, link: "https://faucet.utlab.io/" },
       { text: "footer.Ecosystem_dApps", isOut: true, link: "https://wiki.utlab.io/docs/dapp/start" },
-      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
-      { text: "footer.GetPower", isOut: false, link: "/get_power" },
-      { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
+      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mp_mining_tool" },
+      { text: "footer.GetPower", isOut: false, link: "/soloutions/mp_hashing_power" },
+      { text: "footer.AI_Model", isOut: false, link: "/soloutions/mp_ai_model" },
     ],
   },
   {
@@ -80,8 +80,8 @@ const top_right = [
   {
     title: "footer.Resources",
     children: [
-      { text: "footer.White_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
-      { text: "footer.Green_Paper", isOut: true, link: "https://utnet.org/pdf/UtilityNetWhitePaper.pdf" },
+      { text: "footer.White_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
+      { text: "footer.Green_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
     ],
   },
   {
@@ -92,7 +92,7 @@ const top_right = [
       { text: "footer.Faucet", isOut: true, link: "https://faucet.utlab.io/" },
       { text: "footer.Ecosystem_dApps", isOut: false, link: "https://wiki.utlab.io/docs/dapp/start" },
       { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
-      { text: "footer.GetPower", isOut: false, link: "/get_power" },
+      { text: "footer.GetPower", isOut: false, link: "/mp_hashing_power" },
       { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
     ],
   },
@@ -151,10 +151,10 @@ const printWidth = () => {
             <div class="logo_text">Utility</div>
           </div>
           <div class="social">
-            <div class="icon">
+            <div class="icon" @click="openNewPage('https://twitter.com/UtilityNet_')">
               <Twitter style="color:black" />
             </div>
-            <div class="icon">
+            <div class="icon" @click="openNewPage('https://github.com/utnet-org')">
               <Github />
             </div>
             <div class="icon">
@@ -194,10 +194,10 @@ const printWidth = () => {
         <div class="container_top_title">Utility</div>
       </div>
       <div class="container_icon">
-        <div class="container_icon_tw">
+        <div class="container_icon_tw" @click="openNewPage('https://twitter.com/UtilityNet_')">
           <Twitter02 />
         </div>
-        <div class="container_icon_tw">
+        <div class="container_icon_tw"  @click="openNewPage('https://github.com/utnet-org')">
           <Github02 />
         </div>
         <div class="container_icon_tw">
@@ -212,6 +212,7 @@ const printWidth = () => {
           <div class="resources_box" v-for="(item, index) in mp_left" :key="index">
             <div class="resources_title">{{ $t(item.title) }}</div>
             <div class="resources_text" v-for="(item2, index) in item.children" :key="index"  @click="openNewPage(item2.link)">
+
               {{ $t(item2.text) }}
             </div>
           </div>
