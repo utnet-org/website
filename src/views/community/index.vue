@@ -1,27 +1,18 @@
 <script setup lang="ts">
-import arrowButton from "@/assets/images/community_to_bottom.png";
-import CommunityOptions1 from "@/assets/images/community_options1.png";
-import CommunityOptions2 from "@/assets/images/community_options2.png";
-import CommunityOptions3 from "@/assets/images/community_options3.png";
-import PreviousDefault from "@/assets/images/previous_default.png";
-import PreviousCheck from "@/assets/images/previous_check.png";
-import NextDefault from "@/assets/images/next_default.png";
-import NextCheck from "@/assets/images/next_check.png";
-import ToggleMenuIcon from "@/assets/images/toggle_menu_icon.png";
 import { ref } from "vue";
 const communityOptionsList = [
   {
-    image: CommunityOptions1,
+    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
     title: "Join Online Community",
     text: "Join our community to discuss, learn and share with us",
   },
   {
-    image: CommunityOptions2,
+    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
     title: "Contribute to the Project",
     text: "Interested individuals and teams are welcome to contribute to our projects and realize our vision together.",
   },
   {
-    image: CommunityOptions3,
+    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
     title: "Utility Activities",
     text: "Provide in-depth understanding and participation",
   },
@@ -93,7 +84,7 @@ const accordionList = [
           <div class="header_content_text">{{ $t("community.h1_2") }}</div>
           <div class="header_content_button">
             <div>{{ $t("community.h1_3") }}</div>
-            <img :src="arrowButton" alt="" />
+            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
           </div>
         </div>
       </div>
@@ -109,7 +100,7 @@ const accordionList = [
             <div class="lowest_level"></div>
             <div class="middle_level"></div>
             <div class="upper_level"></div>
-            <img src="@/assets/images/communtity_swiper_images1.png" alt="" />
+            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png" alt="" />
           </div>
           <div class="swiper_rightmost">
             <div></div>
@@ -120,7 +111,7 @@ const accordionList = [
       </div>
       <div class="community_options">
         <div class="community_options_item">
-          <img :src="CommunityOptions1" alt="" />
+          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png" alt="" />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList1.title") }}
@@ -131,7 +122,7 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img :src="CommunityOptions2" alt="" />
+          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png" alt="" />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList2.title") }}
@@ -142,7 +133,7 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img :src="CommunityOptions3" alt="" />
+          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png" alt="" />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList3.title") }}
@@ -172,16 +163,16 @@ const accordionList = [
                 @mouseenter="hoverCheckIndex = 1"
                 @mouseleave="hoverCheckIndex = -1"
               >
-                <img v-if="hoverCheckIndex == 1" :src="PreviousCheck" alt="" />
-                <img v-else :src="PreviousDefault" alt="" />
+                <img v-if="hoverCheckIndex == 1" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
+                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png" alt="" />
               </div>
               <div
                 class="toggle_menu_header_icon_item"
                 @mouseenter="hoverCheckIndex = 2"
                 @mouseleave="hoverCheckIndex = -1"
               >
-                <img v-if="hoverCheckIndex == 2" :src="NextCheck" alt="" />
-                <img v-else :src="NextDefault" alt="" />
+                <img v-if="hoverCheckIndex == 2" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
+                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png" alt="" />
               </div>
             </div>
           </div>
@@ -193,7 +184,7 @@ const accordionList = [
             >
               <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
               <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
-              <img :src="ToggleMenuIcon" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt="" />
               <div class="item_text">{{ $t(item.text) }}</div>
             </div>
           </div>
@@ -239,7 +230,7 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("@/assets/images/community_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png") no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -665,7 +656,7 @@ const accordionList = [
     .header {
       height: 516px;
       padding: 0 5%;
-      background: url("@/assets/images/phone_community.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_community.png") no-repeat;
       background-size: cover;
       justify-content: center;
 

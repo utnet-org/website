@@ -366,7 +366,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           <div class="author_img">
             <img
               style="width: 100%; height: 100%"
-              src="/src/assets/svgs/author.svg"
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/author.svg"
               alt=""
             />
           </div>

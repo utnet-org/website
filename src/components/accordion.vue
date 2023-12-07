@@ -146,7 +146,7 @@ const changeAccordionCardEnd = (e: any) => {
           {{ item.messageTitle }}
         </div>
         <img
-          src="@/assets/images/toggle_menu_icon.png"
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png"
           alt=""
           v-if="props.fromPage == 'community'"
           class="phone_accordion_item_image_from_community"

@@ -77,7 +77,7 @@ const changeSwitchId = (id: number) => {
   .header {
     width: 100%;
     height: 479px;
-    background: url("@/assets/images/components_middle_background.png")
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png")
       no-repeat;
     background-size: cover;
     text-align: center;

@@ -30,10 +30,10 @@
         {{ $t('soloutions.key_features_text') }}
       </div>
       <div class="text_img">
-        <img alt="" src="@/assets/images/mp_wallet_ong.png">
+        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_wallet_ong.png">
       </div>
       <div class="text_img">
-        <img alt="" src="@/assets/images/mp_wallet_ong2.png">
+        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_wallet_ong2.png">
       </div>
     </div>
 
@@ -65,7 +65,7 @@
           width: 100px;
           height: 100px;
           margin: 0 auto;
-          background: url('@/assets/images/mp_wallet_logo.png') no-repeat;
+          background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_wallet_logo.png') no-repeat;
         }
 
         .header_content_header {

@@ -1,16 +1,4 @@
 <script lang="ts" setup name="AppFooter">
-import LogoSvg from "@/assets/images/footer_logo.svg";
-import LogoSvg02 from "@/assets/svgs/Layer_1.svg";
-
-import Twitter02 from "@/assets/images/Twitter.svg";
-import Github02 from "@/assets/images/Github.svg";
-import Youtube02 from "@/assets/images/Youtube.svg";
-import Wechat02 from "@/assets/images/Wechat.svg";
-import Twitter from "@/assets/svgs/twitter.svg";
-import Github from "@/assets/svgs/github.svg";
-import Youtube from "@/assets/svgs/youtube.svg";
-import Wechat from "@/assets/svgs/wechat.svg";
-import Arrow from "@/assets/svgs/footer_arrow.svg";
 import { ref } from "vue";
 import { openNewPage } from "@/utils/request";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
@@ -18,33 +6,73 @@ const mp_left = [
   {
     title: "footer.Resources",
     children: [
-      { text: "footer.White_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
-      { text: "footer.Green_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
+      {
+        text: "footer.White_Paper",
+        isOut: true,
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
+      },
+      {
+        text: "footer.Green_Paper",
+        isOut: true,
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
+      },
     ],
   },
   {
     title: "footer.Learning",
     children: [
-      { text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center" },
-      { text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain" },
-      { text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token" },
-      { text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus" },
+      {
+        text: "footer.Learning_Center",
+        isOut: false,
+        link: "/learning/learning_center",
+      },
+      {
+        text: "footer.What_is_Utility",
+        isOut: false,
+        link: "/learning/utility_explain",
+      },
+      {
+        text: "footer.What_is_UNC_Token",
+        isOut: false,
+        link: "/learning/unc_token",
+      },
+      {
+        text: "footer.What_is_POCI_Consensus",
+        isOut: false,
+        link: "/learning/poci_consensus",
+      },
     ],
   },
   {
     title: "footer.Developers",
     children: [
-      { text: "footer.Developer_Hub", isOut: false, link: "https://wiki.utlab.io/" },
+      {
+        text: "footer.Developer_Hub",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
       { text: "footer.Discord", isOut: true, link: "https://discord.com/" },
-      { text: "footer.Github", isOut: true, link: "https://github.com/utnet-org" },
+      {
+        text: "footer.Github",
+        isOut: true,
+        link: "https://github.com/utnet-org",
+      },
       { text: "footer.Forum", isOut: true, link: "" },
     ],
   },
   {
     title: "footer.About",
     children: [
-      { text: "footer.Privacy_policy", isOut: false, link: "https://wiki.utlab.io/" },
-      { text: "footer.Terms_of_use", isOut: false, link: "https://wiki.utlab.io/" },
+      {
+        text: "footer.Privacy_policy",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
+      {
+        text: "footer.Terms_of_use",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
       { text: "footer.Contact_us", isOut: false, link: "" },
     ],
   },
@@ -53,13 +81,37 @@ const mp_right = [
   {
     title: "footer.Use_Utility",
     children: [
-      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/mp_utility_wallet" },
-      { text: "footer.Blockchain_Explorer", isOut: true, link: "https://uncscan.com/" },
+      {
+        text: "footer.Utility_Wallet",
+        isOut: false,
+        link: "/soloutions/mp_utility_wallet",
+      },
+      {
+        text: "footer.Blockchain_Explorer",
+        isOut: true,
+        link: "https://uncscan.com/",
+      },
       { text: "footer.Faucet", isOut: true, link: "https://faucet.utlab.io/" },
-      { text: "footer.Ecosystem_dApps", isOut: true, link: "https://wiki.utlab.io/docs/dapp/start" },
-      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mp_mining_tool" },
-      { text: "footer.GetPower", isOut: false, link: "/soloutions/mp_hashing_power" },
-      { text: "footer.AI_Model", isOut: false, link: "/soloutions/mp_ai_model" },
+      {
+        text: "footer.Ecosystem_dApps",
+        isOut: true,
+        link: "https://wiki.utlab.io/docs/dapp/start",
+      },
+      {
+        text: "footer.Mining_Management_Tool",
+        isOut: false,
+        link: "/soloutions/mp_mining_tool",
+      },
+      {
+        text: "footer.GetPower",
+        isOut: false,
+        link: "/soloutions/mp_hashing_power",
+      },
+      {
+        text: "footer.AI_Model",
+        isOut: false,
+        link: "/soloutions/mp_ai_model",
+      },
     ],
   },
   {
@@ -80,18 +132,42 @@ const top_right = [
   {
     title: "footer.Resources",
     children: [
-      { text: "footer.White_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
-      { text: "footer.Green_Paper", isOut: true, link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf" },
+      {
+        text: "footer.White_Paper",
+        isOut: true,
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
+      },
+      {
+        text: "footer.Green_Paper",
+        isOut: true,
+        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
+      },
     ],
   },
   {
     title: "footer.Use_Utility",
     children: [
-      { text: "footer.Utility_Wallet", isOut: false, link: "/soloutions/utility_wallet" },
-      { text: "footer.Blockchain_Explorer", isOut: false, link: "https://uncscan.com/" },
+      {
+        text: "footer.Utility_Wallet",
+        isOut: false,
+        link: "/soloutions/utility_wallet",
+      },
+      {
+        text: "footer.Blockchain_Explorer",
+        isOut: false,
+        link: "https://uncscan.com/",
+      },
       { text: "footer.Faucet", isOut: true, link: "https://faucet.utlab.io/" },
-      { text: "footer.Ecosystem_dApps", isOut: false, link: "https://wiki.utlab.io/docs/dapp/start" },
-      { text: "footer.Mining_Management_Tool", isOut: false, link: "/soloutions/mining_tool" },
+      {
+        text: "footer.Ecosystem_dApps",
+        isOut: false,
+        link: "https://wiki.utlab.io/docs/dapp/start",
+      },
+      {
+        text: "footer.Mining_Management_Tool",
+        isOut: false,
+        link: "/soloutions/mining_tool",
+      },
       { text: "footer.GetPower", isOut: false, link: "/mp_hashing_power" },
       { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
     ],
@@ -99,18 +175,42 @@ const top_right = [
   {
     title: "footer.Learning",
     children: [
-      { text: "footer.Learning_Center", isOut: false, link: "/learning/learning_center" },
-      { text: "footer.What_is_Utility", isOut: false, link: "/learning/utility_explain" },
-      { text: "footer.What_is_UNC_Token", isOut: false, link: "/learning/unc_token" },
-      { text: "footer.What_is_POCI_Consensus", isOut: false, link: "/learning/poci_consensus" },
+      {
+        text: "footer.Learning_Center",
+        isOut: false,
+        link: "/learning/learning_center",
+      },
+      {
+        text: "footer.What_is_Utility",
+        isOut: false,
+        link: "/learning/utility_explain",
+      },
+      {
+        text: "footer.What_is_UNC_Token",
+        isOut: false,
+        link: "/learning/unc_token",
+      },
+      {
+        text: "footer.What_is_POCI_Consensus",
+        isOut: false,
+        link: "/learning/poci_consensus",
+      },
     ],
   },
   {
     title: "footer.Developers",
     children: [
-      { text: "footer.Developer_Hub", isOut: true, link: "https://wiki.utlab.io/" },
-      { text: "footer.Discord", isOut: true,link: "https://discord.com/" },
-      { text: "footer.Github", isOut: true, link: "https://github.com/utnet-org"  },
+      {
+        text: "footer.Developer_Hub",
+        isOut: true,
+        link: "https://wiki.utlab.io/",
+      },
+      { text: "footer.Discord", isOut: true, link: "https://discord.com/" },
+      {
+        text: "footer.Github",
+        isOut: true,
+        link: "https://github.com/utnet-org",
+      },
       { text: "footer.Forum", isOut: true, link: "" },
     ],
   },
@@ -130,9 +230,21 @@ const top_right = [
   {
     title: "footer.About",
     children: [
-      { text: "footer.Privacy_policy", isOut: false, link: "https://wiki.utlab.io/" },
-      { text: "footer.Terms_of_use", isOut: false, link: "https://wiki.utlab.io/" },
-      { text: "footer.Contact_us", isOut: false, link: "https://wiki.utlab.io/" },
+      {
+        text: "footer.Privacy_policy",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
+      {
+        text: "footer.Terms_of_use",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
+      {
+        text: "footer.Contact_us",
+        isOut: false,
+        link: "https://wiki.utlab.io/",
+      },
     ],
   },
 ];
@@ -147,21 +259,36 @@ const printWidth = () => {
       <div class="top">
         <div class="left">
           <div class="logo">
-            <LogoSvg />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/footer_logo.svg"
+              alt=""
+              srcset=""
+            />
             <div class="logo_text">Utility</div>
           </div>
           <div class="social">
-            <div class="icon" @click="openNewPage('https://twitter.com/UtilityNet_')">
-              <Twitter style="color:black" />
+            <div
+              class="icon"
+              @click="openNewPage('https://twitter.com/UtilityNet_')"
+            >
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/twitter.svg"
+                alt=""
+                sizes=""
+                srcset=""
+              />
             </div>
-            <div class="icon" @click="openNewPage('https://github.com/utnet-org')">
-              <Github />
+            <div
+              class="icon"
+              @click="openNewPage('https://github.com/utnet-org')"
+            >
+             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/github.svg" alt="" srcset="">
             </div>
             <div class="icon">
-              <Youtube />
+             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/youtube.svg" alt="" srcset="">
             </div>
             <div class="icon">
-              <Wechat />
+             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/wechat.svg" alt="" srcset="">
             </div>
           </div>
         </div>
@@ -170,14 +297,23 @@ const printWidth = () => {
             <div class="title_text">
               {{ $t(item.title) }}
             </div>
-            <div :class="['item', 'right_text', c_item.isOut ? 'item_hover' : '']" v-for="(c_item, id) in item.children"
-              :key="id">
+            <div
+              :class="['item', 'right_text', c_item.isOut ? 'item_hover' : '']"
+              v-for="(c_item, id) in item.children"
+              :key="id"
+            >
               <RouterLink
-                  :to="(c_item.link.startsWith('http://') || c_item.link.startsWith('https://'))?'':c_item.link" >
+                :to="
+                  c_item.link.startsWith('http://') ||
+                  c_item.link.startsWith('https://')
+                    ? ''
+                    : c_item.link
+                "
+              >
                 <span class="item_span" @click="openNewPage(c_item.link)">
                   {{ $t(c_item.text) }}
                   <div class="arrow">
-                    <Arrow />
+                    <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/footer_arrow.svg" alt="" srcset="">
                   </div>
                 </span>
               </RouterLink>
@@ -190,46 +326,86 @@ const printWidth = () => {
   <footer class="app_footer" v-else>
     <div class="container">
       <div class="container_top">
-        <LogoSvg02 />
+        <img
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Layer_1.svg"
+          alt=""
+          srcset=""
+        />
         <div class="container_top_title">Utility</div>
       </div>
       <div class="container_icon">
-        <div class="container_icon_tw" @click="openNewPage('https://twitter.com/UtilityNet_')">
-          <Twitter02 />
+        <div
+          class="container_icon_tw"
+          @click="openNewPage('https://twitter.com/UtilityNet_')"
+        >
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Twitter.svg"
+            alt=""
+            srcset=""
+          />
         </div>
-        <div class="container_icon_tw"  @click="openNewPage('https://github.com/utnet-org')">
-          <Github02 />
+        <div
+          class="container_icon_tw"
+          @click="openNewPage('https://github.com/utnet-org')"
+        >
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Github.svg"
+            alt=""
+            srcset=""
+          />
         </div>
         <div class="container_icon_tw">
-          <Youtube02 />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/youtube.svg"
+            alt=""
+            srcset=""
+          />
         </div>
         <div class="container_icon_tw">
-          <Wechat02 />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/wechat.svg"
+            alt=""
+            srcset=""
+          />
         </div>
       </div>
       <div class="container_box">
         <div class="container_left">
-          <div class="resources_box" v-for="(item, index) in mp_left" :key="index">
+          <div
+            class="resources_box"
+            v-for="(item, index) in mp_left"
+            :key="index"
+          >
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2, index) in item.children" :key="index"  @click="openNewPage(item2.link)">
-
+            <div
+              class="resources_text"
+              v-for="(item2, index) in item.children"
+              :key="index"
+              @click="openNewPage(item2.link)"
+            >
               {{ $t(item2.text) }}
             </div>
           </div>
         </div>
 
         <div class="container_right">
-          <div class="resources_box" v-for="(item, index) in mp_right" :key="index">
+          <div
+            class="resources_box"
+            v-for="(item, index) in mp_right"
+            :key="index"
+          >
             <div class="resources_title">{{ $t(item.title) }}</div>
-            <div class="resources_text" v-for="(item2, index) in item.children" :key="index"  @click="openNewPage(item2.link)">
+            <div
+              class="resources_text"
+              v-for="(item2, index) in item.children"
+              :key="index"
+              @click="openNewPage(item2.link)"
+            >
               {{ $t(item2.text) }}
             </div>
           </div>
         </div>
       </div>
-
-
-
     </div>
   </footer>
 </template>
@@ -334,7 +510,6 @@ const printWidth = () => {
             }
 
             &:hover {
-
               text-shadow: 0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9)),
                 -0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9));
               opacity: 0.8;
@@ -410,7 +585,7 @@ const printWidth = () => {
       align-items: center;
 
       .container_top_title {
-        color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
         font-family: Hiragino Kaku Gothic ProN;
         font-size: 16px;
         font-style: normal;
@@ -446,7 +621,7 @@ const printWidth = () => {
           margin-top: 10px;
 
           .resources_title {
-            color: #3EDFCF;
+            color: #3edfcf;
             font-family: Lantinghei SC;
             font-size: 12px;
             font-style: normal;
@@ -456,7 +631,7 @@ const printWidth = () => {
           }
 
           .resources_text {
-            color: rgba(21, 28, 26, 0.90);
+            color: rgba(21, 28, 26, 0.9);
             font-family: Inter;
             font-size: 12px;
             font-style: normal;
@@ -466,8 +641,6 @@ const printWidth = () => {
           }
         }
       }
-
-
     }
 
     .container_right {
@@ -481,7 +654,7 @@ const printWidth = () => {
         margin-top: 10px;
 
         .resources_title {
-          color: #3EDFCF;
+          color: #3edfcf;
           font-family: Lantinghei SC;
           font-size: 12px;
           font-style: normal;
@@ -491,7 +664,7 @@ const printWidth = () => {
         }
 
         .resources_text {
-          color: rgba(21, 28, 26, 0.90);
+          color: rgba(21, 28, 26, 0.9);
           font-family: Inter;
           font-size: 12px;
           font-style: normal;
@@ -502,7 +675,6 @@ const printWidth = () => {
       }
     }
   }
-
 }
 
 @keyframes identifier {

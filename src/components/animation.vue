@@ -163,7 +163,6 @@ if (window.innerWidth < 1548 && window.innerWidth > 996) {
   camera.position.set(0, 0, cameraPositionZ);
 }
 if (window.innerWidth < 996) {
-  console.log("1:", 1);
   // 根据宽度计算相机位置 距离增加
   cameraPositionZ = 11 + (996 - window.innerWidth) / 100;
   camera.position.set(0, 0, cameraPositionZ);

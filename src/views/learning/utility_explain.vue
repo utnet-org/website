@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import arrowButton from "@/assets/images/community_to_bottom.png";
-import UtilityExplainOptions1 from "@/assets/images/utility_explain_options1.png";
-import UtilityExplainOptions2 from "@/assets/images/utility_explain_options2.png";
-import UtilityExplainOptions3 from "@/assets/images/utility_explain_options3.png";
-import UtilityExplainOptions4 from "@/assets/images/utility_explain_options4.png";
-import UtilityExplainOptions5 from "@/assets/images/utility_explain_options5.png";
 import { title } from "process";
 import { ref } from "vue";
 import { openNewPage } from "@/utils/request";
@@ -33,28 +27,28 @@ const definingChipsWithBlockchainTextList = [
 ];
 const optionsList = [
   {
-    image: UtilityExplainOptions1,
+    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options1.png',
     title: "utilityNetwork.poci_consensus_title",
     text: "utilityNetwork.poci_consensus_text",
   },
   {
-    image: UtilityExplainOptions2,
+    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options2.png',
     title: "utilityNetwork.power_scheduling_title",
     text: "utilityNetwork.power_scheduling_text",
   },
   {
-    image: UtilityExplainOptions3,
+    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options3.png',
     title:
       "utilityNetwork.virtualization_and_isolation_execution_environment_title",
     text: "utilityNetwork.virtualization_and_isolation_execution_environment_text",
   },
   {
-    image: UtilityExplainOptions4,
+    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options4.png',
     title: "utilityNetwork.multiple_execution_virtual_machines_support_title",
     text: "utilityNetwork.multiple_execution_virtual_machines_support_text",
   },
   {
-    image: UtilityExplainOptions5,
+    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options5.png',
     title: "utilityNetwork.complete_economic_system_model_title",
     text: "utilityNetwork.complete_economic_system_model_text",
   },
@@ -72,7 +66,7 @@ const optionsList = [
         </div>
         <div class="header_content_button" @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')">
           <div>{{ $t("utilityNetwork.read_more") }}</div>
-          <img :src="arrowButton" alt="" />
+          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
         </div>
       </div>
     </div>
@@ -123,7 +117,7 @@ const optionsList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("@/assets/images/utility_explain.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain.png") no-repeat;
     background-size: 100% 100%;
     display: flex;
     align-items: flex-end;
@@ -406,7 +400,7 @@ const optionsList = [
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("@/assets/images/phone_utility_explain.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_utility_explain.png") no-repeat;
       background-size: cover;
       justify-content: center;
 

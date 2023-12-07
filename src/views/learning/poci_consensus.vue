@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import arrowButton from "@/assets/images/community_to_bottom.png";
-import OptionsDefault from "@/assets/images/poci_consensus_options_default.png";
-import OptionsHover from "@/assets/images/poci_consensus_options_hover.png";
 import { number } from "echarts";
 import { title } from "process";
 import { ref } from "vue";
@@ -84,7 +81,7 @@ const changeCheckIndex = (index: any) => {
           </div>
           <div class="header_content_button">
             <div>Read More</div>
-            <img :src="arrowButton" alt="" />
+            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
           </div>
         </div>
       </div>
@@ -121,7 +118,7 @@ const changeCheckIndex = (index: any) => {
                 </div>
                 <div class="item_question_text">{{ $t(citem.question) }}</div>
               </div>
-              <img src="@/assets/images/poci_to_bottom.png" alt="" />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png" alt="" />
             </div>
             <div v-if="checkQuestionIndex == cindex" class="faq_item_question_answer">
               {{ $t(citem.answer) }}
@@ -139,7 +136,7 @@ const changeCheckIndex = (index: any) => {
   .header {
     width: 100%;
     height: 578px;
-    background: url("@/assets/images/poci_consensus_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png") no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -249,7 +246,7 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: url("@/assets/images/poci_consensus_options_default.png") no-repeat;
+        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
         background-size: cover;
         margin-bottom: 16px;
         display: flex;
@@ -258,7 +255,7 @@ const changeCheckIndex = (index: any) => {
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
 
         &:hover {
-          background: url("@/assets/images/poci_consensus_options_hover.png") no-repeat;
+          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png") no-repeat;
           background-size: cover;
         }
 
@@ -406,7 +403,7 @@ const changeCheckIndex = (index: any) => {
     .header {
       height: 484px;
       padding: 0 5%;
-      background: url("@/assets/images/phone_poci.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_poci.png") no-repeat;
       background-size: cover;
       justify-content: center;
 
@@ -454,7 +451,7 @@ const changeCheckIndex = (index: any) => {
           margin-bottom: 12px;
 
           &:hover {
-            background: url("@/assets/images/poci_consensus_options_default.png") no-repeat;
+            background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
             background-size: cover;
           }
         }

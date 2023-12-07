@@ -1,29 +1,22 @@
 <script  setup lang="ts">
-import arrowButton from "@/assets/images/community_to_bottom.png";
-import OptionsBackground from "@/assets/images/unc_token_options_background.png";
-import OptionsItem1 from "@/assets/images/unc_token_options_item1.png";
-import OptionsItem2 from "@/assets/images/unc_token_options_item2.png";
-import OptionsItem3 from "@/assets/images/unc_token_options_item3.png";
-import ToRight from "@/assets/images/unc_token_to_right.png";
-import LineChart from "@/assets/images/unc_token_line_chart.png";
 import { openNewPage } from "@/utils/request";
 import { ref } from "vue";
 const optionsList = [
     {
-        image: OptionsItem1,
+        image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item1.png',
         title: 'Pancakeswap',
         text: 'utilityNetwork.decentralized_exchange',
         link: 'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a',
 
     },
     {
-        image: OptionsItem2,
+        image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item2.png',
         title: 'Hotcoin Global',
         text: 'utilityNetwork.digital_asset_trading',
         link: 'https://www.hotcoin.com/'
     },
     {
-        image: OptionsItem3,
+        image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item3.png',
         title: 'CoinW',
         text: 'utilityNetwork.multifacetedc_ryptocurrency_platform',
         link: 'https://www.coinw.com/frontSpot/spottrade?symbol=1382'
@@ -75,7 +68,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 <div class="header_content_button"
                     @click="openNewPage('https://www.bscscan.com/address/0x35Da89A339DE2c78F8FB1c5e1A9a9C6539e2FA8A')">
                     <div>view details</div>
-                    <img :src="ToRight" alt="">
+                    <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_to_right.png" alt="">
                 </div>
             </div>
         </div>
@@ -87,7 +80,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             <div class="subtitle">
                 <div class="subtitle_options" v-if="viewableWidth > 834">
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options1.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.fundamentals_of_blockchain_title')
@@ -107,10 +100,10 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                                 $t('utilityNetwork.superb_application_of_smart_contracts_text')
                             }}</div>
                         </div>
-                        <img src="@/assets/images/unc_token_options2.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options2.png" alt="">
                     </div>
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options3.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options3.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.incentive_mechanism_for_innovation_title')
@@ -131,12 +124,12 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                             }}</div>
                         </div>
 
-                        <img src="@/assets/images/unc_token_options4.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options4.png" alt="">
                     </div>
                 </div>
                 <div class="subtitle_options" v-else>
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options1.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.fundamentals_of_blockchain_title')
@@ -147,7 +140,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                         </div>
                     </div>
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options2.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options2.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.superb_application_of_smart_contracts_title')
@@ -158,7 +151,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                         </div>
                     </div>
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options3.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options3.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.incentive_mechanism_for_innovation_title')
@@ -169,7 +162,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                         </div>
                     </div>
                     <div class="subtitle_options_item">
-                        <img src="@/assets/images/unc_token_options4.png" alt="">
+                        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options4.png" alt="">
                         <div>
                             <div class="subtitle_options_item_title">{{
                                 $t('utilityNetwork.digital_interpretation_of_blockchain_governance_title')
@@ -216,7 +209,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
     .header {
         width: 100%;
         height: 578px;
-        background: url('@/assets/images/unc_token_background.png') no-repeat;
+        background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png') no-repeat;
         background-size: cover;
         display: flex;
         align-items: flex-end;
@@ -557,7 +550,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
                 }
 
                 &:hover {
-                    // background: url('@/assets/images/unc_token_options_background.png') no-repeat;
+                    // background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_background.png') no-repeat;
                     border: 1px solid #3EDFCF;
                     background-size: cover;
                 }
@@ -572,7 +565,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         .header {
             height: 480px;
             padding: 0 5%;
-            background: url('@/assets/images/phone_unc_token.png') no-repeat;
+            background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_unc_token.png') no-repeat;
             background-size: cover;
             justify-content: center;
 

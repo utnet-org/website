@@ -15,75 +15,69 @@ let router = createRouter({
       component: layout,
       children: [
         {
-          path: "",
-          component: () => import("@/views/home/index.vue"),
-          children: [
-            {
-              path: '',
-              component: () => import('@/views/home/home.vue')
-            },
-            {
-              path: "/news",
-              component: () => import("@/views/home/news.vue"),
-            },
-            {
-              path: "/learning/learning_center",
-              component: () => import("@/views/learning/learning_center.vue"),
-            },
-            {
-              path: "/learning/utility_explain",
-              component: () => import("@/views/learning/utility_explain.vue"),
-            },
-            {
-              path: "/learning/unc_token",
-              component: () => import("@/views/learning/unc_token.vue"),
-            },
-            {
-              path: "/learning/poci_consensus",
-              component: () => import("@/views/learning/poci_consensus.vue"),
-            },
-            {
-              path: "/soloutions/utility_wallet",
-              component: () => import("@/views/soloutions/utility_wallet.vue"),
-            },
-            {
-              path: "/soloutions/mp_utility_wallet",
-              component: () => import("@/views/soloutions/mp_utility_wallet.vue"),
-            },
-            {
-              path: "/soloutions/hashing_power",
-              component: () => import("@/views/soloutions/hashing_power.vue"),
-            },
-            {
-              path: "/soloutions/mp_hashing_power",
-              component: () => import("@/views/soloutions/mp_hashing_power.vue"),
-            },
-            {
-              path: "/soloutions/mining_tool",
-              component: () => import("@/views/soloutions/mining_tool.vue"),
-            },
-            {
-              path: "/soloutions/mp_mining_tool",
-              component: () => import("@/views/soloutions/mp_mining_tool.vue"),
-            },
-            {
-              path: "/soloutions/ai_model",
-              component: () => import("@/views/soloutions/ai_model.vue"),
-            },
-            {
-              path: "/soloutions/mp_ai_model",
-              component: () => import("@/views/soloutions/mp_ai_model.vue"),
-            },
-            {
-              path: "/developers/docs",
-              component: () => import("@/views/developers/docs.vue"),
-            },
-            {
-              path: "/developers/solution_provider",
-              component: () =>
-                import("@/views/developers/solution_provider.vue"),
-            },
-          ],
+          path: '',
+          component: () => import('@/views/home/home.vue')
+        },
+        {
+          path: "/news",
+          component: () => import("@/views/home/news.vue"),
+        },
+        {
+          path: "/learning/learning_center",
+          component: () => import("@/views/learning/learning_center.vue"),
+        },
+        {
+          path: "/learning/utility_explain",
+          component: () => import("@/views/learning/utility_explain.vue"),
+        },
+        {
+          path: "/learning/unc_token",
+          component: () => import("@/views/learning/unc_token.vue"),
+        },
+        {
+          path: "/learning/poci_consensus",
+          component: () => import("@/views/learning/poci_consensus.vue"),
+        },
+        {
+          path: "/soloutions/utility_wallet",
+          component: () => import("@/views/soloutions/utility_wallet.vue"),
+        },
+        {
+          path: "/soloutions/mp_utility_wallet",
+          component: () => import("@/views/soloutions/mp_utility_wallet.vue"),
+        },
+        {
+          path: "/soloutions/hashing_power",
+          component: () => import("@/views/soloutions/hashing_power.vue"),
+        },
+        {
+          path: "/soloutions/mp_hashing_power",
+          component: () => import("@/views/soloutions/mp_hashing_power.vue"),
+        },
+        {
+          path: "/soloutions/mining_tool",
+          component: () => import("@/views/soloutions/mining_tool.vue"),
+        },
+        {
+          path: "/soloutions/mp_mining_tool",
+          component: () => import("@/views/soloutions/mp_mining_tool.vue"),
+        },
+        {
+          path: "/soloutions/ai_model",
+          component: () => import("@/views/soloutions/ai_model.vue"),
+        },
+        {
+          path: "/soloutions/mp_ai_model",
+          component: () => import("@/views/soloutions/mp_ai_model.vue"),
+        },
+        {
+          path: "/developers/docs",
+          component: () => import("@/views/developers/docs.vue"),
+        },
+        {
+          path: "/developers/solution_provider",
+          component: () =>
+            import("@/views/developers/solution_provider.vue"),
         },
         {
           path: "/community",

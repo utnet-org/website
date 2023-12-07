@@ -1,7 +1,5 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
-import list_caption from "@/assets/images/list_caption.png";
-import list_caption_close from "@/assets/images/list_caption_close.png";
 import { ref } from "vue";
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
@@ -18,31 +16,31 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: new URL("@/assets/gifs/learning_1.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif",
         title: "nav.Learning_center",
         desc: "nav.Learning_center_details",
         link: "/learning/learning_center",
       },
       {
-        icon: new URL("@/assets/gifs/learning_2.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.gif",
         title: "nav.What_is_Utility",
         desc: "nav.What_is_Utility_details",
         link: "/learning/utility_explain",
       },
       {
-        icon: new URL("@/assets/gifs/learning_3.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.gif",
         title: "nav.UNC_Token",
         desc: "nav.UNC_Token_details",
         link: "/learning/unc_token",
       },
       {
-        icon: new URL("@/assets/gifs/learning_4.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.gif",
         title: "nav.POCI_Consensus",
         desc: "nav.POCI_Consensus_details",
         link: "/learning/poci_consensus",
       },
       {
-        icon: new URL("@/assets/gifs/learning_5.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.gif",
         title: "nav.White_Paper",
         desc: "nav.White_Paper_details",
         link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
@@ -54,25 +52,25 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: new URL("@/assets/gifs/solot_1.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif",
         title: "nav.Utility_Wallet",
         desc: "nav.Utility_Wallet_details",
         link: "/soloutions/mp_utility_wallet",
       },
       {
-        icon: new URL("@/assets/gifs/solot_2.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.gif",
         title: "nav.Hashing_Power",
         desc: "nav.Hashing_Power_details",
         link: "/soloutions/mp_hashing_power",
       },
       {
-        icon: new URL("@/assets/gifs/solot_3.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.gif",
         title: "nav.Mining_Tool",
         desc: "nav.Mining_Tool_details",
         link: "/soloutions/mp_mining_tool",
       },
       {
-        icon: new URL("@/assets/gifs/solot_4.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.gif",
         title: "nav.AI",
         desc: "nav.AI_details",
         link: "/soloutions/mp_ai_model",
@@ -84,26 +82,26 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: new URL("@/assets/gifs/deve_1.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif",
         title: "nav.Docs",
         desc: "nav.Docs_details",
         link: "/developers/docs",
       },
       {
-        icon: new URL("@/assets/gifs/deve_2.gif", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.gif",
         title: "nav.Solution_Provider",
         desc: "nav.Solution_Provider_details",
         // link: "/developers/solution_provider",
         link: "https://discord.com/",
       },
       {
-        icon: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
         title: "nav.Discord",
         desc: "nav.Discord_details",
         link: "https://discord.com/",
       },
       {
-        icon: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg",
         title: "nav.Github",
         desc: "nav.Github_details",
         link: "https://github.com/utnet-org",
@@ -126,21 +124,17 @@ const nav_arr = ref([
     link: "",
     children: [
       {
-        icon: new URL(
-          "@/assets/images/language_english_icon.png",
-          import.meta.url
-        ).href,
-        png: new URL("@/assets/gifs/deve_3.svg", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_english_icon.png",
+
+        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
         title: "nav.English",
         desc: "en",
         link: "",
       },
       {
-        icon: new URL(
-          "@/assets/images/language_chinese_icon.png",
-          import.meta.url
-        ).href,
-        png: new URL("@/assets/gifs/deve_4.svg", import.meta.url).href,
+        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_chinese_icon.png",
+
+        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg",
         title: "nav.Chinese",
         desc: "zh",
         link: "",
@@ -200,7 +194,7 @@ window.onresize = () => {
       </div>
       <img
         class="list_caption_image"
-        :src="selectType ? list_caption_close : list_caption"
+        :src="selectType ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png' : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'"
         alt=""
         v-else
         @click="blockSelect"
@@ -218,7 +212,7 @@ window.onresize = () => {
             <div>{{ $t(item.name) }}</div>
             <img
               v-if="index != 3 && index != 4"
-              src="@/assets/images/poci_to_bottom.png"
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
               alt=""
               :class="selectIndex == index ? 'active' : ''"
             />

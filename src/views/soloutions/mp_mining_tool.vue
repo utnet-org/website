@@ -29,10 +29,10 @@
       <div class="section_text">
         {{ $t('soloutions.mining_tools_key_features_text') }}</div>
       <div class="text_img">
-        <img alt="" src="@/assets/images/mp_min_ong01.png">
+        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong01.png">
       </div>
       <div class="text_img">
-        <img alt="" src="@/assets/images/mp_min_ong02.png">
+        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong02.png">
       </div>
     </div>
 
@@ -64,7 +64,7 @@
           width: 100px;
           height: 100px;
           margin: 0 auto;
-          background: url('@/assets/images/mp_tool_logo.png') no-repeat;
+          background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_tool_logo.png') no-repeat;
         }
 
         .header_content_header {

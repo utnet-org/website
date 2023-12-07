@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import arrowRight from "@/assets/svgs/arrow.svg";
-import ArrowTopRight from "@/assets/images/arrow_top_right.png";
 import { ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
@@ -96,7 +94,7 @@ const thirdCheckQuestionMessage = ref(-1);
           @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')"
         >
           <div>White paper</div>
-          <arrowRight />
+          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg" alt="" srcset="">
         </div>
       </div>
     </div>
@@ -111,7 +109,7 @@ const thirdCheckQuestionMessage = ref(-1);
             <div class="section_side_text" v-for="(item, index) in questionList" :key="index"
               @mouseenter="mouseCheckIndex = index" @mouseleave="mouseCheckIndex = -1">
               <div>{{ $t(item) }}</div>
-              <img v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index" :src="ArrowTopRight" alt="" />
+              <img v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/arrow_top_right.png" alt="" />
             </div>
           </div>
         </div>
@@ -146,12 +144,12 @@ const thirdCheckQuestionMessage = ref(-1);
                       firstCheckQuestionMessage === citem.id ||
                       viewableWidth < 834
                     "
-                    src="@/assets/images/learning_center_enter.png"
+                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
                     alt=""
                   />
                   <img
                     v-else
-                    src="@/assets/images/learning_center_enter_default.png"
+                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
                     alt=""
                   />
                   <div
@@ -176,7 +174,7 @@ const thirdCheckQuestionMessage = ref(-1);
 
   .header {
     width: 100%;
-    background: url("@/assets/images/learning_center_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png") no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -358,7 +356,7 @@ const thirdCheckQuestionMessage = ref(-1);
             margin-bottom: 16px;
 
             &:hover {
-              background: url("@/assets/images/learning_center_card_background.png")
+              background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_card_background.png")
                 no-repeat;
               background-size: cover;
             }
@@ -431,7 +429,7 @@ const thirdCheckQuestionMessage = ref(-1);
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("@/assets/images/phone_learning_center.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_learning_center.png") no-repeat;
       background-size: cover;
       justify-content: center;
 

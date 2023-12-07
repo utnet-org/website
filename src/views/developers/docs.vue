@@ -1,34 +1,30 @@
 <script setup lang="ts">
-import OptionsImage1 from "@/assets/images/options_image1.png";
-import OptionsImage2 from "@/assets/images/options_image2.png";
-import OptionsImage3 from "@/assets/images/options_image3.png";
-import OptionsImage4 from "@/assets/images/options_image4.png";
 import { ref } from "vue";
 
 const options_list = ref([
   {
     title: "Run a node",
     text: "docs.Empower_the_Network",
-    images: OptionsImage1,
+    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
     style: "width: 87px; height: 100px; ",
   },
   {
     title: "Provide my hashing power",
     text: "docs.Contribute_Computing_Power",
-    images: OptionsImage2,
+    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
 
     style: "width: 88px; height: 123px; ",
   },
   {
     title: "build a dapp",
     text: "docs.Innovate_with_Us",
-    images: OptionsImage3,
+    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
     style: "width: 100px; height: 95px; ",
   },
   {
     title: "White Paper",
     text: "docs.Explore_Our_Foundation",
-    images: OptionsImage4,
+    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
     style: "width: 87px; height: 100px; ",
   },
 ]);
@@ -44,8 +40,17 @@ const options_list = ref([
       </div>
     </div>
     <div class="options_list">
-      <div v-for="(item, index) in options_list" :key="index" class="options_item">
-        <img :src="item.images" alt="" :style="item.style" style="margin: 50px" />
+      <div
+        v-for="(item, index) in options_list"
+        :key="index"
+        class="options_item"
+      >
+        <img
+          :src="item.images"
+          alt=""
+          :style="item.style"
+          style="margin: 50px"
+        />
         <div class="options_item_title">{{ item.title }}</div>
         <div class="options_item_text">
           {{ $t(item.text) }}
@@ -64,7 +69,7 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("@/assets/images/docs_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png") no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -114,7 +119,7 @@ const options_list = ref([
     cursor: pointer;
 
     &:hover {
-      background: url("@/assets/images/docs_options_background.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_options_background.png") no-repeat;
       background-size: cover;
     }
 
@@ -144,7 +149,7 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("@/assets/svgs/m_Background.svg") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_Background.svg") no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -154,9 +159,11 @@ const options_list = ref([
 
     .header_image {
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       padding: 40px 28px;
@@ -196,9 +203,11 @@ const options_list = ref([
     height: 350px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: linear-gradient(180deg,
-        rgba(149, 235, 227, 0.17) 1.02%,
-        rgba(149, 235, 227, 0) 38.87%);
+    background: linear-gradient(
+      180deg,
+      rgba(149, 235, 227, 0.17) 1.02%,
+      rgba(149, 235, 227, 0) 38.87%
+    );
     display: flex;
     // 更改主轴方向
     flex-direction: column;
