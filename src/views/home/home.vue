@@ -1,5 +1,5 @@
 <script setup lang="ts" name="HomeView">
-import { onMounted, onUnmounted, ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
 
 import arrow from "@/assets/svgs/right.svg";
 import m_arrow from "@/assets/svgs/m_arrow.svg";
@@ -7,9 +7,11 @@ import hover from "@/assets/svgs/hover.svg";
 import blue from "@/assets/svgs/blue.svg";
 import start from "@/assets/svgs/start.svg";
 import stopss from "@/assets/svgs/stop.svg";
+import { getStatistics } from "@/api/home";
 
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
+const res = ref();
 
 // & 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { defineComponent } from "vue";
@@ -37,7 +39,38 @@ const updateWindowSize = () => {
 };
 
 // 当组件挂载时设置监听器，并在卸载时移除
-onMounted(() => {
+onMounted(async () => {
+  const { data } = await getStatistics();
+  res.value = data;
+  console.log(res.value);
+
+  Data_arr.value = [
+    {
+      amount:
+        windowWidth.value > 834
+          ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
+          : `$${res.value?.aiPower.toLocaleString()}`,
+      text: "home.UNC_PRICE",
+    },
+    {
+      amount: `${res.value?.totalMiners.toLocaleString()}`,
+      text: "home.NODES",
+    },
+    {
+      amount:
+        windowWidth.value > 834
+          ? "<span style='font-size: 26px;'>$</span>122,1120"
+          : "$122,1120",
+      text: "home.Transaction_Today",
+    },
+    {
+      amount:
+        windowWidth.value > 834
+          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
+          : `${res.value?.activeMiners.toLocaleString()} tflops`,
+      text: "home.Computational_Power_Synthesis",
+    },
+  ];
   window.addEventListener("resize", updateWindowSize);
   // window.location.reload();
 });
@@ -96,33 +129,7 @@ function WhereChangeli() {
 }
 
 //* 数据 和 圆 Data and circles的数据
-const Data_arr = ref([
-  {
-    amount:
-      windowWidth.value > 834
-        ? "<span style='font-size: 26px;'>$</span>1,920.21"
-        : "$1,920.21",
-    text: "home.UNC_PRICE",
-  },
-  {
-    amount: "122,1120",
-    text: "home.NODES",
-  },
-  {
-    amount:
-      windowWidth.value > 834
-        ? "<span style='font-size: 26px;'>$</span>122,1120"
-        : "$122,1120",
-    text: "home.Transaction_Today",
-  },
-  {
-    amount:
-      windowWidth.value > 834
-        ? "1631,122,1120<span style='font-size: 26px;'> tflops</span>"
-        : "1631,122,1120 tflops",
-    text: "home.Computational_Power_Synthesis",
-  },
-]);
+const Data_arr = ref();
 
 //^ Utility Chain Scaling Solutions的数据
 const Utility_arr = ref([
@@ -442,9 +449,7 @@ window.addEventListener("wheel", (e) => {
     videoshow.value = false;
     document.documentElement.scrollTop = 2980;
   }
-  if(e.deltaY<0 &&
-    !videoshow.value &&
-    scroll.value > 2980){
+  if (e.deltaY < 0 && !videoshow.value && scroll.value > 2980) {
     document.body.style.overflow = "";
   }
 });
@@ -494,7 +499,6 @@ const next222 = () => {
 //     route.push(link);
 //   }
 // }
-
 </script>
 <template>
   <div

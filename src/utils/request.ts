@@ -17,12 +17,15 @@ request.interceptors.request.use(
 // 设置响应拦截器
 request.interceptors.response.use(
     response => {
-        return response
+        return response.data
     },
     err => {
         return Promise.reject(err)
     }
 )
+
+export default request
+
 // 暴露对象
 import router from "../router/index";
 export const openNewPage = (link: string) => {
@@ -30,6 +33,6 @@ export const openNewPage = (link: string) => {
     if (link.startsWith("http://") || link.startsWith("https://")) {
         window.open(link, '_blank');
     } else {
-            router.push(link);
+        router.push(link);
     }
 }

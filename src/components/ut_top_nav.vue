@@ -145,7 +145,7 @@ const nav_arr = ref([
   {
     name: "nav.Mining",
     // link: "/mining",
-    link: "https://miner.utnet.org/#/index",
+    link: "https://miner.untcoin.io/#/index",
     children: [],
   },
 ]);
@@ -183,20 +183,9 @@ function set(i: number, id: number) {
         @mouseenter="(activeIndex = i), (show = true)"
         @mouseleave="show = false"
       >
-        <div v-if="item.link == ''" class="nav_link text_style_top">
+        <div @click="openNewPage(item.link)" class="nav_link text_style_top">
           {{ $t(item.name) }}
         </div>
-        <RouterLink
-          v-else
-          :to="
-            item.link.startsWith('http://') || item.link.startsWith('https://')
-              ? ''
-              : item.link
-          "
-          class="nav_link text_style_top"
-        >
-          {{ $t(item.name) }}
-        </RouterLink>
       </div>
       <!--* 每一项 end -->
 
