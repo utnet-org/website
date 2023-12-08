@@ -32,6 +32,8 @@ const updateWindowSize = () => {
   windowWidth.value = window.innerWidth;
 };
 
+const show333 = ref(false); //控制手机端的白皮书按钮的第一次出现
+
 // 当组件挂载时设置监听器，并在卸载时移除
 onMounted(async () => {
   const { data } = await getStatistics();
@@ -285,6 +287,7 @@ const videoshow = ref(false);
 const scroll = ref(0);
 const ant_btn_w = ref(80);
 window.addEventListener("scroll", () => {
+  show333.value = true;
   scroll.value = document.documentElement.scrollTop;
   // console.log(scroll.value);
   if (scroll.value > 1900) {
@@ -485,6 +488,32 @@ const next222 = () => {
 //     route.push(link);
 //   }
 // }
+
+const arr = [23, 4232, 4, 353, 12, 34, 45, 11, 234, 25, 11, 352, 56, 19];
+
+//快速排序
+const quickSort = (arr: any[]): any[] => {
+  //* 终止条件,数组长度小于等于1时便会终止递归
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const pivotIndex = Math.floor(arr.length / 2); //* 从中间选择一个基准点
+  const pivot = arr.splice(pivotIndex, 1)[0]; //* 根据基准点在原数组中删除该基准点，并返回该基准点,这会改变原数组
+  const left = [];
+  const right = [];
+  for (let i = 0; i < arr.length; i++) {
+    //* 遍历数组，进行判断分配
+    if (arr[i] < pivot) {
+      left.push(arr[i]); //* 比基准点小的放在左边数组
+    } else {
+      right.push(arr[i]); //* 比基准点大的放在右边数组
+    }
+  }
+  //* 递归执行以上操作,对左右两个数组进行操作，直到数组长度为<=1；
+  return quickSort(left).concat([pivot], quickSort(right));
+};
+
+console.log(quickSort(arr));
 </script>
 <template>
   <div
@@ -502,6 +531,7 @@ const next222 = () => {
         v-model:show="show"
         v-model:show1="showtwo"
         v-show="(scroll < 2980 || scroll == 0) && width * 2 > 996"
+        v-if="width * 2 > 996"
       ></Animation>
       <img
         v-show="width * 2 < 996"
@@ -586,7 +616,11 @@ const next222 = () => {
           <!--          基于芯片的区块链网络-->
         </div>
       </div>
-      <div class="animatino_video" v-if="scroll > 2960 && width * 2 > 996">
+      <div
+        class="animatino_video"
+        :style="{ display: !videoshow ? 'block' : 'none' }"
+        v-if="scroll > 2960 && width * 2 > 996"
+      >
         <video
           v-if="ani_btn_s == 0 || ani_btn_s == 1"
           src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
@@ -603,7 +637,11 @@ const next222 = () => {
       </div>
       <div
         class="animation_button"
-        :style="{ bottom: `${ani_btn}px`, width: `${ant_btn_w}px` }"
+        :style="{
+          bottom: `${ani_btn}px`,
+          width: `${ant_btn_w}px`,
+          display: !videoshow ? 'flex' : 'none',
+        }"
         v-if="width * 2 > 996"
       >
         <div v-if="ant_btn_w != 80" class="animation_button_text">
@@ -644,7 +682,7 @@ const next222 = () => {
             { WelcomeAnimation: width * 2 > 996 ? show.one : scroll > 10 },
             {
               WelcomeAnimationf:
-                width * 2 > 996 ? !show.one && show1 : scroll < 10,
+                width * 2 > 996 ? !show.one && show1 : scroll < 10 && show333,
             },
           ]"
           :style="{ background: width * 2 < 996 ? '#000000C9' : '' }"
@@ -673,13 +711,13 @@ const next222 = () => {
             {{ $t("home.An_application") }}
           </div>
           <div class="button_father">
-            <div class="button">
-              <div
-                class="text"
-                @click="
-                  openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
-                "
-              >
+            <div
+              class="button"
+              @click="
+                openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
+              "
+            >
+              <div class="text">
                 {{ $t("home.White_Paper") }}
               </div>
               <img
@@ -688,11 +726,11 @@ const next222 = () => {
                 srcset=""
               />
             </div>
-            <div class="button_right">
-              <div
-                class="text"
-                @click="openNewPage('/learning/learning_center')"
-              >
+            <div
+              class="button_right"
+              @click="openNewPage('/learning/learning_center')"
+            >
+              <div class="text">
                 {{ $t("home.More") }}
               </div>
               <img
@@ -1027,7 +1065,7 @@ const next222 = () => {
           src="/src/assets/images/square.png"
           alt=""
         /> -->
-        <div class="square"></div>
+        <!-- <div class="square"></div> -->
         <div class="Create_a_lighter">
           <div class="title_one">
             {{ $t("home.Help_Utility_open") }}
@@ -2459,23 +2497,28 @@ const next222 = () => {
 
       .Contribute_to_Utility {
         width: 100%;
-        height: 402px;
+        // height: 402px;
         display: flex;
         justify-content: center;
         // background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
         position: relative;
+        overflow: hidden;
         //margin-bottom: 53px;
+        padding: 30px 0;
 
         .Contribute_to_Utility_bg {
+          width: 300%;
+          height: 1206px;
           position: absolute;
           justify-content: center;
           right: 0;
+          top: -200px;
         }
 
         .Create_a_lighter {
           width: 350px;
           height: 161px;
-          position: absolute;
+          // position: absolute;
           bottom: 28px;
           left: 50;
           padding-top: 17px;
