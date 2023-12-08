@@ -1,6 +1,8 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+const { t, locale } = useI18n();
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const selectType = ref(false);
@@ -9,11 +11,18 @@ const blockSelect = () => {
   document.addEventListener("wheel", (event) => {
     event.preventDefault();
   });
+  // 禁止滚动
+  if (document.body.style.overflow != "hidden") {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
 };
 const nav_arr = ref([
   {
     name: "nav.Learning",
     link: "",
+    show: true,
     children: [
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif",
@@ -50,6 +59,7 @@ const nav_arr = ref([
   {
     name: "nav.Soloutions",
     link: "",
+    show: true,
     children: [
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif",
@@ -80,6 +90,7 @@ const nav_arr = ref([
   {
     name: "nav.Developers",
     link: "",
+    show: true,
     children: [
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif",
@@ -122,10 +133,10 @@ const nav_arr = ref([
   {
     name: "nav.Language",
     link: "",
+    show: true,
     children: [
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_english_icon.png",
-
         png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
         title: "nav.English",
         desc: "en",
@@ -152,7 +163,8 @@ const changeSelectIndex = (item: any, index: any) => {
     selectIndex.value = -1;
     return;
   }
-  selectIndex.value = index;
+  item.show = !item.show;
+  // selectIndex.value = index;
 };
 const routerSubPage = (index: any, citem: any, cindex: any) => {
   console.log("====>", index, citem, cindex);
@@ -167,9 +179,11 @@ const routerSubPage = (index: any, citem: any, cindex: any) => {
   if (citem.link.startsWith("http://") || citem.link.startsWith("https://")) {
     window.open(citem.link, "_blank");
   } else {
-    window.location.href = citem.link;
     selectType.value = false;
     selectIndex.value = -1;
+    setTimeout(() => {
+      window.location.href = citem.link;
+    }, 300);
   }
 };
 const width = ref(window.innerWidth);
@@ -194,62 +208,113 @@ window.onresize = () => {
       </div>
       <img
         class="list_caption_image"
-        :src="selectType ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png' : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'"
+        :src="
+          selectType
+            ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png'
+            : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
+        "
         alt=""
         v-else
         @click="blockSelect"
       />
-      <div v-show="selectType == true" class="list_caption_select">
+    </div>
+  </nav>
+  <div
+    v-if="width < 834"
+    :style="{ right: selectType ? '0px' : '-80vh' }"
+    class="list_caption_select"
+  >
+    <div style="position: relative">
+      <!-- <div
+        style="
+          background: white;
+          width: 80vw;
+          height: 100vh;
+          position: absolute;
+          left: 0;
+
+
+          z-index: -1;
+        "
+      ></div> -->
+      <div
+        class="list_caption_select_item"
+        v-for="(item, index) in nav_arr"
+        :key="index"
+        :style="{
+          height: item.show
+            ? index == 0
+              ? locale == 'en'
+                ? '465.69px'
+                : '385.69px'
+              : index == 1
+              ? '359.75px'
+              : index == 2
+              ? '311.75px'
+              : index == 5
+              ? '168px'
+              : ''
+            : 0,
+        }"
+      >
         <div
-          class="list_caption_select_item"
-          v-for="(item, index) in nav_arr"
-          :key="index"
+          class="list_caption_select_item_header"
+          @click="changeSelectIndex(item, index)"
         >
-          <div
-            class="list_caption_select_item_header"
-            @click="changeSelectIndex(item, index)"
-          >
-            <div>{{ $t(item.name) }}</div>
-            <img
-              v-if="index != 3 && index != 4"
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
-              alt=""
-              :class="selectIndex == index ? 'active' : ''"
-            />
+          <div>{{ $t(item.name) }}</div>
+          <img
+            v-if="index != 3 && index != 4"
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
+            alt=""
+            :class="selectIndex == index ? 'active' : ''"
+          />
+        </div>
+        <div
+          class="list_caption_select_item_option"
+          v-for="(citem, cindex) in item.children"
+          :key="cindex"
+          :style="index == 5 ? 'align-items: center;' : ''"
+          @click="routerSubPage(index, citem, cindex)"
+        >
+          <div class="list_caption_select_item_option_image">
+            <img :src="citem.icon" alt="" />
           </div>
-          <div
-            class="list_caption_select_item_option"
-            v-for="(citem, cindex) in item.children"
-            :key="cindex"
-            v-show="selectIndex == index"
-            @click="routerSubPage(index, citem, cindex)"
-            :style="index == 5 ? 'align-items: center;' : ''"
-          >
-            <div class="list_caption_select_item_option_image">
-              <img :src="citem.icon" alt="" />
+          <div class="list_caption_select_item_option_text">
+            <div
+              class="list_caption_select_item_option_text_title"
+              :style="index == 5 ? 'margin-bottom: 0px;' : ''"
+            >
+              {{ $t(citem.title) }}
             </div>
-            <div class="list_caption_select_item_option_text">
-              <div
-                class="list_caption_select_item_option_text_title"
-                :style="index == 5 ? 'margin-bottom: 0px;' : ''"
-              >
-                {{ $t(citem.title) }}
-              </div>
-              <div
-                class="list_caption_select_item_option_text_desc"
-                v-if="index != 5"
-              >
-                {{ $t(citem.desc) }}
-              </div>
-            </div>
+            <div
+              class="list_caption_select_item_option_text_desc"
+              v-if="index != 5"
+              v-html="`${$t(citem.desc).split('>>>br').join('<br>')}`"
+            ></div>
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+  <div
+    v-show="selectType"
+    :style="{ background: selectType ? 'rgba(0, 0, 0, 0.3)' : '#000' }"
+    class="poop"
+    @click="blockSelect"
+  ></div>
 </template>
 
 <style scoped lang="less">
+.poop {
+  position: fixed;
+  transition: all 0.3s ease-in-out;
+  z-index: 299;
+  height: 100vh;
+  width: 100vw;
+  // background-color: rgba(0, 0, 0, 0.116);
+  top: 0;
+  left: 0;
+}
 .app-topnav {
   position: fixed;
   top: 0;
@@ -264,10 +329,11 @@ window.onresize = () => {
 
   .container {
     height: 100%;
+    max-width: 2000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 60px 0 100px;
+    padding: 0 60px 0 60px;
 
     .logo_box {
       display: flex;
@@ -282,9 +348,9 @@ window.onresize = () => {
       .logo_text {
         color: var(--Light-dark, rgba(21, 28, 26, 0.9));
         font-family: Hiragino Kaku Gothic ProN;
-        font-size: 14px;
+        font-size: 15px;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 700;
         line-height: normal;
       }
     }
@@ -305,91 +371,98 @@ window.onresize = () => {
         width: 32px;
         height: 32px;
       }
+    }
+  }
+  .list_caption_select {
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    top: 69px;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 300;
+    min-height: calc(100vh - 69px);
+    background-color: #fffefb;
+    padding-bottom: 200px;
+    // padding-left: 20vw;
+    // opacity: 0.9;
+    // border-bottom-left-radius: 15px;
+    // border-bottom-right-radius: 15px;
+    // border-bottom: 1px solid #e5e5e5;
 
-      .list_caption_select {
-        position: fixed;
-        top: 69px;
-        left: 0;
-        width: 100vw;
-        z-index: 999;
-        min-height: calc(100vh - 69px);
-        padding: 20px 20px 0;
-        background-color: #fffefb;
-        // opacity: 0.9;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        border-bottom: 1px solid #e5e5e5;
+    .list_caption_select_item {
+      padding: 20px 20px 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 20px;
 
-        .list_caption_select_item {
-          display: flex;
-          flex-direction: column;
-          padding-bottom: 20px;
+      .list_caption_select_item_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
 
-          .list_caption_select_item_header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
+        div {
+          color: rgba(21, 28, 26, 0.9);
+          font-family: Lantinghei SC;
+          font-size: 14px;
+          font-weight: 700;
+        }
 
-            div {
-              color: rgba(21, 28, 26, 0.9);
-              font-family: Lantinghei SC;
-              font-size: 14px;
-              font-weight: 700;
-            }
+        img {
+          width: 20px;
+          height: 20px;
+        }
 
-            img {
-              width: 20px;
-              height: 20px;
-            }
+        .active {
+          // transform: rotateZ(180deg);
+          animation: identifier 0.2s linear 1 forwards;
+        }
 
-            .active {
-              // transform: rotateZ(180deg);
-              animation: identifier 0.2s linear 1 forwards;
-            }
-
-            @keyframes identifier {
-              0% {
-                transform: rotateZ(0deg);
-              }
-
-              100% {
-                transform: rotateZ(180deg);
-              }
-            }
+        @keyframes identifier {
+          0% {
+            transform: rotateZ(0deg);
           }
 
-          .list_caption_select_item_option {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
+          100% {
+            transform: rotateZ(180deg);
+          }
+        }
+      }
 
-            .list_caption_select_item_option_image {
-              width: 24px;
-              height: 24px;
-              margin-right: 10px;
-            }
+      .list_caption_select_item_option {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
 
-            .list_caption_select_item_option_text {
-              .list_caption_select_item_option_text_title {
-                color: rgba(21, 28, 26, 0.9);
-                font-family: Lantinghei SC;
-                font-size: 13px;
-                font-weight: 700;
-                margin-bottom: 7px;
-              }
+        .list_caption_select_item_option_image {
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+        }
 
-              .list_caption_select_item_option_text_desc {
-                color: rgba(21, 28, 26, 0.9);
-                font-family: Inter;
-                font-size: 12px;
-                font-weight: 400;
-                line-height: 16px;
-                /* 133.333% */
-                opacity: 0.8;
-              }
-            }
+        .list_caption_select_item_option_text {
+          .list_caption_select_item_option_text_title {
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Lantinghei SC;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+          }
+
+          .list_caption_select_item_option_text_desc {
+            color: rgba(21, 28, 26, 0.9);
+            font-family: Inter;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            /* 133.333% */
+            opacity: 0.8;
           }
         }
       }
