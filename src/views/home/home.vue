@@ -216,7 +216,7 @@ function stopCarousel() {
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_four.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
@@ -237,7 +237,7 @@ const merryGoRound_arr = ref([
   },
   {
     id: 3,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
     time: "September 21, 2023",
     text: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -730,7 +730,10 @@ const next222 = () => {
             v-for="(item, index) in Where_arr"
             :key="index"
             style=""
-            @click="openNewPage(item.link)"
+            @click="
+            index == 3 ? openNewPage('/soloutions/mp_hashing_power') :
+            index == 2 ? openNewPage('/soloutions/mp_utility_wallet') :
+            openNewPage(item.link) "
           >
             <div>
               <div class="box_title">
