@@ -61,8 +61,8 @@ onMounted(async () => {
     {
       amount:
         windowWidth.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} tflops`,
+          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> Tflops</span>`
+          : `${res.value?.activeMiners.toLocaleString()} Tflops`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
@@ -714,7 +714,7 @@ console.log(quickSort(arr));
             <div
               class="button"
               @click="
-                openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
+                openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
               "
             >
               <div class="text">
@@ -735,7 +735,7 @@ console.log(quickSort(arr));
               </div>
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
-                alt=""
+                alt=""/>
                 srcset=""
               />
             </div>

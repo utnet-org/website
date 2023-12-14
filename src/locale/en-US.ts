@@ -23,7 +23,7 @@ export default {
     POCI_Consensus_details:
       "Different from the traditional proof of >>>br work (POW) consensus",
     White_Paper: "White Paper",
-    White_Paper_details: "UNC utility and tokennomics",
+    White_Paper_details: "UNC Utility and tokennomics",
     Utility_Wallet: "Utility Wallet",
     Utility_Wallet_details: "Connect to UtilityNet and manage your >>>br funds",
     Hashing_Power: "Core System",
@@ -89,7 +89,7 @@ export default {
     Where_to_Start: "Where to Start",
     Builder: "BUILD TOGETHER",
     You_can_try:
-      "Work with utility developers to build rich contracts and applications based on the computing ecosystem and make them available to multiple users.",
+      "Work with Utility developers to build rich contracts and applications based on the computing ecosystem and make them available to multiple users.",
     Build_DOC: "Build DOC",
     MINER: "COMPUTING POWER SUPPLY",
     You_can_get_UNC:
@@ -100,7 +100,7 @@ export default {
     Explore_Wallet: "Explore Wallet",
     Computing_Power_users: "COMPUTING POWER ECOLOGY",
     You_can_rent:
-      "Rent high-performance computing power from utility providers to develop and efficiently use underlying SDKS and eco-enabled applications.",
+      "Rent high-performance computing power from Utility providers to develop and efficiently use underlying SDKS and eco-enabled applications.",
     Develop: "Develop",
 
     Utility_Chain_Scaling_Solutions: "Utility Scaling Solutions",
@@ -160,7 +160,7 @@ export default {
     Start_from_here: "Start here as a beginner",
     What_is_UNC_Token: "What is a UNC token",
     Start_UNC_Token_UNC:
-        "Start UNC Token (UNC) is the currency of the utility network and its ecosystem",
+        "Start UNC Token (UNC) is the currency of the Utility network and its ecosystem",
     What_is_POCI_Consensus: "What is POCI consensus",
     it_is_a_brand_new:
         "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
@@ -187,7 +187,7 @@ export default {
       "Enabling the practical computing platform of the future. Explore decentralized, efficient and secure computing services.",
     read_more: "Read More",
     title_text:
-      'The term "Utility Network" usually refers to a network architecture designed to provide a variety of utility services, such as computing resources, data storage, algorithm models, etc. It is a decentralized computing service platform built on blockchain technology and chip consensus, aiming to solve the limitations of centralized computing resources and provide users with efficient, secure and scalable computing services.',
+      'The term "Utility Network" usually refers to a network architecture designed to provide a variety of Utility services, such as computing resources, data storage, algorithm models, etc. It is a decentralized computing service platform built on blockchain technology and chip consensus, aiming to solve the limitations of centralized computing resources and provide users with efficient, secure and scalable computing services.',
     decentralized_computing_service_platform:
       "Decentralized computing service platform",
     decentralized_computing_service_platform_text:
