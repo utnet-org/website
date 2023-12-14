@@ -1,6 +1,7 @@
 <script lang="ts" setup name="AppFooter">
 import { ref } from "vue";
 import { openNewPage } from "@/utils/request";
+import Utility from "@/assets/images/utility.svg";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mp_left = [
   {
@@ -264,7 +265,8 @@ const printWidth = () => {
               alt=""
               srcset=""
             />
-            <div class="logo_text">Utility</div>
+            <Utility />
+            <!-- <div class="logo_text">Utility</div> -->
           </div>
           <div class="social">
             <div
@@ -282,13 +284,25 @@ const printWidth = () => {
               class="icon"
               @click="openNewPage('https://github.com/utnet-org')"
             >
-             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/github.svg" alt="" srcset="">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/github.svg"
+                alt=""
+                srcset=""
+              />
             </div>
             <div class="icon">
-             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/youtube.svg" alt="" srcset="">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/youtube.svg"
+                alt=""
+                srcset=""
+              />
             </div>
             <div class="icon">
-             <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/wechat.svg" alt="" srcset="">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/wechat.svg"
+                alt=""
+                srcset=""
+              />
             </div>
           </div>
         </div>
@@ -313,7 +327,11 @@ const printWidth = () => {
                 <span class="item_span" @click="openNewPage(c_item.link)">
                   {{ $t(c_item.text) }}
                   <div class="arrow">
-                    <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/footer_arrow.svg" alt="" srcset="">
+                    <img
+                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/footer_arrow.svg"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
                 </span>
               </RouterLink>
@@ -331,7 +349,8 @@ const printWidth = () => {
           alt=""
           srcset=""
         />
-        <div class="container_top_title">Utility</div>
+        <Utility />
+        <!-- <div class="container_top_title">Utility</div> -->
       </div>
       <div class="container_icon">
         <div
