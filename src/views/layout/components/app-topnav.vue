@@ -1,5 +1,6 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
+import Utility from "@/assets/images/utility.svg";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
@@ -198,7 +199,8 @@ window.onresize = () => {
       <RouterLink to="/">
         <div class="logo_box" @click="selectType = false">
           <Logo />
-          <span class="logo_text">Utility</span>
+          <Utility />
+          <!-- <span class="logo_text">Utility</span> -->
         </div>
       </RouterLink>
       <UTTOPNAV v-if="width > 834" />
