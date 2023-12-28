@@ -3,6 +3,8 @@ import Logo from "@/assets/images/logo.svg";
 import Utility from "@/assets/images/utility.svg";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+
+import { toggleTheme } from "@/utils/set_theme";
 const { t, locale } = useI18n();
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
@@ -207,6 +209,7 @@ window.onresize = () => {
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
+        <button @click="toggleTheme">设置主题</button>
       </div>
       <img
         class="list_caption_image"

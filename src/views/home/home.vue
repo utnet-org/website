@@ -34,38 +34,45 @@ const updateWindowSize = () => {
 
 const show333 = ref(false); //控制手机端的白皮书按钮的第一次出现
 
+//* 数据 和 圆 Data and circles的数据
+
+const Data_arr = ref();
+
 // 当组件挂载时设置监听器，并在卸载时移除
 onMounted(async () => {
   const { data } = await getStatistics();
   res.value = data;
+  console.log("res.value:", res.value);
 
-  Data_arr.value = [
-    {
-      amount:
-        windowWidth.value > 834
-          ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
-          : `$${res.value?.aiPower.toLocaleString()}`,
-      text: "home.UNC_PRICE",
-    },
-    {
-      amount: `${res.value?.totalMiners.toLocaleString()}`,
-      text: "home.NODES",
-    },
-    {
-      amount:
-        windowWidth.value > 834
-          ? "<span style='font-size: 26px;'>$</span>122,1120"
-          : "$122,1120",
-      text: "home.Transaction_Today",
-    },
-    {
-      amount:
-        windowWidth.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} tflops`,
-      text: "home.Computational_Power_Synthesis",
-    },
-  ];
+  if (res.value) {
+    Data_arr.value = [
+      {
+        amount:
+          windowWidth.value > 834
+            ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
+            : `$${res.value?.aiPower.toLocaleString()}`,
+        text: "home.UNC_PRICE",
+      },
+      {
+        amount: `${res.value?.totalMiners.toLocaleString()}`,
+        text: "home.NODES",
+      },
+      {
+        amount:
+          windowWidth.value > 834
+            ? "<span style='font-size: 26px;'>$</span>122,1120"
+            : "$122,1120",
+        text: "home.Transaction_Today",
+      },
+      {
+        amount:
+          windowWidth.value > 834
+            ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
+            : `${res.value?.activeMiners.toLocaleString()} tflops`,
+        text: "home.Computational_Power_Synthesis",
+      },
+    ];
+  }
   window.addEventListener("resize", updateWindowSize);
   // window.location.reload();
 });
@@ -122,9 +129,6 @@ function WhereChangeli() {
     item.hover = false;
   });
 }
-
-//* 数据 和 圆 Data and circles的数据
-const Data_arr = ref();
 
 //^ Utility Chain Scaling Solutions的数据
 const Utility_arr = ref([
@@ -516,10 +520,7 @@ const quickSort = (arr: any[]): any[] => {
 console.log(quickSort(arr));
 </script>
 <template>
-  <div
-    :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
-    class="home_view"
-  >
+  <div class="home_view">
     <div
       class="animation_box"
       :style="{
@@ -789,9 +790,6 @@ console.log(quickSort(arr));
             @mouseover="WhereChange(index)"
             @mouseleave="WhereChangeli"
             class="box"
-            :style="{
-              border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }"
             v-for="(item, index) in Where_arr"
             :key="index"
           >
@@ -932,7 +930,7 @@ console.log(quickSort(arr));
       </div>
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
-    <!--    <div class="icons">-->
+    <!-- <div class="icons">-->
     <!--      &lt;!&ndash;@mouseenter="startCarousel"-->
     <!--        @mouseleave="stopCarousel" &ndash;&gt;-->
     <!--      <div class="carousel-container">-->
@@ -955,7 +953,7 @@ console.log(quickSort(arr));
     <!--          </div>-->
     <!--        </div>-->
     <!--      </div>-->
-    <!--    </div>-->
+    <!--    </div> -->
     <!-- !另一个 container -->
     <div class="container">
       <!-- !轮播图 -->
@@ -1261,17 +1259,16 @@ console.log(quickSort(arr));
 }
 
 .home_view {
-  background-color: #fffefb;
+  // background-color: #fffefb;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   .bg {
-    // height: 1100px;
     width: 100%;
     position: fixed;
     z-index: 121;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
-    // max-width: 1500px;
-    // margin: 0 20px;
   }
   .container {
     display: flex;
@@ -1313,15 +1310,16 @@ console.log(quickSort(arr));
       width: 100%;
       height: 290px;
       align-items: center;
-      // border-radius: 10px;
+
+      border-radius: 10px;
       background: linear-gradient(
         180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
+        rgba(244, 248, 248, 0.08) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
       );
-      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
-      //   0px 4px 50px 0px #dde3e153;
-      backdrop-filter: blur(9px);
+      box-shadow: 0px 1px 1px 0px rgba(229, 248, 246, 0.25) inset,
+        0px 4px 50px 0px rgba(221, 227, 225, 0.4);
+      backdrop-filter: blur(16px);
       position: absolute;
       left: 0;
       bottom: 0;
@@ -1443,25 +1441,30 @@ console.log(quickSort(arr));
       width: 100%;
       .title {
         font-family: Lantinghei SC;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-color);
       }
       .Four_boxes {
         display: flex;
         //多行对齐
         flex-wrap: wrap;
         justify-content: center;
+
         .box {
           background: linear-gradient(
             177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
+            var(--background-start) -24.77%,
+            var(--background-end) 97.53%
           );
           opacity: 0.8;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
-          transition: all 0.5s;
+          box-shadow: var(--box-shadow-light);
+          transition: box-shadow 0.5s;
+          border: 1px solid var(--where-border);
+          &:hover {
+            border: 1px solid #3edfcf;
+          }
           .box_title {
             font-family: Lantinghei SC;
             color: #3edfcf;
@@ -1472,20 +1475,20 @@ console.log(quickSort(arr));
           .box_text {
             margin-top: 14px;
             margin-bottom: 26px;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Lantinghei SC;
             font-style: normal;
             font-weight: 400;
           }
           .box_button {
-            background: #fffefb;
+            background: var(--where-button);
             border: 1px solid #3edfcf;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 14px;
             font-weight: 500;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-button-color);
           }
         }
       }
@@ -1819,8 +1822,9 @@ console.log(quickSort(arr));
           padding: 50px 0 43px 50px;
           &:hover {
             //过渡
-            transition: all 0.5s;
+            transition: box-shadow 0.5s;
             box-shadow: none;
+            background: var(--where-bg);
           }
 
           .box_text {
@@ -1833,12 +1837,15 @@ console.log(quickSort(arr));
             padding: 12px 16px; /* 添加适当的内边距 */
             border-radius: 8px;
             &:hover {
-              box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
+              box-shadow: 0px 5px 20px 0px var(--where-button-shadow);
               background: linear-gradient(
                 177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
+                var(--where-button-hover) -4.77%,
+                var(--where-button-hover-end) 97.53%
               );
+
+              border: 1px solid var(--where-button-border);
+              color: #fff !important;
             }
           }
         }

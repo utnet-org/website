@@ -4,6 +4,8 @@ import App from './App.vue'
 import 'normalize.css'
 // 导入自定义的公共样式
 import '@/assets/styles/common.less'
+// 导入主题样式
+import '@/assets/styles/theme.less'
 // 导入路由
 import router from './router/index'
 // 导入复用组件
