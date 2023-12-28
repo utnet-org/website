@@ -10,8 +10,13 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { openNewPage } from "@/utils/request";
 import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 import router from "@/router";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const { locale } = useI18n();
 const res = ref(); //^ 数据 和 圆 Data and circles的数据
+const Data_arr = ref(); //^ Where to Start的数据
 onMounted(async () => {
   const { data } = await getStatistics();
   res.value = data;
@@ -95,9 +100,6 @@ function WhereChangeli() {
     item.hover = false;
   });
 }
-
-//* 数据 和 圆 Data and circles的数据
-const Data_arr = ref();
 
 //^ Utility Chain Scaling Solutions的数据
 const Utility_arr = ref([
@@ -336,6 +338,7 @@ onUnmounted(() => {
         muted
       ></video>
     </div>
+    {{ theme }}
     <!-- !视频end -->
     <div class="container">
       <!--! Where to Start -->
@@ -370,9 +373,6 @@ onUnmounted(() => {
             @mouseover="WhereChange(index)"
             @mouseleave="WhereChangeli"
             class="box"
-            :style="{
-              border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }"
             v-for="(item, index) in Where_arr"
             :key="index"
           >
@@ -512,7 +512,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
-    <!--    <div class="icons">-->
+    <!-- <div class="icons">-->
     <!--      &lt;!&ndash;@mouseenter="startCarousel"-->
     <!--        @mouseleave="stopCarousel" &ndash;&gt;-->
     <!--      <div class="carousel-container">-->
@@ -535,7 +535,7 @@ onUnmounted(() => {
     <!--          </div>-->
     <!--        </div>-->
     <!--      </div>-->
-    <!--    </div>-->
+    <!--    </div> -->
     <!-- !另一个 container -->
     <div class="container">
       <!-- !轮播图 -->
@@ -965,7 +965,7 @@ onUnmounted(() => {
 }
 
 .home_view {
-  background-color: #fffefb;
+  // background-color: #fffefb;
   .bg {
     // height: 1100px;
     width: 100%;
@@ -992,25 +992,30 @@ onUnmounted(() => {
       width: 100%;
       .title {
         font-family: Lantinghei SC;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-color);
       }
       .Four_boxes {
         display: flex;
         //多行对齐
         flex-wrap: wrap;
         justify-content: center;
+
         .box {
           background: linear-gradient(
             177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
+            var(--background-start) -24.77%,
+            var(--background-end) 97.53%
           );
           opacity: 0.8;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
-          transition: all 0.5s;
+          box-shadow: var(--box-shadow-light);
+          transition: box-shadow 0.5s;
+          border: 1px solid var(--where-border);
+          &:hover {
+            border: 1px solid #3edfcf;
+          }
           .box_title {
             font-family: Lantinghei SC;
             color: #3edfcf;
@@ -1021,20 +1026,20 @@ onUnmounted(() => {
           .box_text {
             margin-top: 14px;
             margin-bottom: 26px;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Lantinghei SC;
             font-style: normal;
             font-weight: 400;
           }
           .box_button {
-            background: #fffefb;
+            background: var(--where-button);
             border: 1px solid #3edfcf;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 14px;
             font-weight: 500;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-button-color);
           }
         }
       }
@@ -1368,8 +1373,9 @@ onUnmounted(() => {
           padding: 50px 0 43px 50px;
           &:hover {
             //过渡
-            transition: all 0.5s;
+            transition: box-shadow 0.5s;
             box-shadow: none;
+            background: var(--where-bg);
           }
 
           .box_text {
@@ -1382,12 +1388,15 @@ onUnmounted(() => {
             padding: 12px 16px; /* 添加适当的内边距 */
             border-radius: 8px;
             &:hover {
-              box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
+              box-shadow: 0px 5px 20px 0px var(--where-button-shadow);
               background: linear-gradient(
                 177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
+                var(--where-button-hover) -4.77%,
+                var(--where-button-hover-end) 97.53%
               );
+
+              border: 1px solid var(--where-button-border);
+              color: #fff !important;
             }
           }
         }

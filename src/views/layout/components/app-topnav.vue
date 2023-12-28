@@ -1,9 +1,14 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
 import Utility from "@/assets/images/utility.svg";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
+import {
+  toggleTheme,
+  saveThemePreference,
+  loadThemePreference,
+} from "@/utils/set_theme";
+const { locale } = useI18n();
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const selectType = ref(false);
@@ -192,6 +197,13 @@ window.onresize = () => {
   // 监听窗口大小变化
   width.value = window.innerWidth;
 };
+onMounted(() => {
+  loadThemePreference();
+});
+const setTheme = () => {
+  toggleTheme();
+  saveThemePreference();
+};
 </script>
 <template>
   <nav class="app-topnav">
@@ -207,6 +219,7 @@ window.onresize = () => {
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
         <SETLANGUAGE />
+        <button @click="setTheme">设置主题</button>
       </div>
       <img
         class="list_caption_image"
