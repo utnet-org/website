@@ -21,7 +21,11 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 
 import 'element-plus/dist/index.css'
 
+import piniaPluginPersist from 'pinia-plugin-persist';
+
 let pinia = createPinia()
+
+pinia.use(piniaPluginPersist);
 
 const app = createApp(App)
 

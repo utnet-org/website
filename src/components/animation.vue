@@ -1,22 +1,6 @@
 <script setup lang="ts">
-import { el } from "element-plus/es/locale";
 import * as THREE from "three";
 import { onMounted, onUnmounted, ref } from "vue";
-
-const props = defineProps({
-  show: {
-    type: Object,
-    default: {
-      one: false,
-    },
-  },
-  show1: {
-    type: Boolean,
-    default: false,
-  },
-});
-
-const emit = defineEmits(["update:show", "update:show1"]);
 
 const Y = [
   7060, 7061, 7062, 7063, 7064, 7065, 7421, 7422, 7423, 7424, 7425, 7781, 7782,
@@ -125,122 +109,75 @@ const I = [
   13851, 13852, 13853, 13854, 13855, 14211, 14212, 14213, 14214, 14215, 14571,
   14572, 14573, 14574, 14575,
 ];
-const textArray = [...L, ...U, ...T, ...I, ...Y];
-for (let i = 0; i < I.length; i++) {
+
+const textArray = [...L, ...U, ...T, ...I, ...Y]; //* 保存所有字母的索引
+for (let i = 0; i < I.length; i++) { //* 将 I 字母的索引加上 24
   textArray.push(I[i] + 24);
 }
-
-for (let i = 0; i < T.length; i++) {
+for (let i = 0; i < T.length; i++) { //* 将 T 字母的索引加上 48
   textArray.push(T[i] + 52);
 }
-const scene = new THREE.Scene() as any;
-const animation_container = ref<HTMLElement | null>(null);
-// onMounted(() => {
-//   container.value = document.getElementById(
-//     "animation-container"
-//   ) as HTMLElement;
-// });
-// 创建场景、相机和渲染器
+
+const scene = new THREE.Scene() as any; //* 创建场景
+const animation_container = ref<HTMLElement | null>(null); //* 创建容器
 let camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
-) as any;
-let cameraPositionZ = 11;
-camera.position.set(0, 0, cameraPositionZ);
-camera.lookAt(scene.position); // 设置相机的焦点
+) as any; //* 创建相机
+let cameraPositionZ = 11; //* 相机的 z 轴位置
+camera.position.set(0, 0, cameraPositionZ); //* 设置相机的位置
+camera.lookAt(scene.position); //* 设置相机的焦点
 
-let renderer = new THREE.WebGLRenderer() as any;
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-// animation_container.appendChild(renderer.domElement);
-
-// 设置定位为固定定位
-if (window.innerWidth < 1548 && window.innerWidth > 996) {
-  // 根据宽度计算相机位置 距离增加
-  cameraPositionZ = 11 + (1548 - window.innerWidth) / 100;
-  camera.position.set(0, 0, cameraPositionZ);
-}
-if (window.innerWidth < 996) {
-  // 根据宽度计算相机位置 距离增加
-  cameraPositionZ = 11 + (996 - window.innerWidth) / 100;
-  camera.position.set(0, 0, cameraPositionZ);
-} else {
-  cameraPositionZ = 11;
-  camera.position.set(0, 0, cameraPositionZ);
-}
-
-// 画布背景色设置为白色
-renderer.setClearColor(0x000000, 1);
-
-// 创建平面几何体
-const planeLength = 40;
-const planeWidth = 6.4;
-const geometry = new THREE.PlaneGeometry(planeLength, planeWidth, 359, 57);
-const innerRadius = planeLength / (2 * Math.PI);
-
-// 创建着色器材质
-const material = new THREE.ShaderMaterial({
+let renderer = new THREE.WebGLRenderer() as any; //* 创建渲染器
+renderer.setSize(window.innerWidth, window.innerHeight); //* 设置渲染器的大小
+renderer.setClearColor(0x000000, 1); //* 设置渲染器的背景颜色
+const planeLength = 40; //* 平面的长度
+const planeWidth = 6.4; //* 平面的宽度
+const geometry = new THREE.PlaneGeometry(planeLength, planeWidth, 359, 57); //* 创建平面
+const innerRadius = planeLength / (2 * Math.PI); //* 圆环的内半径
+const material = new THREE.ShaderMaterial({ //* 创建着色器材质
   fragmentShader: `void main(){}`,
   vertexShader: `void main(){}`,
-  wireframe: true,
+  wireframe: true, 
 });
-
-const circles = [];
-
-// 创建网格
-const plane = new THREE.Mesh(geometry, material);
-scene.add(plane);
-
-let rotateAmount = 0; // 旋转角度
-let targetRotateAmount = 0; // 目标 rotateAmount 值
-let lerpFactor = 0.06; // 插值因子，控制过渡速度
-let xzl = 0.15; // 旋转量
-let lastScrollY = 0; // 上次滚动位置
-let points_circles: any;
-let points_circles_material: THREE.ShaderMaterial;
-const vertices = geometry.attributes.position.array; // 顶点数组
-// console.log('vertices:', vertices)
-let time = 0;
-// 动画循环
-let bendAmount = 0.0;
-const bendAmountMin = -0.12;
-const bendAmountMax = 0.12;
+const plane = new THREE.Mesh(geometry, material); //* 创建平面网格
+scene.add(plane); //* 将平面网格添加到场景中
+let xzl = 0.15; //* 旋转角度
+let points_circles: any; //* 圆环
+let points_circles_material: THREE.ShaderMaterial; //* 圆环的着色器材质
+const vertices = geometry.attributes.position.array; //* 平面的顶点数组
+let time = 0; //* 时间变量
+let bendAmount = 0.0; //* 圆环的弯曲程度
+const bendAmountMin = -0.12; //* 圆环的最小弯曲程度
+const bendAmountMax = 0.12; //* 圆环的最大弯曲程度
 const bendRange = bendAmountMax - bendAmountMin;
-const bendSpeed = 1.5; // 调整这个值来控制速度
-const groupCount = 29; // 假设有29组
-const opacities = new Float32Array(vertices.length / 3); // 透明度数组
-let interpolationFactor1 = 0; // 插值因子，控制从平面到圆环的过渡
-let targetInterpolationFactor1 = 0; // 目标插值因子
-let lerpFactor1 = 0.03; // 插值过渡速度因子
-let baseScrollY = 400; // 初始基准点
-let accelerationFactor = 0.002; // 加速因子，可根据需要调整
+const bendSpeed = 1.5; //* 圆环的弯曲速度
+const groupCount = 29; //* 组的数量
+const opacities = new Float32Array(vertices.length / 3); //* 透明度数组
+let interpolationFactor1 = 1; //* 插值因子
+let targetInterpolationFactor1 = 1; //* 目标插值因子
+let lerpFactor1 = 0.03; //* 插值因子的变化速度
 
 function animate() {
-  requestAnimationFrame(animate);
-  time += 0.01; // 更新时间变量
-  // 将当前 rotateAmount 向目标值过渡
+  requestAnimationFrame(animate); //* 递归调用 animate 函数
+  time += 0.01; //* 更新时间变量
+  targetInterpolationFactor1 = 1 - (time > 0.5 ? (time - 0.5) * 0.8 : 0); //* 更新目标插值因子
   interpolationFactor1 +=
-    (targetInterpolationFactor1 - interpolationFactor1) * lerpFactor1;
-
-  rotateAmount += (targetRotateAmount - rotateAmount) * lerpFactor;
-
-  updateCircles();
-
-  renderer.render(scene, camera); // 渲染 3D 场景 和 相机 视角 的输出 图像 到 canvas 元素
+    (targetInterpolationFactor1 - interpolationFactor1) * lerpFactor1; //* 更新插值因子
+  updateCircles(); //* 更新圆环
+  renderer.render(scene, camera); //* 渲染场景
 }
-// createCircles();
-createCircles();
-// console.log('points_circles:', points_circles)
-animate();
-
+createCircles(); //* 创建圆环
+animate(); //* 调用 animate 函数
+//* 创建圆环
 function createCircles() {
-  const circleGeometry = new THREE.BufferGeometry();
-  const positions = [];
-  const colors = [];
-  const randoms = [];
-
+  const circleGeometry = new THREE.BufferGeometry(); //* 创建圆环的几何体
+  const positions = []; //* 顶点位置数组
+  const colors = []; //* 顶点颜色数组
+  const randoms = []; //* 随机数数组
+  //* 遍历平面的顶点数组,并且将顶点的 z 坐标加上 0.4,然后随机减去一个数
   for (let i = 0; i < vertices.length; i += 3) {
     vertices[i + 2] += 0.4;
     let random;
@@ -255,15 +192,13 @@ function createCircles() {
         vertices[i + 2] += random;
       }
     }
-    randoms.push(Math.random());
-    positions.push(vertices[i], vertices[i + 1], vertices[i + 2]);
-    // 随机选择颜色
+    randoms.push(Math.random()); //* 将随机数添加到随机数数组中
+    positions.push(vertices[i], vertices[i + 1], vertices[i + 2]); //* 将顶点的 x,y,z 坐标添加到顶点位置数组中
     if (Math.random() > 0.65) {
-      // 15% 的概率选择 0x00ffff 颜色
-      colors.push(0.0, 1.0, 1.0); // 0x00ffff 107, 161, 216
+      colors.push(0.0, 1.0, 1.0); 
       opacities[i / 3] = 1.1;
     } else {
-      colors.push(1.0, 1.0, 1.0); // 白色 75, 85, 162
+      colors.push(1.0, 1.0, 1.0); 
       opacities[i / 3] = 0.8;
     }
   }
@@ -324,27 +259,14 @@ function createCircles() {
             position.x += random * (0.1 + suiji / 2.0) * position.x * 0.2 + (position.x == 0.0 ? 0.001 : 0.0);
             position.y += random * (0.1 + suiji / 2.0);
             position.y -= (suiji > 1.0 ? suiji - 1.0 : suiji) * (suiji > 1.0 ? suiji - 1.0 : suiji) * (3.2 - position.y) * (3.2 - position.y) * 0.01;
-            // position.x += (position.x + position.y) * 0.1;
             position.z -= suiji * 2.0;
             position.y = position.y * (1.0 - suiji * 0.6);
-            // position.y = position.y < -7.0 ? -7.0  : position.y;
-            // position.z = position.y < -7.0 ? 0.0  : position.z;
             VPosition = position;
             vOpacityMultiplier = opacityMultiplier; 
             vRandom = random;
             float size = (pointSize - suiji + position.z - position.y * position.y * 0.1) * scaling + random * 2.5;
-            // size = interpolationFactor1 < 1.0 ? 6.0 : size;
-            // gl_PointSize = size < 2.0 ? 2.0 : size;
-            // 如果z < -2，就把点丢弃
-            // if (position.z < -2.0) {
-            //     gl_PointSize = 0.0;
-            // }
-            // 计算距离摄像头的距离
             float distance = length(cameraPosition1 - vec3(modelViewMatrix * vec4(position, 1.0)));
-
-            // 根据距离调整点的大小
-            gl_PointSize = (size  * 18.0) / distance + 1.0 - interpolationFactor1; // 距离越远点越小
-            
+            gl_PointSize = (size  * 18.0) / distance + 2.0; // 距离越远点越小
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
         `,
@@ -364,11 +286,7 @@ function createCircles() {
                 if (r > 1.0 || VPosition.z < -2.5 || VPosition.x == 0.001) {
                     discard; // 丢弃片元
                 }
-
                 float yOffset = abs(VPosition.y) * abs(VPosition.y);
-
-
-                // 如果 颜色为 0x00ffff，透明度为 0.0
                 if (color == vec3(0.0, 1.0, 1.0)) { 
                     alpha = vOpacityMultiplier * 0.7 - yOffset * 0.05 - vSuiji * 0.2;
                     alpha = alpha < 0.6 + vSuiji ? 0.6+ vSuiji : alpha;
@@ -377,22 +295,22 @@ function createCircles() {
                     alpha = 0.68 - yOffset * 0.05 - vSuiji * 0.2;   
                     alpha = alpha < 0.4 ? 0.4 : alpha;
                 }
-
                 gl_FragColor = vec4(color * alpha, alpha); // 设置颜色和透明度
             }
         `,
-    transparent: true,
-    depthWrite: false,
-    vertexColors: true,
+    transparent: true, // 开启透明度
+    depthWrite: false, // 关闭深度写入
+    vertexColors: true, // 开启顶点颜色
+    extensions: {
+      derivatives: true,
+    },
   });
-
   points_circles = new THREE.Points(circleGeometry, points_circles_material);
   scene.add(points_circles);
 }
 
 function updateCircles() {
   if (window.innerWidth < 1548) {
-    // 根据宽度计算相机位置 距离增加
     cameraPositionZ = 11 + (1548 - window.innerWidth) / 100;
     camera.position.set(0, 0, cameraPositionZ);
   } else {
@@ -400,23 +318,11 @@ function updateCircles() {
     camera.position.set(0, 0, cameraPositionZ);
   }
   const positions = points_circles.geometry.attributes.position.array;
-  const target = new THREE.Vector3(0, -6, 0); // 目标点
   points_circles_material.uniforms.cameraPosition1.value = camera.position;
   // 增加插值因子
   points_circles_material.uniforms.interpolationFactor1.value =
     interpolationFactor1;
-  interpolationFactor1 = interpolationFactor1 > 1 ? 1 : interpolationFactor1; // 确保插值因子不超过 1
-  if (interpolationFactor1 > 0.9995) {
-    emit("update:show", { one: true });
-  } else {
-    emit("update:show", { one: false });
-  }
-  // if (interpolationFactor1 < 1.0 && interpolationFactor1 > 0.9995) {
-  //     for (let i = 0; i < positions.length; i += 3) {
-  //         vertices[i] += (vertices[i] + vertices[i + 1]) / 3;
-  //     }
-  // }
-
+  interpolationFactor1 = interpolationFactor1 < 0 ? 0 : interpolationFactor1; // 确保插值因子不超过 1
   // 更新每个圆的位置
   for (let i = 0; i < positions.length; i += 3) {
     const theta = (vertices[i] + vertices[i + 1] / 3) / innerRadius;
@@ -425,33 +331,18 @@ function updateCircles() {
     let x = rx;
     let z = rz;
     let y = vertices[i + 1];
-
     let center = new THREE.Vector3(0, 0, 0); // 平面中心
     let distanceToCenter = new THREE.Vector3(x, y, z).distanceTo(center); // 圆心到圆的距离
-
-    // const distanceToCenter = circle.position.distanceTo(center); // 圆心到圆的距离
-
-    // // const directionToCenter = new THREE.Vector3() // 圆心到圆的方向
-    // //     .subVectors(center, circle.position)
-    // //     .normalize();
-    // // const centerProjection =
-    // //     directionToCenter.multiplyScalar(distanceToCenter);
     const newDistanceToCenter =
-      distanceToCenter -
-      y * y * (0.22 + (rotateAmount - xzl) * (rotateAmount - xzl) * 0.1); // 根据旋转角度调整圆心到圆的距离
+      distanceToCenter - y * y * (0.22 + xzl * xzl * 0.1); // 根据旋转角度调整圆心到圆的距离
     z =
       (z * newDistanceToCenter) / distanceToCenter -
       Math.cos((x + vertices[0]) * 2.6) * bendAmount * 2.4;
-    x =
-      ((x * newDistanceToCenter) / distanceToCenter) *
-      (1.1 - (rotateAmount - xzl) * 0.2);
-
+    x = ((x * newDistanceToCenter) / distanceToCenter) * (1.1 - xzl * 0.2);
     let groupFactor = (y + x + x) / planeLength; // 组因子
     let groupIndex = Math.floor(groupFactor * groupCount); // 组索引
     let nextGroupIndex = Math.ceil(groupFactor * groupCount); // 下一组索引
     let interpolationFactor = groupFactor * groupCount - groupIndex; // 线性插值因子
-
-    // // 平滑过渡
     let bendAmount1 =
       bendAmountMin +
       bendRange * 0.5 * (1.5 + Math.cos((time + groupIndex) * bendSpeed));
@@ -469,7 +360,7 @@ function updateCircles() {
         Math.sin((x + vertices[0]) * 2.6) * bendAmount * 2.4
     ); // 原始位置
 
-    const rotateMatrix = new THREE.Matrix4().makeRotationY(rotateAmount * 4);
+    const rotateMatrix = new THREE.Matrix4().makeRotationY(0);
     const position = new THREE.Vector3(x, y, z);
     position.applyMatrix4(rotateMatrix);
     x = position.x;
@@ -492,197 +383,40 @@ function updateCircles() {
       points_circles.geometry.attributes.color.needsUpdate = true; // 更新顶点颜色
       continue;
     }
-    // // 把距离摄像头最远的圆隐藏起来
-    // if (z < -2) {
-    //     circle.visible = false;
-    // } else {
-    //     circle.visible = true;
-    // }
-    // circle.position.set(x, y, z);
-
-    // 根据圆心位置旋转圆 rotateAmount
-
-    // positions[i * 3] = x;
-    // positions[i * 3 + 1] = y;
-    // positions[i * 3 + 2] = z;
-
-    if (rotateAmount > 0.15) {
-      let newrotateAmount = rotateAmount - xzl;
-      // 下面的是收缩代码
-      let currentPosition = new THREE.Vector3(x, y, z); // 当前位置
-      let distance = currentPosition.distanceTo(target); // 当前位置到目标点的距离
-
-      // 计算收缩速度，距离越近速度越快
-      // let shrinkSpeed = Math.max(0.002, (rotateAmount * (i - (y + vertices[1]) * (y + vertices[1])) / 300) / distance); // 0.02 是最小速度
-      let shrinkSpeed = Math.max(
-        0.002,
-        (newrotateAmount * (i - (y + vertices[1]) * (y + vertices[1]))) /
-          600 /
-          distance
-      ); // 0.02 是最小速度
-
-      // 计算向目标点的方向
-      let direction = target.clone().sub(currentPosition).normalize(); // 目标点到当前位置的方向
-
-      // 更新位置
-      currentPosition.add(direction.multiplyScalar(shrinkSpeed)); // 更新位置
-
-      // 将新位置回写到数组
-      positions[i] =
-        currentPosition.x * (1 - newrotateAmount * newrotateAmount * 0.2);
-      // positions[i] = currentPosition.x * (1 - rotateAmount);
-      // const theta1 = positions[i] / innerRadius;
-      // positions[i] = Math.sin(theta1) * (innerRadius - rotateAmount * 5);
-      // positions[i + 1] = currentPosition.y - rotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.08;
-      positions[i + 1] =
-        currentPosition.y *
-          (1 +
-            Math.sin(
-              newrotateAmount *
-                (Math.abs(vertices[1]) - y - newrotateAmount) *
-                (Math.abs(vertices[1]) - y - newrotateAmount) *
-                0.6
-            ) *
-              0.1) -
-        newrotateAmount * (y + vertices[1]) * (y + vertices[1]) * 0.04 -
-        newrotateAmount * newrotateAmount * 0.6;
-      positions[i + 2] = currentPosition.z * (1 - newrotateAmount * 0.4);
-
-      positions[i] = positions[i + 1] < -6 ? 0.0 : positions[i];
-      positions[i + 1] = positions[i + 1] < -6 ? -6 : positions[i + 1];
-      // positions[i + 2] = positions[i + 2] < -6 ? -6 : positions[i + 2];
-
-      // points_circles_material.uniforms.scaling.value = ((1 - rotateAmount * 0.1) > 0.5) ? 1 - rotateAmount * 0.1 + 0.1 : 0.5;
-      points_circles_material.uniforms.suiji.value = newrotateAmount * 0.5; // 旋转角度越大，随机值越大
-    } else {
-      positions[i] = x;
-      positions[i + 1] = y;
-      positions[i + 2] = z;
-      points_circles_material.uniforms.suiji.value =
-        (rotateAmount < 0 ? 0 : rotateAmount - xzl) * 0.5; // 旋转角度越大，随机值越大
-    }
-
-    // 如果 y < -5，就把点丢弃
-
-    // 计算相对于平面中心的 y 轴距离
-    // let yOffset = Math.abs(y);
-    // 基于 y 轴距离计算透明度，距离越近透明度越低
-    // 如果颜色为 0x00ffff,周期性的改变透明度
-    // let opacity = 1 + Math.sin(time * 0.8);
-    // opacities[i] = opacity < 0.5 ? 0.5 : opacity * 0.8 - yOffset * 0.2;
-    points_circles.geometry.attributes.opacityMultiplier.needsUpdate = true;
+    positions[i] = x;
+    positions[i + 1] = y;
+    positions[i + 2] = z;
+    points_circles.geometry.attributes.opacityMultiplier.needsUpdate = true; // 更新顶点透明度
     points_circles.geometry.attributes.position.needsUpdate = true; // 更新顶点位置
     points_circles.geometry.attributes.color.needsUpdate = true; // 更新顶点颜色
   }
 }
 
-let widthdd = window.innerWidth;
-
-// 窗口大小改变时，更新渲染器的宽度和高度
 let onWindowResize = () => {
   if (window.innerWidth < 996) {
     return;
   }
-  widthdd = window.innerWidth;
   const width = window.innerWidth;
   const height = window.innerHeight;
   renderer.setSize(width, height);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
 };
-if (widthdd > 996) {
-  renderer.domElement.style.position = "fixed";
-}
-// 鼠标移动时，更新旋转角度
-let onWindowMouseMove = (event: { clientX: any; clientY: any }) => {
-  const x = event.clientX;
-  const y = event.clientY;
-  // rotateAmount = (y - window.innerHeight / 2) / 250;
-  // rotateAmount = rotateAmount < 0 ? 0 : rotateAmount;
-  // console.log('rotateAmount:', rotateAmount)
-};
-
-// 监听鼠标滚轮事件
-let onWindowScroll = () => {
-  if (widthdd < 996) {
-    return;
-  }
-  const y = window.scrollY;
-  targetInterpolationFactor1 = ((y / 2) * (y / 2)) / 200000;
-  // if (targetInterpolationFactor1 == 1) {
-  // console.log('y:', y)
-  // console.log('interpolationFactor1:', interpolationFactor1)
-  // }
-  interpolationFactor1 = interpolationFactor1 > 1 ? 1 : interpolationFactor1; // 确保插值因子不超过 1
-  if (interpolationFactor1 >= 1) {
-    if (targetRotateAmount < 0.15) {
-      targetRotateAmount = (y - 400) / 10000;
-      emit("update:show1", false);
-    } else {
-      emit("update:show1", true);
-      let delta = y - baseScrollY;
-      targetRotateAmount += delta * accelerationFactor;
-      // targetRotateAmount = (y - 400) / 10000;
-    }
-  } else {
-    emit("update:show1", false);
-  }
-  // 更新基准点
-  baseScrollY = y;
-  // 更新上次滚动位置
-  lastScrollY = y;
-  // 确保 rotateAmount 不会变得过大或负值
-  rotateAmount = Math.max(rotateAmount, 0);
-  rotateAmount = Math.min(rotateAmount, 2.2); // 假设 1 是 rotateAmount 的上限
-};
-
 onMounted(() => {
   animation_container.value?.appendChild(renderer.domElement);
   window.addEventListener("resize", onWindowResize);
-  window.addEventListener("mousemove", onWindowMouseMove);
-  window.addEventListener("scroll", onWindowScroll);
 });
-
-// });
-
-// 组件销毁时候，移除事件监听
 onUnmounted(() => {
   window.removeEventListener("resize", onWindowResize);
-  window.removeEventListener("mousemove", onWindowMouseMove);
-  window.removeEventListener("scroll", onWindowScroll);
   animation_container.value?.removeChild(renderer.domElement);
-  // 移除场景中的所有元素
   scene.remove(plane);
   scene.remove(points_circles);
-  // 移除所有的事件监听
   renderer.dispose();
-  // 移除所有的缓存
   renderer.forceContextLoss();
   renderer.context = null;
   renderer.domElement = null;
-  // renderer = null;
-  // 移除所有的几何体
   geometry.dispose();
-  // 移除所有的材质
   material.dispose();
-  // 移除所有的纹理
-  // texture.dispose();
-  // 移除所有的场景
-  // scene.dispose();
-  // 移除所有的相机
-  // camera = null;
-  // 移除所有的控制器
-  // controls.dispose();
-  // 移除所有的灯光
-  // light.dispose();
-  // 移除所有的渲染目标
-  // renderTarget.dispose();
-  // 移除所有的渲染目标
-  // renderTarget1.dispose();
-  // 移除所有的渲染目标
-  // renderTarget2.dispose();
-  // 移除所有的渲染目标
-  // renderTarget3.dispose();
 });
 </script>
 <template>
