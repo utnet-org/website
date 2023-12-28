@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
 import { getStatistics } from "@/api/home";
 import { useI18n } from "vue-i18n";
-import isDarkTheme from "@/utils/set_theme";
+// import isDarkTheme from "@/utils/set_theme";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { openNewPage } from "@/utils/request";
 import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
@@ -18,6 +18,8 @@ const { theme } = storeToRefs(home);
 const { locale } = useI18n();
 const res = ref(); //^ 数据 和 圆 Data and circles的数据
 const Data_arr = ref(); //^ Where to Start的数据
+
+const isDarkTheme = false;
 onMounted(async () => {
   const { data } = await getStatistics();
   res.value = data;
