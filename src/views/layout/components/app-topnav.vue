@@ -1,6 +1,7 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
 import Utility from "@/assets/images/utility.svg";
+import UtilityW from "@/assets/images/utility_white.svg";
 import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import {
@@ -8,6 +9,10 @@ import {
   saveThemePreference,
   loadThemePreference,
 } from "@/utils/set_theme";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const { locale } = useI18n();
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
@@ -211,7 +216,8 @@ const setTheme = () => {
       <RouterLink to="/">
         <div class="logo_box" @click="selectType = false">
           <Logo />
-          <Utility />
+          <UtilityW v-if="theme" />
+          <Utility v-else />
           <!-- <span class="logo_text">Utility</span> -->
         </div>
       </RouterLink>
@@ -335,7 +341,7 @@ const setTheme = () => {
   top: 0;
   left: 0;
   z-index: 999;
-  background: #fffefb;
+  background: var(--background-color);
   box-shadow: 0px 4px 24px 0px #dee7e54c;
   backdrop-filter: blur(8px);
   flex-shrink: 0; // 防止被 flex 容器压缩
