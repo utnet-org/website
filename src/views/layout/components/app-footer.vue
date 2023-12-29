@@ -360,8 +360,10 @@ const printWidth = () => {
           src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Layer_1.svg"
           alt=""
           srcset=""
+          style="margin-right: 10px"
         />
-        <Utility />
+        <Utility v-if="!theme" />
+        <Utility1 v-if="theme" />
         <!-- <div class="container_top_title">Utility</div> -->
       </div>
       <div class="container_icon">
