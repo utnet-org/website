@@ -472,8 +472,17 @@ onUnmounted(() => {
               @mouseover="UtilityChainChange(index)"
               @mouseleave="UtilityChainChangeli"
             >
-              <div class="item_img">
+              <div
+                class="item_img"
+                :style="{
+                  boxShadow:
+                    item.isclick && theme
+                      ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
+                      : 'none',
+                }"
+              >
                 <img
+                  v-if="!theme"
                   :style="{
                     opacity: item.isclick ? 1 : 0,
                   }"
@@ -486,9 +495,10 @@ onUnmounted(() => {
                   class="item_img_img"
                   :src="item.img"
                   :style="{
-                    filter: item.isclick
-                      ? 'brightness(0%)'
-                      : 'brightness(100%)',
+                    filter:
+                      item.isclick && !theme
+                        ? 'brightness(0%)'
+                        : 'brightness(100%)',
                   }"
                   alt=""
                 />
@@ -499,7 +509,9 @@ onUnmounted(() => {
               </div>
               <div
                 class="item_title"
-                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
+                :style="{
+                  color: item.isclick ? '#3EDFCF' : 'var(--Utility-text-color)',
+                }"
               >
                 {{ $t(item.title) }}
               </div>
@@ -568,12 +580,28 @@ onUnmounted(() => {
                 alt=""
               />
             </div>
-            <img class="" :src="item.img" style="" alt="" />
-            <div class="time">
+            <img class="swiper_img" :src="item.img" style="" alt="" />
+            <div
+              class="time"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
               {{ item.time }}
             </div>
-            <div class="text">
-              {{ $t(item.text) }}
+            <div
+              class="text"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
+              {{ item.text }}
             </div>
           </swiper-slide>
         </swiper>
@@ -610,12 +638,38 @@ onUnmounted(() => {
                 alt=""
               />
             </div>
-            <img class="swiper_img" :src="item.img" alt="" />
-            <div class="time">
+            <img
+              :style="{
+                boxShadow:
+                  item.isswiperenter && theme
+                    ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
+                    : 'none',
+              }"
+              class="swiper_img"
+              :src="item.img"
+              alt=""
+            />
+            <div
+              class="time"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
               {{ item.time }}
             </div>
-            <div class="text">
-              {{ $t(item.text) }}
+            <div
+              class="text"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
+              {{ item.text }}
             </div>
           </swiper-slide>
         </swiper>
@@ -626,7 +680,12 @@ onUnmounted(() => {
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
           <img
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png"
+            class="Contribute_to_Utility_bg_img"
+            :src="
+              theme
+                ? '/src/assets/images/Objects.png'
+                : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
+            "
             alt=""
           />
         </div>
@@ -1072,9 +1131,10 @@ onUnmounted(() => {
       }
       .circles {
         position: relative;
+
         .point {
           display: flex;
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--circles-point);
           font-family: Lantinghei SC;
           font-style: normal;
           font-weight: 400;
@@ -1092,16 +1152,19 @@ onUnmounted(() => {
         .round_one,
         .round_three,
         .round_five {
-          background-color: #fffefb;
+          background: var(--circles-bg-round);
           border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
+          border: 1px solid var(--circles-border);
         }
         .round_two,
         .round_four,
         .round_six {
-          background-color: rgba(247, 247, 244, 1);
+          background: var(--circles-bg-round1);
           border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
+          border: 1px solid var(--circles-border);
+        }
+        .round_one {
+          background: var(--circles-bg);
         }
       }
     }
@@ -1112,7 +1175,7 @@ onUnmounted(() => {
       align-items: center;
       justify-content: center;
       .title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--Utility-title-color);
         font-family: Lantinghei SC;
         font-weight: 400;
       }
@@ -1131,15 +1194,14 @@ onUnmounted(() => {
           margin-bottom: 9px;
           position: relative;
 
-          background: linear-gradient(
-            97deg,
-            #f1f7f6 40%,
-            rgba(164, 229, 221, 0.2) 100.1%
-          );
+          background: var(--Utility-item-img);
           border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+
+          border: var(--Utility-item-border);
+
           img {
             width: 70%;
             height: 70%;
@@ -1164,7 +1226,7 @@ onUnmounted(() => {
           align-items: center;
           font-size: 12px;
           font-weight: 400;
-          background-color: #fff;
+          background: var(--background-color);
           color: #3edfcf;
         }
       }
@@ -1197,7 +1259,7 @@ onUnmounted(() => {
             height: 34px;
             flex-shrink: 0;
             border-radius: 50%;
-            background-color: #000;
+            background-color: var(--swiper-icon-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1207,7 +1269,7 @@ onUnmounted(() => {
             }
           }
           .time {
-            color: #151c1a;
+            color: var(--swiper-time-color);
             font-family: Jaldi;
             font-style: normal;
             font-weight: 400;
@@ -1215,7 +1277,7 @@ onUnmounted(() => {
             opacity: 0.8;
           }
           .text {
-            color: #151c1a;
+            color: var(--swiper-time-color);
             font-family: Inter;
             font-weight: 600;
           }
@@ -1237,19 +1299,21 @@ onUnmounted(() => {
           rgba(244, 248, 248, 0.05) 0.13%,
           rgba(244, 248, 248, 0) 99.87%
         );
-        box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+        box-shadow: var(--Contribute-lighter-box-shadow);
         display: flex;
         flex-direction: column;
         align-items: center;
         z-index: 100;
 
+        box-shadow: var(--Contribute-lighter-box-shadow);
+
         .title_one {
           font-weight: 600;
-          color: #151c1a;
+          color: var(--Utility-text-color);
           font-family: Inter;
         }
         .text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--Utility-text-color);
           font-family: Inter;
           font-weight: 400;
         }
@@ -1260,6 +1324,10 @@ onUnmounted(() => {
           display: flex;
           justify-content: center;
           align-items: center;
+
+          .button_text {
+            color: var(--where-text);
+          }
         }
       }
     }
@@ -1558,7 +1626,7 @@ onUnmounted(() => {
             transition: all 0.3s;
           }
           .item_text {
-            color: rgba(21, 28, 26, 0.7);
+            color: var(--Utility-item-text);
             font-family: Inter;
             font-size: 14px;
             font-weight: 400;
@@ -1604,7 +1672,7 @@ onUnmounted(() => {
         // *这将在滑动器的左侧创建模糊效果
         .shadow_left {
           transform: rotate(180deg);
-          width: 202px;
+          width: 232px;
           height: 404px;
           position: absolute;
           left: -50px;
@@ -1612,8 +1680,8 @@ onUnmounted(() => {
           bottom: 0;
           background: linear-gradient(
             -90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+            var(--swiper-shadow-left) 43.44%,
+            var(--swiper-shadow-left1) 90%
           );
           z-index: 2; /* 确保阴影在内容之上 */
         }
@@ -1621,7 +1689,7 @@ onUnmounted(() => {
         .shadow_right {
           // 旋转100deg;
           transform: rotate(180deg);
-          width: 262px;
+          width: 280px;
           height: 404px;
           position: absolute;
           right: -100px;
@@ -1629,8 +1697,8 @@ onUnmounted(() => {
           bottom: 0;
           background: linear-gradient(
             90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+            var(--swiper-shadow-left) 43.44%,
+            var(--swiper-shadow-left1) 90%
           );
           //模糊
           z-index: 2; /* 确保阴影在内容之上 */
@@ -1647,12 +1715,12 @@ onUnmounted(() => {
         border-radius: 50%;
         cursor: pointer; ///鼠标移上去变成手指
 
-        background-color: rgba(21, 28, 26, 0.9) !important;
+        background-color: var(--swiper-prev-bg) !important;
         color: #fff !important;
       }
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
-        background-color: #fff !important;
+        background-color: var(--swiper-prev-disabled-bg) !important;
         border: 1px solid #000 !important;
         color: #000 !important;
         opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
@@ -1690,7 +1758,7 @@ onUnmounted(() => {
         height: 394px;
 
         border-radius: 10px;
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(7px);
         position: absolute;
         left: 20%;
         top: 20%;
@@ -1718,7 +1786,7 @@ onUnmounted(() => {
             .button_text {
               font-size: 14px;
               font-weight: 500;
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--where-text);
               margin-right: 8px;
               margin-left: 12px;
             }
@@ -1987,7 +2055,7 @@ onUnmounted(() => {
               font-weight: 600;
             }
             .item_text {
-              color: #151c1a;
+              color: var(--Utility-item-text);
               font-family: Inter;
               font-size: 8px;
               font-style: normal;
@@ -2008,17 +2076,16 @@ onUnmounted(() => {
       }
 
       .merry_go_round {
-        padding: 36px 20px 0 20px;
+        padding: 36px 20px 30px 20px;
 
         .swiper {
           width: 100%;
           justify-content: center;
           .swiper-slide {
             align-items: center;
-
             .swiper_img {
-              width: 350px;
-              height: 286px;
+              width: 80% !important;
+              height: 80% !important;
             }
 
             .time {
@@ -2030,6 +2097,7 @@ onUnmounted(() => {
               font-size: 16px;
               font-style: normal;
               line-height: 22px; /* 22.64px */
+              margin-bottom: 50px;
             }
           }
           /* 设置未激活状态下的圆点颜色 */
@@ -2040,7 +2108,7 @@ onUnmounted(() => {
             border-radius: 8px;
           }
 
-          /* 设置激活（当前选中）状态下的圆点颜色 */
+          // /* 设置激活（当前选中）状态下的圆点颜色 */
           :deep(.swiper-pagination .swiper-pagination-bullet-active) {
             width: 8px;
             height: 8px;
@@ -2052,7 +2120,7 @@ onUnmounted(() => {
 
       .Contribute_to_Utility {
         width: 100%;
-        // height: 402px;
+        height: 402px;
         display: flex;
         justify-content: center;
         // background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
@@ -2062,18 +2130,16 @@ onUnmounted(() => {
         padding: 30px 0;
 
         .Contribute_to_Utility_bg {
-          width: 300%;
-          height: 1206px;
           position: absolute;
           justify-content: center;
           right: 0;
-          top: -200px;
+          top: 0px;
         }
 
         .Create_a_lighter {
           width: 350px;
           height: 161px;
-          // position: absolute;
+          position: absolute;
           bottom: 28px;
           left: 50;
           padding-top: 17px;
@@ -2104,7 +2170,6 @@ onUnmounted(() => {
 
               align-items: center;
               .button_text {
-                color: rgba(21, 28, 26, 0.9);
                 text-align: center;
                 font-family: Inter;
                 font-size: 8px;
