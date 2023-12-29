@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
 import { getStatistics } from "@/api/home";
 import { useI18n } from "vue-i18n";
-import isDarkTheme from "@/utils/set_theme";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { openNewPage } from "@/utils/request";
 import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
@@ -477,13 +476,13 @@ onUnmounted(() => {
                 class="item_img"
                 :style="{
                   boxShadow:
-                    item.isclick && isDarkTheme
+                    item.isclick && theme
                       ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
                       : 'none',
                 }"
               >
                 <img
-                  v-if="!isDarkTheme"
+                  v-if="!theme"
                   :style="{
                     opacity: item.isclick ? 1 : 0,
                   }"
@@ -497,7 +496,7 @@ onUnmounted(() => {
                   :src="item.img"
                   :style="{
                     filter:
-                      item.isclick && !isDarkTheme
+                      item.isclick && !theme
                         ? 'brightness(0%)'
                         : 'brightness(100%)',
                   }"
@@ -586,7 +585,7 @@ onUnmounted(() => {
               class="time"
               :style="{
                 color:
-                  item.isswiperenter && isDarkTheme
+                  item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
                     : 'var(--swiper-text-color1)',
               }"
@@ -597,7 +596,7 @@ onUnmounted(() => {
               class="text"
               :style="{
                 color:
-                  item.isswiperenter && isDarkTheme
+                  item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
                     : 'var(--swiper-text-color1)',
               }"
@@ -642,7 +641,7 @@ onUnmounted(() => {
             <img
               :style="{
                 boxShadow:
-                  item.isswiperenter && isDarkTheme
+                  item.isswiperenter && theme
                     ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
                     : 'none',
               }"
@@ -654,7 +653,7 @@ onUnmounted(() => {
               class="time"
               :style="{
                 color:
-                  item.isswiperenter && isDarkTheme
+                  item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
                     : 'var(--swiper-text-color1)',
               }"
@@ -665,7 +664,7 @@ onUnmounted(() => {
               class="text"
               :style="{
                 color:
-                  item.isswiperenter && isDarkTheme
+                  item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
                     : 'var(--swiper-text-color1)',
               }"
@@ -683,7 +682,7 @@ onUnmounted(() => {
           <img
             class="Contribute_to_Utility_bg_img"
             :src="
-              isDarkTheme
+              theme
                 ? '/src/assets/images/Objects.png'
                 : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
             "
