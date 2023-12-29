@@ -994,15 +994,6 @@ onUnmounted(() => {
     border-radius: 6px;
     border: 1px solid #3edfcf;
 
-    &:hover {
-      // background: linear-gradient(
-      //   177deg,
-      //   #ffffff48 -24.77%,
-      //   rgba(255, 255, 255, 0) 97.53%
-      // );
-      box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
-    }
-
     .text {
       font-size: 14px;
       font-weight: 500;
@@ -1114,7 +1105,7 @@ onUnmounted(() => {
           flex-wrap: wrap;
           justify-content: start;
           .amount {
-            color: rgba(28, 23, 21, 0.9);
+            color: var(--data-amount-color);
             font-family: Lantinghei SC;
             font-style: normal;
             font-weight: 400;
@@ -1456,7 +1447,7 @@ onUnmounted(() => {
             padding: 12px 16px; /* 添加适当的内边距 */
             border-radius: 8px;
             &:hover {
-              box-shadow: 0px 5px 20px 0px var(--where-button-shadow);
+              box-shadow: 0px 4px 20px 0px var(--where-button-shadow);
               background: linear-gradient(
                 177deg,
                 var(--where-button-hover) -4.77%,
@@ -1493,11 +1484,11 @@ onUnmounted(() => {
               font-size: 44px;
               padding-bottom: 10px;
               margin-bottom: 18px;
-              border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
+              border-bottom: 1.5px solid var(--data-amount-border-color);
               padding-right: 11px;
             }
             .data_text {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--data-data_text-color);
             }
           }
         }
@@ -1794,13 +1785,11 @@ onUnmounted(() => {
           .button_left,
           .button_right {
             margin-right: 60px;
+
             &:hover {
-              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              // background: linear-gradient(
-              //   177deg,
-              //   #fff -24.77%,
-              //   rgba(255, 255, 255, 0) 97.53%
-              // );
+              background: var(--Contribute-button_left-bg);
+              border: var(--Contribute-button_left-border);
+              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
             }
           }
         }
@@ -1924,12 +1913,12 @@ onUnmounted(() => {
                 width: 100%;
                 padding-bottom: 4px;
                 margin-bottom: 4px;
-                border-bottom: 1px solid rgba(21, 28, 26, 0.2);
+                border-bottom: 1px solid var(--data-amount-border-color);
                 font-size: 20px;
                 font-weight: 400;
               }
               .data_text {
-                color: #b9bbba;
+                color: var(--data-data_text-color1);
               }
             }
           }
