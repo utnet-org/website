@@ -395,4 +395,43 @@ export default {
 
     ongoing: "Ongoing",
   },
+  poci_consensus: {
+    poci_or_Proof:
+      "POCI, or Proof of Trusted Computing Integrity, is a blockchain consensus mechanism used to prove computing power. It is different from the traditional Proof of computational power based on Proof of Work (PoW), which requires consuming computational resources by solving complex mathematical problems. Instead, POCI relies on random numbers and power competition on the chain to elect suitable miners to generate new blocks.",
+    the_introduction_of:
+      "The introduction of POCI also means more fair competition and higher security in the network. Through on-chain random numbers and computing power competition, POCI fairly elects the right miners to generate new blocks, which not only ensures the efficient use of computing power, but also protects the network from malicious behavior. In addition, POCI enables the Utility network to avoid a large number of ineffective calculations that are often used in traditional blockchains to combat the Byzantine checkmate problem. This increase in efficiency allows 99% of computing power to be freed up for more practical services, such as distributed training and inference computing, enabling large-scale applications.",
+    POCI_not_only:
+      "POCI not only improves computing efficiency and security in the Utility network, but also promotes the fairness and transparency of the network, provides users with more efficient and reliable services, and promotes the progress and application of blockchain technology.",
+    The_use_of_high_performance: "The use of high-performance computing chips",
+    POCI_uses_high_performance:
+      "POCI uses high-performance Sophon TPU computing chips designed for artificial intelligence with the capability of teraflops, with a focus on deep learning computing.",
+    Computing_power_ownership: "Computing power ownership model",
+    POCI_abandons_the:
+      "POCI abandons the high cost and high energy consumption computing model, and adopts the model based on chip computing power ownership.",
+    On_chain_random_number: "On-chain random number and computing power competition",
+    POCI_selects_appropriate:
+      "POCI selects appropriate miners to generate new blocks through on-chain random numbers and computing power competition, ensuring the availability of computing power for miners and fair competition in the network.",
+    The_SPACC_module_is:
+      "The SPACC module is used to perform cryptographic operations, such as AES (Advanced Encryption Standard) encryption and decryption operations. This module ensures the privacy and uniqueness of the chip, so that the secret identity and key information of the chip will not be exposed to the outside. The SPACC module exists to enhance the security of the entire network and ensure the privacy of information and operations",
+    The_PKA_module_is_responsible:
+      "The PKA module is responsible for private key signing and verification operations. In the Ellipse Curve Cryptography (ECC) algorithm, the PKA module is used to generate public and private keys to provide the basis for encrypted communication. The function of this module is to ensure the security and reliability of digital signatures, further strengthening the security of the network",
+    Efuse_Storage_area: "Efuse storage area",
+    The_Efuse_storage_area:
+      'The Efuse storage area is used to etch unique serial numbers and 128-bit AES keys (i.e. "security keys"). This security key is an important part of the chip, ensuring the unique identity and security of each chip. The information in the Efuse area is unchangeable, ensuring the security features of the chip and the reliability of authentication',
+    How_is_POCI_different: "How is POCI different from traditional PoW (Proof of Work)?",
+    Unlike_PoW_which:
+      "Unlike PoW, which requires solving complex mathematical problems to prove computing power, POCI uses on-chain random numbers and computing power competition to elect miners, which is more efficient and energy-saving.",
+    How_does_POCI_ensure: "How does POCI ensure network security?",
+    POCI_ensures_the_security:
+      "POCI ensures the security of the network by verifying the computing power of nodes and using encryption technology inside the chip.",
+    How_does_POCI_contribute: "What contribution does POCI make to blockchain scalability?",
+    POCI_contributes_to:
+      "POCI contributes to the expansion and wider application of blockchain technology by improving computing efficiency and reducing costs.",
+    How_does_POCI_support: "How does POCI support decentralization?",
+    POCI_supports_decentralized:
+      "POCI supports decentralized and distributed network structures through fair computing power proof and random number generation.",
+    What_role_does_POCI: "What role does POCI play in future blockchain development?",
+    As_an_efficient_and_environmentally:
+      "As an efficient and environmentally friendly consensus mechanism, POCI is expected to play a key role in the future development of blockchain technology, especially in improving network performance and expanding blockchain applications.",
+  },
 };

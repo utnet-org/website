@@ -81,7 +81,10 @@ const changeCheckIndex = (index: any) => {
           </div>
           <div class="header_content_button">
             <div>Read More</div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -96,7 +99,11 @@ const changeCheckIndex = (index: any) => {
           </div>
         </div>
         <div class="options_list">
-          <div class="options_item" v-for="(item, index) in optionsList" :key="index">
+          <div
+            class="options_item"
+            v-for="(item, index) in optionsList"
+            :key="index"
+          >
             <div class="options_item_header">
               <div class="options_item_header_index">{{ index + 1 }}</div>
               <div class="options_item_header_title">{{ $t(item.title) }}</div>
@@ -105,22 +112,38 @@ const changeCheckIndex = (index: any) => {
           </div>
         </div>
       </div>
-      <Accordion :accordionTitle="accordionTitle" :accordionList="accordionList" />
+      <Accordion
+        :accordionTitle="accordionTitle"
+        :accordionList="accordionList"
+      />
       <div class="faq">
         <div class="faq_title">FAQ</div>
         <div class="faq_question_list">
-          <div class="faq_item_question" v-for="(citem, cindex) in questionList" :key="cindex"
-            :class="checkQuestionIndex == cindex ? 'active' : ''">
-            <div class="faq_item_question_title" @click="changeCheckIndex(cindex)">
+          <div
+            class="faq_item_question"
+            v-for="(citem, cindex) in questionList"
+            :key="cindex"
+            :class="checkQuestionIndex == cindex ? 'active' : ''"
+          >
+            <div
+              class="faq_item_question_title"
+              @click="changeCheckIndex(cindex)"
+            >
               <div class="faq_item_question_title_side">
                 <div class="faq_item_question_title_side_index">
                   {{ citem.id }}/
                 </div>
                 <div class="item_question_text">{{ $t(citem.question) }}</div>
               </div>
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png" alt="" />
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
+                alt=""
+              />
             </div>
-            <div v-if="checkQuestionIndex == cindex" class="faq_item_question_answer">
+            <div
+              v-if="checkQuestionIndex == cindex"
+              class="faq_item_question_answer"
+            >
               {{ $t(citem.answer) }}
             </div>
           </div>
@@ -131,12 +154,13 @@ const changeCheckIndex = (index: any) => {
 </template>
 <style scoped lang="less">
 .container {
-  background-color: #fffefb;
+  // background-color: #fffefb;
   padding-top: 70px;
   .header {
     width: 100%;
     height: 578px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png")
+      no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -147,9 +171,11 @@ const changeCheckIndex = (index: any) => {
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -218,7 +244,7 @@ const changeCheckIndex = (index: any) => {
       align-items: flex-start;
 
       .options_side_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 22px;
         font-weight: 700;
@@ -226,7 +252,7 @@ const changeCheckIndex = (index: any) => {
       }
 
       .options_side_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -246,16 +272,18 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
+        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
+          no-repeat;
         background-size: cover;
         margin-bottom: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+        box-shadow: var(--learning-center-what-shadow);
 
         &:hover {
-          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png") no-repeat;
+          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png")
+            no-repeat;
           background-size: cover;
         }
 
@@ -280,7 +308,7 @@ const changeCheckIndex = (index: any) => {
           }
 
           .options_item_header_title {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Lantinghei SC;
             font-size: 16px;
             font-weight: 700;
@@ -288,7 +316,7 @@ const changeCheckIndex = (index: any) => {
         }
 
         .options_item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Inter;
           font-size: 14px;
           font-weight: 500;
@@ -307,7 +335,7 @@ const changeCheckIndex = (index: any) => {
     padding: 80px 12% 110px;
 
     .faq_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
@@ -319,7 +347,7 @@ const changeCheckIndex = (index: any) => {
       flex-direction: column;
 
       .faq_item_question {
-        border-bottom: 2px solid rgba(21, 28, 26, 0.06);
+        border-bottom: 2px solid var(--poci_consensus-color);
 
         &:last-child {
           border-bottom: none;
@@ -339,12 +367,13 @@ const changeCheckIndex = (index: any) => {
             .faq_item_question_title_side_index {
               padding: 4px 11px;
               border-radius: 20px;
-              border: 1px solid rgba(21, 28, 26, 0.9);
+              border: 1px solid var(--where-text);
               margin-right: 10px;
+              color: var(--where-text);
             }
 
             .item_question_text {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--where-text);
               font-family: Lantinghei SC;
               font-size: 16px;
               font-weight: 700;
@@ -363,7 +392,7 @@ const changeCheckIndex = (index: any) => {
 
         .faq_item_question_answer {
           padding: 0 5% 28px;
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
@@ -403,7 +432,8 @@ const changeCheckIndex = (index: any) => {
     .header {
       height: 484px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_poci.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_poci.png")
+        no-repeat;
       background-size: cover;
       justify-content: center;
 
@@ -451,7 +481,8 @@ const changeCheckIndex = (index: any) => {
           margin-bottom: 12px;
 
           &:hover {
-            background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
+            background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
+              no-repeat;
             background-size: cover;
           }
         }
@@ -460,8 +491,6 @@ const changeCheckIndex = (index: any) => {
 
     .faq {
       padding: 44px 5% 14px;
-
-      .faq_question_list {}
     }
   }
 }

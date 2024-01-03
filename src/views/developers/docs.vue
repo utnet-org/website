@@ -5,26 +5,30 @@ const options_list = ref([
   {
     title: "Run a node",
     text: "docs.Empower_the_Network",
-    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
+    images:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
     style: "width: 87px; height: 100px; ",
   },
   {
     title: "Provide my hashing power",
     text: "docs.Contribute_Computing_Power",
-    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
+    images:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
 
     style: "width: 88px; height: 123px; ",
   },
   {
     title: "build a dapp",
     text: "docs.Innovate_with_Us",
-    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
+    images:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
     style: "width: 100px; height: 95px; ",
   },
   {
     title: "White Paper",
     text: "docs.Explore_Our_Foundation",
-    images: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
+    images:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
     style: "width: 87px; height: 100px; ",
   },
 ]);
@@ -61,7 +65,7 @@ const options_list = ref([
 </template>
 <style scoped lang="less">
 .container {
-  background: #fffefb;
+  // background: #fffefb;
   padding-top: 70px;
 }
 
@@ -69,7 +73,8 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png")
+      no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -115,11 +120,12 @@ const options_list = ref([
     margin: 8px 8px;
     padding: 0px 50px;
     border-radius: 12px;
-    box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+    box-shadow: var(--docs-box-shadow-light);
     cursor: pointer;
 
     &:hover {
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_options_background.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_options_background.png")
+        no-repeat;
       background-size: cover;
     }
 
@@ -133,7 +139,7 @@ const options_list = ref([
     }
 
     .options_item_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 16px;
       font-weight: 500;
@@ -149,7 +155,8 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_Background.svg") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_Background.svg")
+      no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -170,7 +177,7 @@ const options_list = ref([
     }
 
     .header_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       // font-family: Lantinghei SC;
       font-size: 28px;
       font-style: normal;
@@ -180,7 +187,7 @@ const options_list = ref([
     }
 
     .header_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 16px;
       font-style: normal;
@@ -228,7 +235,7 @@ const options_list = ref([
     }
 
     .options_item_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       text-align: center;
       font-family: Inter;
       font-size: 16px;

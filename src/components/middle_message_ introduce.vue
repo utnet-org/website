@@ -127,21 +127,21 @@ const changeSwitchId = (id: number) => {
   .first_level_message {
     height: 247px;
     padding: 0 11.5%;
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     .first_level_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
     }
 
     .first_level_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
@@ -152,21 +152,21 @@ const changeSwitchId = (id: number) => {
 
   .second_level_message {
     padding: 15px 11.5% 0px;
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     .second_level_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
     }
 
     .second_level_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
@@ -180,7 +180,7 @@ const changeSwitchId = (id: number) => {
   }
 
   .images_list {
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     justify-content: flex-start;
     padding: 40px 11% 100px;

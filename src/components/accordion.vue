@@ -170,14 +170,14 @@ const changeAccordionCardEnd = (e: any) => {
 .accordion {
   width: 100%;
   padding: 80px 0;
-  background-color: #f6f9f9;
+  // background-color: #f6f9f9;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   .accordion_title {
     width: 413px;
-    color: rgba(21, 28, 26, 0.9);
+    color: var(--where-text);
     font-family: Lantinghei SC;
     font-size: 22px;
     font-weight: 700;
@@ -194,7 +194,7 @@ const changeAccordionCardEnd = (e: any) => {
     .accordion_item_title {
       min-width: 410px;
       max-width: 413px;
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       text-align: right;
       font-family: Lantinghei SC;
       font-size: 16px;
@@ -206,7 +206,7 @@ const changeAccordionCardEnd = (e: any) => {
       padding-left: 138px;
 
       .accordion_item_content_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 18px;
         font-weight: 600;
@@ -214,7 +214,7 @@ const changeAccordionCardEnd = (e: any) => {
       }
 
       .accordion_item_content_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -231,7 +231,7 @@ const changeAccordionCardEnd = (e: any) => {
     overflow: hidden;
 
     .accordion_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
@@ -261,12 +261,12 @@ const changeAccordionCardEnd = (e: any) => {
         }
 
         .phone_accordion_item_title_from_community {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           text-align: left;
         }
 
         .phone_accordion_item_content_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           text-align: center;
           font-family: Inter;
           font-size: 16px;
@@ -289,7 +289,7 @@ const changeAccordionCardEnd = (e: any) => {
         }
 
         .phone_accordion_item_content_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
