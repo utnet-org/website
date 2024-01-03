@@ -1,47 +1,60 @@
-<script  setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 <template>
   <div class="container">
     <div class="header">
       <div class="header_content">
         <div class="header_content_bg"></div>
-        <div class="header_content_header">{{ $t('soloutions.mining_tools') }}</div>
+        <div class="header_content_header">
+          {{ $t("soloutions.mining_tools") }}
+        </div>
         <div class="header_content_button">
-          <div class="header_content_button_one all">{{ $t('soloutions.mining_tools_options1') }}</div>
-          <div class="header_content_button_two all">{{ $t('soloutions.mining_tools_options2') }}</div>
-          <div class="header_content_button_three all">{{ $t('soloutions.mining_tools_options3') }}</div>
+          <div class="header_content_button_one all">
+            {{ $t("soloutions.mining_tools_options1") }}
+          </div>
+          <div class="header_content_button_two all">
+            {{ $t("soloutions.mining_tools_options2") }}
+          </div>
+          <div class="header_content_button_three all">
+            {{ $t("soloutions.mining_tools_options3") }}
+          </div>
           <!--          <div class="header_content_button_four all">COIWN </div>-->
         </div>
       </div>
     </div>
     <div class="section">
       <div class="section_title">
-        {{ $t('soloutions.about_us_title') }}
+        {{ $t("soloutions.about_us_title") }}
       </div>
       <div class="section_text">
-        {{ $t('soloutions.mining_tools_about_us_text') }}</div>
+        {{ $t("soloutions.mining_tools_about_us_text") }}
+      </div>
     </div>
     <div class="section">
       <div class="section_title">
-        {{ $t('soloutions.key_features_title') }}
+        {{ $t("soloutions.key_features_title") }}
       </div>
       <div class="section_text">
-        {{ $t('soloutions.mining_tools_key_features_text') }}</div>
-      <div class="text_img">
-        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong01.png">
+        {{ $t("soloutions.mining_tools_key_features_text") }}
       </div>
       <div class="text_img">
-        <img alt="" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong02.png">
+        <img
+          alt=""
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong01.png"
+        />
+      </div>
+      <div class="text_img">
+        <img
+          alt=""
+          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong02.png"
+        />
       </div>
     </div>
-
   </div>
 </template>
 <style scoped lang="less">
 @media (max-width: 834px) {
   .container {
-    background-color: #FFFEFB;
+    // background-color: #FFFEFB;
     margin-bottom: 50px;
 
     .header {
@@ -51,7 +64,12 @@
       background-size: cover;
       display: flex;
       justify-content: center;
-      background: linear-gradient(250deg, #CDEAF1 5.3%, #FAFBFB 43.99%, #DEF2F3 100.09%);
+      background: linear-gradient(
+        250deg,
+        #cdeaf1 5.3%,
+        #fafbfb 43.99%,
+        #def2f3 100.09%
+      );
 
       .header_content {
         width: 100%;
@@ -64,11 +82,12 @@
           width: 100px;
           height: 100px;
           margin: 0 auto;
-          background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_tool_logo.png') no-repeat;
+          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_tool_logo.png")
+            no-repeat;
         }
 
         .header_content_header {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
           text-align: center;
           font-family: Lantinghei SC;
           font-size: 20px;
@@ -90,7 +109,7 @@
             align-items: center;
             gap: 10px;
             border-radius: 20px;
-            border: 1px solid #3EDFCF;
+            border: 1px solid #3edfcf;
           }
 
           .all:hover {
@@ -105,7 +124,7 @@
       padding: 0 20px;
 
       .section_title {
-        color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+        color: var(--where-text);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 20px;
@@ -116,7 +135,7 @@
       }
 
       .section_text {
-        color: var(--Light-dark, rgba(21, 28, 26, 0.90));
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 14px;
         font-style: normal;
@@ -132,7 +151,11 @@
         height: 224px;
         flex-shrink: 0;
         border-radius: 8px;
-        background: linear-gradient(177deg, #2D3231 -24.77%, rgba(45, 50, 49, 0.00) 97.53%);
+        background: linear-gradient(
+          177deg,
+          #2d3231 -24.77%,
+          rgba(45, 50, 49, 0) 97.53%
+        );
         backdrop-filter: blur(4px);
         margin: 16px 0;
       }

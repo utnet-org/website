@@ -152,7 +152,7 @@ const changeAccordionCardEnd = (e: any) => {
           class="phone_accordion_item_image_from_community"
         />
         <div class="phone_accordion_item_content_text">
-          {{ item.messageText }}
+          {{ $t(item.messageText) }}
         </div>
       </div>
     </div>
@@ -241,7 +241,7 @@ const changeAccordionCardEnd = (e: any) => {
 
     .phone_accordion_options {
       width: 300%;
-      background-color: #f6f9f9;
+      background-color: var(--app-footer-bgc);
       overflow-x: auto;
       display: flex;
 
