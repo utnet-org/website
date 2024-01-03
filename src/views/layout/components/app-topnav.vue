@@ -342,7 +342,7 @@ const setTheme = () => {
   left: 0;
   z-index: 999;
   background: var(--background-color);
-  box-shadow: 0px 4px 24px 0px #dee7e54c;
+  box-shadow: var(--box-shadow-light);
   backdrop-filter: blur(8px);
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;
