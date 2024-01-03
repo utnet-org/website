@@ -151,35 +151,35 @@ export default {
   learning_center: {
     Learning_center: "Learning centre",
     A_guide_and_help_center:
-        " Guide and help center for beginners to understand and use various technologies on Utility",
+      " Guide and help center for beginners to understand and use various technologies on Utility",
     How_to_use_it: "how to use it",
     What_is_Utility: "What is Utility",
     Enhance_Utility_Network: "Enhance Utility Network",
     Utility_Network_has_made:
-        "Utility Network has made many innovations based on traditional blockchain. It defines the chip in a different way and allows efficient use of computing power. Learn more and get started:",
+      "Utility Network has made many innovations based on traditional blockchain. It defines the chip in a different way and allows efficient use of computing power. Learn more and get started:",
     Start_from_here: "Start here as a beginner",
     What_is_UNC_Token: "What is a UNC token",
     Start_UNC_Token_UNC:
-        "Start UNC Token (UNC) is the currency of the utility network and its ecosystem",
+      "Start UNC Token (UNC) is the currency of the utility network and its ecosystem",
     What_is_POCI_Consensus: "What is POCI consensus",
     it_is_a_brand_new:
-        "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
+      "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
     How_to_use_Utility: "How to use Utility",
     Utility_can_be_used_in:
-        "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
+      "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
     A_digital_wallet_holds:
-        "Digital wallets hold the credentials you need to prove your identity and access important places",
+      "Digital wallets hold the credentials you need to prove your identity and access important places",
     the_first_computing_power: "The first computing power rental platform issued by Utility.",
     Enhancing_Utility_Network: "Enhance Utility Network",
     Building_Utility_Network:
-        "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
+      "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
     Running_Nodes: "Running node",
     Participate_in_running: "Participate in running nodes and make important contributions.",
     Mining_and_Rental_Supply: "Mining and Lease Supply",
     Learn_how_to_mining: "Learn how to mine and rent in the Utility network.",
     Join_the_Community: "Join community",
     A_home_for_Utility_developers:
-        "Utility is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
+      "Utility is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
   },
   utilityNetwork: {
     header_title: "Utility Network",
@@ -255,6 +255,25 @@ export default {
     digital_asset_trading: "Digital Asset Trading",
     multifacetedc_ryptocurrency_platform:
       "Multifaceted Cryptocurrency Platform",
+
+
+
+    poci_consensus_title: "Proof of Computation Integrity (PoCI)",
+    poci_consensus_text:
+      "Utility network uses PoCI as consensus mechanism, combines chip ownership and VRF technology to realize fast consensus and block generation. This mechanism reduces energy consumption and improves network efficiency, which is one of the unique features of Utility network.",
+    power_scheduling_title: "Merkle State Machine (MSM)",
+    power_scheduling_text:
+      "By using Merkle state machine and Merkle tree, Utility network successfully realizes the orderly storage of off-chain data and on-chain data verification. This technology effectively reduces the storage burden of the blockchain, while ensuring the security and integrity of off-chain data.",
+    virtualization_and_isolation_execution_environment_title:
+      "Virtualization and Isolation Execution environment",
+    virtualization_and_isolation_execution_environment_text:
+      "Based on Arm framework drivers and graphics virtualization support, Utility Network implements flexible and shared TPU chips, combined with container technology, to ensure a highly isolated execution environment. This provides a secure execution environment for computing services.",
+    multiple_execution_virtual_machines_support_title: "Multiple execution virtual machines support",
+    multiple_execution_virtual_machines_support_text:
+      "Utility Network supports a variety of execution virtual machines, including Solidity VM, Kubernetes integration, WASM integration, and PyTorch external computing support. This flexibility enables the network to meet different computing needs, providing a wider range of application support.",
+    complete_economic_system_model_title: "Complete economic system model",
+    complete_economic_system_model_text:
+      "The Utilty network has a fully developed model of the economic system, divided into different epochal periods, including the Talos Age, Vajra Age, Golem Age, and Maria Age. Through incentive programs in different periods, the development of the network and the participation of users are promoted.",
   },
   community: {
     h1_1: "Welcome to Community",

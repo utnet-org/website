@@ -91,10 +91,16 @@ const thirdCheckQuestionMessage = ref(-1);
         </div>
         <div
           class="header_content_button"
-          @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')"
+          @click="
+            openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+          "
         >
           <div>White paper</div>
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg" alt="" srcset="">
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
+            alt=""
+            srcset=""
+          />
         </div>
       </div>
     </div>
@@ -106,10 +112,19 @@ const thirdCheckQuestionMessage = ref(-1);
             {{ $t("learning_center.What_is_Utility") }}？
           </div>
           <div class="text_list">
-            <div class="section_side_text" v-for="(item, index) in questionList" :key="index"
-              @mouseenter="mouseCheckIndex = index" @mouseleave="mouseCheckIndex = -1">
+            <div
+              class="section_side_text"
+              v-for="(item, index) in questionList"
+              :key="index"
+              @mouseenter="mouseCheckIndex = index"
+              @mouseleave="mouseCheckIndex = -1"
+            >
               <div>{{ $t(item) }}</div>
-              <img v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/arrow_top_right.png" alt="" />
+              <img
+                v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index"
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/arrow_top_right.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -151,6 +166,7 @@ const thirdCheckQuestionMessage = ref(-1);
                     v-else
                     src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
                     alt=""
+                    class="section_right_item_card_item_button_arrow"
                   />
                   <div
                     @mouseenter="firstCheckQuestionMessage = citem.id"
@@ -169,12 +185,13 @@ const thirdCheckQuestionMessage = ref(-1);
 </template>
 <style scoped lang="less">
 .container {
-  background-color: #fffefb;
+  // background-color: #fffefb;
   padding-top: 70px;
 
   .header {
     width: 100%;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png")
+      no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -201,7 +218,7 @@ const thirdCheckQuestionMessage = ref(-1);
       justify-content: center;
 
       .header_content_header {
-        color: vrgba(21, 28, 26, 0.9);
+        color: rgba(21, 28, 26, 0.9);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -257,7 +274,7 @@ const thirdCheckQuestionMessage = ref(-1);
         // opacity: 0.4;
         background: linear-gradient(
           177deg,
-          #fff -24.77%,
+          var(--background-start) -24.77%,
           rgba(255, 255, 255, 0) 97.53%
         );
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
@@ -275,7 +292,7 @@ const thirdCheckQuestionMessage = ref(-1);
         z-index: 10;
 
         .section_side_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Lantinghei SC;
           font-size: 18px;
           font-weight: 700;
@@ -286,7 +303,7 @@ const thirdCheckQuestionMessage = ref(-1);
           margin-left: 20px;
 
           .section_side_text {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Inter;
             font-size: 16px;
             font-weight: 400;
@@ -315,7 +332,7 @@ const thirdCheckQuestionMessage = ref(-1);
         margin-bottom: 70px;
 
         .section_right_item_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Lantinghei SC;
           font-size: 18px;
           font-weight: 700;
@@ -323,7 +340,7 @@ const thirdCheckQuestionMessage = ref(-1);
         }
 
         .section_right_item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--where-text);
           font-family: Inter;
           font-size: 16px;
           font-weight: 400;
@@ -345,10 +362,10 @@ const thirdCheckQuestionMessage = ref(-1);
             border: 1px solid rgba(115, 255, 247, 0);
             background: linear-gradient(
               90deg,
-              #fffefb 49.96%,
-              rgba(62, 223, 207, 0) 302.95%
+              var(--learning-center-what-bg) 49.96%,
+              var(--learning-center-what-bg1) 302.95%
             );
-            box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+            box-shadow: 0px 4px 24px 0px var(--learning-center-what-shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -356,9 +373,11 @@ const thirdCheckQuestionMessage = ref(-1);
             margin-bottom: 16px;
 
             &:hover {
-              background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_card_background.png")
-                no-repeat;
-              background-size: cover;
+              background: linear-gradient(
+                90deg,
+                var(--learning-center-what-bg) 49.96%,
+                rgba(62, 223, 207, 1) 302.95%
+              );
             }
 
             .section_right_item_card_item_header {
@@ -374,7 +393,7 @@ const thirdCheckQuestionMessage = ref(-1);
               }
 
               .section_right_item_card_item_header_text {
-                color: rgba(21, 28, 26, 0.9);
+                color: var(--where-text);
                 font-family: Inter;
                 font-size: 14px;
                 font-weight: 400;
@@ -395,7 +414,7 @@ const thirdCheckQuestionMessage = ref(-1);
               }
 
               & > div {
-                color: rgba(21, 28, 26, 0.9);
+                color: var(--where-text);
                 font-family: Inter;
                 font-size: 14px;
                 font-weight: 600;
@@ -405,6 +424,10 @@ const thirdCheckQuestionMessage = ref(-1);
                   text-decoration: underline #3edfcf;
                   color: #3edfcf;
                 }
+              }
+
+              .section_right_item_card_item_button_arrow {
+                filter: brightness(var(--learning-center-brightness));
               }
             }
           }
@@ -429,7 +452,8 @@ const thirdCheckQuestionMessage = ref(-1);
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_learning_center.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_learning_center.png")
+        no-repeat;
       background-size: cover;
       justify-content: center;
 

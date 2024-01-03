@@ -27,28 +27,33 @@ const definingChipsWithBlockchainTextList = [
 ];
 const optionsList = [
   {
-    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options1.png',
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options1.png",
     title: "utilityNetwork.poci_consensus_title",
     text: "utilityNetwork.poci_consensus_text",
   },
   {
-    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options2.png',
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options2.png",
     title: "utilityNetwork.power_scheduling_title",
     text: "utilityNetwork.power_scheduling_text",
   },
   {
-    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options3.png',
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options3.png",
     title:
       "utilityNetwork.virtualization_and_isolation_execution_environment_title",
     text: "utilityNetwork.virtualization_and_isolation_execution_environment_text",
   },
   {
-    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options4.png',
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options4.png",
     title: "utilityNetwork.multiple_execution_virtual_machines_support_title",
     text: "utilityNetwork.multiple_execution_virtual_machines_support_text",
   },
   {
-    image: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options5.png',
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options5.png",
     title: "utilityNetwork.complete_economic_system_model_title",
     text: "utilityNetwork.complete_economic_system_model_text",
   },
@@ -59,14 +64,22 @@ const optionsList = [
     <div class="header">
       <div class="header_content">
         <div class="header_content_header">
-          {{ $t("utilityNetwork.header_title") }}?
+          {{ $t("utilityNetwork.header_title") }}
         </div>
         <div class="header_content_text">
           {{ $t("utilityNetwork.header_message") }}
         </div>
-        <div class="header_content_button" @click="openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')">
+        <div
+          class="header_content_button"
+          @click="
+            openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+          "
+        >
           <div>{{ $t("utilityNetwork.read_more") }}</div>
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -76,7 +89,11 @@ const optionsList = [
         <div class="text">{{ $t("utilityNetwork.title_text") }}</div>
       </div>
       <div class="message_card_list">
-        <div class="message_card_list_item" v-for="(item, index) in messageCardList" :key="index">
+        <div
+          class="message_card_list_item"
+          v-for="(item, index) in messageCardList"
+          :key="index"
+        >
           <div class="message_card_list_item_title">
             <div class="message_card_list_item_title_line"></div>
             <div>{{ $t(item.title) }}</div>
@@ -91,13 +108,21 @@ const optionsList = [
         <div class="options_header_subtitle">
           {{ $t("utilityNetwork.defining_chips_with_blockchain_subtitle") }}
         </div>
-        <div class="options_header_title_text" v-for="(item, index) in definingChipsWithBlockchainTextList" :key="index">
+        <div
+          class="options_header_title_text"
+          v-for="(item, index) in definingChipsWithBlockchainTextList"
+          :key="index"
+        >
           <div class="options_header_title_text_underline"></div>
           <div>{{ $t(item) }}</div>
         </div>
       </div>
       <div class="options_list">
-        <div class="options_item" v-for="(item, index) in optionsList" :key="index">
+        <div
+          class="options_item"
+          v-for="(item, index) in optionsList"
+          :key="index"
+        >
           <div class="options_item_header">
             <div class="options_item_header_icon">
               <img :src="item.image" alt="" />
@@ -112,12 +137,13 @@ const optionsList = [
 </template>
 <style scoped lang="less">
 .container {
-  background-color: #fffefb;
+  // background-color: #fffefb;
   padding-top: 70px;
   .header {
     width: 100%;
     height: 558px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain.png") no-repeat;
+    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain.png")
+      no-repeat;
     background-size: 100% 100%;
     display: flex;
     align-items: flex-end;
@@ -128,9 +154,11 @@ const optionsList = [
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -140,7 +168,7 @@ const optionsList = [
       justify-content: center;
 
       .header_content_header {
-        color: vrgba(21, 28, 26, 0.9);
+        color: rgba(21, 28, 26, 0.9);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -164,7 +192,7 @@ const optionsList = [
         height: 42px;
         border-radius: 6px;
         border: 1px solid rgba(21, 28, 26, 0.9);
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        color: rgba(21, 28, 26, 0.9);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -195,7 +223,7 @@ const optionsList = [
       margin-bottom: 32px;
 
       .title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 20px;
         font-weight: 700;
@@ -203,7 +231,7 @@ const optionsList = [
       }
 
       .text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 16px;
         font-weight: 400;
@@ -225,10 +253,12 @@ const optionsList = [
         margin: auto;
         padding: 0 50px;
         border-radius: 12px;
-        background: linear-gradient(90deg,
-            rgba(207, 238, 235, 0) 25%,
-            rgba(179, 236, 229, 0.17) 50%,
-            rgba(179, 236, 229, 1) 25%);
+        background: linear-gradient(
+          90deg,
+          rgba(207, 238, 235, 0) 25%,
+          rgba(179, 236, 229, 0.17) 50%,
+          rgba(179, 236, 229, 1) 25%
+        );
         background-size: 200% 100%;
         transition: background-position 0.5s ease;
         display: flex;
@@ -253,7 +283,7 @@ const optionsList = [
           }
 
           div {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Lantinghei SC;
             font-size: 16px;
             font-weight: 700;
@@ -261,7 +291,7 @@ const optionsList = [
         }
 
         .message_card_list_item_text {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          color: var(--where-text);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
@@ -279,7 +309,7 @@ const optionsList = [
       // align-items: center;
 
       .options_header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 22px;
         font-weight: 700;
@@ -288,7 +318,7 @@ const optionsList = [
       }
 
       .options_header_subtitle {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 14px;
         font-weight: 400;
@@ -299,7 +329,7 @@ const optionsList = [
 
       .options_header_title_text {
         opacity: 0.8;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -310,9 +340,11 @@ const optionsList = [
         .options_header_title_text_underline {
           width: 205px;
           height: 3px;
-          background: linear-gradient(104deg,
-              #3edfcf 13.06%,
-              rgba(168, 249, 241, 0) 93.47%);
+          background: linear-gradient(
+            104deg,
+            #3edfcf 13.06%,
+            rgba(168, 249, 241, 0) 93.47%
+          );
           position: absolute;
           top: 18px;
         }
@@ -349,20 +381,20 @@ const optionsList = [
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(132deg,
-                #535856 0%,
-                #333937 53.27%,
-                #616563 100%);
+            background: linear-gradient(
+              132deg,
+              #535856 0%,
+              #333937 53.27%,
+              #616563 100%
+            );
             position: absolute;
             top: -35px;
             left: 185px;
             z-index: 2;
-
-            img {}
           }
 
           .options_item_header_title {
-            color: #151c1a;
+            color: var(--Utility-text-color);
             font-family: Inter;
             font-size: 16px;
             font-weight: 700;
@@ -372,7 +404,7 @@ const optionsList = [
         }
 
         .options_item_message {
-          color: #151c1a;
+          color: var(--Utility-text-color);
           font-family: Inter;
           font-size: 13px;
           font-weight: 400;
@@ -400,7 +432,8 @@ const optionsList = [
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_utility_explain.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_utility_explain.png")
+        no-repeat;
       background-size: cover;
       justify-content: center;
 
@@ -439,9 +472,11 @@ const optionsList = [
           width: 100%;
           min-height: 257px;
           padding: 0 14px;
-          background: linear-gradient(260deg,
-              rgba(149, 235, 227, 0.17) 1.02%,
-              rgba(149, 235, 227, 0) 38.87%);
+          background: linear-gradient(
+            260deg,
+            rgba(149, 235, 227, 0.17) 1.02%,
+            rgba(149, 235, 227, 0) 38.87%
+          );
           background-size: 100%;
           justify-content: start;
           padding-top: 20px;

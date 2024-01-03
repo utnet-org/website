@@ -1175,7 +1175,6 @@ onUnmounted(() => {
         flex-wrap: wrap;
         justify-content: space-evenly;
         .item_title {
-          color: #151c1a;
           font-family: Inter;
           text-transform: uppercase;
         }
@@ -1217,7 +1216,7 @@ onUnmounted(() => {
           align-items: center;
           font-size: 12px;
           font-weight: 400;
-          background: var(--background-color);
+          background: var(--background-color-button);
           color: #3edfcf;
         }
       }
