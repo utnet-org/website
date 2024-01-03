@@ -124,9 +124,11 @@ const options_list = ref([
     cursor: pointer;
 
     &:hover {
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_options_background.png")
-        no-repeat;
-      background-size: cover;
+      background: linear-gradient(
+        90deg,
+        var(--learning-center-what-bg) 49.96%,
+        rgba(62, 223, 207, 1) 302.95%
+      );
     }
 
     .options_item_title {
