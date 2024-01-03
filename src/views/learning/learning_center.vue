@@ -277,7 +277,7 @@ const thirdCheckQuestionMessage = ref(-1);
           var(--background-start) -24.77%,
           rgba(255, 255, 255, 0) 97.53%
         );
-        box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+        box-shadow: var(--box-shadow-light);
         opacity: 0.4;
         position: absolute;
         top: 0;
