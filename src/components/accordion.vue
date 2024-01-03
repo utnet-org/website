@@ -88,11 +88,8 @@ const changeAccordionCardEnd = (e: any) => {
     <div class="accordion_title">{{ accordionTitle }}</div>
     <div v-for="(item, index) in accordionList" :key="index">
       <div class="accordion_item">
-        <div
-          class="accordion_item_title"
-          @click="updateCheckIndex(index)"
-          :style="checkIndex == index ? 'color:#3EDFCF;' : ''"
-        >
+        <div class="accordion_item_title" @click="updateCheckIndex(index)"
+          :style="checkIndex == index ? 'color:#3EDFCF;' : ''">
           {{ item.title }}
         </div>
         <div class="accordion_item_content" v-if="checkIndex == index">
@@ -108,61 +105,34 @@ const changeAccordionCardEnd = (e: any) => {
   </div>
   <div v-else class="phone_accordion">
     <div class="accordion_title">{{ accordionTitle }}</div>
-    <div
-      class="phone_accordion_options"
-      @touchstart="changeAccordionCardStart"
-      @touchmove="changeAccordionCardMove"
-      @touchend="changeAccordionCardEnd"
-      :style="`transform: translateX(-${defaultTransformPx}%)`"
-    >
-      <div
-        v-for="(item, index) in accordionList"
-        :key="index"
-        class="phone_accordion_item"
-        :style="
-          props.fromPage == 'community'
-            ? 'padding: 28px 30px 0;height: 315px;'
-            : ''
-        "
-      >
-        <div
-          class="phone_accordion_item_title"
-          :class="
-            props.fromPage == 'community'
-              ? 'phone_accordion_item_title_from_community'
-              : ''
-          "
-        >
+    <div class="phone_accordion_options" @touchstart="changeAccordionCardStart" @touchmove="changeAccordionCardMove"
+      @touchend="changeAccordionCardEnd" :style="`transform: translateX(-${defaultTransformPx}%)`">
+      <div v-for="(item, index) in accordionList" :key="index" class="phone_accordion_item" :style="props.fromPage == 'community'
+        ? 'padding: 28px 30px 0;height: 315px;'
+        : ''
+        ">
+        <div class="phone_accordion_item_title" :class="props.fromPage == 'community'
+          ? 'phone_accordion_item_title_from_community'
+          : ''
+          ">
           {{ item.title }}
         </div>
-        <div
-          class="phone_accordion_item_content_title"
-          :class="
-            props.fromPage == 'community'
-              ? 'phone_accordion_item_content_titlefrom_community'
-              : ''
-          "
-        >
+        <div class="phone_accordion_item_content_title" :class="props.fromPage == 'community'
+          ? 'phone_accordion_item_content_titlefrom_community'
+          : ''
+          ">
           {{ item.messageTitle }}
         </div>
-        <img
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png"
-          alt=""
-          v-if="props.fromPage == 'community'"
-          class="phone_accordion_item_image_from_community"
-        />
+        <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt=""
+          v-if="props.fromPage == 'community'" class="phone_accordion_item_image_from_community" />
         <div class="phone_accordion_item_content_text">
           {{ item.messageText }}
         </div>
       </div>
     </div>
     <div class="phone_accordion_options_dot">
-      <div
-        class="phone_accordion_options_dot_item"
-        v-for="(item, index) in accordionList.length"
-        :key="index"
-        :class="Number(checkIndex) == index ? 'active' : ''"
-      ></div>
+      <div class="phone_accordion_options_dot_item" v-for="(item, index) in accordionList.length" :key="index"
+        :class="Number(checkIndex) == index ? 'active' : ''"></div>
     </div>
   </div>
 </template>
@@ -177,7 +147,7 @@ const changeAccordionCardEnd = (e: any) => {
 
   .accordion_title {
     width: 413px;
-    color: rgba(21, 28, 26, 0.9);
+    color: var(--text-color);
     font-family: Lantinghei SC;
     font-size: 22px;
     font-weight: 700;
@@ -194,7 +164,7 @@ const changeAccordionCardEnd = (e: any) => {
     .accordion_item_title {
       min-width: 410px;
       max-width: 413px;
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--text-color);
       text-align: right;
       font-family: Lantinghei SC;
       font-size: 16px;
@@ -206,7 +176,7 @@ const changeAccordionCardEnd = (e: any) => {
       padding-left: 138px;
 
       .accordion_item_content_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 18px;
         font-weight: 600;
@@ -214,7 +184,7 @@ const changeAccordionCardEnd = (e: any) => {
       }
 
       .accordion_item_content_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -231,7 +201,7 @@ const changeAccordionCardEnd = (e: any) => {
     overflow: hidden;
 
     .accordion_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--text-color);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
@@ -241,7 +211,8 @@ const changeAccordionCardEnd = (e: any) => {
 
     .phone_accordion_options {
       width: 300%;
-      background-color: #f6f9f9;
+      // background-color: #f6f9f9;
+      background-color: var(--background-color);
       overflow-x: auto;
       display: flex;
 
@@ -261,12 +232,12 @@ const changeAccordionCardEnd = (e: any) => {
         }
 
         .phone_accordion_item_title_from_community {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           text-align: left;
         }
 
         .phone_accordion_item_content_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           text-align: center;
           font-family: Inter;
           font-size: 16px;
@@ -289,7 +260,7 @@ const changeAccordionCardEnd = (e: any) => {
         }
 
         .phone_accordion_item_content_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;

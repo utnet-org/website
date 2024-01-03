@@ -802,7 +802,7 @@ const accordionList = [
         padding: 46px 5% 60px;
 
         .steps_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           text-align: center;
           font-family: Lantinghei SC;
           font-size: 22px;
@@ -812,7 +812,7 @@ const accordionList = [
         .steps_text {
           display: flex;
           align-items: center;
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
