@@ -158,30 +158,23 @@ const accordionList = [
               {{ $t("community.voice_from_our_partners_title") }}
             </div>
             <div class="toggle_menu_header_icon">
-              <div
-                class="toggle_menu_header_icon_item"
-                @mouseenter="hoverCheckIndex = 1"
-                @mouseleave="hoverCheckIndex = -1"
-              >
-                <img v-if="hoverCheckIndex == 1" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png" alt="" />
+              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
+                @mouseleave="hoverCheckIndex = -1">
+                <img v-if="hoverCheckIndex == 1"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
+                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
+                  alt="" />
               </div>
-              <div
-                class="toggle_menu_header_icon_item"
-                @mouseenter="hoverCheckIndex = 2"
-                @mouseleave="hoverCheckIndex = -1"
-              >
-                <img v-if="hoverCheckIndex == 2" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
+              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 2"
+                @mouseleave="hoverCheckIndex = -1">
+                <img v-if="hoverCheckIndex == 2"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
                 <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png" alt="" />
               </div>
             </div>
           </div>
           <div class="toggle_menu_list" v-if="viewableWidth > 834">
-            <div
-              class="toggle_menu_list_item"
-              v-for="(item, index) in toggleMenuList"
-              :key="index"
-            >
+            <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
               <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
               <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
               <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt="" />
@@ -189,12 +182,8 @@ const accordionList = [
             </div>
           </div>
         </div>
-        <Accordion
-          :accordionTitle="accordionTitle"
-          :fromPage="'community'"
-          :accordionList="accordionList"
-          v-if="viewableWidth < 834"
-        />
+        <Accordion :accordionTitle="accordionTitle" :fromPage="'community'" :accordionList="accordionList"
+          v-if="viewableWidth < 834" />
         <div class="steps">
           <div class="steps_title">
             {{ $t("community.utility_activities_title") }}
@@ -206,11 +195,7 @@ const accordionList = [
             </div>
             <!-- <div>Community Slack</div> -->
           </div>
-          <div
-            v-for="(stepsItem, stepsIndex) in stepsList"
-            :key="stepsIndex"
-            class="steps_item"
-          >
+          <div v-for="(stepsItem, stepsIndex) in stepsList" :key="stepsIndex" class="steps_item">
             <div class="dots"></div>
             <div class="message_text">
               <div>{{ stepsItem.time }}</div>
@@ -225,8 +210,9 @@ const accordionList = [
 </template>
 <style scoped lang="less">
 .container {
-  background-color: #fffefb;
+  background-color: var(--background-color);
   padding-top: 70px;
+
   .header {
     width: 100%;
     height: 558px;
@@ -242,11 +228,9 @@ const accordionList = [
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: linear-gradient(180deg,
+          rgba(244, 248, 248, 0.05) 0.13%,
+          rgba(244, 248, 248, 0) 99.87%);
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -256,7 +240,7 @@ const accordionList = [
       justify-content: center;
 
       .header_content_header {
-        color: vrgba(21, 28, 26, 0.9);
+        color: rgba(21, 28, 26, 0.9);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -313,7 +297,7 @@ const accordionList = [
       margin: 70px 180px 0 0;
 
       .swiper_side_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Lantinghei SC;
         font-size: 22px;
         font-weight: 700;
@@ -321,7 +305,7 @@ const accordionList = [
       }
 
       .swiper_side_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -407,7 +391,7 @@ const accordionList = [
 
   .community_options {
     padding: 87px 0 80px;
-    background-color: #f6f9f9;
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,6 +405,7 @@ const accordionList = [
       box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
       border: 1px solid transparent;
       cursor: pointer;
+      background-color: var(--background-color);
 
       &:hover {
         border: 1px solid #3edfcf;
@@ -433,11 +418,11 @@ const accordionList = [
         border-top-right-radius: 12px;
       }
 
-      & > div {
+      &>div {
         margin: 29px 40px 0 44px;
 
         .community_options_item_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 15px;
           font-weight: 700;
@@ -447,7 +432,7 @@ const accordionList = [
         }
 
         .community_options_item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
@@ -470,7 +455,7 @@ const accordionList = [
       position: relative;
 
       .toggle_menu_header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 22px;
@@ -492,7 +477,7 @@ const accordionList = [
           align-items: center;
           justify-content: center;
           border-radius: 18px;
-          border: 1px solid black;
+          border: 1px solid var(--where-text);
           cursor: pointer;
 
           img {
@@ -501,7 +486,7 @@ const accordionList = [
           }
 
           &:hover {
-            background-color: black;
+            background-color: var(--where-color);
           }
         }
       }
@@ -518,15 +503,13 @@ const accordionList = [
         height: 358px;
         border-radius: 12px;
         padding: 28px;
-        background: linear-gradient(
-          177deg,
-          #fff -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
+        background: linear-gradient(177deg,
+            var(--background-color) -24.77%,
+            rgba(255, 255, 255, 0) 97.53%);
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
 
         .item_first_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 18px;
           font-weight: 500;
@@ -534,7 +517,7 @@ const accordionList = [
         }
 
         .item_second_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 12px;
           font-weight: 400;
@@ -548,7 +531,7 @@ const accordionList = [
         }
 
         .item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 13px;
           font-weight: 400;
@@ -565,7 +548,7 @@ const accordionList = [
       align-items: center;
 
       .steps_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 22px;
@@ -575,7 +558,7 @@ const accordionList = [
       .steps_text {
         display: flex;
         align-items: center;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -597,7 +580,7 @@ const accordionList = [
         width: 100%;
         display: flex;
         padding: 0 0 22px 36px;
-        border-left: 1px solid rgba(21, 28, 26, 0.1);
+        border-left: 1px solid var(--circles-border);
         position: relative;
 
         .dots {
@@ -615,7 +598,8 @@ const accordionList = [
           flex: 1;
           padding: 0 36px;
           border-radius: 12px;
-          background: #f6f9f9;
+          // background: #f6f9f9;
+          background: linear-gradient(177deg, var(--background-start) -24.77%, var(--background-end) 97.53%);
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -630,14 +614,14 @@ const accordionList = [
             }
 
             &:nth-child(2) {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--text-color);
               font-family: Lantinghei SC;
               font-size: 15px;
               font-weight: 700;
             }
 
             &:last-child {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--text-color);
               font-family: Inter;
               font-size: 14px;
               font-weight: 400;
@@ -801,7 +785,7 @@ const accordionList = [
           height: 234px;
         }
 
-        & > div {
+        &>div {
           margin: 24px 14px 37px;
 
           .community_options_item_title {
