@@ -257,7 +257,7 @@ const optionsList = [
           90deg,
           rgba(207, 238, 235, 0) 25%,
           rgba(179, 236, 229, 0.17) 50%,
-          rgba(179, 236, 229, 1) 25%
+          var(--utility_explain-bgc) 25%
         );
         background-size: 200% 100%;
         transition: background-position 0.5s ease;
