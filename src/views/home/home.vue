@@ -1295,8 +1295,6 @@ onUnmounted(() => {
         align-items: center;
         z-index: 100;
 
-        box-shadow: var(--Contribute-lighter-box-shadow);
-
         .title_one {
           font-weight: 600;
           color: var(--Utility-text-color);
