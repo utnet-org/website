@@ -555,7 +555,7 @@ const optionsList = [
 
             .options_item_header {
               .options_item_header_title {
-                color: #151c1a;
+                color: var(--Utility-text-color);
               }
             }
           }

@@ -521,9 +521,9 @@ const thirdCheckQuestionMessage = ref(-1);
               margin: 0;
               margin-bottom: 16px;
 
-              &:hover {
-                background: none;
-              }
+              // &:hover {
+              //   background: none;
+              // }
 
               .section_right_item_card_item_header {
                 .section_right_item_card_item_header_title {

@@ -836,7 +836,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           padding: 28px 18px 18px;
 
           .message_card_list_item_text {
-            color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+            // color: var(--Light-dark, rgba(21, 28, 26, 0.9));
             font-family: Inter;
             font-size: 14px;
             font-weight: 400;
@@ -849,7 +849,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
       }
 
       .options_list_header {
-        color: rgba(21, 28, 26, 0.9);
+        // color: rgba(21, 28, 26, 0.9);
         font-family: Lantinghei SC;
         font-size: 20px;
         font-weight: 700;
