@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Url } from "url";
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const props = defineProps({
   headerImage: String,
   headerTitle: String,
@@ -26,7 +30,18 @@ const changeSwitchId = (id: number) => {
 </script>
 <template>
   <div class="container">
-    <div class="header">
+    <div
+      class="header"
+      :style="{
+        background: theme
+          ? '#141817'
+          : 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
+            ')' +
+            ' no-repeat',
+        'background-size': !theme ? 'cover' : '',
+      }"
+    >
       <div class="header_image">
         <img :src="headerImage" alt="" />
         <div class="header_title">{{ $t(headerTitle as string) }}</div>
@@ -73,12 +88,10 @@ const changeSwitchId = (id: number) => {
     #fafbfb 43.99%,
     #def2f3 100.09%
   );
-  padding-top: 70px;
+  padding-top: 69px;
   .header {
     width: 100%;
     height: 479px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png")
-      no-repeat;
     background-size: cover;
     text-align: center;
     display: flex;

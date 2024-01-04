@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const options_list = ref([
   {
     title: "Run a node",
@@ -35,7 +38,18 @@ const options_list = ref([
 </script>
 <template>
   <div class="container">
-    <div class="header">
+    <div
+      class="header"
+      :style="{
+        background: theme
+          ? '#141817'
+          : 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png' +
+            ')' +
+            ' no-repeat',
+        'background-size': !theme ? 'cover' : '',
+      }"
+    >
       <div class="header_image">
         <div class="header_title">Utility Docs</div>
         <div class="header_text">
@@ -73,8 +87,8 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png")
-      no-repeat;
+    // background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png")
+    //   no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

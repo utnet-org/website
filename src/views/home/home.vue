@@ -338,7 +338,6 @@ onUnmounted(() => {
         muted
       ></video>
     </div>
-    {{ theme }}
     <!-- !视频end -->
     <div class="container">
       <!--! Where to Start -->

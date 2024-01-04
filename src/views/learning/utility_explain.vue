@@ -2,6 +2,10 @@
 import { title } from "process";
 import { ref } from "vue";
 import { openNewPage } from "@/utils/request";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const messageCardList = [
   {
     title: "utilityNetwork.decentralized_computing_service_platform",
@@ -61,7 +65,28 @@ const optionsList = [
 </script>
 <template>
   <div class="container">
-    <div class="header">
+    <div
+      v-if="theme"
+      style="
+        position: absolute;
+        background-color: black;
+        height: 558px;
+        width: 100%;
+        z-index: -1;
+      "
+    ></div>
+    <div
+      class="header"
+      :style="{
+        background: !theme
+          ? 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain.png' +
+            ')' +
+            ' no-repeat'
+          : '',
+        'background-size': !theme ? 'cover' : '',
+      }"
+    >
       <div class="header_content">
         <div class="header_content_header">
           {{ $t("utilityNetwork.header_title") }}
@@ -142,8 +167,7 @@ const optionsList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain.png")
-      no-repeat;
+    background: url("@/assets/images/utility_explain.png") no-repeat;
     background-size: 100% 100%;
     display: flex;
     align-items: flex-end;

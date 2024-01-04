@@ -2,6 +2,10 @@
 import { number } from "echarts";
 import { title } from "process";
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const optionsList = [
   {
     title: "poci_consensus.The_use_of_high_performance",
@@ -73,7 +77,15 @@ const changeCheckIndex = (index: any) => {
 <template>
   <div>
     <div class="container">
-      <div class="header">
+      <div class="header" :style="{
+        background: !theme
+          ? 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png' +
+            ')' +
+            ' no-repeat'
+          : '',
+        'background-size': !theme ? 'cover' : '',
+      }">
         <div class="header_content">
           <div class="header_content_header">POCI Consensus</div>
           <div class="header_content_text">
@@ -159,7 +171,7 @@ const changeCheckIndex = (index: any) => {
   .header {
     width: 100%;
     height: 578px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png")
+    background: url("@/assets/images/poci_consensus_background.png")
       no-repeat;
     background-size: cover;
     display: flex;

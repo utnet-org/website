@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { openNewPage } from "@/utils/request";
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const optionsList = [
   {
     image:
@@ -50,7 +54,18 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 </script>
 <template>
   <div class="container">
-    <div class="header">
+    <div
+      class="header"
+      :style="{
+        background: !theme
+          ? 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png' +
+            ')' +
+            ' no-repeat'
+          : '',
+        'background-size': !theme ? 'cover' : '',
+      }"
+    >
       <div class="header_content">
         <div class="header_content_header">
           <div class="header_content_header_title">Current UNC (USD)</div>
@@ -289,11 +304,10 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 .container {
   // background-color: #FFFEFB;
   padding-top: 70px;
+  width: 100%;
   .header {
-    width: 100%;
     height: 578px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png")
-      no-repeat;
+    background: url("@/assets/images/unc_token_background.png") no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;

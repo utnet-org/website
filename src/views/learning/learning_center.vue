@@ -3,6 +3,10 @@ import { ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
 import { openNewPage } from "@/utils/request";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const questionList = [
   "learning_center.How_to_use_it",
   "learning_center.Enhance_Utility_Network",
@@ -81,7 +85,18 @@ const thirdCheckQuestionMessage = ref(-1);
 </script>
 <template>
   <div class="container">
-    <div class="header">
+    <div
+      class="header"
+      :style="{
+        background: !theme
+          ? 'url(' +
+            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png' +
+            ')' +
+            ' no-repeat'
+          : '',
+        'background-size': !theme ? 'cover' : '',
+      }"
+    >
       <div class="header_content">
         <div class="header_content_header">
           {{ $t("learning_center.Learning_center") }}
@@ -190,8 +205,7 @@ const thirdCheckQuestionMessage = ref(-1);
 
   .header {
     width: 100%;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png")
-      no-repeat;
+    background: url("@/assets/images/learning_center.png") no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
