@@ -1452,7 +1452,6 @@ onUnmounted(() => {
               );
 
               border: 1px solid var(--where-button-border);
-              color: #fff !important;
             }
           }
         }
