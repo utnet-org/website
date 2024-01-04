@@ -77,15 +77,18 @@ const changeCheckIndex = (index: any) => {
 <template>
   <div>
     <div class="container">
-      <div class="header" :style="{
-        background: !theme
-          ? 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png' +
-            ')' +
-            ' no-repeat'
-          : '',
-        'background-size': !theme ? 'cover' : '',
-      }">
+      <div
+        class="header"
+        :style="{
+          background: !theme
+            ? 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png' +
+              ')' +
+              ' no-repeat'
+            : '',
+          'background-size': !theme ? 'cover' : '',
+        }"
+      >
         <div class="header_content">
           <div class="header_content_header">POCI Consensus</div>
           <div class="header_content_text">
@@ -96,6 +99,7 @@ const changeCheckIndex = (index: any) => {
             <img
               src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
               alt=""
+              style="filter: brightness(var(--learning-center-brightness))"
             />
           </div>
         </div>
@@ -171,8 +175,7 @@ const changeCheckIndex = (index: any) => {
   .header {
     width: 100%;
     height: 578px;
-    background: url("@/assets/images/poci_consensus_background.png")
-      no-repeat;
+    background: url("@/assets/images/poci_consensus_background.png") no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -197,14 +200,14 @@ const changeCheckIndex = (index: any) => {
       justify-content: center;
 
       .header_content_header {
-        color: vrgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
       }
 
       .header_content_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -220,8 +223,8 @@ const changeCheckIndex = (index: any) => {
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid rgba(21, 28, 26, 0.9);
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        border: 1px solid var(--where-text);
+        color: var(--Light-dark, var(--where-text));
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;

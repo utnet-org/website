@@ -107,7 +107,7 @@ const changeSwitchId = (id: number) => {
       }
 
       .header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 30px;
@@ -128,6 +128,7 @@ const changeSwitchId = (id: number) => {
           margin: 0 4px;
           border: 1px solid #3edfcf;
           // cursor: pointer;
+          color: var(--where-text);
         }
 
         .active {
