@@ -1,18 +1,25 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const communityOptionsList = [
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
     title: "Join Online Community",
     text: "Join our community to discuss, learn and share with us",
   },
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
     title: "Contribute to the Project",
     text: "Interested individuals and teams are welcome to contribute to our projects and realize our vision together.",
   },
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
     title: "Utility Activities",
     text: "Provide in-depth understanding and participation",
   },
@@ -78,13 +85,27 @@ const accordionList = [
 <template>
   <div>
     <div class="container">
-      <div class="header">
+      <div
+        class="header"
+        :style="{
+          background: !theme
+            ? 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
+              ')' +
+              ' no-repeat'
+            : '',
+          'background-size': !theme ? 'cover' : '',
+        }"
+      >
         <div class="header_content">
           <div class="header_content_header">{{ $t("community.h1_1") }}</div>
           <div class="header_content_text">{{ $t("community.h1_2") }}</div>
           <div class="header_content_button">
             <div>{{ $t("community.h1_3") }}</div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -100,7 +121,10 @@ const accordionList = [
             <div class="lowest_level"></div>
             <div class="middle_level"></div>
             <div class="upper_level"></div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png"
+              alt=""
+            />
           </div>
           <div class="swiper_rightmost">
             <div></div>
@@ -111,7 +135,10 @@ const accordionList = [
       </div>
       <div class="community_options">
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList1.title") }}
@@ -122,7 +149,10 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList2.title") }}
@@ -133,7 +163,10 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList3.title") }}
@@ -158,32 +191,62 @@ const accordionList = [
               {{ $t("community.voice_from_our_partners_title") }}
             </div>
             <div class="toggle_menu_header_icon">
-              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
-                @mouseleave="hoverCheckIndex = -1">
-                <img v-if="hoverCheckIndex == 1"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
-                  alt="" />
+              <div
+                class="toggle_menu_header_icon_item"
+                @mouseenter="hoverCheckIndex = 1"
+                @mouseleave="hoverCheckIndex = -1"
+              >
+                <img
+                  v-if="hoverCheckIndex == 1"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
+                  alt=""
+                />
               </div>
-              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 2"
-                @mouseleave="hoverCheckIndex = -1">
-                <img v-if="hoverCheckIndex == 2"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png" alt="" />
+              <div
+                class="toggle_menu_header_icon_item"
+                @mouseenter="hoverCheckIndex = 2"
+                @mouseleave="hoverCheckIndex = -1"
+              >
+                <img
+                  v-if="hoverCheckIndex == 2"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
           <div class="toggle_menu_list" v-if="viewableWidth > 834">
-            <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
+            <div
+              class="toggle_menu_list_item"
+              v-for="(item, index) in toggleMenuList"
+              :key="index"
+            >
               <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
               <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt="" />
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png"
+                alt=""
+              />
               <div class="item_text">{{ $t(item.text) }}</div>
             </div>
           </div>
         </div>
-        <Accordion :accordionTitle="accordionTitle" :fromPage="'community'" :accordionList="accordionList"
-          v-if="viewableWidth < 834" />
+        <Accordion
+          :accordionTitle="accordionTitle"
+          :fromPage="'community'"
+          :accordionList="accordionList"
+          v-if="viewableWidth < 834"
+        />
         <div class="steps">
           <div class="steps_title">
             {{ $t("community.utility_activities_title") }}
@@ -195,7 +258,11 @@ const accordionList = [
             </div>
             <!-- <div>Community Slack</div> -->
           </div>
-          <div v-for="(stepsItem, stepsIndex) in stepsList" :key="stepsIndex" class="steps_item">
+          <div
+            v-for="(stepsItem, stepsIndex) in stepsList"
+            :key="stepsIndex"
+            class="steps_item"
+          >
             <div class="dots"></div>
             <div class="message_text">
               <div>{{ stepsItem.time }}</div>
@@ -216,7 +283,8 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png") no-repeat;
+    background: url("@/assets/images/community_background.png")
+      no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -228,9 +296,11 @@ const accordionList = [
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
@@ -418,7 +488,7 @@ const accordionList = [
         border-top-right-radius: 12px;
       }
 
-      &>div {
+      & > div {
         margin: 29px 40px 0 44px;
 
         .community_options_item_title {
@@ -503,9 +573,11 @@ const accordionList = [
         height: 358px;
         border-radius: 12px;
         padding: 28px;
-        background: linear-gradient(177deg,
-            var(--background-color) -24.77%,
-            rgba(255, 255, 255, 0) 97.53%);
+        background: linear-gradient(
+          177deg,
+          var(--background-color) -24.77%,
+          rgba(255, 255, 255, 0) 97.53%
+        );
         box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
 
         .item_first_title {
@@ -599,7 +671,11 @@ const accordionList = [
           padding: 0 36px;
           border-radius: 12px;
           // background: #f6f9f9;
-          background: linear-gradient(177deg, var(--background-start) -24.77%, var(--background-end) 97.53%);
+          background: linear-gradient(
+            177deg,
+            var(--background-start) -24.77%,
+            var(--background-end) 97.53%
+          );
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -640,7 +716,8 @@ const accordionList = [
     .header {
       height: 516px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_community.png") no-repeat;
+      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_community.png")
+        no-repeat;
       background-size: cover;
       justify-content: center;
 
@@ -785,7 +862,7 @@ const accordionList = [
           height: 234px;
         }
 
-        &>div {
+        & > div {
           margin: 24px 14px 37px;
 
           .community_options_item_title {
