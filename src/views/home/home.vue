@@ -257,6 +257,11 @@ const ani_btn_s = ref(0);
 onUnmounted(() => {
   window.removeEventListener("resize", updatedWidth);
 });
+
+const setVedio = () => {
+  const video = document.getElementById("video11") as HTMLVideoElement;
+  video.play();
+};
 </script>
 <template>
   <div class="home_view">
@@ -266,6 +271,7 @@ onUnmounted(() => {
       <Animation v-if="width > 996"></Animation>
       <!-- !画布动画end -->
       <img
+        class="imgone"
         v-else
         src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg"
         style="width: 100vw; object-fit: cover; margin-top: 70px"
@@ -333,9 +339,15 @@ onUnmounted(() => {
     <!-- !视频begin -->
     <div class="animatino_video">
       <video
+        id="video11"
         src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
         autoplay
         muted
+        @ended="setVedio"
+        :style="{
+          objectFit: width > 2150 ? 'cover' : 'contain',
+          height: width > 2150 ? '100vh' : '100%',
+        }"
       ></video>
     </div>
     <!-- !视频end -->
@@ -734,7 +746,11 @@ onUnmounted(() => {
 <style scoped lang="less">
 .animation_box {
   position: relative;
+  background: #000;
   z-index: 2;
+  .imgone {
+    transform: translateY(-120px);
+  }
 
   .animation_button {
     position: fixed;

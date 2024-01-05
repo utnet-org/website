@@ -2,6 +2,8 @@
 import Logo from "@/assets/images/logo.svg";
 import Utility from "@/assets/images/utility.svg";
 import UtilityW from "@/assets/images/utility_white.svg";
+import sun from "@/assets/images/sun.svg";
+import dark from "@/assets/images/dark.svg";
 import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import {
@@ -224,8 +226,15 @@ const setTheme = () => {
       <UTTOPNAV v-if="width > 834" />
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
+        <div
+          @click="setTheme"
+          class="theme"
+          :style="{ background: theme ? '' : '' }"
+        >
+          <sun v-if="!theme" />
+          <dark v-else />
+        </div>
         <SETLANGUAGE />
-        <button @click="setTheme">设置主题</button>
       </div>
       <img
         class="list_caption_image"
@@ -326,6 +335,16 @@ const setTheme = () => {
 </template>
 
 <style scoped lang="less">
+.theme {
+  margin-right: 20px;
+  cursor: pointer;
+  width: 24px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
 .poop {
   position: fixed;
   transition: all 0.3s ease-in-out;

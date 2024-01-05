@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const communityOptionsList = [
   {
     image:
@@ -81,7 +85,18 @@ const accordionList = [
 <template>
   <div>
     <div class="container">
-      <div class="header">
+      <div
+        class="header"
+        :style="{
+          background: !theme
+            ? 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
+              ')' +
+              ' no-repeat'
+            : '',
+          'background-size': !theme ? 'cover' : '',
+        }"
+      >
         <div class="header_content">
           <div class="header_content_header">{{ $t("community.h1_1") }}</div>
           <div class="header_content_text">{{ $t("community.h1_2") }}</div>
@@ -268,7 +283,7 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png")
+    background: url("@/assets/images/community_background.png")
       no-repeat;
     background-position: right;
     background-size: cover;
