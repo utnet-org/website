@@ -184,13 +184,15 @@ const optionsList = [
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+      box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding: 0 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      border: var(--unc_token-header-border);
 
       .header_content_header {
         color: var(--where-text);
@@ -270,6 +272,7 @@ const optionsList = [
       grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
       grid-column-gap: 48px;
       grid-row-gap: 20px;
+
       margin-bottom: 138px;
 
       .message_card_list_item {
@@ -278,20 +281,18 @@ const optionsList = [
         margin: auto;
         padding: 0 50px;
         border-radius: 12px;
-        background: linear-gradient(
-          90deg,
-          rgba(207, 238, 235, 0) 25%,
-          rgba(179, 236, 229, 0.17) 50%,
-          var(--utility_explain-bgc) 25%
-        );
+        background: var(--utility_explain-message-bgc);
         background-size: 200% 100%;
         transition: background-position 0.5s ease;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
+        border: var(--unc_token-message_card_list-border);
+
         &:hover {
-          background-position: 100%;
+          background-position: var(--utility_explain-message-position);
+          box-shadow: var(--unc_token-subtitle-shadow);
         }
 
         .message_card_list_item_title {
@@ -389,7 +390,7 @@ const optionsList = [
         padding: 0 35px;
         margin: auto;
         border-radius: 12px;
-        border: 1px solid #d9d9d5;
+        border: var(--utility_explain-options_item-border);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -439,7 +440,7 @@ const optionsList = [
         }
 
         &:hover {
-          border: 1px solid #3edfcf;
+          border: var(--utility_explain-options_item-border1);
 
           .options_item_header {
             .options_item_header_title {

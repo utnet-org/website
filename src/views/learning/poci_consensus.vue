@@ -146,7 +146,20 @@ const changeCheckIndex = (index: any) => {
               @click="changeCheckIndex(cindex)"
             >
               <div class="faq_item_question_title_side">
-                <div class="faq_item_question_title_side_index">
+                <div
+                  class="faq_item_question_title_side_index"
+                  :style="{
+                    background:
+                      checkQuestionIndex == cindex
+                        ? 'var(--poci_faq-bg1)'
+                        : 'var(--poci_faq-bg)',
+
+                    color:
+                      checkQuestionIndex == cindex
+                        ? 'var(--poci_faq-color)'
+                        : 'var(--where-text)',
+                  }"
+                >
                   {{ citem.id }}/
                 </div>
                 <div class="item_question_text">{{ $t(citem.question) }}</div>
@@ -191,13 +204,14 @@ const changeCheckIndex = (index: any) => {
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+      box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding: 0 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border: var(--unc_token-header-border);
 
       .header_content_header {
         color: var(--where-text);
@@ -287,19 +301,22 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
-          no-repeat;
+        background: var(--poci_consensus-options_list-bg1);
+
         background-size: cover;
         margin-bottom: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         box-shadow: var(--learning-center-what-shadow);
+        border: 1px solid transparent;
 
         &:hover {
-          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png")
-            no-repeat;
+          background: var(--poci_consensus-options_list-bg);
           background-size: cover;
+
+          border: var(--unc_token-subtitle-border1);
+          box-shadow: var(--unc_token-subtitle-shadow);
         }
 
         .options_item_header {
@@ -384,7 +401,6 @@ const changeCheckIndex = (index: any) => {
               border-radius: 20px;
               border: 1px solid var(--where-text);
               margin-right: 10px;
-              color: var(--where-text);
             }
 
             .item_question_text {

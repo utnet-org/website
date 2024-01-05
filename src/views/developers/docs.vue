@@ -134,15 +134,14 @@ const options_list = ref([
     margin: 8px 8px;
     padding: 0px 50px;
     border-radius: 12px;
+    border: var(--docs-box-options_item-border);
     box-shadow: var(--docs-box-shadow-light);
     cursor: pointer;
-
+    background-color: var(--docs-box-options_item-background);
     &:hover {
-      background: linear-gradient(
-        90deg,
-        var(--learning-center-what-bg) 49.96%,
-        rgba(62, 223, 207, 1) 302.95%
-      );
+      background: var(--docs-box-options_item-background1);
+      border: var(--unc_token-header-border);
+      box-shadow: var(--unc_token-subtitle-shadow);
     }
 
     .options_item_title {

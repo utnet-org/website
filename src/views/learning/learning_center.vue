@@ -225,13 +225,13 @@ const thirdCheckQuestionMessage = ref(-1);
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+      box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
 
       display: flex;
       flex-direction: column;
       justify-content: center;
-
+      border: var(--unc_token-header-border);
       .header_content_header {
         color: var(--where-text);
         font-family: Lantinghei SC;
@@ -287,17 +287,18 @@ const thirdCheckQuestionMessage = ref(-1);
         height: 100%;
         border-radius: 8px;
         // opacity: 0.4;
-        background: linear-gradient(
-          177deg,
-          var(--background-start) -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
+
         box-shadow: var(--box-shadow-light);
         opacity: 0.4;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1;
+        background: linear-gradient(
+          177deg,
+          #fff -24.77%,
+          rgba(255, 255, 255, 0) 97.53%
+        );
       }
 
       .section_side_message {
@@ -388,11 +389,9 @@ const thirdCheckQuestionMessage = ref(-1);
             margin-bottom: 16px;
 
             &:hover {
-              background: linear-gradient(
-                90deg,
-                var(--learning-center-what-bg) 49.96%,
-                rgba(62, 223, 207, 1) 302.95%
-              );
+              background: var(--learning-center-section_right-bg);
+              border: var(--learning-center-section_right-border);
+              box-shadow: var(--unc_token-subtitle-shadow);
             }
 
             .section_right_item_card_item_header {

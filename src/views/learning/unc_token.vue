@@ -322,13 +322,14 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+      box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
       margin: 0 0 132px 121px;
       padding: 26px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border: var(--unc_token-header-border);
 
       .header_content_header {
         display: flex;
@@ -458,12 +459,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           justify-content: space-between;
 
           &:first-child {
-            background: linear-gradient(
-              100deg,
-              rgba(149, 235, 227, 0.17) 1.02%,
-              rgba(149, 235, 227, 0) 38.87%
-            );
+            background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 123px;
+            border: var(--unc_token-subtitle-border);
+            &:hover {
+              border: var(--unc_token-subtitle-border1);
+              box-shadow: var(--unc_token-subtitle-shadow);
+            }
 
             img {
               width: 134px;
@@ -472,12 +474,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(2) {
-            background: linear-gradient(
-              260deg,
-              rgba(149, 235, 227, 0.17) 1.02%,
-              rgba(149, 235, 227, 0) 38.87%
-            );
+            background: var(--unc_token-subtitle-bg);
             padding: 0 111px 0 50px;
+            border: var(--unc_token-subtitle-border);
+            &:hover {
+              border: var(--unc_token-subtitle-border1);
+              box-shadow: var(--unc_token-subtitle-shadow);
+            }
 
             img {
               width: 234px;
@@ -486,12 +489,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(3) {
-            background: linear-gradient(
-              100deg,
-              rgba(149, 235, 227, 0.17) 1.02%,
-              rgba(149, 235, 227, 0) 38.87%
-            );
+            background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 115px;
+            border: var(--unc_token-subtitle-border);
+            &:hover {
+              border: var(--unc_token-subtitle-border1);
+              box-shadow: var(--unc_token-subtitle-shadow);
+            }
 
             img {
               width: 151px;
@@ -500,12 +504,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:last-child {
-            background: linear-gradient(
-              260deg,
-              rgba(149, 235, 227, 0.17) 1.02%,
-              rgba(149, 235, 227, 0) 38.87%
-            );
+            background: var(--unc_token-subtitle-bg);
             padding: 0 183px 0 50px;
+            border: var(--unc_token-subtitle-border);
+            &:hover {
+              box-shadow: var(--unc_token-subtitle-shadow);
+              border: var(--unc_token-subtitle-border1);
+            }
 
             img {
               width: 120px;
@@ -558,11 +563,16 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         margin: auto;
         padding: 50px 50px 0;
         border-radius: 12px;
-        background: var(--app-footer-bgc);
-        //box-shadow: 4px 4px 24px 0px rgba(228, 233, 232, 0.80);
+        background: var(--unc_token-message_card_list-bgc);
+        // box-shadow: 4px 4px 24px 0px rgba(228, 233, 232, 0.8);
         display: flex;
         flex-direction: column;
+        border: var(--unc_token-message_card_list-border);
         // justify-content: center;
+        &:hover {
+          background: var(--unc_token-message_card_list-hoverbg);
+          box-shadow: var(--unc_token-subtitle-shadow);
+        }
 
         .message_card_list_item_title {
           margin-bottom: 12px;
@@ -625,16 +635,11 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         margin-right: 14px;
         margin-bottom: 14px;
         border-radius: 8px;
-        background: linear-gradient(
-          177deg,
-          var(--background-start) -24.77%,
-          var(--background-end) 97.53%
-        );
+        background: var(--unc_token-options_item-bgc);
         box-shadow: var(--box-shadow-light);
         display: flex;
         cursor: pointer;
-        border: 1px solid transparent;
-
+        border: var(--unc_token-options_item-border);
         img {
           width: 40px;
           height: 40px;
