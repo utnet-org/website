@@ -104,6 +104,7 @@ const optionsList = [
           <img
             src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
             alt=""
+            style="filter: brightness(var(--learning-center-brightness))"
           />
         </div>
       </div>
@@ -192,14 +193,14 @@ const optionsList = [
       justify-content: center;
 
       .header_content_header {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
       }
 
       .header_content_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -215,8 +216,8 @@ const optionsList = [
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid rgba(21, 28, 26, 0.9);
-        color: rgba(21, 28, 26, 0.9);
+        border: 1px solid var(--where-text);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;

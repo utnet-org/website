@@ -115,6 +115,7 @@ const thirdCheckQuestionMessage = ref(-1);
             src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
             alt=""
             srcset=""
+            style="filter: brightness(var(--learning-center-brightness))"
           />
         </div>
       </div>
@@ -232,7 +233,7 @@ const thirdCheckQuestionMessage = ref(-1);
       justify-content: center;
 
       .header_content_header {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -240,7 +241,7 @@ const thirdCheckQuestionMessage = ref(-1);
 
       .header_content_text {
         // width: 398px;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -256,8 +257,8 @@ const thirdCheckQuestionMessage = ref(-1);
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid rgba(21, 28, 26, 0.9);
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        border: 1px solid var(--where-text);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;

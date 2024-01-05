@@ -97,7 +97,7 @@ const options_list = ref([
 
     .header_image {
       .header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 32px;
@@ -108,7 +108,7 @@ const options_list = ref([
       .header_text {
         max-width: 834px;
         padding: 0 10px;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         text-align: center;
         font-family: Inter;
         font-size: 16px;

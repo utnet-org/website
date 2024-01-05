@@ -472,7 +472,7 @@ const accordionList = [
       margin: 0 20px;
       border-radius: 12px;
       background: #fffefb;
-      box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+      box-shadow: var(--docs-box-shadow-light);
       border: 1px solid transparent;
       cursor: pointer;
       background-color: var(--background-color);
@@ -553,6 +553,7 @@ const accordionList = [
           img {
             width: 12px;
             height: 12px;
+            filter: brightness(var(--learning-center-brightness));
           }
 
           &:hover {
@@ -578,7 +579,7 @@ const accordionList = [
           var(--background-color) -24.77%,
           rgba(255, 255, 255, 0) 97.53%
         );
-        box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+        box-shadow: var(--docs-box-shadow-light);
 
         .item_first_title {
           color: var(--text-color);

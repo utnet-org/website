@@ -371,7 +371,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
       }
 
       .header_content_acount {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
