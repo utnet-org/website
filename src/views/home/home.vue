@@ -271,6 +271,7 @@ const setVedio = () => {
       <Animation v-if="width > 996"></Animation>
       <!-- !画布动画end -->
       <img
+        class="imgone"
         v-else
         src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg"
         style="width: 100vw; object-fit: cover; margin-top: 70px"
@@ -747,7 +748,7 @@ const setVedio = () => {
   position: relative;
   background: #000;
   z-index: 2;
-  img {
+  .imgone {
     transform: translateY(-120px);
   }
 
