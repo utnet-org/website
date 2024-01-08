@@ -283,8 +283,7 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("@/assets/images/community_background.png")
-      no-repeat;
+    background: url("@/assets/images/community_background.png") no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -301,7 +300,6 @@ const accordionList = [
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding-left: 60px;
@@ -309,8 +307,10 @@ const accordionList = [
       flex-direction: column;
       justify-content: center;
 
+      box-shadow: var(--unc_token-header-shadow);
+      border: var(--unc_token-header-border);
       .header_content_header {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -318,7 +318,7 @@ const accordionList = [
 
       .header_content_text {
         width: 398px;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -334,8 +334,8 @@ const accordionList = [
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid rgba(21, 28, 26, 0.9);
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        border: 1px solid var(--text-color);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -346,6 +346,7 @@ const accordionList = [
           width: 16px;
           height: 16px;
           margin-left: 8px;
+          filter: brightness(var(--learning-center-brightness));
         }
 
         &:hover {
@@ -361,6 +362,7 @@ const accordionList = [
     justify-content: center;
     height: 627px;
     padding-top: 140px;
+    background: var(--community-swiper-bg);
 
     .swiper_side {
       width: 512px;
@@ -398,33 +400,36 @@ const accordionList = [
           width: 503.779px;
           height: 341.419px;
           border-radius: 10px;
-          background: #f6f9f9;
+          background: var(--community-bg);
           position: absolute;
           top: 0;
           left: 36.18px;
           z-index: 2;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         .middle_level {
           width: 541.817px;
           height: 341.389px;
           border-radius: 10px;
-          background: #ecf5f7;
+          background: var(--community-bg);
           position: absolute;
           bottom: 19.06px;
           left: 17.63px;
           z-index: 3;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         .upper_level {
           width: 578px;
           height: 342px;
           border-radius: 10px;
-          background: #e2f2f5;
+          background: var(--community-bg);
           position: absolute;
           bottom: 0;
           left: 0;
           z-index: 4;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         img {
@@ -471,14 +476,14 @@ const accordionList = [
       height: 447px;
       margin: 0 20px;
       border-radius: 12px;
-      background: #fffefb;
-      box-shadow: var(--docs-box-shadow-light);
+      box-shadow: var(--community-community_options-shadow);
       border: 1px solid transparent;
       cursor: pointer;
-      background-color: var(--background-color);
+      background-color: var(--community-community_options-bg);
 
       &:hover {
         border: 1px solid #3edfcf;
+        box-shadow: var(--community-community_options-shadow1);
       }
 
       img {
@@ -574,12 +579,12 @@ const accordionList = [
         height: 358px;
         border-radius: 12px;
         padding: 28px;
-        background: linear-gradient(
-          177deg,
-          var(--background-color) -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
-        box-shadow: var(--docs-box-shadow-light);
+        background: var(--community-toggle_menu_list_item-bg);
+        box-shadow: var(--community-community_options-shadow);
+        &:hover {
+          border: var(--unc_token-subtitle-border1);
+          box-shadow: var(--unc_token-subtitle-shadow);
+        }
 
         .item_first_title {
           color: var(--text-color);
@@ -653,7 +658,7 @@ const accordionList = [
         width: 100%;
         display: flex;
         padding: 0 0 22px 36px;
-        border-left: 1px solid var(--circles-border);
+        border-left: 1px solid var(--community-steps_item-border);
         position: relative;
 
         .dots {
@@ -671,12 +676,8 @@ const accordionList = [
           flex: 1;
           padding: 0 36px;
           border-radius: 12px;
-          // background: #f6f9f9;
-          background: linear-gradient(
-            177deg,
-            var(--background-start) -24.77%,
-            var(--background-end) 97.53%
-          );
+
+          background: var(--community-message_text-bg);
           display: flex;
           flex-direction: column;
           justify-content: flex-start;

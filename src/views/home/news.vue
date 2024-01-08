@@ -672,7 +672,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             height: 34px;
             flex-shrink: 0;
             border-radius: 50%;
-            background-color: var(--swiper-icon-color);
+            background-color: var(--swiper-icon-color1);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -846,8 +846,8 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             border-radius: 50%;
             margin: 0;
             cursor: pointer; ///鼠标移上去变成手指
-            background-color: var(--swiper-prev-bg) !important;
-            color: #fff !important;
+            background-color: var(--swiper-prev-new-prev-bg) !important;
+            color: var(--swiper-prev-new-disabled-bg) !important;
             font-size: 17px !important;
             opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
           }
@@ -855,9 +855,9 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           .swiper-button-prev.swiper-button-disabled,
           .swiper-button-next.swiper-button-disabled {
             pointer-events: auto;
-            background-color: var(--swiper-prev-disabled-bg) !important;
-            border: 1px solid #000 !important;
-            color: #000 !important;
+            background-color: var(--middle_message_introduce-bg) !important;
+            border: 1px solid var(--swiper-prev-new-border) !important;
+            color: var(--swiper-prev-new-border) !important;
             cursor: not-allowed !important;
           }
 

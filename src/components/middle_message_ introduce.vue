@@ -31,28 +31,37 @@ const changeSwitchId = (id: number) => {
 <template>
   <div class="container">
     <div
-      class="header"
       :style="{
-        background: theme
-          ? '#141817'
-          : 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
-            ')' +
-            ' no-repeat',
-        'background-size': !theme ? 'cover' : '',
+        background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
       }"
     >
-      <div class="header_image">
-        <img :src="headerImage" alt="" />
-        <div class="header_title">{{ $t(headerTitle as string) }}</div>
-        <div class="header_switch">
-          <!-- @click="changeSwitchId(index)" -->
-          <div
-            v-for="(item, index) in switchList"
-            :key="index"
-            :class="switchId == index ? 'active' : ''"
-          >
-            {{ $t(item as string) }}
+      <div
+        class="header"
+        :style="{
+          background: theme
+            ? 'url(' +
+              '/src/assets/images/components_middle_background1.png' +
+              ')' +
+              ' no-repeat'
+            : 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
+              ')' +
+              ' no-repeat',
+          'background-size': !theme ? 'cover' : 'cover',
+        }"
+      >
+        <div class="header_image">
+          <img :src="headerImage" alt="" />
+          <div class="header_title">{{ $t(headerTitle as string) }}</div>
+          <div class="header_switch">
+            <!-- @click="changeSwitchId(index)" -->
+            <div
+              v-for="(item, index) in switchList"
+              :key="index"
+              :class="switchId == index ? 'active' : ''"
+            >
+              {{ $t(item as string) }}
+            </div>
           </div>
         </div>
       </div>
@@ -129,6 +138,10 @@ const changeSwitchId = (id: number) => {
           border: 1px solid #3edfcf;
           // cursor: pointer;
           color: var(--where-text);
+          &:hover {
+            background: #3edfcf;
+            color: var(--swiper-prev-new-disabled-bg);
+          }
         }
 
         .active {
