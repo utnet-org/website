@@ -226,48 +226,29 @@ const setTheme = () => {
       <UTTOPNAV v-if="width > 834" />
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
-        <div
-          @click="setTheme"
-          class="theme"
-          :style="{ background: theme ? '' : '' }"
-        >
-          <sun v-if="!theme" />
-          <dark v-else />
+        <div @click="setTheme" class="theme" :style="{ background: theme ? '' : '' }">
+          <sun v-if="!theme" style="width: 24px;height: 24px;" />
+          <dark v-else style="width: 24px;height: 24px;" />
         </div>
         <SETLANGUAGE />
       </div>
-      <img
-        class="list_caption_image"
-        :src="
-          selectType
-            ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png'
-            : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
-        "
-        alt=""
-        v-if="width < 834 && !theme"
-        @click="blockSelect"
-      />
-      <img
-        v-if="width < 834 && theme && selectType"
-        class="list_caption_image"
-        src="@/assets/images/apptop.png"
-        alt=""
-        @click="blockSelect"
-      />
-      <img
-        v-if="width < 834 && theme && !selectType"
-        class="list_caption_image"
-        src="@/assets/images/apptopc.png"
-        alt=""
-        @click="blockSelect"
-      />
+      <div v-else class="mobile_theme_icon">
+        <div @click="setTheme" style="width: 24px;height: 24px;">
+          <sun v-if="!theme" style="width: 24px;height: 24px;" />
+          <dark v-else style="width: 24px;height: 24px;" />
+        </div>
+      </div>
+      <img class="list_caption_image" :src="selectType
+        ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png'
+        : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
+        " alt="" v-if="width < 834 && !theme" @click="blockSelect" />
+      <img v-if="width < 834 && theme && selectType" class="list_caption_image" src="@/assets/images/apptop.png" alt=""
+        @click="blockSelect" />
+      <img v-if="width < 834 && theme && !selectType" class="list_caption_image" src="@/assets/images/apptopc.png" alt=""
+        @click="blockSelect" />
     </div>
   </nav>
-  <div
-    v-if="width < 834"
-    :style="{ right: selectType ? '0px' : '-80vh' }"
-    class="list_caption_select"
-  >
+  <div v-if="width < 834" :style="{ right: selectType ? '0px' : '-80vh' }" class="list_caption_select">
     <div style="position: relative">
       <!-- <div
         style="
@@ -281,71 +262,45 @@ const setTheme = () => {
           z-index: -1;
         "
       ></div> -->
-      <div
-        class="list_caption_select_item"
-        v-for="(item, index) in nav_arr"
-        :key="index"
-        :style="{
-          height: item.show
-            ? index == 0
-              ? locale == 'en'
-                ? '465.69px'
-                : '385.69px'
-              : index == 1
+      <div class="list_caption_select_item" v-for="(item, index) in nav_arr" :key="index" :style="{
+        height: item.show
+          ? index == 0
+            ? locale == 'en'
+              ? '465.69px'
+              : '385.69px'
+            : index == 1
               ? '359.75px'
               : index == 2
-              ? '311.75px'
-              : index == 5
-              ? '168px'
-              : ''
-            : 0,
-        }"
-      >
-        <div
-          class="list_caption_select_item_header"
-          @click="changeSelectIndex(item, index)"
-        >
+                ? '311.75px'
+                : index == 5
+                  ? '168px'
+                  : ''
+          : 0,
+      }">
+        <div class="list_caption_select_item_header" @click="changeSelectIndex(item, index)">
           <div>{{ $t(item.name) }}</div>
-          <img
-            v-if="index != 3 && index != 4"
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
-            alt=""
-            :class="selectIndex == index ? 'active' : ''"
-          />
+          <img v-if="index != 3 && index != 4"
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png" alt=""
+            :class="selectIndex == index ? 'active' : ''" />
         </div>
-        <div
-          class="list_caption_select_item_option"
-          v-for="(citem, cindex) in item.children"
-          :key="cindex"
-          :style="index == 5 ? 'align-items: center;' : ''"
-          @click="routerSubPage(index, citem, cindex)"
-        >
+        <div class="list_caption_select_item_option" v-for="(citem, cindex) in item.children" :key="cindex"
+          :style="index == 5 ? 'align-items: center;' : ''" @click="routerSubPage(index, citem, cindex)">
           <div class="list_caption_select_item_option_image">
             <img :src="citem.icon" alt="" />
           </div>
           <div class="list_caption_select_item_option_text">
-            <div
-              class="list_caption_select_item_option_text_title"
-              :style="index == 5 ? 'margin-bottom: 0px;' : ''"
-            >
+            <div class="list_caption_select_item_option_text_title" :style="index == 5 ? 'margin-bottom: 0px;' : ''">
               {{ $t(citem.title) }}
             </div>
-            <div
-              class="list_caption_select_item_option_text_desc"
-              v-if="index != 5"
-              v-html="`${$t(citem.desc).split('>>>br').join('<br>')}`"
-            ></div>
+            <div class="list_caption_select_item_option_text_desc" v-if="index != 5"
+              v-html="`${$t(citem.desc).split('>>>br').join('<br>')}`"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    v-show="selectType"
-    :style="{ background: selectType ? 'rgba(0, 0, 0, 0.3)' : '#000' }"
-    class="poop"
-    @click="blockSelect"
-  ></div>
+  <div v-show="selectType" :style="{ background: selectType ? 'rgba(0, 0, 0, 0.3)' : '#000' }" class="poop"
+    @click="blockSelect"></div>
 </template>
 
 <style scoped lang="less">
@@ -359,6 +314,16 @@ const setTheme = () => {
   align-items: center;
   border-radius: 50%;
 }
+
+.mobile_theme_icon {
+  margin-right: 15px;
+  height: 69px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .poop {
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -369,6 +334,7 @@ const setTheme = () => {
   top: 0;
   left: 0;
 }
+
 .app-topnav {
   position: fixed;
   top: 0;
@@ -427,6 +393,7 @@ const setTheme = () => {
       }
     }
   }
+
   .list_caption_select {
     transition: all 0.3s ease-in-out;
     position: fixed;
