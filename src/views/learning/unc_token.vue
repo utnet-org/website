@@ -690,8 +690,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
     .header {
       height: 480px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_unc_token.png")
-        no-repeat;
+      background: var(--unc-token-bgc-phone);
       background-size: cover;
       justify-content: center;
 

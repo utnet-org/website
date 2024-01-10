@@ -466,8 +466,7 @@ const thirdCheckQuestionMessage = ref(-1);
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_learning_center.png")
-        no-repeat;
+      background: var(--learning_center-bgc-phone);
       background-size: cover;
       justify-content: center;
 

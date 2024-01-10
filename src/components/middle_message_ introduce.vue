@@ -32,22 +32,19 @@ const changeSwitchId = (id: number) => {
   <div class="container">
     <div
       :style="{
-        background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
+        // background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
       }"
     >
       <div
         class="header"
         :style="{
           background: theme
-            ? 'url(' +
-              '/src/assets/images/components_middle_background1.png' +
-              ')' +
-              ' no-repeat'
+            ? ''
             : 'url(' +
               'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
               ')' +
               ' no-repeat',
-          'background-size': !theme ? 'cover' : 'cover',
+          'background-size': theme ? '' : 'cover',
         }"
       >
         <div class="header_image">
@@ -91,23 +88,25 @@ const changeSwitchId = (id: number) => {
 </template>
 <style scoped lang="less">
 .container {
-  background: linear-gradient(
-    250deg,
-    #cdeaf1 5.3%,
-    #fafbfb 43.99%,
-    #def2f3 100.09%
-  );
+  // background: linear-gradient(
+  //   250deg,
+  //   #cdeaf1 5.3%,
+  //   #fafbfb 43.99%,
+  //   #def2f3 100.09%
+  // );
+
   padding-top: 69px;
   .header {
     width: 100%;
     height: 479px;
+    background: url("@/assets/images/components_middle_background1.png")
+      no-repeat;
     background-size: cover;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-
     .header_image {
       img {
         width: 120px;

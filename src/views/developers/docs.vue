@@ -42,7 +42,7 @@ const options_list = ref([
       class="header"
       :style="{
         background: theme
-          ? '#141817'
+          ? ''
           : 'url(' +
             'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png' +
             ')' +
@@ -87,8 +87,7 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    // background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png")
-    //   no-repeat;
+    background: #141817;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -170,8 +169,7 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_Background.svg")
-      no-repeat;
+    background: var(--docs-bgc-phone);
     background-size: cover;
     display: flex;
     flex-direction: column;

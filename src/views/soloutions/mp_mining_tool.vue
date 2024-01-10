@@ -64,12 +64,7 @@
       background-size: cover;
       display: flex;
       justify-content: center;
-      background: linear-gradient(
-        250deg,
-        #cdeaf1 5.3%,
-        #fafbfb 43.99%,
-        #def2f3 100.09%
-      );
+      background: var(--mp_ai_model-bgc-phone);
 
       .header_content {
         width: 100%;
@@ -82,12 +77,12 @@
           width: 100px;
           height: 100px;
           margin: 0 auto;
-          background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_tool_logo.png")
-            no-repeat;
+          background: var(--mp_mining_tool-bgc-phone);
+          background-size: cover;
         }
 
         .header_content_header {
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          color: var(--where-text);
           text-align: center;
           font-family: Lantinghei SC;
           font-size: 20px;
@@ -110,6 +105,7 @@
             gap: 10px;
             border-radius: 20px;
             border: 1px solid #3edfcf;
+            color: var(--where-text);
           }
 
           .all:hover {
