@@ -244,7 +244,21 @@ const setTheme = () => {
             : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
         "
         alt=""
-        v-else
+        v-if="width < 834 && !theme"
+        @click="blockSelect"
+      />
+      <img
+        v-if="width < 834 && theme && selectType"
+        class="list_caption_image"
+        src="@/assets/images/apptop.png"
+        alt=""
+        @click="blockSelect"
+      />
+      <img
+        v-if="width < 834 && theme && !selectType"
+        class="list_caption_image"
+        src="@/assets/images/apptopc.png"
+        alt=""
         @click="blockSelect"
       />
     </div>
