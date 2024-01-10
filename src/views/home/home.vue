@@ -1,4 +1,6 @@
 <script setup lang="ts" name="HomeView">
+import arrow from "@/assets/images/arrow.svg";
+import arrow1 from "@/assets/images/arrow1.svg";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
@@ -455,7 +457,7 @@ const setVedio = () => {
             </div>
           </div>
         </div>
-        <!-- <div class="Data">
+        <div class="Data">
           <div class="value_father">
             <div
               class="data_value"
@@ -468,7 +470,7 @@ const setVedio = () => {
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <!-- !圆环end -->
       <!--! Utility Chain Scaling Solutions  -->
@@ -700,19 +702,7 @@ const setVedio = () => {
             alt=""
           />
         </div>
-        <!-- <img
-                 v-if="width < 834"
-                 class="Utility_img"
-                 src="/src/assets/images/m_Objects.png"
-                 alt=""
-             /> -->
-        <!-- <img
-          v-else
-          class="Utility_img"
-          src="/src/assets/images/square.png"
-          alt=""
-        /> -->
-        <!-- <div class="square"></div> -->
+
         <div class="Create_a_lighter">
           <div class="title_one">
             {{ $t("home.Help_Utility_open") }}
@@ -726,7 +716,14 @@ const setVedio = () => {
               <div class="button_text">
                 {{ $t("home.Join_us") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                v-if="width > 834"
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
+              <arrow1
+                v-else
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
             <div
               class="button_right"
@@ -735,7 +732,14 @@ const setVedio = () => {
               <div class="button_text">
                 {{ $t("footer.Github") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                v-if="width > 834"
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
+              <arrow1
+                v-else
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
           </div>
         </div>

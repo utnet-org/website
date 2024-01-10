@@ -571,7 +571,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         // justify-content: center;
         &:hover {
           background: var(--unc_token-message_card_list-hoverbg);
-          box-shadow: var(--unc_token-subtitle-shadow);
+          box-shadow: var(--unc_token-subtitle-shadow1);
         }
 
         .message_card_list_item_title {
@@ -676,8 +676,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         }
 
         &:hover {
-          // background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_background.png') no-repeat;
-          border: 1px solid #3edfcf;
+          background: var(--unc_token-options_item-bgc-hover);
+          border: var(--unc_token-header-border);
           background-size: cover;
         }
       }

@@ -291,6 +291,8 @@ const optionsList = [
         border: var(--unc_token-message_card_list-border);
 
         &:hover {
+          background: var(--utility_explain-message-bgc1);
+          background-size: 200% 100%; /* 确保背景大小不变 */
           background-position: var(--utility_explain-message-position);
           box-shadow: var(--unc_token-subtitle-shadow);
         }
@@ -426,6 +428,7 @@ const optionsList = [
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 20px;
+            transition: color 0.5s ease;
           }
         }
 
@@ -437,12 +440,18 @@ const optionsList = [
           line-height: 156%;
           /* 17.88px */
           opacity: 0.9;
+          transition: border 0.5s ease;
         }
 
         &:hover {
           border: var(--utility_explain-options_item-border1);
 
           .options_item_header {
+            .options_item_header_icon {
+              box-shadow: var(
+                --utility_explain-options_item_header_icon-shadow
+              );
+            }
             .options_item_header_title {
               color: #3edfcf;
             }
