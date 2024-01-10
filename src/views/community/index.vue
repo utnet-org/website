@@ -726,8 +726,7 @@ const accordionList = [
     .header {
       height: 516px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_community.png")
-        no-repeat;
+      background: var(--community-bgc-phone);
       background-size: cover;
       justify-content: center;
 

@@ -467,8 +467,9 @@ const optionsList = [
     .header {
       height: 457px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_utility_explain.png")
-        no-repeat;
+      background: var(--utility_explain-bgc-phone);
+
+      // utility_explain-dark
       background-size: cover;
       justify-content: center;
 

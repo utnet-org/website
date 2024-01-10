@@ -463,8 +463,8 @@ const changeCheckIndex = (index: any) => {
     .header {
       height: 484px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_poci.png")
-        no-repeat;
+      background: var(--poci_consensus-bgc-phone);
+
       background-size: cover;
       justify-content: center;
 
