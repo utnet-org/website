@@ -751,8 +751,8 @@ const accordionList = [
           width: 151px;
           height: 42px;
           border-radius: 6px;
-          border: 1px solid rgba(21, 28, 26, 0.9);
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          // border: 1px solid rgba(21, 28, 26, 0.9);
+          // color: var(--Light-dark, rgba(21, 28, 26, 0.9));
           font-family: Inter;
           font-size: 14px;
           font-weight: 500;
