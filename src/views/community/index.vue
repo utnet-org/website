@@ -412,7 +412,7 @@ const accordionList = [
           width: 541.817px;
           height: 341.389px;
           border-radius: 10px;
-          background: var(--community-bg);
+          background: var(--community-bg1);
           position: absolute;
           bottom: 19.06px;
           left: 17.63px;
@@ -424,7 +424,7 @@ const accordionList = [
           width: 578px;
           height: 342px;
           border-radius: 10px;
-          background: var(--community-bg);
+          background: var(--community-bg2);
           position: absolute;
           bottom: 0;
           left: 0;
@@ -581,9 +581,16 @@ const accordionList = [
         padding: 28px;
         background: var(--community-toggle_menu_list_item-bg);
         box-shadow: var(--community-community_options-shadow);
+        border: var(--docs-box-options_item-border);
+        transition: transform 0.3s ease; /* 平滑过渡效果 */
+
         &:hover {
           border: var(--unc_token-subtitle-border1);
-          box-shadow: var(--unc_token-subtitle-shadow);
+          box-shadow: var(--community-toggle_menu_list_item-shadow);
+          background: var(--community-toggle_menu_list_item-hover);
+          transform: translateY(
+            var(--community-toggle_menu_list_item-transform)
+          ); /* 向上移动5px */
         }
 
         .item_first_title {
@@ -678,6 +685,7 @@ const accordionList = [
           border-radius: 12px;
 
           background: var(--community-message_text-bg);
+
           display: flex;
           flex-direction: column;
           justify-content: flex-start;

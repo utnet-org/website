@@ -10,7 +10,7 @@
         --where-text: rgba(21, 28, 26, 0.9);
 
 
-        // !home页面的主题样式
+        // !root home页面的主题样式
         --where-color: rgba(21, 28, 26, 0.9);
         --background-start: #--background-start;
         --background-end: rgba(255, 255, 255, 0);
@@ -63,7 +63,7 @@
         --Contribute-button_left-border: 1px solid #3edfcf;
 
 
-        //! 底部导航栏
+        //!root 底部导航栏
         --app-footer-right_text-hover: rgba(255, 255, 255, 1);
         --app-footer-bgc: #f6f9f9;
         --app-footer-underline: rgba(28, 21, 21, 0.9);
@@ -74,7 +74,7 @@
 
 
 
-        //! 中英文切换按钮
+        //! root 中英文切换按钮
         --app-header-icon-bgc: #151c1a;
         --app-header-setlanguage_bgc: #fffefb;
         --app-header-setlanguage_shadow: none;
@@ -85,7 +85,7 @@
 
 
 
-        //! 新闻页面
+        //!root 新闻页面
         --news-article_text_one-border: rgba(21, 28, 26, 0.1);
         --swiper-prev-new-bg: rgba(21, 28, 26, 0.9);
         --swiper-prev-new-border: #000;
@@ -98,7 +98,7 @@
 
 
 
-        // !  unc_token页面
+        // !root  unc_token页面
         --unc_token-header-shadow: 0px 1px 1px 1px #dfe7e6 inset;
         --unc_token-header-border: none;
         --unc_token-subtitle-bg: linear-gradient(100deg,
@@ -108,6 +108,7 @@
         --unc_token-subtitle-border1: none;
 
         --unc_token-subtitle-shadow: none;
+        --unc_token-subtitle-shadow1: 4px 4px 24px 0px rgba(228, 233, 232, 0.8);
 
         --unc_token-message_card_list-bgc: #f6f9f9;
         --unc_token-message_card_list-hoverbg: #f6f9f9;
@@ -115,13 +116,19 @@
         --unc_token-options_item-bgc: linear-gradient(177deg,
                         #fff -24.77%,
                         rgba(255, 255, 255, 0) 97.53%);
-        --unc_token-options_item-border: 1px solid transparent;
+        --unc_token-options_item-border: none;
+        --unc_token-options_item-bgc-hover: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_background.png") no-repeat;
 
 
 
-        //! utility_explain 页面
+
+        //!root utility_explain 页面
         --utility_explain-bgc: rgba(179, 236, 229, 1);
         --utility_explain-message-bgc: linear-gradient(90deg,
+                        rgba(207, 238, 235, 0) 25%,
+                        rgba(179, 236, 229, 0.17) 50%,
+                        var(--utility_explain-bgc) 25%);
+        --utility_explain-message-bgc1: linear-gradient(90deg,
                         rgba(207, 238, 235, 0) 25%,
                         rgba(179, 236, 229, 0.17) 50%,
                         var(--utility_explain-bgc) 25%);
@@ -129,11 +136,12 @@
         --utility_explain-message-filter: none;
         --utility_explain-message-position: 100%;
         --utility_explain-options_item-border: 1px solid #d9d9d5;
-        --utility_explain-options_item-border1: 1px solid #000;
+        --utility_explain-options_item-border1: 1px solid #3EDFCF;
+        --utility_explain-options_item_header_icon-shadow: none;
 
 
 
-        // ! docs页面
+        // !root docs页面
         --docs-box-shadow-light: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
         --docs-box-options_item-background: #fffefb;
         --docs-box-options_item-background1: linear-gradient(90deg,
@@ -141,7 +149,7 @@
                         rgba(62, 223, 207, 1) 302.95%);
         --docs-box-options_item-border: none;
 
-        //! learning_center页面
+        //!root learning_center页面
         --learning-center-what-bg: #fffefb;
         --learning-center-what-bg1: rgba(62, 223, 207, 0);
         --learning-center-what-shadow: rgba(228, 233, 232, 0.5);
@@ -153,7 +161,7 @@
 
 
 
-        //! poci_consensus页面
+        //! root poci_consensus页面
         --poci_consensus-color: rgba(21, 28, 26, 0.06);
         --poci_consensus-options_list-bg: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png") no-repeat;
         --poci_consensus-options_list-bg1: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
@@ -161,8 +169,8 @@
         --poci_faq-bg1: #fffefb;
         --poci_faq-color: rgba(21, 28, 26, 0.9);
 
-        //! community页面
-        --community-bg: #fffefb;
+        //!root community页面
+        --community-bg: #f6f9f9;
         --community-bg1: #ecf5f7;
         --community-bg2: #e2f2f5;
         --community-swiper-bg: #fff;
@@ -174,10 +182,14 @@
                         #fffefb -24.77%,
                         rgba(255, 255, 255, 0) 97.53%);
         --community-steps_item-border: rgba(21, 28, 26, 0.1);
-        --community-message_text-bg: linear-gradient(177deg,
-                        #fff -24.77%,
-                        rgba(255, 255, 255, 0) 97.53%);
+        --community-message_text-bg: #f6f9f9;
 
+
+        --community-toggle_menu_list_item-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+        --community-toggle_menu_list_item-hover: linear-gradient(177deg,
+                        #fffefb -24.77%,
+                        rgba(255, 255, 255, 0) 97.53%);
+        --community-toggle_menu_list_item-transform: -10px;
 }
 
 /* 暗色主题样式 */
@@ -194,9 +206,13 @@
 
         --community-community_options-shadow: none;
         --community-community_options-shadow1: 0px 4px 24px 0px rgba(228, 233, 232, 0.50);
-        --community-toggle_menu_list_item-bg: rgba(21, 28, 26, 0.90);
+        --community-toggle_menu_list_item-bg: rgba(21, 28, 26, 1);
         --community-steps_item-border: rgba(255, 254, 251, 0.2);
         --community-message_text-bg: rgba(21, 28, 26, 0.90);
+        --community-toggle_menu_list_item-shadow: 0px 2px 10px 0px rgba(228, 233, 232, 0.5);
+        --community-toggle_menu_list_item-hover: #373737;
+        --community-toggle_menu_list_item-transform: 0;
+
 
 
 
@@ -236,10 +252,12 @@
         //! utility_explain 页面
         --utility_explain-bgc: rgba(179, 236, 229, 0.6);
         --utility_explain-message-bgc: linear-gradient(100deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
+        --utility_explain-message-bgc1: #151C1A;
         --utility_explain-message-filter: blur(2.5px);
         --utility_explain-message-position: 0;
         --utility_explain-options_item-border: 1px dashed transparent;
         --utility_explain-options_item-border1: 1px dashed #3EDFCF;
+        --utility_explain-options_item_header_icon-shadow: #3edfcf 0px 0px 8px 0px;
 
 
 
@@ -252,14 +270,16 @@
         --unc_token-subtitle-border: 1px solid #151c1a;
         --unc_token-subtitle-border1: 1px solid #3edfcf;
         --unc_token-subtitle-shadow: 0px 2px 10px 0px rgba(228, 233, 232, 0.5);
+        --unc_token-subtitle-shadow1: 0px 2px 10px 0px rgba(228, 233, 232, 0.5);
         --unc_token-message_card_list-bgc: linear-gradient(100deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
         --unc_token-message_card_list-border: 1px solid rgba(62, 223, 207, 0.5);
         --unc_token-message_card_list-hoverbg: linear-gradient(260deg,
                         rgba(149, 235, 227, 0.17) 1.02%,
                         rgba(149, 235, 227, 0) 38.87%);
 
-        --unc_token-options_item-bgc: linear-gradient(11deg, rgba(98, 206, 207, 0.3) -42.45%, rgba(176, 216, 219, 0.3) 69.99%);
-        --unc_token-options_item-border: 1px solid rgba(62, 223, 207, 0.3);
+        --unc_token-options_item-bgc: linear-gradient(11deg, rgba(98, 206, 207, 0.1) -42.45%, rgba(176, 216, 219, 0.1) 69.99%);
+        --unc_token-options_item-border: 1px solid rgba(62, 223, 207, 0.1);
+        --unc_token-options_item-bgc-hover: linear-gradient(11deg, rgba(98, 206, 207, 0.1) -42.45%, rgba(176, 216, 219, 0.1) 69.99%);
 
 
 

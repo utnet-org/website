@@ -1,4 +1,5 @@
 <script setup lang="ts" name="HomeView">
+import arrow from "@/assets/images/arrow.svg";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
@@ -455,7 +456,7 @@ const setVedio = () => {
             </div>
           </div>
         </div>
-        <!-- <div class="Data">
+        <div class="Data">
           <div class="value_father">
             <div
               class="data_value"
@@ -468,7 +469,7 @@ const setVedio = () => {
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <!-- !圆环end -->
       <!--! Utility Chain Scaling Solutions  -->
@@ -726,7 +727,9 @@ const setVedio = () => {
               <div class="button_text">
                 {{ $t("home.Join_us") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
             <div
               class="button_right"
@@ -735,7 +738,9 @@ const setVedio = () => {
               <div class="button_text">
                 {{ $t("footer.Github") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
           </div>
         </div>
