@@ -111,9 +111,9 @@
             color: var(--where-text);
           }
 
-          .all:hover {
-            // background: #3EDFCF;
-          }
+          // .all:hover {
+          //   // background: #3EDFCF;
+          // }
         }
       }
     }
