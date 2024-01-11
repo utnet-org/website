@@ -3,6 +3,10 @@ import { ref } from "vue";
 const activeIndex = ref(1);
 const show = ref(false);
 import { openNewPage } from "@/utils/request";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const nav_arr = ref([
   {
     name: "nav.Learning",
@@ -168,6 +172,19 @@ function set(i: number, id: number) {
     nav_arr.value[i].children[id].icon = one;
   }, 1);
 }
+
+function seticon(icon: string, isdark: boolean) {
+  const arrpng = icon.split("_"); // 切割后没有下划线
+  let arrow: string[] = [];
+  if (arrpng.length > 1) {
+    arrow = arrpng[1].split(".");
+  }
+  if (isdark && arrow[1] != "svg" && icon != "") {
+    return arrpng[0] + "_" + arrow[0] + "_d." + arrow[1];
+  } else {
+    return icon;
+  }
+}
 </script>
 <template>
   <div role="navigation">
@@ -248,15 +265,19 @@ function set(i: number, id: number) {
               >
                 <div class="left">
                   <img
-                    :src="c_item.icon"
+                    :src="seticon(c_item.icon, theme)"
                     :style="{
                       display: i == activeIndex ? 'block' : 'none',
+                      background: 'var(--background-color)',
                     }"
                   />
                   <img
-                    :src="c_item.png"
+                    :src="seticon(c_item.png, theme)"
                     :style="{
                       display: i == activeIndex ? 'block' : 'none',
+                      background: !(i == 2 && id > 1)
+                        ? 'var(--background-color)'
+                        : '',
                     }"
                     :class="{ animated_svg: i == 2 && id > 1 }"
                   />
@@ -288,7 +309,9 @@ function set(i: number, id: number) {
   max-height: calc(100vh - 69px) !important;
   width: fit-content;
   height: fit-content;
-  background-color: #fffefb;
+  // background-color: #000;
+  // background-color: #fffefb;
+  background-color: var(--background-color);
   border-radius: 8px;
   padding-top: 0px;
   position: absolute;
@@ -370,7 +393,8 @@ function set(i: number, id: number) {
       box-sizing: border-box;
       transition: all 0.5s;
       padding: 2px;
-      filter: brightness(0%);
+      filter: brightness(100%); // 亮度
+      filter: invert(50%); // 反色
       height: 24px;
     }
 
@@ -384,7 +408,7 @@ function set(i: number, id: number) {
 
   .title {
     transition: all 0.5s;
-    color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+    color: var(--text-color);
     font-family: Lantinghei SC;
     font-size: 13px;
     font-style: normal;
@@ -394,7 +418,7 @@ function set(i: number, id: number) {
 
   .desc {
     padding-top: 7px;
-    color: var(--Light-dark, rgba(21, 28, 26, 0.668));
+    color: var(--text-color);
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
