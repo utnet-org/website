@@ -68,7 +68,9 @@
       display: flex;
       justify-content: center;
       background: var(--mp_ai_model-bgc-phone);
-
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
       .header_content {
         width: 100%;
         flex-shrink: 0;
