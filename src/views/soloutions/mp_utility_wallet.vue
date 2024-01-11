@@ -111,9 +111,9 @@
             margin-bottom: 10px;
           }
 
-          .all:hover {
-            // background: #3EDFCF;
-          }
+          // .all:hover {
+          //   // background: #3EDFCF;
+          // }
         }
       }
     }

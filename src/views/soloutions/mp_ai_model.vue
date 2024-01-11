@@ -112,9 +112,9 @@
             color: var(--text-color);
           }
 
-          .all:hover {
-            // background: #3EDFCF;
-          }
+          // .all:hover {
+          //   // background: #3EDFCF;
+          // }
         }
       }
     }

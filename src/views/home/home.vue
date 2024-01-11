@@ -195,28 +195,28 @@ function stopCarousel() {
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 1,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
   },
   {
     id: 2,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_three.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
     time: "September 21, 2023",
     text: "Decentralized computing power equals edge computing",
     isswiperenter: false,
   },
   {
     id: 3,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
     time: "September 21, 2023",
     text: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -1251,14 +1251,17 @@ const setVedio = () => {
       }
       .swiper {
         height: 394px;
+        // width: 100%;
         position: relative;
         .swiper-slide {
+          width: 100%;
           display: flex;
           flex-direction: column;
           position: relative;
           cursor: pointer; ///鼠标移上去变成手指
           .swiper_img {
             border-radius: 8px;
+            flex-shrink: 0;
           }
           .icon {
             position: absolute;
@@ -2084,12 +2087,13 @@ const setVedio = () => {
 
         .swiper {
           width: 100%;
+          height: 100% !important;
           justify-content: center;
           .swiper-slide {
             align-items: center;
             .swiper_img {
-              width: 80% !important;
-              height: 80% !important;
+              width: 100% !important;
+              height: 100% !important;
             }
 
             .time {
