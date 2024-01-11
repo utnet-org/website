@@ -52,38 +52,6 @@ onMounted(async () => {
   ];
 });
 
-//! Where to Start的数据
-const Where_arr = ref([
-  {
-    title: "home.Builder",
-    text: "home.You_can_try",
-    hover: false,
-    button: "home.Build_DOC",
-    link: "https://wiki.utlab.io/docs/node/introduction",
-  },
-  {
-    title: "home.MINER",
-    text: "home.You_can_get_UNC",
-    hover: false,
-    button: "home.Learn_More",
-    link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
-  },
-  {
-    title: "home.UNC_WALLET",
-    text: "home.The_UNC_Wallet",
-    hover: false,
-    button: "home.Explore_Wallet",
-    link: "/soloutions/mp_utility_wallet",
-  },
-  {
-    title: "home.Computing_Power_users",
-    text: "home.You_can_rent",
-    hover: false,
-    button: "home.Develop",
-    link: "/soloutions/mp_hashing_power",
-  },
-]);
-
 //! Where to Start 鼠标移入
 function WhereChange(index: number) {
   //当前的为true
@@ -264,6 +232,41 @@ const setVedio = () => {
   const video = document.getElementById("video11") as HTMLVideoElement;
   video.play();
 };
+
+//! Where to Start的数据
+const Where_arr = ref([
+  {
+    title: "home.Builder",
+    text: "home.You_can_try",
+    hover: false,
+    button: "home.Build_DOC",
+    link: "https://wiki.utlab.io/docs/node/introduction",
+  },
+  {
+    title: "home.MINER",
+    text: "home.You_can_get_UNC",
+    hover: false,
+    button: "home.Learn_More",
+    link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
+  },
+  {
+    title: "home.UNC_WALLET",
+    text: "home.The_UNC_Wallet",
+    hover: false,
+    button: "home.Explore_Wallet",
+    link:
+      width.value > 834
+        ? "/soloutions/utility_wallet"
+        : "/soloutions/mp_utility_wallet",
+  },
+  {
+    title: "home.Computing_Power_users",
+    text: "home.You_can_rent",
+    hover: false,
+    button: "home.Develop",
+    link: width.value > 834 ? "/get_power" : "/soloutions/mp_hashing_power",
+  },
+]);
 </script>
 <template>
   <div class="home_view">
