@@ -308,7 +308,7 @@ const setVedio = () => {
             <div
               class="button"
               @click="
-                openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
+                openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
               "
             >
               <div class="text">
