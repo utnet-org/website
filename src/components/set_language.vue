@@ -72,7 +72,7 @@ const setLang = () => {
     gap: 2px;
   }
   .icon {
-    color: #151c1a;
+    color: var(--app-header-icon-bgc);
     height: 14px;
     width: 14px;
   }
@@ -95,7 +95,7 @@ const setLang = () => {
   max-height: calc(100vh - 69px) !important;
   width: fit-content;
   height: fit-content;
-  background-color: #fffefb;
+  background-color: var(--app-header-setlanguage_bgc);
   border-radius: 8px;
   position: absolute;
   top: 69px;
@@ -104,6 +104,7 @@ const setLang = () => {
   overflow: hidden;
   display: flex;
   box-sizing: border-box;
+  box-shadow: var(--app-header-setlanguage_shadow);
 
   .options {
     width: 100%;
@@ -120,10 +121,12 @@ const setLang = () => {
       text-align: center;
       line-height: 35px;
       flex-shrink: 0;
+      color: var(--app-header-options-item-color);
       &:hover {
-        color: #3edfcf;
+        color: var(--app-header-options-color);
         border-radius: 6px;
-        background: #f6f9f9;
+        background: var(--app-header-options-bg);
+        box-shadow: var(--app-header-options-shadow);
       }
     }
   }

@@ -1,78 +1,57 @@
 <script setup lang="ts" name="HomeView">
-import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
-
-import { getStatistics } from "@/api/home";
-
-import { useI18n } from "vue-i18n";
-const { locale } = useI18n();
-const res = ref();
-
-// & 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
-import { defineComponent } from "vue";
-// & 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-import { openNewPage } from "@/utils/request";
-// & 单独导入所需的Swiper模块
-import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
-// & 导入Swiper的样式
+import arrow from "@/assets/images/arrow.svg";
+import arrow1 from "@/assets/images/arrow1.svg";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
-import { useRouter } from "vue-router";
-import "swiper/css/pagination"; // 轮播图底面的小圆点
-
+import "swiper/css/pagination";
+import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
+import { getStatistics } from "@/api/home";
+import { useI18n } from "vue-i18n";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { openNewPage } from "@/utils/request";
+import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 import router from "@/router";
-
-// 创建响应式引用，用于存储窗口宽度和高度
-const windowWidth = ref(window.innerWidth);
-
-// 更新窗口尺寸的函数
-const updateWindowSize = () => {
-  windowWidth.value = window.innerWidth;
-};
-
-const show333 = ref(false); //控制手机端的白皮书按钮的第一次出现
-
-// 当组件挂载时设置监听器，并在卸载时移除
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
+const { locale } = useI18n();
+const res = ref(); //^ 数据 和 圆 Data and circles的数据
+const Data_arr = ref(); //^ Where to Start的数据
 onMounted(async () => {
   const { data } = await getStatistics();
   res.value = data;
-
+  window.addEventListener("resize", updatedWidth);
   Data_arr.value = [
     {
       amount:
-        windowWidth.value > 834
+        width.value > 834
           ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
           : `$${res.value?.aiPower.toLocaleString()}`,
       text: "home.UNC_PRICE",
     },
     {
-      amount: `${res.value?.totalMiners.toLocaleString()}`,
+      amount: `${res.value?.totalMiners?.toLocaleString()}`,
       text: "home.NODES",
     },
     {
       amount:
-        windowWidth.value > 834
+        width.value > 834
           ? "<span style='font-size: 26px;'>$</span>122,1120"
           : "$122,1120",
       text: "home.Transaction_Today",
     },
     {
       amount:
-        windowWidth.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> Tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} Tflops`,
+        width.value > 834
+          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
+          : `${res.value?.activeMiners.toLocaleString()} tflops`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
-  window.addEventListener("resize", updateWindowSize);
-  // window.location.reload();
 });
 
-onUnmounted(() => {
-  window.removeEventListener("resize", updateWindowSize);
-});
 //! Where to Start的数据
 const Where_arr = ref([
   {
@@ -104,6 +83,7 @@ const Where_arr = ref([
     link: "/get_power",
   },
 ]);
+
 //! Where to Start 鼠标移入
 function WhereChange(index: number) {
   //当前的为true
@@ -122,9 +102,6 @@ function WhereChangeli() {
     item.hover = false;
   });
 }
-
-//* 数据 和 圆 Data and circles的数据
-const Data_arr = ref();
 
 //^ Utility Chain Scaling Solutions的数据
 const Utility_arr = ref([
@@ -218,7 +195,7 @@ function stopCarousel() {
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_four.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
     time: "September 21, 2023",
     text: "Calculate demand analysis and the next tuyere",
     isswiperenter: false,
@@ -239,7 +216,7 @@ const merryGoRound_arr = ref([
   },
   {
     id: 3,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_two.png",
+    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/article_bgc_four.png",
     time: "September 21, 2023",
     text: "An encrypted world without wasted computing power",
     isswiperenter: false,
@@ -262,17 +239,6 @@ const navigation = ref({
   prevEl: ".swiper-button-prev",
 });
 
-const show = ref({
-  one: false,
-});
-const show1 = ref(false);
-// 监听show的变化
-watch(show, (newVal) => {
-  if (newVal.one) {
-    show1.value = true;
-  }
-});
-
 const jumpNews = (id: number) => {
   router.push({
     path: "/news",
@@ -281,412 +247,40 @@ const jumpNews = (id: number) => {
     },
   });
 };
-const showtwo = ref(false);
-const videoshow = ref(false);
-// 滚动条监听
-const scroll = ref(0);
-const ant_btn_w = ref(80);
-window.addEventListener("scroll", () => {
-  show333.value = true;
-  scroll.value = document.documentElement.scrollTop;
-  // console.log(scroll.value);
-  if (scroll.value > 1900) {
-    if (width.value * 2 > 1548 && scroll.value > 2017 && scroll.value < 2210) {
-      ani_btn.value = 175;
-    } else if (scroll.value > 2210 && scroll.value < 2960) {
-      ani_btn.value = 175 + (scroll.value - 2210) / 3.3;
-    } else if (scroll.value > 2960 && scroll.value < 2970) {
-      ani_btn.value = 474;
-      if (ani_btn_s.value) {
-        ani_btn_s.value = 0;
-        ant_btn_w.value = 80;
-        setTimeout(() => {
-          ant_btn_w.value = 300;
-        }, 300);
-      }
-    } else if (scroll.value > 2970) {
-      ani_btn.value = 10;
-    } else {
-      ani_btn.value = -80;
-    }
-    if (scroll.value > 2415) {
-      if (ani_btn_s.value === 0) {
-        ant_btn_w.value = 300;
-      }
-    } else {
-      ant_btn_w.value = 80;
-    }
-  } else {
-    ani_btn.value = -80;
-  }
-
-  if (scroll.value > 2980 && !videoshow.value && width.value * 2 > 996) {
-    // 设置滚动条的位置
-    document.body.style.overflow = "hidden";
-    // document.documentElement.scrollTop = 2980;
-    // 禁止滚动
-  } else {
-    document.body.style.overflow = "";
-  }
-
-  if (
-    timer1.value === undefined &&
-    scroll.value > 1030 &&
-    scroll.value < 1220
-  ) {
-    text1.value = !text1.value;
-    timer1.value = setInterval(() => {
-      text1.value = !text1.value;
-    }, 2500);
-  } else if (
-    timer2.value === undefined &&
-    scroll.value > 1230 &&
-    scroll.value < 1420
-  ) {
-    text2.value = !text2.value;
-    timer2.value = setInterval(() => {
-      text2.value = !text2.value;
-    }, 2500);
-  } else if (
-    timer3.value === undefined &&
-    scroll.value > 1320 &&
-    scroll.value < 1520
-  ) {
-    text3.value = !text3.value;
-    timer3.value = setInterval(() => {
-      text3.value = !text3.value;
-    }, 2500);
-  } else if (
-    timer4.value === undefined &&
-    scroll.value > 1520 &&
-    scroll.value < 1720
-  ) {
-    text4.value = !text4.value;
-    timer4.value = setInterval(() => {
-      text4.value = !text4.value;
-    }, 2500);
-  } else if (
-    timer5.value === undefined &&
-    scroll.value > 1630 &&
-    scroll.value < 1888
-  ) {
-    text5.value = !text5.value;
-    timer5.value = setInterval(() => {
-      text5.value = !text5.value;
-    }, 2500);
-  } else if (scroll.value < 1030 || scroll.value > 1888) {
-    clearInterval(timer1.value);
-    timer1.value = undefined;
-    text1.value = false;
-    clearInterval(timer2.value);
-    text2.value = false;
-    timer2.value = undefined;
-    clearInterval(timer3.value);
-    text3.value = false;
-    timer3.value = undefined;
-    clearInterval(timer4.value);
-    text4.value = false;
-    timer4.value = undefined;
-    clearInterval(timer5.value);
-    text5.value = false;
-    timer5.value = undefined;
-  }
-  // console.log("scroll.value:", scroll.value);
-});
-
-// 定时器
-const text1 = ref(false);
-const timer1 = ref();
-const text2 = ref(false);
-const timer2 = ref();
-const text3 = ref(false);
-const timer3 = ref();
-const text4 = ref(false);
-const timer4 = ref();
-const text5 = ref(false);
-const timer5 = ref();
-
-// 监听窗口宽度
-const width = ref(window.innerWidth / 2);
-const height = ref(window.innerHeight / 2);
-const pyw = ref(0);
-if (width.value * 2 < 1548) {
-  pyw.value = 1548 - width.value * 2;
-}
-window.addEventListener("resize", () => {
-  width.value = window.innerWidth / 2;
-  height.value = window.innerHeight / 2;
-  if (width.value * 2 < 1548) {
-    pyw.value = 1548 - width.value * 2;
-  }
-});
-const ani_btn = ref(-70);
-
-const video_next = () => {
-  document.body.style.overflow = "";
-  videoshow.value = true;
-  document.documentElement.scrollTop = 2980 + window.innerHeight - 20;
+const width = ref(window.innerWidth);
+const height = ref(window.innerHeight);
+const updatedWidth = function () {
+  width.value = window.innerWidth;
+  height.value = window.innerHeight;
 };
-
-window.addEventListener("wheel", (e) => {
-  if (
-    e.deltaY < 0 &&
-    videoshow.value &&
-    scroll.value > 2980 &&
-    scroll.value < 2980 + window.innerHeight
-  ) {
-    videoshow.value = false;
-    document.documentElement.scrollTop = 2980;
-  }
-  if (e.deltaY < 0 && !videoshow.value && scroll.value > 2980) {
-    document.body.style.overflow = "";
-  }
-});
 
 const ani_btn_s = ref(0);
-// 监听是否有向上滚动的动作
-const onVideoEnded = () => {
-  console.log("视频播放完毕");
-  ani_btn_s.value = 1;
-  ant_btn_w.value = 80;
-  setTimeout(() => {
-    ani_btn_s.value = 1;
-    ant_btn_w.value = 80;
-    ant_btn_w.value = 240;
-  }, 300);
-};
-// const onVideoEnded1 = () => {
-//   console.log("视频播放完毕");
-//   ani_btn_s.value = 2;
-//   ant_btn_w.value = 80;
-//   setTimeout(() => {
-//     ant_btn_w.value = 300;
-//   }, 300);
-// };
-const next222 = () => {
-  console.log("视频播放完毕 next222");
-  console.log(ani_btn_s.value);
-  console.log(ant_btn_w.value);
-  if (ani_btn_s.value === 1) {
-    // console.log("视频播放完毕");
-    ani_btn_s.value = 2;
-    ant_btn_w.value = 80;
-    setTimeout(() => {
-      ant_btn_w.value = 300;
-      videoshow.value = false; //视频结束
-    }, 300);
-  } else {
-    ani_btn_s.value = 0;
-    video_next();
-  }
-};
-// const openNewPage = (link: string) => {
-//   if (link.startsWith("http://") || link.startsWith("https://")) {
-//     window.open(link, '_blank');
-//
-//   } else {
-//     route.push(link);
-//   }
-// }
 
-const arr = [23, 4232, 4, 353, 12, 34, 45, 11, 234, 25, 11, 352, 56, 19];
+onUnmounted(() => {
+  window.removeEventListener("resize", updatedWidth);
+});
 
-//快速排序
-const quickSort = (arr: any[]): any[] => {
-  //* 终止条件,数组长度小于等于1时便会终止递归
-  if (arr.length <= 1) {
-    return arr;
-  }
-  const pivotIndex = Math.floor(arr.length / 2); //* 从中间选择一个基准点
-  const pivot = arr.splice(pivotIndex, 1)[0]; //* 根据基准点在原数组中删除该基准点，并返回该基准点,这会改变原数组
-  const left = [];
-  const right = [];
-  for (let i = 0; i < arr.length; i++) {
-    //* 遍历数组，进行判断分配
-    if (arr[i] < pivot) {
-      left.push(arr[i]); //* 比基准点小的放在左边数组
-    } else {
-      right.push(arr[i]); //* 比基准点大的放在右边数组
-    }
-  }
-  //* 递归执行以上操作,对左右两个数组进行操作，直到数组长度为<=1；
-  return quickSort(left).concat([pivot], quickSort(right));
+const setVedio = () => {
+  const video = document.getElementById("video11") as HTMLVideoElement;
+  video.play();
 };
-
-console.log(quickSort(arr));
 </script>
 <template>
-  <div
-    :style="{ background: !videoshow && width * 2 > 996 ? 'black' : '#fffefb' }"
-    class="home_view"
-  >
-    <div
-      class="animation_box"
-      :style="{
-        zIndex: !videoshow ? 120 : -1,
-        height: width * 2 > 996 ? '4220px' : '',
-      }"
-    >
-      <Animation
-        v-model:show="show"
-        v-model:show1="showtwo"
-        v-show="(scroll < 2980 || scroll == 0) && width * 2 > 996"
-        v-if="width * 2 > 996"
-      ></Animation>
+  <div class="home_view">
+    <!-- !动画begin -->
+    <div class="animation_box">
+      <!-- !画布动画begin -->
+      <Animation v-if="width > 996"></Animation>
+      <!-- !画布动画end -->
       <img
-        v-show="width * 2 < 996"
+        class="imgone"
+        v-else
         src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg"
         style="width: 100vw; object-fit: cover; margin-top: 70px"
       />
-      <div class="animation_text_box" v-if="width * 2 > 996">
-        <div
-          :style="{
-            top: `${height - 300 + (height * 2) / 5}px`,
-            left: `${width + 100 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text1 && scroll > 1030 ? 'animation_text_animation' : '',
-            !text1 && scroll > 1030 ? 'animation_text_animationf' : '',
-          ]"
-        >
-          <span>Jenna1</span>
-          Instruction signature consensus
-          <!--指令签名共识-->
-        </div>
-        <div
-          :style="{
-            top: `${height + 300 - (height * 2) / 5}px`,
-            left: `${width - 100 + pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text2 && scroll > 1230 ? 'animation_text_animation' : '',
-            !text2 && scroll > 1230 ? 'animation_text_animationf' : '',
-          ]"
-        >
-          <span>Jenna2</span>
-          Heterogeneous parallel architecture
-          <!--          异构并行架构-->
-        </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width - 400 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text3 && scroll > 1320 ? 'animation_text_animation' : '',
-            !text3 && scroll > 1320 ? 'animation_text_animationf' : '',
-          ]"
-        >
-          <span>Jenna3</span>
-          <!--          Hi! Welcome to Utility{{ pyw }}-->
-          Scaling of parallel computing
-          <!--          并行计算规模化-->
-        </div>
-        <div
-          :style="{
-            top: `${height + 100 - (height * 2) / 5}px`,
-            left: `${width + 400 - pyw / 3}px`,
-          }"
-          :class="[
-            'animation_text',
-            text4 && scroll > 1520 ? 'animation_text_animation' : '',
-            !text4 && scroll > 1520 ? 'animation_text_animationf' : '',
-          ]"
-        >
-          <span>Jenna4</span>
-          Proof of Trusted Computing Power
-          <!--          可信算力证明-->
-        </div>
-        <div
-          :style="{
-            top: `${height - 200 + (height * 2) / 5}px`,
-            left: `${width - 500 + pyw / 2}px`,
-          }"
-          :class="[
-            'animation_text',
-            text5 && scroll > 1630 ? 'animation_text_animation' : '',
-            !text5 && scroll > 1630 ? 'animation_text_animationf' : '',
-          ]"
-        >
-          <span>Jenna5</span>
-          Chip based blockchain network
-          <!--          基于芯片的区块链网络-->
-        </div>
-      </div>
-      <div
-        class="animatino_video"
-        :style="{ display: !videoshow ? 'block' : 'none' }"
-        v-if="scroll > 2960 && width * 2 > 996"
-      >
-        <video
-          v-if="ani_btn_s == 0 || ani_btn_s == 1"
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
-          autoplay
-          muted
-          @ended="onVideoEnded"
-        ></video>
-        <video
-          v-if="ani_btn_s == 2"
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/PART2.mp4"
-          autoplay
-          muted
-        ></video>
-      </div>
-      <div
-        class="animation_button"
-        :style="{
-          bottom: `${ani_btn}px`,
-          width: `${ant_btn_w}px`,
-          display: !videoshow ? 'flex' : 'none',
-        }"
-        v-if="width * 2 > 996"
-      >
-        <div v-if="ant_btn_w != 80" class="animation_button_text">
-          <span v-if="ani_btn_s == 0 || ani_btn_s == 2">
-            Skip the description
-          </span>
-          <span v-else> Chip Consensus </span>
-        </div>
-        <div style="min-width: 66px" @click="next222">
-          <img
-            v-if="ani_btn !== 10"
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/blue.svg"
-            alt=""
-            srcset=""
-          />
-          <img
-            v-if="ani_btn == 10 && (ani_btn_s == 0 || ani_btn_s == 2)"
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/stop.svg"
-            alt=""
-            srcset=""
-          />
-          <img
-            v-if="ani_btn == 10 && ani_btn_s == 1"
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/start.svg"
-            alt=""
-            srcset=""
-          />
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <!--! 大大的背景图和图上的welcome -->
-      <!-- <img src="@/assets/images/bgc_white.png" alt="" /> -->
+      <!-- 第一屏文案 -->
       <div class="bg">
-        <div
-          :class="[
-            'Welcome',
-            { WelcomeAnimation: width * 2 > 996 ? show.one : scroll > 10 },
-            {
-              WelcomeAnimationf:
-                width * 2 > 996 ? !show.one && show1 : scroll < 10 && show333,
-            },
-          ]"
-          :style="{ background: width * 2 < 996 ? '#000000C9' : '' }"
-        >
+        <div class="Welcome">
           <div class="Language">
             <div class="point"></div>
             <div class="lang">
@@ -696,13 +290,13 @@ console.log(quickSort(arr));
           <div class="Utility">
             <div
               :class="['Utility_text']"
-              :style="{ fontSize: width * 2 > 996 ? '34px' : '1rem' }"
+              :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
               Utility:
             </div>
             <div
               class="Welcome_text_title"
-              :style="{ fontSize: width * 2 > 996 ? '34px' : '1rem' }"
+              :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
               {{ $t("home.Welcome_to_utility") }}
             </div>
@@ -714,7 +308,7 @@ console.log(quickSort(arr));
             <div
               class="button"
               @click="
-                openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+                openNewPage('https://utnet.org/pdf/UtilityNetWhitePaper.pdf')
               "
             >
               <div class="text">
@@ -735,43 +329,43 @@ console.log(quickSort(arr));
               </div>
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
-                alt=""/>
+                alt=""
                 srcset=""
               />
             </div>
           </div>
         </div>
       </div>
-
-      <!--! 一张背景图 -->
-      <!--      <div class="get_the_app">-->
-      <!--        <img src="/src/assets/images/get_the_app.png" alt="" />-->
-      <!--      </div>-->
-      <div v-if="windowWidth < 834">
-        <video
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4"
-          autoplay
-          controls
-          :width="windowWidth"
-          height=""
-        ></video>
-      </div>
-
+      <!-- 第一屏文案 -->
+    </div>
+    <!-- !视频begin -->
+    <div class="animatino_video">
+      <video
+        id="video11"
+        src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
+        autoplay
+        muted
+        @ended="setVedio"
+        :style="{
+          objectFit: width > 2150 ? 'cover' : 'contain',
+          height: width > 2150 ? '100vh' : '100%',
+        }"
+      ></video>
+    </div>
+    <!-- !视频end -->
+    <div class="container">
       <!--! Where to Start -->
       <div class="Where_to_Start">
         <div class="title">
           {{ $t("home.Where_to_Start") }}
         </div>
-        <div v-if="windowWidth < 834" class="Four_boxes">
+        <div v-if="width < 834" class="Four_boxes">
           <div
             class="box"
             v-for="(item, index) in Where_arr"
             :key="index"
             style=""
-            @click="
-            index == 3 ? openNewPage('/soloutions/mp_hashing_power') :
-            index == 2 ? openNewPage('/soloutions/mp_utility_wallet') :
-            openNewPage(item.link) "
+            @click="openNewPage(item.link)"
           >
             <div>
               <div class="box_title">
@@ -792,9 +386,6 @@ console.log(quickSort(arr));
             @mouseover="WhereChange(index)"
             @mouseleave="WhereChangeli"
             class="box"
-            :style="{
-              border: item.hover ? '1px solid #3edfcf' : '1px solid #fff',
-            }"
             v-for="(item, index) in Where_arr"
             :key="index"
           >
@@ -814,13 +405,12 @@ console.log(quickSort(arr));
           </div>
         </div>
       </div>
-
-      <!--!数据 和 圆 Data and circles -->
+      <!-- !圆环begin -->
       <div class="Data_and_circles">
         <div class="circles">
           <div class="point point_one">
             <img
-              v-if="windowWidth < 834"
+              v-if="width < 834"
               src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_round.svg"
             />
             <img
@@ -868,7 +458,7 @@ console.log(quickSort(arr));
           </div>
         </div>
         <div class="Data">
-          <div class="value_father">
+          <!-- <div class="value_father">
             <div
               class="data_value"
               v-for="(item, index) in Data_arr"
@@ -879,10 +469,10 @@ console.log(quickSort(arr));
                 {{ $t(item.text) }}
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
-
+      <!-- !圆环end -->
       <!--! Utility Chain Scaling Solutions  -->
       <div class="Utility_Chain">
         <div class="title">
@@ -895,8 +485,17 @@ console.log(quickSort(arr));
               @mouseover="UtilityChainChange(index)"
               @mouseleave="UtilityChainChangeli"
             >
-              <div class="item_img">
+              <div
+                class="item_img"
+                :style="{
+                  boxShadow:
+                    item.isclick && theme
+                      ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
+                      : 'none',
+                }"
+              >
                 <img
+                  v-if="!theme"
                   :style="{
                     opacity: item.isclick ? 1 : 0,
                   }"
@@ -909,9 +508,10 @@ console.log(quickSort(arr));
                   class="item_img_img"
                   :src="item.img"
                   :style="{
-                    filter: item.isclick
-                      ? 'brightness(0%)'
-                      : 'brightness(100%)',
+                    filter:
+                      item.isclick && !theme
+                        ? 'brightness(0%)'
+                        : 'brightness(100%)',
                   }"
                   alt=""
                 />
@@ -922,7 +522,9 @@ console.log(quickSort(arr));
               </div>
               <div
                 class="item_title"
-                :style="{ color: item.isclick ? '#3EDFCF' : '#151c1a' }"
+                :style="{
+                  color: item.isclick ? '#3EDFCF' : 'var(--Utility-text-color)',
+                }"
               >
                 {{ $t(item.title) }}
               </div>
@@ -935,7 +537,7 @@ console.log(quickSort(arr));
       </div>
     </div>
     <!-- ! 走马灯里面有 一堆图标 -->
-    <!--    <div class="icons">-->
+    <!-- <div class="icons">-->
     <!--      &lt;!&ndash;@mouseenter="startCarousel"-->
     <!--        @mouseleave="stopCarousel" &ndash;&gt;-->
     <!--      <div class="carousel-container">-->
@@ -958,11 +560,11 @@ console.log(quickSort(arr));
     <!--          </div>-->
     <!--        </div>-->
     <!--      </div>-->
-    <!--    </div>-->
+    <!--    </div> -->
     <!-- !另一个 container -->
     <div class="container">
       <!-- !轮播图 -->
-      <div v-if="windowWidth < 834" class="merry_go_round">
+      <div v-if="width < 834" class="merry_go_round">
         <div class="title">
           {{ $t("home.What_is_New") }}
         </div>
@@ -985,18 +587,34 @@ console.log(quickSort(arr));
             @mouseleave="item.isswiperenter = false"
             @click="jumpNews(item.id)"
           >
-            <div v-if="item.isswiperenter && windowWidth > 834" class="icon">
+            <div v-if="item.isswiperenter && width > 834" class="icon">
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg"
                 alt=""
               />
             </div>
-            <img class="" :src="item.img" style="" alt="" />
-            <div class="time">
+            <img class="swiper_img" :src="item.img" style="" alt="" />
+            <div
+              class="time"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
               {{ item.time }}
             </div>
-            <div class="text">
-              {{ $t(item.text) }}
+            <div
+              class="text"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
+              {{ item.text }}
             </div>
           </swiper-slide>
         </swiper>
@@ -1009,7 +627,7 @@ console.log(quickSort(arr));
         <div class="swiper-button-prev"></div>
         <swiper
           :ref="mySwiper"
-          :slidesPerView="windowWidth > 1000 ? 3.5 : 2.5"
+          :slidesPerView="width > 1000 ? 3.5 : 2.5"
           :spaceBetween="16"
           :modules="modules"
           :loop="false"
@@ -1033,12 +651,38 @@ console.log(quickSort(arr));
                 alt=""
               />
             </div>
-            <img class="swiper_img" :src="item.img" alt="" />
-            <div class="time">
+            <img
+              :style="{
+                boxShadow:
+                  item.isswiperenter && theme
+                    ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
+                    : 'none',
+              }"
+              class="swiper_img"
+              :src="item.img"
+              alt=""
+            />
+            <div
+              class="time"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
               {{ item.time }}
             </div>
-            <div class="text">
-              {{ $t(item.text) }}
+            <div
+              class="text"
+              :style="{
+                color:
+                  item.isswiperenter && theme
+                    ? 'var(--swiper-text-color)'
+                    : 'var(--swiper-text-color1)',
+              }"
+            >
+              {{ item.text }}
             </div>
           </swiper-slide>
         </swiper>
@@ -1049,23 +693,16 @@ console.log(quickSort(arr));
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
           <img
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png"
+            class="Contribute_to_Utility_bg_img"
+            :src="
+              theme
+                ? '/src/assets/images/Objects.png'
+                : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
+            "
             alt=""
           />
         </div>
-        <!-- <img
-                 v-if="windowWidth < 834"
-                 class="Utility_img"
-                 src="/src/assets/images/m_Objects.png"
-                 alt=""
-             /> -->
-        <!-- <img
-          v-else
-          class="Utility_img"
-          src="/src/assets/images/square.png"
-          alt=""
-        /> -->
-        <!-- <div class="square"></div> -->
+
         <div class="Create_a_lighter">
           <div class="title_one">
             {{ $t("home.Help_Utility_open") }}
@@ -1079,7 +716,14 @@ console.log(quickSort(arr));
               <div class="button_text">
                 {{ $t("home.Join_us") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                v-if="width > 834"
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
+              <arrow1
+                v-else
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
             <div
               class="button_right"
@@ -1088,7 +732,14 @@ console.log(quickSort(arr));
               <div class="button_text">
                 {{ $t("footer.Github") }}
               </div>
-              <!--                <arrow />-->
+              <arrow
+                v-if="width > 834"
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
+              <arrow1
+                v-else
+                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
+              />
             </div>
           </div>
         </div>
@@ -1101,6 +752,9 @@ console.log(quickSort(arr));
   position: relative;
   background: #000;
   z-index: 2;
+  .imgone {
+    transform: translateY(-120px);
+  }
 
   .animation_button {
     position: fixed;
@@ -1127,26 +781,12 @@ console.log(quickSort(arr));
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
-      line-height: 150%; /* 24px */
+      line-height: 150%;
       font-weight: 500;
       display: flex;
       justify-content: center;
       align-items: center;
       white-space: nowrap;
-    }
-  }
-
-  .animatino_video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 
@@ -1262,17 +902,145 @@ console.log(quickSort(arr));
     }
   }
 }
+.animatino_video {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+
+  video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+
+.Welcome {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 290px;
+  align-items: center;
+  // border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(244, 248, 248, 0.035) 0.13%,
+    rgba(244, 248, 248, 0.043) 99.87%
+  );
+  // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
+  //   0px 4px 50px 0px #dde3e153;
+  backdrop-filter: blur(9px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  .Utility {
+    display: flex;
+    align-items: start;
+
+    .Utility_text {
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      // font-family: Lantinghei SC;
+      font-size: 38px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.76px;
+      display: flex;
+      align-items: start;
+    }
+
+    .Welcome_text_title {
+      // font-size: 34px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      font-family: Lantinghei SC;
+    }
+  }
+
+  .Language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 33px;
+    margin-bottom: 18px;
+
+    .point {
+      width: 9px;
+      height: 9px;
+      background-color: rgba(62, 223, 207, 1);
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .lang {
+      color: var(--Light-dark, rgba(255, 255, 255, 0.9));
+      text-align: center;
+      font-family: JejuGothic;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.2px;
+    }
+  }
+
+  .Anapplication {
+    max-width: 1149px;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+
+    text-align: center;
+    line-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 28px;
+  }
+
+  .button_father {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button,
+  .button_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 141px;
+    height: 42px;
+    border-radius: 6px;
+    border: 1px solid #3edfcf;
+
+    .text {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      margin-right: 8px;
+    }
+
+    img {
+      width: 17px;
+      height: 16px;
+    }
+  }
+
+  .button_right {
+    width: 107px;
+    height: 42px;
+    margin-left: 32px;
+  }
+}
 
 .home_view {
-  background-color: #fffefb;
+  // background-color: #fffefb;
   .bg {
     // height: 1100px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 121;
     bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
     // max-width: 1500px;
     // margin: 0 20px;
   }
@@ -1282,159 +1050,6 @@ console.log(quickSort(arr));
     justify-content: center;
     align-items: center;
 
-    @keyframes identifier {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(290px);
-      }
-    }
-
-    @keyframes identifierf {
-      0% {
-        transform: translateY(290px);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .WelcomeAnimation {
-      animation: identifier 0.3s ease-in forwards;
-    }
-
-    .WelcomeAnimationf {
-      animation: identifierf 0.3s ease-in forwards;
-    }
-
-    .Welcome {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 290px;
-      align-items: center;
-      // border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.035) 0.13%,
-        rgba(244, 248, 248, 0.043) 99.87%
-      );
-      // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
-      //   0px 4px 50px 0px #dde3e153;
-      backdrop-filter: blur(9px);
-      position: absolute;
-      left: 0;
-      bottom: 0;
-
-      .Utility {
-        display: flex;
-        align-items: start;
-
-        .Utility_text {
-          color: rgba(255, 255, 255, 0.9);
-          text-align: center;
-          // font-family: Lantinghei SC;
-          font-size: 38px;
-          font-style: normal;
-          font-weight: 400;
-          letter-spacing: 0.76px;
-          display: flex;
-          align-items: start;
-        }
-
-        .Welcome_text_title {
-          // font-size: 34px;
-          color: rgba(255, 255, 255, 0.9);
-          font-weight: 400;
-          font-family: Lantinghei SC;
-        }
-      }
-
-      .Language {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 33px;
-        margin-bottom: 18px;
-
-        .point {
-          width: 9px;
-          height: 9px;
-          background-color: rgba(62, 223, 207, 1);
-          border-radius: 50%;
-          margin-right: 5px;
-        }
-
-        .lang {
-          color: var(--Light-dark, rgba(255, 255, 255, 0.9));
-          text-align: center;
-          font-family: JejuGothic;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: -0.2px;
-        }
-      }
-
-      .Anapplication {
-        max-width: 1149px;
-        font-size: 14px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.9);
-
-        text-align: center;
-        line-height: 20px;
-        margin-top: 15px;
-        margin-bottom: 28px;
-      }
-
-      .button_father {
-        display: flex;
-        justify-content: center;
-      }
-
-      .button,
-      .button_right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 141px;
-        height: 42px;
-        border-radius: 6px;
-        border: 1px solid #3edfcf;
-
-        &:hover {
-          // background: linear-gradient(
-          //   177deg,
-          //   #ffffff48 -24.77%,
-          //   rgba(255, 255, 255, 0) 97.53%
-          // );
-          box-shadow: 0px 0px 12px 0px #8dfff425, 0px 0px 12px 0px #8dfff41a;
-        }
-
-        .text {
-          font-size: 14px;
-          font-weight: 500;
-          color: rgba(255, 255, 255, 0.9);
-          margin-right: 8px;
-        }
-
-        img {
-          width: 17px;
-          height: 16px;
-        }
-      }
-
-      .button_right {
-        width: 107px;
-        height: 42px;
-        margin-left: 32px;
-      }
-    }
     .get_the_app {
       height: 1095px;
       img {
@@ -1446,25 +1061,30 @@ console.log(quickSort(arr));
       width: 100%;
       .title {
         font-family: Lantinghei SC;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-color);
       }
       .Four_boxes {
         display: flex;
         //多行对齐
         flex-wrap: wrap;
         justify-content: center;
+
         .box {
           background: linear-gradient(
             177deg,
-            #fff -24.77%,
-            rgba(255, 255, 255, 0) 97.53%
+            var(--background-start) -24.77%,
+            var(--background-end) 97.53%
           );
           opacity: 0.8;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
-          transition: all 0.5s;
+          box-shadow: var(--box-shadow-light);
+          transition: box-shadow 0.5s;
+          border: 1px solid var(--where-border);
+          &:hover {
+            border: 1px solid #3edfcf;
+          }
           .box_title {
             font-family: Lantinghei SC;
             color: #3edfcf;
@@ -1475,20 +1095,20 @@ console.log(quickSort(arr));
           .box_text {
             margin-top: 14px;
             margin-bottom: 26px;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-text);
             font-family: Lantinghei SC;
             font-style: normal;
             font-weight: 400;
           }
           .box_button {
-            background: #fffefb;
+            background: var(--where-button);
             border: 1px solid #3edfcf;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 14px;
             font-weight: 500;
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--where-button-color);
           }
         }
       }
@@ -1504,7 +1124,7 @@ console.log(quickSort(arr));
           flex-wrap: wrap;
           justify-content: start;
           .amount {
-            color: rgba(28, 23, 21, 0.9);
+            color: var(--data-amount-color);
             font-family: Lantinghei SC;
             font-style: normal;
             font-weight: 400;
@@ -1521,9 +1141,10 @@ console.log(quickSort(arr));
       }
       .circles {
         position: relative;
+
         .point {
           display: flex;
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--circles-point);
           font-family: Lantinghei SC;
           font-style: normal;
           font-weight: 400;
@@ -1541,16 +1162,19 @@ console.log(quickSort(arr));
         .round_one,
         .round_three,
         .round_five {
-          background-color: #fffefb;
+          background: var(--circles-bg-round);
           border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
+          border: 1px solid var(--circles-border);
         }
         .round_two,
         .round_four,
         .round_six {
-          background-color: rgba(247, 247, 244, 1);
+          background: var(--circles-bg-round1);
           border-radius: 50%;
-          border: 1px solid rgba(21, 28, 26, 0.1);
+          border: 1px solid var(--circles-border);
+        }
+        .round_one {
+          background: var(--circles-bg);
         }
       }
     }
@@ -1561,7 +1185,7 @@ console.log(quickSort(arr));
       align-items: center;
       justify-content: center;
       .title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--Utility-title-color);
         font-family: Lantinghei SC;
         font-weight: 400;
       }
@@ -1570,7 +1194,6 @@ console.log(quickSort(arr));
         flex-wrap: wrap;
         justify-content: space-evenly;
         .item_title {
-          color: #151c1a;
           font-family: Inter;
           text-transform: uppercase;
         }
@@ -1580,15 +1203,14 @@ console.log(quickSort(arr));
           margin-bottom: 9px;
           position: relative;
 
-          background: linear-gradient(
-            97deg,
-            #f1f7f6 40%,
-            rgba(164, 229, 221, 0.2) 100.1%
-          );
+          background: var(--Utility-item-img);
           border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+
+          border: var(--Utility-item-border);
+
           img {
             width: 70%;
             height: 70%;
@@ -1613,7 +1235,7 @@ console.log(quickSort(arr));
           align-items: center;
           font-size: 12px;
           font-weight: 400;
-          background-color: #fff;
+          background: var(--background-color-button);
           color: #3edfcf;
         }
       }
@@ -1646,7 +1268,7 @@ console.log(quickSort(arr));
             height: 34px;
             flex-shrink: 0;
             border-radius: 50%;
-            background-color: #000;
+            background-color: var(--swiper-icon-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1656,7 +1278,7 @@ console.log(quickSort(arr));
             }
           }
           .time {
-            color: #151c1a;
+            color: var(--swiper-time-color);
             font-family: Jaldi;
             font-style: normal;
             font-weight: 400;
@@ -1664,7 +1286,7 @@ console.log(quickSort(arr));
             opacity: 0.8;
           }
           .text {
-            color: #151c1a;
+            color: var(--swiper-time-color);
             font-family: Inter;
             font-weight: 600;
           }
@@ -1686,7 +1308,7 @@ console.log(quickSort(arr));
           rgba(244, 248, 248, 0.05) 0.13%,
           rgba(244, 248, 248, 0) 99.87%
         );
-        box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+        box-shadow: var(--Contribute-lighter-box-shadow);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1694,11 +1316,11 @@ console.log(quickSort(arr));
 
         .title_one {
           font-weight: 600;
-          color: #151c1a;
+          color: var(--Utility-text-color);
           font-family: Inter;
         }
         .text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--Utility-text-color);
           font-family: Inter;
           font-weight: 400;
         }
@@ -1709,6 +1331,10 @@ console.log(quickSort(arr));
           display: flex;
           justify-content: center;
           align-items: center;
+
+          .button_text {
+            color: var(--where-text);
+          }
         }
       }
     }
@@ -1822,8 +1448,9 @@ console.log(quickSort(arr));
           padding: 50px 0 43px 50px;
           &:hover {
             //过渡
-            transition: all 0.5s;
+            transition: box-shadow 0.5s;
             box-shadow: none;
+            background: var(--where-bg);
           }
 
           .box_text {
@@ -1836,12 +1463,14 @@ console.log(quickSort(arr));
             padding: 12px 16px; /* 添加适当的内边距 */
             border-radius: 8px;
             &:hover {
-              box-shadow: 0px 5px 20px 0px rgba(156, 255, 243, 0.5);
+              box-shadow: 0px 4px 20px 0px var(--where-button-shadow);
               background: linear-gradient(
                 177deg,
-                #fff -s4.77%,
-                rgba(255, 255, 255, 0) 97.53%
+                var(--where-button-hover) -4.77%,
+                var(--where-button-hover-end) 97.53%
               );
+
+              border: 1px solid var(--where-button-border);
             }
           }
         }
@@ -1870,11 +1499,11 @@ console.log(quickSort(arr));
               font-size: 44px;
               padding-bottom: 10px;
               margin-bottom: 18px;
-              border-bottom: 1.5px solid rgba(21, 28, 26, 0.2);
+              border-bottom: 1.5px solid var(--data-amount-border-color);
               padding-right: 11px;
             }
             .data_text {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--data-data_text-color);
             }
           }
         }
@@ -2003,7 +1632,7 @@ console.log(quickSort(arr));
             transition: all 0.3s;
           }
           .item_text {
-            color: rgba(21, 28, 26, 0.7);
+            color: var(--Utility-item-text);
             font-family: Inter;
             font-size: 14px;
             font-weight: 400;
@@ -2049,7 +1678,7 @@ console.log(quickSort(arr));
         // *这将在滑动器的左侧创建模糊效果
         .shadow_left {
           transform: rotate(180deg);
-          width: 202px;
+          width: 232px;
           height: 404px;
           position: absolute;
           left: -50px;
@@ -2057,8 +1686,8 @@ console.log(quickSort(arr));
           bottom: 0;
           background: linear-gradient(
             -90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+            var(--swiper-shadow-left) 43.44%,
+            var(--swiper-shadow-left1) 90%
           );
           z-index: 2; /* 确保阴影在内容之上 */
         }
@@ -2066,7 +1695,7 @@ console.log(quickSort(arr));
         .shadow_right {
           // 旋转100deg;
           transform: rotate(180deg);
-          width: 262px;
+          width: 280px;
           height: 404px;
           position: absolute;
           right: -100px;
@@ -2074,8 +1703,8 @@ console.log(quickSort(arr));
           bottom: 0;
           background: linear-gradient(
             90deg,
-            #fff 43.44%,
-            rgba(255, 255, 255, 0) 90%
+            var(--swiper-shadow-left) 43.44%,
+            var(--swiper-shadow-left1) 90%
           );
           //模糊
           z-index: 2; /* 确保阴影在内容之上 */
@@ -2092,12 +1721,12 @@ console.log(quickSort(arr));
         border-radius: 50%;
         cursor: pointer; ///鼠标移上去变成手指
 
-        background-color: rgba(21, 28, 26, 0.9) !important;
+        background-color: var(--swiper-prev-bg) !important;
         color: #fff !important;
       }
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
-        background-color: #fff !important;
+        background-color: var(--swiper-prev-disabled-bg) !important;
         border: 1px solid #000 !important;
         color: #000 !important;
         opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
@@ -2135,7 +1764,7 @@ console.log(quickSort(arr));
         height: 394px;
 
         border-radius: 10px;
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(7px);
         position: absolute;
         left: 20%;
         top: 20%;
@@ -2163,7 +1792,7 @@ console.log(quickSort(arr));
             .button_text {
               font-size: 14px;
               font-weight: 500;
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--where-text);
               margin-right: 8px;
               margin-left: 12px;
             }
@@ -2171,13 +1800,11 @@ console.log(quickSort(arr));
           .button_left,
           .button_right {
             margin-right: 60px;
+
             &:hover {
-              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.4);
-              // background: linear-gradient(
-              //   177deg,
-              //   #fff -24.77%,
-              //   rgba(255, 255, 255, 0) 97.53%
-              // );
+              background: var(--Contribute-button_left-bg);
+              border: var(--Contribute-button_left-border);
+              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
             }
           }
         }
@@ -2301,12 +1928,12 @@ console.log(quickSort(arr));
                 width: 100%;
                 padding-bottom: 4px;
                 margin-bottom: 4px;
-                border-bottom: 1px solid rgba(21, 28, 26, 0.2);
+                border-bottom: 1px solid var(--data-amount-border-color);
                 font-size: 20px;
                 font-weight: 400;
               }
               .data_text {
-                color: #b9bbba;
+                color: var(--data-data_text-color1);
               }
             }
           }
@@ -2432,7 +2059,7 @@ console.log(quickSort(arr));
               font-weight: 600;
             }
             .item_text {
-              color: #151c1a;
+              color: var(--Utility-item-text);
               font-family: Inter;
               font-size: 8px;
               font-style: normal;
@@ -2453,17 +2080,16 @@ console.log(quickSort(arr));
       }
 
       .merry_go_round {
-        padding: 36px 20px 0 20px;
+        padding: 36px 20px 30px 20px;
 
         .swiper {
           width: 100%;
           justify-content: center;
           .swiper-slide {
             align-items: center;
-
             .swiper_img {
-              width: 350px;
-              height: 286px;
+              width: 80% !important;
+              height: 80% !important;
             }
 
             .time {
@@ -2475,6 +2101,7 @@ console.log(quickSort(arr));
               font-size: 16px;
               font-style: normal;
               line-height: 22px; /* 22.64px */
+              margin-bottom: 50px;
             }
           }
           /* 设置未激活状态下的圆点颜色 */
@@ -2485,7 +2112,7 @@ console.log(quickSort(arr));
             border-radius: 8px;
           }
 
-          /* 设置激活（当前选中）状态下的圆点颜色 */
+          // /* 设置激活（当前选中）状态下的圆点颜色 */
           :deep(.swiper-pagination .swiper-pagination-bullet-active) {
             width: 8px;
             height: 8px;
@@ -2497,7 +2124,7 @@ console.log(quickSort(arr));
 
       .Contribute_to_Utility {
         width: 100%;
-        // height: 402px;
+        height: 402px;
         display: flex;
         justify-content: center;
         // background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
@@ -2507,18 +2134,16 @@ console.log(quickSort(arr));
         padding: 30px 0;
 
         .Contribute_to_Utility_bg {
-          width: 300%;
-          height: 1206px;
           position: absolute;
           justify-content: center;
           right: 0;
-          top: -200px;
+          top: 0px;
         }
 
         .Create_a_lighter {
           width: 350px;
           height: 161px;
-          // position: absolute;
+          position: absolute;
           bottom: 28px;
           left: 50;
           padding-top: 17px;
@@ -2549,7 +2174,6 @@ console.log(quickSort(arr));
 
               align-items: center;
               .button_text {
-                color: rgba(21, 28, 26, 0.9);
                 text-align: center;
                 font-family: Inter;
                 font-size: 8px;

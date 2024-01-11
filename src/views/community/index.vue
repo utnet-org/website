@@ -1,18 +1,25 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const communityOptionsList = [
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
     title: "Join Online Community",
     text: "Join our community to discuss, learn and share with us",
   },
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
     title: "Contribute to the Project",
     text: "Interested individuals and teams are welcome to contribute to our projects and realize our vision together.",
   },
   {
-    image: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
+    image:
+      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
     title: "Utility Activities",
     text: "Provide in-depth understanding and participation",
   },
@@ -78,13 +85,28 @@ const accordionList = [
 <template>
   <div>
     <div class="container">
-      <div class="header">
+      <div
+        class="header"
+        :style="{
+          background:
+            !theme && viewableWidth > 834
+              ? 'url(' +
+                'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
+                ')' +
+                ' no-repeat'
+              : '',
+          'background-size': !theme ? 'cover' : '',
+        }"
+      >
         <div class="header_content">
           <div class="header_content_header">{{ $t("community.h1_1") }}</div>
           <div class="header_content_text">{{ $t("community.h1_2") }}</div>
           <div class="header_content_button">
             <div>{{ $t("community.h1_3") }}</div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -100,7 +122,10 @@ const accordionList = [
             <div class="lowest_level"></div>
             <div class="middle_level"></div>
             <div class="upper_level"></div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png"
+              alt=""
+            />
           </div>
           <div class="swiper_rightmost">
             <div></div>
@@ -111,7 +136,10 @@ const accordionList = [
       </div>
       <div class="community_options">
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList1.title") }}
@@ -122,7 +150,10 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList2.title") }}
@@ -133,7 +164,10 @@ const accordionList = [
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
               {{ $t("community.optionsList3.title") }}
@@ -163,16 +197,32 @@ const accordionList = [
                 @mouseenter="hoverCheckIndex = 1"
                 @mouseleave="hoverCheckIndex = -1"
               >
-                <img v-if="hoverCheckIndex == 1" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png" alt="" />
+                <img
+                  v-if="hoverCheckIndex == 1"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
+                  alt=""
+                />
               </div>
               <div
                 class="toggle_menu_header_icon_item"
                 @mouseenter="hoverCheckIndex = 2"
                 @mouseleave="hoverCheckIndex = -1"
               >
-                <img v-if="hoverCheckIndex == 2" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png" alt="" />
+                <img
+                  v-if="hoverCheckIndex == 2"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -184,7 +234,10 @@ const accordionList = [
             >
               <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
               <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt="" />
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png"
+                alt=""
+              />
               <div class="item_text">{{ $t(item.text) }}</div>
             </div>
           </div>
@@ -225,12 +278,13 @@ const accordionList = [
 </template>
 <style scoped lang="less">
 .container {
-  background-color: #fffefb;
+  background-color: var(--background-color);
   padding-top: 70px;
+
   .header {
     width: 100%;
     height: 558px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png") no-repeat;
+    background: url("@/assets/images/community_background.png") no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -247,7 +301,6 @@ const accordionList = [
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding-left: 60px;
@@ -255,8 +308,10 @@ const accordionList = [
       flex-direction: column;
       justify-content: center;
 
+      box-shadow: var(--unc_token-header-shadow);
+      border: var(--unc_token-header-border);
       .header_content_header {
-        color: vrgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -264,7 +319,7 @@ const accordionList = [
 
       .header_content_text {
         width: 398px;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -280,8 +335,8 @@ const accordionList = [
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid rgba(21, 28, 26, 0.9);
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        border: 1px solid var(--text-color);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -292,6 +347,7 @@ const accordionList = [
           width: 16px;
           height: 16px;
           margin-left: 8px;
+          filter: brightness(var(--learning-center-brightness));
         }
 
         &:hover {
@@ -307,13 +363,14 @@ const accordionList = [
     justify-content: center;
     height: 627px;
     padding-top: 140px;
+    background: var(--community-swiper-bg);
 
     .swiper_side {
       width: 512px;
       margin: 70px 180px 0 0;
 
       .swiper_side_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Lantinghei SC;
         font-size: 22px;
         font-weight: 700;
@@ -321,7 +378,7 @@ const accordionList = [
       }
 
       .swiper_side_text {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -344,33 +401,36 @@ const accordionList = [
           width: 503.779px;
           height: 341.419px;
           border-radius: 10px;
-          background: #f6f9f9;
+          background: var(--community-bg);
           position: absolute;
           top: 0;
           left: 36.18px;
           z-index: 2;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         .middle_level {
           width: 541.817px;
           height: 341.389px;
           border-radius: 10px;
-          background: #ecf5f7;
+          background: var(--community-bg1);
           position: absolute;
           bottom: 19.06px;
           left: 17.63px;
           z-index: 3;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         .upper_level {
           width: 578px;
           height: 342px;
           border-radius: 10px;
-          background: #e2f2f5;
+          background: var(--community-bg2);
           position: absolute;
           bottom: 0;
           left: 0;
           z-index: 4;
+          box-shadow: var(--community-swiper-shadow);
         }
 
         img {
@@ -407,7 +467,7 @@ const accordionList = [
 
   .community_options {
     padding: 87px 0 80px;
-    background-color: #f6f9f9;
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -417,13 +477,14 @@ const accordionList = [
       height: 447px;
       margin: 0 20px;
       border-radius: 12px;
-      background: #fffefb;
-      box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+      box-shadow: var(--community-community_options-shadow);
       border: 1px solid transparent;
       cursor: pointer;
+      background-color: var(--community-community_options-bg);
 
       &:hover {
         border: 1px solid #3edfcf;
+        box-shadow: var(--community-community_options-shadow1);
       }
 
       img {
@@ -437,7 +498,7 @@ const accordionList = [
         margin: 29px 40px 0 44px;
 
         .community_options_item_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 15px;
           font-weight: 700;
@@ -447,7 +508,7 @@ const accordionList = [
         }
 
         .community_options_item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
@@ -470,7 +531,7 @@ const accordionList = [
       position: relative;
 
       .toggle_menu_header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 22px;
@@ -492,16 +553,17 @@ const accordionList = [
           align-items: center;
           justify-content: center;
           border-radius: 18px;
-          border: 1px solid black;
+          border: 1px solid var(--where-text);
           cursor: pointer;
 
           img {
             width: 12px;
             height: 12px;
+            filter: brightness(var(--learning-center-brightness));
           }
 
           &:hover {
-            background-color: black;
+            background-color: var(--where-color);
           }
         }
       }
@@ -518,15 +580,22 @@ const accordionList = [
         height: 358px;
         border-radius: 12px;
         padding: 28px;
-        background: linear-gradient(
-          177deg,
-          #fff -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
-        box-shadow: 0px 4px 24px 0px rgba(228, 233, 232, 0.5);
+        background: var(--community-toggle_menu_list_item-bg);
+        box-shadow: var(--community-community_options-shadow);
+        border: var(--docs-box-options_item-border);
+        transition: transform 0.3s ease; /* 平滑过渡效果 */
+
+        &:hover {
+          border: var(--unc_token-subtitle-border1);
+          box-shadow: var(--community-toggle_menu_list_item-shadow);
+          background: var(--community-toggle_menu_list_item-hover);
+          transform: translateY(
+            var(--community-toggle_menu_list_item-transform)
+          ); /* 向上移动5px */
+        }
 
         .item_first_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 18px;
           font-weight: 500;
@@ -534,7 +603,7 @@ const accordionList = [
         }
 
         .item_second_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 12px;
           font-weight: 400;
@@ -548,7 +617,7 @@ const accordionList = [
         }
 
         .item_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 13px;
           font-weight: 400;
@@ -565,7 +634,7 @@ const accordionList = [
       align-items: center;
 
       .steps_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 22px;
@@ -575,7 +644,7 @@ const accordionList = [
       .steps_text {
         display: flex;
         align-items: center;
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--text-color);
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -597,7 +666,7 @@ const accordionList = [
         width: 100%;
         display: flex;
         padding: 0 0 22px 36px;
-        border-left: 1px solid rgba(21, 28, 26, 0.1);
+        border-left: 1px solid var(--community-steps_item-border);
         position: relative;
 
         .dots {
@@ -615,7 +684,9 @@ const accordionList = [
           flex: 1;
           padding: 0 36px;
           border-radius: 12px;
-          background: #f6f9f9;
+
+          background: var(--community-message_text-bg);
+
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -630,14 +701,14 @@ const accordionList = [
             }
 
             &:nth-child(2) {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--text-color);
               font-family: Lantinghei SC;
               font-size: 15px;
               font-weight: 700;
             }
 
             &:last-child {
-              color: rgba(21, 28, 26, 0.9);
+              color: var(--text-color);
               font-family: Inter;
               font-size: 14px;
               font-weight: 400;
@@ -656,7 +727,7 @@ const accordionList = [
     .header {
       height: 516px;
       padding: 0 5%;
-      background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/phone_community.png") no-repeat;
+      background: var(--community-bgc-phone);
       background-size: cover;
       justify-content: center;
 
@@ -680,8 +751,8 @@ const accordionList = [
           width: 151px;
           height: 42px;
           border-radius: 6px;
-          border: 1px solid rgba(21, 28, 26, 0.9);
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          // border: 1px solid rgba(21, 28, 26, 0.9);
+          // color: var(--Light-dark, rgba(21, 28, 26, 0.9));
           font-family: Inter;
           font-size: 14px;
           font-weight: 500;
@@ -818,7 +889,7 @@ const accordionList = [
         padding: 46px 5% 60px;
 
         .steps_title {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           text-align: center;
           font-family: Lantinghei SC;
           font-size: 22px;
@@ -828,7 +899,7 @@ const accordionList = [
         .steps_text {
           display: flex;
           align-items: center;
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;

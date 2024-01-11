@@ -2,10 +2,23 @@
 import { defineStore } from 'pinia'
 let useHomeStore = defineStore('home', {
   state: () => ({
-    test: '我是测试数据'
+    theme: false
   }),
-  actions: {},
-  getters: {}
+  actions: {
+    setTheme() {
+      this.theme = document.body.classList.contains('dark-theme')
+    }
+  },
+  getters: {},
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: 'home',
+        storage: localStorage, // 或 sessionStorage
+      }
+    ]
+  }
 })
 export default useHomeStore
 

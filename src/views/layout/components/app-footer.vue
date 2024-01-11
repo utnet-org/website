@@ -2,7 +2,13 @@
 import { ref } from "vue";
 import { openNewPage } from "@/utils/request";
 import Utility from "@/assets/images/utility.svg";
+import Utility1 from "@/assets/images/Utility1.svg";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
+
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const mp_left = [
   {
     title: "footer.Resources",
@@ -265,7 +271,9 @@ const printWidth = () => {
               alt=""
               srcset=""
             />
-            <Utility />
+            <Utility v-if="!theme" />
+            <Utility1 v-if="theme" />
+
             <!-- <div class="logo_text">Utility</div> -->
           </div>
           <div class="social">
@@ -328,7 +336,11 @@ const printWidth = () => {
                   {{ $t(c_item.text) }}
                   <div class="arrow">
                     <img
-                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/footer_arrow.svg"
+                      :src="
+                        !theme
+                          ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/footer_arrow.svg'
+                          : '/src/assets/images/footer_arrow1.png'
+                      "
                       alt=""
                       srcset=""
                     />
@@ -348,8 +360,10 @@ const printWidth = () => {
           src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Layer_1.svg"
           alt=""
           srcset=""
+          style="margin-right: 10px"
         />
-        <Utility />
+        <Utility v-if="!theme" />
+        <Utility1 v-if="theme" />
         <!-- <div class="container_top_title">Utility</div> -->
       </div>
       <div class="container_icon">
@@ -367,11 +381,7 @@ const printWidth = () => {
           class="container_icon_tw"
           @click="openNewPage('https://github.com/utnet-org')"
         >
-          <img
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Github.svg"
-            alt=""
-            srcset=""
-          />
+          <img src="/src/assets/images/Github.svg" alt="" srcset="" />
         </div>
         <div class="container_icon_tw">
           <img
@@ -434,7 +444,7 @@ const printWidth = () => {
   min-height: 516px;
   width: 100%;
   padding: 0 9.25vw;
-  background-color: #f6f9f9;
+  background-color: var(--app-footer-bgc);
   overflow: hidden;
 
   .container {
@@ -464,7 +474,7 @@ const printWidth = () => {
           display: flex;
           align-items: center;
           gap: 13px;
-          color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          color: rgba(21, 28, 26, 0.9);
           font-family: Hiragino Kaku Gothic ProN;
           font-size: 17px;
           font-style: normal;
@@ -478,8 +488,8 @@ const printWidth = () => {
 
           .icon {
             cursor: pointer;
-            filter: brightness(0%);
-            opacity: 0.17;
+            filter: var(--app-footer-social-brightness);
+            opacity: var(--app-footer-social-opacity);
 
             &:hover {
               filter: brightness(100%);
@@ -520,7 +530,7 @@ const printWidth = () => {
                 display: block;
                 width: 0;
                 height: 1px;
-                background: var(--Light-dark, rgba(21, 28, 26, 0.9));
+                background: var(--app-footer-underline);
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -529,8 +539,8 @@ const printWidth = () => {
             }
 
             &:hover {
-              text-shadow: 0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9)),
-                -0.2px 0 var(--Light-dark, rgba(21, 28, 26, 0.9));
+              text-shadow: 0.2px 0 var(--app-footer-right_text-hover),
+                -0.2px 0 var(--app-footer-right_text-hover);
               opacity: 0.8;
             }
           }
@@ -545,7 +555,7 @@ const printWidth = () => {
                 }
 
                 .arrow {
-                  filter: brightness(0%);
+                  // filter: brightness(0%);
                   display: block;
                   animation: identifier 0.3s linear 1 forwards;
                 }
@@ -577,7 +587,7 @@ const printWidth = () => {
     .right_text {
       a {
         cursor: pointer;
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+        color: var(--app-footer-right_text);
         font-family: Inter;
         font-size: 13px;
         font-style: normal;
@@ -619,7 +629,10 @@ const printWidth = () => {
       //border: 1px solid black;
       justify-content: space-around;
       padding: 23px 30px;
-
+      //箭头变成小手
+      .container_icon_tw:hover {
+        cursor: pointer;
+      }
       .container_icon_tw {
         width: 29px;
         height: 29px;
@@ -650,7 +663,7 @@ const printWidth = () => {
           }
 
           .resources_text {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--app-footer-right_text);
             font-family: Inter;
             font-size: 12px;
             font-style: normal;
@@ -683,7 +696,7 @@ const printWidth = () => {
         }
 
         .resources_text {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--app-footer-right_text);
           font-family: Inter;
           font-size: 12px;
           font-style: normal;

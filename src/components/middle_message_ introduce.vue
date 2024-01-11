@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Url } from "url";
 import { ref } from "vue";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
 const props = defineProps({
   headerImage: String,
   headerTitle: String,
@@ -26,18 +30,35 @@ const changeSwitchId = (id: number) => {
 </script>
 <template>
   <div class="container">
-    <div class="header">
-      <div class="header_image">
-        <img :src="headerImage" alt="" />
-        <div class="header_title">{{ $t(headerTitle as string) }}</div>
-        <div class="header_switch">
-          <!-- @click="changeSwitchId(index)" -->
-          <div
-            v-for="(item, index) in switchList"
-            :key="index"
-            :class="switchId == index ? 'active' : ''"
-          >
-            {{ $t(item as string) }}
+    <div
+      :style="{
+        // background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
+      }"
+    >
+      <div
+        class="header"
+        :style="{
+          background: theme
+            ? ''
+            : 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
+              ')' +
+              ' no-repeat',
+          'background-size': theme ? '' : 'cover',
+        }"
+      >
+        <div class="header_image">
+          <img :src="headerImage" alt="" />
+          <div class="header_title">{{ $t(headerTitle as string) }}</div>
+          <div class="header_switch">
+            <!-- @click="changeSwitchId(index)" -->
+            <div
+              v-for="(item, index) in switchList"
+              :key="index"
+              :class="switchId == index ? 'active' : ''"
+            >
+              {{ $t(item as string) }}
+            </div>
           </div>
         </div>
       </div>
@@ -67,17 +88,18 @@ const changeSwitchId = (id: number) => {
 </template>
 <style scoped lang="less">
 .container {
-  background: linear-gradient(
-    250deg,
-    #cdeaf1 5.3%,
-    #fafbfb 43.99%,
-    #def2f3 100.09%
-  );
-  padding-top: 70px;
+  // background: linear-gradient(
+  //   250deg,
+  //   #cdeaf1 5.3%,
+  //   #fafbfb 43.99%,
+  //   #def2f3 100.09%
+  // );
+
+  padding-top: 69px;
   .header {
     width: 100%;
     height: 479px;
-    background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png")
+    background: url("@/assets/images/components_middle_background1.png")
       no-repeat;
     background-size: cover;
     text-align: center;
@@ -85,7 +107,6 @@ const changeSwitchId = (id: number) => {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-
     .header_image {
       img {
         width: 120px;
@@ -94,7 +115,7 @@ const changeSwitchId = (id: number) => {
       }
 
       .header_title {
-        color: rgba(21, 28, 26, 0.9);
+        color: var(--where-text);
         text-align: center;
         font-family: Lantinghei SC;
         font-size: 30px;
@@ -115,6 +136,11 @@ const changeSwitchId = (id: number) => {
           margin: 0 4px;
           border: 1px solid #3edfcf;
           // cursor: pointer;
+          color: var(--where-text);
+          &:hover {
+            background: #3edfcf;
+            color: var(--swiper-prev-new-disabled-bg);
+          }
         }
 
         .active {
@@ -127,21 +153,21 @@ const changeSwitchId = (id: number) => {
   .first_level_message {
     height: 247px;
     padding: 0 11.5%;
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     .first_level_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
     }
 
     .first_level_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
@@ -152,21 +178,21 @@ const changeSwitchId = (id: number) => {
 
   .second_level_message {
     padding: 15px 11.5% 0px;
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     .second_level_title {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Lantinghei SC;
       font-size: 22px;
       font-weight: 700;
     }
 
     .second_level_text {
-      color: rgba(21, 28, 26, 0.9);
+      color: var(--where-text);
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
@@ -180,7 +206,7 @@ const changeSwitchId = (id: number) => {
   }
 
   .images_list {
-    background-color: #fffefa;
+    background-color: var(--middle_message_introduce-bg);
     display: flex;
     justify-content: flex-start;
     padding: 40px 11% 100px;

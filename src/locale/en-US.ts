@@ -23,7 +23,7 @@ export default {
     POCI_Consensus_details:
       "Different from the traditional proof of >>>br work (POW) consensus",
     White_Paper: "White Paper",
-    White_Paper_details: "UNC Utility and tokennomics",
+    White_Paper_details: "UNC utility and tokennomics",
     Utility_Wallet: "Utility Wallet",
     Utility_Wallet_details: "Connect to UtilityNet and manage your >>>br funds",
     Hashing_Power: "Core System",
@@ -89,7 +89,7 @@ export default {
     Where_to_Start: "Where to Start",
     Builder: "BUILD TOGETHER",
     You_can_try:
-      "Work with Utility developers to build rich contracts and applications based on the computing ecosystem and make them available to multiple users.",
+      "Work with utility developers to build rich contracts and applications based on the computing ecosystem and make them available to multiple users.",
     Build_DOC: "Build DOC",
     MINER: "COMPUTING POWER SUPPLY",
     You_can_get_UNC:
@@ -100,7 +100,7 @@ export default {
     Explore_Wallet: "Explore Wallet",
     Computing_Power_users: "COMPUTING POWER ECOLOGY",
     You_can_rent:
-      "Rent high-performance computing power from Utility providers to develop and efficiently use underlying SDKS and eco-enabled applications.",
+      "Rent high-performance computing power from utility providers to develop and efficiently use underlying SDKS and eco-enabled applications.",
     Develop: "Develop",
 
     Utility_Chain_Scaling_Solutions: "Utility Scaling Solutions",
@@ -151,35 +151,35 @@ export default {
   learning_center: {
     Learning_center: "Learning centre",
     A_guide_and_help_center:
-        " Guide and help center for beginners to understand and use various technologies on Utility",
+      " Guide and help center for beginners to understand and use various technologies on Utility",
     How_to_use_it: "how to use it",
     What_is_Utility: "What is Utility",
     Enhance_Utility_Network: "Enhance Utility Network",
     Utility_Network_has_made:
-        "Utility Network has made many innovations based on traditional blockchain. It defines the chip in a different way and allows efficient use of computing power. Learn more and get started:",
+      "Utility Network has made many innovations based on traditional blockchain. It defines the chip in a different way and allows efficient use of computing power. Learn more and get started:",
     Start_from_here: "Start here as a beginner",
     What_is_UNC_Token: "What is a UNC token",
     Start_UNC_Token_UNC:
-        "Start UNC Token (UNC) is the currency of the Utility network and its ecosystem",
+      "Start UNC Token (UNC) is the currency of the utility network and its ecosystem",
     What_is_POCI_Consensus: "What is POCI consensus",
     it_is_a_brand_new:
-        "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
+      "This is a brand-new proof mechanism that indirectly proves computing power by having credible computing power.",
     How_to_use_Utility: "How to use Utility",
     Utility_can_be_used_in:
-        "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
+      "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
     A_digital_wallet_holds:
-        "Digital wallets hold the credentials you need to prove your identity and access important places",
+      "Digital wallets hold the credentials you need to prove your identity and access important places",
     the_first_computing_power: "The first computing power rental platform issued by Utility.",
     Enhancing_Utility_Network: "Enhance Utility Network",
     Building_Utility_Network:
-        "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
+      "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
     Running_Nodes: "Running node",
     Participate_in_running: "Participate in running nodes and make important contributions.",
     Mining_and_Rental_Supply: "Mining and Lease Supply",
     Learn_how_to_mining: "Learn how to mine and rent in the Utility network.",
     Join_the_Community: "Join community",
     A_home_for_Utility_developers:
-        "Utility is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
+      "Utility is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
   },
   utilityNetwork: {
     header_title: "Utility Network",
@@ -187,7 +187,7 @@ export default {
       "Enabling the practical computing platform of the future. Explore decentralized, efficient and secure computing services.",
     read_more: "Read More",
     title_text:
-      'The term "Utility Network" usually refers to a network architecture designed to provide a variety of Utility services, such as computing resources, data storage, algorithm models, etc. It is a decentralized computing service platform built on blockchain technology and chip consensus, aiming to solve the limitations of centralized computing resources and provide users with efficient, secure and scalable computing services.',
+      'The term "Utility Network" usually refers to a network architecture designed to provide a variety of utility services, such as computing resources, data storage, algorithm models, etc. It is a decentralized computing service platform built on blockchain technology and chip consensus, aiming to solve the limitations of centralized computing resources and provide users with efficient, secure and scalable computing services.',
     decentralized_computing_service_platform:
       "Decentralized computing service platform",
     decentralized_computing_service_platform_text:
@@ -255,6 +255,25 @@ export default {
     digital_asset_trading: "Digital Asset Trading",
     multifacetedc_ryptocurrency_platform:
       "Multifaceted Cryptocurrency Platform",
+
+
+
+    poci_consensus_title: "Proof of Computation Integrity (PoCI)",
+    poci_consensus_text:
+      "Utility network uses PoCI as consensus mechanism, combines chip ownership and VRF technology to realize fast consensus and block generation. This mechanism reduces energy consumption and improves network efficiency, which is one of the unique features of Utility network.",
+    power_scheduling_title: "Merkle State Machine (MSM)",
+    power_scheduling_text:
+      "By using Merkle state machine and Merkle tree, Utility network successfully realizes the orderly storage of off-chain data and on-chain data verification. This technology effectively reduces the storage burden of the blockchain, while ensuring the security and integrity of off-chain data.",
+    virtualization_and_isolation_execution_environment_title:
+      "Virtualization and Isolation Execution environment",
+    virtualization_and_isolation_execution_environment_text:
+      "Based on Arm framework drivers and graphics virtualization support, Utility Network implements flexible and shared TPU chips, combined with container technology, to ensure a highly isolated execution environment. This provides a secure execution environment for computing services.",
+    multiple_execution_virtual_machines_support_title: "Multiple execution virtual machines support",
+    multiple_execution_virtual_machines_support_text:
+      "Utility Network supports a variety of execution virtual machines, including Solidity VM, Kubernetes integration, WASM integration, and PyTorch external computing support. This flexibility enables the network to meet different computing needs, providing a wider range of application support.",
+    complete_economic_system_model_title: "Complete economic system model",
+    complete_economic_system_model_text:
+      "The Utilty network has a fully developed model of the economic system, divided into different epochal periods, including the Talos Age, Vajra Age, Golem Age, and Maria Age. Through incentive programs in different periods, the development of the network and the participation of users are promoted.",
   },
   community: {
     h1_1: "Welcome to Community",
@@ -375,5 +394,44 @@ export default {
       "Model sharing: Users can publish their own AI models and share them with users and researchers around the world.Model use: There are a variety of AI models on the market, and users can choose and use these models according to their own needs.Computing power rental: In order to support AI training and computing, users can rent the required computing power resources on the Utility network.Innovation support: The project encourages innovation and experimentation, and supports users’ exploration and development in the field of AI.The AI ​​Model project is not only a model market, but also an innovation platform that promotes the development and application of AI technology.",
 
     ongoing: "Ongoing",
+  },
+  poci_consensus: {
+    poci_or_Proof:
+      "POCI, or Proof of Trusted Computing Integrity, is a blockchain consensus mechanism used to prove computing power. It is different from the traditional Proof of computational power based on Proof of Work (PoW), which requires consuming computational resources by solving complex mathematical problems. Instead, POCI relies on random numbers and power competition on the chain to elect suitable miners to generate new blocks.",
+    the_introduction_of:
+      "The introduction of POCI also means more fair competition and higher security in the network. Through on-chain random numbers and computing power competition, POCI fairly elects the right miners to generate new blocks, which not only ensures the efficient use of computing power, but also protects the network from malicious behavior. In addition, POCI enables the Utility network to avoid a large number of ineffective calculations that are often used in traditional blockchains to combat the Byzantine checkmate problem. This increase in efficiency allows 99% of computing power to be freed up for more practical services, such as distributed training and inference computing, enabling large-scale applications.",
+    POCI_not_only:
+      "POCI not only improves computing efficiency and security in the Utility network, but also promotes the fairness and transparency of the network, provides users with more efficient and reliable services, and promotes the progress and application of blockchain technology.",
+    The_use_of_high_performance: "The use of high-performance computing chips",
+    POCI_uses_high_performance:
+      "POCI uses high-performance Sophon TPU computing chips designed for artificial intelligence with the capability of teraflops, with a focus on deep learning computing.",
+    Computing_power_ownership: "Computing power ownership model",
+    POCI_abandons_the:
+      "POCI abandons the high cost and high energy consumption computing model, and adopts the model based on chip computing power ownership.",
+    On_chain_random_number: "On-chain random number and computing power competition",
+    POCI_selects_appropriate:
+      "POCI selects appropriate miners to generate new blocks through on-chain random numbers and computing power competition, ensuring the availability of computing power for miners and fair competition in the network.",
+    The_SPACC_module_is:
+      "The SPACC module is used to perform cryptographic operations, such as AES (Advanced Encryption Standard) encryption and decryption operations. This module ensures the privacy and uniqueness of the chip, so that the secret identity and key information of the chip will not be exposed to the outside. The SPACC module exists to enhance the security of the entire network and ensure the privacy of information and operations",
+    The_PKA_module_is_responsible:
+      "The PKA module is responsible for private key signing and verification operations. In the Ellipse Curve Cryptography (ECC) algorithm, the PKA module is used to generate public and private keys to provide the basis for encrypted communication. The function of this module is to ensure the security and reliability of digital signatures, further strengthening the security of the network",
+    Efuse_Storage_area: "Efuse storage area",
+    The_Efuse_storage_area:
+      'The Efuse storage area is used to etch unique serial numbers and 128-bit AES keys (i.e. "security keys"). This security key is an important part of the chip, ensuring the unique identity and security of each chip. The information in the Efuse area is unchangeable, ensuring the security features of the chip and the reliability of authentication',
+    How_is_POCI_different: "How is POCI different from traditional PoW (Proof of Work)?",
+    Unlike_PoW_which:
+      "Unlike PoW, which requires solving complex mathematical problems to prove computing power, POCI uses on-chain random numbers and computing power competition to elect miners, which is more efficient and energy-saving.",
+    How_does_POCI_ensure: "How does POCI ensure network security?",
+    POCI_ensures_the_security:
+      "POCI ensures the security of the network by verifying the computing power of nodes and using encryption technology inside the chip.",
+    How_does_POCI_contribute: "What contribution does POCI make to blockchain scalability?",
+    POCI_contributes_to:
+      "POCI contributes to the expansion and wider application of blockchain technology by improving computing efficiency and reducing costs.",
+    How_does_POCI_support: "How does POCI support decentralization?",
+    POCI_supports_decentralized:
+      "POCI supports decentralized and distributed network structures through fair computing power proof and random number generation.",
+    What_role_does_POCI: "What role does POCI play in future blockchain development?",
+    As_an_efficient_and_environmentally:
+      "As an efficient and environmentally friendly consensus mechanism, POCI is expected to play a key role in the future development of blockchain technology, especially in improving network performance and expanding blockchain applications.",
   },
 };

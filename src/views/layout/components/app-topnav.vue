@@ -1,12 +1,25 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from "@/assets/images/logo.svg";
 import Utility from "@/assets/images/utility.svg";
-import { ref } from "vue";
+import UtilityW from "@/assets/images/utility_white.svg";
+import sun from "@/assets/images/sun.svg";
+import dark from "@/assets/images/dark.svg";
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
+import {
+  toggleTheme,
+  saveThemePreference,
+  loadThemePreference,
+} from "@/utils/set_theme";
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { theme } = storeToRefs(home);
+const { locale } = useI18n();
 const isfocus = ref(true);
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const selectType = ref(false);
+
 const blockSelect = () => {
   selectType.value = !selectType.value;
   document.addEventListener("wheel", (event) => {
@@ -138,15 +151,12 @@ const nav_arr = ref([
     children: [
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_english_icon.png",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
         title: "nav.English",
         desc: "en",
         link: "",
       },
       {
         icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_chinese_icon.png",
-
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg",
         title: "nav.Chinese",
         desc: "zh",
         link: "",
@@ -192,6 +202,26 @@ window.onresize = () => {
   // 监听窗口大小变化
   width.value = window.innerWidth;
 };
+onMounted(() => {
+  loadThemePreference();
+});
+const setTheme = () => {
+  selectType.value = false;
+  toggleTheme();
+  saveThemePreference();
+};
+function seticon(icon: string, isdark: boolean) {
+  const arrpng = icon.split("_"); // 切割后没有下划线
+  let arrow: string[] = [];
+  if (arrpng.length > 1) {
+    arrow = arrpng[1].split(".");
+  }
+  if (isdark && arrow[1] != "svg" && icon != "" && arrpng.length <= 2) {
+    return arrpng[0] + "_" + arrow[0] + "_d." + arrow[1];
+  } else {
+    return icon;
+  }
+}
 </script>
 <template>
   <nav class="app-topnav">
@@ -199,14 +229,29 @@ window.onresize = () => {
       <RouterLink to="/">
         <div class="logo_box" @click="selectType = false">
           <Logo />
-          <Utility />
+          <UtilityW v-if="theme" />
+          <Utility v-else />
           <!-- <span class="logo_text">Utility</span> -->
         </div>
       </RouterLink>
       <UTTOPNAV v-if="width > 834" />
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
+        <div
+          @click="setTheme"
+          class="theme"
+          :style="{ background: theme ? '' : '' }"
+        >
+          <sun v-if="!theme" style="width: 24px; height: 24px" />
+          <dark v-else style="width: 24px; height: 24px" />
+        </div>
         <SETLANGUAGE />
+      </div>
+      <div v-else class="mobile_theme_icon">
+        <div @click="setTheme" style="width: 24px; height: 24px">
+          <sun v-if="!theme" style="width: 24px; height: 24px" />
+          <dark v-else style="width: 24px; height: 24px" />
+        </div>
       </div>
       <img
         class="list_caption_image"
@@ -216,7 +261,21 @@ window.onresize = () => {
             : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
         "
         alt=""
-        v-else
+        v-if="width < 834 && !theme"
+        @click="blockSelect"
+      />
+      <img
+        v-if="width < 834 && theme && selectType"
+        class="list_caption_image"
+        src="@/assets/images/apptop.png"
+        alt=""
+        @click="blockSelect"
+      />
+      <img
+        v-if="width < 834 && theme && !selectType"
+        class="list_caption_image"
+        src="@/assets/images/apptopc.png"
+        alt=""
         @click="blockSelect"
       />
     </div>
@@ -279,7 +338,13 @@ window.onresize = () => {
           @click="routerSubPage(index, citem, cindex)"
         >
           <div class="list_caption_select_item_option_image">
-            <img :src="citem.icon" alt="" />
+            <img
+              :src="seticon(citem.icon, theme)"
+              alt=""
+              :style="{
+                background: 'var(--background-color)',
+              }"
+            />
           </div>
           <div class="list_caption_select_item_option_text">
             <div
@@ -307,6 +372,26 @@ window.onresize = () => {
 </template>
 
 <style scoped lang="less">
+.theme {
+  margin-right: 20px;
+  cursor: pointer;
+  width: 24px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.mobile_theme_icon {
+  margin-right: 15px;
+  height: 69px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .poop {
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -317,13 +402,14 @@ window.onresize = () => {
   top: 0;
   left: 0;
 }
+
 .app-topnav {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-  background: #fffefb;
-  box-shadow: 0px 4px 24px 0px #dee7e54c;
+  background: var(--background-color);
+  box-shadow: var(--box-shadow-light);
   backdrop-filter: blur(8px);
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;
@@ -375,6 +461,7 @@ window.onresize = () => {
       }
     }
   }
+
   .list_caption_select {
     transition: all 0.3s ease-in-out;
     position: fixed;
@@ -385,7 +472,7 @@ window.onresize = () => {
     overflow-y: scroll;
     z-index: 300;
     min-height: calc(100vh - 69px);
-    background-color: #fffefb;
+    background-color: var(--background-color);
     padding-bottom: 200px;
     // padding-left: 20vw;
     // opacity: 0.9;
@@ -408,7 +495,7 @@ window.onresize = () => {
         margin-bottom: 20px;
 
         div {
-          color: rgba(21, 28, 26, 0.9);
+          color: var(--text-color);
           font-family: Lantinghei SC;
           font-size: 14px;
           font-weight: 700;
@@ -450,7 +537,7 @@ window.onresize = () => {
 
         .list_caption_select_item_option_text {
           .list_caption_select_item_option_text_title {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--text-color);
             font-family: Lantinghei SC;
             font-size: 13px;
             font-weight: 700;
@@ -458,7 +545,7 @@ window.onresize = () => {
           }
 
           .list_caption_select_item_option_text_desc {
-            color: rgba(21, 28, 26, 0.9);
+            color: var(--text-color);
             font-family: Inter;
             font-size: 12px;
             font-weight: 400;
