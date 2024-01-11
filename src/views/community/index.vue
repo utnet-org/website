@@ -88,12 +88,13 @@ const accordionList = [
       <div
         class="header"
         :style="{
-          background: !theme
-            ? 'url(' +
-              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
-              ')' +
-              ' no-repeat'
-            : '',
+          background:
+            !theme && viewableWidth > 834
+              ? 'url(' +
+                'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
+                ')' +
+                ' no-repeat'
+              : '',
           'background-size': !theme ? 'cover' : '',
         }"
       >

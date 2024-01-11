@@ -80,13 +80,13 @@ const changeCheckIndex = (index: any) => {
       <div
         class="header"
         :style="{
-          background: !theme
-            ? 'url(' +
-              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png' +
-              ')' +
-              ' no-repeat'
-            : '',
-          'background-size': !theme ? 'cover' : '',
+          // background: !theme
+          //   ? 'url(' +
+          //     'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_background.png' +
+          //     ')' +
+          //     ' no-repeat'
+          //   : '',
+          // 'background-size': !theme ? 'cover' : '',
         }"
       >
         <div class="header_content">
@@ -188,7 +188,7 @@ const changeCheckIndex = (index: any) => {
   .header {
     width: 100%;
     height: 578px;
-    background: url("@/assets/images/poci_consensus_background.png") no-repeat;
+    background: var(--poci_consensus-bgc);
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -471,9 +471,9 @@ const changeCheckIndex = (index: any) => {
       .header_content {
         // width: 350px;
         width: 100%;
-        height: none;
+        height: 410px;
         flex-shrink: 0;
-        padding: 0 28px;
+        padding: 10px 28px;
         margin: 0;
         margin-bottom: 32px;
 

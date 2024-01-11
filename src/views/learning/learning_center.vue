@@ -88,12 +88,13 @@ const thirdCheckQuestionMessage = ref(-1);
     <div
       class="header"
       :style="{
-        background: !theme
-          ? 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png' +
-            ')' +
-            ' no-repeat'
-          : '',
+        background:
+          !theme && viewableWidth > 834
+            ? 'url(' +
+              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png' +
+              ')' +
+              ' no-repeat'
+            : '',
         'background-size': !theme ? 'cover' : '',
       }"
     >

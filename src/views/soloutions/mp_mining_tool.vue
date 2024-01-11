@@ -59,7 +59,7 @@
 
     .header {
       width: 100%;
-      height: 380px;
+      height: 410px;
       padding: 0 20px;
       background-size: cover;
       display: flex;
@@ -96,6 +96,9 @@
           display: flex;
           justify-content: space-around;
           margin-top: 26px;
+          // 多行对其
+          flex-wrap: wrap;
+          gap: 10px;
 
           .all {
             display: flex;
