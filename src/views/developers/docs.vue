@@ -215,7 +215,7 @@ const options_list = ref([
     justify-content: center;
     //多行对其
     flex-wrap: wrap;
-    padding: 32px 20px 44px 20px;
+    padding: 32px 10px 44px 10px;
   }
 
   .options_item {
