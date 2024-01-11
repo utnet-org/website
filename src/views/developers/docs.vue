@@ -41,13 +41,13 @@ const options_list = ref([
     <div
       class="header"
       :style="{
-        background: theme
-          ? ''
-          : 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png' +
-            ')' +
-            ' no-repeat',
-        'background-size': !theme ? 'cover' : '',
+        // background: theme
+        //   ? ''
+        //   : 'url(' +
+        //     'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/docs_background.png' +
+        //     ')' +
+        //     ' no-repeat',
+        // 'background-size': !theme ? 'cover' : '',
       }"
     >
       <div class="header_image">
@@ -87,7 +87,7 @@ const options_list = ref([
   .header {
     width: 100%;
     height: 430px;
-    background: #141817;
+    background: var(--docs-bgc);
     background-size: cover;
     display: flex;
     flex-direction: column;

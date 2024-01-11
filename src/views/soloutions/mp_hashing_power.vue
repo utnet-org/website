@@ -62,7 +62,7 @@
 
     .header {
       width: 100%;
-      height: 380px;
+      height: 410px;
       padding: 0 20px;
       background-size: cover;
       display: flex;

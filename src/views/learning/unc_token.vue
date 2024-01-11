@@ -57,13 +57,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
     <div
       class="header"
       :style="{
-        background: !theme
-          ? 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png' +
-            ')' +
-            ' no-repeat'
-          : '',
-        'background-size': !theme ? 'cover' : '',
+        // background: !theme
+        //   ? 'url(' +
+        //     'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png' +
+        //     ')' +
+        //     ' no-repeat'
+        //   : '',
+        // 'background-size': !theme ? 'cover' : '',
       }"
     >
       <div class="header_content">
@@ -307,7 +307,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
   width: 100%;
   .header {
     height: 578px;
-    background: url("@/assets/images/unc_token_background.png") no-repeat;
+    background: var(--unc-token-bgc);
     background-size: cover;
     display: flex;
     align-items: flex-end;
