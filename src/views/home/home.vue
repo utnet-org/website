@@ -73,14 +73,14 @@ const Where_arr = ref([
     text: "home.The_UNC_Wallet",
     hover: false,
     button: "home.Explore_Wallet",
-    link: "/soloutions/utility_wallet",
+    link: "/soloutions/mp_utility_wallet",
   },
   {
     title: "home.Computing_Power_users",
     text: "home.You_can_rent",
     hover: false,
     button: "home.Develop",
-    link: "/get_power",
+    link: "/soloutions/mp_hashing_power",
   },
 ]);
 
