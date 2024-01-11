@@ -346,7 +346,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
       <!-- ! 文章模块 -->
       <div class="article">
         <!--  ! 这里是文章的时间 -->
-        <div class="time">19.12.2023</div>
+        <div class="time">12.08.2023</div>
         <!-- ! Originals -->
         <div class="Originals">
           <div class="line"></div>
@@ -376,7 +376,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           </div>
           <div class="author_right">
             <div class="author_name">Utility Labs</div>
-            <div class="author_text">Edited by Terrill</div>
+            <div class="author_text">Edited by Vincent</div>
           </div>
         </div>
         <!-- !文章的背景图 -->

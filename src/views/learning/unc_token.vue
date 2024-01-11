@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { openNewPage } from "@/utils/request";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import useStore from "@/store";
 import { storeToRefs } from "pinia";
 const { home } = useStore();
 const { theme } = storeToRefs(home);
+import { getStatistics } from "@/api/home";
+const unc_price = ref(0);
+onMounted(async () => {
+  const { data } = await getStatistics();
+  unc_price.value = data.aiPower;
+});
 const optionsList = [
   {
     image:
@@ -74,7 +80,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             <div class="time_text">Last 24 hours</div>
           </div>
         </div>
-        <div class="header_content_acount">$0.20150</div>
+        <div class="header_content_acount">${{ unc_price }}</div>
         <!-- <div class="header_content_line_chart">
                     <img :src="LineChart" alt="">
                 </div> -->

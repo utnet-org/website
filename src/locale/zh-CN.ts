@@ -74,14 +74,14 @@ export default {
   home: {
     Welcome_to_utility: "下一代边缘计算和AI基础设施",
     An_application:
-      "通过块链定义芯片构成的的去中心化边缘计算区块链网络，为AI定向计算和多种异构计算提供资源",
+      "通过区块链定义芯片构成的的去中心化边缘计算区块链网络，为AI定向计算和多种异构计算提供资源",
     White_Paper: "白皮书",
     More: "更多",
 
     Where_to_Start: "快速开始",
     Builder: "共建",
     You_can_try:
-      "和utility的开发者一道，共建基于算力生态的丰富合约和应用，并提供给给多使用者",
+      "和Utility的开发者一道，共建基于算力生态的丰富合约和应用，并提供给给多使用者",
     Build_DOC: "build doc",
     Learn_More: "learn more",
     Explore_Wallet: "explore wallets",
@@ -92,9 +92,9 @@ export default {
     The_UNC_Wallet: "轻松地掌控UNC代币资产",
     Computing_Power_users: "算力生态",
     You_can_rent:
-      "租用utility提供商的高性能算力，开发并高效使用底层SDK和生态赋能的应用",
+      "租用Utility提供商的高性能算力，开发并高效使用底层SDK和生态赋能的应用",
 
-    Utility_Chain_Scaling_Solutions: "Utlilty 基础能力",
+    Utility_Chain_Scaling_Solutions: "Utility 基础能力",
     UNC_Node: "节点",
     Provides_solutions_for: "可选模式节点，轻易在全节点和剪枝节点间切换",
     Testnet: "开发中",

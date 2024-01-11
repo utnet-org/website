@@ -175,7 +175,7 @@ const top_right = [
         isOut: false,
         link: "/soloutions/mining_tool",
       },
-      { text: "footer.GetPower", isOut: false, link: "/mp_hashing_power" },
+      { text: "footer.GetPower", isOut: false, link: "/get_power" },
       { text: "footer.AI_Model", isOut: false, link: "/soloutions/ai_model" },
     ],
   },
