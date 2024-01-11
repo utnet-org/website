@@ -96,6 +96,8 @@
           display: flex;
           justify-content: space-around;
           margin-top: 26px;
+          // 多行对其
+          flex-wrap: wrap;
 
           .all {
             display: flex;
@@ -106,6 +108,7 @@
             border-radius: 20px;
             border: 1px solid #3edfcf;
             color: var(--where-text);
+            margin-bottom: 10px;
           }
 
           .all:hover {
