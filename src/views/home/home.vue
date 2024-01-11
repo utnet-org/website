@@ -31,10 +31,10 @@ onMounted(async () => {
           : `$${res.value?.aiPower.toLocaleString()}`,
       text: "home.UNC_PRICE",
     },
-    {
-      amount: `${res.value?.totalMiners?.toLocaleString()}`,
-      text: "home.NODES",
-    },
+    // {
+    //   amount: `${res.value?.totalMiners?.toLocaleString()}`,
+    //   text: "home.NODES",
+    // },
     {
       amount:
         width.value > 834
@@ -458,7 +458,7 @@ const setVedio = () => {
           </div>
         </div>
         <div class="Data">
-          <!-- <div class="value_father">
+          <div class="value_father">
             <div
               class="data_value"
               v-for="(item, index) in Data_arr"
@@ -469,7 +469,7 @@ const setVedio = () => {
                 {{ $t(item.text) }}
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
       <!-- !圆环end -->
