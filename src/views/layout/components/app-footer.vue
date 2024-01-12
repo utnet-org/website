@@ -381,7 +381,11 @@ const printWidth = () => {
           class="container_icon_tw"
           @click="openNewPage('https://github.com/utnet-org')"
         >
-          <img src="/src/assets/images/Github.svg" alt="" srcset="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/github.svg"
+            alt=""
+            srcset=""
+          />
         </div>
         <div class="container_icon_tw">
           <img

@@ -696,12 +696,15 @@ const Where_arr = ref([
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
           <img
+            v-if="!theme"
             class="Contribute_to_Utility_bg_img"
-            :src="
-              theme
-                ? '/src/assets/images/Objects.png'
-                : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
-            "
+            :src="'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'"
+            alt=""
+          />
+          <img
+            v-else
+            class="Contribute_to_Utility_bg_img"
+            src="/src/assets/images/Objects.png"
             alt=""
           />
         </div>
