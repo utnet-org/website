@@ -345,7 +345,11 @@ const Where_arr = ref([
     <div class="animatino_video">
       <video
         id="video11"
-        src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/q20.mp4"
+        :src="
+          width < 834
+            ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4'
+            : 'https://utilityoss.s3.ap-northeast-1.amazonaws.com/TOTAL+VIDEO+LOGO+2.mp4'
+        "
         autoplay
         muted
         @ended="setVedio"
