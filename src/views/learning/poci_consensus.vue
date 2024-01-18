@@ -6,6 +6,7 @@ import useStore from "@/store";
 import { storeToRefs } from "pinia";
 const { home } = useStore();
 const { theme } = storeToRefs(home);
+const width = ref(window.innerWidth);
 const optionsList = [
   {
     title: "poci_consensus.The_use_of_high_performance",
@@ -150,24 +151,26 @@ const changeCheckIndex = (index: any) => {
                   class="faq_item_question_title_side_index"
                   :style="{
                     background:
-                      checkQuestionIndex == cindex
+                      checkQuestionIndex == cindex && width > 834
                         ? 'var(--poci_faq-bg1)'
                         : 'var(--poci_faq-bg)',
 
                     color:
-                      checkQuestionIndex == cindex
+                      checkQuestionIndex == cindex && width > 834
                         ? 'var(--poci_faq-color)'
                         : 'var(--where-text)',
                   }"
                 >
                   {{ citem.id }}/
                 </div>
-                <div class="item_question_text">{{ $t(citem.question) }}</div>
+                <div
+                  class="item_question_text"
+                  :style="{ opacity: checkQuestionIndex == cindex ? 1 : 0.5 }"
+                >
+                  {{ $t(citem.question) }}
+                </div>
               </div>
-              <img
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_to_bottom.png"
-                alt=""
-              />
+              <img src="@/assets/images/Arrow_Right.png" alt="" />
             </div>
             <div
               v-if="checkQuestionIndex == cindex"
@@ -211,7 +214,7 @@ const changeCheckIndex = (index: any) => {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: var(--unc_token-header-border);
+      // border: var(--unc_token-header-border);
 
       .header_content_header {
         color: var(--where-text);
@@ -281,7 +284,7 @@ const changeCheckIndex = (index: any) => {
       }
 
       .options_side_text {
-        color: var(--where-text);
+        color: var(--unc_token-main_text-color) !important;
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -301,7 +304,8 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: var(--poci_consensus-options_list-bg1);
+        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
+          no-repeat;
 
         background-size: cover;
         margin-bottom: 16px;
@@ -328,7 +332,7 @@ const changeCheckIndex = (index: any) => {
             width: 26px;
             height: 26px;
             line-height: 26px;
-            border-radius: 13px;
+            border-radius: 50%;
             background-color: #3edfcf;
             color: #fff;
             text-align: center;
@@ -337,6 +341,7 @@ const changeCheckIndex = (index: any) => {
             font-weight: 600;
             /* 21px */
             margin-right: 12px;
+            flex-shrink: 0;
           }
 
           .options_item_header_title {
@@ -476,9 +481,14 @@ const changeCheckIndex = (index: any) => {
         padding: 10px 28px;
         margin: 0;
         margin-bottom: 32px;
+        box-shadow: var(--unc_token-header_content-shadow);
+        backdrop-filter: blur(var(--unc_token-header_content-filter));
 
         .header_content_text {
           margin: 18px 0 24px;
+        }
+        .header_content_button {
+          border: 1px solid var(--Utility-title-color) !important;
         }
       }
     }
@@ -508,13 +518,25 @@ const changeCheckIndex = (index: any) => {
         .options_item {
           width: 100%;
           height: 100%;
-          padding: 31px 20px 39px 44px;
+          padding: 31px 20px 39px 24px;
           margin-bottom: 12px;
+          background-color: var(--poci-bgc);
 
           &:hover {
             background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
               no-repeat;
             background-size: cover;
+          }
+
+          .options_item_header {
+            width: 100%;
+            display: flex;
+
+            .options_item_header_index {
+              width: 26px;
+              height: 26px;
+              border-radius: 50%;
+            }
           }
         }
       }

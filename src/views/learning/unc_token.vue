@@ -308,8 +308,6 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 </template>
 <style scoped lang="less">
 .container {
-  // background-color: #FFFEFB;
-  padding-top: 70px;
   width: 100%;
   .header {
     height: 578px;
@@ -335,7 +333,6 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: var(--unc_token-header-border);
 
       .header_content_header {
         display: flex;
@@ -465,6 +462,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           justify-content: space-between;
 
           &:first-child {
+            margin-bottom: 10px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 123px;
             border: var(--unc_token-subtitle-border);
@@ -480,6 +478,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(2) {
+            margin-bottom: 10px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 111px 0 50px;
             border: var(--unc_token-subtitle-border);
@@ -495,6 +494,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(3) {
+            margin-bottom: 10px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 115px;
             border: var(--unc_token-subtitle-border);
@@ -708,9 +708,23 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         margin: 0;
         margin-bottom: 95px;
 
+        box-shadow: var(--unc_token-header_content-shadow);
+        backdrop-filter: blur(var(--unc_token-header_content-filter));
+
         .header_content_header {
           .header_content_header_title {
             font-size: 12px;
+          }
+        }
+
+        .header_content_header_title_div {
+          .dots {
+            background-color: var(
+              --unc_token-header_title_div-color
+            ) !important;
+          }
+          .time_text {
+            color: var(--unc_token-header_title_div-color) !important;
           }
         }
 
@@ -746,6 +760,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 
         .main_text {
           margin-bottom: 28px;
+          color: var(--unc_token-main_text-color) !important;
         }
       }
 
@@ -763,11 +778,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             justify-content: flex-start;
 
             &:first-child {
-              background: linear-gradient(
-                180deg,
-                rgba(149, 235, 227, 0.17) 1.02%,
-                rgba(149, 235, 227, 0) 38.87%
-              );
+              background: var(--unc_token-subtitle_options_item-bg);
               padding: 0 24px;
 
               img {
@@ -778,11 +789,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             }
 
             &:nth-child(2) {
-              background: linear-gradient(
-                180deg,
-                rgba(149, 235, 227, 0.17) 1.02%,
-                rgba(149, 235, 227, 0) 38.87%
-              );
+              background: var(--unc_token-subtitle_options_item-bg);
+
               padding: 0 24px;
 
               img {
@@ -793,11 +801,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             }
 
             &:nth-child(3) {
-              background: linear-gradient(
-                180deg,
-                rgba(149, 235, 227, 0.17) 1.02%,
-                rgba(149, 235, 227, 0) 38.87%
-              );
+              background: var(--unc_token-subtitle_options_item-bg);
+
               padding: 0 24px;
 
               img {
@@ -808,11 +813,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             }
 
             &:last-child {
-              background: linear-gradient(
-                180deg,
-                rgba(149, 235, 227, 0.17) 1.02%,
-                rgba(149, 235, 227, 0) 38.87%
-              );
+              background: var(--unc_token-subtitle_options_item-bg);
+
               padding: 0 24px;
 
               img {
@@ -880,6 +882,8 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           margin-right: 0px;
           margin-bottom: 0px;
 
+          background: var(--unc_token-options_item-background);
+          border: none;
           img {
             margin-right: 20px;
           }

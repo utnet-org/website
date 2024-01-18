@@ -309,7 +309,6 @@ const accordionList = [
       justify-content: center;
 
       box-shadow: var(--unc_token-header-shadow);
-      border: var(--unc_token-header-border);
       .header_content_header {
         color: var(--text-color);
         font-family: Lantinghei SC;
@@ -739,6 +738,9 @@ const accordionList = [
         margin: 0;
         margin-bottom: 25px;
 
+        box-shadow: var(--unc_token-header_content-shadow);
+        backdrop-filter: blur(var(--unc_token-header_content-filter));
+
         .header_content_text {
           width: 100%;
           margin: 18px 0 24px;
@@ -751,8 +753,7 @@ const accordionList = [
           width: 151px;
           height: 42px;
           border-radius: 6px;
-          // border: 1px solid rgba(21, 28, 26, 0.9);
-          // color: var(--Light-dark, rgba(21, 28, 26, 0.9));
+          border: 1px solid var(--Utility-title-color) !important;
           font-family: Inter;
           font-size: 14px;
           font-weight: 500;
@@ -776,12 +777,13 @@ const accordionList = [
     .swiper {
       flex-direction: column;
       justify-content: flex-start;
-      padding: 44px 5% 58px;
+      padding: 44px 1% 58px;
       height: max-content;
 
       .swiper_side {
         width: 100%;
         margin: 0 0 14px;
+        padding: 0 4%;
 
         .swiper_side_title {
           margin-bottom: 14px;
@@ -789,6 +791,7 @@ const accordionList = [
 
         .swiper_side_text {
           margin-bottom: 28px;
+          color: var(--unc_token-main_text-color) !important;
         }
       }
 
@@ -862,6 +865,7 @@ const accordionList = [
         width: 100%;
         height: max-content;
         margin-bottom: 14px;
+        border: var(--community-phone-community_options_item-border);
 
         &:hover {
           border: 1px solid transparent;
@@ -899,12 +903,19 @@ const accordionList = [
         .steps_text {
           display: flex;
           align-items: center;
-          color: var(--text-color);
+          color: var(--unc_token-main_text-color);
           font-family: Inter;
           font-size: 14px;
           font-weight: 400;
           line-height: 161%;
           margin: 16px 0 32px;
+        }
+        .message_text {
+          div {
+            &:last-child {
+              color: var(--unc_token-main_text-color) !important;
+            }
+          }
         }
       }
     }

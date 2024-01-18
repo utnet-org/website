@@ -142,10 +142,6 @@ const changeSwitchId = (id: number) => {
             color: var(--swiper-prev-new-disabled-bg);
           }
         }
-
-        .active {
-          // background: #3EDFCF;
-        }
       }
     }
   }

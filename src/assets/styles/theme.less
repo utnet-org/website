@@ -57,8 +57,10 @@
         --swiper-shadow-left1: rgba(255, 255, 255, 0);
         --swiper-text-color: #151C1A;
         --swiper-text-color1: #151C1A;
+        --Contribute-lighter-box-filter: 0px;
 
         --Contribute-lighter-box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+        --Contribute-lighter-box-shadow1: 0px 1px 1px 1px #dfe7e6 inset;
         --Contribute-button_left-bg: none;
         --Contribute-button_left-border: 1px solid #3edfcf;
 
@@ -123,15 +125,15 @@
 
 
         //!root utility_explain 页面
-        --utility_explain-bgc: rgba(179, 236, 229, 1);
+        --utility_explain-bgc-bgc: rgba(179, 236, 229, 1);
         --utility_explain-message-bgc: linear-gradient(90deg,
                         rgba(207, 238, 235, 0) 25%,
                         rgba(179, 236, 229, 0.17) 50%,
-                        var(--utility_explain-bgc) 25%);
+                        var(--utility_explain-bgc-bgc) 25%);
         --utility_explain-message-bgc1: linear-gradient(90deg,
                         rgba(207, 238, 235, 0) 25%,
                         rgba(179, 236, 229, 0.17) 50%,
-                        var(--utility_explain-bgc) 25%);
+                        var(--utility_explain-bgc-bgc) 25%);
 
         --utility_explain-message-filter: none;
         --utility_explain-message-position: 100%;
@@ -164,7 +166,6 @@
         //! root poci_consensus页面
         --poci_consensus-color: rgba(21, 28, 26, 0.06);
         --poci_consensus-options_list-bg: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_hover.png") no-repeat;
-        --poci_consensus-options_list-bg1: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png") no-repeat;
         --poci_faq-bg: #fffefb;
         --poci_faq-bg1: #fffefb;
         --poci_faq-color: rgba(21, 28, 26, 0.9);
@@ -216,10 +217,65 @@
         --mp_hashing_power-bgc-phone: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_power_logo.png") no-repeat;
         --mp_mining_tool-bgc-phone: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_tool_logo.png") no-repeat;
         --mp_ai_model-icon-bgc-phone: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_model_logo.png") no-repeat;
+
+
+
+
+
+
+
+
+        // ~ 手机端 start   ----------------------------------------------------------------------------------------------------------------------------------------------------
+        // ^ unc_token
+        --unc_token-header_content-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+        --unc_token-header_content-filter: 4px;
+        --unc_token-header_title_div-color: #fff;
+        --unc_token-main_text-color: rgba(21, 28, 26, 0.90);
+        --unc_token-subtitle_options_item-bg: linear-gradient(180deg,
+                        rgba(149, 235, 227, 0.17) 1.02%,
+                        rgba(149, 235, 227, 0) 38.87%);
+
+        --unc_token-options_item-background: linear-gradient(177deg,
+                        #fff -24.77%,
+                        rgba(255, 255, 255, 0) 97.53%);
+
+        --utility_explain-options_item-options_list-border: 1px solid #d9d9d5;
+
+
+        --docs-phone-options_item-background: linear-gradient(180deg,
+                        rgba(149, 235, 227, 0.17) 1.02%,
+                        rgba(149, 235, 227, 0) 38.87%);
+
+        --community-phone-community_options_item-border: 1px solid transparent;
+
+
+        --poci-bgc: none;
+        // ~ 手机端 end  ----------------------------------------------------------------------------------------------------------------------------------------------------
+
 }
 
 /* 暗色主题样式 */
 .dark-theme {
+        // ~ 手机端 start   ----------------------------------------------------------------------------------------------------------------------------------------------------
+        // ^ unc_token
+        --unc_token-header_content-shadow: 0px 1px 1px 1px rgba(223, 231, 230, 0.4) inset;
+        --unc_token-header_content-filter: 13px;
+        --unc_token-header_title_div-color: rgba(21, 28, 26, 0.90);
+        --unc_token-main_text-color: rgba(255, 254, 251, 0.6);
+        --unc_token-subtitle_options_item-bg: rgba(21, 28, 26, 0.9);
+        --unc_token-options_item-background: linear-gradient(11deg,
+                        rgba(98, 206, 207, 0.2) -42.45%,
+                        rgba(176, 216, 219, 0.2) 69.99%);
+
+        --utility_explain-options_item-options_list-border: 1px solid rgb(83, 88, 86);
+
+        --docs-phone-options_item-background: rgba(21, 28, 26, 0.90);
+
+
+        --community-phone-community_options_item-border: 1px solid #3edfcf;
+
+        --poci-bgc: rgba(21, 28, 26, 0.9);
+        // ~ 手机端 end  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
         --unc-token-bgc: url("@/assets/images/unc_token_background.png") no-repeat;
         --unc-token-bgc-phone: url("@/assets/images/phone_unc_token-dark.png") no-repeat;
@@ -264,7 +320,6 @@
         //! poci_consensus页面
         --poci_consensus-color: rgba(255, 255, 255, 0.08);
         --poci_consensus-options_list-bg: rgba(21, 28, 26, 0.90);
-        --poci_consensus-options_list-bg1: rgba(21, 28, 26, 0.90);
         --poci_faq-bg: #0c0c0c;
         --poci_faq-bg1: #3EDFCF;
         --poci_faq-color: #0c0c0c;
@@ -295,7 +350,7 @@
 
 
         //! utility_explain 页面
-        // --utility_explain-bgc: rgba(179, 236, 229, 0.6);
+        --utility_explain-bgc-bgc: rgba(179, 236, 229, 0.6);
         --utility_explain-message-bgc: linear-gradient(100deg, rgba(149, 235, 227, 0.17) 1.02%, rgba(149, 235, 227, 0.00) 38.87%);
         --utility_explain-message-bgc1: #151C1A;
         --utility_explain-message-filter: blur(2.5px);
@@ -381,10 +436,13 @@
         --swiper-prev-disabled-bg: rgba(255, 255, 255, 0.2);
         --swiper-shadow-left: rgba(10, 10, 10, 0.80);
         --swiper-shadow-left1: rgba(10, 10, 10, 0.07);
-        --swiper-text-color: rgba(62, 223, 207, 1);
+        --swiper-text-color: rgb(62, 223, 207);
         --swiper-text-color1: rgba(255, 255, 255, 0.8);
 
+        --Contribute-lighter-box-filter: 4px;
         --Contribute-lighter-box-shadow: 0px 4px 20px 0px rgba(228, 233, 232, 0.5);
+        --Contribute-lighter-box-shadow1: 0px 1px 1px 1px rgba(223, 231, 230, 0.2) inset,
+                0px 4px 14px 0px rgba(228, 233, 232, 0.4);
         --Contribute-button_left-bg: rgba(255, 255, 255, 0.3);
         --Contribute-button_left-border: none;
 
@@ -422,11 +480,6 @@
 
         // ! middle_message_ introduce 页面
         --middle_message_introduce-bg: #0c0c0c;
-
-
-
-
-
 
 
 }
