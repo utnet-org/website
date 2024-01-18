@@ -1,38 +1,49 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import useStore from "@/store";
 import { storeToRefs } from "pinia";
 const { home } = useStore();
 const { theme } = storeToRefs(home);
-const options_list = ref([
+const options_list = computed(() => [
   {
     title: "Run a node",
     text: "docs.Empower_the_Network",
-    images:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
-    style: "width: 87px; height: 100px; ",
+    images: !theme.value
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png"
+      : "/src/assets/images/options_image1.png",
+    style: !theme.value
+      ? "width: 87px; height: 100px; "
+      : "width: 152px; height: 151px; ",
   },
   {
     title: "Provide my hashing power",
     text: "docs.Contribute_Computing_Power",
-    images:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
-
-    style: "width: 88px; height: 123px; ",
+    images: !theme.value
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png"
+      : "/src/assets/images/options_image2.png",
+    style: !theme.value
+      ? "width: 88px; height: 123px; "
+      : "width: 152px; height: 151px; ",
   },
   {
     title: "build a dapp",
     text: "docs.Innovate_with_Us",
-    images:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
-    style: "width: 100px; height: 95px; ",
+    images: !theme.value
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png"
+      : "/src/assets/images/options_image3.png",
+    style: !theme.value
+      ? "width: 100px; height: 95px; "
+      : "width: 152px; height: 151px; ",
   },
   {
     title: "White Paper",
     text: "docs.Explore_Our_Foundation",
-    images:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
-    style: "width: 87px; height: 100px; ",
+    images: !theme.value
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png"
+      : "/src/assets/images/options_image4.png",
+    style: !theme.value
+      ? "width: 87px; height: 100px; "
+      : "width: 152px; height: 151px; ",
   },
 ]);
 </script>
@@ -184,9 +195,11 @@ const options_list = ref([
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: 0px 1px 1px 1px #dfe7e6 inset;
+
       backdrop-filter: blur(4px);
       padding: 40px 28px;
+      box-shadow: var(--unc_token-header_content-shadow);
+      backdrop-filter: blur(var(--unc_token-header_content-filter));
     }
 
     .header_title {
@@ -223,16 +236,13 @@ const options_list = ref([
     height: 350px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: linear-gradient(
-      180deg,
-      rgba(149, 235, 227, 0.17) 1.02%,
-      rgba(149, 235, 227, 0) 38.87%
-    );
+    background: var(--docs-phone-options_item-background);
     display: flex;
     // 更改主轴方向
     flex-direction: column;
     align-items: center;
     padding: 0 26px 56px 26px;
+    margin-bottom: 18px;
 
     .options_item_title {
       color: #3edfcf;
@@ -248,7 +258,7 @@ const options_list = ref([
     }
 
     .options_item_text {
-      color: var(--where-text);
+      color: var(--unc_token-main_text-color);
       text-align: center;
       font-family: Inter;
       font-size: 16px;

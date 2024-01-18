@@ -232,7 +232,6 @@ const thirdCheckQuestionMessage = ref(-1);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: var(--unc_token-header-border);
       .header_content_header {
         color: var(--where-text);
         font-family: Lantinghei SC;
@@ -479,9 +478,14 @@ const thirdCheckQuestionMessage = ref(-1);
         padding: 0 28px;
         margin: 0;
         margin-bottom: 41px;
+        box-shadow: var(--unc_token-header_content-shadow);
+        backdrop-filter: blur(var(--unc_token-header_content-filter));
 
         .header_content_text {
           margin: 18px 0 24px;
+        }
+        .header_content_button {
+          border: 1px solid var(--Utility-title-color) !important;
         }
       }
     }
@@ -505,6 +509,7 @@ const thirdCheckQuestionMessage = ref(-1);
             padding: 0 20px;
             opacity: 0.8;
             margin: 16px 0 20px;
+            color: var(--unc_token-main_text-color) !important;
           }
 
           .section_right_item_card {

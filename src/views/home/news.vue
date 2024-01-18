@@ -905,6 +905,9 @@ Computing has a wide range of uses. In scientific research, computing helps rese
         .author {
           // margin-top: 30px;
           margin-bottom: 18px;
+          .author_text {
+            color: var(--unc_token-main_text-color) !important;
+          }
         }
 
         .article_bgc {
@@ -923,6 +926,8 @@ Computing has a wide range of uses. In scientific research, computing helps rese
           line-height: 159%;
           padding-bottom: 24px;
           margin-bottom: 12px;
+
+          color: var(--unc_token-main_text-color) !important;
 
           :deep(p) {
             margin-bottom: 20px;
@@ -966,6 +971,8 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             }
 
             .swiper_time {
+              color: var(--unc_token-main_text-color) !important;
+
               margin-top: 18px;
               margin-bottom: 2px;
             }

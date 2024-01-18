@@ -135,7 +135,7 @@
       }
 
       .section_text {
-        color: var(--where-text);
+        color: var(--unc_token-main_text-color) !important;
         font-family: Lantinghei SC;
         font-size: 14px;
         font-style: normal;
@@ -147,7 +147,7 @@
       }
 
       .text_img {
-        width: 350px;
+        // width: 350px;
         height: 224px;
         flex-shrink: 0;
         border-radius: 8px;

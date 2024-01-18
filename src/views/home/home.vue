@@ -5,7 +5,7 @@ import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
 import "swiper/css/pagination";
-import { onMounted, onUnmounted, ref, toRef, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, toRef, watch } from "vue";
 import { getStatistics } from "@/api/home";
 import { useI18n } from "vue-i18n";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -267,6 +267,20 @@ const Where_arr = ref([
     link: width.value > 834 ? "/get_power" : "/soloutions/mp_hashing_power",
   },
 ]);
+
+// 计算属性，根据主题和屏幕宽度决定图片路径
+const computedImagePath = computed(() => {
+  // 假设屏幕宽度小于834px时为小屏
+  if (width.value < 834) {
+    return theme.value
+      ? "/src/assets/images/Objects1.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
+  } else {
+    return theme.value
+      ? "/src/assets/images/Objects.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
+  }
+});
 </script>
 <template>
   <div class="home_view">
@@ -586,11 +600,9 @@ const Where_arr = ref([
             v-for="(item, index) in merryGoRound_arr"
             :key="index"
             class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
             @click="jumpNews(item.id)"
           >
-            <div v-if="item.isswiperenter && width > 834" class="icon">
+            <div class="icon">
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg"
                 alt=""
@@ -697,11 +709,7 @@ const Where_arr = ref([
         <div class="Contribute_to_Utility_bg">
           <img
             class="Contribute_to_Utility_bg_img"
-            :src="
-              theme
-                ? '/src/assets/images/Objects.png'
-                : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
-            "
+            :src="computedImagePath"
             alt=""
           />
         </div>
@@ -1300,13 +1308,6 @@ const Where_arr = ref([
       }
     }
     .Contribute_to_Utility {
-      .Contribute_to_Utility_bg {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        top: 0;
-        z-index: 1;
-      }
       .Create_a_lighter {
         flex-shrink: 0;
         background: linear-gradient(
@@ -1760,7 +1761,13 @@ const Where_arr = ref([
       height: 633px;
       position: relative;
       // background: linear-gradient(275deg, #f6f9f9 1.38%, #fffefb 97.15%);
+
       .Contribute_to_Utility_bg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        top: 0;
+        z-index: 1;
         justify-content: end;
         position: absolute;
         right: 10px;
@@ -2093,7 +2100,7 @@ const Where_arr = ref([
           height: 100% !important;
           justify-content: center;
           .swiper-slide {
-            align-items: center;
+            align-items: left;
             .swiper_img {
               width: 100% !important;
               height: 100% !important;
@@ -2109,6 +2116,7 @@ const Where_arr = ref([
               font-style: normal;
               line-height: 22px; /* 22.64px */
               margin-bottom: 50px;
+              color: var(--swiper-text-color) !important;
             }
           }
           /* 设置未激活状态下的圆点颜色 */
@@ -2144,7 +2152,7 @@ const Where_arr = ref([
           position: absolute;
           justify-content: center;
           right: 0;
-          top: 0px;
+          top: 30px;
         }
 
         .Create_a_lighter {
@@ -2154,7 +2162,10 @@ const Where_arr = ref([
           bottom: 28px;
           left: 50;
           padding-top: 17px;
-          border-radius: 8px;
+          border-radius: 10px;
+
+          box-shadow: var(--Contribute-lighter-box-shadow1);
+          backdrop-filter: blur(var(--Contribute-lighter-box-filter));
 
           .title_one {
             font-size: 13px;

@@ -192,8 +192,6 @@ const optionsList = [
       flex-direction: column;
       justify-content: center;
 
-      border: var(--unc_token-header-border);
-
       .header_content_header {
         color: var(--where-text);
         font-family: Lantinghei SC;
@@ -482,8 +480,15 @@ const optionsList = [
         margin: 0;
         margin-bottom: 41px;
 
+        box-shadow: var(--unc_token-header_content-shadow);
+        backdrop-filter: blur(var(--unc_token-header_content-filter));
+
         .header_content_text {
           margin: 18px 0 24px;
+        }
+
+        .header_content_button {
+          border: 1px solid var(--Utility-title-color) !important;
         }
       }
     }
@@ -494,6 +499,9 @@ const optionsList = [
       .first_level_title {
         .title {
           margin-bottom: 16px;
+        }
+        .text {
+          color: var(--unc_token-main_text-color) !important;
         }
       }
 
@@ -513,9 +521,14 @@ const optionsList = [
             rgba(149, 235, 227, 0.17) 1.02%,
             rgba(149, 235, 227, 0) 38.87%
           );
+
           background-size: 100%;
           justify-content: start;
           padding-top: 20px;
+        }
+
+        .message_card_list_item_text {
+          color: var(--unc_token-main_text-color) !important;
         }
       }
 
@@ -529,10 +542,13 @@ const optionsList = [
 
         .options_header_subtitle {
           margin-bottom: 18px;
+
+          color: var(--unc_token-main_text-color) !important;
         }
 
         .options_header_title_text {
           margin-bottom: 14px;
+          color: var(--unc_token-main_text-color) !important;
         }
       }
 
@@ -548,6 +564,8 @@ const optionsList = [
           height: 280px;
           justify-content: start;
 
+          border: var(--utility_explain-options_item-options_list-border);
+
           .options_item_header {
             .options_item_header_icon {
               width: 56px;
@@ -560,6 +578,9 @@ const optionsList = [
               margin-top: 62px;
               margin-bottom: 16px;
             }
+          }
+          .options_item_message {
+            color: var(--unc_token-main_text-color) !important;
           }
 
           &:hover {
