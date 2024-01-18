@@ -712,7 +712,6 @@ const computedImagePath = computed(() => {
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
           <img
-            v-if="!theme"
             class="Contribute_to_Utility_bg_img"
             :src="computedImagePath"
             alt=""
