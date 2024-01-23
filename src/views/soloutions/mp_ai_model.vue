@@ -59,9 +59,8 @@
       width: 100%;
       height: 380px;
       padding: 0 20px;
-      background-size: cover;
       display: flex;
-      justify-content: center;
+
       // background: linear-gradient(
       //   250deg,
       //   #cdeaf1 5.3%,
@@ -69,6 +68,8 @@
       //   #def2f3 100.09%
       // );
       background: var(--mp_ai_model-bgc-phone);
+      background-size: cover;
+      justify-content: center;
 
       .header_content {
         width: 100%;
@@ -158,6 +159,12 @@
         );
         backdrop-filter: blur(4px);
         margin: 16px 0;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
