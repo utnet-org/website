@@ -418,20 +418,20 @@ export default {
     Efuse_Storage_area: "Efuse storage area",
     The_Efuse_storage_area:
       'The Efuse storage area is used to etch unique serial numbers and 128-bit AES keys (i.e. "security keys"). This security key is an important part of the chip, ensuring the unique identity and security of each chip. The information in the Efuse area is unchangeable, ensuring the security features of the chip and the reliability of authentication',
-    How_is_POCI_different: "How is POCI different from traditional PoW (Proof of Work)?",
+    How_is_POCI_different: "How is PoCI (Proof of Computation Integrity) different from traditional PoW (Proof of Work)?",
     Unlike_PoW_which:
-      "Unlike PoW, which requires solving complex mathematical problems to prove computing power, POCI uses on-chain random numbers and computing power competition to elect miners, which is more efficient and energy-saving.",
-    How_does_POCI_ensure: "How does POCI ensure network security?",
+      "Traditional Proof of Work consumes a large amount of computational power of chips, rendering them unavailable for utility purposes. PoCI, on the other hand, abandons this high-cost, high-consumption computational model and adopts a chip computational power ownership model. This allows computational capabilities to be used for actual computing tasks, ensuring these tasks are executed completely and correctly, thereby providing valuable services to the network.",
+    How_does_POCI_ensure: "How does PoCI ensure network security?",
     POCI_ensures_the_security:
-      "POCI ensures the security of the network by verifying the computing power of nodes and using encryption technology inside the chip.",
-    How_does_POCI_contribute: "What contribution does POCI make to blockchain scalability?",
+      "PoCI combines symmetric and asymmetric encryption technologies, along with EFUSE storage area's physically etched unique serial number and a 128-bit AES security key to ensure the chip's identity is non-replicable and secure. By ensuring the uniqueness of the chip and the integrity of the computation, PoCI provides a secure foundation for the network, allowing it to trust each chip participating in the computation.",
+    How_does_POCI_contribute: "What contribution does PoCI make to the scalability of blockchain?",
     POCI_contributes_to:
-      "POCI contributes to the expansion and wider application of blockchain technology by improving computing efficiency and reducing costs.",
-    How_does_POCI_support: "How does POCI support decentralization?",
+      "PoCI does not require substantial computational resources to solve complex mathematical problems, significantly reducing the cost of participating in network maintenance. Its energy-efficient consensus mechanism reduces reliance on electricity, allowing more devices to participate in the network without expensive hardware. In the future, PoCI can be compatible with various types of computational resources (such as CPU, GPU, FPGA, etc.), enabling blockchain networks to utilize existing computational resources instead of relying on specific hardware, thereby improving network flexibility and scalability. By optimizing resource usage and simplifying the participation process, PoCI makes an important contribution to the scalability of blockchain, helping the technology better serve various applications and support a broader user base.",
+    How_does_POCI_support: "How does PoCI support decentralization?",
     POCI_supports_decentralized:
-      "POCI supports decentralized and distributed network structures through fair computing power proof and random number generation.",
-    What_role_does_POCI: "What role does POCI play in future blockchain development?",
+      "PoCI allows each chip to validate its unique identity, rather than relying on centralized servers or authoritative organizations. This mechanism ensures that each participating node can independently prove its identity and ownership without third-party intervention, reducing the risk of centralized resource allocation. Resources are allocated based on chip ownership and identity, not on the node's geographical location or other centralized factors. This decentralized approach enhances network resilience, reduces dependency on single points of failure, and supports a more robust and reliable decentralized network environment.",
+    What_role_does_POCI: "What role does PoCI play in the future development of blockchain?",
     As_an_efficient_and_environmentally:
-      "As an efficient and environmentally friendly consensus mechanism, POCI is expected to play a key role in the future development of blockchain technology, especially in improving network performance and expanding blockchain applications.",
+      "PoCI is expected to become a key component of future blockchain technology development. This mechanism can be seen as an optimal solution for blockchain computational power verification, helping to form a large, decentralized network of computational resources. It further enhances network security and privacy protection, providing a solid foundation for building a more robust and decentralized blockchain network.",
   },
 };
