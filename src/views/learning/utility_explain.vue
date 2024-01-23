@@ -184,7 +184,8 @@ const optionsList = [
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: var(--unc_token-header-shadow);
+      box-shadow: var(--unc_token-header-shadow-new);
+
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding: 0 60px;
@@ -216,13 +217,13 @@ const optionsList = [
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid var(--where-text);
+        border: 1px solid var(--Utility-title-color);
         color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
         line-height: 150%;
-        cursor: pointer;
+        cursor: pointer; // 鼠标移上去变成小手
 
         img {
           width: 16px;
