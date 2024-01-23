@@ -240,7 +240,7 @@ const changeCheckIndex = (index: any) => {
         width: 151px;
         height: 42px;
         border-radius: 6px;
-        border: 1px solid var(--where-text);
+        border: 1px solid var(--Utility-title-color);
         color: var(--Light-dark, var(--where-text));
         font-family: Inter;
         font-size: 14px;
