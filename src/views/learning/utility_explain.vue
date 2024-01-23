@@ -184,7 +184,7 @@ const optionsList = [
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: var(--unc_token-header-shadow-new);
+      box-shadow: var(--unc_token-header-shadow);
 
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
