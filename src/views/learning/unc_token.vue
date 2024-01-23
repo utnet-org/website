@@ -326,7 +326,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         rgba(244, 248, 248, 0.05) 0.13%,
         rgba(244, 248, 248, 0) 99.87%
       );
-      box-shadow: var(--unc_token-header-shadow-new);
+      box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
       margin: 0 0 132px 121px;
       padding: 26px 60px;
