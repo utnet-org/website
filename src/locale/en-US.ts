@@ -169,12 +169,14 @@ export default {
       "Utility can be used in a variety of scenarios, such as payment through computing resources, training language models, etc.",
     A_digital_wallet_holds:
       "Digital wallets hold the credentials you need to prove your identity and access important places",
-    the_first_computing_power: "The first computing power rental platform issued by Utility.",
+    the_first_computing_power:
+      "The first computing power rental platform issued by Utility.",
     Enhancing_Utility_Network: "Enhance Utility Network",
     Building_Utility_Network:
       "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",
     Running_Nodes: "Running node",
-    Participate_in_running: "Participate in running nodes and make important contributions.",
+    Participate_in_running:
+      "Participate in running nodes and make important contributions.",
     Mining_and_Rental_Supply: "Mining and Lease Supply",
     Learn_how_to_mining: "Learn how to mine and rent in the Utility network.",
     Join_the_Community: "Join community",
@@ -256,8 +258,6 @@ export default {
     multifacetedc_ryptocurrency_platform:
       "Multifaceted Cryptocurrency Platform",
 
-
-
     poci_consensus_title: "Proof of Computation Integrity (PoCI)",
     poci_consensus_text:
       "Utility network uses PoCI as consensus mechanism, combines chip ownership and VRF technology to realize fast consensus and block generation. This mechanism reduces energy consumption and improves network efficiency, which is one of the unique features of Utility network.",
@@ -268,7 +268,8 @@ export default {
       "Virtualization and Isolation Execution environment",
     virtualization_and_isolation_execution_environment_text:
       "Based on Arm framework drivers and graphics virtualization support, Utility Network implements flexible and shared TPU chips, combined with container technology, to ensure a highly isolated execution environment. This provides a secure execution environment for computing services.",
-    multiple_execution_virtual_machines_support_title: "Multiple execution virtual machines support",
+    multiple_execution_virtual_machines_support_title:
+      "Multiple execution virtual machines support",
     multiple_execution_virtual_machines_support_text:
       "Utility Network supports a variety of execution virtual machines, including Solidity VM, Kubernetes integration, WASM integration, and PyTorch external computing support. This flexibility enables the network to meet different computing needs, providing a wider range of application support.",
     complete_economic_system_model_title: "Complete economic system model",
@@ -394,6 +395,7 @@ export default {
       "Model sharing: Users can publish their own AI models and share them with users and researchers around the world.Model use: There are a variety of AI models on the market, and users can choose and use these models according to their own needs.Computing power rental: In order to support AI training and computing, users can rent the required computing power resources on the Utility network.Innovation support: The project encourages innovation and experimentation, and supports users’ exploration and development in the field of AI.The AI ​​Model project is not only a model market, but also an innovation platform that promotes the development and application of AI technology.",
 
     ongoing: "Ongoing",
+    go_to_use: "Go to use",
   },
   poci_consensus: {
     poci_or_Proof:
@@ -408,7 +410,8 @@ export default {
     Computing_power_ownership: "Computing power ownership model",
     POCI_abandons_the:
       "POCI abandons the high cost and high energy consumption computing model, and adopts the model based on chip computing power ownership.",
-    On_chain_random_number: "On-chain random number and computing power competition",
+    On_chain_random_number:
+      "On-chain random number and computing power competition",
     POCI_selects_appropriate:
       "POCI selects appropriate miners to generate new blocks through on-chain random numbers and computing power competition, ensuring the availability of computing power for miners and fair competition in the network.",
     The_SPACC_module_is:
@@ -418,19 +421,22 @@ export default {
     Efuse_Storage_area: "Efuse storage area",
     The_Efuse_storage_area:
       'The Efuse storage area is used to etch unique serial numbers and 128-bit AES keys (i.e. "security keys"). This security key is an important part of the chip, ensuring the unique identity and security of each chip. The information in the Efuse area is unchangeable, ensuring the security features of the chip and the reliability of authentication',
-    How_is_POCI_different: "How is PoCI (Proof of Computation Integrity) different from traditional PoW (Proof of Work)?",
+    How_is_POCI_different:
+      "How is PoCI (Proof of Computation Integrity) different from traditional PoW (Proof of Work)?",
     Unlike_PoW_which:
       "Traditional Proof of Work consumes a large amount of computational power of chips, rendering them unavailable for utility purposes. PoCI, on the other hand, abandons this high-cost, high-consumption computational model and adopts a chip computational power ownership model. This allows computational capabilities to be used for actual computing tasks, ensuring these tasks are executed completely and correctly, thereby providing valuable services to the network.",
     How_does_POCI_ensure: "How does PoCI ensure network security?",
     POCI_ensures_the_security:
       "PoCI combines symmetric and asymmetric encryption technologies, along with EFUSE storage area's physically etched unique serial number and a 128-bit AES security key to ensure the chip's identity is non-replicable and secure. By ensuring the uniqueness of the chip and the integrity of the computation, PoCI provides a secure foundation for the network, allowing it to trust each chip participating in the computation.",
-    How_does_POCI_contribute: "What contribution does PoCI make to the scalability of blockchain?",
+    How_does_POCI_contribute:
+      "What contribution does PoCI make to the scalability of blockchain?",
     POCI_contributes_to:
       "PoCI does not require substantial computational resources to solve complex mathematical problems, significantly reducing the cost of participating in network maintenance. Its energy-efficient consensus mechanism reduces reliance on electricity, allowing more devices to participate in the network without expensive hardware. In the future, PoCI can be compatible with various types of computational resources (such as CPU, GPU, FPGA, etc.), enabling blockchain networks to utilize existing computational resources instead of relying on specific hardware, thereby improving network flexibility and scalability. By optimizing resource usage and simplifying the participation process, PoCI makes an important contribution to the scalability of blockchain, helping the technology better serve various applications and support a broader user base.",
     How_does_POCI_support: "How does PoCI support decentralization?",
     POCI_supports_decentralized:
       "PoCI allows each chip to validate its unique identity, rather than relying on centralized servers or authoritative organizations. This mechanism ensures that each participating node can independently prove its identity and ownership without third-party intervention, reducing the risk of centralized resource allocation. Resources are allocated based on chip ownership and identity, not on the node's geographical location or other centralized factors. This decentralized approach enhances network resilience, reduces dependency on single points of failure, and supports a more robust and reliable decentralized network environment.",
-    What_role_does_POCI: "What role does PoCI play in the future development of blockchain?",
+    What_role_does_POCI:
+      "What role does PoCI play in the future development of blockchain?",
     As_an_efficient_and_environmentally:
       "PoCI is expected to become a key component of future blockchain technology development. This mechanism can be seen as an optimal solution for blockchain computational power verification, helping to form a large, decentralized network of computational resources. It further enhances network security and privacy protection, providing a solid foundation for building a more robust and decentralized blockchain network.",
   },

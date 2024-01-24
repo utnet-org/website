@@ -239,7 +239,8 @@ export default {
     Efuse_Storage_area: "Efuse存储区域",
     The_Efuse_storage_area:
       "Efuse存储区域用于刻蚀唯一的序列号和128位AES密钥（即“安全钥匙”）。这个安全钥匙是芯片的重要部分，保证了每个芯片的唯一身份和安全性。Efuse区域中的信息是不可更改的，确保了芯片的安全特性和身份验证的可靠性",
-    How_is_POCI_different: "PoCI（可信计算完整性证明）与传统的PoW（工作量证明）有什么不同？",
+    How_is_POCI_different:
+      "PoCI（可信计算完整性证明）与传统的PoW（工作量证明）有什么不同？",
     Unlike_PoW_which:
       "传统的工作量证明会消耗芯片大量的算力，当算力被消耗掉，则无法为Utility提供可用的算力。Utility使用PoCI证明，摒弃高成本，高消耗的计算模式，取而代之的是芯片算力拥有权的模式，将计算能力用于实际的计算任务，确保这些任务的执行是完整和正确的，从而为网络提供有价值的服务。",
     How_does_POCI_ensure: "POCI如何保证网络的安全性？",
@@ -400,5 +401,6 @@ export default {
     ai_model_key_features_text:
       "模型共享：用户可以发布自己的AI模型，与全球范围内的用户和研究者分享。模型使用：市场上拥有丰富多样的AI模型，用户可以根据自己的需求选择和使用这些模型。算力租赁：为了支持AI训练和运算，用户可以在Utility网络上租赁所需的算力资源。创新支持：项目鼓励创新和实验，支持用户在AI领域的探索和发展。AI Model项目不仅是一个模型市场，更是一个促进AI技术发展和应用的创新平台。",
     ongoing: "进行中",
+    go_to_use: "去使用",
   },
 };
