@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const openLinkUrl = (url: string) => {
+  if (url != '') {
+    window.location.href = url;
+  }
+};
+</script>
 <template>
   <div class="container">
     <div class="header">
@@ -36,17 +42,13 @@
       <div class="section_text">
         {{ $t("soloutions.mining_tools_key_features_text") }}
       </div>
-      <div class="text_img">
-        <img
-          alt=""
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong01.png"
-        />
+      <div class="text_img" @click="openLinkUrl('https://console.utlab.io/openai/')"
+        style="background: url(https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/56788566342323.png) no-repeat;background-size: cover;">
+        <div>{{ $t("soloutions.go_to_use") }}</div>
       </div>
-      <div class="text_img">
-        <img
-          alt=""
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_min_ong02.png"
-        />
+      <div class="text_img" @click="openLinkUrl('https://console.utlab.io/openai/')"
+        style="background: url(https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/1236545324564.png) no-repeat;background-size: cover;">
+        <div>{{ $t("soloutions.go_to_use") }}</div>
       </div>
     </div>
   </div>
@@ -68,6 +70,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+
       .header_content {
         width: 100%;
         flex-shrink: 0;
@@ -152,19 +155,23 @@
         height: 224px;
         flex-shrink: 0;
         border-radius: 8px;
-        background: linear-gradient(
-          177deg,
-          #2d3231 -24.77%,
-          rgba(45, 50, 49, 0) 97.53%
-        );
+        background: linear-gradient(177deg,
+            #2d3231 -24.77%,
+            rgba(45, 50, 49, 0) 97.53%);
         backdrop-filter: blur(4px);
         margin: 16px 0;
         overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white, #fff);
+        font-size: 22px;
+        font-weight: 400;
+        // img {
+        //   width: 100%;
+        //   height: 100%;
+        //   object-fit: cover;
+        // }
       }
     }
   }

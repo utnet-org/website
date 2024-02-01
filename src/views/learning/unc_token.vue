@@ -462,7 +462,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           justify-content: space-between;
 
           &:first-child {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 123px;
             border: var(--unc_token-subtitle-border);
@@ -478,7 +478,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(2) {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 111px 0 50px;
             border: var(--unc_token-subtitle-border);
@@ -494,7 +494,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           }
 
           &:nth-child(3) {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             background: var(--unc_token-subtitle-bg);
             padding: 0 70px 0 115px;
             border: var(--unc_token-subtitle-border);
@@ -570,14 +570,15 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         padding: 50px 50px 0;
         border-radius: 12px;
         background: var(--unc_token-message_card_list-bgc);
-        // box-shadow: 4px 4px 24px 0px rgba(228, 233, 232, 0.8);
         display: flex;
         flex-direction: column;
         border: var(--unc_token-message_card_list-border);
-        // justify-content: center;
+
         &:hover {
           background: var(--unc_token-message_card_list-hoverbg);
           box-shadow: var(--unc_token-subtitle-shadow1);
+
+          background-color: var(--unc_token-message_card_list-hover-bgc);
         }
 
         .message_card_list_item_title {

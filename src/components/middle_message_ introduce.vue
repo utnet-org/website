@@ -16,6 +16,14 @@ const props = defineProps({
   secondLevelTextSecond: String,
   secondLevelTextThird: String,
   imageList: Array<string>,
+  canUse: {
+    type: Boolean,
+    default: false,
+  },
+  linkUrl: {
+    type: String,
+    default: "",
+  },
 });
 // const switchList = [
 //     'COIWN',
@@ -27,36 +35,32 @@ const switchId = ref(0);
 const changeSwitchId = (id: number) => {
   switchId.value = id;
 };
+const openLinkUrl = (url: string) => {
+  if (url != '') {
+    window.open(url);
+  }
+};
 </script>
 <template>
   <div class="container">
-    <div
-      :style="{
-        // background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
-      }"
-    >
-      <div
-        class="header"
-        :style="{
-          background: theme
-            ? ''
-            : 'url(' +
-              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
-              ')' +
-              ' no-repeat',
-          'background-size': theme ? '' : 'cover',
-        }"
-      >
+    <div :style="{
+      // background: theme ? 'rgba(21, 28, 26, 0.90)' : '',
+    }">
+      <div class="header" :style="{
+        background: theme
+          ? ''
+          : 'url(' +
+          'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/components_middle_background.png' +
+          ')' +
+          ' no-repeat',
+        'background-size': theme ? '' : 'cover',
+      }">
         <div class="header_image">
           <img :src="headerImage" alt="" />
           <div class="header_title">{{ $t(headerTitle as string) }}</div>
           <div class="header_switch">
             <!-- @click="changeSwitchId(index)" -->
-            <div
-              v-for="(item, index) in switchList"
-              :key="index"
-              :class="switchId == index ? 'active' : ''"
-            >
+            <div v-for="(item, index) in switchList" :key="index" :class="switchId == index ? 'active' : ''">
               {{ $t(item as string) }}
             </div>
           </div>
@@ -76,12 +80,9 @@ const changeSwitchId = (id: number) => {
       </div>
     </div>
     <div class="images_list">
-      <div
-        v-for="(item, index) in imageList"
-        :key="index"
-        :style="`background: url(${item}) no-repeat;background-size: cover;`"
-      >
-        {{ $t("soloutions.ongoing") }}
+      <div v-for="(item, index) in imageList" :key="index" @click="openLinkUrl(linkUrl)"
+        :style="`background: url(${item}) no-repeat;background-size: cover;cursor: pointer;`">
+        {{ canUse ? $t("soloutions.go_to_use") : $t("soloutions.ongoing") }}
       </div>
     </div>
   </div>
@@ -96,17 +97,18 @@ const changeSwitchId = (id: number) => {
   // );
 
   padding-top: 69px;
+
   .header {
     width: 100%;
     height: 479px;
-    background: url("@/assets/images/components_middle_background1.png")
-      no-repeat;
+    background: url("@/assets/images/components_middle_background1.png") no-repeat;
     background-size: cover;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+
     .header_image {
       img {
         width: 120px;
@@ -137,6 +139,7 @@ const changeSwitchId = (id: number) => {
           border: 1px solid #3edfcf;
           // cursor: pointer;
           color: var(--where-text);
+
           &:hover {
             background: #3edfcf;
             color: var(--swiper-prev-new-disabled-bg);

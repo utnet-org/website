@@ -17,27 +17,18 @@ const secondLevelTextFirst = "soloutions.mining_tools_key_features_text";
 const secondLevelTextSecond = "";
 const secondLevelTextThird = "";
 const imageList = [
-  "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mining_tool_img1.png",
-  "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mining_tool_img2.png",
+  "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/56788566342323.png",
+  "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/1236545324564.png",
 ];
 </script>
 <template>
-  <MiddleMessageIntroduce
-    :headerImage="
-      !theme
-        ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mining_tool_icon.png'
-        : '/src/assets/images/mp_tool_logo_dark.png'
-    "
-    :headerTitle="headerTitle"
-    :switchList="switchList"
-    :firstLevelTitle="firstLevelTitle"
-    :firstLevelText="firstLevelText"
-    :secondLevelTitle="secondLevelTitle"
-    :secondLevelTextFirst="secondLevelTextFirst"
-    :secondLevelTextSecond="secondLevelTextSecond"
-    :secondLevelTextThird="secondLevelTextThird"
-    :imageList="imageList"
-  >
+  <MiddleMessageIntroduce :headerImage="!theme
+    ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mining_tool_icon.png'
+    : '/src/assets/images/mp_tool_logo_dark.png'
+    " :headerTitle="headerTitle" :switchList="switchList" :firstLevelTitle="firstLevelTitle"
+    :firstLevelText="firstLevelText" :secondLevelTitle="secondLevelTitle" :secondLevelTextFirst="secondLevelTextFirst"
+    :secondLevelTextSecond="secondLevelTextSecond" :secondLevelTextThird="secondLevelTextThird" :imageList="imageList"
+    :canUse="true" linkUrl="https://console.utlab.io/openai/">
   </MiddleMessageIntroduce>
 </template>
 <style scoped lang="less"></style>
