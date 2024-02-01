@@ -1,6 +1,9 @@
 <script setup lang="ts" name="HomeView">
 import arrow from "@/assets/images/arrow.svg";
 import arrow1 from "@/assets/images/arrow1.svg";
+import homerightdian from "@/assets/images/homerightdian.svg";
+import homeleftdian from "@/assets/images/homeleftdian.svg";
+import homecenteryun from "@/assets/images/homecenteryun.svg";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
@@ -283,6 +286,35 @@ const Where_arr = ref([
   },
 ]);
 
+const fourdata = [
+  {
+    title: "Developers",
+    text: ["Bring your project idea to multiple users on Utility Ecosystem."],
+    button: "Join Ecosystem",
+  },
+  {
+    title: "Computing power supply",
+    text: ["-Provide stable computing power", "-Gain UNC by mining"],
+    button: "Mining",
+  },
+  {
+    title: "Token holder",
+    text: [
+      "-Gain UNC by mining",
+      "-Receive UNC by selling computer power",
+      "-Purchase UNC token on exchanges",
+    ],
+    button: "Check Wallet",
+  },
+  {
+    title: "Computing power renter",
+    text: [
+      "Rent high-performance computing power from utility providers for your own purpose.",
+    ],
+    button: "Rent",
+  },
+];
+
 // 计算属性，根据主题和屏幕宽度决定图片路径
 const computedImagePath = computed(() => {
   // 假设屏幕宽度小于834px时为小屏
@@ -389,9 +421,238 @@ const computedImagePath = computed(() => {
       ></video>
     </div>
     <!-- !视频end -->
-    <div class="container">
+    <div class="container" style="overflow: hidden">
+      <div class="ellipse_dev">
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            height: 100px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+          "
+        >
+          <text
+            style="
+              color: var(--text-color);
+              text-align: center;
+              font-size: 22px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            "
+            selectable="false"
+            space="false"
+            decode="false"
+          >
+            Utility Ecosystem
+          </text>
+          <div
+            style="
+              color: var(--text-color);
+              text-align: center;
+              font-family: Inter;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            "
+          >
+            Everyone can be UNC holder to purchase utility and exchange UNC
+            token.
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px">
+          <div
+            class="ellipse_dev_card"
+            v-for="(item, index) in fourdata"
+            :key="index"
+          >
+            <div class="title">{{ item.title }}</div>
+            <div class="text_class" v-for="(i, ind) in item.text" :key="ind">
+              {{ i }}
+            </div>
+            <div class="btn">
+              <span>{{ item.button }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="top">
+          <div class="round one"></div>
+        </div>
+        <div class="top">
+          <img
+            v-if="!theme"
+            style="left: 220px; top: 180px"
+            src="@/assets/images/homecenteryun.png"
+            alt=""
+            srcset=""
+          />
+          <img
+            v-else
+            style="left: 0px; top: 120px"
+            src="@/assets/images/homecenteryun_d.png"
+            alt=""
+            srcset=""
+          />
+          <img
+            style="top: 276px; left: 414px"
+            src="@/assets/images/Utility_Holder.png"
+            alt=""
+            srcset=""
+            class="Utility_Holder"
+          />
+          <img
+            style="top: 276px; right: 644px"
+            src="@/assets/images/Utility_Miner.png"
+            alt=""
+            srcset=""
+            class="Utility_Miner"
+          />
+          <img
+            style="top: 416px; left: 614px"
+            src="@/assets/images/AI_developer.png"
+            alt=""
+            srcset=""
+            class="AI_developer"
+          />
+          <img
+            style="top: 466px; right: 514px"
+            src="@/assets/images/Git_Power.png"
+            alt=""
+            srcset=""
+            class="Git_Power"
+          />
+          <img
+            style="top: 250px; right: 864px; transform: rotateZ(100deg)"
+            src="@/assets/images/UNC.png"
+            alt=""
+            srcset=""
+            class="UNC"
+          />
+          <img
+            style="top: 420px; left: 414px"
+            src="@/assets/images/UNC.png"
+            alt=""
+            srcset=""
+            class="UNC1"
+          />
+          <img
+            style="top: 400px; right: 614px; transform: rotateZ(100deg)"
+            src="@/assets/images/UNC.png"
+            alt=""
+            srcset=""
+            class="UNC2"
+          />
+          <img
+            style="top: 310px; left: 224px"
+            src="@/assets/images/vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc"
+          />
+          <img
+            style="top: 510px; left: 144px"
+            src="@/assets/images/1vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc1"
+          />
+          <img
+            style="top: 590px; left: 204px"
+            src="@/assets/images/2vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc2"
+          />
+          <img
+            style="top: 500px; left: 264px"
+            src="@/assets/images/3vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc3"
+          />
+          <img
+            style="top: 600px; left: 324px"
+            src="@/assets/images/4vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc4"
+          />
+          <img
+            style="top: 600px; right: 404px"
+            src="@/assets/images/5vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc5"
+          />
+          <img
+            style="top: 600px; right: 784px"
+            src="@/assets/images/6vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc6"
+          />
+          <img
+            style="top: 350px; right: 424px"
+            src="@/assets/images/7vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc7"
+          />
+          <img
+            style="top: 250px; right: 384px"
+            src="@/assets/images/8vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc8"
+          />
+          <img
+            style="top: 500px; right: 244px"
+            src="@/assets/images/9vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc9"
+          />
+          <img
+            style="top: 600px; right: 244px"
+            src="@/assets/images/0vuvietduc.com.png"
+            alt=""
+            srcset=""
+            class="vuvietduc0"
+          />
+          <img
+            style="top: 642px; left: 607px"
+            src="@/assets/images/SingulardtvSngls.png"
+            alt=""
+            srcset=""
+            class="SingulardtvSngls"
+          />
+
+          <homerightdian style="position: absolute; right: 400px; top: 250px" />
+          <homeleftdian style="position: absolute; left: 200px; top: 250px" />
+          <div class="round two"></div>
+        </div>
+        <div class="top">
+          <div class="round three"></div>
+        </div>
+        <div class="top">
+          <div class="round four"></div>
+        </div>
+        <div class="top">
+          <div class="round five"></div>
+        </div>
+        <div class="top">
+          <div class="round six"></div>
+        </div>
+        <div class="top">
+          <div class="round seven"></div>
+        </div>
+      </div>
       <!--! Where to Start -->
-      <div class="Where_to_Start">
+      <!-- <div class="Where_to_Start">
         <div class="title">
           {{ $t("home.Where_to_Start") }}
         </div>
@@ -440,7 +701,7 @@ const computedImagePath = computed(() => {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- !圆环begin -->
       <div class="Data_and_circles">
         <div class="Star_six">
@@ -771,6 +1032,132 @@ const computedImagePath = computed(() => {
   </div>
 </template>
 <style scoped lang="less">
+.ellipse_dev {
+  // background: #000;
+  height: 80vh;
+  // width: 1728px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .ellipse_dev_card {
+    width: 331px;
+    height: 253px;
+    border-radius: 20px;
+    border-radius: 20px;
+    background: var(--home-card-bgc);
+    box-shadow: var(--home-card-bgc-show);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+
+    &:hover {
+      background: var(--home-card-bgc-hover);
+    }
+
+    .title {
+      color: #3edfcf;
+      font-family: "Lantinghei SC";
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+    }
+    .text_class {
+      color: var(--text-color);
+      font-family: Inter;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 18.2px */
+      letter-spacing: 0.39px;
+    }
+    .btn {
+      margin-top: auto;
+      padding-bottom: 10px;
+      span {
+        color: var(--text-color);
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid #3edfcf;
+        // background: #f6f9f9;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .top {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    img {
+      object-fit: cover;
+      position: absolute;
+      z-index: 1;
+    }
+    .round {
+      border: #3edfcf8b 2px solid;
+      box-sizing: border-box;
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .one {
+      width: 125vh;
+      height: 80vh;
+      top: 60%;
+    }
+    .two {
+      width: 83vh;
+      height: 65vh;
+      top: 30%;
+      transform: rotateZ(40deg);
+    }
+    .three {
+      width: 90%;
+      height: 80vh;
+      top: 78%;
+    }
+    .four {
+      width: 60%;
+      height: 65vh;
+      top: 40%;
+      transform: rotateZ(60deg);
+      right: -200px;
+    }
+    .five {
+      width: 60%;
+      height: 65vh;
+      top: 40%;
+      transform: rotateZ(10deg);
+      right: 120px;
+    }
+    .six {
+      width: 70%;
+      height: 75vh;
+      top: 30%;
+      transform: rotateZ(10deg);
+      right: 100px;
+    }
+    .seven {
+      width: 80%;
+      height: 80vh;
+      top: 50%;
+      right: -20px;
+    }
+  }
+}
+
 .animation_box {
   position: relative;
   background: #000;
@@ -1137,6 +1524,7 @@ const computedImagePath = computed(() => {
       }
     }
     .Data_and_circles {
+      margin-top: 100px;
       .Data {
         display: flex;
         justify-content: center;
@@ -2185,6 +2573,7 @@ const computedImagePath = computed(() => {
       .merry_go_round {
         padding: 36px 20px 30px 20px;
 
+
         .swiper {
           width: 100%;
           height: 100% !important;
@@ -2372,6 +2761,218 @@ const computedImagePath = computed(() => {
 @media (max-width: 432px) {
   .Create_a_lighter {
     width: 320px !important;
+  }
+}
+@media (max-width: 1450px) {
+  .ellipse_dev_card {
+    flex: 40%;
+  }
+  .ellipse_dev {
+    height: 90vh;
+    .top {
+      width: 1424px;
+      height: 50%;
+    }
+  }
+}
+@media (max-width: 865px) {
+  .ellipse_dev_card {
+    flex: 100%;
+  }
+  .ellipse_dev {
+    height: 1696px;
+    .top {
+      width: 1424px;
+      height: 610px;
+    }
+  }
+}
+@media (max-width: 1052px) {
+  .top {
+    .vuvietduc {
+      left: 384px !important;
+      top: 200px !important;
+      height: 20px;
+    }
+    .vuvietduc0 {
+      right: 374px !important;
+      top: 380px !important;
+      height: 12px;
+    }
+    .vuvietduc1 {
+      left: 314px !important;
+      top: 280px !important;
+      height: 12px;
+    }
+    .vuvietduc2 {
+      left: 354px !important;
+      top: 340px !important;
+      height: 12px;
+    }
+    .vuvietduc3 {
+      left: 414px !important;
+      top: 290px !important;
+      height: 12px;
+    }
+    .vuvietduc4 {
+      left: 534px !important;
+      top: 350px !important;
+      height: 13px;
+    }
+    .vuvietduc5 {
+      right: 514px !important;
+      top: 300px !important;
+    }
+    .vuvietduc6 {
+      right: 454px !important;
+      top: 320px !important;
+      height: 13px;
+    }
+
+    .vuvietduc7 {
+      right: 494px !important;
+      top: 260px !important;
+      height: 11px;
+    }
+    .vuvietduc8 {
+      right: 354px !important;
+      top: 230px !important;
+      height: 11px;
+    }
+    .vuvietduc9 {
+      right: 354px !important;
+      top: 300px !important;
+    }
+    .Utility_Holder {
+      left: 504px !important;
+      top: 200px !important;
+    }
+
+    .Utility_Miner {
+      right: 504px !important;
+      top: 200px !important;
+    }
+    .AI_developer {
+      left: 704px !important;
+      top: 360px !important;
+    }
+    .Git_Power {
+      right: 464px !important;
+      top: 420px !important;
+    }
+    .UNC {
+      left: 704px !important;
+      top: 160px !important;
+    }
+    .UNC1 {
+      left: 504px !important;
+      top: 360px !important;
+    }
+    .UNC2 {
+      right: 504px !important;
+      top: 360px !important;
+    }
+    .SingulardtvSngls {
+      right: 504px !important;
+      top: 160px !important;
+    }
+  }
+}
+
+@media (max-width: 723px) {
+  .ellipse_dev {
+    height: 1661.2px;
+    .top {
+      width: 1352.8px;
+      height: 579.5px;
+      .vuvietduc {
+        left: 484px !important;
+        top: 200px !important;
+        height: 20px;
+      }
+      .vuvietduc0 {
+        right: 474px !important;
+        top: 380px !important;
+        height: 12px;
+      }
+      .vuvietduc1 {
+        left: 314px !important;
+        top: 280px !important;
+        height: 12px;
+      }
+      .vuvietduc2 {
+        left: 354px !important;
+        top: 340px !important;
+        height: 12px;
+      }
+      .vuvietduc3 {
+        left: 414px !important;
+        top: 290px !important;
+        height: 12px;
+      }
+      .vuvietduc4 {
+        left: 534px !important;
+        top: 350px !important;
+        height: 13px;
+      }
+      .vuvietduc5 {
+        right: 514px !important;
+        top: 300px !important;
+      }
+      .vuvietduc6 {
+        right: 454px !important;
+        top: 320px !important;
+        height: 13px;
+      }
+
+      .vuvietduc7 {
+        right: 494px !important;
+        top: 260px !important;
+        height: 11px;
+      }
+      .vuvietduc8 {
+        right: 354px !important;
+        top: 230px !important;
+        height: 11px;
+      }
+      .vuvietduc9 {
+        right: 354px !important;
+        top: 300px !important;
+      }
+      .Utility_Holder {
+        left: 544px !important;
+        top: 200px !important;
+      }
+
+      .Utility_Miner {
+        right: 544px !important;
+        top: 200px !important;
+      }
+      .AI_developer {
+        left: 664px !important;
+        top: 330px !important;
+      }
+      .Git_Power {
+        right: 564px !important;
+        top: 420px !important;
+      }
+      .UNC {
+        left: 654px !important;
+        top: 160px !important;
+      }
+      .UNC1 {
+        left: 554px !important;
+        top: 320px !important;
+      }
+      .UNC2 {
+        right: 504px !important;
+        top: 310px !important;
+      }
+      .SingulardtvSngls {
+        right: 504px !important;
+        top: 160px !important;
+      }
+    }
   }
 }
 </style>
