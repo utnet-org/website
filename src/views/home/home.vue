@@ -2272,7 +2272,6 @@ const computedImagePath = computed(() => {
     .container {
       .Data_and_circles {
         width: 100%;
-        height: 1000px;
         display: flex;
         padding: 60px 0px 30px 0px;
         margin-bottom: 30px;
@@ -2283,6 +2282,7 @@ const computedImagePath = computed(() => {
         background-size: cover;
 
         .Data {
+          flex: none;
           width: 100%;
           margin-top: 28px;
           padding: 0 20px;
@@ -2292,7 +2292,6 @@ const computedImagePath = computed(() => {
 
             .data_value {
               width: 100%;
-              // height: 118px;
               padding: 26px 100px;
               background: var(--second-home-data_value-bg);
               box-shadow: var(--second-home-data_value-shadow);
@@ -2304,6 +2303,7 @@ const computedImagePath = computed(() => {
               align-items: center;
               border-radius: 12px;
               margin-bottom: 10px;
+              margin-left: 0;
               .amount {
                 padding-bottom: 4px;
                 margin-bottom: 4px;
@@ -2317,8 +2317,8 @@ const computedImagePath = computed(() => {
           }
         }
         .Star_six {
+          flex: none;
           width: 355px;
-          // background: #000;
           height: 210px;
           position: relative;
 
