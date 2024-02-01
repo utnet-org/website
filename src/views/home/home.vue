@@ -1996,7 +1996,7 @@ const computedImagePath = computed(() => {
         }
         .Star_six {
           width: 100%;
-          height: 350px;
+          height: 210px;
           position: relative;
 
           .star_bg {
