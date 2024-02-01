@@ -14,6 +14,14 @@ import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
 import router from "@/router";
 import useStore from "@/store";
 import { storeToRefs } from "pinia";
+
+import star from "@/assets/images/star.svg";
+import star1 from "@/assets/images/star1.svg";
+import star2 from "@/assets/images/star2.svg";
+
+import starphone from "@/assets/images/star_phone.svg";
+import starphone1 from "@/assets/images/star_phone1.svg";
+import starphone2 from "@/assets/images/star_phone2.svg";
 const { home } = useStore();
 const { theme } = storeToRefs(home);
 const { locale } = useI18n();
@@ -28,7 +36,7 @@ onMounted(async () => {
       amount:
         width.value > 834
           ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
-          : `$${res.value?.aiPower.toLocaleString()}`,
+          : `<span style='font-size: 18px;'>$</span>${res.value?.aiPower.toLocaleString()}`,
       text: "home.UNC_PRICE",
     },
     // {
@@ -39,14 +47,21 @@ onMounted(async () => {
       amount:
         width.value > 834
           ? "<span style='font-size: 26px;'>$</span>122,1120"
-          : "$122,1120",
+          : "<span style='font-size: 18px;'>$</span>122,1120",
       text: "home.Transaction_Today",
     },
     {
       amount:
         width.value > 834
           ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} tflops`,
+          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 18px;'> tflops</span>`,
+      text: "home.Computational_Power_Synthesis",
+    },
+    {
+      amount:
+        width.value > 834
+          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
+          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 18px;'> tflops</span>`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
@@ -428,56 +443,49 @@ const computedImagePath = computed(() => {
       </div>
       <!-- !圆环begin -->
       <div class="Data_and_circles">
-        <div class="circles">
-          <div class="point point_one">
-            <img
-              v-if="width < 834"
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/m_round.svg"
-            />
-            <img
-              v-else
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Group_1.svg"
-              alt=""
-            />
-            <div class="point_text">Utility</div>
+        <div class="Star_six">
+          <div class="star_bg">
+            <star2 v-if="width > 834" />
+            <starphone2 v-else />
           </div>
-          <div class="round_one">
-            <div class="point point_two">
-              <div class="thisAPoint"></div>
-              <div class="point_text">BDC Chips</div>
-            </div>
-            <div class="round_two">
-              <div class="point point_three">
-                <div class="thisAPoint"></div>
-                <div class="point_text">Computation Capacity</div>
-              </div>
-              <div class="round_three">
-                <div class="point point_four">
-                  <div class="thisAPoint"></div>
-                  <div class="point_text">Wallet</div>
-                </div>
-                <div class="round_four">
-                  <div class="point point_five">
-                    <div class="thisAPoint"></div>
-                    <div class="point_text">Explorer</div>
-                  </div>
-                  <div class="round_five">
-                    <div class="point point_six">
-                      <div class="thisAPoint"></div>
-                      <div class="point_text">Mining</div>
-                    </div>
-                    <div class="round_six">
-                      <div class="point point_seven">
-                        <div class="thisAPoint"></div>
-                        <div class="point_text">Node</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="Star_text">FAUCET</div>
+          <div class="Star_line"></div>
+
+          <div class="star_bg1">
+            <star1 v-if="width > 834" />
+            <starphone1 v-else />
           </div>
+          <div class="Star_line1"></div>
+          <div class="Star_text1">Miner</div>
+
+          <div class="star_bg2">
+            <star v-if="width > 834" />
+            <starphone v-else />
+          </div>
+          <div class="Star_line2"></div>
+          <div class="Star_text2">UTILITY</div>
+
+          <div class="star_bg3">
+            <star1 v-if="width > 834" />
+            <starphone1 v-else />
+          </div>
+          <div class="Star_line3"></div>
+          <div class="Star_text3">EXPLORER</div>
+
+          <div class="star_bg4">
+            <star1 v-if="width > 834" />
+            <starphone1 v-else />
+          </div>
+          <div class="Star_line4"></div>
+          <div class="Star_text4">NODE</div>
+
+          <div class="star_bg5">
+            <star2 v-if="width > 834" />
+            <starphone2 v-else />
+          </div>
+          <div class="Star_text5">WALLET</div>
         </div>
+
         <div class="Data">
           <div class="value_father">
             <div
@@ -485,10 +493,10 @@ const computedImagePath = computed(() => {
               v-for="(item, index) in Data_arr"
               :key="index"
             >
-              <div class="amount" v-html="item.amount"></div>
               <div class="data_text">
                 {{ $t(item.text) }}
               </div>
+              <div class="amount" v-html="item.amount"></div>
             </div>
           </div>
         </div>
@@ -1154,44 +1162,6 @@ const computedImagePath = computed(() => {
           }
         }
       }
-      .circles {
-        position: relative;
-
-        .point {
-          display: flex;
-          color: var(--circles-point);
-          font-family: Lantinghei SC;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
-        .point_one {
-          z-index: 100;
-          position: absolute;
-        }
-        .thisAPoint {
-          flex-shrink: 0;
-          background-color: #3edfcf;
-          border-radius: 50%;
-        }
-        .round_one,
-        .round_three,
-        .round_five {
-          background: var(--circles-bg-round);
-          border-radius: 50%;
-          border: 1px solid var(--circles-border);
-        }
-        .round_two,
-        .round_four,
-        .round_six {
-          background: var(--circles-bg-round1);
-          border-radius: 50%;
-          border: 1px solid var(--circles-border);
-        }
-        .round_one {
-          background: var(--circles-bg);
-        }
-      }
     }
     .Utility_Chain {
       width: 100%;
@@ -1497,21 +1467,29 @@ const computedImagePath = computed(() => {
       align-items: center;
       //多行对齐
       flex-wrap: wrap;
+      background: var(--home-star-bg);
+      background-size: cover;
       .Data {
         margin-top: 30px;
+        flex: 1;
         .value_father {
-          width: 836px;
-
           .data_value {
-            margin-left: 98px;
+            margin-left: 48px;
             margin-bottom: 40px;
+            background: var(--second-home-data_value-bg);
+            box-shadow: var(--second-home-data_value-shadow);
+            filter: var(--second-home-data_value-filter);
+            backdrop-filter: blur(2px);
+            padding: 26px 55px 47px 26px;
+            border-radius: 20px 40px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 304px;
 
             .amount {
-              font-size: 44px;
-              padding-bottom: 10px;
-              margin-bottom: 18px;
-              border-bottom: 1.5px solid var(--data-amount-border-color);
-              padding-right: 11px;
+              font-size: 40px;
+              margin-top: 40px;
             }
             .data_text {
               color: var(--data-data_text-color);
@@ -1519,102 +1497,150 @@ const computedImagePath = computed(() => {
           }
         }
       }
-      .circles {
-        .point {
-          align-items: center;
-          font-size: 14px;
-        }
-        .point_one {
-          right: 39px;
-          top: 80px;
-          .point_text {
-            margin-left: 8px;
-          }
-        }
-        .thisAPoint {
-          width: 16px;
-          height: 16px;
-          margin-right: 5px;
-          border: 2px solid #fff;
-        }
-        .round_one {
-          width: 614px;
-          height: 614px;
-          position: relative;
-          left: 0;
-          top: 0;
-          .point_two {
-            z-index: 100;
-            position: absolute;
-            left: 58px;
-            top: 108px;
-          }
-        }
-        .round_two {
+      .Star_six {
+        flex: 1;
+        position: relative;
+
+        .star_bg {
+          width: 0px;
+          height: 0px;
+          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+          border-radius: 50%;
           position: absolute;
-          width: 542px;
-          height: 542px;
-          right: 4px;
-          top: 16px;
-          .point_three {
-            z-index: 100;
-            position: absolute;
-            left: -4px;
-            top: 310px;
-          }
+          left: 8px;
+          top: -151px;
         }
-        .round_three {
-          width: 468px;
-          height: 468px;
-          position: absolute;
-          right: 9.6px;
-          top: 10px;
-          .point_four {
-            z-index: 100;
-            position: absolute;
-            left: 104px;
-            bottom: 22px;
-          }
-        }
-        .round_four {
-          width: 388px;
-          height: 388px;
-          position: absolute;
-          right: 12px;
-          top: 10px;
-          .point_five {
-            z-index: 100;
-            position: absolute;
-            left: -10px;
-            top: 206px;
-          }
-        }
-        .round_five {
-          width: 310px;
-          height: 310px;
+        .star_bg1 {
+          width: 0px;
+          height: 0px;
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
           position: absolute;
-          right: 11px;
-          top: 10px;
-          .point_six {
-            z-index: 100;
-            position: absolute;
-            left: 70px;
-            bottom: 14px;
-          }
+          left: 112px;
+          top: -40px;
         }
-        .round_six {
-          width: 226px;
-          height: 226px;
+
+        .star_bg2 {
+          width: 0px;
+          height: 0px;
+          box-shadow: 24px 24px 28px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
           position: absolute;
-          right: 13px;
-          top: 10px;
-          .point_seven {
-            z-index: 100;
-            position: absolute;
-            left: -10px;
-            bottom: 98px;
-          }
+          left: 255px;
+          top: 22px;
+        }
+        .star_bg3 {
+          width: 0px;
+          height: 0px;
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+          position: absolute;
+          left: 427px;
+          top: 9px;
+        }
+        .star_bg4 {
+          width: 0px;
+          height: 0px;
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+          position: absolute;
+          left: 398px;
+          top: -79px;
+        }
+
+        .star_bg5 {
+          width: 0px;
+          height: 0px;
+          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+          border-radius: 50%;
+          position: absolute;
+          left: 520px;
+          top: -96px;
+        }
+
+        .Star_line,
+        .Star_line1,
+        .Star_line2,
+        .Star_line3,
+        .Star_line4,
+        .Star_line5 {
+          width: 162.161px;
+          height: 1.3px;
+          background: var(--second-home-Star_line-background);
+
+          position: absolute;
+        }
+        .Star_line {
+          left: -10px;
+          top: -84px;
+          transform: rotate(47deg);
+        }
+
+        .Star_line1 {
+          left: 128px;
+          top: 14px;
+          transform: rotate(24deg);
+        }
+        .Star_line2 {
+          left: 290px;
+          top: 36px;
+          transform: rotate(175deg);
+        }
+        .Star_line3 {
+          left: 264px;
+          top: -6px;
+          transform: rotate(142deg);
+        }
+        .Star_line4 {
+          left: 400px;
+          top: -71px;
+          transform: rotate(170deg);
+        }
+
+        .Star_text,
+        .Star_text1,
+        .Star_text2,
+        .Star_text3,
+        .Star_text4,
+        .Star_text5 {
+          color: var(--second-home-Star_text-color);
+          font-family: "Kumbh Sans";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          position: absolute;
+        }
+        .Star_text {
+          left: 51px;
+          top: -153px;
+        }
+        .Star_text1 {
+          left: 140px;
+          top: -61px;
+        }
+        .Star_text2 {
+          left: 248px;
+          top: 75px;
+          font-size: 18px;
+        }
+        .Star_text3 {
+          left: 468px;
+          top: 17px;
+        }
+        .Star_text4 {
+          left: 355px;
+          top: -96px;
+        }
+        .Star_text5 {
+          left: 498px;
+          top: -123px;
         }
       }
     }
@@ -1927,132 +1953,191 @@ const computedImagePath = computed(() => {
       .Data_and_circles {
         width: 100%;
         display: flex;
-        padding: 60px 20px 26px 20px;
+        padding: 60px 0px 30px 0px;
+        margin-bottom: 30px;
         //更改主轴的方向
         flex-direction: column;
         align-items: center;
+        background: var(--second-phone-home-data_value-bg);
+        background-size: cover;
+
         .Data {
           width: 100%;
           margin-top: 28px;
+          padding: 0 20px;
 
           .value_father {
             width: 100%;
 
             .data_value {
               width: 100%;
-              margin-bottom: 30px;
+              height: 118px;
+              background: var(--second-home-data_value-bg);
+              box-shadow: var(--second-home-data_value-shadow);
+              filter: var(--second-home-data_value-filter);
+              backdrop-filter: blur(2px);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              border-radius: 12px;
+              margin-bottom: 10px;
               .amount {
-                width: 100%;
                 padding-bottom: 4px;
                 margin-bottom: 4px;
-                border-bottom: 1px solid var(--data-amount-border-color);
-                font-size: 20px;
+                font-size: 28px;
                 font-weight: 400;
               }
               .data_text {
-                color: var(--data-data_text-color1);
+                color: var(--data-data_text-color);
               }
             }
           }
         }
-        .circles {
-          .point {
-            font-size: 12px;
+        .Star_six {
+          width: 100%;
+          height: 350px;
+          position: relative;
+
+          .star_bg {
+            width: 0px;
+            height: 0px;
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            top: 0px;
           }
-          .point_one {
-            right: 10px;
+          .star_bg1 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 54px;
+            top: 106px;
+          }
+
+          .star_bg2 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 17px 17px 15px 14px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 160px;
+            top: 148px;
+          }
+          .star_bg3 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 290px;
+            top: 120px;
+          }
+          .star_bg4 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 237px;
+            top: 69px;
+          }
+
+          .star_bg5 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            border-radius: 50%;
+            position: absolute;
+            left: 314px;
             top: 46px;
-            .point_text {
-              margin-left: 4px;
-            }
           }
-          .thisAPoint {
-            width: 8px;
-            height: 8px;
-            margin-right: 4px;
-            border: 1px solid #fff;
-          }
-          .round_one {
-            width: 350px;
-            height: 350px;
-            position: relative;
-            left: 0;
-            top: 0;
-            .point_two {
-              z-index: 100;
-              position: absolute;
-              left: 34px;
-              top: 62px;
-              .point_text {
-                width: 20px;
-              }
-            }
-          }
-          .round_two {
-            width: 308px;
-            height: 308px;
+
+          .Star_line,
+          .Star_line1,
+          .Star_line2,
+          .Star_line3,
+          .Star_line4,
+          .Star_line5 {
+            width: 105px;
+            height: 1.3px;
+            background: var(--second-home-Star_line-background);
             position: absolute;
-            right: 4.5px;
-            top: 6px;
-            .point_three {
-              width: 100px;
-              z-index: 100;
-              position: absolute;
-              left: -2px;
-              top: 180px;
-            }
           }
-          .round_three {
-            width: 266px;
-            height: 266px;
-            position: absolute;
-            right: 5px;
-            top: 6px;
-            .point_four {
-              z-index: 100;
-              position: absolute;
-              left: 63px;
-              top: 242px;
-            }
+          .Star_line {
+            left: -8px;
+            top: 69px;
+            transform: rotate(67deg);
           }
-          .round_four {
-            width: 222px;
-            height: 222px;
-            position: absolute;
-            right: 5px;
-            top: 6px;
-            .point_five {
-              z-index: 100;
-              position: absolute;
-              left: -4px;
-              top: 118px;
-            }
+
+          .Star_line1 {
+            left: 66px;
+            top: 141px;
+            transform: rotate(24deg);
           }
-          .round_five {
-            width: 176px;
-            height: 176px;
-            position: absolute;
-            right: 5px;
-            top: 6px;
-            .point_six {
-              z-index: 100;
-              position: absolute;
-              left: 45px;
-              top: 162px;
-            }
+          .Star_line2 {
+            left: 192px;
+            top: 148px;
+            transform: rotate(165deg);
           }
-          .round_six {
-            width: 130px;
-            height: 130px;
+          .Star_line3 {
+            left: 154px;
+            top: 130px;
+            transform: rotate(128deg);
+          }
+          .Star_line4 {
+            left: 230px;
+            top: 66px;
+            transform: rotate(162deg);
+          }
+
+          .Star_text,
+          .Star_text1,
+          .Star_text2,
+          .Star_text3,
+          .Star_text4,
+          .Star_text5 {
+            color: var(--second-home-Star_text-color);
+            font-family: "Kumbh Sans";
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: uppercase;
             position: absolute;
-            right: 5px;
-            top: 6px;
-            .point_seven {
-              z-index: 100;
-              position: absolute;
-              left: -4px;
-              top: 62px;
-            }
+            font-size: 13px;
+            letter-spacing: 0.39px;
+          }
+          .Star_text {
+            left: 34px;
+            top: -2px;
+          }
+          .Star_text1 {
+            left: 78px;
+            top: 97px;
+          }
+          .Star_text2 {
+            left: 152px;
+            top: 187px;
+            font-size: 14px;
+          }
+          .Star_text3 {
+            left: 270px;
+            top: 148px;
+          }
+          .Star_text4 {
+            left: 198px;
+            top: 54px;
+          }
+          .Star_text5 {
+            left: 293px;
+            top: 24px;
           }
         }
       }
