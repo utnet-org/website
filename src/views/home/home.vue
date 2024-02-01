@@ -706,42 +706,42 @@ const computedImagePath = computed(() => {
       <div class="Data_and_circles">
         <div class="Star_six">
           <div class="star_bg">
-            <star2 v-if="width > 834" />
+            <star2 v-if="width > 1145" />
             <starphone2 v-else />
           </div>
           <div class="Star_text">FAUCET</div>
           <div class="Star_line"></div>
 
           <div class="star_bg1">
-            <star1 v-if="width > 834" />
+            <star1 v-if="width > 1145" />
             <starphone1 v-else />
           </div>
           <div class="Star_line1"></div>
           <div class="Star_text1">Miner</div>
 
           <div class="star_bg2">
-            <star v-if="width > 834" />
+            <star v-if="width > 1145" />
             <starphone v-else />
           </div>
           <div class="Star_line2"></div>
           <div class="Star_text2">UTILITY</div>
 
           <div class="star_bg3">
-            <star1 v-if="width > 834" />
+            <star1 v-if="width > 1145" />
             <starphone1 v-else />
           </div>
           <div class="Star_line3"></div>
           <div class="Star_text3">EXPLORER</div>
 
           <div class="star_bg4">
-            <star1 v-if="width > 834" />
+            <star1 v-if="width > 1145" />
             <starphone1 v-else />
           </div>
           <div class="Star_line4"></div>
           <div class="Star_text4">NODE</div>
 
           <div class="star_bg5">
-            <star2 v-if="width > 834" />
+            <star2 v-if="width > 1145" />
             <starphone2 v-else />
           </div>
           <div class="Star_text5">WALLET</div>
@@ -2267,79 +2267,12 @@ const computedImagePath = computed(() => {
     }
   }
 }
-@media (max-width: 834px) {
+@media (max-width: 1145px) {
   .home_view {
     .container {
-      .Welcome {
-        padding-top: 24px;
-
-        .Utility {
-          max-width: 306px;
-          .Utility_text {
-            font-size: 24px;
-            // line-height: 36px; /* 36.12px */
-            letter-spacing: 0.48px;
-          }
-          .Welcome_text_title {
-            font-size: 21px;
-            font-style: normal;
-            line-height: 150.5%;
-          }
-        }
-
-        .Anapplication {
-          margin-top: 10px;
-          margin-bottom: 22px;
-          max-width: 259px;
-          font-family: Inter;
-          font-size: 10px;
-          font-style: normal;
-          line-height: 15px; /* 15.5px */
-        }
-      }
-      .get_the_app {
-        height: 422px;
-        width: 100%;
-        background-color: #cfcfcf;
-      }
-      .Where_to_Start {
-        padding-top: 30px;
-        .title {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-          margin-left: 20px;
-          margin-bottom: 12px;
-        }
-        .Four_boxes {
-          .box {
-            width: 350px;
-            border-radius: 8px;
-            min-height: 189px;
-            margin: 0px 4px 10px 4px;
-            border-radius: 8px;
-            opacity: 0.8;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 14px;
-
-            .box_text {
-              max-width: 322px;
-              font-size: 14px;
-              line-height: 21px;
-              letter-spacing: 0.42px;
-            }
-            .box_button {
-              height: 33px;
-              padding: 6px 10px; /* 添加适当的内边距 */
-              border-radius: 6px;
-            }
-          }
-        }
-      }
       .Data_and_circles {
         width: 100%;
+        height: 1000px;
         display: flex;
         padding: 60px 0px 30px 0px;
         margin-bottom: 30px;
@@ -2359,7 +2292,8 @@ const computedImagePath = computed(() => {
 
             .data_value {
               width: 100%;
-              height: 118px;
+              // height: 118px;
+              padding: 26px 100px;
               background: var(--second-home-data_value-bg);
               box-shadow: var(--second-home-data_value-shadow);
               filter: var(--second-home-data_value-filter);
@@ -2530,6 +2464,80 @@ const computedImagePath = computed(() => {
           }
         }
       }
+    }
+  }
+}
+@media (max-width: 834px) {
+  .home_view {
+    .container {
+      .Welcome {
+        padding-top: 24px;
+
+        .Utility {
+          max-width: 306px;
+          .Utility_text {
+            font-size: 24px;
+            // line-height: 36px; /* 36.12px */
+            letter-spacing: 0.48px;
+          }
+          .Welcome_text_title {
+            font-size: 21px;
+            font-style: normal;
+            line-height: 150.5%;
+          }
+        }
+
+        .Anapplication {
+          margin-top: 10px;
+          margin-bottom: 22px;
+          max-width: 259px;
+          font-family: Inter;
+          font-size: 10px;
+          font-style: normal;
+          line-height: 15px; /* 15.5px */
+        }
+      }
+      .get_the_app {
+        height: 422px;
+        width: 100%;
+        background-color: #cfcfcf;
+      }
+      .Where_to_Start {
+        padding-top: 30px;
+        .title {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: normal;
+          margin-left: 20px;
+          margin-bottom: 12px;
+        }
+        .Four_boxes {
+          .box {
+            width: 350px;
+            border-radius: 8px;
+            min-height: 189px;
+            margin: 0px 4px 10px 4px;
+            border-radius: 8px;
+            opacity: 0.8;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14px;
+
+            .box_text {
+              max-width: 322px;
+              font-size: 14px;
+              line-height: 21px;
+              letter-spacing: 0.42px;
+            }
+            .box_button {
+              height: 33px;
+              padding: 6px 10px; /* 添加适当的内边距 */
+              border-radius: 6px;
+            }
+          }
+        }
+      }
       .Utility_Chain {
         width: 100%;
         padding: 0 20px;
@@ -2572,7 +2580,6 @@ const computedImagePath = computed(() => {
 
       .merry_go_round {
         padding: 36px 20px 30px 20px;
-
 
         .swiper {
           width: 100%;
