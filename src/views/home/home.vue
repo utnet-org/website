@@ -1524,6 +1524,7 @@ const computedImagePath = computed(() => {
       }
     }
     .Data_and_circles {
+      margin-top: 100px;
       .Data {
         display: flex;
         justify-content: center;
@@ -2570,6 +2571,7 @@ const computedImagePath = computed(() => {
 
       .merry_go_round {
         padding: 36px 20px 30px 20px;
+
 
         .swiper {
           width: 100%;
