@@ -336,12 +336,8 @@ const computedImagePath = computed(() => {
       <!-- !画布动画begin -->
       <Animation v-if="width > 996"></Animation>
       <!-- !画布动画end -->
-      <img
-        class="imgone"
-        v-else
-        src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg"
-        style="width: 100vw; object-fit: cover; margin-top: 70px"
-      />
+      <img class="imgone" v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/5621701541165_.pic.jpg"
+        style="width: 100vw; object-fit: cover; margin-top: 70px" />
       <!-- 第一屏文案 -->
       <div class="bg">
         <div class="Welcome">
@@ -352,16 +348,10 @@ const computedImagePath = computed(() => {
             </div>
           </div>
           <div class="Utility">
-            <div
-              :class="['Utility_text']"
-              :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
-            >
+            <div :class="['Utility_text']" :style="{ fontSize: width > 996 ? '34px' : '1rem' }">
               Utility:
             </div>
-            <div
-              class="Welcome_text_title"
-              :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
-            >
+            <div class="Welcome_text_title" :style="{ fontSize: width > 996 ? '34px' : '1rem' }">
               {{ $t("home.Welcome_to_utility") }}
             </div>
           </div>
@@ -369,33 +359,19 @@ const computedImagePath = computed(() => {
             {{ $t("home.An_application") }}
           </div>
           <div class="button_father">
-            <div
-              class="button"
-              @click="
-                openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
-              "
-            >
+            <div class="button" @click="
+              openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+              ">
               <div class="text">
                 {{ $t("home.White_Paper") }}
               </div>
-              <img
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
-                alt=""
-                srcset=""
-              />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg" alt="" srcset="" />
             </div>
-            <div
-              class="button_right"
-              @click="openNewPage('/learning/learning_center')"
-            >
+            <div class="button_right" @click="openNewPage('/learning/learning_center')">
               <div class="text">
                 {{ $t("home.More") }}
               </div>
-              <img
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
-                alt=""
-                srcset=""
-              />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg" alt="" srcset="" />
             </div>
           </div>
         </div>
@@ -404,27 +380,18 @@ const computedImagePath = computed(() => {
     </div>
     <!-- !视频begin -->
     <div class="animatino_video">
-      <video
-        id="video11"
-        :src="
-          width < 834
-            ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4'
-            : 'https://utilityoss.s3.ap-northeast-1.amazonaws.com/TOTAL+VIDEO+LOGO+2.mp4'
-        "
-        autoplay
-        muted
-        @ended="setVedio"
-        :style="{
-          objectFit: width > 2150 ? 'cover' : 'contain',
-          height: width > 2150 ? '100vh' : '100%',
-        }"
-      ></video>
+      <video id="video11" :src="width < 834
+        ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/502_1701518503.mp4'
+        : 'https://utilityoss.s3.ap-northeast-1.amazonaws.com/TOTAL+VIDEO+LOGO+2.mp4'
+        " autoplay muted @ended="setVedio" :style="{
+    objectFit: width > 2150 ? 'cover' : 'contain',
+    height: width > 2150 ? '100vh' : '100%',
+  }"></video>
     </div>
     <!-- !视频end -->
     <div class="container" style="overflow: hidden">
       <div class="ellipse_dev">
-        <div
-          style="
+        <div style="
             width: 100%;
             display: flex;
             height: 100px;
@@ -432,25 +399,18 @@ const computedImagePath = computed(() => {
             justify-content: center;
             align-items: center;
             gap: 12px;
-          "
-        >
-          <text
-            style="
+          ">
+          <text style="
               color: var(--text-color);
               text-align: center;
               font-size: 22px;
               font-style: normal;
               font-weight: 700;
               line-height: normal;
-            "
-            selectable="false"
-            space="false"
-            decode="false"
-          >
+            " selectable="false" space="false" decode="false">
             Utility Ecosystem
           </text>
-          <div
-            style="
+          <div style="
               color: var(--text-color);
               text-align: center;
               font-family: Inter;
@@ -458,18 +418,16 @@ const computedImagePath = computed(() => {
               font-style: normal;
               font-weight: 400;
               line-height: normal;
-            "
-          >
+            ">
             Everyone can be UNC holder to purchase utility and exchange UNC
             token.
           </div>
         </div>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px">
-          <div
-            class="ellipse_dev_card"
-            v-for="(item, index) in fourdata"
-            :key="index"
-          >
+        <div style="width:100%;height: 501px;">
+          <img src="@/assets/images/network_cable.png" alt="" srcset="" />
+        </div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 36px 20px 0">
+          <div class="ellipse_dev_card" v-for="(item, index) in fourdata" :key="index">
             <div class="title">{{ item.title }}</div>
             <div class="text_class" v-for="(i, ind) in item.text" :key="ind">
               {{ i }}
@@ -479,7 +437,8 @@ const computedImagePath = computed(() => {
             </div>
           </div>
         </div>
-        <div class="top">
+
+        <!-- <div class="top">
           <div class="round one"></div>
         </div>
         <div class="top">
@@ -649,7 +608,7 @@ const computedImagePath = computed(() => {
         </div>
         <div class="top">
           <div class="round seven"></div>
-        </div>
+        </div> -->
       </div>
       <!--! Where to Start -->
       <!-- <div class="Where_to_Start">
@@ -749,11 +708,7 @@ const computedImagePath = computed(() => {
 
         <div class="Data">
           <div class="value_father">
-            <div
-              class="data_value"
-              v-for="(item, index) in Data_arr"
-              :key="index"
-            >
+            <div class="data_value" v-for="(item, index) in Data_arr" :key="index">
               <div class="data_text">
                 {{ $t(item.text) }}
               </div>
@@ -770,52 +725,31 @@ const computedImagePath = computed(() => {
         </div>
         <div class="Utility_Chain_box">
           <div v-for="(item, index) in Utility_arr" :key="index">
-            <div
-              class="box_item"
-              @mouseover="UtilityChainChange(index)"
-              @mouseleave="UtilityChainChangeli"
-            >
-              <div
-                class="item_img"
-                :style="{
-                  boxShadow:
-                    item.isclick && theme
-                      ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
-                      : 'none',
-                }"
-              >
-                <img
-                  v-if="!theme"
-                  :style="{
-                    opacity: item.isclick ? 1 : 0,
-                  }"
-                  class="hover"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Hover.svg"
-                  alt=""
-                  srcset=""
-                />
-                <img
-                  class="item_img_img"
-                  :src="item.img"
-                  :style="{
-                    filter:
-                      item.isclick && !theme
-                        ? 'brightness(0%)'
-                        : 'brightness(100%)',
-                  }"
-                  alt=""
-                />
+            <div class="box_item" @mouseover="UtilityChainChange(index)" @mouseleave="UtilityChainChangeli">
+              <div class="item_img" :style="{
+                boxShadow:
+                  item.isclick && theme
+                    ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
+                    : 'none',
+              }">
+                <img v-if="!theme" :style="{
+                  opacity: item.isclick ? 1 : 0,
+                }" class="hover" src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Hover.svg" alt=""
+                  srcset="" />
+                <img class="item_img_img" :src="item.img" :style="{
+                  filter:
+                    item.isclick && !theme
+                      ? 'brightness(0%)'
+                      : 'brightness(100%)',
+                }" alt="" />
               </div>
 
               <div class="Utility_Chain_box_item_button">
                 {{ $t("home.Testnet") }}
               </div>
-              <div
-                class="item_title"
-                :style="{
-                  color: item.isclick ? '#3EDFCF' : 'var(--Utility-text-color)',
-                }"
-              >
+              <div class="item_title" :style="{
+                color: item.isclick ? '#3EDFCF' : 'var(--Utility-text-color)',
+              }">
                 {{ $t(item.title) }}
               </div>
               <div class="item_text">
@@ -859,49 +793,28 @@ const computedImagePath = computed(() => {
           {{ $t("home.What_is_New") }}
         </div>
 
-        <swiper
-          :ref="mySwiper"
-          :slidesPerView="1"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :pagination="{ clickable: true }"
-          class="swiper"
-          @slideChange="onSlideChange"
-        >
-          <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @click="jumpNews(item.id)"
-          >
+        <swiper :ref="mySwiper" :slidesPerView="1" :spaceBetween="16" :modules="modules" :loop="false"
+          :pagination="{ clickable: true }" class="swiper" @slideChange="onSlideChange">
+          <swiper-slide v-for="(item, index) in merryGoRound_arr" :key="index" class="swiper-slide"
+            @click="jumpNews(item.id)">
             <div class="icon">
-              <img
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg"
-                alt=""
-              />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg" alt="" />
             </div>
             <img class="swiper_img" :src="item.img" style="" alt="" />
-            <div
-              class="time"
-              :style="{
-                color:
-                  item.isswiperenter && theme
-                    ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
-              }"
-            >
+            <div class="time" :style="{
+              color:
+                item.isswiperenter && theme
+                  ? 'var(--swiper-text-color)'
+                  : 'var(--swiper-text-color1)',
+            }">
               {{ item.time }}
             </div>
-            <div
-              class="text"
-              :style="{
-                color:
-                  item.isswiperenter && theme
-                    ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
-              }"
-            >
+            <div class="text" :style="{
+              color:
+                item.isswiperenter && theme
+                  ? 'var(--swiper-text-color)'
+                  : 'var(--swiper-text-color1)',
+            }">
               {{ item.text }}
             </div>
           </swiper-slide>
@@ -913,63 +826,35 @@ const computedImagePath = computed(() => {
         </div>
 
         <div class="swiper-button-prev"></div>
-        <swiper
-          :ref="mySwiper"
-          :slidesPerView="width > 1000 ? 3.5 : 2.5"
-          :spaceBetween="16"
-          :modules="modules"
-          :loop="false"
-          :navigation="navigation"
-          class="swiper"
-          @slideChange="onSlideChange"
-        >
+        <swiper :ref="mySwiper" :slidesPerView="width > 1000 ? 3.5 : 2.5" :spaceBetween="16" :modules="modules"
+          :loop="false" :navigation="navigation" class="swiper" @slideChange="onSlideChange">
           <div v-if="indexNum" class="shadow_left"></div>
           <div v-if="!indexNum" class="shadow_right"></div>
-          <swiper-slide
-            v-for="(item, index) in merryGoRound_arr"
-            :key="index"
-            class="swiper-slide"
-            @mouseenter="item.isswiperenter = true"
-            @mouseleave="item.isswiperenter = false"
-            @click="jumpNews(item.id)"
-          >
+          <swiper-slide v-for="(item, index) in merryGoRound_arr" :key="index" class="swiper-slide"
+            @mouseenter="item.isswiperenter = true" @mouseleave="item.isswiperenter = false" @click="jumpNews(item.id)">
             <div v-if="item.isswiperenter" class="icon">
-              <img
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg"
-                alt=""
-              />
+              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Arrow_Up.svg" alt="" />
             </div>
-            <img
-              :style="{
-                boxShadow:
-                  item.isswiperenter && theme
-                    ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
-                    : 'none',
-              }"
-              class="swiper_img"
-              :src="item.img"
-              alt=""
-            />
-            <div
-              class="time"
-              :style="{
-                color:
-                  item.isswiperenter && theme
-                    ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
-              }"
-            >
+            <img :style="{
+              boxShadow:
+                item.isswiperenter && theme
+                  ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
+                  : 'none',
+            }" class="swiper_img" :src="item.img" alt="" />
+            <div class="time" :style="{
+              color:
+                item.isswiperenter && theme
+                  ? 'var(--swiper-text-color)'
+                  : 'var(--swiper-text-color1)',
+            }">
               {{ item.time }}
             </div>
-            <div
-              class="text"
-              :style="{
-                color:
-                  item.isswiperenter && theme
-                    ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
-              }"
-            >
+            <div class="text" :style="{
+              color:
+                item.isswiperenter && theme
+                  ? 'var(--swiper-text-color)'
+                  : 'var(--swiper-text-color1)',
+            }">
               {{ item.text }}
             </div>
           </swiper-slide>
@@ -980,11 +865,7 @@ const computedImagePath = computed(() => {
       <!-- ! square Contribute to Utility together -->
       <div class="Contribute_to_Utility">
         <div class="Contribute_to_Utility_bg">
-          <img
-            class="Contribute_to_Utility_bg_img"
-            :src="computedImagePath"
-            alt=""
-          />
+          <img class="Contribute_to_Utility_bg_img" :src="computedImagePath" alt="" />
         </div>
 
         <div class="Create_a_lighter">
@@ -1000,30 +881,15 @@ const computedImagePath = computed(() => {
               <div class="button_text">
                 {{ $t("home.Join_us") }}
               </div>
-              <arrow
-                v-if="width > 834"
-                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
-              />
-              <arrow1
-                v-else
-                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
-              />
+              <arrow v-if="width > 834" :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }" />
+              <arrow1 v-else :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }" />
             </div>
-            <div
-              class="button_right"
-              @click="openNewPage('https://github.com/utnet-org')"
-            >
+            <div class="button_right" @click="openNewPage('https://github.com/utnet-org')">
               <div class="button_text">
                 {{ $t("footer.Github") }}
               </div>
-              <arrow
-                v-if="width > 834"
-                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
-              />
-              <arrow1
-                v-else
-                :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }"
-              />
+              <arrow v-if="width > 834" :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }" />
+              <arrow1 v-else :style="{ filter: theme ? 'brightness(100)' : 'brightness(1)' }" />
             </div>
           </div>
         </div>
@@ -1068,18 +934,22 @@ const computedImagePath = computed(() => {
       text-transform: uppercase;
       padding-bottom: 10px;
     }
+
     .text_class {
       color: var(--text-color);
       font-family: Inter;
       font-size: 13px;
       font-style: normal;
       font-weight: 400;
-      line-height: 140%; /* 18.2px */
+      line-height: 140%;
+      /* 18.2px */
       letter-spacing: 0.39px;
     }
+
     .btn {
       margin-top: auto;
       padding-bottom: 10px;
+
       span {
         color: var(--text-color);
         padding: 10px 20px;
@@ -1100,11 +970,13 @@ const computedImagePath = computed(() => {
     justify-content: center;
     overflow: hidden;
     position: absolute;
+
     img {
       object-fit: cover;
       position: absolute;
       z-index: 1;
     }
+
     .round {
       border: #3edfcf8b 2px solid;
       box-sizing: border-box;
@@ -1112,22 +984,26 @@ const computedImagePath = computed(() => {
       transform-style: preserve-3d;
       position: relative;
     }
+
     .one {
       width: 125vh;
       height: 80vh;
       top: 60%;
     }
+
     .two {
       width: 83vh;
       height: 65vh;
       top: 30%;
       transform: rotateZ(40deg);
     }
+
     .three {
       width: 90%;
       height: 80vh;
       top: 78%;
     }
+
     .four {
       width: 60%;
       height: 65vh;
@@ -1135,6 +1011,7 @@ const computedImagePath = computed(() => {
       transform: rotateZ(60deg);
       right: -200px;
     }
+
     .five {
       width: 60%;
       height: 65vh;
@@ -1142,6 +1019,7 @@ const computedImagePath = computed(() => {
       transform: rotateZ(10deg);
       right: 120px;
     }
+
     .six {
       width: 70%;
       height: 75vh;
@@ -1149,6 +1027,7 @@ const computedImagePath = computed(() => {
       transform: rotateZ(10deg);
       right: 100px;
     }
+
     .seven {
       width: 80%;
       height: 80vh;
@@ -1162,6 +1041,7 @@ const computedImagePath = computed(() => {
   position: relative;
   background: #000;
   z-index: 2;
+
   .imgone {
     transform: translateY(-120px);
   }
@@ -1183,6 +1063,7 @@ const computedImagePath = computed(() => {
     justify-content: end;
     align-items: center;
     padding: 0 7px;
+
     .animation_button_text {
       flex: 1;
       color: #fffefb;
@@ -1312,6 +1193,7 @@ const computedImagePath = computed(() => {
     }
   }
 }
+
 .animatino_video {
   // position: fixed;
   // top: 0;
@@ -1333,11 +1215,9 @@ const computedImagePath = computed(() => {
   height: 290px;
   align-items: center;
   // border-radius: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(244, 248, 248, 0.035) 0.13%,
-    rgba(244, 248, 248, 0.043) 99.87%
-  );
+  background: linear-gradient(180deg,
+      rgba(244, 248, 248, 0.035) 0.13%,
+      rgba(244, 248, 248, 0.043) 99.87%);
   // box-shadow: 0px 1px 1px 1px rgba(229, 248, 246, 0.311) inset,
   //   0px 4px 50px 0px #dde3e153;
   backdrop-filter: blur(9px);
@@ -1444,6 +1324,7 @@ const computedImagePath = computed(() => {
 }
 
 .home_view {
+
   // background-color: #fffefb;
   .bg {
     // height: 1100px;
@@ -1454,6 +1335,7 @@ const computedImagePath = computed(() => {
     // max-width: 1500px;
     // margin: 0 20px;
   }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -1462,17 +1344,21 @@ const computedImagePath = computed(() => {
 
     .get_the_app {
       height: 1095px;
+
       img {
         width: 100%;
         height: 100%;
       }
     }
+
     .Where_to_Start {
       width: 100%;
+
       .title {
         font-family: Lantinghei SC;
         color: var(--where-color);
       }
+
       .Four_boxes {
         display: flex;
         //多行对齐
@@ -1480,11 +1366,9 @@ const computedImagePath = computed(() => {
         justify-content: center;
 
         .box {
-          background: linear-gradient(
-            177deg,
-            var(--background-start) -24.77%,
-            var(--background-end) 97.53%
-          );
+          background: linear-gradient(177deg,
+              var(--background-start) -24.77%,
+              var(--background-end) 97.53%);
           opacity: 0.8;
           display: flex;
           flex-direction: column;
@@ -1492,9 +1376,11 @@ const computedImagePath = computed(() => {
           box-shadow: var(--box-shadow-light);
           transition: box-shadow 0.5s;
           border: 1px solid var(--where-border);
+
           &:hover {
             border: 1px solid #3edfcf;
           }
+
           .box_title {
             font-family: Lantinghei SC;
             color: #3edfcf;
@@ -1502,6 +1388,7 @@ const computedImagePath = computed(() => {
             font-weight: 400;
             text-transform: uppercase;
           }
+
           .box_text {
             margin-top: 14px;
             margin-bottom: 26px;
@@ -1510,6 +1397,7 @@ const computedImagePath = computed(() => {
             font-style: normal;
             font-weight: 400;
           }
+
           .box_button {
             background: var(--where-button);
             border: 1px solid #3edfcf;
@@ -1523,17 +1411,21 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .Data_and_circles {
       margin-top: 100px;
+
       .Data {
         display: flex;
         justify-content: center;
         align-items: center;
+
         .value_father {
           display: flex;
           //多行对齐
           flex-wrap: wrap;
           justify-content: start;
+
           .amount {
             color: var(--data-amount-color);
             font-family: Lantinghei SC;
@@ -1541,6 +1433,7 @@ const computedImagePath = computed(() => {
             font-weight: 400;
             line-height: normal;
           }
+
           .data_text {
             font-family: Inter;
             font-size: 16px;
@@ -1551,25 +1444,30 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .Utility_Chain {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       .title {
         color: var(--Utility-title-color);
         font-family: Lantinghei SC;
         font-weight: 400;
       }
+
       .Utility_Chain_box {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+
         .item_title {
           font-family: Inter;
           text-transform: uppercase;
         }
+
         .item_img {
           width: 60px;
           height: 60px;
@@ -1601,6 +1499,7 @@ const computedImagePath = computed(() => {
             transition: all 0.3s;
           }
         }
+
         .Utility_Chain_box_item_button {
           border: 1px solid #3edfcf;
           display: flex;
@@ -1613,8 +1512,10 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .merry_go_round {
       width: 100%;
+
       .title {
         color: #3edfcf;
         font-size: 22px;
@@ -1622,20 +1523,24 @@ const computedImagePath = computed(() => {
         font-weight: 400;
         margin-bottom: 23px;
       }
+
       .swiper {
         height: 394px;
         // width: 100%;
         position: relative;
+
         .swiper-slide {
           width: 100%;
           display: flex;
           flex-direction: column;
           position: relative;
           cursor: pointer; ///鼠标移上去变成手指
+
           .swiper_img {
             border-radius: 8px;
             flex-shrink: 0;
           }
+
           .icon {
             position: absolute;
             top: 18px;
@@ -1648,11 +1553,13 @@ const computedImagePath = computed(() => {
             display: flex;
             justify-content: center;
             align-items: center;
+
             img {
               width: 100%;
               height: 100%;
             }
           }
+
           .time {
             color: var(--swiper-time-color);
             font-family: Jaldi;
@@ -1661,6 +1568,7 @@ const computedImagePath = computed(() => {
             margin-top: 11px;
             opacity: 0.8;
           }
+
           .text {
             color: var(--swiper-time-color);
             font-family: Inter;
@@ -1669,14 +1577,13 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .Contribute_to_Utility {
       .Create_a_lighter {
         flex-shrink: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
-        );
+        background: linear-gradient(180deg,
+            rgba(244, 248, 248, 0.05) 0.13%,
+            rgba(244, 248, 248, 0) 99.87%);
         box-shadow: var(--Contribute-lighter-box-shadow);
         display: flex;
         flex-direction: column;
@@ -1688,11 +1595,13 @@ const computedImagePath = computed(() => {
           color: var(--Utility-text-color);
           font-family: Inter;
         }
+
         .text {
           color: var(--Utility-text-color);
           font-family: Inter;
           font-weight: 400;
         }
+
         .button_left,
         .button_right {
           border-radius: 6px;
@@ -1708,6 +1617,7 @@ const computedImagePath = computed(() => {
       }
     }
   }
+
   .icons {
     width: 100%;
     height: 110px;
@@ -1717,32 +1627,41 @@ const computedImagePath = computed(() => {
     background: #f7f7f4;
     margin-top: 60px;
     margin-bottom: 20px;
+
     // 正向滚动动画
     @keyframes scrollBackward {
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-1700px);
       }
     }
+
     /* 逆向滚动动画 */
     @keyframes scrollForward {
       0% {
         transform: translateX(-1700px);
       }
+
       100% {
         transform: translateX(0);
       }
     }
+
     //  鼠标移出
     .carousel-content.forward {
-      animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollForward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     // 鼠标移入
     .carousel-content.backward {
-      animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+      animation: scrollBackward 5s linear forwards;
+      /* 调整时间以匹配您的需求 */
     }
+
     .carousel-container {
       overflow: hidden;
       position: relative;
@@ -1755,12 +1674,15 @@ const computedImagePath = computed(() => {
       height: 100%;
       display: flex;
       align-items: center;
-      will-change: transform; /* 提升性能 */
+      will-change: transform;
+      /* 提升性能 */
     }
 
     .carousel-item {
-      transition: all 0.5s; /* 设置动画 */
+      transition: all 0.5s;
+      /* 设置动画 */
       margin: 0 42px;
+
       img {
         max-width: none;
         max-height: none;
@@ -1768,6 +1690,7 @@ const computedImagePath = computed(() => {
     }
   }
 }
+
 @media (min-width: 835px) {
   .home_view {
     .Welcome {
@@ -1785,6 +1708,7 @@ const computedImagePath = computed(() => {
       margin-top: 15px;
       margin-bottom: 28px;
     }
+
     .button,
     .button_right {
       &:hover {
@@ -1807,6 +1731,7 @@ const computedImagePath = computed(() => {
         padding-left: 140px;
         margin-bottom: 20px;
       }
+
       .Four_boxes {
         .box {
           width: 716px;
@@ -1815,6 +1740,7 @@ const computedImagePath = computed(() => {
           margin: 0px 8px 16px 8px;
 
           padding: 50px 0 43px 50px;
+
           &:hover {
             //过渡
             transition: box-shadow 0.5s;
@@ -1827,17 +1753,18 @@ const computedImagePath = computed(() => {
             line-height: 30px;
             font-size: 23px;
           }
+
           .box_button {
             height: 45px;
-            padding: 12px 16px; /* 添加适当的内边距 */
+            padding: 12px 16px;
+            /* 添加适当的内边距 */
             border-radius: 8px;
+
             &:hover {
               box-shadow: 0px 4px 20px 0px var(--where-button-shadow);
-              background: linear-gradient(
-                177deg,
-                var(--where-button-hover) -4.77%,
-                var(--where-button-hover-end) 97.53%
-              );
+              background: linear-gradient(177deg,
+                  var(--where-button-hover) -4.77%,
+                  var(--where-button-hover-end) 97.53%);
 
               border: 1px solid var(--where-button-border);
             }
@@ -1845,6 +1772,7 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .Data_and_circles {
       width: 100%;
       padding-top: 78px;
@@ -1857,9 +1785,11 @@ const computedImagePath = computed(() => {
       flex-wrap: wrap;
       background: var(--home-star-bg);
       background-size: cover;
+
       .Data {
         margin-top: 30px;
         flex: 1;
+
         .value_father {
           .data_value {
             margin-left: 48px;
@@ -1879,12 +1809,14 @@ const computedImagePath = computed(() => {
               font-size: 40px;
               margin-top: 40px;
             }
+
             .data_text {
               color: var(--data-data_text-color);
             }
           }
         }
       }
+
       .Star_six {
         flex: 1;
         position: relative;
@@ -1892,17 +1824,21 @@ const computedImagePath = computed(() => {
         .star_bg {
           width: 0px;
           height: 0px;
-          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2);
+          /* 阴影效果 */
           border-radius: 50%;
           position: absolute;
           left: 8px;
           top: -151px;
         }
+
         .star_bg1 {
           width: 0px;
           height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4);
+          /* 阴影效果 */
+          border-radius: 50%;
+          /* 可选的圆角效果，如果需要的话 */
 
           position: absolute;
           left: 112px;
@@ -1912,28 +1848,36 @@ const computedImagePath = computed(() => {
         .star_bg2 {
           width: 0px;
           height: 0px;
-          box-shadow: 24px 24px 28px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+          box-shadow: 24px 24px 28px 15px rgba(86, 255, 239, 0.4);
+          /* 阴影效果 */
+          border-radius: 50%;
+          /* 可选的圆角效果，如果需要的话 */
 
           position: absolute;
           left: 255px;
           top: 22px;
         }
+
         .star_bg3 {
           width: 0px;
           height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4);
+          /* 阴影效果 */
+          border-radius: 50%;
+          /* 可选的圆角效果，如果需要的话 */
 
           position: absolute;
           left: 427px;
           top: 9px;
         }
+
         .star_bg4 {
           width: 0px;
           height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4);
+          /* 阴影效果 */
+          border-radius: 50%;
+          /* 可选的圆角效果，如果需要的话 */
 
           position: absolute;
           left: 398px;
@@ -1943,7 +1887,8 @@ const computedImagePath = computed(() => {
         .star_bg5 {
           width: 0px;
           height: 0px;
-          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2);
+          /* 阴影效果 */
           border-radius: 50%;
           position: absolute;
           left: 520px;
@@ -1962,6 +1907,7 @@ const computedImagePath = computed(() => {
 
           position: absolute;
         }
+
         .Star_line {
           left: -10px;
           top: -84px;
@@ -1973,16 +1919,19 @@ const computedImagePath = computed(() => {
           top: 14px;
           transform: rotate(24deg);
         }
+
         .Star_line2 {
           left: 290px;
           top: 36px;
           transform: rotate(175deg);
         }
+
         .Star_line3 {
           left: 264px;
           top: -6px;
           transform: rotate(142deg);
         }
+
         .Star_line4 {
           left: 400px;
           top: -71px;
@@ -2005,33 +1954,40 @@ const computedImagePath = computed(() => {
           text-transform: uppercase;
           position: absolute;
         }
+
         .Star_text {
           left: 51px;
           top: -153px;
         }
+
         .Star_text1 {
           left: 140px;
           top: -61px;
         }
+
         .Star_text2 {
           left: 248px;
           top: 75px;
           font-size: 18px;
         }
+
         .Star_text3 {
           left: 468px;
           top: 17px;
         }
+
         .Star_text4 {
           left: 355px;
           top: -96px;
         }
+
         .Star_text5 {
           left: 498px;
           top: -123px;
         }
       }
     }
+
     .Utility_Chain {
       padding: 59px 140px 0 140px;
 
@@ -2040,6 +1996,7 @@ const computedImagePath = computed(() => {
         text-align: center;
         font-size: 24px;
       }
+
       .Utility_Chain_box {
         .box_item {
           padding: 0px 0 0 20px;
@@ -2056,6 +2013,7 @@ const computedImagePath = computed(() => {
             //过渡
             transition: all 0.3s;
           }
+
           .item_text {
             color: var(--Utility-item-text);
             font-family: Inter;
@@ -2091,12 +2049,15 @@ const computedImagePath = computed(() => {
         .swiper-slide {
           .time {
             font-size: 15px;
-            line-height: 21px; /* 21.825px */
+            line-height: 21px;
+            /* 21.825px */
             letter-spacing: 0.3px;
           }
+
           .text {
             font-size: 17px;
-            line-height: 24.055px; /* 24.055px */
+            line-height: 24.055px;
+            /* 24.055px */
           }
         }
 
@@ -2109,13 +2070,13 @@ const computedImagePath = computed(() => {
           left: -50px;
           top: -50px;
           bottom: 0;
-          background: linear-gradient(
-            -90deg,
-            var(--swiper-shadow-left) 43.44%,
-            var(--swiper-shadow-left1) 90%
-          );
-          z-index: 2; /* 确保阴影在内容之上 */
+          background: linear-gradient(-90deg,
+              var(--swiper-shadow-left) 43.44%,
+              var(--swiper-shadow-left1) 90%);
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
+
         // *这将在滑动器的右侧创建模糊效果
         .shadow_right {
           // 旋转100deg;
@@ -2126,13 +2087,12 @@ const computedImagePath = computed(() => {
           right: -100px;
           top: -10px;
           bottom: 0;
-          background: linear-gradient(
-            90deg,
-            var(--swiper-shadow-left) 43.44%,
-            var(--swiper-shadow-left1) 90%
-          );
+          background: linear-gradient(90deg,
+              var(--swiper-shadow-left) 43.44%,
+              var(--swiper-shadow-left1) 90%);
           //模糊
-          z-index: 2; /* 确保阴影在内容之上 */
+          z-index: 2;
+          /* 确保阴影在内容之上 */
         }
       }
 
@@ -2149,12 +2109,14 @@ const computedImagePath = computed(() => {
         background-color: var(--swiper-prev-bg) !important;
         color: #fff !important;
       }
+
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
         background-color: var(--swiper-prev-disabled-bg) !important;
         border: 1px solid #000 !important;
         color: #000 !important;
-        opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
+        opacity: 1 !important;
+        /* 可以设置不透明度来表示禁用状态 */
         pointer-events: auto;
         cursor: not-allowed !important;
       }
@@ -2162,9 +2124,11 @@ const computedImagePath = computed(() => {
       .swiper-button-prev {
         left: 80px;
       }
+
       .swiper-button-next {
         right: 80px;
       }
+
       .swiper-button-prev::after,
       .swiper-button-next::after {
         font-size: 20px !important;
@@ -2190,6 +2154,7 @@ const computedImagePath = computed(() => {
         position: absolute;
         right: 10px;
       }
+
       .Create_a_lighter {
         width: 657px;
         height: 394px;
@@ -2200,16 +2165,19 @@ const computedImagePath = computed(() => {
         left: 20%;
         top: 20%;
         padding-top: 64px;
+
         .title_one {
           font-size: 30px;
           max-width: 570px;
         }
+
         .text {
           margin-top: 24px;
           max-width: 454px;
           font-size: 14px;
           line-height: 20px;
         }
+
         .button_father {
           display: flex;
 
@@ -2228,6 +2196,7 @@ const computedImagePath = computed(() => {
               margin-left: 12px;
             }
           }
+
           .button_left,
           .button_right {
             margin-right: 60px;
@@ -2240,15 +2209,14 @@ const computedImagePath = computed(() => {
           }
         }
       }
+
       .square {
         display: flex;
         justify-content: center;
         width: 912px;
         height: 608px;
-        background: var(
-          --light-small,
-          linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%)
-        );
+        background: var(--light-small,
+            linear-gradient(362deg, #c8fcf7 1%, rgba(115, 255, 247, 0) 37.57%));
         filter: blur(40px);
 
         opacity: 0.7;
@@ -2257,6 +2225,7 @@ const computedImagePath = computed(() => {
         top: 0;
         z-index: 2;
       }
+
       .Utility_img {
         width: 630px;
         height: 582px;
@@ -2267,6 +2236,7 @@ const computedImagePath = computed(() => {
     }
   }
 }
+
 @media (max-width: 1145px) {
   .home_view {
     .container {
@@ -2304,18 +2274,21 @@ const computedImagePath = computed(() => {
               border-radius: 12px;
               margin-bottom: 10px;
               margin-left: 0;
+
               .amount {
                 padding-bottom: 4px;
                 margin-bottom: 4px;
                 font-size: 28px;
                 font-weight: 400;
               }
+
               .data_text {
                 color: var(--data-data_text-color);
               }
             }
           }
         }
+
         .Star_six {
           flex: none;
           width: 355px;
@@ -2325,17 +2298,21 @@ const computedImagePath = computed(() => {
           .star_bg {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2);
+            /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
             left: 10px;
             top: 0px;
           }
+
           .star_bg1 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4);
+            /* 阴影效果 */
+            border-radius: 50%;
+            /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
             left: 54px;
@@ -2345,28 +2322,36 @@ const computedImagePath = computed(() => {
           .star_bg2 {
             width: 0px;
             height: 0px;
-            box-shadow: 17px 17px 15px 14px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+            box-shadow: 17px 17px 15px 14px rgba(86, 255, 239, 0.4);
+            /* 阴影效果 */
+            border-radius: 50%;
+            /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
             left: 160px;
             top: 148px;
           }
+
           .star_bg3 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4);
+            /* 阴影效果 */
+            border-radius: 50%;
+            /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
             left: 290px;
             top: 120px;
           }
+
           .star_bg4 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4);
+            /* 阴影效果 */
+            border-radius: 50%;
+            /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
             left: 237px;
@@ -2376,7 +2361,8 @@ const computedImagePath = computed(() => {
           .star_bg5 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2);
+            /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
             left: 314px;
@@ -2394,6 +2380,7 @@ const computedImagePath = computed(() => {
             background: var(--second-home-Star_line-background);
             position: absolute;
           }
+
           .Star_line {
             left: -8px;
             top: 69px;
@@ -2405,16 +2392,19 @@ const computedImagePath = computed(() => {
             top: 141px;
             transform: rotate(24deg);
           }
+
           .Star_line2 {
             left: 192px;
             top: 148px;
             transform: rotate(165deg);
           }
+
           .Star_line3 {
             left: 154px;
             top: 130px;
             transform: rotate(128deg);
           }
+
           .Star_line4 {
             left: 230px;
             top: 66px;
@@ -2437,27 +2427,33 @@ const computedImagePath = computed(() => {
             font-size: 13px;
             letter-spacing: 0.39px;
           }
+
           .Star_text {
             left: 34px;
             top: -2px;
           }
+
           .Star_text1 {
             left: 78px;
             top: 97px;
           }
+
           .Star_text2 {
             left: 152px;
             top: 187px;
             font-size: 14px;
           }
+
           .Star_text3 {
             left: 270px;
             top: 148px;
           }
+
           .Star_text4 {
             left: 198px;
             top: 54px;
           }
+
           .Star_text5 {
             left: 293px;
             top: 24px;
@@ -2467,6 +2463,7 @@ const computedImagePath = computed(() => {
     }
   }
 }
+
 @media (max-width: 834px) {
   .home_view {
     .container {
@@ -2475,11 +2472,13 @@ const computedImagePath = computed(() => {
 
         .Utility {
           max-width: 306px;
+
           .Utility_text {
             font-size: 24px;
             // line-height: 36px; /* 36.12px */
             letter-spacing: 0.48px;
           }
+
           .Welcome_text_title {
             font-size: 21px;
             font-style: normal;
@@ -2494,16 +2493,20 @@ const computedImagePath = computed(() => {
           font-family: Inter;
           font-size: 10px;
           font-style: normal;
-          line-height: 15px; /* 15.5px */
+          line-height: 15px;
+          /* 15.5px */
         }
       }
+
       .get_the_app {
         height: 422px;
         width: 100%;
         background-color: #cfcfcf;
       }
+
       .Where_to_Start {
         padding-top: 30px;
+
         .title {
           font-size: 18px;
           font-weight: 400;
@@ -2511,6 +2514,7 @@ const computedImagePath = computed(() => {
           margin-left: 20px;
           margin-bottom: 12px;
         }
+
         .Four_boxes {
           .box {
             width: 350px;
@@ -2530,14 +2534,17 @@ const computedImagePath = computed(() => {
               line-height: 21px;
               letter-spacing: 0.42px;
             }
+
             .box_button {
               height: 33px;
-              padding: 6px 10px; /* 添加适当的内边距 */
+              padding: 6px 10px;
+              /* 添加适当的内边距 */
               border-radius: 6px;
             }
           }
         }
       }
+
       .Utility_Chain {
         width: 100%;
         padding: 0 20px;
@@ -2546,6 +2553,7 @@ const computedImagePath = computed(() => {
           margin-bottom: 32px;
           font-size: 18px;
         }
+
         .Utility_Chain_box {
           .box_item {
             width: 160px;
@@ -2553,17 +2561,20 @@ const computedImagePath = computed(() => {
             display: flex;
             flex-direction: column;
             margin-bottom: 26px;
+
             .item_title {
               font-size: 12px;
               font-weight: 600;
             }
+
             .item_text {
               color: var(--Utility-item-text);
               font-family: Inter;
               font-size: 8px;
               font-style: normal;
               font-weight: 400;
-              line-height: 11px; /* 11.92px */
+              line-height: 11px;
+              /* 11.92px */
               max-width: 160px;
               margin-top: 2px;
             }
@@ -2585,8 +2596,10 @@ const computedImagePath = computed(() => {
           width: 100%;
           height: 100% !important;
           justify-content: center;
+
           .swiper-slide {
             align-items: left;
+
             .swiper_img {
               width: 100% !important;
               height: 100% !important;
@@ -2594,17 +2607,21 @@ const computedImagePath = computed(() => {
 
             .time {
               font-size: 14px;
-              line-height: 20px; /* 20.37px */
+              line-height: 20px;
+              /* 20.37px */
               letter-spacing: 0.28px;
             }
+
             .text {
               font-size: 16px;
               font-style: normal;
-              line-height: 22px; /* 22.64px */
+              line-height: 22px;
+              /* 22.64px */
               margin-bottom: 50px;
               color: var(--swiper-text-color) !important;
             }
           }
+
           /* 设置未激活状态下的圆点颜色 */
           :deep(.swiper-pagination .swiper-pagination-bullet) {
             width: 8px;
@@ -2656,41 +2673,50 @@ const computedImagePath = computed(() => {
           .title_one {
             font-size: 13px;
             font-style: normal;
-            line-height: 18px; /* 18.187px */
+            line-height: 18px;
+            /* 18.187px */
             max-width: 295px;
           }
+
           .text {
             margin-top: 8px;
             max-width: 297px;
             height: 62px;
             font-size: 8px;
             font-style: normal;
-            line-height: 12px; /* 11.6px */
+            line-height: 12px;
+            /* 11.6px */
           }
+
           .button_father {
             display: flex;
             justify-content: start;
             width: 100%;
             padding-left: 34px;
+
             .button_left,
             .button_right {
               height: 24px;
 
               align-items: center;
+
               .button_text {
                 text-align: center;
                 font-family: Inter;
                 font-size: 8px;
                 font-style: normal;
                 font-weight: 500;
-                line-height: 150%; /* 12px */
+                line-height: 150%;
+                /* 12px */
                 margin-right: 3px;
               }
             }
+
             .button_left {
               width: 62px;
               margin-right: 9px;
             }
+
             .button_right {
               width: 59px;
             }
@@ -2704,6 +2730,7 @@ const computedImagePath = computed(() => {
         }
       }
     }
+
     .icons {
       width: 100%;
       height: 87px;
@@ -2712,32 +2739,41 @@ const computedImagePath = computed(() => {
       align-items: center;
       background: #f7f7f4;
       margin-top: 18px;
+
       // 正向滚动动画
       @keyframes scrollBackward {
         0% {
           transform: translateX(0);
         }
+
         100% {
           transform: translateX(-1766px);
         }
       }
+
       /* 逆向滚动动画 */
       @keyframes scrollForward {
         0% {
           transform: translateX(-1766px);
         }
+
         100% {
           transform: translateX(0);
         }
       }
+
       //  鼠标移出
       .carousel-content.forward {
-        animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+        animation: scrollForward 5s linear forwards;
+        /* 调整时间以匹配您的需求 */
       }
+
       // 鼠标移入
       .carousel-content.backward {
-        animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+        animation: scrollBackward 5s linear forwards;
+        /* 调整时间以匹配您的需求 */
       }
+
       .carousel-container {
         overflow: hidden;
         position: relative;
@@ -2750,12 +2786,15 @@ const computedImagePath = computed(() => {
         height: 100%;
         display: flex;
         align-items: center;
-        will-change: transform; /* 提升性能 */
+        will-change: transform;
+        /* 提升性能 */
       }
 
       .carousel-item {
-        transition: all 0.5s; /* 设置动画 */
+        transition: all 0.5s;
+        /* 设置动画 */
         margin: 0 16px;
+
         img {
           max-width: none;
           max-height: none;
@@ -2770,30 +2809,37 @@ const computedImagePath = computed(() => {
     width: 320px !important;
   }
 }
+
 @media (max-width: 1450px) {
   .ellipse_dev_card {
     flex: 40%;
   }
+
   .ellipse_dev {
     height: 90vh;
+
     .top {
       width: 1424px;
       height: 50%;
     }
   }
 }
+
 @media (max-width: 865px) {
   .ellipse_dev_card {
     flex: 100%;
   }
+
   .ellipse_dev {
     height: 1696px;
+
     .top {
       width: 1424px;
       height: 610px;
     }
   }
 }
+
 @media (max-width: 1052px) {
   .top {
     .vuvietduc {
@@ -2801,35 +2847,42 @@ const computedImagePath = computed(() => {
       top: 200px !important;
       height: 20px;
     }
+
     .vuvietduc0 {
       right: 374px !important;
       top: 380px !important;
       height: 12px;
     }
+
     .vuvietduc1 {
       left: 314px !important;
       top: 280px !important;
       height: 12px;
     }
+
     .vuvietduc2 {
       left: 354px !important;
       top: 340px !important;
       height: 12px;
     }
+
     .vuvietduc3 {
       left: 414px !important;
       top: 290px !important;
       height: 12px;
     }
+
     .vuvietduc4 {
       left: 534px !important;
       top: 350px !important;
       height: 13px;
     }
+
     .vuvietduc5 {
       right: 514px !important;
       top: 300px !important;
     }
+
     .vuvietduc6 {
       right: 454px !important;
       top: 320px !important;
@@ -2841,15 +2894,18 @@ const computedImagePath = computed(() => {
       top: 260px !important;
       height: 11px;
     }
+
     .vuvietduc8 {
       right: 354px !important;
       top: 230px !important;
       height: 11px;
     }
+
     .vuvietduc9 {
       right: 354px !important;
       top: 300px !important;
     }
+
     .Utility_Holder {
       left: 504px !important;
       top: 200px !important;
@@ -2859,26 +2915,32 @@ const computedImagePath = computed(() => {
       right: 504px !important;
       top: 200px !important;
     }
+
     .AI_developer {
       left: 704px !important;
       top: 360px !important;
     }
+
     .Git_Power {
       right: 464px !important;
       top: 420px !important;
     }
+
     .UNC {
       left: 704px !important;
       top: 160px !important;
     }
+
     .UNC1 {
       left: 504px !important;
       top: 360px !important;
     }
+
     .UNC2 {
       right: 504px !important;
       top: 360px !important;
     }
+
     .SingulardtvSngls {
       right: 504px !important;
       top: 160px !important;
@@ -2889,43 +2951,52 @@ const computedImagePath = computed(() => {
 @media (max-width: 723px) {
   .ellipse_dev {
     height: 1661.2px;
+
     .top {
       width: 1352.8px;
       height: 579.5px;
+
       .vuvietduc {
         left: 484px !important;
         top: 200px !important;
         height: 20px;
       }
+
       .vuvietduc0 {
         right: 474px !important;
         top: 380px !important;
         height: 12px;
       }
+
       .vuvietduc1 {
         left: 314px !important;
         top: 280px !important;
         height: 12px;
       }
+
       .vuvietduc2 {
         left: 354px !important;
         top: 340px !important;
         height: 12px;
       }
+
       .vuvietduc3 {
         left: 414px !important;
         top: 290px !important;
         height: 12px;
       }
+
       .vuvietduc4 {
         left: 534px !important;
         top: 350px !important;
         height: 13px;
       }
+
       .vuvietduc5 {
         right: 514px !important;
         top: 300px !important;
       }
+
       .vuvietduc6 {
         right: 454px !important;
         top: 320px !important;
@@ -2937,15 +3008,18 @@ const computedImagePath = computed(() => {
         top: 260px !important;
         height: 11px;
       }
+
       .vuvietduc8 {
         right: 354px !important;
         top: 230px !important;
         height: 11px;
       }
+
       .vuvietduc9 {
         right: 354px !important;
         top: 300px !important;
       }
+
       .Utility_Holder {
         left: 544px !important;
         top: 200px !important;
@@ -2955,26 +3029,32 @@ const computedImagePath = computed(() => {
         right: 544px !important;
         top: 200px !important;
       }
+
       .AI_developer {
         left: 664px !important;
         top: 330px !important;
       }
+
       .Git_Power {
         right: 564px !important;
         top: 420px !important;
       }
+
       .UNC {
         left: 654px !important;
         top: 160px !important;
       }
+
       .UNC1 {
         left: 554px !important;
         top: 320px !important;
       }
+
       .UNC2 {
         right: 504px !important;
         top: 310px !important;
       }
+
       .SingulardtvSngls {
         right: 504px !important;
         top: 160px !important;
