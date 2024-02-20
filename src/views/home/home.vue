@@ -288,30 +288,31 @@ const Where_arr = ref([
 
 const fourdata = [
   {
-    title: "Developers",
-    text: ["Bring your project idea to multiple users on Utility Ecosystem."],
-    button: "Join Ecosystem",
+    title: "home.Developers",
+    text: ["home.Developers_text1"],
+    button: "home.Join_Ecosystem",
   },
   {
-    title: "Computing power supply",
-    text: ["-Provide stable computing power", "-Gain UNC by mining"],
-    button: "Mining",
-  },
-  {
-    title: "Token holder",
+    title: "home.Computing_power_supply",
     text: [
-      "-Gain UNC by mining",
-      "-Receive UNC by selling computer power",
-      "-Purchase UNC token on exchanges",
+      "home.Computing_power_supply_text1",
+      "home.Computing_power_supply_text2",
     ],
-    button: "Check Wallet",
+    button: "home.Mining",
   },
   {
-    title: "Computing power renter",
+    title: "home.Token_holder",
     text: [
-      "Rent high-performance computing power from utility providers for your own purpose.",
+      "home.Computing_power_supply_text2",
+      "home.Token_holder_text1",
+      "home.Token_holder_text2",
     ],
-    button: "Rent",
+    button: "home.Check_Wallet",
+  },
+  {
+    title: "home.Computing_power_renter",
+    text: ["home.Computing_power_renter_text1"],
+    button: "home.Rent",
   },
 ];
 
@@ -422,7 +423,7 @@ const computedImagePath = computed(() => {
     </div>
     <!-- !视频end -->
     <div class="container" style="overflow: hidden">
-      <div class="ellipse_dev">
+      <div class="ellipse_dev" style="margin-top: 100px">
         <div
           style="
             width: 100%;
@@ -438,6 +439,7 @@ const computedImagePath = computed(() => {
             style="
               color: var(--text-color);
               text-align: center;
+              font-family: 'Lantinghei SC';
               font-size: 22px;
               font-style: normal;
               font-weight: 700;
@@ -447,7 +449,7 @@ const computedImagePath = computed(() => {
             space="false"
             decode="false"
           >
-            Utility Ecosystem
+            {{ $t("home.Utility_Ecosystem") }}
           </text>
           <div
             style="
@@ -458,197 +460,42 @@ const computedImagePath = computed(() => {
               font-style: normal;
               font-weight: 400;
               line-height: normal;
+              opacity: 0.7;
             "
           >
-            Everyone can be UNC holder to purchase utility and exchange UNC
-            token.
+            {{ $t("home.Utility_Ecosystem_text1") }}
           </div>
         </div>
+
+        <img
+          v-if="!theme"
+          src="@/assets/images/home_xiant_bgc.png"
+          alt=""
+          style="height: 551px;min-width: 1728px;"
+        />
+        <img
+          v-else
+          style="height: 551px;min-width: 1728px;"
+          src="@/assets/images/home_xiant_bgc_d.png"
+          alt=""
+        />
+
         <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px">
           <div
             class="ellipse_dev_card"
             v-for="(item, index) in fourdata"
             :key="index"
           >
-            <div class="title">{{ item.title }}</div>
+            <div class="title">{{ $t(item.title) }}</div>
             <div class="text_class" v-for="(i, ind) in item.text" :key="ind">
-              {{ i }}
+              {{ $t(i) }}
             </div>
             <div class="btn">
-              <span>{{ item.button }}</span>
+              <span :class="!theme ? 'btn_span' : ''">
+                {{ $t(item.button) }}</span
+              >
             </div>
           </div>
-        </div>
-        <div class="top">
-          <div class="round one"></div>
-        </div>
-        <div class="top">
-          <img
-            v-if="!theme"
-            style="left: 220px; top: 180px"
-            src="@/assets/images/homecenteryun.png"
-            alt=""
-            srcset=""
-          />
-          <img
-            v-else
-            style="left: 0px; top: 120px"
-            src="@/assets/images/homecenteryun_d.png"
-            alt=""
-            srcset=""
-          />
-          <img
-            style="top: 276px; left: 414px"
-            src="@/assets/images/Utility_Holder.png"
-            alt=""
-            srcset=""
-            class="Utility_Holder"
-          />
-          <img
-            style="top: 276px; right: 644px"
-            src="@/assets/images/Utility_Miner.png"
-            alt=""
-            srcset=""
-            class="Utility_Miner"
-          />
-          <img
-            style="top: 416px; left: 614px"
-            src="@/assets/images/AI_developer.png"
-            alt=""
-            srcset=""
-            class="AI_developer"
-          />
-          <img
-            style="top: 466px; right: 514px"
-            src="@/assets/images/Git_Power.png"
-            alt=""
-            srcset=""
-            class="Git_Power"
-          />
-          <img
-            style="top: 250px; right: 864px; transform: rotateZ(100deg)"
-            src="@/assets/images/UNC.png"
-            alt=""
-            srcset=""
-            class="UNC"
-          />
-          <img
-            style="top: 420px; left: 414px"
-            src="@/assets/images/UNC.png"
-            alt=""
-            srcset=""
-            class="UNC1"
-          />
-          <img
-            style="top: 400px; right: 614px; transform: rotateZ(100deg)"
-            src="@/assets/images/UNC.png"
-            alt=""
-            srcset=""
-            class="UNC2"
-          />
-          <img
-            style="top: 310px; left: 224px"
-            src="@/assets/images/vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc"
-          />
-          <img
-            style="top: 510px; left: 144px"
-            src="@/assets/images/1vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc1"
-          />
-          <img
-            style="top: 590px; left: 204px"
-            src="@/assets/images/2vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc2"
-          />
-          <img
-            style="top: 500px; left: 264px"
-            src="@/assets/images/3vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc3"
-          />
-          <img
-            style="top: 600px; left: 324px"
-            src="@/assets/images/4vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc4"
-          />
-          <img
-            style="top: 600px; right: 404px"
-            src="@/assets/images/5vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc5"
-          />
-          <img
-            style="top: 600px; right: 784px"
-            src="@/assets/images/6vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc6"
-          />
-          <img
-            style="top: 350px; right: 424px"
-            src="@/assets/images/7vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc7"
-          />
-          <img
-            style="top: 250px; right: 384px"
-            src="@/assets/images/8vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc8"
-          />
-          <img
-            style="top: 500px; right: 244px"
-            src="@/assets/images/9vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc9"
-          />
-          <img
-            style="top: 600px; right: 244px"
-            src="@/assets/images/0vuvietduc.com.png"
-            alt=""
-            srcset=""
-            class="vuvietduc0"
-          />
-          <img
-            style="top: 642px; left: 607px"
-            src="@/assets/images/SingulardtvSngls.png"
-            alt=""
-            srcset=""
-            class="SingulardtvSngls"
-          />
-
-          <homerightdian style="position: absolute; right: 400px; top: 250px" />
-          <homeleftdian style="position: absolute; left: 200px; top: 250px" />
-          <div class="round two"></div>
-        </div>
-        <div class="top">
-          <div class="round three"></div>
-        </div>
-        <div class="top">
-          <div class="round four"></div>
-        </div>
-        <div class="top">
-          <div class="round five"></div>
-        </div>
-        <div class="top">
-          <div class="round six"></div>
-        </div>
-        <div class="top">
-          <div class="round seven"></div>
         </div>
       </div>
       <!--! Where to Start -->
@@ -1032,14 +879,22 @@ const computedImagePath = computed(() => {
   </div>
 </template>
 <style scoped lang="less">
+.btn_span {
+  border: 1px solid #3edfcf !important;
+  &:hover {
+    box-shadow: 0px 0px 12px 0px #bdfef7 !important;
+  }
+}
+
 .ellipse_dev {
   // background: #000;
-  height: 80vh;
+  // height: 972px;
   // width: 1728px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
   align-items: center;
 
   .ellipse_dev_card {
@@ -1056,6 +911,9 @@ const computedImagePath = computed(() => {
 
     &:hover {
       background: var(--home-card-bgc-hover);
+      .text_class {
+        opacity: 0.8;
+      }
     }
 
     .title {
@@ -1063,47 +921,62 @@ const computedImagePath = computed(() => {
       font-family: "Lantinghei SC";
       font-size: 17px;
       font-style: normal;
-      font-weight: 500;
+      font-weight: 400;
       line-height: normal;
       text-transform: uppercase;
       padding-bottom: 10px;
     }
     .text_class {
       color: var(--text-color);
+      opacity: 0.7;
       font-family: Inter;
       font-size: 13px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 140%; /* 18.2px */
       letter-spacing: 0.39px;
     }
     .btn {
       margin-top: auto;
       padding-bottom: 10px;
+
       span {
+        transition: all 0.2s;
         color: var(--text-color);
+        opacity: 0.8;
         padding: 10px 20px;
         justify-content: center;
         align-items: center;
         border-radius: 8px;
-        border: 1px solid #3edfcf;
+        border: 1px solid var(--home-card-bgc-btn);
         // background: #f6f9f9;
         cursor: pointer;
+        &:hover {
+          opacity: 1;
+          border: 1px solid #3edfcf;
+        }
       }
     }
   }
 
   .top {
-    height: 70%;
+    height: 680.4px;
     width: 100%;
     display: flex;
     justify-content: center;
     overflow: hidden;
     position: absolute;
-    img {
+    .img {
       object-fit: cover;
       position: absolute;
       z-index: 1;
+      color: var(--text-color1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: 600;
     }
     .round {
       border: #3edfcf8b 2px solid;
@@ -1113,45 +986,45 @@ const computedImagePath = computed(() => {
       position: relative;
     }
     .one {
-      width: 125vh;
-      height: 80vh;
+      width: 1416px;
+      height: 964.797px;
       top: 60%;
     }
     .two {
-      width: 83vh;
-      height: 65vh;
+      width: 1005px;
+      height: 786px;
       top: 30%;
       transform: rotateZ(40deg);
     }
     .three {
-      width: 90%;
-      height: 80vh;
+      width: 1277px;
+      height: 986px;
       top: 78%;
     }
     .four {
-      width: 60%;
-      height: 65vh;
+      width: 850px;
+      height: 786px;
       top: 40%;
       transform: rotateZ(60deg);
       right: -200px;
     }
     .five {
-      width: 60%;
-      height: 65vh;
+      width: 850px;
+      height: 786px;
       top: 40%;
       transform: rotateZ(10deg);
       right: 120px;
     }
     .six {
-      width: 70%;
-      height: 75vh;
+      width: 992px;
+      height: 908px;
       top: 30%;
       transform: rotateZ(10deg);
       right: 100px;
     }
     .seven {
-      width: 80%;
-      height: 80vh;
+      width: 1135px;
+      height: 968px;
       top: 50%;
       right: -20px;
     }
@@ -2775,10 +2648,10 @@ const computedImagePath = computed(() => {
     flex: 40%;
   }
   .ellipse_dev {
-    height: 90vh;
+    // height: 1225.5px;
     .top {
       width: 1424px;
-      height: 50%;
+      height: 537.75;
     }
   }
 }
@@ -2787,7 +2660,7 @@ const computedImagePath = computed(() => {
     flex: 100%;
   }
   .ellipse_dev {
-    height: 1696px;
+    // height: 1696px;
     .top {
       width: 1424px;
       height: 610px;
@@ -2876,8 +2749,8 @@ const computedImagePath = computed(() => {
       top: 360px !important;
     }
     .UNC2 {
-      right: 504px !important;
-      top: 360px !important;
+      right: 554px !important;
+      top: 340px !important;
     }
     .SingulardtvSngls {
       right: 504px !important;
@@ -2888,10 +2761,53 @@ const computedImagePath = computed(() => {
 
 @media (max-width: 723px) {
   .ellipse_dev {
-    height: 1661.2px;
+    // height: 1661.2px;
     .top {
       width: 1352.8px;
       height: 579.5px;
+      .one {
+        width: 1131px;
+        height: 616.8px;
+        top: 60%;
+      }
+      .two {
+        width: 604px;
+        height: 628.8px;
+        top: 30%;
+        transform: rotateZ(40deg);
+      }
+      .three {
+        width: 1021.6px;
+        height: 788.8px;
+        top: 78%;
+      }
+      .four {
+        width: 680px;
+        height: 628.8px;
+        top: 40%;
+        transform: rotateZ(60deg);
+        right: -200px;
+      }
+      .five {
+        width: 680px;
+        height: 628.8px;
+        top: 40%;
+        transform: rotateZ(10deg);
+        right: 120px;
+      }
+      .six {
+        width: 593.6px;
+        height: 726.4px;
+        top: 30%;
+        transform: rotateZ(10deg);
+        right: 100px;
+      }
+      .seven {
+        width: 908px;
+        height: 774.4px;
+        top: 50%;
+        right: -20px;
+      }
       .vuvietduc {
         left: 484px !important;
         top: 200px !important;
