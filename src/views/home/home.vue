@@ -468,19 +468,31 @@ const computedImagePath = computed(() => {
         </div>
 
         <img
-          v-if="!theme"
+          v-if="!theme && width > 734"
           src="@/assets/images/home_xiant_bgc.png"
           alt=""
           style="height: 551px;min-width: 1728px;"
         />
         <img
-          v-else
+        v-if="theme && width > 734"
           style="height: 551px;min-width: 1728px;"
           src="@/assets/images/home_xiant_bgc_d.png"
           alt=""
         />
+        <img
+          v-if="!theme && width < 734"
+          style="height: 295px;min-width: 711px;"
+          src="@/assets/images/little_white.png"
+          alt=""
+        />
+        <img
+        v-if="theme && width < 734"
+        style="height: 295px;min-width: 711px;"
+          src="@/assets/images/little_black.png"
+          alt=""
+        />
 
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px">
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px;box-sizing: border-box;width: 100vw;justify-content: center;align-items: center;">
           <div
             class="ellipse_dev_card"
             v-for="(item, index) in fourdata"
@@ -901,6 +913,7 @@ const computedImagePath = computed(() => {
 
   .ellipse_dev_card {
     width: 331px;
+    // flex: 1;
     height: 253px;
     border-radius: 20px;
     border-radius: 20px;
@@ -2660,7 +2673,7 @@ const computedImagePath = computed(() => {
 }
 @media (max-width: 1450px) {
   .ellipse_dev_card {
-    flex: 40%;
+    flex: 40% !important;
   }
   .ellipse_dev {
     // height: 1225.5px;
@@ -2672,7 +2685,7 @@ const computedImagePath = computed(() => {
 }
 @media (max-width: 865px) {
   .ellipse_dev_card {
-    flex: 100%;
+    flex: 100% !important;
   }
   .ellipse_dev {
     // height: 1696px;
