@@ -393,8 +393,9 @@ const computedImagePath = computed(() => {
       <div class="ellipse_dev">
         <div style="
             width: 100%;
+            margin-top: 10vh;
             display: flex;
-            height: 100px;
+            /* height: 100px; */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -423,8 +424,8 @@ const computedImagePath = computed(() => {
             token.
           </div>
         </div>
-        <div style="width:100%;height: 501px;">
-          <img src="@/assets/images/network_cable.png" alt="" srcset="" />
+        <div class="ellipse_dev_cable">
+          <img src="@/assets/images/network_cable.png" alt="" srcset="" style="transform: scale(1.2);" />
         </div>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 36px 20px 0">
           <div class="ellipse_dev_card" v-for="(item, index) in fourdata" :key="index">
@@ -905,8 +906,9 @@ const computedImagePath = computed(() => {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
 
   .ellipse_dev_card {
     width: 331px;
@@ -1692,6 +1694,12 @@ const computedImagePath = computed(() => {
 }
 
 @media (min-width: 835px) {
+  .ellipse_dev_cable {
+    width: 100%;
+    height: 501px;
+    margin-bottom: 60px;
+  }
+
   .home_view {
     .Welcome {
       .Utility {
@@ -1794,12 +1802,14 @@ const computedImagePath = computed(() => {
           .data_value {
             margin-left: 48px;
             margin-bottom: 40px;
-            background: var(--second-home-data_value-bg);
-            box-shadow: var(--second-home-data_value-shadow);
-            filter: var(--second-home-data_value-filter);
-            backdrop-filter: blur(2px);
+            // background: var(--second-home-data_value-bg);
+            // box-shadow: var(--second-home-data_value-shadow);
+            // filter: var(--second-home-data_value-filter);
+            // backdrop-filter: blur(2px);
             padding: 26px 55px 47px 26px;
-            border-radius: 20px 40px 20px 20px;
+            // border-radius: 20px 40px 20px 20px;
+            background-image: url("@/assets/images/rectangle.png");
+            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1808,6 +1818,7 @@ const computedImagePath = computed(() => {
             .amount {
               font-size: 40px;
               margin-top: 40px;
+              margin-left: 22px;
             }
 
             .data_text {
@@ -2805,8 +2816,33 @@ const computedImagePath = computed(() => {
 }
 
 @media (max-width: 432px) {
+
   .Create_a_lighter {
     width: 320px !important;
+  }
+
+  .ellipse_dev_cable {
+    width: 100%;
+    height: 240px !important;
+    margin-bottom: 0px !important;
+
+    img {
+      min-width: 180%;
+      position: relative;
+      left: -35%;
+    }
+  }
+
+  .ellipse_dev_card_content {
+    position: absolute !important;
+    top: 240px !important;
+    left: 0px !important;
+  }
+
+  .ellipse_dev_card {
+    align-items: center;
+    background: var(--home-card-bgc-hover) !important;
+    box-shadow: none !important;
   }
 }
 
