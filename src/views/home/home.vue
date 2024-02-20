@@ -704,47 +704,49 @@ const computedImagePath = computed(() => {
       </div> -->
       <!-- !圆环begin -->
       <div class="Data_and_circles">
-        <div class="Star_six">
-          <div class="star_bg">
-            <star2 v-if="width > 1145" />
-            <starphone2 v-else />
-          </div>
-          <div class="Star_text">FAUCET</div>
-          <div class="Star_line"></div>
+        <div class="star_father">
+          <div class="Star_six">
+            <div class="star_bg">
+              <star2 v-if="width > 1145" />
+              <starphone2 v-else />
+            </div>
+            <div class="Star_text">FAUCET</div>
+            <div class="Star_line"></div>
 
-          <div class="star_bg1">
-            <star1 v-if="width > 1145" />
-            <starphone1 v-else />
-          </div>
-          <div class="Star_line1"></div>
-          <div class="Star_text1">Miner</div>
+            <div class="star_bg1">
+              <star1 v-if="width > 1145" />
+              <starphone1 v-else />
+            </div>
+            <div class="Star_line1"></div>
+            <div class="Star_text1">Miner</div>
 
-          <div class="star_bg2">
-            <star v-if="width > 1145" />
-            <starphone v-else />
-          </div>
-          <div class="Star_line2"></div>
-          <div class="Star_text2">UTILITY</div>
+            <div class="star_bg2">
+              <star v-if="width > 1145" />
+              <starphone v-else />
+            </div>
+            <div class="Star_line2"></div>
+            <div class="Star_text2">UTILITY</div>
 
-          <div class="star_bg3">
-            <star1 v-if="width > 1145" />
-            <starphone1 v-else />
-          </div>
-          <div class="Star_line3"></div>
-          <div class="Star_text3">EXPLORER</div>
+            <div class="star_bg3">
+              <star1 v-if="width > 1145" />
+              <starphone1 v-else />
+            </div>
+            <div class="Star_line3"></div>
+            <div class="Star_text3">EXPLORER</div>
 
-          <div class="star_bg4">
-            <star1 v-if="width > 1145" />
-            <starphone1 v-else />
-          </div>
-          <div class="Star_line4"></div>
-          <div class="Star_text4">NODE</div>
+            <div class="star_bg4">
+              <star1 v-if="width > 1145" />
+              <starphone1 v-else />
+            </div>
+            <div class="Star_line4"></div>
+            <div class="Star_text4">NODE</div>
 
-          <div class="star_bg5">
-            <star2 v-if="width > 1145" />
-            <starphone2 v-else />
+            <div class="star_bg5">
+              <star2 v-if="width > 1145" />
+              <starphone2 v-else />
+            </div>
+            <div class="Star_text5">WALLET</div>
           </div>
-          <div class="Star_text5">WALLET</div>
         </div>
 
         <div class="Data">
@@ -1533,7 +1535,7 @@ const computedImagePath = computed(() => {
           display: flex;
           //多行对齐
           flex-wrap: wrap;
-          justify-content: start;
+          justify-content: center;
           .amount {
             color: var(--data-amount-color);
             font-family: Lantinghei SC;
@@ -1845,193 +1847,7 @@ const computedImagePath = computed(() => {
         }
       }
     }
-    .Data_and_circles {
-      width: 100%;
-      padding-top: 78px;
-      padding-bottom: 68px;
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-      align-items: center;
-      //多行对齐
-      flex-wrap: wrap;
-      background: var(--home-star-bg);
-      background-size: cover;
-      .Data {
-        margin-top: 30px;
-        flex: 1;
-        .value_father {
-          .data_value {
-            margin-left: 48px;
-            margin-bottom: 40px;
-            background: var(--second-home-data_value-bg);
-            box-shadow: var(--second-home-data_value-shadow);
-            filter: var(--second-home-data_value-filter);
-            backdrop-filter: blur(2px);
-            padding: 26px 55px 47px 26px;
-            border-radius: 20px 40px 20px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-width: 304px;
 
-            .amount {
-              font-size: 40px;
-              margin-top: 40px;
-            }
-            .data_text {
-              color: var(--data-data_text-color);
-            }
-          }
-        }
-      }
-      .Star_six {
-        flex: 1;
-        position: relative;
-
-        .star_bg {
-          width: 0px;
-          height: 0px;
-          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
-          border-radius: 50%;
-          position: absolute;
-          left: 8px;
-          top: -151px;
-        }
-        .star_bg1 {
-          width: 0px;
-          height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
-
-          position: absolute;
-          left: 112px;
-          top: -40px;
-        }
-
-        .star_bg2 {
-          width: 0px;
-          height: 0px;
-          box-shadow: 24px 24px 28px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
-
-          position: absolute;
-          left: 255px;
-          top: 22px;
-        }
-        .star_bg3 {
-          width: 0px;
-          height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
-
-          position: absolute;
-          left: 427px;
-          top: 9px;
-        }
-        .star_bg4 {
-          width: 0px;
-          height: 0px;
-          box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
-          border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
-
-          position: absolute;
-          left: 398px;
-          top: -79px;
-        }
-
-        .star_bg5 {
-          width: 0px;
-          height: 0px;
-          box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
-          border-radius: 50%;
-          position: absolute;
-          left: 520px;
-          top: -96px;
-        }
-
-        .Star_line,
-        .Star_line1,
-        .Star_line2,
-        .Star_line3,
-        .Star_line4,
-        .Star_line5 {
-          width: 162.161px;
-          height: 1.3px;
-          background: var(--second-home-Star_line-background);
-
-          position: absolute;
-        }
-        .Star_line {
-          left: -10px;
-          top: -84px;
-          transform: rotate(47deg);
-        }
-
-        .Star_line1 {
-          left: 128px;
-          top: 14px;
-          transform: rotate(24deg);
-        }
-        .Star_line2 {
-          left: 290px;
-          top: 36px;
-          transform: rotate(175deg);
-        }
-        .Star_line3 {
-          left: 264px;
-          top: -6px;
-          transform: rotate(142deg);
-        }
-        .Star_line4 {
-          left: 400px;
-          top: -71px;
-          transform: rotate(170deg);
-        }
-
-        .Star_text,
-        .Star_text1,
-        .Star_text2,
-        .Star_text3,
-        .Star_text4,
-        .Star_text5 {
-          color: var(--second-home-Star_text-color);
-          font-family: "Kumbh Sans";
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.8px;
-          text-transform: uppercase;
-          position: absolute;
-        }
-        .Star_text {
-          left: 51px;
-          top: -153px;
-        }
-        .Star_text1 {
-          left: 140px;
-          top: -61px;
-        }
-        .Star_text2 {
-          left: 248px;
-          top: 75px;
-          font-size: 18px;
-        }
-        .Star_text3 {
-          left: 468px;
-          top: 17px;
-        }
-        .Star_text4 {
-          left: 355px;
-          top: -96px;
-        }
-        .Star_text5 {
-          left: 498px;
-          top: -123px;
-        }
-      }
-    }
     .Utility_Chain {
       padding: 59px 140px 0 140px;
 
@@ -2263,6 +2079,205 @@ const computedImagePath = computed(() => {
         position: absolute;
         top: 29px;
         right: 84px;
+      }
+    }
+  }
+}
+@media (min-width: 1145px) {
+  .home_view {
+    .container {
+      .Data_and_circles {
+        width: 100%;
+        padding-top: 78px;
+        padding-bottom: 68px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        //多行对齐
+        flex-wrap: wrap;
+        background: var(--home-star-bg);
+        background-size: cover;
+        .Data {
+          margin-top: 30px;
+          flex: 1;
+
+          display: flex;
+          justify-content: center;
+          .value_father {
+            .data_value {
+              margin-bottom: 40px;
+              margin-right: 48px;
+              background: var(--second-home-data_value-bg);
+              box-shadow: var(--second-home-data_value-shadow);
+              filter: var(--second-home-data_value-filter);
+              backdrop-filter: blur(2px);
+              padding: 26px 55px 47px 26px;
+              border-radius: 20px 40px 20px 20px;
+
+              min-width: 310px;
+
+              .amount {
+                font-size: 40px;
+                margin-top: 40px;
+              }
+              .data_text {
+                color: var(--data-data_text-color);
+              }
+            }
+          }
+        }
+        .star_father {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+        .Star_six {
+          position: relative;
+          min-width: 600px;
+
+          .star_bg {
+            width: 0px;
+            height: 0px;
+            box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            border-radius: 50%;
+            position: absolute;
+            left: 8px;
+            top: -151px;
+          }
+          .star_bg1 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 112px;
+            top: -40px;
+          }
+
+          .star_bg2 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 24px 24px 28px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 255px;
+            top: 22px;
+          }
+          .star_bg3 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 427px;
+            top: 9px;
+          }
+          .star_bg4 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
+
+            position: absolute;
+            left: 398px;
+            top: -79px;
+          }
+
+          .star_bg5 {
+            width: 0px;
+            height: 0px;
+            box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            border-radius: 50%;
+            position: absolute;
+            left: 520px;
+            top: -96px;
+          }
+
+          .Star_line,
+          .Star_line1,
+          .Star_line2,
+          .Star_line3,
+          .Star_line4,
+          .Star_line5 {
+            width: 162.161px;
+            height: 1.3px;
+            background: var(--second-home-Star_line-background);
+
+            position: absolute;
+          }
+          .Star_line {
+            left: -10px;
+            top: -84px;
+            transform: rotate(47deg);
+          }
+
+          .Star_line1 {
+            left: 128px;
+            top: 14px;
+            transform: rotate(24deg);
+          }
+          .Star_line2 {
+            left: 290px;
+            top: 36px;
+            transform: rotate(175deg);
+          }
+          .Star_line3 {
+            left: 264px;
+            top: -6px;
+            transform: rotate(142deg);
+          }
+          .Star_line4 {
+            left: 400px;
+            top: -71px;
+            transform: rotate(170deg);
+          }
+
+          .Star_text,
+          .Star_text1,
+          .Star_text2,
+          .Star_text3,
+          .Star_text4,
+          .Star_text5 {
+            color: var(--second-home-Star_text-color);
+            font-family: "Kumbh Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            position: absolute;
+          }
+          .Star_text {
+            left: 51px;
+            top: -153px;
+          }
+          .Star_text1 {
+            left: 140px;
+            top: -61px;
+          }
+          .Star_text2 {
+            left: 248px;
+            top: 75px;
+            font-size: 18px;
+          }
+          .Star_text3 {
+            left: 468px;
+            top: 17px;
+          }
+          .Star_text4 {
+            left: 355px;
+            top: -96px;
+          }
+          .Star_text5 {
+            left: 498px;
+            top: -123px;
+          }
+        }
       }
     }
   }
