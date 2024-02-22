@@ -30,6 +30,13 @@ const { theme } = storeToRefs(home);
 const { locale } = useI18n();
 const res = ref(); //^ 数据 和 圆 Data and circles的数据
 const Data_arr = ref(); //^ Where to Start的数据
+const width = ref(window.innerWidth);
+const height = ref(window.innerHeight);
+const updatedWidth = function () {
+  width.value = window.innerWidth;
+  height.value = window.innerHeight;
+};
+
 onMounted(async () => {
   const { data } = await getStatistics();
   res.value = data;
@@ -68,6 +75,8 @@ onMounted(async () => {
       text: "home.Computational_Power_Synthesis",
     },
   ];
+
+  //^ Utility Chain Scaling Solutions的数据
 });
 
 //! Where to Start 鼠标移入
@@ -88,58 +97,101 @@ function WhereChangeli() {
     item.hover = false;
   });
 }
+const Utility_arr = computed(() =>
+  width.value > 834
+    ? [
+        {
+          title: "home.UNC_Node",
+          text: "home.Provides_solutions_for",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg",
 
-//^ Utility Chain Scaling Solutions的数据
-const Utility_arr = ref([
-  {
-    title: "home.UNC_Node",
-    text: "home.Provides_solutions_for",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg",
-    isclick: false, //鼠标移入移出
-  },
-  {
-    title: "home.UNC_Mining",
-    text: "home.The_computing_power",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg",
-    isclick: false,
-  },
-  {
-    title: "home.UNC_work",
-    text: "home.The_actual_computing",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg",
-    isclick: false,
-  },
-  {
-    title: "home.unc_Wasm",
-    text: "home.Integrated_WebAssembly_virtual",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg",
-    isclick: false,
-  },
-  {
-    title: "home.UNC_chain_Explorer",
-    text: "home.Search_Information_data",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg",
-    isclick: false,
-  },
-  {
-    title: "home.UNC_wallet",
-    text: "home.A_asset_account",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg",
-    isclick: false,
-  },
-  {
-    title: "home.hashing_power",
-    text: "home.The_first_computing",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg",
-    isclick: false,
-  },
-  {
-    title: "home.Testnet_Faucet",
-    text: "home.Test_the_node",
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg",
-    isclick: false,
-  },
-]);
+          isclick: false, //鼠标移入移出
+        },
+        {
+          title: "home.UNC_Mining",
+          text: "home.The_computing_power",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg",
+          isclick: false,
+        },
+        {
+          title: "home.UNC_work",
+          text: "home.The_actual_computing",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg",
+          isclick: false,
+        },
+        {
+          title: "home.unc_Wasm",
+          text: "home.Integrated_WebAssembly_virtual",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg",
+          isclick: false,
+        },
+        {
+          title: "home.UNC_chain_Explorer",
+          text: "home.Search_Information_data",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg",
+          isclick: false,
+        },
+        {
+          title: "home.UNC_wallet",
+          text: "home.A_asset_account",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg",
+
+          isclick: false,
+        },
+        {
+          title: "home.hashing_power",
+          text: "home.The_first_computing",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg",
+          isclick: false,
+        },
+        {
+          title: "home.Testnet_Faucet",
+          text: "home.Test_the_node",
+          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg",
+          isclick: false,
+        },
+      ]
+    : [
+        {
+          title: "home.UNC_Node",
+          text: "home.Provides_solutions_for",
+          img: "/src/assets/images/Frame_one_phone.svg",
+          isclick: false, //鼠标移入移出
+        },
+        {
+          title: "home.UNC_Mining",
+          text: "home.The_computing_power",
+          img: "/src/assets/images/Frame_two_phone.svg",
+          isclick: false,
+        },
+        {
+          title: "home.UNC_work",
+          text: "home.The_actual_computing",
+          img: "/src/assets/images/Frame_three_phone.svg",
+          isclick: false,
+        },
+        {
+          title: "home.unc_Wasm",
+          text: "home.Integrated_WebAssembly_virtual",
+          img: "/src/assets/images/Frame_four_phone.svg",
+          isclick: false,
+        },
+
+        {
+          title: "home.hashing_power",
+          text: "home.The_first_computing",
+          img: "/src/assets/images/Frame_five_phone.svg",
+          isclick: false,
+        },
+        {
+          title: "home.Testnet_Faucet",
+          text: "home.Test_the_node",
+          img: "/src/assets/images/Frame_six_phone.svg",
+          isclick: false,
+        },
+      ]
+);
+
 //^ Utility Chain Scaling Solutions 鼠标移入
 function UtilityChainChange(index: number) {
   //当前的为true
@@ -232,12 +284,6 @@ const jumpNews = (id: number) => {
       msg: id,
     },
   });
-};
-const width = ref(window.innerWidth);
-const height = ref(window.innerHeight);
-const updatedWidth = function () {
-  width.value = window.innerWidth;
-  height.value = window.innerHeight;
 };
 
 const ani_btn_s = ref(0);
@@ -471,28 +517,39 @@ const computedImagePath = computed(() => {
           v-if="!theme && width > 734"
           src="@/assets/images/home_xiant_bgc.png"
           alt=""
-          style="height: 551px;min-width: 1728px;"
+          style="height: 551px; min-width: 1728px"
         />
         <img
-        v-if="theme && width > 734"
-          style="height: 551px;min-width: 1728px;"
+          v-if="theme && width > 734"
+          style="height: 551px; min-width: 1728px"
           src="@/assets/images/home_xiant_bgc_d.png"
           alt=""
         />
         <img
           v-if="!theme && width < 734"
-          style="height: 295px;min-width: 711px;"
+          style="height: 295px; min-width: 711px"
           src="@/assets/images/little_white.png"
           alt=""
         />
         <img
-        v-if="theme && width < 734"
-        style="height: 295px;min-width: 711px;"
+          v-if="theme && width < 734"
+          style="height: 295px; min-width: 711px"
           src="@/assets/images/little_black.png"
           alt=""
         />
 
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 0 20px;box-sizing: border-box;width: 100vw;justify-content: center;align-items: center;">
+        <div
+          style="
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            box-sizing: border-box;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+          "
+        >
           <div
             class="ellipse_dev_card"
             v-for="(item, index) in fourdata"
@@ -636,49 +693,53 @@ const computedImagePath = computed(() => {
               @mouseover="UtilityChainChange(index)"
               @mouseleave="UtilityChainChangeli"
             >
-              <div
-                class="item_img"
-                :style="{
-                  boxShadow:
-                    item.isclick && theme
-                      ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
-                      : 'none',
-                }"
-              >
-                <img
-                  v-if="!theme"
+              <div class="item_top">
+                <div
+                  class="item_img"
                   :style="{
-                    opacity: item.isclick ? 1 : 0,
+                    boxShadow:
+                      item.isclick && theme
+                        ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
+                        : 'none',
                   }"
-                  class="hover"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Hover.svg"
-                  alt=""
-                  srcset=""
-                />
-                <img
-                  class="item_img_img"
-                  :src="item.img"
+                >
+                  <img
+                    v-if="!theme"
+                    :style="{
+                      opacity: item.isclick ? 1 : 0,
+                    }"
+                    class="hover"
+                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Hover.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="item_img_img"
+                    :src="item.img"
+                    :style="{
+                      filter:
+                        item.isclick && !theme
+                          ? 'brightness(0%)'
+                          : 'brightness(100%)',
+                    }"
+                    alt=""
+                  />
+                </div>
+                <div
+                  class="item_title"
                   :style="{
-                    filter:
-                      item.isclick && !theme
-                        ? 'brightness(0%)'
-                        : 'brightness(100%)',
+                    color: item.isclick
+                      ? '#3EDFCF'
+                      : 'var(--Utility-text-color)',
                   }"
-                  alt=""
-                />
+                >
+                  {{ $t(item.title) }}
+                </div>
+                <div class="Utility_Chain_box_item_button">
+                  {{ $t("home.Testnet") }}
+                </div>
               </div>
 
-              <div class="Utility_Chain_box_item_button">
-                {{ $t("home.Testnet") }}
-              </div>
-              <div
-                class="item_title"
-                :style="{
-                  color: item.isclick ? '#3EDFCF' : 'var(--Utility-text-color)',
-                }"
-              >
-                {{ $t(item.title) }}
-              </div>
               <div class="item_text">
                 {{ $t(item.text) }}
               </div>
@@ -1470,8 +1531,6 @@ const computedImagePath = computed(() => {
           justify-content: center;
           align-items: center;
 
-          border: var(--Utility-item-border);
-
           img {
             width: 70%;
             height: 70%;
@@ -1757,6 +1816,10 @@ const computedImagePath = computed(() => {
             font-weight: 700;
             //过渡
             transition: all 0.3s;
+            margin-bottom: 12px;
+          }
+          .item_img {
+            border: var(--Utility-item-border);
           }
           .item_text {
             color: var(--Utility-item-text);
@@ -1765,14 +1828,13 @@ const computedImagePath = computed(() => {
             font-weight: 400;
             line-height: 20px;
             max-width: 300px;
-            margin-top: 6px;
+            margin-top: 10px;
           }
 
           .Utility_Chain_box_item_button {
             width: 59px;
             height: 22px;
             border-radius: 4px;
-            margin-bottom: 14px;
           }
         }
       }
@@ -2193,7 +2255,7 @@ const computedImagePath = computed(() => {
 
             .data_value {
               width: 100%;
-              padding: 26px 100px;
+              padding: 26px 0;
               background: var(--second-home-data_value-bg);
               box-shadow: var(--second-home-data_value-shadow);
               filter: var(--second-home-data_value-filter);
@@ -2448,32 +2510,49 @@ const computedImagePath = computed(() => {
           font-size: 18px;
         }
         .Utility_Chain_box {
+          display: block;
+
           .box_item {
-            width: 160px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 254, 251, 0.2);
+            padding: 15px 14px;
+
             margin-bottom: 26px;
+            .item_top {
+              display: flex;
+              align-items: center;
+              width: 100%;
+            }
+            .item_img {
+              width: 40px;
+              height: 40px;
+              margin-right: 8px !important;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
             .item_title {
               font-size: 12px;
               font-weight: 600;
+              margin-right: 6px;
+            }
+            .Utility_Chain_box_item_button {
+              width: 48px;
+              height: 19px;
+              font-size: 10px;
+              border-radius: 3px;
+              border: 1px solid #3edfcf;
             }
             .item_text {
               color: var(--Utility-item-text);
               font-family: Inter;
-              font-size: 8px;
+              font-size: 13px;
               font-style: normal;
               font-weight: 400;
-              line-height: 11px; /* 11.92px */
-              max-width: 160px;
-              margin-top: 2px;
-            }
+              line-height: 16px; /* 11.92px */
 
-            .Utility_Chain_box_item_button {
-              width: 48px;
-              height: 19px;
-              border-radius: 2px;
-              margin-bottom: 10px;
+              margin-top: 2px;
             }
           }
         }
