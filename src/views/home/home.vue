@@ -58,8 +58,8 @@ onMounted(async () => {
     {
       amount:
         width.value > 834
-          ? "<span style='font-size: 26px;'>$</span>122,1120"
-          : "<span style='font-size: 16px;'>$</span>122,1120",
+          ? "<span style='font-size: 26px;'>$</span>1,221,120"
+          : "<span style='font-size: 16px;'>$</span>1,221,120",
       text: "home.Transaction_Today",
     },
 
@@ -516,9 +516,11 @@ const computedImagePath = computed(() => {
               opacity: 0.7;
             "
             :style="{
-              maxWidth: width > 835 ? '100%' : '350px',
+              width:width < 580 ?'300px':''
+
             }"
           >
+          
             {{ $t("home.Utility_Ecosystem_text1") }}
           </div>
         </div>
