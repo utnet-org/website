@@ -162,38 +162,38 @@ const updateUtilityArr = () => {
           {
             title: "home.UNC_Node",
             text: "home.Provides_solutions_for",
-            img: "/src/assets/images/Frame_one_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one_phone.svg",
             isclick: false, //鼠标移入移出
           },
           {
             title: "home.UNC_Mining",
             text: "home.The_computing_power",
-            img: "/src/assets/images/Frame_two_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two_phone.svg",
             isclick: false,
           },
           {
             title: "home.UNC_work",
             text: "home.The_actual_computing",
-            img: "/src/assets/images/Frame_three_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three_phone.svg",
             isclick: false,
           },
           {
             title: "home.unc_Wasm",
             text: "home.Integrated_WebAssembly_virtual",
-            img: "/src/assets/images/Frame_four_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four_phone.svg",
             isclick: false,
           },
 
           {
             title: "home.hashing_power",
             text: "home.The_first_computing",
-            img: "/src/assets/images/Frame_five_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five_phone.svg",
             isclick: false,
           },
           {
             title: "home.Testnet_Faucet",
             text: "home.Test_the_node",
-            img: "/src/assets/images/Frame_six_phone.svg",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six_phone.svg",
             isclick: false,
           },
         ];
@@ -374,7 +374,7 @@ const computedImagePath = computed(() => {
   // 假设屏幕宽度小于834px时为小屏
   if (width.value < 834) {
     return theme.value
-      ? "/src/assets/images/Objects1.png"
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Objects1.png"
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
   } else {
     return theme.value
@@ -516,11 +516,9 @@ const computedImagePath = computed(() => {
               opacity: 0.7;
             "
             :style="{
-              width:width < 580 ?'300px':''
-
+              width: width < 580 ? '300px' : '',
             }"
           >
-          
             {{ $t("home.Utility_Ecosystem_text1") }}
           </div>
         </div>
