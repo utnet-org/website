@@ -34,7 +34,7 @@
 
         --data-amount-color: #849b96;
         --data-data_text-color: rgba(21, 28, 26, 0.9);
-        --data-data_text-color1: #b9bbba;
+        --data-data_text-color1: rgba(21, 28, 26, 0.90);
 
         --data-amount-border-color: rgba(21, 28, 26, 0.2);
 
@@ -256,6 +256,7 @@
 
 
         --poci-bgc: none;
+        --ellipse_dev_card-bgc: #F6F9F9;
         // ~ 手机端 end  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -264,9 +265,13 @@
         --second-home-data_value-bg: linear-gradient(158deg,
                         rgba(255, 255, 255, 0.4) 3.78%,
                         rgba(255, 255, 255, 0) 100.78%);
-
+        --second-home-data_value-bg1: linear-gradient(158deg,
+                        rgba(255, 255, 255, 0.4) 3.78%,
+                        rgba(255, 255, 255, 0) 100.78%);
         --second-home-data_value-shadow: 0px 2px 10px 5px #ecf7f7;
+        --second-home-data_value-shadow1: 0px 2px 1px 0px #ecf7f7 inset, 0px 5px 10px 5px #F3F7F7;
         --second-home-data_value-filter: drop-shadow(0px 6px 20px rgba(213, 237, 235, 0.4));
+        --second-home-data_value-filter1: drop-shadow(0px 2px 10px rgba(213, 237, 235, 0.4));
         --second-home-Star_text-color: #3edfcf;
         --second-home-Star_line-background: linear-gradient(270deg,
                         rgba(139, 255, 248, 0) -1.12%,
@@ -274,6 +279,9 @@
                         rgba(139, 255, 248, 0) 97.01%);
 
         --second-phone-home-data_value-bg: url('@/assets/images/star_bg_phone.png') no-repeat;
+        --second-phone-home-box_item-border: 1px solid rgba(21, 28, 26, 0.07);
+        --amout-color: #849b96;
+        --item_img-color: linear-gradient(97deg, #c2f7ef 0.47%, rgba(164, 229, 221, 0.00) 100.1%);
 
         // *  second   ------- end  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -282,14 +290,20 @@
 /* 暗色主题样式 */
 .dark-theme {
         // *  second   ------- start  ----------------------------------------------------------------------------------------------------------------------------------------------------
+        --ellipse_dev_card-bgc: #191919;
+
+        --amout-color: #FFFEFB;
+        --item_img-color: #000;
 
         --second-home-data_value-bg: linear-gradient(158deg,
                         rgba(11, 12, 12, 0.7) 3.78%,
                         rgba(11, 12, 12, 0) 100.78%);
+        --second-home-data_value-bg1: #181a1a;
         --second-home-data_value-shadow: 0px 6px 5px 0px rgba(84, 133, 125, 0.2),
                 inset 0px 2px 2px 0px #54857d;
-
+        --second-home-data_value-shadow1: none;
         --second-home-data_value-filter: drop-shadow(0px 6px 14px rgba(189, 237, 234, 0.2));
+        --second-home-data_value-filter1: none;
         --second-home-Star_text-color: #F6F9F9;
         --second-home-Star_line-background: linear-gradient(270deg,
                         rgba(255, 255, 255, 0) -1.37%,
@@ -297,6 +311,8 @@
                         rgba(255, 255, 255, 0) 100.26%);
 
         --second-phone-home-data_value-bg: url('@/assets/images/star_bg_dark_phone.png') no-repeat;
+        --second-phone-home-box_item-border: 1px solid rgba(255, 254, 251, 0.2);
+
         // * second   ------- end  ----------------------------------------------------------------------------------------------------------------------------------------------------
         // ~ 手机端 start   ----------------------------------------------------------------------------------------------------------------------------------------------------
         // ^ unc_token

@@ -35,9 +35,11 @@ const height = ref(window.innerHeight);
 const updatedWidth = function () {
   width.value = window.innerWidth;
   height.value = window.innerHeight;
+  updateUtilityArr(); // 初始设置
 };
 
 onMounted(async () => {
+  updateUtilityArr(); // 初始设置
   const { data } = await getStatistics();
   res.value = data;
   window.addEventListener("resize", updatedWidth);
@@ -46,32 +48,26 @@ onMounted(async () => {
       amount:
         width.value > 834
           ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
-          : `<span style='font-size: 18px;'>$</span>${res.value?.aiPower.toLocaleString()}`,
+          : `<span style='font-size: 16px;'>$</span>${res.value?.aiPower.toLocaleString()}`,
       text: "home.UNC_PRICE",
     },
-    // {
-    //   amount: `${res.value?.totalMiners?.toLocaleString()}`,
-    //   text: "home.NODES",
-    // },
+    {
+      amount: `${res.value?.totalMiners?.toLocaleString()}`,
+      text: "home.NODES",
+    },
     {
       amount:
         width.value > 834
           ? "<span style='font-size: 26px;'>$</span>122,1120"
-          : "<span style='font-size: 18px;'>$</span>122,1120",
+          : "<span style='font-size: 16px;'>$</span>122,1120",
       text: "home.Transaction_Today",
     },
+
     {
       amount:
         width.value > 834
           ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 18px;'> tflops</span>`,
-      text: "home.Computational_Power_Synthesis",
-    },
-    {
-      amount:
-        width.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 18px;'> tflops</span>`,
+          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 16px;'>tflops</span>`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
@@ -97,100 +93,111 @@ function WhereChangeli() {
     item.hover = false;
   });
 }
-const Utility_arr = computed(() =>
-  width.value > 834
-    ? [
-        {
-          title: "home.UNC_Node",
-          text: "home.Provides_solutions_for",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg",
 
-          isclick: false, //鼠标移入移出
-        },
-        {
-          title: "home.UNC_Mining",
-          text: "home.The_computing_power",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg",
-          isclick: false,
-        },
-        {
-          title: "home.UNC_work",
-          text: "home.The_actual_computing",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg",
-          isclick: false,
-        },
-        {
-          title: "home.unc_Wasm",
-          text: "home.Integrated_WebAssembly_virtual",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg",
-          isclick: false,
-        },
-        {
-          title: "home.UNC_chain_Explorer",
-          text: "home.Search_Information_data",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg",
-          isclick: false,
-        },
-        {
-          title: "home.UNC_wallet",
-          text: "home.A_asset_account",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg",
+interface UtilityItem {
+  title: string;
+  text: string;
+  img: string;
+  isclick: boolean;
+}
 
-          isclick: false,
-        },
-        {
-          title: "home.hashing_power",
-          text: "home.The_first_computing",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg",
-          isclick: false,
-        },
-        {
-          title: "home.Testnet_Faucet",
-          text: "home.Test_the_node",
-          img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg",
-          isclick: false,
-        },
-      ]
-    : [
-        {
-          title: "home.UNC_Node",
-          text: "home.Provides_solutions_for",
-          img: "/src/assets/images/Frame_one_phone.svg",
-          isclick: false, //鼠标移入移出
-        },
-        {
-          title: "home.UNC_Mining",
-          text: "home.The_computing_power",
-          img: "/src/assets/images/Frame_two_phone.svg",
-          isclick: false,
-        },
-        {
-          title: "home.UNC_work",
-          text: "home.The_actual_computing",
-          img: "/src/assets/images/Frame_three_phone.svg",
-          isclick: false,
-        },
-        {
-          title: "home.unc_Wasm",
-          text: "home.Integrated_WebAssembly_virtual",
-          img: "/src/assets/images/Frame_four_phone.svg",
-          isclick: false,
-        },
+const Utility_arr = ref<UtilityItem[]>([]); // 显式指定数组元素类型
 
-        {
-          title: "home.hashing_power",
-          text: "home.The_first_computing",
-          img: "/src/assets/images/Frame_five_phone.svg",
-          isclick: false,
-        },
-        {
-          title: "home.Testnet_Faucet",
-          text: "home.Test_the_node",
-          img: "/src/assets/images/Frame_six_phone.svg",
-          isclick: false,
-        },
-      ]
-);
+const updateUtilityArr = () => {
+  Utility_arr.value =
+    width.value > 834
+      ? [
+          {
+            title: "home.UNC_Node",
+            text: "home.Provides_solutions_for",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg",
+
+            isclick: false, //鼠标移入移出
+          },
+          {
+            title: "home.UNC_Mining",
+            text: "home.The_computing_power",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg",
+            isclick: false,
+          },
+          {
+            title: "home.UNC_work",
+            text: "home.The_actual_computing",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg",
+            isclick: false,
+          },
+          {
+            title: "home.unc_Wasm",
+            text: "home.Integrated_WebAssembly_virtual",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg",
+            isclick: false,
+          },
+          {
+            title: "home.UNC_chain_Explorer",
+            text: "home.Search_Information_data",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg",
+            isclick: false,
+          },
+          {
+            title: "home.UNC_wallet",
+            text: "home.A_asset_account",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg",
+
+            isclick: false,
+          },
+          {
+            title: "home.hashing_power",
+            text: "home.The_first_computing",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg",
+            isclick: false,
+          },
+          {
+            title: "home.Testnet_Faucet",
+            text: "home.Test_the_node",
+            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg",
+            isclick: false,
+          },
+        ]
+      : [
+          {
+            title: "home.UNC_Node",
+            text: "home.Provides_solutions_for",
+            img: "/src/assets/images/Frame_one_phone.svg",
+            isclick: false, //鼠标移入移出
+          },
+          {
+            title: "home.UNC_Mining",
+            text: "home.The_computing_power",
+            img: "/src/assets/images/Frame_two_phone.svg",
+            isclick: false,
+          },
+          {
+            title: "home.UNC_work",
+            text: "home.The_actual_computing",
+            img: "/src/assets/images/Frame_three_phone.svg",
+            isclick: false,
+          },
+          {
+            title: "home.unc_Wasm",
+            text: "home.Integrated_WebAssembly_virtual",
+            img: "/src/assets/images/Frame_four_phone.svg",
+            isclick: false,
+          },
+
+          {
+            title: "home.hashing_power",
+            text: "home.The_first_computing",
+            img: "/src/assets/images/Frame_five_phone.svg",
+            isclick: false,
+          },
+          {
+            title: "home.Testnet_Faucet",
+            text: "home.Test_the_node",
+            img: "/src/assets/images/Frame_six_phone.svg",
+            isclick: false,
+          },
+        ];
+};
 
 //^ Utility Chain Scaling Solutions 鼠标移入
 function UtilityChainChange(index: number) {
@@ -371,7 +378,7 @@ const computedImagePath = computed(() => {
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
   } else {
     return theme.value
-      ? "/src/assets/images/Objects.png"
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Objects6578786547654675.png"
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
   }
 });
@@ -508,6 +515,9 @@ const computedImagePath = computed(() => {
               line-height: normal;
               opacity: 0.7;
             "
+            :style="{
+              maxWidth: width > 835 ? '100%' : '350px',
+            }"
           >
             {{ $t("home.Utility_Ecosystem_text1") }}
           </div>
@@ -618,7 +628,7 @@ const computedImagePath = computed(() => {
           </div>
         </div>
       </div> -->
-      <!-- !圆环begin -->
+      <!-- !星星 begin -->
       <div class="Data_and_circles">
         <div class="star_father">
           <div class="Star_six">
@@ -680,7 +690,7 @@ const computedImagePath = computed(() => {
           </div>
         </div>
       </div>
-      <!-- !圆环end -->
+      <!-- !星星 end -->
       <!--! Utility Chain Scaling Solutions  -->
       <div class="Utility_Chain">
         <div class="title">
@@ -1525,7 +1535,6 @@ const computedImagePath = computed(() => {
           margin-bottom: 9px;
           position: relative;
 
-          background: var(--Utility-item-img);
           border-radius: 50%;
           display: flex;
           justify-content: center;
@@ -1820,6 +1829,7 @@ const computedImagePath = computed(() => {
           }
           .item_img {
             border: var(--Utility-item-border);
+            background: var(--item_img-color);
           }
           .item_text {
             color: var(--Utility-item-text);
@@ -2035,6 +2045,7 @@ const computedImagePath = computed(() => {
   .home_view {
     .container {
       .Data_and_circles {
+        min-height: 770px;
         width: 100%;
         padding-top: 78px;
         padding-bottom: 68px;
@@ -2252,30 +2263,56 @@ const computedImagePath = computed(() => {
 
           .value_father {
             width: 100%;
+            gap: 10px;
 
             .data_value {
-              width: 100%;
-              padding: 26px 0;
-              background: var(--second-home-data_value-bg);
-              box-shadow: var(--second-home-data_value-shadow);
-              filter: var(--second-home-data_value-filter);
+              padding: 30px 18px;
+              background: var(--second-home-data_value-bg1);
+              box-shadow: var(--second-home-data_value-shadow1);
+              filter: var(--second-home-data_value-filter1);
               backdrop-filter: blur(2px);
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
               border-radius: 12px;
-              margin-bottom: 10px;
-              margin-left: 0;
+              margin: 0;
+
               .amount {
-                padding-bottom: 4px;
-                margin-bottom: 4px;
-                font-size: 28px;
+                margin-top: 10px;
+                color: var(--amout-color); //FFFEFB
+                font-family: "Lantinghei SC";
+                font-size: 24px;
                 font-weight: 400;
+                line-height: normal;
               }
               .data_text {
-                color: var(--data-data_text-color);
+                color: var(--data-data_text-color1);
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 17px; /* 130.769% */
               }
+            }
+            .data_value:nth-child(1) {
+              flex: 4;
+              .data_text {
+                max-width: 122px;
+              }
+            }
+            .data_value:nth-child(2) {
+              flex: 3;
+              .data_text {
+                max-width: 122px;
+              }
+            }
+            .data_value:nth-child(3) {
+              flex: 2;
+              .data_text {
+                max-width: 122px;
+              }
+            }
+            .data_value:nth-child(4) {
+              flex: 3;
             }
           }
         }
@@ -2288,7 +2325,8 @@ const computedImagePath = computed(() => {
           .star_bg {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.1); /* 阴影效果 */
+            box-shadow: 10px 10px 10px 11px rgba(45, 230, 220, 0.1); /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
             left: 10px;
@@ -2297,7 +2335,7 @@ const computedImagePath = computed(() => {
           .star_bg1 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.1); /* 阴影效果 */
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
@@ -2308,7 +2346,7 @@ const computedImagePath = computed(() => {
           .star_bg2 {
             width: 0px;
             height: 0px;
-            box-shadow: 17px 17px 15px 14px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            box-shadow: 17px 17px 15px 14px rgba(86, 255, 239, 0.1); /* 阴影效果 */
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
@@ -2318,7 +2356,7 @@ const computedImagePath = computed(() => {
           .star_bg3 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.2); /* 阴影效果 */
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
@@ -2328,7 +2366,7 @@ const computedImagePath = computed(() => {
           .star_bg4 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.4); /* 阴影效果 */
+            box-shadow: 10px 10px 11px 10px rgba(86, 255, 239, 0.1); /* 阴影效果 */
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
@@ -2339,7 +2377,7 @@ const computedImagePath = computed(() => {
           .star_bg5 {
             width: 0px;
             height: 0px;
-            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.2); /* 阴影效果 */
+            box-shadow: 10px 10px 10px 11px rgba(86, 255, 239, 0.1); /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
             left: 314px;
@@ -2379,9 +2417,10 @@ const computedImagePath = computed(() => {
             transform: rotate(128deg);
           }
           .Star_line4 {
-            left: 230px;
-            top: 66px;
-            transform: rotate(162deg);
+            width: 75px;
+            left: 248px;
+            top: 65px;
+            transform: rotate(164deg);
           }
 
           .Star_text,
@@ -2514,7 +2553,7 @@ const computedImagePath = computed(() => {
 
           .box_item {
             border-radius: 10px;
-            border: 1px solid rgba(255, 254, 251, 0.2);
+            border: var(--second-phone-home-box_item-border);
             padding: 15px 14px;
 
             margin-bottom: 26px;
@@ -2764,7 +2803,20 @@ const computedImagePath = computed(() => {
 }
 @media (max-width: 865px) {
   .ellipse_dev_card {
+    height: 196px !important;
     flex: 100% !important;
+    align-items: center;
+    border-radius: 16px !important;
+    background: var(--ellipse_dev_card-bgc) !important;
+    box-shadow: none !important;
+    .text_class {
+      text-align: center;
+    }
+    .btn {
+      span {
+        border: 1px solid #3edfcf !important;
+      }
+    }
   }
   .ellipse_dev {
     // height: 1696px;
