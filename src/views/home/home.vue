@@ -2662,6 +2662,7 @@ const computedImagePath = computed(() => {
           backdrop-filter: blur(var(--Contribute-lighter-box-filter));
           .title_one {
             font-size: 15px;
+            font-weight: 700;
             font-style: normal;
             line-height: 18px; /* 18.187px */
             max-width: 295px;
