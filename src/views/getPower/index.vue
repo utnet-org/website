@@ -28,7 +28,7 @@ const imageList = [
     :headerImage="
       !theme
         ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/get_power_icon.png'
-        : '/src/assets/images/mp_power_logo_dark.png'
+        : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_hashing_power.png'
     "
     :headerTitle="headerTitle"
     :switchList="switchList"
