@@ -2,8 +2,16 @@
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
+import useStore from "@/store";
+import { storeToRefs } from "pinia";
+const { home } = useStore();
+const { locale_zh } = storeToRefs(home);
+
+home.setlocale(locale.value);
+
 const changeLang = (lang: string) => {
   locale.value = lang;
+  home.setlocale(locale.value);
   localStorage.setItem("upaclang", lang);
   document
     .querySelector("html")!

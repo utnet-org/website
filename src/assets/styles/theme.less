@@ -41,7 +41,10 @@
 
 
         --Utility-text-color: #151c1a;
+        --Utility-text-color-title: #151c1a;
+        --Utility-text-color1: rgba(21, 28, 26, 0.60);
         --Utility-title-color: rgba(21, 28, 26, 0.9);
+        --Utility-title-color-one: rgba(21, 28, 26, 0.9);
         --Utility-item-img: linear-gradient(97deg,
                         #f1f7f6 40%,
                         rgba(164, 229, 221, 0.2) 100.1%);
@@ -285,10 +288,26 @@
 
         // *  second   ------- end  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+        --Create_a_lighter-bg: linear-gradient(180deg,
+                        rgba(244, 248, 248, 0.05) 0.13%,
+                        rgba(244, 248, 248, 0) 99.87%);
+
+        --Create_a_lighter-filter: blur(4px);
+        --button_right-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
 }
 
 /* 暗色主题样式 */
 .dark-theme {
+        --button_right-shadow: none;
+
+        --Create_a_lighter-filter: blur(7.5px);
+
+        --Create_a_lighter-bg: linear-gradient(180deg,
+                        rgba(244, 248, 248, 0.14) 8.12%,
+                        rgba(244, 248, 248, 0) 102.93%,
+                        rgba(244, 248, 248, 0.4) 128.93%);
+
         // *  second   ------- start  ----------------------------------------------------------------------------------------------------------------------------------------------------
         --ellipse_dev_card-bgc: #191919;
 
@@ -486,7 +505,11 @@
 
 
         --Utility-text-color: rgba(255, 255, 255, 0.8);
+        --Utility-text-color-title: #fff;
+        --Utility-text-color1: rgba(255, 255, 255, 0.6);
         --Utility-title-color: #3EDFCF;
+        --Utility-title-color-one: #FFFEFB;
+
         --Utility-item-img: none;
         --Utility-item-border: 1px solid #38dac4;
         --Utility-item-text: rgba(255, 254, 251, 0.6);
@@ -503,10 +526,10 @@
         --swiper-text-color: rgb(62, 223, 207);
         --swiper-text-color1: rgba(255, 255, 255, 0.8);
 
-        --Contribute-lighter-box-filter: 4px;
-        --Contribute-lighter-box-shadow: 0px 0px 12px 3px rgba(255, 255, 255, 0.292);
-        --Contribute-lighter-box-shadow1: 0px 1px 1px 1px rgba(223, 231, 230, 0.2) inset,
-                0px 4px 14px 0px rgba(228, 233, 232, 0.4);
+        --Contribute-lighter-box-filter: 0px;
+        --Contribute-lighter-box-shadow: 0px 1px 4px 0px rgba(255, 255, 255, 0.2) inset;
+
+        --Contribute-lighter-box-shadow1: 0px 0px 1px 1px rgba(223, 231, 230, 0.12) inset;
         --Contribute-button_left-bg: rgba(255, 255, 255, 0.3);
         --Contribute-button_left-border: none;
         --home-card-bgc: linear-gradient(124deg, #4248482b 16.97%, rgba(16, 21, 21, 0) 93.94%);

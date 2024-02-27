@@ -1,9 +1,6 @@
 <script setup lang="ts" name="HomeView">
 import arrow from "@/assets/images/arrow.svg";
 import arrow1 from "@/assets/images/arrow1.svg";
-import homerightdian from "@/assets/images/homerightdian.svg";
-import homeleftdian from "@/assets/images/homeleftdian.svg";
-import homecenteryun from "@/assets/images/homecenteryun.svg";
 import "swiper/swiper-bundle.css";
 import "swiper/less";
 import "swiper/less/navigation";
@@ -32,6 +29,8 @@ const res = ref(); //^ 数据 和 圆 Data and circles的数据
 const Data_arr = ref(); //^ Where to Start的数据
 const width = ref(window.innerWidth);
 const height = ref(window.innerHeight);
+const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力Utility</span> 开源社区，共建革命性应用型Web3`;
+const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help Utility</span> open source community to build a revolutionary application Web3`;
 const updatedWidth = function () {
   width.value = window.innerWidth;
   height.value = window.innerHeight;
@@ -439,7 +438,7 @@ const computedImagePath = computed(() => {
               />
             </div>
             <div
-              class="button_right"
+              class="button_right_top"
               @click="openNewPage('/learning/learning_center')"
             >
               <div class="text">
@@ -714,16 +713,6 @@ const computedImagePath = computed(() => {
                   }"
                 >
                   <img
-                    v-if="!theme"
-                    :style="{
-                      opacity: item.isclick ? 1 : 0,
-                    }"
-                    class="hover"
-                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Hover.svg"
-                    alt=""
-                    srcset=""
-                  />
-                  <img
                     class="item_img_img"
                     :src="item.img"
                     :style="{
@@ -920,9 +909,10 @@ const computedImagePath = computed(() => {
         </div>
 
         <div class="Create_a_lighter">
-          <div class="title_one">
-            {{ $t("home.Help_Utility_open") }}
-          </div>
+          <div
+            class="title_one"
+            v-html="locale === 'zh' ? text_utility_zh : text_utility_en"
+          ></div>
 
           <div class="text">
             {{ $t("home.Utility_is_a_revolutionary") }}
@@ -1373,7 +1363,7 @@ const computedImagePath = computed(() => {
   }
 
   .button,
-  .button_right {
+  .button_right_top {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1395,7 +1385,7 @@ const computedImagePath = computed(() => {
     }
   }
 
-  .button_right {
+  .button_right_top {
     width: 107px;
     height: 42px;
     margin-left: 32px;
@@ -1517,9 +1507,9 @@ const computedImagePath = computed(() => {
       align-items: center;
       justify-content: center;
       .title {
-        color: var(--Utility-title-color);
+        color: var(--Utility-title-color-one);
         font-family: Lantinghei SC;
-        font-weight: 400;
+        font-weight: 500;
       }
       .Utility_Chain_box {
         display: flex;
@@ -1628,24 +1618,21 @@ const computedImagePath = computed(() => {
     .Contribute_to_Utility {
       .Create_a_lighter {
         flex-shrink: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%
-        );
-        box-shadow: var(--Contribute-lighter-box-shadow);
         display: flex;
         flex-direction: column;
-        align-items: center;
         z-index: 100;
+        background: var(--Create_a_lighter-bg);
+
+        backdrop-filter: var(--Create_a_lighter-filter);
+        box-shadow: var(--Contribute-lighter-box-shadow);
 
         .title_one {
-          font-weight: 600;
-          color: var(--Utility-text-color);
+          font-weight: 700;
+          color: var(--Utility-text-color-title);
           font-family: Inter;
         }
         .text {
-          color: var(--Utility-text-color);
+          color: var(--Utility-text-color1);
           font-family: Inter;
           font-weight: 400;
         }
@@ -1742,7 +1729,7 @@ const computedImagePath = computed(() => {
       margin-bottom: 28px;
     }
     .button,
-    .button_right {
+    .button_right_top {
       &:hover {
         // background: linear-gradient(
         //   177deg,
@@ -1823,8 +1810,6 @@ const computedImagePath = computed(() => {
           .item_title {
             font-size: 16px;
             font-weight: 700;
-            //过渡
-            transition: all 0.3s;
             margin-bottom: 12px;
           }
           .item_img {
@@ -1965,29 +1950,30 @@ const computedImagePath = computed(() => {
         right: 10px;
       }
       .Create_a_lighter {
-        width: 657px;
+        width: 757px;
         height: 394px;
+        padding: 0 68px;
 
         border-radius: 10px;
-        backdrop-filter: blur(7px);
         position: absolute;
         left: 20%;
         top: 20%;
         padding-top: 64px;
         .title_one {
-          font-size: 30px;
-          max-width: 570px;
+          font-size: 32px;
+          max-width: 618px;
         }
         .text {
           margin-top: 24px;
-          max-width: 454px;
-          font-size: 14px;
+          max-width: 559px;
+          font-size: 16px;
           line-height: 20px;
         }
         .button_father {
           display: flex;
-
-          margin-top: 50px;
+          width: 100%;
+          justify-content: center;
+          margin-top: 60px;
 
           .button_left,
           .button_right {
@@ -2009,7 +1995,7 @@ const computedImagePath = computed(() => {
             &:hover {
               background: var(--Contribute-button_left-bg);
               border: var(--Contribute-button_left-border);
-              box-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
+              box-shadow: var(--button_right-shadow);
             }
           }
         }
@@ -2647,13 +2633,14 @@ const computedImagePath = computed(() => {
         height: 402px;
         display: flex;
         justify-content: center;
-        // background: linear-gradient(283deg, #f6f9f9 29.38%, #fffefb 93.23%);
         position: relative;
         overflow: hidden;
         //margin-bottom: 53px;
         padding: 30px 0;
 
         .Contribute_to_Utility_bg {
+          width: 100%;
+          height: 100%;
           position: absolute;
           justify-content: center;
           right: 0;
@@ -2663,6 +2650,7 @@ const computedImagePath = computed(() => {
         .Create_a_lighter {
           width: 350px;
           height: 161px;
+          align-items: center;
           position: absolute;
           bottom: 28px;
           left: 50;
@@ -2670,10 +2658,10 @@ const computedImagePath = computed(() => {
           border-radius: 10px;
 
           box-shadow: var(--Contribute-lighter-box-shadow1);
-          backdrop-filter: blur(var(--Contribute-lighter-box-filter));
 
+          backdrop-filter: blur(var(--Contribute-lighter-box-filter));
           .title_one {
-            font-size: 13px;
+            font-size: 15px;
             font-style: normal;
             line-height: 18px; /* 18.187px */
             max-width: 295px;
@@ -2682,7 +2670,7 @@ const computedImagePath = computed(() => {
             margin-top: 8px;
             max-width: 297px;
             height: 62px;
-            font-size: 8px;
+            font-size: 9px;
             font-style: normal;
             line-height: 12px; /* 11.6px */
           }
@@ -2690,7 +2678,7 @@ const computedImagePath = computed(() => {
             display: flex;
             justify-content: start;
             width: 100%;
-            padding-left: 34px;
+            padding-left: 15px;
             .button_left,
             .button_right {
               height: 24px;

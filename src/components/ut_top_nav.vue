@@ -6,7 +6,8 @@ import { openNewPage } from "@/utils/request";
 import useStore from "@/store";
 import { storeToRefs } from "pinia";
 const { home } = useStore();
-const { theme } = storeToRefs(home);
+const { theme, locale_zh } = storeToRefs(home);
+
 const nav_arr = ref([
   {
     name: "nav.Learning",
@@ -200,7 +201,11 @@ function seticon(icon: string, isdark: boolean) {
         @mouseenter="(activeIndex = i), (show = true)"
         @mouseleave="show = false"
       >
-        <div @click="openNewPage(item.link)" class="nav_link text_style_top">
+        <div
+          @click="openNewPage(item.link)"
+          class="nav_link text_style_top"
+          :style="{ fontWeight: locale_zh == 'en' ? '700' : '500' }"
+        >
           {{ $t(item.name) }}
         </div>
       </div>
