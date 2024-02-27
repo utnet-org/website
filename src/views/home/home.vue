@@ -2649,12 +2649,12 @@ const computedImagePath = computed(() => {
 
         .Create_a_lighter {
           width: 350px;
-          height: 161px;
+          height: 180px;
           align-items: center;
           position: absolute;
           bottom: 28px;
           left: 50;
-          padding-top: 17px;
+          padding-top: 23px;
           border-radius: 10px;
 
           box-shadow: var(--Contribute-lighter-box-shadow1);
@@ -2668,9 +2668,9 @@ const computedImagePath = computed(() => {
             max-width: 295px;
           }
           .text {
-            margin-top: 8px;
+            margin-top: 11px;
+            margin-bottom: 24px;
             max-width: 297px;
-            height: 62px;
             font-size: 9px;
             font-style: normal;
             line-height: 12px; /* 11.6px */
