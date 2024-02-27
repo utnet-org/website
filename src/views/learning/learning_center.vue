@@ -296,7 +296,7 @@ const thirdCheckQuestionMessage = ref(-1);
         z-index: 1;
         background: linear-gradient(
           177deg,
-          #fff -24.77%,
+          #3d534e -24.77%,
           rgba(255, 255, 255, 0) 97.53%
         );
       }
