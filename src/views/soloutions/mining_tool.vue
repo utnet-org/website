@@ -24,7 +24,7 @@ const imageList = [
 <template>
   <MiddleMessageIntroduce :headerImage="!theme
     ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mining_tool_icon.png'
-    : '/src/assets/images/mp_tool_logo_dark.png'
+    : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_mining_tool.png'
     " :headerTitle="headerTitle" :switchList="switchList" :firstLevelTitle="firstLevelTitle"
     :firstLevelText="firstLevelText" :secondLevelTitle="secondLevelTitle" :secondLevelTextFirst="secondLevelTextFirst"
     :secondLevelTextSecond="secondLevelTextSecond" :secondLevelTextThird="secondLevelTextThird" :imageList="imageList"

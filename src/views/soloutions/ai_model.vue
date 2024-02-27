@@ -26,7 +26,7 @@ const imageList = [
     :headerImage="
       !theme
         ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/ai_icon.png'
-        : '/src/assets/images/mp_model_logo_dark.png'
+        : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_ai_model.png'
     "
     :headerTitle="headerTitle"
     :switchList="switchList"

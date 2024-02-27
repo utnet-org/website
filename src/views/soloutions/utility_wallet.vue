@@ -27,7 +27,7 @@ const imageList = [
     :headerImage="
       !theme
         ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/wallet_icon.png'
-        : '/src/assets/images/mp_wallet_logo_dark.png'
+        : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/mp_utility_wallet.png'
     "
     :headerTitle="headerTitle"
     :switchList="switchList"

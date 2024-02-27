@@ -9,8 +9,8 @@ const options_list = computed(() => [
     title: "Run a node",
     text: "docs.Empower_the_Network",
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png"
-      : "/src/assets/images/options_image1.png",
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_1_docs.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
     style: !theme.value
       ? "width: 87px; height: 100px; "
       : "width: 152px; height: 151px; ",
@@ -19,8 +19,8 @@ const options_list = computed(() => [
     title: "Provide my hashing power",
     text: "docs.Contribute_Computing_Power",
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png"
-      : "/src/assets/images/options_image2.png",
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_2_docs.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
     style: !theme.value
       ? "width: 88px; height: 123px; "
       : "width: 152px; height: 151px; ",
@@ -29,8 +29,8 @@ const options_list = computed(() => [
     title: "build a dapp",
     text: "docs.Innovate_with_Us",
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png"
-      : "/src/assets/images/options_image3.png",
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_3_docs.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
     style: !theme.value
       ? "width: 100px; height: 95px; "
       : "width: 152px; height: 151px; ",
@@ -39,8 +39,8 @@ const options_list = computed(() => [
     title: "White Paper",
     text: "docs.Explore_Our_Foundation",
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png"
-      : "/src/assets/images/options_image4.png",
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_4_docs.png"
+      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
     style: !theme.value
       ? "width: 87px; height: 100px; "
       : "width: 152px; height: 151px; ",
