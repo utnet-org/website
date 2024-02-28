@@ -313,7 +313,7 @@ const changeCheckIndex = (index: any) => {
         flex-direction: column;
         justify-content: center;
         box-shadow: var(--learning-center-what-shadow);
-        // border: 1px solid transparent;
+        border: var(--docs-box-options_item-border);
 
         &:hover {
           background: var(--poci_consensus-options_list-bg);
@@ -519,13 +519,18 @@ const changeCheckIndex = (index: any) => {
           width: 100%;
           height: 100%;
           padding: 31px 20px 39px 24px;
+          border-radius: 18px !important;
           margin-bottom: 12px;
           background-color: var(--poci-bgc);
+          border: none;
 
           &:hover {
             background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
               no-repeat;
+            background-color: var(--poci-bgc);
             background-size: cover;
+            border: none;
+            box-shadow: none;
           }
 
           .options_item_header {
