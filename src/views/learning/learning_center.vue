@@ -91,7 +91,7 @@ const thirdCheckQuestionMessage = ref(-1);
         background:
           !theme && viewableWidth > 834
             ? 'url(' +
-              'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_background.png' +
+              '/src/assets/images/learning_center_background.png' +
               ')' +
               ' no-repeat'
             : '',

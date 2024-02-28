@@ -12,18 +12,18 @@ const options_list = computed(() => [
       ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_1_docs.png"
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
     style: !theme.value
-      ? "width: 87px; height: 100px; "
-      : "width: 152px; height: 151px; ",
+      ? "width: 87px; height: 100px; margin: 50px"
+      : "width: 152px; height: 151px; margin:24px 0 23px 16px;",
   },
   {
     title: "Provide my hashing power",
     text: "docs.Contribute_Computing_Power",
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_2_docs.png"
+      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_2_docs.png "
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
     style: !theme.value
-      ? "width: 88px; height: 123px; "
-      : "width: 152px; height: 151px; ",
+      ? "width: 88px; height: 123px;margin: 50px "
+      : "width: 152px; height: 151px; margin:48px 0 23px 18px;",
   },
   {
     title: "build a dapp",
@@ -32,8 +32,8 @@ const options_list = computed(() => [
       ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_3_docs.png"
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
     style: !theme.value
-      ? "width: 100px; height: 95px; "
-      : "width: 152px; height: 151px; ",
+      ? "width: 100px; height: 95px; margin: 50px"
+      : "width: 152px; height: 151px; margin: 22px",
   },
   {
     title: "White Paper",
@@ -42,8 +42,8 @@ const options_list = computed(() => [
       ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_4_docs.png"
       : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
     style: !theme.value
-      ? "width: 87px; height: 100px; "
-      : "width: 152px; height: 151px; ",
+      ? "width: 87px; height: 100px;margin: 50px "
+      : "width: 152px; height: 151px; margin:24px 0 24px 17px;",
   },
 ]);
 </script>
@@ -74,12 +74,7 @@ const options_list = computed(() => [
         :key="index"
         class="options_item"
       >
-        <img
-          :src="item.images"
-          alt=""
-          :style="item.style"
-          style="margin: 50px"
-        />
+        <img :src="item.images" alt="" :style="item.style" />
         <div class="options_item_title">{{ item.title }}</div>
         <div class="options_item_text">
           {{ $t(item.text) }}

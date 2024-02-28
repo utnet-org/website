@@ -313,7 +313,7 @@ const changeCheckIndex = (index: any) => {
         flex-direction: column;
         justify-content: center;
         box-shadow: var(--learning-center-what-shadow);
-        border: 1px solid transparent;
+        // border: 1px solid transparent;
 
         &:hover {
           background: var(--poci_consensus-options_list-bg);

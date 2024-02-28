@@ -34,7 +34,7 @@ const setLang = () => {
       @mouseenter="show = true"
       @mouseleave="show = false"
     >
-      <div class="text">
+      <div class="text" :style="{ fontWeight: locale == 'en' ? 700 : 500 }">
         {{ locale === "en" ? "English" : "中文简体" }}
         <el-icon class="icon"><ArrowDownBold /></el-icon>
       </div>

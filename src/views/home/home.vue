@@ -2087,18 +2087,17 @@ const computedImagePath = computed(() => {
             box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
-            left: 8px;
-            top: -151px;
+            left: 22px;
+            top: -138px;
           }
           .star_bg1 {
             width: 0px;
             height: 0px;
             box-shadow: 20px 20px 25px 15px rgba(86, 255, 239, 0.4); /* 阴影效果 */
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
-
             position: absolute;
-            left: 112px;
-            top: -40px;
+            left: 123px;
+            top: -28px;
           }
 
           .star_bg2 {
@@ -2108,8 +2107,8 @@ const computedImagePath = computed(() => {
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
-            left: 255px;
-            top: 22px;
+            left: 272px;
+            top: 34px;
           }
           .star_bg3 {
             width: 0px;
@@ -2118,8 +2117,8 @@ const computedImagePath = computed(() => {
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
-            left: 427px;
-            top: 9px;
+            left: 445px;
+            top: 23px;
           }
           .star_bg4 {
             width: 0px;
@@ -2128,8 +2127,8 @@ const computedImagePath = computed(() => {
             border-radius: 50%; /* 可选的圆角效果，如果需要的话 */
 
             position: absolute;
-            left: 398px;
-            top: -79px;
+            left: 413px;
+            top: -66px;
           }
 
           .star_bg5 {
@@ -2138,8 +2137,8 @@ const computedImagePath = computed(() => {
             box-shadow: 14px 14px 20px 13px rgba(86, 255, 239, 0.2); /* 阴影效果 */
             border-radius: 50%;
             position: absolute;
-            left: 520px;
-            top: -96px;
+            left: 534px;
+            top: -83px;
           }
 
           .Star_line,
@@ -2155,29 +2154,32 @@ const computedImagePath = computed(() => {
             position: absolute;
           }
           .Star_line {
-            left: -10px;
-            top: -84px;
+            width: 132.161px;
+            left: 15px;
+            top: -75px;
             transform: rotate(47deg);
           }
 
           .Star_line1 {
-            left: 128px;
-            top: 14px;
+            left: 126px;
+            top: 20px;
             transform: rotate(24deg);
           }
           .Star_line2 {
             left: 290px;
-            top: 36px;
+            top: 50px;
             transform: rotate(175deg);
           }
           .Star_line3 {
-            left: 264px;
-            top: -6px;
+            left: 281px;
+            top: 6px;
             transform: rotate(142deg);
           }
           .Star_line4 {
-            left: 400px;
-            top: -71px;
+            width: 112.161px;
+
+            left: 430px;
+            top: -58px;
             transform: rotate(170deg);
           }
 
@@ -2198,29 +2200,29 @@ const computedImagePath = computed(() => {
             position: absolute;
           }
           .Star_text {
-            left: 51px;
-            top: -153px;
+            left: 65px;
+            top: -141px;
           }
           .Star_text1 {
-            left: 140px;
-            top: -61px;
+            left: 155px;
+            top: -47px;
           }
           .Star_text2 {
-            left: 248px;
-            top: 75px;
+            left: 263px;
+            top: 89px;
             font-size: 18px;
           }
           .Star_text3 {
-            left: 468px;
-            top: 17px;
+            left: 483px;
+            top: 31px;
           }
           .Star_text4 {
-            left: 355px;
-            top: -96px;
+            left: 370px;
+            top: -82px;
           }
           .Star_text5 {
-            left: 498px;
-            top: -123px;
+            left: 513px;
+            top: -109px;
           }
         }
       }
