@@ -294,11 +294,7 @@ const thirdCheckQuestionMessage = ref(-1);
         top: 0;
         left: 0;
         z-index: 1;
-        background: linear-gradient(
-          177deg,
-          #3d534e -24.77%,
-          rgba(255, 255, 255, 0) 97.53%
-        );
+        background: var(--section_side_opacity-bgc);
       }
 
       .section_side_message {
