@@ -273,6 +273,8 @@ export default {
       "PoCI有望成为未来区块链技术发展的关键组成部分，这种机制可以被视为区块链算力验证的最优解，有助于形成一个庞大的、去中心化的计算资源网络，进一步增强网络的安全性和隐私保护，为构建更加健壮和去中心化的区块链网络提供了坚实的基础。",
   },
   learning_center: {
+    U_Wallet: 'U Wallet',
+    Purchase_U_Platform: 'Purchase U Platform',
     Learning_center: "学习中心",
     A_guide_and_help_center:
       "给予初学者们在Utility上了解和使用多样化技术的指引和帮助中心",

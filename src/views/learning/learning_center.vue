@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
 const mouseCheckIndex = ref(-1);
 import { openNewPage } from "@/utils/request";
@@ -7,15 +7,28 @@ import useStore from "@/store";
 import { storeToRefs } from "pinia";
 const { home } = useStore();
 const { theme } = storeToRefs(home);
-const questionList = [
-  "learning_center.How_to_use_it",
-  "learning_center.Enhance_Utility_Network",
-];
+
 const firstCheckQuestionMessage = ref(-1);
+
+const questionList = ref([
+  {
+    text: "learning_center.How_to_use_it",
+    istext: false,
+    isTop: 120,
+  },
+  {
+    text: "learning_center.Enhance_Utility_Network",
+    istext: false,
+    isTop: 240,
+  },
+]);
+
 const questionMessageList = [
   {
+    id: "section_right_item1",
     messageTitle: "learning_center.What_is_Utility",
     messageText: "learning_center.Utility_Network_has_made",
+    elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 1,
@@ -38,26 +51,31 @@ const questionMessageList = [
     ],
   },
   {
+    id: "section_right_item2",
+
     messageTitle: "learning_center.How_to_use_Utility",
     messageText: "learning_center.Utility_can_be_used_in",
+    elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 4,
-        title: "U Wallet",
+        title: "learning_center.U_Wallet",
         text: "learning_center.A_digital_wallet_holds",
         link: "/soloutions/utility_wallet",
       },
       {
         id: 5,
-        title: "Purchase U Platform",
+        title: "learning_center.Purchase_U_Platform",
         text: "learning_center.the_first_computing_power",
         link: "/get_power",
       },
     ],
   },
   {
+    id: "section_right_item3",
     messageTitle: "learning_center.Enhancing_Utility_Network",
     messageText: "learning_center.Building_Utility_Network",
+    elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 6,
@@ -80,24 +98,66 @@ const questionMessageList = [
     ],
   },
 ];
-const secondCheckQuestionMessage = ref(-1);
-const thirdCheckQuestionMessage = ref(-1);
+
+let sectionRightElement: any = ref([]);
+const sectionRight = ref<HTMLElement | null>(null);                                                                                                                                                                              
+
+// sectionRight
+function scrollToPosition(i: string) {
+  const element = document.getElementById(i); // 替换成您要获取距离的元素的id
+  const rect1 = element!.getBoundingClientRect();
+  const distanceToTop = rect1.top + window.pageYOffset;
+
+  console.log("距离页面顶部的距离：", distanceToTop);
+  window.scrollTo({
+    top: distanceToTop - 100, // 设置滚动条位置为顶部
+    behavior: "smooth", // 平滑滚动
+  });
+}
+
+// 挂载时获取盒子元素的引用并计算初始高度
+onMounted(() => {
+  sectionRightElement.value = document.querySelectorAll(".section_right_item"); // 替换为您的盒子的类名或选择器
+  console.log("  sectionRightElement.value ", sectionRightElement);
+
+  if (sectionRightElement.value) {
+    calculateBoxTopDistance();
+    window.addEventListener("scroll", handleScroll);
+  }
+});
+
+// 卸载时清除监听器
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+// 计算盒子距离顶部的高度
+const calculateBoxTopDistance = () => {
+  const y = window.scrollY;
+  for (let index = 1; index < sectionRightElement.value.length; index++) {
+    const rect1 = sectionRightElement.value[index].getBoundingClientRect();
+    if (y > rect1.top + (window.pageYOffset - 100)) {
+      const rect2 =
+        sectionRightElement.value[index + 1]?.getBoundingClientRect();
+      if (y < rect2?.top + window.pageYOffset - 100 || !rect2) {
+        questionList.value[index - 1].istext = true;
+      } else {
+        questionList.value[index - 1].istext = false;
+      }
+    } else {
+      questionList.value[index - 1].istext = false;
+    }
+  }
+};
+
+// 处理滚动事件
+const handleScroll = () => {
+  calculateBoxTopDistance();
+};
 </script>
 <template>
   <div class="container">
-    <div
-      class="header"
-      :style="{
-        background:
-          !theme && viewableWidth > 834
-            ? 'url(' +
-              '/src/assets/images/learning_center_background.png' +
-              ')' +
-              ' no-repeat'
-            : '',
-        'background-size': !theme ? 'cover' : '',
-      }"
-    >
+    <div class="header">
       <div class="header_content">
         <div class="header_content_header">
           {{ $t("learning_center.Learning_center") }}
@@ -133,12 +193,12 @@ const thirdCheckQuestionMessage = ref(-1);
               class="section_side_text"
               v-for="(item, index) in questionList"
               :key="index"
-              @mouseenter="mouseCheckIndex = index"
-              @mouseleave="mouseCheckIndex = -1"
+              :class="[item.istext ? 'highlight' : '']"
+              @click="scrollToPosition(questionMessageList[index + 1].id)"
             >
-              <div>{{ $t(item) }}</div>
+              <div>{{ $t(item.text) }}</div>
               <img
-                v-if="mouseCheckIndex >= 0 && mouseCheckIndex === index"
+                v-if="item.istext"
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/arrow_top_right.png"
                 alt=""
               />
@@ -146,8 +206,10 @@ const thirdCheckQuestionMessage = ref(-1);
           </div>
         </div>
       </div>
-      <div class="section_right">
+      <div class="section_right" ref="sectionRight">
         <div
+          :id="item.id"
+          ref="sectionRightElement"
           class="section_right_item"
           v-for="(item, index) in questionMessageList"
           :key="index"
@@ -155,7 +217,9 @@ const thirdCheckQuestionMessage = ref(-1);
           <div class="section_right_item_title">
             {{ $t(item.messageTitle) }}
           </div>
-          <div class="section_right_item_text">{{ $t(item.messageText) }}</div>
+          <div class="section_right_item_text">
+            {{ $t(item.messageText) }}
+          </div>
           <div class="section_right_item_card">
             <div v-for="(citem, cindex) in item.messageList" :key="cindex">
               <div
@@ -207,7 +271,7 @@ const thirdCheckQuestionMessage = ref(-1);
 
   .header {
     width: 100%;
-    background: url("@/assets/images/learning_center.png") no-repeat;
+    background: var(--learning_center-header-bg) no-repeat;
     background-size: cover;
     display: flex;
     align-items: flex-end;
@@ -275,19 +339,21 @@ const thirdCheckQuestionMessage = ref(-1);
 
   .section {
     display: flex;
-
+    width: 100%;
     .section_side {
       width: 346px;
-      height: 1353px;
+      height: 628px;
       border-radius: 8px;
       position: relative;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 70px;
+      flex-shrink: 0;
 
       .section_side_opacity {
         width: 100%;
         height: 100%;
         border-radius: 8px;
-        // opacity: 0.4;
-
         box-shadow: var(--box-shadow-light);
         opacity: 0.4;
         position: absolute;
@@ -313,7 +379,9 @@ const thirdCheckQuestionMessage = ref(-1);
 
         .text_list {
           margin-left: 20px;
-
+          .highlight {
+            color: #3edfcf !important;
+          }
           .section_side_text {
             color: var(--where-text);
             font-family: Inter;
@@ -322,15 +390,13 @@ const thirdCheckQuestionMessage = ref(-1);
             padding: 7px 0;
             display: flex;
             align-items: center;
+            //箭头变小手
+            cursor: pointer;
 
             img {
               width: 11px;
               height: 11px;
               margin-left: 4px;
-            }
-
-            &:hover {
-              color: #3edfcf;
             }
           }
         }
@@ -338,7 +404,7 @@ const thirdCheckQuestionMessage = ref(-1);
     }
 
     .section_right {
-      padding: 60px 155px 30px 92px;
+      padding: 60px 155px 0px 92px;
 
       .section_right_item {
         margin-bottom: 70px;
