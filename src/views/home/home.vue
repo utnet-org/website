@@ -724,6 +724,9 @@ const computedImagePath = computed(() => {
                     alt=""
                   />
                 </div>
+                <div class="Utility_Chain_box_item_button">
+                  {{ $t("home.Testnet") }}
+                </div>
                 <div
                   class="item_title"
                   :style="{
@@ -733,9 +736,6 @@ const computedImagePath = computed(() => {
                   }"
                 >
                   {{ $t(item.title) }}
-                </div>
-                <div class="Utility_Chain_box_item_button">
-                  {{ $t("home.Testnet") }}
                 </div>
               </div>
 
@@ -1522,7 +1522,7 @@ const computedImagePath = computed(() => {
         .item_img {
           width: 60px;
           height: 60px;
-          margin-bottom: 9px;
+          margin-bottom: 10px;
           position: relative;
 
           border-radius: 50%;
@@ -1810,7 +1810,8 @@ const computedImagePath = computed(() => {
           .item_title {
             font-size: 16px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-top: 14px;
+            margin-bottom: 4px;
           }
           .item_img {
             border: var(--Utility-item-border);
