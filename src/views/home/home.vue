@@ -51,22 +51,22 @@ onMounted(async () => {
       text: "home.UNC_PRICE",
     },
     {
-      amount: `${res.value?.totalMiners?.toLocaleString()}`,
+      amount: `${res.value?.totalMiners?.toLocaleString()}K`,
       text: "home.NODES",
     },
     {
       amount:
         width.value > 834
-          ? "<span style='font-size: 26px;'>$</span>1,221,120"
-          : "<span style='font-size: 16px;'>$</span>1,221,120",
+          ? "<span style='font-size: 26px;'>$</span>1,221,120K"
+          : "<span style='font-size: 16px;'>$</span>1,221,120K",
       text: "home.Transaction_Today",
     },
 
     {
       amount:
         width.value > 834
-          ? `${res.value?.activeMiners.toLocaleString()}<span style='font-size: 26px;'> tflops</span>`
-          : `${res.value?.activeMiners.toLocaleString()} <span style='font-size: 16px;'>tflops</span>`,
+          ? `${res.value?.activeMiners.toLocaleString()}M <span style='font-size: 26px;'> tflops</span>`
+          : `${res.value?.activeMiners.toLocaleString()}M <span style='font-size: 16px;'>tflops</span>`,
       text: "home.Computational_Power_Synthesis",
     },
   ];
@@ -558,6 +558,10 @@ const computedImagePath = computed(() => {
             justify-content: center;
             align-items: center;
           "
+          :style="{
+            marginTop: width < 734 ? '-40px' : '0',
+            gap: width < 734 ? '10px' : '20px',
+          }"
         >
           <div
             class="ellipse_dev_card"
@@ -708,7 +712,7 @@ const computedImagePath = computed(() => {
                   :style="{
                     boxShadow:
                       item.isclick && theme
-                        ? ' 0 0 20px rgba(0, 255, 255, 0.7)'
+                        ? ' 0 0 12px rgba(0, 255, 255, 0.7)'
                         : 'none',
                   }"
                 >
@@ -724,18 +728,20 @@ const computedImagePath = computed(() => {
                     alt=""
                   />
                 </div>
-                <div class="Utility_Chain_box_item_button">
-                  {{ $t("home.Testnet") }}
-                </div>
-                <div
-                  class="item_title"
-                  :style="{
-                    color: item.isclick
-                      ? '#3EDFCF'
-                      : 'var(--Utility-text-color)',
-                  }"
-                >
-                  {{ $t(item.title) }}
+                <div class="Utility_Chain_box_item_button_father">
+                  <div class="Utility_Chain_box_item_button">
+                    {{ $t("home.Testnet") }}
+                  </div>
+                  <div
+                    class="item_title"
+                    :style="{
+                      color: item.isclick
+                        ? '#3EDFCF'
+                        : 'var(--Utility-text-color)',
+                    }"
+                  >
+                    {{ $t(item.title) }}
+                  </div>
                 </div>
               </div>
 
@@ -1393,7 +1399,7 @@ const computedImagePath = computed(() => {
 }
 
 .home_view {
-  // background-color: #fffefb;
+  // background-color: #22fffb;
   .bg {
     // height: 1100px;
     width: 100%;
@@ -1817,6 +1823,10 @@ const computedImagePath = computed(() => {
             border: var(--Utility-item-border);
             background: var(--item_img-color);
           }
+          .Utility_Chain_box_item_button_father {
+            display: flex;
+            flex-direction: column;
+          }
           .item_text {
             color: var(--Utility-item-text);
             font-family: Inter;
@@ -1828,9 +1838,11 @@ const computedImagePath = computed(() => {
           }
 
           .Utility_Chain_box_item_button {
-            width: 59px;
-            height: 22px;
+            width: 48px;
+            height: 20px;
             border-radius: 4px;
+            margin-left: 6px;
+            font-size: 11px;
           }
         }
       }
@@ -2259,11 +2271,11 @@ const computedImagePath = computed(() => {
               background: var(--second-home-data_value-bg1);
               box-shadow: var(--second-home-data_value-shadow1);
               filter: var(--second-home-data_value-filter1);
-              backdrop-filter: blur(2px);
+              // backdrop-filter: blur(2px);
               display: flex;
               flex-direction: column;
               justify-content: center;
-              align-items: center;
+              align-items: left;
               border-radius: 12px;
               margin: 0;
 
@@ -2295,13 +2307,13 @@ const computedImagePath = computed(() => {
               }
             }
             .data_value:nth-child(3) {
-              flex: 2;
+              flex: 1;
               .data_text {
-                max-width: 122px;
+                max-width: 110px;
               }
             }
             .data_value:nth-child(4) {
-              flex: 3;
+              flex: 2;
             }
           }
         }
@@ -2460,317 +2472,325 @@ const computedImagePath = computed(() => {
 }
 @media (max-width: 834px) {
   .home_view {
-    .container {
-      .Welcome {
-        padding-top: 24px;
+    .Welcome {
+      // padding-top: 24px;
 
-        .Utility {
-          max-width: 306px;
-          .Utility_text {
-            font-size: 24px;
-            // line-height: 36px; /* 36.12px */
-            letter-spacing: 0.48px;
-          }
-          .Welcome_text_title {
-            font-size: 21px;
-            font-style: normal;
-            line-height: 150.5%;
-          }
+      .Utility {
+        max-width: 306px;
+        .Utility_text {
+          font-size: 24px;
+          // line-height: 36px; /* 36.12px */
+          letter-spacing: 0.48px;
         }
-
-        .Anapplication {
-          margin-top: 10px;
-          margin-bottom: 22px;
-          max-width: 259px;
-          font-family: Inter;
-          font-size: 10px;
+        .Welcome_text_title {
+          font-size: 21px;
           font-style: normal;
-          line-height: 15px; /* 15.5px */
-        }
-      }
-      .get_the_app {
-        height: 422px;
-        width: 100%;
-        background-color: #cfcfcf;
-      }
-      .Where_to_Start {
-        padding-top: 30px;
-        .title {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: normal;
-          margin-left: 20px;
-          margin-bottom: 12px;
-        }
-        .Four_boxes {
-          .box {
-            width: 350px;
-            border-radius: 8px;
-            min-height: 189px;
-            margin: 0px 4px 10px 4px;
-            border-radius: 8px;
-            opacity: 0.8;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 14px;
-
-            .box_text {
-              max-width: 322px;
-              font-size: 14px;
-              line-height: 21px;
-              letter-spacing: 0.42px;
-            }
-            .box_button {
-              height: 33px;
-              padding: 6px 10px; /* 添加适当的内边距 */
-              border-radius: 6px;
-            }
-          }
-        }
-      }
-      .Utility_Chain {
-        width: 100%;
-        padding: 0 20px;
-
-        .title {
-          margin-bottom: 32px;
-          font-size: 18px;
-        }
-        .Utility_Chain_box {
-          display: block;
-
-          .box_item {
-            border-radius: 10px;
-            border: var(--second-phone-home-box_item-border);
-            padding: 15px 14px;
-
-            margin-bottom: 26px;
-            .item_top {
-              display: flex;
-              align-items: center;
-              width: 100%;
-            }
-            .item_img {
-              width: 40px;
-              height: 40px;
-              margin-right: 8px !important;
-              img {
-                width: 100%;
-                height: 100%;
-              }
-            }
-            .item_title {
-              font-size: 12px;
-              font-weight: 600;
-              margin-right: 6px;
-            }
-            .Utility_Chain_box_item_button {
-              width: 48px;
-              height: 19px;
-              font-size: 10px;
-              border-radius: 3px;
-              border: 1px solid #3edfcf;
-            }
-            .item_text {
-              color: var(--Utility-item-text);
-              font-family: Inter;
-              font-size: 13px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 16px; /* 11.92px */
-
-              margin-top: 2px;
-            }
-          }
+          line-height: 150.5%;
         }
       }
 
-      .merry_go_round {
-        padding: 36px 20px 30px 20px;
-
-        .swiper {
-          width: 100%;
-          height: 100% !important;
-          justify-content: center;
-          .swiper-slide {
-            align-items: left;
-            .swiper_img {
-              width: 100% !important;
-              height: 100% !important;
-            }
-
-            .time {
-              font-size: 14px;
-              line-height: 20px; /* 20.37px */
-              letter-spacing: 0.28px;
-            }
-            .text {
-              font-size: 16px;
-              font-style: normal;
-              line-height: 22px; /* 22.64px */
-              margin-bottom: 50px;
-              color: var(--swiper-text-color) !important;
-            }
-          }
-          /* 设置未激活状态下的圆点颜色 */
-          :deep(.swiper-pagination .swiper-pagination-bullet) {
-            width: 8px;
-            height: 8px;
-            background: #a5a5a5;
-            border-radius: 8px;
-          }
-
-          // /* 设置激活（当前选中）状态下的圆点颜色 */
-          :deep(.swiper-pagination .swiper-pagination-bullet-active) {
-            width: 8px;
-            height: 8px;
-            background: rgba(106, 209, 197, 1);
-            border-radius: 8px;
-          }
-        }
+      .Anapplication {
+        margin-top: 10px;
+        margin-bottom: 22px;
+        max-width: 259px;
+        font-family: Inter;
+        font-size: 10px;
+        font-style: normal;
+        line-height: 15px; /* 15.5px */
       }
-
-      .Contribute_to_Utility {
-        width: 100%;
-        height: 402px;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        //margin-bottom: 53px;
-        padding: 30px 0;
-
-        .Contribute_to_Utility_bg {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          justify-content: center;
-          right: 0;
-          top: 30px;
-        }
-
-        .Create_a_lighter {
+    }
+    .get_the_app {
+      height: 422px;
+      width: 100%;
+      background-color: #cfcfcf;
+    }
+    .Where_to_Start {
+      padding-top: 30px;
+      .title {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 20px;
+        margin-bottom: 12px;
+      }
+      .Four_boxes {
+        .box {
           width: 350px;
-          height: 180px;
-          align-items: center;
-          position: absolute;
-          bottom: 28px;
-          left: 50;
-          padding-top: 23px;
-          border-radius: 10px;
+          border-radius: 8px;
+          min-height: 189px;
+          margin: 0px 4px 10px 4px;
+          border-radius: 8px;
+          opacity: 0.8;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 14px;
 
-          box-shadow: var(--Contribute-lighter-box-shadow1);
-
-          backdrop-filter: blur(var(--Contribute-lighter-box-filter));
-          .title_one {
-            font-size: 15px;
-            font-weight: 700;
-            font-style: normal;
-            line-height: 18px; /* 18.187px */
-            max-width: 295px;
+          .box_text {
+            max-width: 322px;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: 0.42px;
           }
-          .text {
-            margin-top: 11px;
-            margin-bottom: 24px;
-            max-width: 297px;
-            font-size: 9px;
-            font-style: normal;
-            line-height: 12px; /* 11.6px */
+          .box_button {
+            height: 33px;
+            padding: 6px 10px; /* 添加适当的内边距 */
+            border-radius: 6px;
           }
-          .button_father {
-            display: flex;
-            justify-content: start;
-            width: 100%;
-            padding-left: 15px;
-            .button_left,
-            .button_right {
-              height: 24px;
-
-              align-items: center;
-              .button_text {
-                text-align: center;
-                font-family: Inter;
-                font-size: 8px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 150%; /* 12px */
-                margin-right: 3px;
-              }
-            }
-            .button_left {
-              width: 62px;
-              margin-right: 9px;
-            }
-            .button_right {
-              width: 59px;
-            }
-          }
-        }
-
-        .Utility_img {
-          height: 227.263px;
-          flex-shrink: 0;
-          margin-top: 36px;
         }
       }
     }
-    .icons {
+    .Utility_Chain {
       width: 100%;
-      height: 87px;
+      padding: 0 20px;
+
+      .title {
+        margin-bottom: 32px;
+        font-size: 18px;
+      }
+      .Utility_Chain_box {
+        display: block !important;
+        width: 100%;
+        .box_item {
+          border-radius: 10px;
+          border: var(--second-phone-home-box_item-border);
+          padding: 15px 14px;
+          margin-bottom: 10px;
+          width: 100%;
+          .item_top {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 6px;
+          }
+          .item_img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px !important;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .Utility_Chain_box_item_button_father {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+          }
+          .item_title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+          }
+          .Utility_Chain_box_item_button {
+            width: 48px;
+            height: 19px;
+            font-size: 10px;
+            border-radius: 3px;
+            border: 1px solid #3edfcf;
+          }
+          .item_text {
+            color: var(--Utility-item-text);
+            font-family: Inter;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px; /* 11.92px */
+
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+
+    .merry_go_round {
+      padding: 36px 20px 30px 20px;
+
+      .swiper {
+        width: 100%;
+        height: 100% !important;
+        justify-content: center;
+        .swiper-slide {
+          align-items: left;
+          .swiper_img {
+            width: 100% !important;
+            height: 100% !important;
+          }
+
+          .time {
+            font-size: 14px;
+            line-height: 20px; /* 20.37px */
+            letter-spacing: 0.28px;
+          }
+          .text {
+            font-size: 16px;
+            font-style: normal;
+            line-height: 22px; /* 22.64px */
+            margin-bottom: 50px;
+            color: var(--swiper-text-color) !important;
+          }
+        }
+        /* 设置未激活状态下的圆点颜色 */
+        :deep(.swiper-pagination .swiper-pagination-bullet) {
+          width: 8px;
+          height: 8px;
+          background: #a5a5a5;
+          border-radius: 8px;
+        }
+
+        // /* 设置激活（当前选中）状态下的圆点颜色 */
+        :deep(.swiper-pagination .swiper-pagination-bullet-active) {
+          width: 8px;
+          height: 8px;
+          background: rgba(106, 209, 197, 1);
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .Contribute_to_Utility {
+      width: 100%;
+      height: 402px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f7f7f4;
-      margin-top: 18px;
-      // 正向滚动动画
-      @keyframes scrollBackward {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-1766px);
-        }
-      }
-      /* 逆向滚动动画 */
-      @keyframes scrollForward {
-        0% {
-          transform: translateX(-1766px);
-        }
-        100% {
-          transform: translateX(0);
-        }
-      }
-      //  鼠标移出
-      .carousel-content.forward {
-        animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
-      }
-      // 鼠标移入
-      .carousel-content.backward {
-        animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
-      }
-      .carousel-container {
-        overflow: hidden;
-        position: relative;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      //margin-bottom: 53px;
+      padding: 30px 0;
+
+      .Contribute_to_Utility_bg {
         width: 100%;
         height: 100%;
+        position: absolute;
+        justify-content: center;
+        right: 0;
+        top: 30px;
       }
 
-      .carousel-content {
-        width: 100%;
-        height: 100%;
-        display: flex;
+      .Create_a_lighter {
+        width: 350px;
+        height: 180px;
         align-items: center;
-        will-change: transform; /* 提升性能 */
+        position: absolute;
+        bottom: 28px;
+        left: 50;
+        padding-top: 23px;
+        border-radius: 10px;
+
+        box-shadow: var(--Contribute-lighter-box-shadow1);
+
+        backdrop-filter: blur(var(--Contribute-lighter-box-filter));
+        .title_one {
+          font-size: 15px;
+          font-weight: 700;
+          font-style: normal;
+          line-height: 18px; /* 18.187px */
+          max-width: 295px;
+        }
+        .text {
+          margin-top: 11px;
+          margin-bottom: 24px;
+          max-width: 297px;
+          font-size: 9px;
+          font-style: normal;
+          line-height: 12px; /* 11.6px */
+        }
+        .button_father {
+          display: flex;
+          justify-content: start;
+          width: 100%;
+          padding-left: 15px;
+          .button_left,
+          .button_right {
+            height: 24px;
+
+            align-items: center;
+            .button_text {
+              text-align: center;
+              font-family: Inter;
+              font-size: 8px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 150%; /* 12px */
+              margin-right: 3px;
+            }
+          }
+          .button_left {
+            width: 62px;
+            margin-right: 9px;
+          }
+          .button_right {
+            width: 59px;
+          }
+        }
       }
 
-      .carousel-item {
-        transition: all 0.5s; /* 设置动画 */
-        margin: 0 16px;
-        img {
-          max-width: none;
-          max-height: none;
-        }
+      .Utility_img {
+        height: 227.263px;
+        flex-shrink: 0;
+        margin-top: 36px;
+      }
+    }
+  }
+  .icons {
+    width: 100%;
+    height: 87px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f7f4;
+    margin-top: 18px;
+    // 正向滚动动画
+    @keyframes scrollBackward {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-1766px);
+      }
+    }
+    /* 逆向滚动动画 */
+    @keyframes scrollForward {
+      0% {
+        transform: translateX(-1766px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    //  鼠标移出
+    .carousel-content.forward {
+      animation: scrollForward 5s linear forwards; /* 调整时间以匹配您的需求 */
+    }
+    // 鼠标移入
+    .carousel-content.backward {
+      animation: scrollBackward 5s linear forwards; /* 调整时间以匹配您的需求 */
+    }
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      will-change: transform; /* 提升性能 */
+    }
+
+    .carousel-item {
+      transition: all 0.5s; /* 设置动画 */
+      margin: 0 16px;
+      img {
+        max-width: none;
+        max-height: none;
       }
     }
   }
@@ -2913,6 +2933,7 @@ const computedImagePath = computed(() => {
 @media (max-width: 723px) {
   .ellipse_dev {
     // height: 1661.2px;
+    gap: 0px !important;
     .top {
       width: 1352.8px;
       height: 579.5px;
