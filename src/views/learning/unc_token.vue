@@ -1,62 +1,62 @@
 <script setup lang="ts">
-import { openNewPage } from "@/utils/request";
-import { ref, onMounted } from "vue";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
-import { getStatistics } from "@/api/home";
-const unc_price = ref(0);
+import { openNewPage } from '@/utils/request'
+import { ref, onMounted } from 'vue'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
+import { getStatistics } from '@/api/home'
+const unc_price = ref(0)
 onMounted(async () => {
-  const { data } = await getStatistics();
-  unc_price.value = data.aiPower;
-});
+  const { data } = await getStatistics()
+  unc_price.value = data.aiPower
+})
 const optionsList = [
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item1.png",
-    title: "Pancakeswap",
-    text: "utilityNetwork.decentralized_exchange",
-    link: "https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item1.png',
+    title: 'Pancakeswap',
+    text: 'utilityNetwork.decentralized_exchange',
+    link: 'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item2.png",
-    title: "Hotcoin Global",
-    text: "utilityNetwork.digital_asset_trading",
-    link: "https://www.hotcoin.com/",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item2.png',
+    title: 'Hotcoin Global',
+    text: 'utilityNetwork.digital_asset_trading',
+    link: 'https://www.hotcoin.com/'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item3.png",
-    title: "CoinW",
-    text: "utilityNetwork.multifacetedc_ryptocurrency_platform",
-    link: "https://www.coinw.com/frontSpot/spottrade?symbol=1382",
-  },
-];
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item3.png',
+    title: 'CoinW',
+    text: 'utilityNetwork.multifacetedc_ryptocurrency_platform',
+    link: 'https://www.coinw.com/frontSpot/spottrade?symbol=1382'
+  }
+]
 const messageCardList = [
   {
-    title: "utilityNetwork.talos_age_title",
-    firstLevelText: "utilityNetwork.talos_age_first_text",
-    secondLevelText: "utilityNetwork.talos_age_second_text",
+    title: 'utilityNetwork.talos_age_title',
+    firstLevelText: 'utilityNetwork.talos_age_first_text',
+    secondLevelText: 'utilityNetwork.talos_age_second_text'
   },
   {
-    title: "utilityNetwork.vajra_age_title",
-    firstLevelText: "utilityNetwork.vajra_age_first_text",
-    secondLevelText: "utilityNetwork.vajra_age_second_text",
+    title: 'utilityNetwork.vajra_age_title',
+    firstLevelText: 'utilityNetwork.vajra_age_first_text',
+    secondLevelText: 'utilityNetwork.vajra_age_second_text'
   },
   {
-    title: "utilityNetwork.golem_age_title",
-    firstLevelText: "utilityNetwork.golem_age_first_text",
-    secondLevelText: "utilityNetwork.golem_age_second_text",
+    title: 'utilityNetwork.golem_age_title',
+    firstLevelText: 'utilityNetwork.golem_age_first_text',
+    secondLevelText: 'utilityNetwork.golem_age_second_text'
   },
   {
-    title: "utilityNetwork.maria_age_title",
-    firstLevelText: "utilityNetwork.maria_age_first_text",
-    secondLevelText: "utilityNetwork.maria_age_second_text",
-  },
-];
-const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
+    title: 'utilityNetwork.maria_age_title',
+    firstLevelText: 'utilityNetwork.maria_age_first_text',
+    secondLevelText: 'utilityNetwork.maria_age_second_text'
+  }
+]
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
 </script>
 <template>
   <div class="container">
@@ -103,10 +103,10 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
     <div class="message">
       <div class="main_title_message">
         <div class="main_title">
-          {{ $t("utilityNetwork.learn_about_unc_token_title") }}
+          {{ $t('utilityNetwork.learn_about_unc_token_title') }}
         </div>
         <div class="main_text">
-          {{ $t("utilityNetwork.learn_about_unc_token_text") }}
+          {{ $t('utilityNetwork.learn_about_unc_token_text') }}
         </div>
       </div>
       <div class="subtitle">
@@ -118,10 +118,10 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             />
             <div>
               <div class="subtitle_options_item_title">
-                {{ $t("utilityNetwork.fundamentals_of_blockchain_title") }}
+                {{ $t('utilityNetwork.fundamentals_of_blockchain_title') }}
               </div>
               <div class="subtitle_options_item_text">
-                {{ $t("utilityNetwork.fundamentals_of_blockchain_text") }}
+                {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
               </div>
             </div>
           </div>
@@ -130,14 +130,14 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
               <div class="subtitle_options_item_title">
                 {{
                   $t(
-                    "utilityNetwork.superb_application_of_smart_contracts_title"
+                    'utilityNetwork.superb_application_of_smart_contracts_title'
                   )
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
                   $t(
-                    "utilityNetwork.superb_application_of_smart_contracts_text"
+                    'utilityNetwork.superb_application_of_smart_contracts_text'
                   )
                 }}
               </div>
@@ -155,12 +155,12 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             <div>
               <div class="subtitle_options_item_title">
                 {{
-                  $t("utilityNetwork.incentive_mechanism_for_innovation_title")
+                  $t('utilityNetwork.incentive_mechanism_for_innovation_title')
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
-                  $t("utilityNetwork.incentive_mechanism_for_innovation_text")
+                  $t('utilityNetwork.incentive_mechanism_for_innovation_text')
                 }}
               </div>
             </div>
@@ -170,14 +170,14 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
               <div class="subtitle_options_item_title">
                 {{
                   $t(
-                    "utilityNetwork.digital_interpretation_of_blockchain_governance_title"
+                    'utilityNetwork.digital_interpretation_of_blockchain_governance_title'
                   )
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
                   $t(
-                    "utilityNetwork.digital_interpretation_of_blockchain_governance_text"
+                    'utilityNetwork.digital_interpretation_of_blockchain_governance_text'
                   )
                 }}
               </div>
@@ -197,10 +197,10 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             />
             <div>
               <div class="subtitle_options_item_title">
-                {{ $t("utilityNetwork.fundamentals_of_blockchain_title") }}
+                {{ $t('utilityNetwork.fundamentals_of_blockchain_title') }}
               </div>
               <div class="subtitle_options_item_text">
-                {{ $t("utilityNetwork.fundamentals_of_blockchain_text") }}
+                {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
               </div>
             </div>
           </div>
@@ -213,14 +213,14 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
               <div class="subtitle_options_item_title">
                 {{
                   $t(
-                    "utilityNetwork.superb_application_of_smart_contracts_title"
+                    'utilityNetwork.superb_application_of_smart_contracts_title'
                   )
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
                   $t(
-                    "utilityNetwork.superb_application_of_smart_contracts_text"
+                    'utilityNetwork.superb_application_of_smart_contracts_text'
                   )
                 }}
               </div>
@@ -234,12 +234,12 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
             <div>
               <div class="subtitle_options_item_title">
                 {{
-                  $t("utilityNetwork.incentive_mechanism_for_innovation_title")
+                  $t('utilityNetwork.incentive_mechanism_for_innovation_title')
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
-                  $t("utilityNetwork.incentive_mechanism_for_innovation_text")
+                  $t('utilityNetwork.incentive_mechanism_for_innovation_text')
                 }}
               </div>
             </div>
@@ -253,14 +253,14 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
               <div class="subtitle_options_item_title">
                 {{
                   $t(
-                    "utilityNetwork.digital_interpretation_of_blockchain_governance_title"
+                    'utilityNetwork.digital_interpretation_of_blockchain_governance_title'
                   )
                 }}
               </div>
               <div class="subtitle_options_item_text">
                 {{
                   $t(
-                    "utilityNetwork.digital_interpretation_of_blockchain_governance_text"
+                    'utilityNetwork.digital_interpretation_of_blockchain_governance_text'
                   )
                 }}
               </div>
@@ -269,7 +269,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         </div>
       </div>
       <div class="message_card_title">
-        {{ $t("utilityNetwork.how_to_earn_unc") }}
+        {{ $t('utilityNetwork.how_to_earn_unc') }}
       </div>
       <div class="message_card_list">
         <div
@@ -290,7 +290,7 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
         </div>
       </div>
       <div class="options_list_header">
-        {{ $t("utilityNetwork.unc_tading_market_title") }}
+        {{ $t('utilityNetwork.unc_tading_market_title') }}
       </div>
       <div class="options_list">
         <div v-for="(item, index) in optionsList" :key="index">
@@ -460,6 +460,11 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
           display: flex;
           align-items: center;
           justify-content: space-between;
+
+          width: 100% !important;
+          height: 100% !important;
+          padding: 50px !important;
+          gap: 50px;
 
           &:first-child {
             margin-bottom: 14px;

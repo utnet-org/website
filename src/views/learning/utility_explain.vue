@@ -1,67 +1,67 @@
 <script setup lang="ts">
-import { title } from "process";
-import { ref } from "vue";
-import { openNewPage } from "@/utils/request";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
+import { title } from 'process'
+import { ref } from 'vue'
+import { openNewPage } from '@/utils/request'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
 const messageCardList = [
   {
-    title: "utilityNetwork.decentralized_computing_service_platform",
-    text: "utilityNetwork.decentralized_computing_service_platform_text",
+    title: 'utilityNetwork.decentralized_computing_service_platform',
+    text: 'utilityNetwork.decentralized_computing_service_platform_text'
   },
   {
-    title: "utilityNetwork.computing_resources_and_data_management",
-    text: "utilityNetwork.computing_resources_and_data_management_text",
+    title: 'utilityNetwork.computing_resources_and_data_management',
+    text: 'utilityNetwork.computing_resources_and_data_management_text'
   },
   {
-    title: "utilityNetwork.blockchain_technology",
-    text: "utilityNetwork.blockchain_technology_text",
+    title: 'utilityNetwork.blockchain_technology',
+    text: 'utilityNetwork.blockchain_technology_text'
   },
   {
-    title: "utilityNetwork.economic_model",
-    text: "utilityNetwork.economic_model_text",
-  },
-];
+    title: 'utilityNetwork.economic_model',
+    text: 'utilityNetwork.economic_model_text'
+  }
+]
 const definingChipsWithBlockchainTextList = [
-  "utilityNetwork.defining_chips_with_blockchain_text1",
-  "utilityNetwork.defining_chips_with_blockchain_text2",
-  "utilityNetwork.defining_chips_with_blockchain_text3",
-];
+  'utilityNetwork.defining_chips_with_blockchain_text1',
+  'utilityNetwork.defining_chips_with_blockchain_text2',
+  'utilityNetwork.defining_chips_with_blockchain_text3'
+]
 const optionsList = [
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options1.png",
-    title: "utilityNetwork.poci_consensus_title",
-    text: "utilityNetwork.poci_consensus_text",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options1.png',
+    title: 'utilityNetwork.poci_consensus_title',
+    text: 'utilityNetwork.poci_consensus_text'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options2.png",
-    title: "utilityNetwork.power_scheduling_title",
-    text: "utilityNetwork.power_scheduling_text",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options2.png',
+    title: 'utilityNetwork.power_scheduling_title',
+    text: 'utilityNetwork.power_scheduling_text'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options3.png",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options3.png',
     title:
-      "utilityNetwork.virtualization_and_isolation_execution_environment_title",
-    text: "utilityNetwork.virtualization_and_isolation_execution_environment_text",
+      'utilityNetwork.virtualization_and_isolation_execution_environment_title',
+    text: 'utilityNetwork.virtualization_and_isolation_execution_environment_text'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options4.png",
-    title: "utilityNetwork.multiple_execution_virtual_machines_support_title",
-    text: "utilityNetwork.multiple_execution_virtual_machines_support_text",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options4.png',
+    title: 'utilityNetwork.multiple_execution_virtual_machines_support_title',
+    text: 'utilityNetwork.multiple_execution_virtual_machines_support_text'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options5.png",
-    title: "utilityNetwork.complete_economic_system_model_title",
-    text: "utilityNetwork.complete_economic_system_model_text",
-  },
-];
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/utility_explain_options5.png',
+    title: 'utilityNetwork.complete_economic_system_model_title',
+    text: 'utilityNetwork.complete_economic_system_model_text'
+  }
+]
 </script>
 <template>
   <div class="container">
@@ -89,10 +89,10 @@ const optionsList = [
     >
       <div class="header_content">
         <div class="header_content_header">
-          {{ $t("utilityNetwork.header_title") }}
+          {{ $t('utilityNetwork.header_title') }}
         </div>
         <div class="header_content_text">
-          {{ $t("utilityNetwork.header_message") }}
+          {{ $t('utilityNetwork.header_message') }}
         </div>
         <div
           class="header_content_button"
@@ -100,7 +100,7 @@ const optionsList = [
             openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
           "
         >
-          <div>{{ $t("utilityNetwork.read_more") }}</div>
+          <div>{{ $t('utilityNetwork.read_more') }}</div>
           <img
             src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
             alt=""
@@ -108,11 +108,14 @@ const optionsList = [
           />
         </div>
       </div>
+      <div class="header_content_bg">
+        <img src="@/assets/images/learning_center_item1.jpg" alt="" />
+      </div>
     </div>
     <div class="message">
       <div class="first_level_title">
-        <div class="title">{{ $t("utilityNetwork.header_title") }}</div>
-        <div class="text">{{ $t("utilityNetwork.title_text") }}</div>
+        <div class="title">{{ $t('utilityNetwork.header_title') }}</div>
+        <div class="text">{{ $t('utilityNetwork.title_text') }}</div>
       </div>
       <div class="message_card_list">
         <div
@@ -129,10 +132,10 @@ const optionsList = [
       </div>
       <div class="options_header">
         <div class="options_header_title">
-          {{ $t("utilityNetwork.defining_chips_with_blockchain") }}
+          {{ $t('utilityNetwork.defining_chips_with_blockchain') }}
         </div>
         <div class="options_header_subtitle">
-          {{ $t("utilityNetwork.defining_chips_with_blockchain_subtitle") }}
+          {{ $t('utilityNetwork.defining_chips_with_blockchain_subtitle') }}
         </div>
         <div
           class="options_header_title_text"
@@ -167,31 +170,37 @@ const optionsList = [
   padding-top: 70px;
   .header {
     width: 100%;
-    height: 558px;
-    background: var(--utility_explain-bgc);
-    background-size: 100% 100%;
+    // height: 972px;
+    background: #151c1a;
+    // background-size: 100% 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-
+    justify-content: space-between;
+    padding: 155px 109px;
+    align-items: center;
+    // align-items: flex-end;
+    // justify-content: flex-start;
+    .header_content_bg {
+      width: 559px;
+      height: 621px;
+    }
     .header_content {
-      width: 640px;
-      height: 310px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
-      box-shadow: var(--unc_token-header-shadow);
+      width: 805px;
+      // height: 310px;
+      // flex-shrink: 0;
+      // border-radius: 10px;
+      // background: linear-gradient(
+      //   180deg,
+      //   rgba(244, 248, 248, 0.05) 0.13%,
+      //   rgba(244, 248, 248, 0) 99.87%
+      // );
+      // box-shadow: var(--unc_token-header-shadow);
 
-      backdrop-filter: blur(4px);
-      margin: 0 0 94px 140px;
-      padding: 0 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      // backdrop-filter: blur(4px);
+      // margin: 0 0 94px 140px;
+      // padding: 0 60px;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
 
       .header_content_header {
         color: var(--where-text);
@@ -218,6 +227,7 @@ const optionsList = [
         height: 42px;
         border-radius: 6px;
         border: 1px solid var(--Utility-title-color);
+        background: var(--background-header_content_button);
         color: var(--where-text);
         font-family: Inter;
         font-size: 14px;

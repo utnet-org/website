@@ -1,169 +1,177 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
-const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
-const mouseCheckIndex = ref(-1);
-import { openNewPage } from "@/utils/request";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
+import { onMounted, onUnmounted, ref } from 'vue'
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
+const mouseCheckIndex = ref(-1)
+import { openNewPage } from '@/utils/request'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
 
-const firstCheckQuestionMessage = ref(-1);
+const firstCheckQuestionMessage = ref(-1)
 
 const questionList = ref([
   {
-    text: "learning_center.How_to_use_it",
+    text: 'learning_center.How_to_use_it',
     istext: false,
-    isTop: 120,
+    isTop: 120
   },
   {
-    text: "learning_center.Enhance_Utility_Network",
+    text: 'learning_center.Enhance_Utility_Network',
     istext: false,
-    isTop: 240,
-  },
-]);
+    isTop: 240
+  }
+])
 
 const questionMessageList = [
   {
-    id: "section_right_item1",
-    messageTitle: "learning_center.What_is_Utility",
-    messageText: "learning_center.Utility_Network_has_made",
+    id: 'section_right_item1',
+    messageTitle: 'learning_center.What_is_Utility',
+    messageText: 'learning_center.Utility_Network_has_made',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 1,
-        title: "learning_center.What_is_Utility",
-        text: "learning_center.Start_from_here",
-        link: "/learning/utility_explain",
+        title: 'learning_center.What_is_Utility',
+        text: 'learning_center.Start_from_here',
+        img: '/src/assets/images/learning_center_item1.jpg',
+        link: '/learning/utility_explain'
       },
       {
         id: 2,
-        title: "learning_center.What_is_UNC_Token",
-        text: "learning_center.Start_UNC_Token_UNC",
-        link: "/learning/unc_token",
+        title: 'learning_center.What_is_UNC_Token',
+        text: 'learning_center.Start_UNC_Token_UNC',
+        img: '/src/assets/images/learning_center_item2.png',
+        link: '/learning/unc_token'
       },
       {
         id: 3,
-        title: "learning_center.What_is_POCI_Consensus",
-        text: "learning_center.it_is_a_brand_new",
-        link: "/learning/poci_consensus",
-      },
-    ],
+        title: 'learning_center.What_is_POCI_Consensus',
+        text: 'learning_center.it_is_a_brand_new',
+        img: '/src/assets/images/learning_center_item3.png',
+        link: '/learning/poci_consensus'
+      }
+    ]
   },
   {
-    id: "section_right_item2",
+    id: 'section_right_item2',
 
-    messageTitle: "learning_center.How_to_use_Utility",
-    messageText: "learning_center.Utility_can_be_used_in",
+    messageTitle: 'learning_center.How_to_use_Utility',
+    messageText: 'learning_center.Utility_can_be_used_in',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 4,
-        title: "learning_center.U_Wallet",
-        text: "learning_center.A_digital_wallet_holds",
-        link: "/soloutions/utility_wallet",
+        title: 'learning_center.U_Wallet',
+        text: 'learning_center.A_digital_wallet_holds',
+        img: '/src/assets/images/learning_center_item4.png',
+        link: '/soloutions/utility_wallet'
       },
       {
         id: 5,
-        title: "learning_center.Purchase_U_Platform",
-        text: "learning_center.the_first_computing_power",
-        link: "/get_power",
-      },
-    ],
+        title: 'learning_center.Purchase_U_Platform',
+        text: 'learning_center.the_first_computing_power',
+        img: '/src/assets/images/learning_center_item5.png',
+        link: '/get_power'
+      }
+    ]
   },
   {
-    id: "section_right_item3",
-    messageTitle: "learning_center.Enhancing_Utility_Network",
-    messageText: "learning_center.Building_Utility_Network",
+    id: 'section_right_item3',
+    messageTitle: 'learning_center.Enhancing_Utility_Network',
+    messageText: 'learning_center.Building_Utility_Network',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 6,
-        title: "learning_center.Running_Nodes",
-        text: "learning_center.Participate_in_running",
-        link: "https://wiki.utlab.io/docs/node/introduction",
+        title: 'learning_center.Running_Nodes',
+        text: 'learning_center.Participate_in_running',
+        img: '/src/assets/images/learning_center_item6.png',
+        link: 'https://wiki.utlab.io/docs/node/introduction'
       },
       {
         id: 7,
-        title: "learning_center.Mining_and_Rental_Supply",
-        text: "learning_center.Learn_how_to_mining",
-        link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
+        title: 'learning_center.Mining_and_Rental_Supply',
+        text: 'learning_center.Learn_how_to_mining',
+        img: '/src/assets/images/learning_center_item7.png',
+        link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
       },
       {
         id: 8,
-        title: "learning_center.Join_the_Community",
-        text: "learning_center.A_home_for_Utility_developers",
-        link: "/community",
-      },
-    ],
-  },
-];
+        title: 'learning_center.Join_the_Community',
+        text: 'learning_center.A_home_for_Utility_developers',
+        img: '/src/assets/images/learning_center_item8.png',
+        link: '/community'
+      }
+    ]
+  }
+]
 
-let sectionRightElement: any = ref([]);
-const sectionRight = ref<HTMLElement | null>(null);                                                                                                                                                                              
+let sectionRightElement: any = ref([])
+const sectionRight = ref<HTMLElement | null>(null)
 
 // sectionRight
 function scrollToPosition(i: string) {
-  const element = document.getElementById(i); // 替换成您要获取距离的元素的id
-  const rect1 = element!.getBoundingClientRect();
-  const distanceToTop = rect1.top + window.pageYOffset;
+  const element = document.getElementById(i) // 替换成您要获取距离的元素的id
+  const rect1 = element!.getBoundingClientRect()
+  const distanceToTop = rect1.top + window.pageYOffset
 
-  console.log("距离页面顶部的距离：", distanceToTop);
+  console.log('距离页面顶部的距离：', distanceToTop)
   window.scrollTo({
     top: distanceToTop - 100, // 设置滚动条位置为顶部
-    behavior: "smooth", // 平滑滚动
-  });
+    behavior: 'smooth' // 平滑滚动
+  })
 }
 
 // 挂载时获取盒子元素的引用并计算初始高度
 onMounted(() => {
-  sectionRightElement.value = document.querySelectorAll(".section_right_item"); // 替换为您的盒子的类名或选择器
-  console.log("  sectionRightElement.value ", sectionRightElement);
+  sectionRightElement.value = document.querySelectorAll('.section_right_item') // 替换为您的盒子的类名或选择器
+  console.log('  sectionRightElement.value ', sectionRightElement)
 
   if (sectionRightElement.value) {
-    calculateBoxTopDistance();
-    window.addEventListener("scroll", handleScroll);
+    calculateBoxTopDistance()
+    window.addEventListener('scroll', handleScroll)
   }
-});
+})
 
 // 卸载时清除监听器
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
+  window.removeEventListener('scroll', handleScroll)
+})
 
 // 计算盒子距离顶部的高度
 const calculateBoxTopDistance = () => {
-  const y = window.scrollY;
+  const y = window.scrollY
   for (let index = 1; index < sectionRightElement.value.length; index++) {
-    const rect1 = sectionRightElement.value[index].getBoundingClientRect();
+    const rect1 = sectionRightElement.value[index].getBoundingClientRect()
     if (y > rect1.top + (window.pageYOffset - 100)) {
       const rect2 =
-        sectionRightElement.value[index + 1]?.getBoundingClientRect();
+        sectionRightElement.value[index + 1]?.getBoundingClientRect()
       if (y < rect2?.top + window.pageYOffset - 100 || !rect2) {
-        questionList.value[index - 1].istext = true;
+        questionList.value[index - 1].istext = true
       } else {
-        questionList.value[index - 1].istext = false;
+        questionList.value[index - 1].istext = false
       }
     } else {
-      questionList.value[index - 1].istext = false;
+      questionList.value[index - 1].istext = false
     }
   }
-};
+}
 
 // 处理滚动事件
 const handleScroll = () => {
-  calculateBoxTopDistance();
-};
+  calculateBoxTopDistance()
+}
 </script>
 <template>
   <div class="container">
     <div class="header">
       <div class="header_content">
         <div class="header_content_header">
-          {{ $t("learning_center.Learning_center") }}
+          {{ $t('learning_center.Learning_center') }}
         </div>
         <div class="header_content_text">
-          {{ $t("learning_center.A_guide_and_help_center") }}
+          {{ $t('learning_center.A_guide_and_help_center') }}
         </div>
         <div
           class="header_content_button"
@@ -186,7 +194,7 @@ const handleScroll = () => {
         <div class="section_side_opacity"></div>
         <div class="section_side_message">
           <div class="section_side_title">
-            {{ $t("learning_center.What_is_Utility") }}？
+            {{ $t('learning_center.What_is_Utility') }}？
           </div>
           <div class="text_list">
             <div
@@ -233,6 +241,9 @@ const handleScroll = () => {
                   <div class="section_right_item_card_item_header_text">
                     {{ $t(citem.text) }}
                   </div>
+                  <div class="section_right_item_card_item_header_img">
+                    <img :src="citem.img" alt="" />
+                  </div>
                 </div>
                 <div class="section_right_item_card_item_button">
                   <img
@@ -271,28 +282,24 @@ const handleScroll = () => {
 
   .header {
     width: 100%;
+    height: 972px;
     background: var(--learning_center-header-bg) no-repeat;
     background-size: cover;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
 
     .header_content {
       height: 310px;
-      width: 640px;
+      width: 534px;
       margin: 0 0 94px 140px;
       padding: 0 60px;
 
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: var(--learning_center-header-bg-color);
       box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -328,7 +335,7 @@ const handleScroll = () => {
         font-weight: 500;
         line-height: 150%;
         cursor: pointer;
-
+        background: var(--background-header_content_button);
         &:hover {
           border: 1px solid #3edfcf;
           background-color: #3edfcf;
@@ -404,7 +411,7 @@ const handleScroll = () => {
     }
 
     .section_right {
-      padding: 60px 155px 0px 92px;
+      padding: 60px 88px 0px 92px;
 
       .section_right_item {
         margin-bottom: 70px;
@@ -433,7 +440,7 @@ const handleScroll = () => {
           align-items: center;
 
           .section_right_item_card_item {
-            height: 246px;
+            // height: 246px;
             padding: 35px 40px 40px;
             margin-right: 14px;
             border-radius: 8px;
@@ -467,7 +474,9 @@ const handleScroll = () => {
 
                 /* 21px */
               }
-
+              .section_right_item_card_item_header_img {
+                margin: 30px 0;
+              }
               .section_right_item_card_item_header_text {
                 color: var(--where-text);
                 font-family: Inter;
@@ -482,6 +491,8 @@ const handleScroll = () => {
             .section_right_item_card_item_button {
               display: flex;
               cursor: pointer;
+              display: flex;
+              justify-content: center;
 
               img {
                 width: 24px;
@@ -519,7 +530,7 @@ const handleScroll = () => {
   }
 
   .section_right_item_card_item {
-    width: 369px;
+    width: 368px;
   }
 }
 

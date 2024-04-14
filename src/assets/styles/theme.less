@@ -44,6 +44,7 @@
         --Utility-text-color-title: #151c1a;
         --Utility-text-color1: rgba(21, 28, 26, 0.60);
         --Utility-title-color: rgba(21, 28, 26, 0.9);
+        --background-header_content_button: none;
         --Utility-title-color-one: rgba(21, 28, 26, 0.9);
         --Utility-item-img: linear-gradient(97deg,
                         #f1f7f6 40%,
@@ -297,13 +298,20 @@
         --button_right-shadow: 0px 4px 20px 0px rgba(156, 255, 243, 0.3);
         --section_side_opacity-bgc: linear-gradient(177deg, #fff -24.77%, rgba(255, 255, 255, 0) 7.53%);
         --learning_center-header-bg: url("@/assets/images/learning_center_background.png");
+        --learning_center-header-bg-color: linear-gradient(180deg,
+                        rgba(244, 248, 248, 0.05) 0.13%,
+                        rgba(244, 248, 248, 0) 99.87%);
+
 
 
 }
 
 /* 暗色主题样式 */
 .dark-theme {
-        --learning_center-header-bg: url("@/assets/images/learning_center.png");
+        --learning_center-header-bg-color: rgba(0, 0, 0, 0.7);
+
+        --background-header_content_button: linear-gradient(113deg, #ca00c1 4.34%, #00f7e4 92.98%);
+        --learning_center-header-bg: url("@/assets/images/learning_center.jpg");
 
         --section_side_opacity-bgc: linear-gradient(177deg,
                         #3d534e 34.77%,
@@ -363,7 +371,7 @@
         --poci-bgc: rgba(21, 28, 26, 0.9);
         // ~ 手机端 end  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-        --unc-token-bgc: url("@/assets/images/unc_token_background.png") no-repeat;
+        --unc-token-bgc: url("@/assets/images/unc_token_background.jpg") no-repeat;
         --unc-token-bgc-phone: url("@/assets/images/phone_unc_token-dark.png") no-repeat;
         --docs-bgc: #141817;
         --docs-bgc-phone: #000;
@@ -516,7 +524,7 @@
         --Utility-text-color: rgba(255, 255, 255, 0.8);
         --Utility-text-color-title: #fff;
         --Utility-text-color1: rgba(255, 255, 255, 0.6);
-        --Utility-title-color: #3EDFCF;
+        --Utility-title-color: #3edfcf;
         --Utility-title-color-one: #FFFEFB;
 
         --Utility-item-img: none;
