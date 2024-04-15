@@ -282,7 +282,7 @@ const handleScroll = () => {
 
   .header {
     width: 100%;
-    height: 972px;
+    // height: 972px;
     background: var(--learning_center-header-bg) no-repeat;
     background-size: cover;
     display: flex;
