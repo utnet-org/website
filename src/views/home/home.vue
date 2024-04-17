@@ -1,65 +1,65 @@
 <script setup lang="ts" name="HomeView">
-import arrow from "@/assets/images/arrow.svg";
-import arrow1 from "@/assets/images/arrow1.svg";
-import "swiper/swiper-bundle.css";
-import "swiper/less";
-import "swiper/less/navigation";
-import "swiper/css/pagination";
-import { computed, onMounted, onUnmounted, ref, toRef, watch } from "vue";
-import { getStatistics } from "@/api/home";
-import { useI18n } from "vue-i18n";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { openNewPage } from "@/utils/request";
-import { Navigation, Pagination, Autoplay, Scrollbar } from "swiper/modules";
-import router from "@/router";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
+import arrow from '@/assets/images/arrow.svg'
+import arrow1 from '@/assets/images/arrow1.svg'
+import 'swiper/swiper-bundle.css'
+import 'swiper/less'
+import 'swiper/less/navigation'
+import 'swiper/css/pagination'
+import { computed, onMounted, onUnmounted, ref, toRef, watch } from 'vue'
+import { getStatistics } from '@/api/home'
+import { useI18n } from 'vue-i18n'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { openNewPage } from '@/utils/request'
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules'
+import router from '@/router'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+import developerAarrow from '@/assets/images/Developer_arrow.svg'
+import star from '@/assets/images/star.svg'
+import star1 from '@/assets/images/star1.svg'
+import star2 from '@/assets/images/star2.svg'
 
-import star from "@/assets/images/star.svg";
-import star1 from "@/assets/images/star1.svg";
-import star2 from "@/assets/images/star2.svg";
-
-import starphone from "@/assets/images/star_phone.svg";
-import starphone1 from "@/assets/images/star_phone1.svg";
-import starphone2 from "@/assets/images/star_phone2.svg";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
-const { locale } = useI18n();
-const res = ref(); //^ 数据 和 圆 Data and circles的数据
-const Data_arr = ref(); //^ Where to Start的数据
-const width = ref(window.innerWidth);
-const height = ref(window.innerHeight);
-const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力Utility</span> 开源社区，共建革命性应用型Web3`;
-const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help Utility</span> open source community to build a revolutionary application Web3`;
+import starphone from '@/assets/images/star_phone.svg'
+import starphone1 from '@/assets/images/star_phone1.svg'
+import starphone2 from '@/assets/images/star_phone2.svg'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
+const { locale } = useI18n()
+const res = ref() //^ 数据 和 圆 Data and circles的数据
+const Data_arr = ref() //^ Where to Start的数据
+const width = ref(window.innerWidth)
+const height = ref(window.innerHeight)
+const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力Utility</span> 开源社区，共建革命性应用型Web3`
+const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help Utility</span> open source community to build a revolutionary application Web3`
 const updatedWidth = function () {
-  width.value = window.innerWidth;
-  height.value = window.innerHeight;
-  updateUtilityArr(); // 初始设置
-};
+  width.value = window.innerWidth
+  height.value = window.innerHeight
+  updateUtilityArr() // 初始设置
+}
 
 onMounted(async () => {
-  updateUtilityArr(); // 初始设置
-  const { data } = await getStatistics();
-  res.value = data;
-  window.addEventListener("resize", updatedWidth);
+  updateUtilityArr() // 初始设置
+  const { data } = await getStatistics()
+  res.value = data
+  window.addEventListener('resize', updatedWidth)
   Data_arr.value = [
     {
       amount:
         width.value > 834
           ? `<span style='font-size: 26px;'>$</span>${res.value?.aiPower.toLocaleString()}`
           : `<span style='font-size: 16px;'>$</span>${res.value?.aiPower.toLocaleString()}`,
-      text: "home.UNC_PRICE",
+      text: 'home.UNC_PRICE'
     },
     {
       amount: `${res.value?.totalMiners?.toLocaleString()}K`,
-      text: "home.NODES",
+      text: 'home.NODES'
     },
     {
       amount:
         width.value > 834
           ? "<span style='font-size: 26px;'>$</span>1,221,120K"
           : "<span style='font-size: 16px;'>$</span>1,221,120K",
-      text: "home.Transaction_Today",
+      text: 'home.Transaction_Today'
     },
 
     {
@@ -67,154 +67,154 @@ onMounted(async () => {
         width.value > 834
           ? `${res.value?.activeMiners.toLocaleString()}M <span style='font-size: 26px;'> tflops</span>`
           : `${res.value?.activeMiners.toLocaleString()}M <span style='font-size: 16px;'>tflops</span>`,
-      text: "home.Computational_Power_Synthesis",
-    },
-  ];
+      text: 'home.Computational_Power_Synthesis'
+    }
+  ]
 
   //^ Utility Chain Scaling Solutions的数据
-});
+})
 
 //! Where to Start 鼠标移入
 function WhereChange(index: number) {
   //当前的为true
-  Where_arr.value[index].hover = true;
+  Where_arr.value[index].hover = true
   //其他的为false
   Where_arr.value.forEach((item, i) => {
     if (i !== index) {
-      item.hover = false;
+      item.hover = false
     }
-  });
+  })
 }
 //! Where to Start 鼠标移出
 function WhereChangeli() {
   //其他的为false
   Where_arr.value.forEach((item, i) => {
-    item.hover = false;
-  });
+    item.hover = false
+  })
 }
 
 interface UtilityItem {
-  title: string;
-  text: string;
-  img: string;
-  isclick: boolean;
+  title: string
+  text: string
+  img: string
+  isclick: boolean
 }
 
-const Utility_arr = ref<UtilityItem[]>([]); // 显式指定数组元素类型
+const Utility_arr = ref<UtilityItem[]>([]) // 显式指定数组元素类型
 
 const updateUtilityArr = () => {
   Utility_arr.value =
     width.value > 834
       ? [
           {
-            title: "home.UNC_Node",
-            text: "home.Provides_solutions_for",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg",
+            title: 'home.UNC_Node',
+            text: 'home.Provides_solutions_for',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one.svg',
 
-            isclick: false, //鼠标移入移出
+            isclick: false //鼠标移入移出
           },
           {
-            title: "home.UNC_Mining",
-            text: "home.The_computing_power",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg",
-            isclick: false,
+            title: 'home.UNC_Mining',
+            text: 'home.The_computing_power',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two.svg',
+            isclick: false
           },
           {
-            title: "home.UNC_work",
-            text: "home.The_actual_computing",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg",
-            isclick: false,
+            title: 'home.UNC_work',
+            text: 'home.The_actual_computing',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three.svg',
+            isclick: false
           },
           {
-            title: "home.unc_Wasm",
-            text: "home.Integrated_WebAssembly_virtual",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg",
-            isclick: false,
+            title: 'home.unc_Wasm',
+            text: 'home.Integrated_WebAssembly_virtual',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four.svg',
+            isclick: false
           },
           {
-            title: "home.UNC_chain_Explorer",
-            text: "home.Search_Information_data",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg",
-            isclick: false,
+            title: 'home.UNC_chain_Explorer',
+            text: 'home.Search_Information_data',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five.svg',
+            isclick: false
           },
           {
-            title: "home.UNC_wallet",
-            text: "home.A_asset_account",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg",
+            title: 'home.UNC_wallet',
+            text: 'home.A_asset_account',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six.svg',
 
-            isclick: false,
+            isclick: false
           },
           {
-            title: "home.hashing_power",
-            text: "home.The_first_computing",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg",
-            isclick: false,
+            title: 'home.hashing_power',
+            text: 'home.The_first_computing',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_seven.svg',
+            isclick: false
           },
           {
-            title: "home.Testnet_Faucet",
-            text: "home.Test_the_node",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg",
-            isclick: false,
-          },
+            title: 'home.Testnet_Faucet',
+            text: 'home.Test_the_node',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_eight.svg',
+            isclick: false
+          }
         ]
       : [
           {
-            title: "home.UNC_Node",
-            text: "home.Provides_solutions_for",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one_phone.svg",
-            isclick: false, //鼠标移入移出
+            title: 'home.UNC_Node',
+            text: 'home.Provides_solutions_for',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_one_phone.svg',
+            isclick: false //鼠标移入移出
           },
           {
-            title: "home.UNC_Mining",
-            text: "home.The_computing_power",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two_phone.svg",
-            isclick: false,
+            title: 'home.UNC_Mining',
+            text: 'home.The_computing_power',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_two_phone.svg',
+            isclick: false
           },
           {
-            title: "home.UNC_work",
-            text: "home.The_actual_computing",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three_phone.svg",
-            isclick: false,
+            title: 'home.UNC_work',
+            text: 'home.The_actual_computing',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_three_phone.svg',
+            isclick: false
           },
           {
-            title: "home.unc_Wasm",
-            text: "home.Integrated_WebAssembly_virtual",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four_phone.svg",
-            isclick: false,
+            title: 'home.unc_Wasm',
+            text: 'home.Integrated_WebAssembly_virtual',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_four_phone.svg',
+            isclick: false
           },
 
           {
-            title: "home.hashing_power",
-            text: "home.The_first_computing",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five_phone.svg",
-            isclick: false,
+            title: 'home.hashing_power',
+            text: 'home.The_first_computing',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_five_phone.svg',
+            isclick: false
           },
           {
-            title: "home.Testnet_Faucet",
-            text: "home.Test_the_node",
-            img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six_phone.svg",
-            isclick: false,
-          },
-        ];
-};
+            title: 'home.Testnet_Faucet',
+            text: 'home.Test_the_node',
+            img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Frame_six_phone.svg',
+            isclick: false
+          }
+        ]
+}
 
 //^ Utility Chain Scaling Solutions 鼠标移入
 function UtilityChainChange(index: number) {
   //当前的为true
-  Utility_arr.value[index].isclick = true;
+  Utility_arr.value[index].isclick = true
   //其他的为false
   Utility_arr.value.forEach((item, i) => {
     if (i !== index) {
-      item.isclick = false;
+      item.isclick = false
     }
-  });
+  })
 }
 //^ Utility Chain Scaling Solutions 鼠标移出
 function UtilityChainChangeli() {
   //设置所有的isclick为false
   Utility_arr.value.forEach((item, i) => {
-    item.isclick = false;
-  });
+    item.isclick = false
+  })
 }
 
 // ~ 走马灯里面的一堆图标数据
@@ -222,165 +222,165 @@ function UtilityChainChangeli() {
 // ~走马灯  创建一个重复的图片数组，用于无缝轮播
 // const duplicatedImages = [...imageSources, ...imageSources, ...imageSources];
 // ~走马灯  控制轮播方向
-const isForward = ref(true);
+const isForward = ref(true)
 // ~走马灯  控制轮播是否进行
-const isPlaying = ref(false);
+const isPlaying = ref(false)
 //~走马灯 开始轮播的函数
 function startCarousel() {
-  isPlaying.value = true;
-  isForward.value = false;
+  isPlaying.value = true
+  isForward.value = false
 }
 // ~走马灯  停止轮播的函数，并逆向移动到第一张图片
 function stopCarousel() {
-  isForward.value = true; // 重置轮播方向
+  isForward.value = true // 重置轮播方向
 }
 
 // & 轮播图数据
 const merryGoRound_arr = ref([
   {
     id: 0,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg",
-    time: "September 21, 2023",
-    text: "Calculate demand analysis and the next tuyere",
-    isswiperenter: false,
+    img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/F9iRJn8bwAAPRhl.jpeg',
+    time: 'September 21, 2023',
+    text: 'Calculate demand analysis and the next tuyere',
+    isswiperenter: false
   },
   {
     id: 1,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png",
-    time: "September 21, 2023",
-    text: "Calculate demand analysis and the next tuyere",
-    isswiperenter: false,
+    img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_two.png',
+    time: 'September 21, 2023',
+    text: 'Calculate demand analysis and the next tuyere',
+    isswiperenter: false
   },
   {
     id: 2,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png",
-    time: "September 21, 2023",
-    text: "Decentralized computing power equals edge computing",
-    isswiperenter: false,
+    img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_three.png',
+    time: 'September 21, 2023',
+    text: 'Decentralized computing power equals edge computing',
+    isswiperenter: false
   },
   {
     id: 3,
-    img: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png",
-    time: "September 21, 2023",
-    text: "An encrypted world without wasted computing power",
-    isswiperenter: false,
-  },
-]);
+    img: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/article_bgc_four.png',
+    time: 'September 21, 2023',
+    text: 'An encrypted world without wasted computing power',
+    isswiperenter: false
+  }
+])
 // & swiper实例
-const mySwiper = ref();
+const mySwiper = ref()
 // & 当前活动swiper的索引
-const indexNum = ref(0);
+const indexNum = ref(0)
 // & 轮播图 在modules加入要使用的模块
-const modules = [Autoplay, Pagination, Navigation, Scrollbar];
+const modules = [Autoplay, Pagination, Navigation, Scrollbar]
 // & 轮播图 更改当前活动swiper
 const onSlideChange = (swiper: { activeIndex: any }) => {
   // & 轮播图 确定当前活动swiper的索引，方便阴影的显示
-  indexNum.value = swiper.activeIndex;
-};
+  indexNum.value = swiper.activeIndex
+}
 // & 轮播图 swiper的配置左右的箭头
 const navigation = ref({
-  nextEl: ".swiper-button-next",
-  prevEl: ".swiper-button-prev",
-});
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev'
+})
 
 const jumpNews = (id: number) => {
   router.push({
-    path: "/news",
+    path: '/news',
     query: {
-      msg: id,
-    },
-  });
-};
+      msg: id
+    }
+  })
+}
 
-const ani_btn_s = ref(0);
+const ani_btn_s = ref(0)
 
 onUnmounted(() => {
-  window.removeEventListener("resize", updatedWidth);
-});
+  window.removeEventListener('resize', updatedWidth)
+})
 
 const setVedio = () => {
-  const video = document.getElementById("video11") as HTMLVideoElement;
-  video.play();
-};
+  const video = document.getElementById('video11') as HTMLVideoElement
+  video.play()
+}
 
 //! Where to Start的数据
 const Where_arr = ref([
   {
-    title: "home.Builder",
-    text: "home.You_can_try",
+    title: 'home.Builder',
+    text: 'home.You_can_try',
     hover: false,
-    button: "home.Build_DOC",
-    link: "https://wiki.utlab.io/docs/node/introduction",
+    button: 'home.Build_DOC',
+    link: 'https://wiki.utlab.io/docs/node/introduction'
   },
   {
-    title: "home.MINER",
-    text: "home.You_can_get_UNC",
+    title: 'home.MINER',
+    text: 'home.You_can_get_UNC',
     hover: false,
-    button: "home.Learn_More",
-    link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
+    button: 'home.Learn_More',
+    link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
   },
   {
-    title: "home.UNC_WALLET",
-    text: "home.The_UNC_Wallet",
+    title: 'home.UNC_WALLET',
+    text: 'home.The_UNC_Wallet',
     hover: false,
-    button: "home.Explore_Wallet",
+    button: 'home.Explore_Wallet',
     link:
       width.value > 834
-        ? "/soloutions/utility_wallet"
-        : "/soloutions/mp_utility_wallet",
+        ? '/soloutions/utility_wallet'
+        : '/soloutions/mp_utility_wallet'
   },
   {
-    title: "home.Computing_Power_users",
-    text: "home.You_can_rent",
+    title: 'home.Computing_Power_users',
+    text: 'home.You_can_rent',
     hover: false,
-    button: "home.Develop",
-    link: width.value > 834 ? "/get_power" : "/soloutions/mp_hashing_power",
-  },
-]);
+    button: 'home.Develop',
+    link: width.value > 834 ? '/get_power' : '/soloutions/mp_hashing_power'
+  }
+])
 
 const fourdata = [
   {
-    title: "home.Developers",
-    text: ["home.Developers_text1"],
-    button: "home.Join_Ecosystem",
+    title: 'home.Developers',
+    text: ['home.Developers_text1'],
+    button: 'home.Join_Ecosystem'
   },
   {
-    title: "home.Computing_power_supply",
+    title: 'home.Computing_power_supply',
     text: [
-      "home.Computing_power_supply_text1",
-      "home.Computing_power_supply_text2",
+      'home.Computing_power_supply_text1',
+      'home.Computing_power_supply_text2'
     ],
-    button: "home.Mining",
+    button: 'home.Mining'
   },
   {
-    title: "home.Token_holder",
+    title: 'home.Token_holder',
     text: [
-      "home.Computing_power_supply_text2",
-      "home.Token_holder_text1",
-      "home.Token_holder_text2",
+      'home.Computing_power_supply_text2',
+      'home.Token_holder_text1',
+      'home.Token_holder_text2'
     ],
-    button: "home.Check_Wallet",
+    button: 'home.Check_Wallet'
   },
   {
-    title: "home.Computing_power_renter",
-    text: ["home.Computing_power_renter_text1"],
-    button: "home.Rent",
-  },
-];
+    title: 'home.Computing_power_renter',
+    text: ['home.Computing_power_renter_text1'],
+    button: 'home.Rent'
+  }
+]
 
 // 计算属性，根据主题和屏幕宽度决定图片路径
 const computedImagePath = computed(() => {
   // 假设屏幕宽度小于834px时为小屏
   if (width.value < 834) {
     return theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Objects1.png"
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Objects1.png'
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
   } else {
     return theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Objects6578786547654675.png"
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png";
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Objects6578786547654675.png'
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Contribute_to_Utility.png'
   }
-});
+})
 </script>
 <template>
   <div class="home_view">
@@ -401,7 +401,7 @@ const computedImagePath = computed(() => {
           <div class="Language">
             <div class="point"></div>
             <div class="lang">
-              {{ locale === "en" ? "English" : "中文简体" }}
+              {{ locale === 'en' ? 'English' : '中文简体' }}
             </div>
           </div>
           <div class="Utility">
@@ -415,11 +415,11 @@ const computedImagePath = computed(() => {
               class="Welcome_text_title"
               :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
-              {{ $t("home.Welcome_to_utility") }}
+              {{ $t('home.Welcome_to_utility') }}
             </div>
           </div>
           <div class="Anapplication">
-            {{ $t("home.An_application") }}
+            {{ $t('home.An_application') }}
           </div>
           <div class="button_father">
             <div
@@ -429,7 +429,7 @@ const computedImagePath = computed(() => {
               "
             >
               <div class="text">
-                {{ $t("home.White_Paper") }}
+                {{ $t('home.White_Paper') }}
               </div>
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
@@ -442,7 +442,7 @@ const computedImagePath = computed(() => {
               @click="openNewPage('/learning/learning_center')"
             >
               <div class="text">
-                {{ $t("home.More") }}
+                {{ $t('home.More') }}
               </div>
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
@@ -469,13 +469,13 @@ const computedImagePath = computed(() => {
         @ended="setVedio"
         :style="{
           objectFit: width > 2150 ? 'cover' : 'contain',
-          height: width > 2150 ? '100vh' : '100%',
+          height: width > 2150 ? '100vh' : '100%'
         }"
       ></video>
     </div>
     <!-- !视频end -->
     <div class="container" style="overflow: hidden">
-      <div class="ellipse_dev" style="margin-top: 100px">
+      <!-- <div class="ellipse_dev" style="margin-top: 100px">
         <div
           style="
             width: 100%;
@@ -579,7 +579,7 @@ const computedImagePath = computed(() => {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--! Where to Start -->
       <!-- <div class="Where_to_Start">
         <div class="title">
@@ -631,6 +631,101 @@ const computedImagePath = computed(() => {
           </div>
         </div>
       </div> -->
+
+      <!-- !大大的图片 begin -->
+      <div class="UNCEcosystem">
+        <!-- <div class="clipped_rectangle">
+          <img src="@/assets/images/UNC_Ecosystem_bg.jpg" alt="" />
+        </div> -->
+        <div class="Ecosystem">
+          <div class="Ecosystem_father">
+            <div class="Ecosystem_title">UNC生态系统</div>
+            <div class="Ecosystem_text">
+              每个人都可以成为UNC持有者，用于购买实用工具并交换UNC代币。
+            </div>
+          </div>
+        </div>
+        <div class="Developer Developer1">
+          <div class="Developer_title">开发者</div>
+          <div class="Developer_bg_father_border">
+            <div class="Developer_bg_father">
+              <div class="Developer_text">
+                将您的项目想法带给多个用户在实用工具生态系统中。
+              </div>
+              <div class="Developer_button">
+                <div class="Developer_arrow">
+                  <developerAarrow />
+                </div>
+                <div class="Developer_button_text">加入生态系统</div>
+              </div>
+            </div>
+          </div>
+          <div class="Developer_line1"></div>
+          <div class="Developer_line2"></div>
+          <div class="Developer_round"></div>
+        </div>
+        <div class="Developer Developer2">
+          <div class="Developer_line1"></div>
+          <div class="Developer_line2"></div>
+          <div class="Developer_round"></div>
+          <div class="Developer_title">代币持有者</div>
+          <div class="Developer_bg_father_border">
+            <div class="Developer_bg_father">
+              <div class="Developer_text">
+                <span> 通过挖矿获得UNC </span>
+                <span> 通过出售计算能力获得UNC </span>
+                <span> 在交易所购买UNC代币 </span>
+              </div>
+              <div class="Developer_button">
+                <div class="Developer_arrow">
+                  <developerAarrow />
+                </div>
+                <div class="Developer_button_text">检查钱包</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Developer Developer3">
+          <div class="Developer_line1"></div>
+          <div class="Developer_line2"></div>
+          <div class="Developer_round"></div>
+          <div class="Developer_title">计算能力供应</div>
+          <div class="Developer_bg_father_border">
+            <div class="Developer_bg_father">
+              <div class="Developer_text">
+                <span> 提供稳定的计算能力 </span>
+                <span> 通过挖矿获得UNC </span>
+              </div>
+              <div class="Developer_button">
+                <div class="Developer_arrow">
+                  <developerAarrow />
+                </div>
+                <div class="Developer_button_text">挖矿</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Developer Developer4">
+          <div class="Developer_round"></div>
+          <div class="Developer_line1"></div>
+          <div class="Developer_line2"></div>
+          <div class="Developer_title">计算能力租赁者</div>
+          <div class="Developer_bg_father_border">
+            <div class="Developer_bg_father">
+              <div class="Developer_text">
+                从实用工具提供商那里租用高性能计算能力，用于您自己的目的。
+              </div>
+              <div class="Developer_button">
+                <div class="Developer_arrow">
+                  <developerAarrow />
+                </div>
+                <div class="Developer_button_text">租赁</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ! 大大的图片end -->
       <!-- !星星 begin -->
       <div class="Data_and_circles">
         <div class="star_father">
@@ -697,7 +792,7 @@ const computedImagePath = computed(() => {
       <!--! Utility Chain Scaling Solutions  -->
       <div class="Utility_Chain">
         <div class="title">
-          {{ $t("home.Utility_Chain_Scaling_Solutions") }}
+          {{ $t('home.Utility_Chain_Scaling_Solutions') }}
         </div>
         <div class="Utility_Chain_box">
           <div v-for="(item, index) in Utility_arr" :key="index">
@@ -713,7 +808,7 @@ const computedImagePath = computed(() => {
                     boxShadow:
                       item.isclick && theme
                         ? ' 0 0 12px rgba(0, 255, 255, 0.7)'
-                        : 'none',
+                        : 'none'
                   }"
                 >
                   <img
@@ -723,21 +818,21 @@ const computedImagePath = computed(() => {
                       filter:
                         item.isclick && !theme
                           ? 'brightness(0%)'
-                          : 'brightness(100%)',
+                          : 'brightness(100%)'
                     }"
                     alt=""
                   />
                 </div>
                 <div class="Utility_Chain_box_item_button_father">
                   <div class="Utility_Chain_box_item_button">
-                    {{ $t("home.Testnet") }}
+                    {{ $t('home.Testnet') }}
                   </div>
                   <div
                     class="item_title"
                     :style="{
                       color: item.isclick
                         ? '#3EDFCF'
-                        : 'var(--Utility-text-color)',
+                        : 'var(--Utility-text-color)'
                     }"
                   >
                     {{ $t(item.title) }}
@@ -783,7 +878,7 @@ const computedImagePath = computed(() => {
       <!-- !轮播图 -->
       <div v-if="width < 834" class="merry_go_round">
         <div class="title">
-          {{ $t("home.What_is_New") }}
+          {{ $t('home.What_is_New') }}
         </div>
 
         <swiper
@@ -815,7 +910,7 @@ const computedImagePath = computed(() => {
                 color:
                   item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
+                    : 'var(--swiper-text-color1)'
               }"
             >
               {{ item.time }}
@@ -826,7 +921,7 @@ const computedImagePath = computed(() => {
                 color:
                   item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
+                    : 'var(--swiper-text-color1)'
               }"
             >
               {{ item.text }}
@@ -836,7 +931,7 @@ const computedImagePath = computed(() => {
       </div>
       <div v-else class="merry_go_round">
         <div class="title">
-          {{ $t("home.What_is_New") }}
+          {{ $t('home.What_is_New') }}
         </div>
 
         <div class="swiper-button-prev"></div>
@@ -871,7 +966,7 @@ const computedImagePath = computed(() => {
                 boxShadow:
                   item.isswiperenter && theme
                     ? '-1px -1px 15px 0px rgba(0, 255, 255, 1)'
-                    : 'none',
+                    : 'none'
               }"
               class="swiper_img"
               :src="item.img"
@@ -883,7 +978,7 @@ const computedImagePath = computed(() => {
                 color:
                   item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
+                    : 'var(--swiper-text-color1)'
               }"
             >
               {{ item.time }}
@@ -894,7 +989,7 @@ const computedImagePath = computed(() => {
                 color:
                   item.isswiperenter && theme
                     ? 'var(--swiper-text-color)'
-                    : 'var(--swiper-text-color1)',
+                    : 'var(--swiper-text-color1)'
               }"
             >
               {{ item.text }}
@@ -921,12 +1016,12 @@ const computedImagePath = computed(() => {
           ></div>
 
           <div class="text">
-            {{ $t("home.Utility_is_a_revolutionary") }}
+            {{ $t('home.Utility_is_a_revolutionary') }}
           </div>
           <div class="button_father">
             <div class="button_left" @click="openNewPage('/community')">
               <div class="button_text">
-                {{ $t("home.Join_us") }}
+                {{ $t('home.Join_us') }}
               </div>
               <arrow
                 v-if="width > 834"
@@ -942,7 +1037,7 @@ const computedImagePath = computed(() => {
               @click="openNewPage('https://github.com/utnet-org')"
             >
               <div class="button_text">
-                {{ $t("footer.Github") }}
+                {{ $t('footer.Github') }}
               </div>
               <arrow
                 v-if="width > 834"
@@ -960,6 +1055,494 @@ const computedImagePath = computed(() => {
   </div>
 </template>
 <style scoped lang="less">
+.UNCEcosystem {
+  position: relative;
+  background: rgb(255, 255, 255);
+  background: url('@/assets/images/UNC_Ecosystem_bg.jpg') no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 962px;
+  // .clipped_rectangle {
+  //   position: relative;
+  // }
+  .Ecosystem {
+    position: relative;
+    top: 40px;
+    left: 20px;
+    background: url('@/assets/images/Rectangle.png') no-repeat;
+    background-size: cover;
+    width: 618px;
+    height: 139px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Ecosystem_father {
+      height: 112px;
+      width: 589px;
+      flex-shrink: 0;
+      background: var(
+        --Linear,
+        linear-gradient(
+          180deg,
+          rgba(17, 70, 78, 0.54) 56.03%,
+          rgba(2, 16, 17, 0.54) 98.91%
+        )
+      );
+      stroke-width: 2px;
+      stroke: #00ecec;
+      backdrop-filter: blur(7.5px);
+      clip-path: polygon(
+        38px 0,
+        100% 0,
+        100% 35px,
+        100% calc(100% - 35px),
+        calc(100% - 35px) 100%,
+        0 100%,
+        0 calc(100% - 35px),
+        0px 32px
+      );
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      padding: 0 34px;
+      .Ecosystem_title {
+        color: var(--Color, #fff);
+        text-align: center;
+        // font-family: 'Lantinghei SC';
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .Ecosystem_text {
+        color: #fff;
+        text-align: center;
+        font-family: Inter;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+  .Developer {
+    position: absolute;
+
+    .Developer_title {
+      margin-bottom: 6px;
+      display: inline-flex;
+      padding: 6px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: var(--Color, #fff);
+      font-family: 'PingFang SC';
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      letter-spacing: 0.76px;
+      text-transform: uppercase;
+      border: 1px solid #00e6e1;
+      background: linear-gradient(92deg, #b400ab 0%, #00b1a9 98.53%);
+    }
+    .Developer_bg_father_border {
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .Developer_bg_father {
+        flex-shrink: 0;
+        background: var(
+          --Linear,
+          linear-gradient(
+            180deg,
+            rgba(78, 17, 49, 0.5) 0%,
+            rgba(17, 2, 10, 0.5) 104.39%
+          )
+        );
+        backdrop-filter: blur(7.5px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+
+        .Developer_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+          text-transform: uppercase;
+        }
+      }
+      .Developer_button {
+        display: flex;
+        .Developer_button_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: uppercase;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .Developer_line1 {
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_line2 {
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_round {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid #00ecec;
+    }
+  }
+  .Developer1 {
+    left: 182px;
+    top: 300px;
+
+    .Developer_title {
+      margin-left: 186px;
+    }
+    .Developer_bg_father_border {
+      height: 114px;
+      width: 312px;
+      background: url('@/assets/images/Vector1.png') no-repeat;
+      background-size: cover;
+
+      .Developer_bg_father {
+        height: 110px;
+        width: 308px;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 31px) 0px,
+          100% 20px,
+          100% 100%,
+          100% 100%,
+          26px 100%,
+          0 calc(100% - 25px),
+          0px 8px
+        );
+        padding: 0 36px;
+        .Developer_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+          text-transform: uppercase;
+        }
+      }
+      .Developer_button {
+        display: flex;
+        .Developer_button_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: uppercase;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .Developer_line1 {
+      position: relative;
+      left: 178px;
+      top: 0px;
+      width: 2px;
+      height: 92.5px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_line2 {
+      position: relative;
+      left: 178px;
+      top: 0px;
+      width: 118px;
+      height: 2px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_round {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      left: 296px;
+      top: 247px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid #00ecec;
+    }
+  }
+  .Developer2 {
+    left: 312px;
+    top: 600px;
+
+    .Developer_title {
+      margin-left: 215px;
+    }
+    .Developer_bg_father_border {
+      height: 116px;
+      width: 354px;
+      background: url('@/assets/images/Vector3.png') no-repeat;
+      background-size: cover;
+
+      .Developer_bg_father {
+        height: 112px;
+        width: 350px;
+        clip-path: polygon(
+          38px 0,
+          100% 0,
+          100% 35px,
+          100% calc(100% - 23px),
+          calc(100% - 31px) 100%,
+          0 100%,
+          0 calc(100% - 35px),
+          0px 26px
+        );
+        padding: 0 30px;
+        .Developer_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+          text-transform: uppercase;
+        }
+      }
+      .Developer_button {
+        display: flex;
+        .Developer_button_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: uppercase;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .Developer_line1 {
+      position: relative;
+      left: 195px;
+      top: 53px;
+      width: 2px;
+      height: 79.5px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_line2 {
+      position: absolute;
+      left: 195px;
+      top: 53px;
+      width: 157px;
+      height: 2px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_round {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      left: 350px;
+      top: 48px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid #00ecec;
+    }
+  }
+  .Developer3 {
+    right: 50px;
+    top: 180px;
+
+    .Developer_title {
+      margin-left: 35px;
+    }
+    .Developer_bg_father_border {
+      height: 94px;
+      width: 336px;
+      background: url('@/assets/images/Vector2.png') no-repeat;
+      background-size: cover;
+
+      .Developer_bg_father {
+        height: 90px;
+        width: 332px;
+        clip-path: polygon(
+          29px 0,
+          100% 0,
+          100% 0,
+          100% calc(100% - 23px),
+          calc(100% - 32px) 100%,
+          0 100%,
+          0 calc(100% - 35px),
+          0px 26px
+        );
+        padding: 0 30px;
+        .Developer_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+          text-transform: uppercase;
+        }
+      }
+      .Developer_button {
+        display: flex;
+        .Developer_button_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: uppercase;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .Developer_line1 {
+      position: relative;
+      //  旋转180度
+      transform: rotate(150deg);
+      width: 2px;
+      right: 500px;
+      top: 185px;
+      width: 132px;
+      height: 2px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_line2 {
+      position: relative;
+      right: 378px;
+      top: 150px;
+      width: 132px;
+      height: 2px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_round {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      right: 502px;
+      top: 212px;
+      border: 2px solid #00ecec;
+    }
+  }
+  .Developer4 {
+    right: 50px;
+    bottom: 72px;
+
+    .Developer_title {
+      margin-left: 3px;
+    }
+    .Developer_bg_father_border {
+      height: 114px;
+      width: 348px;
+      background: url('@/assets/images/Vector4.png') no-repeat;
+      background-size: cover;
+
+      .Developer_bg_father {
+        height: 110px;
+        width: 344px;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 32px) 0px,
+          100% 24px,
+          100% 100%,
+          100% 100%,
+          27px 100%,
+          0 calc(100% - 26px),
+          0px 28px
+        );
+        padding: 0 30px;
+        .Developer_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+          text-transform: uppercase;
+        }
+      }
+      .Developer_button {
+        display: flex;
+        .Developer_button_text {
+          color: var(--Color, #fff);
+          font-family: 'PingFang SC';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: 0.64px;
+          text-transform: uppercase;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .Developer_line1 {
+      position: relative;
+
+      width: 2px;
+      right: 270px;
+      top: 0px;
+      width: 2px;
+      height: 170px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_line2 {
+      position: relative;
+      right: 270px;
+      top: 0px;
+      width: 60px;
+      height: 2px;
+      background: #00ecec;
+      flex-shrink: 0;
+    }
+    .Developer_round {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      right: 275px;
+      top: 0px;
+      border: 2px solid #00ecec;
+    }
+  }
+}
+
 .btn_span {
   border: 1px solid #3edfcf !important;
   &:hover {
@@ -1000,7 +1583,7 @@ const computedImagePath = computed(() => {
 
     .title {
       color: #3edfcf;
-      font-family: "Lantinghei SC";
+      font-family: 'Lantinghei SC';
       font-size: 17px;
       font-style: normal;
       font-weight: 400;
@@ -1235,7 +1818,7 @@ const computedImagePath = computed(() => {
         gap: 10px;
 
         &::before {
-          content: "";
+          content: '';
           display: block;
           border-radius: 5px;
           width: 10px;
@@ -1479,7 +2062,7 @@ const computedImagePath = computed(() => {
       }
     }
     .Data_and_circles {
-      margin-top: 100px;
+      // margin-top: 100px;
       .Data {
         display: flex;
         justify-content: center;
@@ -2203,7 +2786,7 @@ const computedImagePath = computed(() => {
           .Star_text4,
           .Star_text5 {
             color: var(--second-home-Star_text-color);
-            font-family: "Kumbh Sans";
+            font-family: 'Kumbh Sans';
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -2282,7 +2865,7 @@ const computedImagePath = computed(() => {
               .amount {
                 margin-top: 10px;
                 color: var(--amout-color); //FFFEFB
-                font-family: "Lantinghei SC";
+                font-family: 'Lantinghei SC';
                 font-size: 24px;
                 font-weight: 400;
                 line-height: normal;
@@ -2431,7 +3014,7 @@ const computedImagePath = computed(() => {
           .Star_text4,
           .Star_text5 {
             color: var(--second-home-Star_text-color);
-            font-family: "Kumbh Sans";
+            font-family: 'Kumbh Sans';
             font-style: normal;
             font-weight: 500;
             line-height: normal;

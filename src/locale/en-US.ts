@@ -165,6 +165,8 @@ export default {
     Utility_Ecosystem_text1: "Everyone can be UNC holder to purchase utility and exchange UNC token.",
   },
   learning_center: {
+    What_is_UNC: 'What is UNC',
+    How_to_understand: 'How to understand the concept of DePIN? To put it simply, the operation of traditional CePIN servers, sensors, communication networks and other physical infrastructure networks relies on centralized computing cluster services such as AWS and Alibaba Cloud. The investment cost is too high for many small and medium-sized enterprises.',
     U_Wallet: 'U Wallet',
     Purchase_U_Platform: 'Purchase U Platform',
     Learning_center: "Learning centre",
@@ -188,7 +190,7 @@ export default {
     A_digital_wallet_holds:
       "Digital wallets hold the credentials you need to prove your identity and access important places",
     the_first_computing_power:
-      "The first computing power rental platform issued by Utility.", 
+      "The first computing power rental platform issued by Utility.",
     Enhancing_Utility_Network: "Enhance Utility Network",
     Building_Utility_Network:
       "Build the Utility network and earn rewards (UNC) through blockchain and computing resource leasing.",

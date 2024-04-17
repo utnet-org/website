@@ -60,43 +60,13 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
 </script>
 <template>
   <div class="container">
-    <div
-      class="header"
-      :style="{
-        // background: !theme
-        //   ? 'url(' +
-        //     'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_background.png' +
-        //     ')' +
-        //     ' no-repeat'
-        //   : '',
-        // 'background-size': !theme ? 'cover' : '',
-      }"
-    >
+    <div class="header">
       <div class="header_content">
         <div class="header_content_header">
-          <div class="header_content_header_title">Current UNC (USD)</div>
-          <div class="header_content_header_title_div">
-            <div class="dots"></div>
-            <div class="time_text">Last 24 hours</div>
-          </div>
+          {{ $t('learning_center.What_is_UNC') }}
         </div>
-        <div class="header_content_acount">${{ unc_price }}</div>
-        <!-- <div class="header_content_line_chart">
-                    <img :src="LineChart" alt="">
-                </div> -->
-        <div
-          class="header_content_button"
-          @click="
-            openNewPage(
-              'https://www.bscscan.com/address/0x35Da89A339DE2c78F8FB1c5e1A9a9C6539e2FA8A'
-            )
-          "
-        >
-          <div>view details</div>
-          <img
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_to_right.png"
-            alt=""
-          />
+        <div class="header_content_text">
+          {{ $t('learning_center.How_to_understand') }}
         </div>
       </div>
     </div>
@@ -309,109 +279,68 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
 <style scoped lang="less">
 .container {
   width: 100%;
+
   .header {
+    margin-top: 62px;
     height: 578px;
+    width: 100%;
+    // height: 972px;
     background: var(--unc-token-bgc);
     background-size: cover;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    // justify-content: flex-start;
 
     .header_content {
-      width: 646px;
-      height: 271px;
+      height: 310px;
+      width: 534px;
+      margin: 0 0 94px 140px;
+      padding: 0 60px;
+
+      flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(
-        180deg,
-        rgba(244, 248, 248, 0.05) 0.13%,
-        rgba(244, 248, 248, 0) 99.87%
-      );
+      background: var(--learning_center-header-bg-color);
       box-shadow: var(--unc_token-header-shadow);
       backdrop-filter: blur(4px);
-      margin: 0 0 132px 121px;
-      padding: 26px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       .header_content_header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 3px;
-
-        .header_content_header_title {
-          color: #3edfcf;
-          font-family: Lantinghei SC;
-          font-size: 14px;
-          font-weight: 400;
-          text-transform: uppercase;
-        }
-
-        .header_content_header_title_div {
-          width: 117px;
-          height: 31px;
-          border-radius: 20px;
-          background: #3edfcf;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .dots {
-            width: 4px;
-            height: 4px;
-            border-radius: 2px;
-            background-color: #fff;
-            margin-right: 4px;
-          }
-
-          .time_text {
-            color: #fff;
-            font-family: Inter;
-            font-size: 12px;
-            font-weight: 500;
-          }
-        }
-      }
-
-      .header_content_acount {
         color: var(--where-text);
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
-        margin-bottom: 57px;
       }
 
-      .header_content_line_chart {
-        width: 530px;
-        height: 97px;
-        margin: 41px 0 51px;
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
+      .header_content_text {
+        // width: 398px;
+        color: var(--where-text);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 145%;
+        opacity: 0.8;
+        margin: 19px 0 30px;
       }
 
       .header_content_button {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        width: 526px;
+        width: 151px;
         height: 42px;
         border-radius: 6px;
-        padding: 0 24px;
-        color: rgba(21, 28, 26, 0.9);
+        border: 1px solid var(--Utility-title-color);
+        color: var(--where-text);
         font-family: Inter;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 150%;
-        background-color: #3edfcf;
         cursor: pointer;
-
-        img {
-          width: 16px;
-          height: 16px;
+        background: var(--background-header_content_button);
+        &:hover {
+          border: 1px solid #3edfcf;
+          background-color: #3edfcf;
         }
       }
     }

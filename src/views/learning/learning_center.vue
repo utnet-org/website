@@ -230,44 +230,46 @@ const handleScroll = () => {
           </div>
           <div class="section_right_item_card">
             <div v-for="(citem, cindex) in item.messageList" :key="cindex">
-              <div
-                class="section_right_item_card_item"
-                @click="openNewPage(citem.link)"
-              >
-                <div class="section_right_item_card_item_header">
-                  <div class="section_right_item_card_item_header_title">
-                    {{ $t(citem.title) }}
+              <AnimationBox class="section_right_item_card_item_border">
+                <div
+                  class="section_right_item_card_item"
+                  @click="openNewPage(citem.link)"
+                >
+                  <div class="section_right_item_card_item_header">
+                    <div class="section_right_item_card_item_header_title">
+                      {{ $t(citem.title) }}
+                    </div>
+                    <div class="section_right_item_card_item_header_text">
+                      {{ $t(citem.text) }}
+                    </div>
+                    <div class="section_right_item_card_item_header_img">
+                      <img :src="citem.img" alt="" />
+                    </div>
                   </div>
-                  <div class="section_right_item_card_item_header_text">
-                    {{ $t(citem.text) }}
-                  </div>
-                  <div class="section_right_item_card_item_header_img">
-                    <img :src="citem.img" alt="" />
+                  <div class="section_right_item_card_item_button">
+                    <img
+                      v-if="
+                        firstCheckQuestionMessage === citem.id ||
+                        viewableWidth < 834
+                      "
+                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
+                      alt=""
+                    />
+                    <img
+                      v-else
+                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
+                      alt=""
+                      class="section_right_item_card_item_button_arrow"
+                    />
+                    <div
+                      @mouseenter="firstCheckQuestionMessage = citem.id"
+                      @mouseleave="firstCheckQuestionMessage = -1"
+                    >
+                      Learn More
+                    </div>
                   </div>
                 </div>
-                <div class="section_right_item_card_item_button">
-                  <img
-                    v-if="
-                      firstCheckQuestionMessage === citem.id ||
-                      viewableWidth < 834
-                    "
-                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
-                    alt=""
-                  />
-                  <img
-                    v-else
-                    src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
-                    alt=""
-                    class="section_right_item_card_item_button_arrow"
-                  />
-                  <div
-                    @mouseenter="firstCheckQuestionMessage = citem.id"
-                    @mouseleave="firstCheckQuestionMessage = -1"
-                  >
-                    Learn More
-                  </div>
-                </div>
-              </div>
+              </AnimationBox>
             </div>
           </div>
         </div>
@@ -440,28 +442,27 @@ const handleScroll = () => {
           align-items: center;
 
           .section_right_item_card_item {
-            // height: 246px;
+            // // height: 246px;
             padding: 35px 40px 40px;
-            margin-right: 14px;
-            border-radius: 8px;
+
+            // border-radius: 8px;
             border: 1px solid rgba(115, 255, 247, 0);
-            background: linear-gradient(
-              90deg,
-              var(--learning-center-what-bg) 49.96%,
-              var(--learning-center-what-bg1) 302.95%
-            );
-            box-shadow: 0px 4px 24px 0px var(--learning-center-what-shadow);
+            // background: linear-gradient(
+            //   90deg,
+            //   var(--learning-center-what-bg) 49.96%,
+            //   var(--learning-center-what-bg1) 302.95%
+            // );
+            // box-shadow: 0px 4px 24px 0px var(--learning-center-what-shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            // margin-bottom: 16px;
 
-            margin-bottom: 16px;
-
-            &:hover {
-              background: var(--learning-center-section_right-bg);
-              border: var(--learning-center-section_right-border);
-              box-shadow: var(--unc_token-subtitle-shadow);
-            }
+            // &:hover {
+            //   background: var(--learning-center-section_right-bg);
+            //   border: var(--learning-center-section_right-border);
+            //   box-shadow: var(--unc_token-subtitle-shadow);
+            // }
 
             .section_right_item_card_item_header {
               .section_right_item_card_item_header_title {
@@ -532,9 +533,29 @@ const handleScroll = () => {
   .section_right_item_card_item {
     width: 368px;
   }
+  .section_right_item_card_item_border {
+    // 鼠标变小手
+    cursor: pointer;
+    width: 370px;
+    height: 520px;
+    background: linear-gradient(
+      90deg,
+      var(--learning-center-what-bg) 49.96%,
+      var(--learning-center-what-bg1) 302.95%
+    );
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
 }
 
 @media (max-width: 834px) {
+  .section_right_item_card_item_border {
+    width: 350px !important;
+    height: 504px;
+    padding: 0px 0px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
   .container {
     .header {
       height: 457px;
@@ -593,12 +614,6 @@ const handleScroll = () => {
             align-items: center;
 
             .section_right_item_card_item {
-              width: 350px !important;
-              height: 206px;
-              padding: 30px 20px;
-              margin: 0;
-              margin-bottom: 16px;
-
               // &:hover {
               //   background: none;
               // }

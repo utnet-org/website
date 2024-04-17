@@ -273,6 +273,8 @@ export default {
       "PoCI有望成为未来区块链技术发展的关键组成部分，这种机制可以被视为区块链算力验证的最优解，有助于形成一个庞大的、去中心化的计算资源网络，进一步增强网络的安全性和隐私保护，为构建更加健壮和去中心化的区块链网络提供了坚实的基础。",
   },
   learning_center: {
+    What_is_UNC: '什么是UNC',
+    How_to_understand: '如何理解 DePIN 的概念，简单来说，传统的 CePIN 服务器、传感器、通信网络等物理设施网络要运转需要依赖 AWS、阿里云等中心化算力集群服务，对很多中小企业而言投入成本太高。',
     U_Wallet: 'U Wallet',
     Purchase_U_Platform: 'Purchase U Platform',
     Learning_center: "学习中心",

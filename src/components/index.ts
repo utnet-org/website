@@ -6,6 +6,7 @@ import search from "./search.vue";
 import middle_message_IntroduceVue from "./middle_message_ introduce.vue";
 import accordion from "./accordion.vue";
 import animation from "./animation.vue";
+import animation_box from "./animation_box.vue";
 // 将全局组件封装到插件中
 export default {
   install(Vue: App) {
@@ -15,5 +16,6 @@ export default {
     Vue.component("MiddleMessageIntroduce", middle_message_IntroduceVue);
     Vue.component("Accordion", accordion);
     Vue.component("Animation", animation);
+    Vue.component("AnimationBox", animation_box);
   },
 };
