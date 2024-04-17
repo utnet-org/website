@@ -12,42 +12,51 @@ const firstCheckQuestionMessage = ref(-1)
 
 const questionList = ref([
   {
+    text: 'learning_center.What_is_UtilityNet',
+    istext: false
+  },
+  {
     text: 'learning_center.How_to_use_it',
-    istext: false,
-    isTop: 120
+    istext: false
   },
   {
     text: 'learning_center.Enhance_Utility_Network',
-    istext: false,
-    isTop: 240
+    istext: false
   }
 ])
 
 const questionMessageList = [
   {
     id: 'section_right_item1',
-    messageTitle: 'learning_center.What_is_Utility',
+    messageTitle: 'learning_center.What_is_UtilityNet',
     messageText: 'learning_center.Utility_Network_has_made',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 1,
-        title: 'learning_center.What_is_Utility',
-        text: 'learning_center.Start_from_here',
+        title: 'learning_center.What_is_UtilityNet',
+        text: 'learning_center.If_you_are_new_start',
         img: '/src/assets/images/learning_center_item1.jpg',
         link: '/learning/utility_explain'
       },
       {
         id: 2,
-        title: 'learning_center.What_is_UNC_Token',
-        text: 'learning_center.Start_UNC_Token_UNC',
+        title: 'learning_center.What_is_UNC',
+        text: 'learning_center.UNC_is_the_only_value',
         img: '/src/assets/images/learning_center_item2.png',
         link: '/learning/unc_token'
       },
       {
         id: 3,
-        title: 'learning_center.What_is_POCI_Consensus',
-        text: 'learning_center.it_is_a_brand_new',
+        title: 'learning_center.What_is_DePIN',
+        text: 'learning_center.DePIN_is_the_abbreviation',
+        img: '/src/assets/images/learning_center_item4.png',
+        link: '/learning/poci_consensus'
+      },
+      {
+        id: 9,
+        title: 'learning_center.What_is_POCI_consensus',
+        text: 'learning_center.POCI_stands_for_Proof',
         img: '/src/assets/images/learning_center_item3.png',
         link: '/learning/poci_consensus'
       }
@@ -56,51 +65,79 @@ const questionMessageList = [
   {
     id: 'section_right_item2',
 
-    messageTitle: 'learning_center.How_to_use_Utility',
-    messageText: 'learning_center.Utility_can_be_used_in',
+    messageTitle: 'learning_center.How_to_use_UtilityNet',
+    messageText: 'learning_center.using_UtilityNet',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 4,
-        title: 'learning_center.U_Wallet',
-        text: 'learning_center.A_digital_wallet_holds',
-        img: '/src/assets/images/learning_center_item4.png',
+        title: 'learning_center.Utility_digital_wallet',
+        text: 'learning_center.The_Utility_digital_wallet',
+        img: '/src/assets/images/learning_center_item5.png',
         link: '/soloutions/utility_wallet'
       },
       {
         id: 5,
-        title: 'learning_center.Purchase_U_Platform',
-        text: 'learning_center.the_first_computing_power',
-        img: '/src/assets/images/learning_center_item5.png',
+        title: 'learning_center.core_system',
+        text: 'learning_center.The_credit_scoring_platform',
+        img: '/src/assets/images/learning_center_item6.png',
+        link: '/get_power'
+      },
+      {
+        id: 10,
+        title: 'learning_center.Utility_container_cloud',
+        text: 'learning_center.computing_power_cloud_service_platform',
+        img: '/src/assets/images/learning_center_item7.png',
+        link: '/get_power'
+      },
+      {
+        id: 11,
+        title: 'learning_center.Utility_AI_tools',
+        text: 'learning_center.Combined_with_artificial',
+        img: '/src/assets/images/learning_center_item8.png',
+        link: '/get_power'
+      },
+      {
+        id: 12,
+        title: 'learning_center.Utility_block_explorer',
+        text: 'learning_center.Providing_users_with_an_intuitive',
+        img: '/src/assets/images/learning_center_item11.png',
+        link: '/get_power'
+      },
+      {
+        id: 13,
+        title: 'learning_center.Utility_Development_Kit',
+        text: 'learning_center.Enables_developers_to_easily',
+        img: '/src/assets/images/learning_center_item9.png',
         link: '/get_power'
       }
     ]
   },
   {
     id: 'section_right_item3',
-    messageTitle: 'learning_center.Enhancing_Utility_Network',
-    messageText: 'learning_center.Building_Utility_Network',
+    messageTitle: 'learning_center.Strengthening_UtilityNet_Network',
+    messageText: 'learning_center.You_can_help_secure_Ethereum',
     elementRef: ref<HTMLElement | null>(null), // 为每个 section 指定 ref
     messageList: [
       {
         id: 6,
-        title: 'learning_center.Running_Nodes',
-        text: 'learning_center.Participate_in_running',
-        img: '/src/assets/images/learning_center_item6.png',
+        title: 'learning_center.Running_node',
+        text: 'learning_center.Participate_in_running_nodes',
+        img: '/src/assets/images/learning_center_item10.png',
         link: 'https://wiki.utlab.io/docs/node/introduction'
       },
       {
         id: 7,
-        title: 'learning_center.Mining_and_Rental_Supply',
-        text: 'learning_center.Learn_how_to_mining',
+        title: 'learning_center.Mining_and_Lease_Supply',
+        text: 'learning_center.Learn_how_to_mine_and',
         img: '/src/assets/images/learning_center_item7.png',
         link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
       },
       {
         id: 8,
-        title: 'learning_center.Join_the_Community',
-        text: 'learning_center.A_home_for_Utility_developers',
-        img: '/src/assets/images/learning_center_item8.png',
+        title: 'learning_center.Join_the_community',
+        text: 'learning_center.Home_for_Utility_developers',
+        img: '/src/assets/images/learning_center_item13.png',
         link: '/community'
       }
     ]
