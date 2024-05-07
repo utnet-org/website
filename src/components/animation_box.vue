@@ -1,5 +1,4 @@
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 <template>
   <div class="gradient_border">
     <div class="gradient_border_body">
@@ -14,7 +13,7 @@
 </template>
 <style lang="less" scoped>
 @property --radius {
-  syntax: "<angle>";
+  syntax: '<angle>';
   initial-value: 114deg;
   inherits: false;
 }
@@ -34,8 +33,10 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
+
   overflow: hidden;
   box-sizing: border-box;
+
   .gradient_border_body {
     will-change: transform;
     width: 100%;
@@ -59,7 +60,12 @@
     width: calc(100% - 1px);
     height: calc(100% - 1px);
     border-radius: 11px;
-    background: #141817;
+    // background: #141817;
+    background: linear-gradient(
+      90deg,
+      var(--learning-center-what-bg) 49.96%,
+      var(--learning-center-what-bg1) 302.95%
+    );
   }
   &:hover {
     .gradient_border_body {

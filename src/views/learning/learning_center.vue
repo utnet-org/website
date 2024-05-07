@@ -483,7 +483,7 @@ const handleScroll = () => {
             padding: 35px 40px 40px;
 
             // border-radius: 8px;
-            border: 1px solid rgba(115, 255, 247, 0);
+            // border: 1px solid rgba(115, 255, 247, 0);
             // background: linear-gradient(
             //   90deg,
             //   var(--learning-center-what-bg) 49.96%,
@@ -574,12 +574,8 @@ const handleScroll = () => {
     // 鼠标变小手
     cursor: pointer;
     width: 370px;
-    height: 520px;
-    background: linear-gradient(
-      90deg,
-      var(--learning-center-what-bg) 49.96%,
-      var(--learning-center-what-bg1) 302.95%
-    );
+    height: 540px;
+  
     margin-right: 24px;
     margin-bottom: 24px;
   }
