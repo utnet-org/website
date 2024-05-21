@@ -1,240 +1,242 @@
 <script lang="ts" setup name="AppTopnav">
-import Logo from "@/assets/images/logo.svg";
-import Utility from "@/assets/images/utility.svg";
-import UtilityW from "@/assets/images/utility_white.svg";
-import sun from "@/assets/images/sun.svg";
-import dark from "@/assets/images/dark.svg";
-import { ref, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
+import Logo from '@/assets/images/logo.svg'
+import Utility from '@/assets/images/utility.svg'
+import UtilityW from '@/assets/images/utility_white.svg'
+import sun from '@/assets/images/sun.svg'
+import dark from '@/assets/images/dark.svg'
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import {
   toggleTheme,
   saveThemePreference,
-  loadThemePreference,
-} from "@/utils/set_theme";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
-const { locale } = useI18n();
-const isfocus = ref(true);
-const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
-const selectType = ref(false);
+  loadThemePreference
+} from '@/utils/set_theme'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
+const { locale } = useI18n()
+const isfocus = ref(true)
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
+const selectType = ref(false)
 
 const blockSelect = () => {
-  selectType.value = !selectType.value;
-  document.addEventListener("wheel", (event) => {
-    event.preventDefault();
-  });
+  selectType.value = !selectType.value
+  document.addEventListener('wheel', event => {
+    event.preventDefault()
+  })
   // 禁止滚动
-  if (document.body.style.overflow != "hidden") {
-    document.body.style.overflow = "hidden";
+  if (document.body.style.overflow != 'hidden') {
+    document.body.style.overflow = 'hidden'
   } else {
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = 'auto'
   }
-};
+}
 const nav_arr = ref([
   {
-    name: "nav.Learning",
-    link: "",
+    name: 'nav.Learning',
+    link: '',
     show: true,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif",
-        title: "nav.Learning_center",
-        desc: "nav.Learning_center_details",
-        link: "/learning/learning_center",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif',
+        title: 'nav.Learning_center',
+        desc: 'nav.Learning_center_details',
+        link: '/learning/learning_center'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.gif",
-        title: "nav.What_is_Utility",
-        desc: "nav.What_is_Utility_details",
-        link: "/learning/utility_explain",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.gif',
+        title: 'nav.What_is_Utility',
+        desc: 'nav.What_is_Utility_details',
+        link: '/learning/utility_explain'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.gif",
-        title: "nav.UNC_Token",
-        desc: "nav.UNC_Token_details",
-        link: "/learning/unc_token",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.gif',
+        title: 'nav.UNC_Token',
+        desc: 'nav.UNC_Token_details',
+        link: '/learning/unc_token'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.gif",
-        title: "nav.POCI_Consensus",
-        desc: "nav.POCI_Consensus_details",
-        link: "/learning/poci_consensus",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.gif',
+        title: 'nav.POCI_Consensus',
+        desc: 'nav.POCI_Consensus_details',
+        link: '/learning/poci_consensus'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.gif",
-        title: "nav.White_Paper",
-        desc: "nav.White_Paper_details",
-        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
-      },
-    ],
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.gif',
+        title: 'nav.White_Paper',
+        desc: 'nav.White_Paper_details',
+        link: 'http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf'
+      }
+    ]
   },
   {
-    name: "nav.Soloutions",
-    link: "",
+    name: 'nav.Soloutions',
+    link: '',
     show: true,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif",
-        title: "nav.Utility_Wallet",
-        desc: "nav.Utility_Wallet_details",
-        link: "/soloutions/mp_utility_wallet",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif',
+        title: 'nav.Utility_Wallet',
+        desc: 'nav.Utility_Wallet_details',
+        link: '/soloutions/mp_utility_wallet'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.gif",
-        title: "nav.Hashing_Power",
-        desc: "nav.Hashing_Power_details",
-        link: "/soloutions/mp_hashing_power",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.gif',
+        title: 'nav.Hashing_Power',
+        desc: 'nav.Hashing_Power_details',
+        link: '/soloutions/mp_hashing_power'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.gif",
-        title: "nav.Mining_Tool",
-        desc: "nav.Mining_Tool_details",
-        link: "/soloutions/mp_mining_tool",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.gif',
+        title: 'nav.Mining_Tool',
+        desc: 'nav.Mining_Tool_details',
+        link: '/soloutions/mp_mining_tool'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.gif",
-        title: "nav.AI",
-        desc: "nav.AI_details",
-        link: "/soloutions/mp_ai_model",
-      },
-    ],
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.gif',
+        title: 'nav.AI',
+        desc: 'nav.AI_details',
+        link: '/soloutions/mp_ai_model'
+      }
+    ]
   },
   {
-    name: "nav.Developers",
-    link: "",
+    name: 'nav.Developers',
+    link: '',
     show: true,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif",
-        title: "nav.Docs",
-        desc: "nav.Docs_details",
-        link: "/developers/docs",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif',
+        title: 'nav.Docs',
+        desc: 'nav.Docs_details',
+        link: '/developers/docs'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.gif",
-        title: "nav.Solution_Provider",
-        desc: "nav.Solution_Provider_details",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.gif',
+        title: 'nav.Solution_Provider',
+        desc: 'nav.Solution_Provider_details',
         // link: "/developers/solution_provider",
-        link: "https://discord.com/",
+        link: 'https://discord.com/'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
-        title: "nav.Discord",
-        desc: "nav.Discord_details",
-        link: "https://discord.com/",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg',
+        title: 'nav.Discord',
+        desc: 'nav.Discord_details',
+        link: 'https://discord.com/'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg",
-        title: "nav.Github",
-        desc: "nav.Github_details",
-        link: "https://github.com/utnet-org",
-      },
-    ],
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg',
+        title: 'nav.Github',
+        desc: 'nav.Github_details',
+        link: 'https://github.com/utnet-org'
+      }
+    ]
   },
   {
-    name: "nav.Community",
-    link: "/community",
-    children: [],
+    name: 'nav.Community',
+    link: '/community',
+    children: []
   },
   {
-    name: "nav.Mining",
+    name: 'nav.Mining',
     // link: "/mining",
-    link: "https://miner.utnet.org/#/index",
-    children: [],
+    link: 'https://miner.utnet.org/#/index',
+    children: []
   },
   {
-    name: "nav.Language",
-    link: "",
+    name: 'nav.Language',
+    link: '',
     show: true,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_english_icon.png",
-        title: "nav.English",
-        desc: "en",
-        link: "",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_english_icon.png',
+        title: 'nav.English',
+        desc: 'en',
+        link: ''
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_chinese_icon.png",
-        title: "nav.Chinese",
-        desc: "zh",
-        link: "",
-      },
-    ],
-  },
-]);
-const selectIndex = ref(-1);
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/language_chinese_icon.png',
+        title: 'nav.Chinese',
+        desc: 'zh',
+        link: ''
+      }
+    ]
+  }
+])
+const selectIndex = ref(-1)
 const changeSelectIndex = (item: any, index: any) => {
-  if (item.link != "") {
-    window.location.href = item.link;
-    selectIndex.value = -1;
+  if (item.link != '') {
+    window.location.href = item.link
+    selectIndex.value = -1
   }
   if (selectIndex.value == index) {
-    selectIndex.value = -1;
-    return;
+    selectIndex.value = -1
+    return
   }
-  item.show = !item.show;
+  item.show = !item.show
   // selectIndex.value = index;
-};
+}
 const routerSubPage = (index: any, citem: any, cindex: any) => {
-  console.log("====>", index, citem, cindex);
+  console.log('====>', index, citem, cindex)
   if (index == 5) {
-    localStorage.setItem("upaclang", citem.desc);
+    localStorage.setItem('upaclang', citem.desc)
     document
-      .querySelector("html")!
-      .setAttribute("lang", localStorage.getItem("upaclang") || "en");
-  } else if (citem.link == "") {
-    return;
+      .querySelector('html')!
+      .setAttribute('lang', localStorage.getItem('upaclang') || 'en')
+  } else if (citem.link == '') {
+    return
   }
-  if (citem.link.startsWith("http://") || citem.link.startsWith("https://")) {
-    window.open(citem.link, "_blank");
+  if (citem.link.startsWith('http://') || citem.link.startsWith('https://')) {
+    window.open(citem.link, '_blank')
   } else {
-    selectType.value = false;
-    selectIndex.value = -1;
+    selectType.value = false
+    selectIndex.value = -1
     setTimeout(() => {
-      window.location.href = citem.link;
-    }, 300);
+      window.location.href = citem.link
+    }, 300)
   }
-};
-const width = ref(window.innerWidth);
+}
+const width = ref(window.innerWidth)
 window.onresize = () => {
   // 监听窗口大小变化
-  width.value = window.innerWidth;
-};
+  width.value = window.innerWidth
+}
 onMounted(() => {
-  loadThemePreference();
-});
+  loadThemePreference()
+})
 const setTheme = () => {
-  selectType.value = false;
-  toggleTheme();
-  saveThemePreference();
-};
+  selectType.value = false
+  toggleTheme()
+  saveThemePreference()
+}
 function seticon(icon: string, isdark: boolean) {
-  const arrpng = icon.split("_"); // 切割后没有下划线
-  let arrow: string[] = [];
+  const arrpng = icon.split('_') // 切割后没有下划线
+  let arrow: string[] = []
   if (arrpng.length > 1) {
-    arrow = arrpng[1].split(".");
+    arrow = arrpng[1].split('.')
   }
-  if (isdark && arrow[1] != "svg" && icon != "" && arrpng.length <= 2) {
-    return arrpng[0] + "_" + arrow[0] + "_d." + arrow[1];
+  if (isdark && arrow[1] != 'svg' && icon != '' && arrpng.length <= 2) {
+    return arrpng[0] + '_' + arrow[0] + '_d.' + arrow[1]
   } else {
-    return icon;
+    return icon
   }
 }
 </script>
 <template>
   <nav class="app-topnav">
     <div class="container">
-      <RouterLink to="/">
-        <div class="logo_box" @click="selectType = false">
-          <Logo />
-          <UtilityW v-if="theme" />
-          <Utility v-else />
-          <!-- <span class="logo_text">Utility</span> -->
-        </div>
-      </RouterLink>
-      <UTTOPNAV v-if="width > 834" />
+      <div class="container_left">
+        <RouterLink to="/">
+          <div class="logo_box" @click="selectType = false">
+            <Logo />
+            <UtilityW v-if="theme" />
+            <Utility v-else />
+            <!-- <span class="logo_text">Utility</span> -->
+          </div>
+        </RouterLink>
+        <UTTOPNAV v-if="width > 834" />
+      </div>
       <div class="right" v-if="width > 834">
         <SEARCH v-model:isfocus="isfocus" />
         <div
@@ -315,7 +317,7 @@ function seticon(icon: string, isdark: boolean) {
               : index == 5
               ? '168px'
               : ''
-            : 0,
+            : 0
         }"
       >
         <div
@@ -342,7 +344,7 @@ function seticon(icon: string, isdark: boolean) {
               :src="seticon(citem.icon, theme)"
               alt=""
               :style="{
-                background: 'var(--background-color)',
+                background: 'var(--background-color)'
               }"
             />
           </div>
@@ -405,12 +407,11 @@ function seticon(icon: string, isdark: boolean) {
 
 .app-topnav {
   position: fixed;
-  top: 0;
+  top: 26px;
   left: 0;
   z-index: 999;
-  background: var(--background-color);
-  box-shadow: var(--box-shadow-light);
-  backdrop-filter: blur(8px);
+  // background: var(--background-color);
+  // box-shadow: var(--box-shadow-light);
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;
   width: 100vw;
@@ -422,12 +423,20 @@ function seticon(icon: string, isdark: boolean) {
     justify-content: space-between;
     align-items: center;
     padding: 0 60px 0 60px;
-
+    margin: 0 29px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    background: var(--topnav-background-color);
+    .container_left {
+      display: flex;
+      align-items: center;
+    }
     .logo_box {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
+      margin-right: 20px;
 
       img {
         height: 37px;

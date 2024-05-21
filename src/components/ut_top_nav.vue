@@ -1,189 +1,189 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const activeIndex = ref(1);
-const show = ref(false);
-import { openNewPage } from "@/utils/request";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme, locale_zh } = storeToRefs(home);
+import { ref } from 'vue'
+const activeIndex = ref(1)
+const show = ref(false)
+import { openNewPage } from '@/utils/request'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme, locale_zh } = storeToRefs(home)
 
 const nav_arr = ref([
   {
-    name: "nav.Learning",
-    link: "",
+    name: 'nav.Learning',
+    link: '',
     width: 334,
     height: 510,
     left: 20,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_1.png',
         show: false,
-        title: "nav.Learning_center",
-        desc: "nav.Learning_center_details",
-        link: "/learning/learning_center",
+        title: 'nav.Learning_center',
+        desc: 'nav.Learning_center_details',
+        link: '/learning/learning_center'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_2.png',
         show: false,
-        title: "nav.What_is_Utility",
-        desc: "nav.What_is_Utility_details",
-        link: "/learning/utility_explain",
+        title: 'nav.What_is_Utility',
+        desc: 'nav.What_is_Utility_details',
+        link: '/learning/utility_explain'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_3.png',
         show: false,
-        title: "nav.UNC_Token",
-        desc: "nav.UNC_Token_details",
-        link: "/learning/unc_token",
+        title: 'nav.UNC_Token',
+        desc: 'nav.UNC_Token_details',
+        link: '/learning/unc_token'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.png",
-        title: "nav.POCI_Consensus",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_4.png',
+        title: 'nav.POCI_Consensus',
         show: false,
-        desc: "nav.POCI_Consensus_details",
-        link: "/learning/poci_consensus",
+        desc: 'nav.POCI_Consensus_details',
+        link: '/learning/poci_consensus'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/learning_5.png',
         show: false,
-        title: "nav.White_Paper",
-        desc: "nav.White_Paper_details",
-        link: "http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf",
-      },
-    ],
+        title: 'nav.White_Paper',
+        desc: 'nav.White_Paper_details',
+        link: 'http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf'
+      }
+    ]
   },
   {
-    name: "nav.Soloutions",
-    link: "",
+    name: 'nav.Soloutions',
+    link: '',
     width: 334,
     height: 390,
     left: 130,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_1.png',
         show: false,
-        title: "nav.Utility_Wallet",
-        desc: "nav.Utility_Wallet_details",
-        link: "/soloutions/utility_wallet",
+        title: 'nav.Utility_Wallet',
+        desc: 'nav.Utility_Wallet_details',
+        link: '/soloutions/utility_wallet'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_2.png',
         show: false,
-        title: "nav.Hashing_Power",
-        desc: "nav.Hashing_Power_details",
-        link: "/get_power",
+        title: 'nav.Hashing_Power',
+        desc: 'nav.Hashing_Power_details',
+        link: '/get_power'
         // link: "",
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_3.png',
         show: false,
-        title: "nav.Mining_Tool",
-        desc: "nav.Mining_Tool_details",
-        link: "/soloutions/mining_tool",
+        title: 'nav.Mining_Tool',
+        desc: 'nav.Mining_Tool_details',
+        link: '/soloutions/mining_tool'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/solot_4.png',
         show: false,
-        title: "nav.AI",
-        desc: "nav.AI_details",
-        link: "/soloutions/ai_model",
-      },
-    ],
+        title: 'nav.AI',
+        desc: 'nav.AI_details',
+        link: '/soloutions/ai_model'
+      }
+    ]
   },
   {
-    name: "nav.Developers",
-    link: "",
+    name: 'nav.Developers',
+    link: '',
     width: 334,
     height: 350,
     left: 280,
     children: [
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_1.png',
         show: false,
-        title: "nav.Docs",
-        desc: "nav.Docs_details",
-        link: "/developers/docs",
+        title: 'nav.Docs',
+        desc: 'nav.Docs_details',
+        link: '/developers/docs'
       },
       {
-        icon: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.gif",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.png",
+        icon: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.gif',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_2.png',
         show: false,
-        title: "nav.Solution_Provider",
-        desc: "nav.Solution_Provider_details",
+        title: 'nav.Solution_Provider',
+        desc: 'nav.Solution_Provider_details',
         // link: "/developers/solution_provider",
-        link: "https://wiki.utlab.io/docs/computing-power-supplier/introduce",
+        link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
       },
       {
-        icon: "",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg",
+        icon: '',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_3.svg',
         show: false,
-        title: "nav.Discord",
-        desc: "nav.Discord_details",
-        link: "https://discord.com/",
+        title: 'nav.Discord',
+        desc: 'nav.Discord_details',
+        link: 'https://discord.com/'
       },
       {
-        icon: "",
-        png: "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg",
+        icon: '',
+        png: 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/gifs/deve_4.svg',
         show: false,
-        title: "nav.Github",
-        desc: "nav.Github_details",
-        link: "https://github.com/utnet-org",
-      },
-    ],
+        title: 'nav.Github',
+        desc: 'nav.Github_details',
+        link: 'https://github.com/utnet-org'
+      }
+    ]
   },
   {
-    name: "nav.Community",
-    link: "/community",
-    children: [],
+    name: 'nav.Community',
+    link: '/community',
+    children: []
   },
   {
-    name: "nav.Mining",
+    name: 'nav.Mining',
     // link: "/mining",
-    link: "https://miner.untcoin.io/#/index",
-    children: [],
-  },
-]);
+    link: 'https://miner.untcoin.io/#/index',
+    children: []
+  }
+])
 
 function setXpx(i: number) {
-  let w = 0;
+  let w = 0
   if (i == activeIndex.value) {
-    return "0px";
+    return '0px'
   } else if (i < activeIndex.value) {
-    return (activeIndex.value - i) * -140 + "px";
+    return (activeIndex.value - i) * -140 + 'px'
   } else {
-    return (i - activeIndex.value) * 160 + "px";
+    return (i - activeIndex.value) * 160 + 'px'
   }
 }
 
 function set(i: number, id: number) {
-  let one = nav_arr.value[i].children[id].icon;
-  nav_arr.value[i].children[id].icon = nav_arr.value[i].children[id].png;
+  let one = nav_arr.value[i].children[id].icon
+  nav_arr.value[i].children[id].icon = nav_arr.value[i].children[id].png
   setTimeout(() => {
-    nav_arr.value[i].children[id].icon = one;
-  }, 1);
+    nav_arr.value[i].children[id].icon = one
+  }, 1)
 }
 
 function seticon(icon: string, isdark: boolean) {
-  const arrpng = icon.split("_"); // 切割后没有下划线
-  let arrow: string[] = [];
+  const arrpng = icon.split('_') // 切割后没有下划线
+  let arrow: string[] = []
   if (arrpng.length > 1) {
-    arrow = arrpng[1].split(".");
+    arrow = arrpng[1].split('.')
   }
-  if (isdark && arrow[1] != "svg" && icon != "") {
-    return arrpng[0] + "_" + arrow[0] + "_d." + arrow[1];
+  if (isdark && arrow[1] != 'svg' && icon != '') {
+    return arrpng[0] + '_' + arrow[0] + '_d.' + arrow[1]
   } else {
-    return icon;
+    return icon
   }
 }
 </script>
@@ -194,11 +194,11 @@ function seticon(icon: string, isdark: boolean) {
       <div
         :class="[
           'nav_link-wrapper',
-          activeIndex == i && show ? 'select_navlink' : '',
+          activeIndex == i && show ? 'select_navlink' : ''
         ]"
         v-for="(item, i) in nav_arr"
         :key="i"
-        @mouseenter="(activeIndex = i), (show = true)"
+        @mouseenter=";(activeIndex = i), (show = true)"
         @mouseleave="show = false"
       >
         <div
@@ -222,7 +222,7 @@ function seticon(icon: string, isdark: boolean) {
           height: show ? `${nav_arr[activeIndex].height}px` : 0,
           transition: show
             ? 'all 0.2s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
-            : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
+            : 'all 0.2s cubic-bezier(0.7, 0.08, 0.82, 0.16)'
         }"
         @mouseenter="show = true"
         @mouseleave="show = false"
@@ -247,7 +247,7 @@ function seticon(icon: string, isdark: boolean) {
             display: 'flex',
             justifyContent: 'space-between',
             flexDirection: 'column',
-            overflow: 'hidden',
+            overflow: 'hidden'
           }"
         >
           <div
@@ -273,7 +273,7 @@ function seticon(icon: string, isdark: boolean) {
                     :src="seticon(c_item.icon, theme)"
                     :style="{
                       display: i == activeIndex ? 'block' : 'none',
-                      background: 'var(--background-color)',
+                      background: 'var(--background-color)'
                     }"
                   />
                   <img
@@ -282,7 +282,7 @@ function seticon(icon: string, isdark: boolean) {
                       display: i == activeIndex ? 'block' : 'none',
                       background: !(i == 2 && id > 1)
                         ? 'var(--background-color)'
-                        : '',
+                        : ''
                     }"
                     :class="{ animated_svg: i == 2 && id > 1 }"
                   />
@@ -339,7 +339,7 @@ function seticon(icon: string, isdark: boolean) {
       position: relative;
       color: #3edfcf;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         z-index: -1;
         width: 100%;
@@ -356,7 +356,7 @@ function seticon(icon: string, isdark: boolean) {
     position: relative;
     color: #3edfcf;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       width: 100%;

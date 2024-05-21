@@ -169,7 +169,7 @@ export default {
     Utlity_Network_has_made: 'Utility Network has made many innovations based on traditional blockchain. It defines chips in different ways and can effectively utilize computing power. Learn more and how to connect with it!',
     If_you_are_new_start: 'If you are new, start here to learn why UtilityNet is important',
     UNC_is_the_only_value: "UNC is the only value carrier of the UtilityNet ecosystem!",
-    What_is_DePIN: "What is DePIN?",
+    What_is_DePIN: "What is DePIN ?",
     DePIN_is_the_abbreviation: 'DePIN is the abbreviation of Decentralized Physical Infrastructure Network.',
     What_is_POCI_consensus: "What is POCI consensus?",
     POCI_stands_for_Proof: 'POCI stands for Proof of Computation Integrity (Verifiable Computational Integrity Proof)',
@@ -197,7 +197,7 @@ export default {
     Home_for_Utility_developers: "Home for Utility developers, technologists, designers, users, and crypto enthusiasts.",
 
 
-    What_is_UNC: 'What is UNC',
+    What_is_UNC: 'What is UNC ?',
     How_to_understand: 'How to understand the concept of DePIN? To put it simply, the operation of traditional CePIN servers, sensors, communication networks and other physical infrastructure networks relies on centralized computing cluster services such as AWS and Alibaba Cloud. The investment cost is too high for many small and medium-sized enterprises.',
     U_Wallet: 'U Wallet',
     Purchase_U_Platform: 'Purchase U Platform',

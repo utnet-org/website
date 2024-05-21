@@ -5,6 +5,7 @@ const mouseCheckIndex = ref(-1)
 import { openNewPage } from '@/utils/request'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
+import { log } from 'console'
 const { home } = useStore()
 const { theme } = storeToRefs(home)
 
@@ -13,15 +14,34 @@ const firstCheckQuestionMessage = ref(-1)
 const questionList = ref([
   {
     text: 'learning_center.What_is_UtilityNet',
-    istext: false
+    istext: false,
+    children: [
+      'learning_center.What_is_UtilityNet',
+      'learning_center.What_is_UNC',
+      'learning_center.What_is_DePIN',
+      'learning_center.What_is_POCI_consensus'
+    ]
   },
   {
     text: 'learning_center.How_to_use_it',
-    istext: false
+    istext: false,
+    children: [
+      'learning_center.Utility_digital_wallet',
+      'learning_center.core_system',
+      'learning_center.Utility_container_cloud',
+      'learning_center.Utility_AI_tools',
+      'learning_center.Utility_block_explorer',
+      'learning_center.Utility_Development_Kit'
+    ]
   },
   {
     text: 'learning_center.Enhance_Utility_Network',
-    istext: false
+    istext: false,
+    children: [
+      'learning_center.Running_node',
+      'learning_center.Mining_and_Lease_Supply',
+      'learning_center.Join_the_community'
+    ]
   }
 ])
 
@@ -158,6 +178,14 @@ function scrollToPosition(i: string) {
     top: distanceToTop - 100, // 设置滚动条位置为顶部
     behavior: 'smooth' // 平滑滚动
   })
+
+  // for (let index = 0; index < questionList.value.length; index++) {
+  //   if (i === `section_right_item${index + 1}`) {
+  //     questionList.value[index].istext = true
+  //   } else {
+  //     questionList.value[index].istext = false
+  //   }
+  // }
 }
 
 // 挂载时获取盒子元素的引用并计算初始高度
@@ -178,19 +206,29 @@ onUnmounted(() => {
 
 // 计算盒子距离顶部的高度
 const calculateBoxTopDistance = () => {
-  const y = window.scrollY
-  for (let index = 1; index < sectionRightElement.value.length; index++) {
-    const rect1 = sectionRightElement.value[index].getBoundingClientRect()
-    if (y > rect1.top + (window.pageYOffset - 100)) {
-      const rect2 =
-        sectionRightElement.value[index + 1]?.getBoundingClientRect()
-      if (y < rect2?.top + window.pageYOffset - 100 || !rect2) {
-        questionList.value[index - 1].istext = true
-      } else {
-        questionList.value[index - 1].istext = false
+  // 判断元素是否在视图中的函数
+  function isElementInViewport(el: { getBoundingClientRect: () => any }) {
+    const rect = el.getBoundingClientRect()
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+  const y = window.scrollY // 获取当前滚动条距离顶部的距离
+  for (let index = 0; index < sectionRightElement.value.length; index++) {
+    const rect1 = sectionRightElement.value[index].getBoundingClientRect() // 获取当前盒子的位置信息
+
+    if (y > rect1.top + (window.pageYOffset - 110)) {
+      // 更新滚动位置后再遍历一次，将不在视图中的项的 istext 属性设置为 false
+      for (let i = 0; i < sectionRightElement.value.length; i++) {
+        if (!isElementInViewport(sectionRightElement.value[i])) {
+          questionList.value[i].istext = false
+        }
       }
-    } else {
-      questionList.value[index - 1].istext = false
+      questionList.value[index].istext = true
     }
   }
 }
@@ -230,23 +268,25 @@ const handleScroll = () => {
       <div class="section_side" v-if="viewableWidth > 834">
         <div class="section_side_opacity"></div>
         <div class="section_side_message">
-          <div class="section_side_title">
-            {{ $t('learning_center.What_is_Utility') }}？
-          </div>
           <div class="text_list">
             <div
-              class="section_side_text"
               v-for="(item, index) in questionList"
               :key="index"
-              :class="[item.istext ? 'highlight' : '']"
-              @click="scrollToPosition(questionMessageList[index + 1].id)"
+              @click="scrollToPosition(questionMessageList[index].id)"
             >
-              <div>{{ $t(item.text) }}</div>
-              <img
-                v-if="item.istext"
-                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/arrow_top_right.png"
-                alt=""
-              />
+              <div
+                class="section_side_text"
+                :class="[item.istext ? 'highlight' : '']"
+              >
+                {{ $t(item.text) }}
+              </div>
+              <div
+                class="section_side_text_c"
+                v-for="(i, index) in item.children"
+                :key="index"
+              >
+                {{ $t(i) }}
+              </div>
             </div>
           </div>
         </div>
@@ -424,18 +464,26 @@ const handleScroll = () => {
         }
 
         .text_list {
-          margin-left: 20px;
           .highlight {
             color: #3edfcf !important;
           }
-          .section_side_text {
-            color: var(--where-text);
+          .section_side_text_c {
+            color: var(--where-text-c);
             font-family: Inter;
             font-size: 16px;
             font-weight: 400;
+            //间距5
+            // gap: 10px;
+            margin: 15px 0;
+            margin-left: 20px;
+          }
+          .section_side_text {
+            color: var(--where-text);
+            font-family: Lantinghei SC;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 9px;
             padding: 7px 0;
-            display: flex;
-            align-items: center;
             //箭头变小手
             cursor: pointer;
 
@@ -494,6 +542,9 @@ const handleScroll = () => {
             flex-direction: column;
             justify-content: space-between;
             // margin-bottom: 16px;
+            // background: #fff;
+            width: 100%;
+            height: 100%;
 
             // &:hover {
             //   background: var(--learning-center-section_right-bg);
@@ -513,7 +564,9 @@ const handleScroll = () => {
                 /* 21px */
               }
               .section_right_item_card_item_header_img {
-                margin: 30px 0;
+                margin-top: 10px;
+
+                height: 100%;
               }
               .section_right_item_card_item_header_text {
                 color: var(--where-text);
@@ -527,6 +580,7 @@ const handleScroll = () => {
             }
 
             .section_right_item_card_item_button {
+              height: 30px;
               display: flex;
               cursor: pointer;
               display: flex;
@@ -575,7 +629,7 @@ const handleScroll = () => {
     cursor: pointer;
     width: 370px;
     height: 540px;
-  
+
     margin-right: 24px;
     margin-bottom: 24px;
   }
