@@ -1,15 +1,26 @@
 <script setup lang="ts" name="HomeView">
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
 import phaseArrow1 from '@/assets/images/UtilityNet_PHASE_button_arrow1.svg'
+
+// 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
+import { defineComponent } from 'vue'
+// 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
+import { Swiper, SwiperSlide } from 'swiper/vue'
+// 单独导入所需的Swiper模块
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules'
+// 导入Swiper的样式
 import 'swiper/swiper-bundle.css'
 import 'swiper/less'
+import 'swiper/css/pagination' // 轮播图底面的小圆点
+// 引入Pagination模块
+import SwiperCore from 'swiper'
+SwiperCore.use([Pagination])
 import 'swiper/less/navigation'
 import 'swiper/css/pagination'
 import { computed, onMounted, onUnmounted, ref, toRef, watch } from 'vue'
 import { getStatistics } from '@/api/home'
 import { useI18n } from 'vue-i18n'
 import { openNewPage } from '@/utils/request'
-import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules'
 import router from '@/router'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
@@ -362,23 +373,91 @@ const fourdata = [
     button: 'home.Rent'
   }
 ]
-const Recent_Highlights_data = ref([
+const Recent_Highlights_data = ref<RecentHighlights[]>([
   {
-    img: '@/assets/images/Recent_Highlights2.png',
-    title: 'Calculate demand analysis and the next tuyere',
-    text: 'September 21, 2023'
+    item: [
+      {
+        id: 0,
+        img: '/src/assets/images/Recent_Highlights2.png',
+        title: 'Calculate demand analysis and the next tuyere1',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 1,
+        img: '/src/assets/images/Recent_Highlights3.png',
+        title: 'Calculate demand analysis and the next tuyere2',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 2,
+        img: '/src/assets/images/Recent_Highlights1.png',
+        title: 'Calculate demand analysis and the next tuyere3',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 3,
+        img: '/src/assets/images/Recent_Highlights2.png',
+        title: 'Calculate demand analysis and the next tuyere4',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 4,
+        img: '/src/assets/images/Recent_Highlights3.png',
+        title: 'Calculate demand analysis and the next tuyere5',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 5,
+        img: '/src/assets/images/Recent_Highlights1.png',
+        title: 'Calculate demand analysis and the next tuyere6',
+        time: 'September 21, 2023'
+      }
+    ]
   },
   {
-    img: '@/assets/images/Recent_Highlights3.png',
-    title: 'Calculate demand analysis and the next tuyere',
-    text: 'September 21, 2023'
-  },
-  {
-    img: '@/assets/images/Recent_Highlights1.png',
-    title: 'Calculate demand analysis and the next tuyere',
-    text: 'September 21, 2023'
+    item: [
+      {
+        id: 6,
+        img: '/src/assets/images/Recent_Highlights2.png',
+        title: 'Calculate demand analysis and the next tuyere1',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 7,
+        img: '/src/assets/images/Recent_Highlights3.png',
+        title: 'Calculate demand analysis and the next tuyere2',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 8,
+        img: '/src/assets/images/Recent_Highlights1.png',
+        title: 'Calculate demand analysis and the next tuyere3',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 9,
+        img: '/src/assets/images/Recent_Highlights2.png',
+        title: 'Calculate demand analysis and the next tuyere4',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 10,
+        img: '/src/assets/images/Recent_Highlights3.png',
+        title: 'Calculate demand analysis and the next tuyere5',
+        time: 'September 21, 2023'
+      },
+      {
+        id: 11,
+        img: '/src/assets/images/Recent_Highlights1.png',
+        title: 'Calculate demand analysis and the next tuyere6',
+        time: 'September 21, 2023'
+      }
+    ]
   }
 ])
+export interface RecentHighlights {
+  item: Array<{ id: number; img: string; title: string; time: string }>
+}
 </script>
 <template>
   <div class="home_view">
@@ -730,12 +809,54 @@ const Recent_Highlights_data = ref([
       </div>
       <div class="Recent_Highlights">
         <div class="Recent_Highlights_title">RECENT HIGHLIGHTS</div>
-        <div class="Recent_Highlights_box_father">
-          <div class="Recent_Highlights_box">
-            <div class="Recent_Highlights_box_img"><img src="" alt="" /></div>
-            <div class="Recent_Highlights_box_title"></div>
-            <div class="Recent_Highlights_box_text"></div>
+        <div class="Recent_Highlights_map">
+          <!-- ! 两个按钮 -->
+          <div class="swiper_button">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
+          <!-- ! 轮播图 -->
+          <swiper
+            :ref="mySwiper"
+            :slidesPerView="1"
+            :spaceBetween="0"
+            :modules="modules"
+            :loop="false"
+            :navigation="navigation"
+            class="swiper"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide
+              v-for="(item, index) in Recent_Highlights_data"
+              :key="index"
+              class="swiper-slide"
+            >
+              <div v-for="i in item.item" :key="i.id" class="swiper_item">
+                <img class="swiper_img" :src="i.img" alt="" />
+                <div class="swiper_title">
+                  {{ i.title }}
+                </div>
+                <div class="swiper_time">
+                  {{ i.time }}
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+      </div>
+      <div class="Join_the_UtilityNet">
+        <div class="Join_the_UtilityNet_left">
+          <div class="Join_the_UtilityNet_title">
+            Join the UtilityNet open source community to accelerate building the
+            future!
+          </div>
+          <div class="Join_the_UtilityNet_button_father">
+            <div class="Join_the_UtilityNet_button">Join Us</div>
+            <div class="Join_the_UtilityNet_button">Github</div>
+          </div>
+        </div>
+        <div class="Join_the_UtilityNet_right">
+          <img src="" alt="@/assets/images/Join_the_UtilityNet_bg.png" />
         </div>
       </div>
     </div>
@@ -1545,7 +1666,8 @@ const Recent_Highlights_data = ref([
 }
 .UtilityNet_PHASE {
   width: 100%;
-  height: 649px;
+  height: 100%;
+  padding: 60px 54px;
   flex-shrink: 0;
   margin: 100px 0;
   border-radius: 12px;
@@ -1553,7 +1675,6 @@ const Recent_Highlights_data = ref([
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 54px;
   .UtilityNet_PHASE_left {
     .UtilityNet_PHASE_title {
       margin-bottom: 20px;
@@ -1640,7 +1761,7 @@ const Recent_Highlights_data = ref([
   flex-shrink: 0;
   margin-bottom: 100px;
   background: url('@/assets/images/Key_Players_In_bg.png');
-  padding: 122px 148px 0 148px;
+  padding: 122px 148px 0px 148px;
   .Key_Players_In_title {
     color: #fff;
     font-family: Gilroy-Bold;
@@ -1881,6 +2002,7 @@ const Recent_Highlights_data = ref([
   align-items: start;
   flex-shrink: 0;
   padding: 40px;
+  margin-bottom: 100px;
   .UtilityNet_Basic_Functions_title {
     margin-top: 10px;
     margin-left: 16px;
@@ -1891,6 +2013,117 @@ const Recent_Highlights_data = ref([
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+}
+.Recent_Highlights {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 50px 40px 168px 40px;
+  border-radius: 12px;
+  background: #191919;
+  .Recent_Highlights_title {
+    color: #fffefb;
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 60px;
+  }
+  .Recent_Highlights_map {
+    position: relative;
+    width: 100%;
+
+    .swiper {
+      .swiper-slide {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .swiper_item {
+          border-radius: 12px;
+          margin: 15px;
+          width: 457px;
+          height: 348px;
+          background: #202022;
+          flex-shrink: 0;
+        }
+        .swiper_time {
+          color: rgba(255, 255, 255, 0.6);
+          font-family: Gilroy-Medium;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-left: 20px;
+        }
+
+        .swiper_title {
+          color: #fff;
+          font-family: Gilroy-Bold;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 155%; /* 27.9px */
+          margin-left: 20px;
+          margin: 18px 0 18px 20px;
+        }
+        .swiper_img {
+          width: 457px;
+          height: 247px;
+          flex-shrink: 0;
+          border-top-left-radius: 12px;
+
+          border-top-right-radius: 12px;
+        }
+      }
+    }
+
+    .swiper_button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      width: 130px;
+      bottom: 0px;
+      right: 30px;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        width: 48px;
+        height: 48px;
+        z-index: 100;
+        border-radius: 50%;
+        margin: 0;
+        cursor: pointer; ///鼠标移上去变成手指
+        background-color: #202022 !important;
+        color: var(--swiper-prev-new-disabled-bg) !important;
+        font-size: 17px !important;
+        opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
+        border: 1px solid #515151 !important;
+      }
+
+      .swiper-button-prev.swiper-button-disabled,
+      .swiper-button-next.swiper-button-disabled {
+        pointer-events: auto;
+        border: 1px solid #222222 !important;
+        color: var(--swiper-prev-new-border) !important;
+        cursor: not-allowed !important;
+        background-color: #202022 !important;
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 17px !important;
+      }
+      .swiper-button-prev::after {
+        content: url('@/assets/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
+      }
+
+      .swiper-button-next::after {
+        content: url('@/assets/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
+      }
+    }
   }
 }
 @media (min-width: 835px) {
