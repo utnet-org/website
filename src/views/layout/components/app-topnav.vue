@@ -1,6 +1,5 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from '@/assets/images/logo.svg'
-import Utility from '@/assets/images/utility.svg'
 import UtilityW from '@/assets/images/utility_white.svg'
 import sun from '@/assets/images/sun.svg'
 import dark from '@/assets/images/dark.svg'
@@ -225,61 +224,63 @@ function seticon(icon: string, isdark: boolean) {
 </script>
 <template>
   <nav class="app-topnav">
-    <div class="container">
-      <div class="container_left">
-        <RouterLink to="/">
-          <div class="logo_box" @click="selectType = false">
-            <Logo />
-            <UtilityW v-if="theme" />
-            <Utility v-else />
-            <!-- <span class="logo_text">Utility</span> -->
+    <div class="app_topnav_f">
+      <div class="container">
+        <div class="container_left">
+          <RouterLink to="/">
+            <div class="logo_box" @click="selectType = false">
+              <Logo />
+              <UtilityW v-if="theme" />
+              <Utility v-else />
+              <!-- <span class="logo_text">Utility</span> -->
+            </div>
+          </RouterLink>
+          <UTTOPNAV v-if="width > 834" />
+        </div>
+        <div class="right" v-if="width > 834">
+          <SEARCH v-model:isfocus="isfocus" />
+          <div
+            @click="setTheme"
+            class="theme"
+            :style="{ background: theme ? '' : '' }"
+          >
+            <sun v-if="!theme" style="width: 24px; height: 24px" />
+            <dark v-else style="width: 24px; height: 24px" />
           </div>
-        </RouterLink>
-        <UTTOPNAV v-if="width > 834" />
-      </div>
-      <div class="right" v-if="width > 834">
-        <SEARCH v-model:isfocus="isfocus" />
-        <div
-          @click="setTheme"
-          class="theme"
-          :style="{ background: theme ? '' : '' }"
-        >
-          <sun v-if="!theme" style="width: 24px; height: 24px" />
-          <dark v-else style="width: 24px; height: 24px" />
+          <SETLANGUAGE />
         </div>
-        <SETLANGUAGE />
-      </div>
-      <div v-else class="mobile_theme_icon">
-        <div @click="setTheme" style="width: 24px; height: 24px">
-          <sun v-if="!theme" style="width: 24px; height: 24px" />
-          <dark v-else style="width: 24px; height: 24px" />
+        <div v-else class="mobile_theme_icon">
+          <div @click="setTheme" style="width: 24px; height: 24px">
+            <sun v-if="!theme" style="width: 24px; height: 24px" />
+            <dark v-else style="width: 24px; height: 24px" />
+          </div>
         </div>
+        <img
+          class="list_caption_image"
+          :src="
+            selectType
+              ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png'
+              : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
+          "
+          alt=""
+          v-if="width < 834 && !theme"
+          @click="blockSelect"
+        />
+        <img
+          v-if="width < 834 && theme && selectType"
+          class="list_caption_image"
+          src="@/assets/images/apptop.png"
+          alt=""
+          @click="blockSelect"
+        />
+        <img
+          v-if="width < 834 && theme && !selectType"
+          class="list_caption_image"
+          src="@/assets/images/apptopc.png"
+          alt=""
+          @click="blockSelect"
+        />
       </div>
-      <img
-        class="list_caption_image"
-        :src="
-          selectType
-            ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption_close.png'
-            : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/list_caption.png'
-        "
-        alt=""
-        v-if="width < 834 && !theme"
-        @click="blockSelect"
-      />
-      <img
-        v-if="width < 834 && theme && selectType"
-        class="list_caption_image"
-        src="@/assets/images/apptop.png"
-        alt=""
-        @click="blockSelect"
-      />
-      <img
-        v-if="width < 834 && theme && !selectType"
-        class="list_caption_image"
-        src="@/assets/images/apptopc.png"
-        alt=""
-        @click="blockSelect"
-      />
     </div>
   </nav>
   <div
@@ -415,7 +416,11 @@ function seticon(icon: string, isdark: boolean) {
   flex-shrink: 0; // 防止被 flex 容器压缩
   height: 69px;
   width: 100vw;
-
+  .app_topnav_f {
+    margin: 0 20px;
+    background: var(--topnav-background-color);
+    border-radius: 20px;
+  }
   .container {
     height: 100%;
     max-width: 2000px;
@@ -423,10 +428,6 @@ function seticon(icon: string, isdark: boolean) {
     justify-content: space-between;
     align-items: center;
     padding: 0 60px 0 60px;
-    margin: 0 29px;
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
-    background: var(--topnav-background-color);
     .container_left {
       display: flex;
       align-items: center;
@@ -462,7 +463,7 @@ function seticon(icon: string, isdark: boolean) {
 @media (max-width: 834px) {
   .app-topnav {
     .container {
-      padding: 0 5%;
+      // padding: 0 5%;
 
       .list_caption_image {
         width: 32px;
@@ -474,7 +475,7 @@ function seticon(icon: string, isdark: boolean) {
   .list_caption_select {
     transition: all 0.3s ease-in-out;
     position: fixed;
-    top: 69px;
+    top: 89px;
     right: 0;
     width: 80vw;
     height: 100vh;

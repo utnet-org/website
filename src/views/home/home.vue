@@ -1,5 +1,6 @@
 <script setup lang="ts" name="HomeView">
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
+import phaseArrow1 from '@/assets/images/UtilityNet_PHASE_button_arrow1.svg'
 import 'swiper/swiper-bundle.css'
 import 'swiper/less'
 import 'swiper/less/navigation'
@@ -28,6 +29,8 @@ const updatedWidth = function () {
   height.value = window.innerHeight
   updateUtilityArr() // 初始设置
 }
+const phaseArrowb = ref(false)
+const phaseArrowb1 = ref(false)
 
 onMounted(async () => {
   updateUtilityArr() // 初始设置
@@ -359,6 +362,23 @@ const fourdata = [
     button: 'home.Rent'
   }
 ]
+const Recent_Highlights_data = ref([
+  {
+    img: '@/assets/images/Recent_Highlights2.png',
+    title: 'Calculate demand analysis and the next tuyere',
+    text: 'September 21, 2023'
+  },
+  {
+    img: '@/assets/images/Recent_Highlights3.png',
+    title: 'Calculate demand analysis and the next tuyere',
+    text: 'September 21, 2023'
+  },
+  {
+    img: '@/assets/images/Recent_Highlights1.png',
+    title: 'Calculate demand analysis and the next tuyere',
+    text: 'September 21, 2023'
+  }
+])
 </script>
 <template>
   <div class="home_view">
@@ -452,12 +472,13 @@ const fourdata = [
       ></video>
     </div>
     <!-- !视频end -->
+
     <div class="container" style="overflow: hidden">
       <!-- !大大的图片 begin -->
       <div class="UNCEcosystem">
         <!-- <div class="clipped_rectangle">
-          <img src="@/assets/images/UNC_Ecosystem_bg.jpg" alt="" />
-        </div> -->
+        <img src="@/assets/images/UNC_Ecosystem_bg.jpg" alt="" />
+      </div> -->
         <div class="Ecosystem">
           <div class="Ecosystem_father">
             <div class="Ecosystem_title">UNC生态系统</div>
@@ -560,27 +581,179 @@ const fourdata = [
             troubleshoot errors.
           </div>
           <div class="UtilityNet_PHASE_button_father">
-            <div class="Rainbow">
+            <div
+              class="Rainbow"
+              @mouseenter="phaseArrowb = true"
+              @mouseleave="phaseArrowb = false"
+            >
               <div class="UtilityNet_PHASE_button">
                 More on Testnet
-                <phaseArrow />
+                <phaseArrow v-if="phaseArrowb" />
+                <phaseArrow1 v-if="!phaseArrowb" />
               </div>
             </div>
-            <div class="Rainbow">
+            <div
+              class="Rainbow"
+              @mouseenter="phaseArrowb1 = true"
+              @mouseleave="phaseArrowb1 = false"
+            >
               <div class="UtilityNet_PHASE_button">
-                Join Testnet! <phaseArrow />
+                Join Testnet!
+                <phaseArrow v-if="phaseArrowb1" />
+                <phaseArrow1 v-if="!phaseArrowb1" />
               </div>
             </div>
           </div>
         </div>
         <div class="UtilityNet_PHASE_right">
-          <!-- <img src="@/assets/images/UtilityNet_PHASE_bg.png" alt="" /> -->
+          <img src="@/assets/images/UtilityNet_PHASE_bg.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="Key_Players_In">
+      <div class="Key_Players_In_title">
+        Key Players In The Utilitynet Ecosystem
+      </div>
+      <div class="Key_Players_In_text">
+        In the UtilityNet ecosystem, UNC tokens, as the core value vehicle
+        within the ecosystem, are key to connecting and incentivizing all
+        participants.
+      </div>
+      <div class="Key_Players_In_Gear_wheel_father">
+        <div class="Key_Players_In_Gear_wheel">
+          <img
+            class="Gear_wheel_bg"
+            src="@/assets/images/Key_Players_In_Gear_wheel_bg.png"
+            alt=""
+          />
+          <div
+            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position"
+          >
+            <div class="Key_Players_In_Gear">
+              <div class="base_layer">BASE LAYER</div>
+              <div class="Key_Players_In_Gear_wheel_button_father">
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="point_AND_line_father">
+            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+          </div>
+          <div
+            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position1"
+          >
+            <div class="Key_Players_In_Gear">
+              <div class="base_layer">BASE LAYER</div>
+              <div class="Key_Players_In_Gear_wheel_button_father">
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="point_AND_line_father1">
+            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+          </div>
+          <div
+            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position2"
+          >
+            <div class="Key_Players_In_Gear">
+              <div class="base_layer">BASE LAYER</div>
+              <div class="Key_Players_In_Gear_wheel_button_father">
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="point_AND_line_father2">
+            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+          </div>
+          <div
+            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position3"
+          >
+            <div class="Key_Players_In_Gear">
+              <div class="base_layer">BASE LAYER</div>
+              <div class="Key_Players_In_Gear_wheel_button_father">
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+                <div class="background_Rainbow">
+                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="point_AND_line_father3">
+            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="overflow: hidden">
+      <div class="UtilityNet_Basic_Functions">
+        <div class="UtilityNet_Basic_Functions_title">
+          UtilityNet Basic Functions
+        </div>
+        <div class="UtilityNet_Basic_box_father">
+          <div class="UtilityNet_Basic_box">
+            <div class="UtilityNet_Basic_box_title">UtilityNetwork</div>
+            <div class="UtilityNet_Basic_box_text">
+              A high-performance distributed computing resource network.
+            </div>
+            <div class="UtilityNet_Basic_box_button"></div>
+          </div>
+        </div>
+      </div>
+      <div class="Recent_Highlights">
+        <div class="Recent_Highlights_title">RECENT HIGHLIGHTS</div>
+        <div class="Recent_Highlights_box_father">
+          <div class="Recent_Highlights_box">
+            <div class="Recent_Highlights_box_img"><img src="" alt="" /></div>
+            <div class="Recent_Highlights_box_title"></div>
+            <div class="Recent_Highlights_box_text"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped lang="less">
+// .background_Rainbow {
+//   // background: conic-gradient(
+//   //   from var(--radius),
+//   //   #00f7e4 0deg,
+//   //   #fa00ff 60deg 100deg,
+//   //   #ffffff 120deg,
+//   //   #ca00c1 158deg 190deg,
+//   //   #ffffff 294deg 299deg,
+//   //   #fa00ff 320deg,
+//   //   #00f7e4 350.5deg 360deg
+//   // );
+// }
 .UNCEcosystem {
   position: relative;
   background: rgb(255, 255, 255);
@@ -1367,13 +1540,14 @@ const fourdata = [
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 110px;
   }
 }
 .UtilityNet_PHASE {
   width: 100%;
   height: 649px;
   flex-shrink: 0;
-  margin: 0 110px;
+  margin: 100px 0;
   border-radius: 12px;
   background: #1b1b1b;
   display: flex;
@@ -1405,29 +1579,30 @@ const fourdata = [
       display: flex;
       gap: 16px;
       .Rainbow {
-        background: conic-gradient(
-          from var(--radius),
-          #00f7e4 0deg,
-          #fa00ff 60deg 100deg,
-          #ffffff 120deg,
-          #ca00c1 158deg 190deg,
-          #ffffff 294deg 299deg,
-          #fa00ff 320deg,
-          #00f7e4 350.5deg 360deg
-        );
         border-radius: 8px;
+        flex-shrink: 0;
         padding: 1px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: #b0faff;
         &:hover {
-          background: #b0faff;
+          background: conic-gradient(
+            from var(--radius),
+            #00f7e4 0deg,
+            #fa00ff 60deg 100deg,
+            #ffffff 120deg,
+            #ca00c1 158deg 190deg,
+            #ffffff 294deg 299deg,
+            #fa00ff 320deg,
+            #00f7e4 350.5deg 360deg
+          );
         }
       }
 
       .UtilityNet_PHASE_button {
         gap: 5px;
-        background: #1b1b1b;
+        background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
         // width: 189px;
         border-radius: 8px;
         height: 42px;
@@ -1442,15 +1617,280 @@ const fourdata = [
         font-style: normal;
         font-weight: 500;
         line-height: 150%; /* 21px */
-        color: #fffefb;
+        backdrop-filter: blur(4.66006326675415px);
+        color: #000;
         &:hover {
-          color: #000;
+          color: #fffefb;
 
-          background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
-          backdrop-filter: blur(4.66006326675415px);
+          background: #1b1b1b;
         }
       }
     }
+  }
+  .UtilityNet_PHASE_right {
+    width: 527.401px;
+    height: 522.517px;
+    flex-shrink: 0;
+    margin-right: 48px;
+  }
+}
+.Key_Players_In {
+  width: 100%;
+  height: 1088px;
+  flex-shrink: 0;
+  margin-bottom: 100px;
+  background: url('@/assets/images/Key_Players_In_bg.png');
+  padding: 122px 148px 0 148px;
+  .Key_Players_In_title {
+    color: #fff;
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 18px;
+  }
+
+  .Key_Players_In_text {
+    margin-left: 18px;
+    color: rgba(255, 254, 251, 0.8);
+    font-family: Gilroy-Medium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 155%; /* 31px */
+    max-width: 1149px;
+    margin-bottom: 110px;
+  }
+  .Key_Players_In_Gear_wheel_father {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Key_Players_In_Gear_wheel {
+      position: relative;
+      // max-width: 1728px;
+      display: flex;
+      justify-content: center;
+      .Gear_wheel_bg {
+        width: 224.356px;
+        height: 223.641px;
+        flex-shrink: 0;
+        //平移
+        transform: translate(0, 80%);
+      }
+      .Key_Players_In_Gear_wheel_Rainbow {
+        position: absolute;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0);
+        border: gray 1px solid;
+        padding: 1px;
+        flex-shrink: 0;
+        .Key_Players_In_Gear {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          border-radius: 12px;
+          // background: rgba(0, 0, 0);
+          width: 483.355px;
+          height: 221.614px;
+          .base_layer {
+            color: #fff;
+            font-family: Gilroy-Bold;
+            font-size: 18.24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 155%; /* 28.272px */
+          }
+          .Key_Players_In_Gear_wheel_button_father {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            .Key_Players_In_Gear_wheel_button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+              text-align: center;
+              font-family: Gilroy-Medium;
+              font-size: 16.416px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 155%; /* 25.445px */
+              width: 269.949px;
+              height: 45.599px;
+              flex-shrink: 0;
+              border-radius: 8px;
+              border: 0.912px solid gray;
+            }
+          }
+        }
+      }
+      .Gear_wheel_point {
+        position: absolute;
+        width: 11.856px;
+        height: 11.856px;
+        flex-shrink: 0;
+        background: #00fffe;
+        border-radius: 50%;
+      }
+
+      .Gear_wheel_line {
+        position: absolute;
+        width: 112.374px;
+        height: 1.5px;
+        flex-shrink: 0;
+        stroke-width: 0.912px;
+        stroke: #fff;
+        //旋转
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ca00c1,
+          #00f7e4,
+          #00f7e4
+        );
+      }
+      .Gear_wheel_line1 {
+        position: absolute;
+        width: 85px;
+        height: 1.5px;
+        flex-shrink: 0;
+        stroke-width: 0.912px;
+        stroke: #fff;
+        background: linear-gradient(to left, #ffffff, #ca00c1, #ca00c1);
+      }
+      .point_AND_line_father {
+        .Gear_wheel_point_left {
+          left: -56%;
+          top: 47%;
+        }
+        .Gear_wheel_point_right {
+          left: -14%;
+          top: 48%;
+        }
+        .Gear_wheel_line_long {
+          transform: rotate(45deg);
+          left: -18%;
+          top: 69%;
+        }
+        .Gear_wheel_line_short {
+          left: -51%;
+          top: 49%;
+        }
+      }
+
+      .point_AND_line_father1 {
+        .Gear_wheel_point_left {
+          left: -56%;
+          top: 209%;
+        }
+        .Gear_wheel_point_right {
+          left: -14%;
+          top: 208%;
+        }
+        .Gear_wheel_line_long {
+          transform: rotate(-45deg);
+          left: -17%;
+          top: 191%;
+        }
+        .Gear_wheel_line_short {
+          left: -51%;
+          top: 211%;
+        }
+      }
+      .point_AND_line_father2 {
+        .Gear_wheel_point_left {
+          right: -57.2%;
+          top: 48%;
+        }
+        .Gear_wheel_point_right {
+          right: -14%;
+          top: 48%;
+        }
+        .Gear_wheel_line_long {
+          transform: rotate(135deg);
+          right: -18%;
+          top: 69%;
+        }
+        .Gear_wheel_line_short {
+          transform: rotate(180deg);
+
+          right: -52%;
+          top: 50%;
+        }
+      }
+      .point_AND_line_father3 {
+        .Gear_wheel_point_left {
+          right: -57.2%;
+          top: 208%;
+        }
+        .Gear_wheel_point_right {
+          right: -15%;
+          top: 208%;
+        }
+        .Gear_wheel_line_long {
+          transform: rotate(45deg);
+          right: -18%;
+          top: 191%;
+        }
+        .Gear_wheel_line_short {
+          transform: rotate(180deg);
+
+          right: -52%;
+          top: 210%;
+        }
+      }
+
+      .wheel_Rainbow_position {
+        position: absolute;
+        left: -270%;
+        top: 2%;
+      }
+      .wheel_Rainbow_position1 {
+        position: absolute;
+        left: -270%;
+        bottom: -162%;
+      }
+      .wheel_Rainbow_position2 {
+        position: absolute;
+        right: -272%;
+        top: 2%;
+        .Key_Players_In_Gear {
+          flex-direction: row-reverse;
+        }
+      }
+      .wheel_Rainbow_position3 {
+        position: absolute;
+        right: -272%;
+        bottom: -162%;
+        .Key_Players_In_Gear {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}
+.UtilityNet_Basic_Functions {
+  background: #1b1b1b;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-shrink: 0;
+  padding: 40px;
+  .UtilityNet_Basic_Functions_title {
+    margin-top: 10px;
+    margin-left: 16px;
+    color: #fffefb;
+    text-align: center;
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }
 @media (min-width: 835px) {
