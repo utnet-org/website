@@ -175,7 +175,7 @@ function scrollToPosition(i: string) {
 
   console.log('距离页面顶部的距离：', distanceToTop)
   window.scrollTo({
-    top: distanceToTop - 100, // 设置滚动条位置为顶部
+    top: distanceToTop - 100 - 50, // 设置滚动条位置为顶部
     behavior: 'smooth' // 平滑滚动
   })
 
@@ -361,7 +361,7 @@ const handleScroll = () => {
 
   .header {
     width: 100%;
-    // height: 972px;
+    height: 972px;
     background: var(--learning_center-header-bg) no-repeat;
     background-size: cover;
     display: flex;
@@ -565,8 +565,13 @@ const handleScroll = () => {
               }
               .section_right_item_card_item_header_img {
                 margin-top: 10px;
-
-                height: 100%;
+                // width: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 90%;
+                }
               }
               .section_right_item_card_item_header_text {
                 color: var(--where-text);
@@ -628,7 +633,7 @@ const handleScroll = () => {
     // 鼠标变小手
     cursor: pointer;
     width: 370px;
-    height: 540px;
+    height: 480px;
 
     margin-right: 24px;
     margin-bottom: 24px;

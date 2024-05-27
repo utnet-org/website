@@ -23,7 +23,7 @@ const handleClick = () => {
   height: 43px;
   flex-shrink: 0; // 不可缩小
   border-radius: 28px;
-  border: 1px solid var(--Light-dark, #fffefb);
+  border: 1px solid var(--Light-dark, rgba(255, 254, 251, 0.2));
   display: flex;
   justify-content: center;
   align-items: center;

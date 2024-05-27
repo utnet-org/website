@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { openNewPage } from '@/utils/request'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
 const { home } = useStore()
 const { theme } = storeToRefs(home)
 import { getStatistics } from '@/api/home'
+import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
+import greenAarrow from '@/assets/images/green_arrow.svg'
 const unc_price = ref(0)
 onMounted(async () => {
   const { data } = await getStatistics()
   unc_price.value = data.aiPower
+  window.addEventListener('scroll', handleScroll)
 })
 const optionsList = [
   {
@@ -34,29 +37,96 @@ const optionsList = [
     link: 'https://www.coinw.com/frontSpot/spottrade?symbol=1382'
   }
 ]
-const messageCardList = [
-  {
-    title: 'utilityNetwork.talos_age_title',
-    firstLevelText: 'utilityNetwork.talos_age_first_text',
-    secondLevelText: 'utilityNetwork.talos_age_second_text'
-  },
-  {
-    title: 'utilityNetwork.vajra_age_title',
-    firstLevelText: 'utilityNetwork.vajra_age_first_text',
-    secondLevelText: 'utilityNetwork.vajra_age_second_text'
-  },
-  {
-    title: 'utilityNetwork.golem_age_title',
-    firstLevelText: 'utilityNetwork.golem_age_first_text',
-    secondLevelText: 'utilityNetwork.golem_age_second_text'
-  },
-  {
-    title: 'utilityNetwork.maria_age_title',
-    firstLevelText: 'utilityNetwork.maria_age_first_text',
-    secondLevelText: 'utilityNetwork.maria_age_second_text'
-  }
-]
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
+
+// 初始化 orderNum 数组，用于显示数字和逗号
+const orderNum = ref<string[]>([
+  '1',
+  '0',
+  ',',
+  '0',
+  '0',
+  '0',
+  ',',
+  '0',
+  '0',
+  '0',
+  ',',
+  '0',
+  '0',
+  '0'
+])
+
+// 定义当前数字和目标数字
+const currentNumber = ref<number>(10000000000) // 当前数字
+const targetNumber = ref<number>(500000000) // 目标数字
+
+// 动画持续时间
+const duration = ref<number>(30000)
+let startTime: number | null = null
+
+// 格式化数字
+const formatNumber = (num: number) => {
+  return num.toLocaleString('en-US')
+}
+
+// 更新 orderNum 显示的函数
+const updateNumberDisplay = (num: number) => {
+  // 格式化数字，并去除前导零
+  const formattedNum = formatNumber(num).replace(/^0+/, '')
+  // 更新 orderNum 数组，包含逗号的位置
+  orderNum.value = formattedNum.split('')
+}
+
+// 动画函数
+const animate = () => {
+  const step = (timestamp: number) => {
+    // 初始化开始时间
+    if (!startTime) startTime = timestamp
+    // 计算动画进度
+    const progress = timestamp - startTime
+    // 如果动画完成
+    if (progress >= duration.value) {
+      currentNumber.value = targetNumber.value
+      updateNumberDisplay(currentNumber.value)
+    } else {
+      // 计算当前数字
+      currentNumber.value = Math.floor(
+        currentNumber.value -
+          ((currentNumber.value - targetNumber.value) * progress) /
+            duration.value
+      )
+      // 更新显示
+      updateNumberDisplay(currentNumber.value)
+      // 继续动画
+      requestAnimationFrame(step)
+    }
+  }
+  // 开始动画
+  requestAnimationFrame(step)
+}
+const distributionBox = ref<HTMLElement | null>(null)
+
+// 监听滚动事件
+const handleScroll = () => {
+  console.log('distributionBox', distributionBox.value)
+
+  if (!distributionBox.value) return
+  const rect = distributionBox.value.getBoundingClientRect()
+  // 获取 UNC_Token_Distribution 盒子的顶部位置
+  const top = rect.top + window.scrollY - 200
+  // 如果滚动条滚动到了 UNC_Token_Distribution 盒子的顶部位置，触发数字变化函数
+  if (window.scrollY >= top) {
+    animate()
+    // 只触发一次后移除监听器，如果需要连续监听滚动，可以注释掉下面这行
+    window.removeEventListener('scroll', handleScroll)
+  }
+}
+
+// 组件销毁时移除滚动事件监听器
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 <template>
   <div class="container">
@@ -68,95 +138,43 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
         <div class="header_content_text">
           {{ $t('learning_center.How_to_understand') }}
         </div>
+        <div class="header_content_box">
+          <div class="CURRENT_UNC_PRICe">CURRENT UNC PRICE (USD)</div>
+          <div class="money">$0.1</div>
+          <div class="LAST_24_HQURS">
+            <div class="green">18.62%</div>
+            <greenAarrow />
+            <div class="white">(LAST 24 HQURS)</div>
+          </div>
+        </div>
+        <div class="header_content_button">
+          Gets UNC
+          <phaseArrow />
+        </div>
+      </div>
+      <div class="unc_token_header_bg">
+        <img src="@/assets/images/unc_token_header_bg.png" alt="" />
       </div>
     </div>
     <div class="message">
-      <div class="main_title_message">
+      <!-- <div class="main_title_message">
         <div class="main_title">
           {{ $t('utilityNetwork.learn_about_unc_token_title') }}
         </div>
         <div class="main_text">
           {{ $t('utilityNetwork.learn_about_unc_token_text') }}
         </div>
-      </div>
+      </div> -->
       <div class="subtitle">
         <div class="subtitle_options" v-if="viewableWidth > 834">
           <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png"
-              alt=""
-            />
+            <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
             <div>
-              <div class="subtitle_options_item_title">
-                {{ $t('utilityNetwork.fundamentals_of_blockchain_title') }}
-              </div>
+              <div class="subtitle_options_item_title">About UNC</div>
               <div class="subtitle_options_item_text">
                 {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
               </div>
             </div>
-          </div>
-          <div class="subtitle_options_item">
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t(
-                    'utilityNetwork.superb_application_of_smart_contracts_title'
-                  )
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t(
-                    'utilityNetwork.superb_application_of_smart_contracts_text'
-                  )
-                }}
-              </div>
-            </div>
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options2.png"
-              alt=""
-            />
-          </div>
-          <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options3.png"
-              alt=""
-            />
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t('utilityNetwork.incentive_mechanism_for_innovation_title')
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t('utilityNetwork.incentive_mechanism_for_innovation_text')
-                }}
-              </div>
-            </div>
-          </div>
-          <div class="subtitle_options_item">
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t(
-                    'utilityNetwork.digital_interpretation_of_blockchain_governance_title'
-                  )
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t(
-                    'utilityNetwork.digital_interpretation_of_blockchain_governance_text'
-                  )
-                }}
-              </div>
-            </div>
-
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options4.png"
-              alt=""
-            />
           </div>
         </div>
         <div class="subtitle_options" v-else>
@@ -238,389 +256,651 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
           </div>
         </div>
       </div>
-      <div class="message_card_title">
-        {{ $t('utilityNetwork.how_to_earn_unc') }}
+      <div class="UNC_Token_Distribution" ref="distributionBox">
+        <div>
+          <div class="UNC_Token_Distribution_title">
+            $UNC Token Distribution
+          </div>
+          <div class="UNC_Token_Distribution_text">
+            The total number of UNCs will eventually reach 500 million through
+            the halving deflation mechanism and the burning mechanism, creating
+            a circular circulation.
+          </div>
+        </div>
+
+        <div class="UNC_Token_Distribution_figure">
+          <div class="figure_round">
+            <div class="figure_round_number">
+              <div class="box-item">
+                <li
+                  :class="{
+                    'number-item': !isNaN(Number(item)),
+                    'mark-item': isNaN(Number(item))
+                  }"
+                  v-for="(item, index) in orderNum"
+                  :key="index"
+                >
+                  <span v-if="!isNaN(Number(item))">
+                    <i
+                      ref="numberItem"
+                      :style="{
+                        transform: 'translateY(-' + Number(item) * 10 + '%)'
+                      }"
+                    >
+                      0123456789
+                    </i>
+                  </span>
+                  <span class="comma" v-else>{{ item }}</span>
+                </li>
+              </div>
+            </div>
+          </div>
+          <div class="Arithmetic_Incentive line_and_border">
+            <div class="UNC_Token_Distribution_border">
+              <div class="UNC_Token_Distribution_border_title">97%</div>
+              <div class="UNC_Token_Distribution_border_text">
+                Arithmetic Incentive (Miner)
+              </div>
+            </div>
+            <div class="UNC_Token_Distribution_line"></div>
+            <div class="UNC_Token_Distribution_line1"></div>
+          </div>
+          <div class="Arithmetic_Incentive1 line_and_border">
+            <div class="UNC_Token_Distribution_border">
+              <div class="UNC_Token_Distribution_border_title">97%</div>
+              <div class="UNC_Token_Distribution_border_text">
+                Technology Node Management Fund
+              </div>
+            </div>
+            <div class="UNC_Token_Distribution_line"></div>
+            <div class="UNC_Token_Distribution_line1"></div>
+          </div>
+          <div class="Arithmetic_Incentive2 line_and_border">
+            <div class="UNC_Token_Distribution_border">
+              <div class="UNC_Token_Distribution_border_title">97%</div>
+              <div class="UNC_Token_Distribution_border_text">
+                DAO organization management distribution
+              </div>
+            </div>
+            <div class="UNC_Token_Distribution_line"></div>
+            <div class="UNC_Token_Distribution_line1"></div>
+          </div>
+          <div class="Arithmetic_Incentive3 line_and_border">
+            <div class="UNC_Token_Distribution_border">
+              <div class="UNC_Token_Distribution_border_title">97%</div>
+              <div class="UNC_Token_Distribution_border_text">
+                Initial mining of fossil fuel
+              </div>
+            </div>
+            <div class="UNC_Token_Distribution_line"></div>
+            <div class="UNC_Token_Distribution_line1"></div>
+          </div>
+        </div>
+        <div class="UNC_Token_Distribution_img">
+          <img src="@/assets/images/UNC_Token_Distribution_img.png" alt="" />
+        </div>
       </div>
-      <div class="message_card_list">
-        <div
-          class="message_card_list_item"
-          v-for="(item, index) in messageCardList"
-          :key="index"
-        >
-          <div class="message_card_list_item_title">
-            <div class="message_card_list_item_title_line"></div>
-            <div>{{ $t(item.title) }}</div>
-          </div>
-          <div class="message_card_list_item_text">
-            {{ $t(item.firstLevelText) }}
-          </div>
-          <div class="message_card_list_item_text">
-            {{ $t(item.secondLevelText) }}
+      <div class="options_list_father">
+        <div class="options_list_header">Where to get UNC?</div>
+        <div class="options_list_header_text">
+          You can get UNC from decentralized exchanges or centralized exchanges
+          that are currently live.
+        </div>
+        <div class="options_list">
+          <div v-for="(item, index) in optionsList" :key="index">
+            <div class="options_item" @click="openNewPage(item.link)">
+              <img :src="item.image" alt="" />
+              <div class="options_item_header">
+                <div class="options_item_header_title">{{ item.title }}</div>
+                <div class="options_item_header_text">{{ $t(item.text) }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="options_list_header">
-        {{ $t('utilityNetwork.unc_tading_market_title') }}
-      </div>
-      <div class="options_list">
-        <div v-for="(item, index) in optionsList" :key="index">
-          <div class="options_item" @click="openNewPage(item.link)">
-            <img :src="item.image" alt="" />
-            <div class="options_item_header">
-              <div class="options_item_header_title">{{ item.title }}</div>
-              <div class="options_item_header_text">{{ $t(item.text) }}</div>
-            </div>
+      <div class="Join_the_UtilityNet">
+        <div class="Join_the_UtilityNet_left">
+          <div class="Join_the_UtilityNet_title">What is unique about UNC?</div>
+          <div class="Join_the_UtilityNet_text">
+            There are many cryptocurrencies on the market today, but there are
+            some things that only UNC can do, and UNC's value set is based on
+            the worldwide demand for distributed chip arithmetic resources and
+            our innovative POCI protocol.
           </div>
+        </div>
+        <div class="Join_the_UtilityNet_right">
+          <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
         </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped lang="less">
+li {
+  list-style: none !important; /* 移除列表项默认的点 */
+}
+
 .container {
   width: 100%;
+  padding: 0 110px;
 
   .header {
-    margin-top: 62px;
-    height: 578px;
+    margin-top: 92px;
     width: 100%;
-    // height: 972px;
-    background: var(--unc-token-bgc);
-    background-size: cover;
     display: flex;
     align-items: center;
-    // justify-content: flex-start;
+    justify-content: space-between;
+    padding: 110px 38px 100px 0px;
 
     .header_content {
-      height: 310px;
-      width: 534px;
-      margin: 0 0 94px 140px;
-      padding: 0 60px;
-
       flex-shrink: 0;
-      border-radius: 10px;
-      background: var(--learning_center-header-bg-color);
-      box-shadow: var(--unc_token-header-shadow);
-      backdrop-filter: blur(4px);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 30px;
       .header_content_header {
-        color: var(--where-text);
-        font-family: Lantinghei SC;
-        font-size: 28px;
-        font-weight: 700;
-      }
-
-      .header_content_text {
-        // width: 398px;
-        color: var(--where-text);
-        font-family: Inter;
-        font-size: 14px;
+        color: #fffefb;
+        font-family: Gilroy-Bold;
+        font-size: 60px;
+        font-style: normal;
         font-weight: 400;
-        line-height: 145%;
-        opacity: 0.8;
-        margin: 19px 0 30px;
+        line-height: normal;
+      }
+      .header_content_text {
+        color: #fffefb;
+        font-family: Gilroy-Medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155%; /* 31px */
+        max-width: 825px;
+      }
+      .header_content_box {
+        width: 451px;
+        height: 156px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        border: 0.466px solid #2a3433;
+        background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        .CURRENT_UNC_PRICe {
+          color: rgba(255, 254, 251, 0.8);
+          font-family: Gilroy-Medium;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 155%; /* 31px */
+        }
+        .money {
+          color: #fffefb;
+          text-align: center;
+          font-family: Gilroy-Bold;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+        .LAST_24_HQURS {
+          display: flex;
+          align-items: center;
+          .green {
+            color: #37a17a;
+            font-family: Gilroy-Medium;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 155%; /* 31px */
+            margin-right: 2px;
+          }
+          .white {
+            margin-left: 15px;
+            color: rgba(255, 254, 251, 0.8);
+            font-family: Gilroy-Medium;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 155%; /* 31px */
+          }
+        }
       }
 
       .header_content_button {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 151px;
+        width: 141px;
         height: 42px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 6px;
-        border: 1px solid var(--Utility-title-color);
-        color: var(--where-text);
+        gap: 18px;
+        border: 0.608px solid #00fff5;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 255, 245, 0.2) 0%,
+          rgba(0, 153, 147, 0.2) 100%
+        );
+        //阴影
+        color: #fffefb;
+        text-align: center;
         font-family: Inter;
         font-size: 14px;
+        font-style: normal;
         font-weight: 500;
-        line-height: 150%;
-        cursor: pointer;
-        background: var(--background-header_content_button);
+        line-height: 150%; /* 21px */
         &:hover {
-          border: 1px solid #3edfcf;
-          background-color: #3edfcf;
+          box-shadow: 0px 4px 20px 0px rgba(0, 255, 245, 0.3);
         }
       }
+    }
+    .unc_token_header_bg {
+      width: 537.401px;
+      height: 532.517px;
+      flex-shrink: 0;
     }
   }
 
   .message {
-    padding: 70px 11.5% 74px;
-
-    .main_title_message {
-      display: flex;
-      flex-direction: column;
-
-      .main_title {
-        color: var(--where-text);
-        font-family: Lantinghei SC;
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 26px;
-        text-align: center;
-      }
-
-      .main_text {
-        color: var(--where-text);
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 161%;
-        /* 22.54px */
-        opacity: 0.8;
-        margin-bottom: 15px;
-      }
-    }
-
     .subtitle {
       .subtitle_options {
-        margin-bottom: 62px;
+        margin-bottom: 100px;
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         align-items: center;
         justify-content: center;
 
         .subtitle_options_item {
-          width: 1328px;
-          height: 295px;
+          width: 100%;
+
+          flex-shrink: 0;
           border-radius: 12px;
+          background: #1a1a1a;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          padding: 15px 54px 13px 80px !important;
+          // gap: 50px;
 
-          width: 100% !important;
-          height: 100% !important;
-          padding: 50px !important;
-          gap: 50px;
-
-          &:first-child {
-            margin-bottom: 14px;
-            background: var(--unc_token-subtitle-bg);
-            padding: 0 70px 0 123px;
-            border: var(--unc_token-subtitle-border);
-            &:hover {
-              border: var(--unc_token-subtitle-border1);
-              box-shadow: var(--unc_token-subtitle-shadow);
-            }
-
-            img {
-              width: 134px;
-              height: 252px;
-            }
+          img {
+            width: 457.025px;
+            height: 455.129px;
+            flex-shrink: 0;
           }
-
-          &:nth-child(2) {
-            margin-bottom: 14px;
-            background: var(--unc_token-subtitle-bg);
-            padding: 0 111px 0 50px;
-            border: var(--unc_token-subtitle-border);
-            &:hover {
-              border: var(--unc_token-subtitle-border1);
-              box-shadow: var(--unc_token-subtitle-shadow);
-            }
-
-            img {
-              width: 234px;
-              height: 227px;
-            }
-          }
-
-          &:nth-child(3) {
-            margin-bottom: 14px;
-            background: var(--unc_token-subtitle-bg);
-            padding: 0 70px 0 115px;
-            border: var(--unc_token-subtitle-border);
-            &:hover {
-              border: var(--unc_token-subtitle-border1);
-              box-shadow: var(--unc_token-subtitle-shadow);
-            }
-
-            img {
-              width: 151px;
-              height: 198px;
-            }
-          }
-
-          &:last-child {
-            background: var(--unc_token-subtitle-bg);
-            padding: 0 183px 0 50px;
-            border: var(--unc_token-subtitle-border);
-            &:hover {
-              box-shadow: var(--unc_token-subtitle-shadow);
-              border: var(--unc_token-subtitle-border1);
-            }
-
-            img {
-              width: 120px;
-              height: 257px;
-            }
-          }
-
-          margin-bottom: 14px;
 
           .subtitle_options_item_title {
-            color: var(--where-text);
-            font-family: Lantinghei SC;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            color: #fffefb;
+            font-family: Gilroy-Bold;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
           }
 
           .subtitle_options_item_text {
-            color: var(--where-text);
-            font-family: Inter;
-            font-size: 14px;
+            color: rgba(255, 254, 251, 0.8);
+            font-family: Gilroy-Medium;
+            font-size: 20px;
+            font-style: normal;
             font-weight: 400;
-            line-height: 161%;
-            opacity: 0.8;
-            max-width: 700px;
+            line-height: 155%; /* 31px */
+            max-width: 760px;
           }
         }
       }
     }
-
-    .message_card_title {
-      text-align: center;
-      color: var(--where-text);
-      font-family: Lantinghei SC;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-
-    .message_card_list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-      grid-column-gap: 28px;
-      grid-row-gap: 28px;
-      margin-bottom: 62px;
-
-      .message_card_list_item {
-        width: 650px;
-        height: 378px;
-        margin: auto;
-        padding: 50px 50px 0;
-        border-radius: 12px;
-        background: var(--unc_token-message_card_list-bgc);
-        display: flex;
-        flex-direction: column;
-        border: var(--unc_token-message_card_list-border);
-
-        &:hover {
-          background: var(--unc_token-message_card_list-hoverbg);
-          box-shadow: var(--unc_token-subtitle-shadow1);
-
-          background-color: var(--unc_token-message_card_list-hover-bgc);
-        }
-
-        .message_card_list_item_title {
-          margin-bottom: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-
-          .message_card_list_item_title_line {
-            width: 4px;
-            height: 16px;
-            background: #3edfcf;
-            margin-right: 8px;
-          }
-
-          div {
-            color: var(--where-text);
-            font-family: Lantinghei SC;
-            font-size: 16px;
-            font-weight: 700;
-          }
-        }
-
-        .message_card_list_item_text {
-          color: var(--where-text);
-          font-family: Inter;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 161%;
-          /* 22.54px */
-          opacity: 0.8;
-          margin-top: 16px;
-        }
-      }
-    }
-
-    .options_list_header {
-      color: var(--where-text);
-      font-family: Lantinghei SC;
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-
-    .options_list {
-      // display: grid;
-      // grid-template-columns: repeat(auto-fill, minmax(321px, 1fr));
-      // grid-column-gap: 14px;
-      // /* 项目之间的水平间距 */
-      // grid-row-gap: 14px;
+    .UNC_Token_Distribution {
+      padding: 50px 60px 0 52px;
+      width: 100%;
+      border-radius: 12px;
+      background: #1b1b1b;
+      margin-bottom: 90px;
+      min-height: 830.981px;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-start;
+      flex-direction: column;
+      justify-content: space-between;
+      .UNC_Token_Distribution_title {
+        color: #fffefb;
+        font-family: Gilroy-Bold;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .UNC_Token_Distribution_text {
+        color: rgba(255, 254, 251, 0.8);
+        font-family: Gilroy-Medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155%; /* 31px */
+        margin-bottom: 60px;
+      }
+      .UNC_Token_Distribution_figure {
+        position: relative;
 
-      .options_item {
-        min-width: 321px;
-        height: 105px;
-        padding: 27px 32px;
-        margin-right: 14px;
-        margin-bottom: 14px;
-        border-radius: 8px;
-        background: var(--unc_token-options_item-bgc);
-        box-shadow: var(--box-shadow-light);
-        display: flex;
-        cursor: pointer;
-        border: var(--unc_token-options_item-border);
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 20px;
-          margin-right: 16px;
-          background-color: #151c1a;
-        }
-
-        .options_item_header {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
-
-          .options_item_header_title {
-            color: var(--where-text);
-            font-family: Inter;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 150%;
-            /* 24px */
-            margin-bottom: 6px;
-          }
-
-          .options_item_header_text {
-            color: var(--where-text);
-            font-family: Inter;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 150%;
-            /* 21px */
-            opacity: 0.8;
-          }
-        }
-
-        &:hover {
-          background: var(--unc_token-options_item-bgc-hover);
-          border: var(--unc_token-header-border);
+        .figure_round {
+          width: 469.828px;
+          height: 469.829px;
+          flex-shrink: 0;
+          position: absolute;
+          top: -178px;
+          left: 33.5%;
+          background: url('@/assets/images/UNC_Token_Distribution_round.png')
+            no-repeat;
           background-size: cover;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .figure_round_number {
+            color: #00fff5;
+            font-family: Gilroy-Bold;
+            font-size: 34.09px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+
+            .box-item {
+              position: relative;
+              writing-mode: vertical-lr;
+              text-orientation: upright;
+              -moz-user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+              -khtml-user-select: none;
+              user-select: none;
+            }
+
+            .mark-item {
+              width: 10px;
+              height: 30px;
+              margin-right: 5px;
+              line-height: 10px;
+              font-size: 34px;
+              position: relative;
+              & > span {
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+              }
+            }
+
+            .number-item {
+              width: 18px;
+              height: 30px;
+              list-style: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              & > span {
+                position: relative;
+                display: flex;
+                // justify-content: center;
+                // align-items: center;
+                width: 100%;
+                height: 100%;
+                writing-mode: tb-rl; // writing-mode 改变文字排列方向
+                text-orientation: upright; // 文字方向
+                overflow: hidden;
+                & > i {
+                  width: 18px;
+
+                  font-style: normal;
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  transform: translateX(-50%);
+                  transition: transform 0.1s linear;
+                  letter-spacing: 10px; // 字符间距
+                }
+              }
+            }
+            .number-item:last-child {
+              margin-right: 0;
+            }
+          }
         }
+        .line_and_border {
+          .UNC_Token_Distribution_line {
+            position: absolute;
+
+            height: 1px;
+            background: #00fff5;
+          }
+          .UNC_Token_Distribution_line1 {
+            position: absolute;
+            width: 24px;
+            height: 1px;
+            background: #00fff5;
+          }
+          .UNC_Token_Distribution_border {
+            position: absolute;
+            width: 386.675px;
+            height: 78.251px;
+            flex-shrink: 0;
+            background: url('@/assets/images/UNC_Token_Distribution_border.png')
+              no-repeat;
+            background-size: contain;
+            // background: #00fff5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            .UNC_Token_Distribution_border_title {
+              color: #00fff5;
+              font-family: Gilroy-Bold;
+              font-size: 32.205px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            .UNC_Token_Distribution_border_text {
+              color: #fff;
+              font-family: Gilroy-SemiBold;
+              font-size: 17.892px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              max-width: 264px;
+            }
+          }
+        }
+        .Arithmetic_Incentive {
+          .UNC_Token_Distribution_line {
+            width: 130px;
+            rotate: 31deg;
+            left: 30.4%;
+            top: 122px;
+          }
+          .UNC_Token_Distribution_line1 {
+            left: 29.3%;
+            top: 88.6px;
+          }
+          .UNC_Token_Distribution_border {
+            left: 1.6%;
+            top: 13.8px;
+          }
+        }
+        .Arithmetic_Incentive1 {
+          .UNC_Token_Distribution_line {
+            width: 149px;
+            rotate: 124deg;
+            right: 28.25%;
+            top: -43px;
+          }
+          .UNC_Token_Distribution_line1 {
+            right: 28.9%;
+            top: -105px;
+          }
+          .UNC_Token_Distribution_border {
+            right: 1.3%;
+            top: -179.3px;
+          }
+        }
+        .Arithmetic_Incentive2 {
+          .UNC_Token_Distribution_line {
+            width: 84px;
+            rotate: 18deg;
+            right: 30.5%;
+            top: 84.5px;
+          }
+          .UNC_Token_Distribution_line1 {
+            right: 28.9%;
+            top: 97px;
+          }
+          .UNC_Token_Distribution_border {
+            right: 1.3%;
+            top: 22.8px;
+          }
+        }
+        .Arithmetic_Incentive3 {
+          .UNC_Token_Distribution_line {
+            width: 144px;
+            rotate: 56deg;
+            right: 28.6%;
+            top: 157px;
+          }
+          .UNC_Token_Distribution_line1 {
+            right: 29.2%;
+            top: 216.6px;
+          }
+          .UNC_Token_Distribution_border {
+            right: 1.6%;
+            top: 216.6px;
+          }
+        }
+      }
+    }
+    .options_list_father {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #1b1b1b;
+      padding: 50px 40px 90px 52px;
+      .options_list_header {
+        color: #fffefb;
+        font-family: Gilroy-Bold;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 12px;
+      }
+      .options_list_header_text {
+        color: rgba(255, 254, 251, 0.8);
+        font-family: Gilroy-Medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155%; /* 31px */
+        margin-bottom: 80px;
+      }
+
+      .options_list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        // justify-content: flex-start;
+        justify-content: space-around;
+        width: 100%;
+        gap: 15px;
+        .options_item {
+          // height: 105px;
+          width: 100%;
+          padding: 35px 132px;
+          border-radius: 8px;
+          background: #202022;
+          box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+            0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+            0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+            0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+            0px 10px 22px 0px rgba(0, 0, 0, 0.1);
+          flex-shrink: 0;
+          display: flex;
+
+          cursor: pointer;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin-right: 16px;
+            background-color: #151c1a;
+          }
+
+          .options_item_header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .options_item_header_title {
+              color: var(--where-text);
+              font-family: Inter;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 150%;
+              /* 24px */
+              margin-bottom: 6px;
+            }
+
+            .options_item_header_text {
+              color: var(--where-text);
+              font-family: Inter;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 150%;
+              /* 21px */
+              opacity: 0.8;
+            }
+          }
+
+          &:hover {
+            background: var(--unc_token-options_item-bgc-hover);
+            // border: var(--unc_token-header-border);
+            background-size: cover;
+          }
+        }
+      }
+    }
+    .Join_the_UtilityNet {
+      margin: 100px 0;
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #1a1a1a;
+      padding: 97px 138px 97px 40px;
+      display: flex;
+      justify-content: space-between;
+      .Join_the_UtilityNet_left {
+        .Join_the_UtilityNet_title {
+          color: #fffefb;
+          font-family: Gilroy-Bold;
+          font-size: 50px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 36px;
+        }
+        .Join_the_UtilityNet_text {
+          max-width: 760px;
+          color: rgba(255, 254, 251, 0.8);
+          font-family: Gilroy-Medium;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 155%; /* 31px */
+        }
+      }
+      .Join_the_UtilityNet_right {
+        width: 302px;
+        height: 290px;
+        flex-shrink: 0;
       }
     }
   }
@@ -762,35 +1042,6 @@ const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
             .subtitle_options_item_text {
               max-width: 100%;
             }
-          }
-        }
-      }
-
-      .message_card_title {
-        margin-bottom: 24px;
-      }
-
-      .message_card_list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
-        grid-column-gap: 14px;
-        grid-row-gap: 14px;
-        margin-bottom: 20px;
-
-        .message_card_list_item {
-          width: 100%;
-          height: max-content;
-          padding: 28px 18px 18px;
-
-          .message_card_list_item_text {
-            // color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-            font-family: Inter;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 161%;
-            /* 22.54px */
-            opacity: 0.8;
-            margin-top: 10px;
           }
         }
       }

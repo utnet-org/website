@@ -1,6 +1,10 @@
 <script setup lang="ts" name="HomeView">
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
 import phaseArrow1 from '@/assets/images/UtilityNet_PHASE_button_arrow1.svg'
+import SoftwareDH1 from '@/assets/images/S_D_H_1.svg'
+import Network from '@/assets/images/Network.svg'
+import Storage from '@/assets/images/Storage.svg'
+import Computing from '@/assets/images/Computing.svg'
 
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { defineComponent } from 'vue'
@@ -24,7 +28,6 @@ import { openNewPage } from '@/utils/request'
 import router from '@/router'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
-import developerAarrow from '@/assets/images/Developer_arrow.svg'
 
 const { home } = useStore()
 const { theme } = storeToRefs(home)
@@ -458,6 +461,48 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
 export interface RecentHighlights {
   item: Array<{ id: number; img: string; title: string; time: string }>
 }
+const UtilityNet_Basic_box_data = ref([
+  {
+    title: 'UtilityNetwork',
+    text: 'A high-performance distributed computing resource network.',
+    name: 'UtilityNet_Basic_box_imparity1'
+  },
+  {
+    title: 'UNC SCAN',
+    text: 'Block explorer for analyzing and querying computing power orders and transaction tools.',
+    name: 'UtilityNet_Basic_box_imparity2'
+  },
+  {
+    title: 'Utility Wallet',
+    text: 'Convenient asset management tools available as browser extensions, desktop, and mobile versions.',
+    name: 'UtilityNet_Basic_box_imparity1'
+  },
+  {
+    title: 'Container Cloud',
+    text: 'A distributed cloud computing service platform based on the UtilityNet ecosystem.',
+    name: 'UtilityNet_Basic_box_imparity3'
+  },
+  {
+    title: 'Core Galaxy',
+    text: 'A decentralized ecosystem credit scoring system.',
+    name: 'UtilityNet_Basic_box_imparity2'
+  },
+  {
+    title: 'Mining Tools',
+    text: 'Efficient mining utilities, including setup, monitoring, and strategy optimization.',
+    name: 'UtilityNet_Basic_box_imparity1'
+  },
+  {
+    title: 'AI Model',
+    text: 'A series of pre-trained and customizable AI models supported by UtilityNet.',
+    name: 'UtilityNet_Basic_box_imparity2'
+  },
+  {
+    title: 'SDK/DApps',
+    text: 'Comprehensive SDKs and decentralized application development environment.',
+    name: 'UtilityNet_Basic_box_imparity4'
+  }
+])
 </script>
 <template>
   <div class="home_view">
@@ -533,7 +578,7 @@ export interface RecentHighlights {
       <!-- 第一屏文案 -->
     </div>
     <!-- !视频begin -->
-    <div class="animatino_video">
+    <!-- <div class="animatino_video">
       <video
         id="video11"
         :src="
@@ -549,104 +594,110 @@ export interface RecentHighlights {
           height: width > 2150 ? '100vh' : '100%'
         }"
       ></video>
-    </div>
+    </div> -->
     <!-- !视频end -->
 
     <div class="container" style="overflow: hidden">
-      <!-- !大大的图片 begin -->
-      <div class="UNCEcosystem">
-        <!-- <div class="clipped_rectangle">
-        <img src="@/assets/images/UNC_Ecosystem_bg.jpg" alt="" />
-      </div> -->
-        <div class="Ecosystem">
-          <div class="Ecosystem_father">
-            <div class="Ecosystem_title">UNC生态系统</div>
-            <div class="Ecosystem_text">
-              每个人都可以成为UNC持有者，用于购买实用工具并交换UNC代币。
-            </div>
-          </div>
+      <div class="Software_Defined_Hardware">
+        <div class="Software_Defined_Hardware_title">
+          Software-Defined Hardware
         </div>
-        <div class="Developer Developer1">
-          <div class="Developer_title">开发者</div>
-          <div class="Developer_bg_father_border">
-            <div class="Developer_bg_father">
-              <div class="Developer_text">
-                将您的项目想法带给多个用户在实用工具生态系统中。
-              </div>
-              <div class="Developer_button">
-                <div class="Developer_arrow">
-                  <developerAarrow />
-                </div>
-                <div class="Developer_button_text">加入生态系统</div>
-              </div>
-            </div>
-          </div>
-          <div class="Developer_line1"></div>
-          <div class="Developer_line2"></div>
-          <div class="Developer_round"></div>
+        <div class="Software_Defined_Hardware_text">
+          Developers can flexibly program hardware with software to create
+          personalized and efficient solutions. The value starting point of
+          UtilityNet is its token (UNC) and protocol (POCI), which defines the
+          software from the demand side, then shapes the SDK and drivers,
+          ultimately influencing the design of the chip – something that has
+          never happened before in the history of blockchain!
         </div>
-        <div class="Developer Developer2">
-          <div class="Developer_line1"></div>
-          <div class="Developer_line2"></div>
-          <div class="Developer_round"></div>
-          <div class="Developer_title">代币持有者</div>
-          <div class="Developer_bg_father_border">
-            <div class="Developer_bg_father">
-              <div class="Developer_text">
-                <span> 通过挖矿获得UNC </span>
-                <span> 通过出售计算能力获得UNC </span>
-                <span> 在交易所购买UNC代币 </span>
+        <div class="Software_Defined_Hardware_box">
+          <div class="S_D_H_box_item_one">
+            <div class="S_D_H_box_item_one_btn">Ldentify: value needs</div>
+            <div class="S_D_H_box_item_one_btn">Protocol(POCI)</div>
+            <div class="S_D_H_box_item_one_btn">Token(UNC)</div>
+          </div>
+          <SoftwareDH1 style="margin: 0 20px" />
+          <div class="S_D_H_box_item_two">
+            <div class="S_D_H_box_item_two_top">Software</div>
+            <div class="S_D_H_box_item_two_bottom">
+              <div class="two_bottom_item">
+                <Network />
+                <div class="two_bottom_item_btn">Network</div>
               </div>
-              <div class="Developer_button">
-                <div class="Developer_arrow">
-                  <developerAarrow />
-                </div>
-                <div class="Developer_button_text">检查钱包</div>
+              <div class="two_bottom_item">
+                <Storage />
+                <div class="two_bottom_item_btn">Storage</div>
+              </div>
+              <div class="two_bottom_item">
+                <Computing />
+                <div class="two_bottom_item_btn">Computing</div>
+              </div>
+              <div class="two_bottom_item_point">
+                <div
+                  class="two_bottom_item_point_i"
+                  v-for="item in 3"
+                  :key="item"
+                ></div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="Developer Developer3">
-          <div class="Developer_line1"></div>
-          <div class="Developer_line2"></div>
-          <div class="Developer_round"></div>
-          <div class="Developer_title">计算能力供应</div>
-          <div class="Developer_bg_father_border">
-            <div class="Developer_bg_father">
-              <div class="Developer_text">
-                <span> 提供稳定的计算能力 </span>
-                <span> 通过挖矿获得UNC </span>
-              </div>
-              <div class="Developer_button">
-                <div class="Developer_arrow">
-                  <developerAarrow />
-                </div>
-                <div class="Developer_button_text">挖矿</div>
+          <SoftwareDH1 style="margin: 0 20px" />
+          <div class="S_D_H_box_item_three">
+            <div class="S_D_H_box_item_three_i">
+              <div class="SDHbtn">SDK</div>
+              <div class="SDHbtn">Driver</div>
+            </div>
+            <div class="Colored_arrow_father">
+              <div class="Colored_arrow">
+                <div class="colored"></div>
               </div>
             </div>
+            <div class="Microkernel">Microkernel</div>
           </div>
-        </div>
-        <div class="Developer Developer4">
-          <div class="Developer_round"></div>
-          <div class="Developer_line1"></div>
-          <div class="Developer_line2"></div>
-          <div class="Developer_title">计算能力租赁者</div>
-          <div class="Developer_bg_father_border">
-            <div class="Developer_bg_father">
-              <div class="Developer_text">
-                从实用工具提供商那里租用高性能计算能力，用于您自己的目的。
+
+          <div class="S_D_H_box_item_four">
+            <div class="S_D_H_box_item_four_item_F">
+              <div class="S_D_H_box_item_four_item"></div>
+              <div class="S_D_H_box_item_four_item1"></div>
+              <div class="S_D_H_box_item_four_item1"></div>
+              <div class="S_D_H_box_item_four_item"></div>
+            </div>
+            <div class="S_D_H_box_item_four_item_T">Open Modules</div>
+          </div>
+          <div class="S_D_H_box_item_five">
+            <div class="Hardware">Hardware</div>
+            <div class="Chip_Design">
+              <div class="Chip_Design_title">Chip Design / Manufacturing</div>
+              <div class="Chip_Design_btn_f">
+                <div class="Chip_Design_btn">CPU</div>
+                <div class="Chip_Design_btn">TPU</div>
+                <div class="Chip_Design_btn">GPU</div>
               </div>
-              <div class="Developer_button">
-                <div class="Developer_arrow">
-                  <developerAarrow />
-                </div>
-                <div class="Developer_button_text">租赁</div>
+              <div class="Chip_Design_point">
+                <div
+                  class="Chip_Design_point_i"
+                  v-for="item in 3"
+                  :key="item"
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- ! 大大的图片end -->
+      <div class="POCI_Validation_Logic">
+        <div class="POCI_Validation_Logic_title">POCI Validation Logic</div>
+        <div class="POCI_Validation_Logic_text">
+          Developers can flexibly program hardware with software to create
+          personalized and efficient solutions. The value starting point of
+          UtilityNet is its token (UNC) and protocol (POCI), which defines the
+          software from the demand side, then shapes the SDK and drivers,
+          ultimately influencing the design of the chip – something that has
+          never happened before in the history of blockchain!
+        </div>
+        <div class="POCI_Validation_Logic_bg">
+          <img src="@/assets/images/POCI_Validation_Logic_bg.png" alt="" />
+        </div>
+      </div>
       <div class="UtilityNet_PHASE">
         <div class="UtilityNet_PHASE_left">
           <div class="UtilityNet_PHASE_title">
@@ -797,13 +848,29 @@ export interface RecentHighlights {
         <div class="UtilityNet_Basic_Functions_title">
           UtilityNet Basic Functions
         </div>
-        <div class="UtilityNet_Basic_box_father">
-          <div class="UtilityNet_Basic_box">
-            <div class="UtilityNet_Basic_box_title">UtilityNetwork</div>
-            <div class="UtilityNet_Basic_box_text">
-              A high-performance distributed computing resource network.
+        <div class="UtilityNet_Basic_box_father_F">
+          <div
+            v-for="(item, index) in UtilityNet_Basic_box_data"
+            :key="index"
+            class="UtilityNet_Basic_box_father"
+            :class="item.name"
+          >
+            <div class="UtilityNet_Basic_box">
+              <div class="f">
+                <div class="UtilityNet_Basic_box_title">{{ item.title }}</div>
+                <div class="UtilityNet_Basic_box_text">
+                  {{ item.text }}
+                </div>
+              </div>
+              <div class="UtilityNet_Basic_box_button_father">
+                <div class="UtilityNet_Basic_box_button">
+                  <img
+                    src="@/assets/images/UtilityNet_Basic_Functions_arrow.png"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
-            <div class="UtilityNet_Basic_box_button"></div>
           </div>
         </div>
       </div>
@@ -851,12 +918,22 @@ export interface RecentHighlights {
             future!
           </div>
           <div class="Join_the_UtilityNet_button_father">
-            <div class="Join_the_UtilityNet_button">Join Us</div>
-            <div class="Join_the_UtilityNet_button">Github</div>
+            <div
+              class="Join_the_UtilityNet_button"
+              @click="openNewPage('/community')"
+            >
+              Join Us <phaseArrow />
+            </div>
+            <div
+              class="Join_the_UtilityNet_button"
+              @click="openNewPage('https://github.com/utnet-org')"
+            >
+              Github <phaseArrow />
+            </div>
           </div>
         </div>
         <div class="Join_the_UtilityNet_right">
-          <img src="" alt="@/assets/images/Join_the_UtilityNet_bg.png" />
+          <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
         </div>
       </div>
     </div>
@@ -875,493 +952,6 @@ export interface RecentHighlights {
 //   //   #00f7e4 350.5deg 360deg
 //   // );
 // }
-.UNCEcosystem {
-  position: relative;
-  background: rgb(255, 255, 255);
-  background: url('@/assets/images/UNC_Ecosystem_bg.jpg') no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 962px;
-  // .clipped_rectangle {
-  //   position: relative;
-  // }
-  .Ecosystem {
-    position: relative;
-    top: 40px;
-    left: 20px;
-    background: url('@/assets/images/Rectangle.png') no-repeat;
-    background-size: cover;
-    width: 618px;
-    height: 139px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .Ecosystem_father {
-      height: 112px;
-      width: 589px;
-      flex-shrink: 0;
-      background: var(
-        --Linear,
-        linear-gradient(
-          180deg,
-          rgba(17, 70, 78, 0.54) 56.03%,
-          rgba(2, 16, 17, 0.54) 98.91%
-        )
-      );
-      stroke-width: 2px;
-      stroke: #00ecec;
-      backdrop-filter: blur(7.5px);
-      clip-path: polygon(
-        38px 0,
-        100% 0,
-        100% 35px,
-        100% calc(100% - 35px),
-        calc(100% - 35px) 100%,
-        0 100%,
-        0 calc(100% - 35px),
-        0px 32px
-      );
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-      padding: 0 34px;
-      .Ecosystem_title {
-        color: var(--Color, #fff);
-        text-align: center;
-        // font-family: 'Lantinghei SC';
-        font-size: 26px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-      .Ecosystem_text {
-        color: #fff;
-        text-align: center;
-        font-family: Inter;
-        font-size: 17px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-    }
-  }
-  .Developer {
-    position: absolute;
-
-    .Developer_title {
-      margin-bottom: 6px;
-      display: inline-flex;
-      padding: 6px 16px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      color: var(--Color, #fff);
-      font-family: 'PingFang SC';
-      font-size: 19px;
-      font-style: normal;
-      font-weight: 300;
-      line-height: normal;
-      letter-spacing: 0.76px;
-      text-transform: uppercase;
-      border: 1px solid #00e6e1;
-      background: linear-gradient(92deg, #b400ab 0%, #00b1a9 98.53%);
-    }
-    .Developer_bg_father_border {
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .Developer_bg_father {
-        flex-shrink: 0;
-        background: var(
-          --Linear,
-          linear-gradient(
-            180deg,
-            rgba(78, 17, 49, 0.5) 0%,
-            rgba(17, 2, 10, 0.5) 104.39%
-          )
-        );
-        backdrop-filter: blur(7.5px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: start;
-
-        .Developer_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
-        }
-      }
-      .Developer_button {
-        display: flex;
-        .Developer_button_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          text-transform: uppercase;
-          margin-left: 8px;
-        }
-      }
-    }
-
-    .Developer_line1 {
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_line2 {
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_round {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      border: 2px solid #00ecec;
-    }
-  }
-  .Developer1 {
-    left: 182px;
-    top: 300px;
-
-    .Developer_title {
-      margin-left: 186px;
-    }
-    .Developer_bg_father_border {
-      height: 114px;
-      width: 312px;
-      background: url('@/assets/images/Vector1.png') no-repeat;
-      background-size: cover;
-
-      .Developer_bg_father {
-        height: 110px;
-        width: 308px;
-        clip-path: polygon(
-          0 0,
-          calc(100% - 31px) 0px,
-          100% 20px,
-          100% 100%,
-          100% 100%,
-          26px 100%,
-          0 calc(100% - 25px),
-          0px 8px
-        );
-        padding: 0 36px;
-        .Developer_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
-        }
-      }
-      .Developer_button {
-        display: flex;
-        .Developer_button_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          text-transform: uppercase;
-          margin-left: 8px;
-        }
-      }
-    }
-
-    .Developer_line1 {
-      position: relative;
-      left: 178px;
-      top: 0px;
-      width: 2px;
-      height: 92.5px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_line2 {
-      position: relative;
-      left: 178px;
-      top: 0px;
-      width: 118px;
-      height: 2px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_round {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      left: 296px;
-      top: 247px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      border: 2px solid #00ecec;
-    }
-  }
-  .Developer2 {
-    left: 312px;
-    top: 600px;
-
-    .Developer_title {
-      margin-left: 215px;
-    }
-    .Developer_bg_father_border {
-      height: 116px;
-      width: 354px;
-      background: url('@/assets/images/Vector3.png') no-repeat;
-      background-size: cover;
-
-      .Developer_bg_father {
-        height: 112px;
-        width: 350px;
-        clip-path: polygon(
-          38px 0,
-          100% 0,
-          100% 35px,
-          100% calc(100% - 23px),
-          calc(100% - 31px) 100%,
-          0 100%,
-          0 calc(100% - 35px),
-          0px 26px
-        );
-        padding: 0 30px;
-        .Developer_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
-        }
-      }
-      .Developer_button {
-        display: flex;
-        .Developer_button_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          text-transform: uppercase;
-          margin-left: 8px;
-        }
-      }
-    }
-
-    .Developer_line1 {
-      position: relative;
-      left: 195px;
-      top: 53px;
-      width: 2px;
-      height: 79.5px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_line2 {
-      position: absolute;
-      left: 195px;
-      top: 53px;
-      width: 157px;
-      height: 2px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_round {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      left: 350px;
-      top: 48px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      border: 2px solid #00ecec;
-    }
-  }
-  .Developer3 {
-    right: 50px;
-    top: 180px;
-
-    .Developer_title {
-      margin-left: 35px;
-    }
-    .Developer_bg_father_border {
-      height: 94px;
-      width: 336px;
-      background: url('@/assets/images/Vector2.png') no-repeat;
-      background-size: cover;
-
-      .Developer_bg_father {
-        height: 90px;
-        width: 332px;
-        clip-path: polygon(
-          29px 0,
-          100% 0,
-          100% 0,
-          100% calc(100% - 23px),
-          calc(100% - 32px) 100%,
-          0 100%,
-          0 calc(100% - 35px),
-          0px 26px
-        );
-        padding: 0 30px;
-        .Developer_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
-        }
-      }
-      .Developer_button {
-        display: flex;
-        .Developer_button_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          text-transform: uppercase;
-          margin-left: 8px;
-        }
-      }
-    }
-
-    .Developer_line1 {
-      position: relative;
-      //  旋转180度
-      transform: rotate(150deg);
-      width: 2px;
-      right: 500px;
-      top: 185px;
-      width: 132px;
-      height: 2px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_line2 {
-      position: relative;
-      right: 378px;
-      top: 150px;
-      width: 132px;
-      height: 2px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_round {
-      position: relative;
-      width: 12px;
-      height: 12px;
-      right: 502px;
-      top: 212px;
-      border: 2px solid #00ecec;
-    }
-  }
-  .Developer4 {
-    right: 50px;
-    bottom: 72px;
-
-    .Developer_title {
-      margin-left: 3px;
-    }
-    .Developer_bg_father_border {
-      height: 114px;
-      width: 348px;
-      background: url('@/assets/images/Vector4.png') no-repeat;
-      background-size: cover;
-
-      .Developer_bg_father {
-        height: 110px;
-        width: 344px;
-        clip-path: polygon(
-          0 0,
-          calc(100% - 32px) 0px,
-          100% 24px,
-          100% 100%,
-          100% 100%,
-          27px 100%,
-          0 calc(100% - 26px),
-          0px 28px
-        );
-        padding: 0 30px;
-        .Developer_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
-        }
-      }
-      .Developer_button {
-        display: flex;
-        .Developer_button_text {
-          color: var(--Color, #fff);
-          font-family: 'PingFang SC';
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.64px;
-          text-transform: uppercase;
-          margin-left: 8px;
-        }
-      }
-    }
-
-    .Developer_line1 {
-      position: relative;
-
-      width: 2px;
-      right: 270px;
-      top: 0px;
-      width: 2px;
-      height: 170px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_line2 {
-      position: relative;
-      right: 270px;
-      top: 0px;
-      width: 60px;
-      height: 2px;
-      background: #00ecec;
-      flex-shrink: 0;
-    }
-    .Developer_round {
-      position: relative;
-      width: 12px;
-      height: 12px;
-      right: 275px;
-      top: 0px;
-      border: 2px solid #00ecec;
-    }
-  }
-}
 .animation_box {
   position: relative;
   background: #000;
@@ -1516,19 +1106,7 @@ export interface RecentHighlights {
     }
   }
 }
-.animatino_video {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
 
-  video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
-}
 .Welcome {
   display: flex;
   flex-direction: column;
@@ -1662,6 +1240,377 @@ export interface RecentHighlights {
     justify-content: center;
     align-items: center;
     padding: 0 110px;
+  }
+}
+.Software_Defined_Hardware {
+  padding: 50px 28px 75px 28px;
+  width: 100%;
+  border-radius: 12px;
+  background: #1b1b1b;
+  .Software_Defined_Hardware_title {
+    color: #fffefb;
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .Software_Defined_Hardware_text {
+    color: rgba(255, 254, 251, 0.8);
+    font-family: Gilroy-Medium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 155%; /* 31px */
+    margin-top: 12px;
+    margin-bottom: 70px;
+  }
+  .Software_Defined_Hardware_box {
+    display: flex;
+    align-items: center;
+    //换行
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 30px;
+    .S_D_H_box_item_one {
+      width: 212.707px;
+      height: 291.713px;
+      flex-shrink: 0;
+      border-radius: 12.155px;
+      border: 0.466px solid #2a3433;
+      background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+      box-shadow: 0px 0px 23.6px 0px rgba(234, 105, 255, 0.58);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      .S_D_H_box_item_one_btn {
+        width: 176.243px;
+        height: 72.928px;
+        flex-shrink: 0;
+        border-radius: 7.293px;
+        border: 1.215px solid #000;
+        background: #00fff5;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        color: #1e1e1e;
+        text-align: center;
+        font-family: 'PingFang SC';
+        font-size: 15.873px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    .S_D_H_box_item_two {
+      width: 212.707px;
+      height: 291.713px;
+      flex-shrink: 0;
+      border-radius: 12.155px;
+      border: 1.215px solid #00fff5;
+      .S_D_H_box_item_two_top {
+        width: 100%;
+        height: 42.541px;
+        flex-shrink: 0;
+        background: #00fff5;
+        color: #1e1e1e;
+        text-align: center;
+        font-family: 'PingFang SC';
+        font-size: 15.873px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .S_D_H_box_item_two_bottom {
+        display: flex;
+        padding-top: 16px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 22px;
+        .two_bottom_item {
+          display: flex;
+          gap: 21px;
+          .two_bottom_item_btn {
+            width: 122.155px;
+            height: 43.149px;
+            flex-shrink: 0;
+            border-radius: 2.431px;
+            border: 0.608px solid #00fff5;
+            background: linear-gradient(
+              180deg,
+              rgba(0, 255, 245, 0.2) 0%,
+              rgba(0, 153, 147, 0.2) 100%
+            );
+
+            color: #00fff5;
+            text-align: center;
+            font-family: 'PingFang SC';
+            font-size: 15.873px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .two_bottom_item_point {
+          display: flex;
+          margin-left: 50px;
+          gap: 5px;
+          .two_bottom_item_point_i {
+            background: #00fff5;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .S_D_H_box_item_three {
+      width: 339.116px;
+      height: 291.713px;
+      flex-shrink: 0;
+      border-radius: 12.155px;
+      border: 1.215px dashed #00fff5;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .S_D_H_box_item_three_i {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        .SDHbtn {
+          width: 122.155px;
+          height: 43.149px;
+          flex-shrink: 0;
+          border-radius: 7.293px;
+          background: #ff00fd;
+
+          color: #1e1e1e;
+          text-align: center;
+          font-family: 'PingFang SC';
+          font-size: 15.873px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      .Colored_arrow_father {
+        // background: #fff;
+        .Colored_arrow {
+          width: 58px;
+          height: 70px;
+          background: url('@/assets/images/Connector_ine.svg') no-repeat bottom
+            right;
+          background-size: contain;
+          .colored {
+            width: 55%;
+            height: 50%;
+            background: url('@/assets/images/Connector_ine1.svg');
+          }
+        }
+      }
+      .Microkernel {
+        width: 102.099px;
+        height: 102.099px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 255, 245, 0.2) 0%,
+          rgba(0, 153, 147, 0.2) 100%
+        );
+        border: #00fff5 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #00fff5;
+        text-align: center;
+        font-family: 'PingFang SC';
+        font-size: 15.801px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    .S_D_H_box_item_four {
+      background: url('@/assets/images/S_D_H_2.svg') no-repeat center;
+      background-size: contain;
+      width: 238.23px;
+      height: 148.21px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5px;
+      .S_D_H_box_item_four_item_F {
+        width: 148.876px;
+        height: 142.21px;
+        flex-shrink: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .S_D_H_box_item_four_item_T {
+        color: #00fff5;
+        text-align: center;
+        font-family: 'PingFang SC';
+        font-size: 18.232px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .S_D_H_box_item_four_item {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        background: rgba(0, 255, 245);
+        filter: drop-shadow(0px 0px 10px rgba(0, 255, 245, 0.58));
+        border-radius: 4px;
+      }
+      .S_D_H_box_item_four_item1 {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        background: #1e1e1e;
+        filter: drop-shadow(0px 0px 10px rgba(0, 255, 245, 0.58));
+        border-radius: 4px;
+        border: 1px solid #00fff5;
+      }
+    }
+    .S_D_H_box_item_five {
+      width: 292.32px;
+      height: 291.713px;
+      flex-shrink: 0;
+      border-radius: 12.155px;
+      border: 1.215px solid #00fff5;
+      .Hardware {
+        width: 100%;
+        height: 42.541px;
+        flex-shrink: 0;
+        background: #00fff5;
+        color: #1e1e1e;
+        text-align: center;
+        font-family: 'PingFang SC';
+        font-size: 15.873px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+      }
+      .Chip_Design {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 58px;
+        gap: 24px;
+        .Chip_Design_title {
+          color: #00fff5;
+          text-align: center;
+          font-family: 'PingFang SC';
+          font-size: 15.873px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+        .Chip_Design_btn_f {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          .Chip_Design_btn {
+            width: 79.613px;
+            height: 43.149px;
+            flex-shrink: 0;
+            border-radius: 7.293px;
+            background: #00fff5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #1e1e1e;
+            text-align: center;
+            font-family: 'PingFang SC';
+            font-size: 15.873px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+        .Chip_Design_point {
+          display: flex;
+          margin-top: 20px;
+
+          gap: 5px;
+          .Chip_Design_point_i {
+            background: #00fff5;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+.POCI_Validation_Logic {
+  margin-top: 100px;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #1b1b1b;
+  padding: 50px 40px 70px 40px;
+  .POCI_Validation_Logic_title {
+    color: #fffefb;
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .POCI_Validation_Logic_text {
+    color: rgba(255, 254, 251, 0.8);
+    font-family: Gilroy-Medium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 155%; /* 31px */
+    margin-bottom: 80px;
+  }
+  .POCI_Validation_Logic_bg {
+    width: 100%;
+    height: 509px;
+    flex-shrink: 0;
+    padding: 60px 30px;
+    border-radius: 8px;
+    background: #202022;
+    box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+      0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+      0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+      0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+      0px 10px 22px 0px rgba(0, 0, 0, 0.1);
   }
 }
 .UtilityNet_PHASE {
@@ -1995,13 +1944,14 @@ export interface RecentHighlights {
   }
 }
 .UtilityNet_Basic_Functions {
-  background: #1b1b1b;
+  border-radius: 12px;
+  background: #191919;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
   flex-shrink: 0;
-  padding: 40px;
+  padding: 30px;
   margin-bottom: 100px;
   .UtilityNet_Basic_Functions_title {
     margin-top: 10px;
@@ -2014,14 +1964,163 @@ export interface RecentHighlights {
     font-weight: 400;
     line-height: normal;
   }
+  .UtilityNet_Basic_box_father_F {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 30px;
+    .UtilityNet_Basic_box_father {
+      .UtilityNet_Basic_box {
+        padding: 107px 26px 26px 26px;
+        width: 335px;
+        height: 406px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .UtilityNet_Basic_box_title {
+          width: 262px;
+          height: 55px;
+          flex-shrink: 0;
+          border-radius: 8px;
+
+          font-family: Gilroy-Bold;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 155%; /* 46.5px */
+          padding-left: 14px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 22px;
+        }
+        .UtilityNet_Basic_box_text {
+          font-family: Gilroy-Medium;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+        .UtilityNet_Basic_box_button_father {
+          display: flex;
+
+          .UtilityNet_Basic_box_button {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+    .UtilityNet_Basic_box_imparity1 {
+      .UtilityNet_Basic_box {
+        background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
+        box-shadow: 0px 0px 13.6px 0px rgba(0, 255, 245, 0.58);
+        border-radius: 10px 150px 10px 10px;
+      }
+      .UtilityNet_Basic_box_title {
+        background: #003733;
+        color: #fff;
+      }
+      .UtilityNet_Basic_box_text {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .UtilityNet_Basic_box_button_father {
+        justify-content: end;
+      }
+      .UtilityNet_Basic_box_button {
+        img {
+          filter: brightness(1);
+        }
+        background-color: #000;
+      }
+    }
+    .UtilityNet_Basic_box_imparity2 {
+      .UtilityNet_Basic_box {
+        background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+        box-shadow: 0px 0px 13.6px 0px rgba(234, 105, 255, 0.58);
+        border-radius: 10px 10px 150px 10px;
+      }
+      .UtilityNet_Basic_box_title {
+        background: #00fffe;
+        color: #000;
+      }
+      .UtilityNet_Basic_box_text {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .UtilityNet_Basic_box_button_father {
+        justify-content: start;
+      }
+      .UtilityNet_Basic_box_button {
+        img {
+          filter: brightness(0);
+        }
+        background-color: #00fffe;
+      }
+    }
+    .UtilityNet_Basic_box_imparity3 {
+      .UtilityNet_Basic_box {
+        background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+        box-shadow: 0px 0px 13.6px 0px rgba(234, 105, 255, 0.58);
+        border-radius: 10px 150px 10px 10px;
+      }
+      .UtilityNet_Basic_box_title {
+        background: #00fffe;
+        color: #000;
+      }
+      .UtilityNet_Basic_box_text {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .UtilityNet_Basic_box_button_father {
+        justify-content: end;
+      }
+      .UtilityNet_Basic_box_button {
+        img {
+          filter: brightness(0);
+        }
+        background-color: #00fffe;
+      }
+    }
+    .UtilityNet_Basic_box_imparity4 {
+      .UtilityNet_Basic_box {
+        background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
+        box-shadow: 0px 0px 13.6px 0px rgba(0, 255, 245, 0.58);
+        border-radius: 10px 10px 10px 10px;
+      }
+      .UtilityNet_Basic_box_title {
+        background: #003733;
+        color: #fff;
+      }
+      .UtilityNet_Basic_box_text {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .UtilityNet_Basic_box_button_father {
+        justify-content: end;
+      }
+      .UtilityNet_Basic_box_button {
+        img {
+          filter: brightness(1);
+        }
+        background-color: #000;
+      }
+    }
+  }
 }
 .Recent_Highlights {
   width: 100%;
   flex-shrink: 0;
-  padding: 50px 40px 168px 40px;
+  padding: 50px 0px 168px 0px;
   border-radius: 12px;
   background: #191919;
   .Recent_Highlights_title {
+    margin-left: 56px;
     color: #fffefb;
     font-family: Gilroy-Bold;
     font-size: 50px;
@@ -2035,6 +2134,8 @@ export interface RecentHighlights {
     width: 100%;
 
     .swiper {
+      width: 100%;
+
       .swiper-slide {
         display: flex;
         flex-wrap: wrap;
@@ -2073,7 +2174,6 @@ export interface RecentHighlights {
           height: 247px;
           flex-shrink: 0;
           border-top-left-radius: 12px;
-
           border-top-right-radius: 12px;
         }
       }
@@ -2124,6 +2224,63 @@ export interface RecentHighlights {
         content: url('@/assets/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
       }
     }
+  }
+}
+.Join_the_UtilityNet {
+  margin: 100px 0;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #1a1a1a;
+  padding: 70px 0px 70px 70px;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  .Join_the_UtilityNet_left {
+    .Join_the_UtilityNet_title {
+      color: #fffefb;
+      font-family: Gilroy-Bold;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 78px;
+    }
+    .Join_the_UtilityNet_button_father {
+      display: flex;
+      gap: 32px;
+      .Join_the_UtilityNet_button {
+        width: 141px;
+        height: 42px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        gap: 18px;
+        border: 0.608px solid #00fff5;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 255, 245, 0.2) 0%,
+          rgba(0, 153, 147, 0.2) 100%
+        );
+        //阴影
+        color: #fffefb;
+        text-align: center;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 150%; /* 21px */
+        &:hover {
+          box-shadow: 0px 4px 20px 0px rgba(0, 255, 245, 0.3);
+        }
+      }
+    }
+  }
+  .Join_the_UtilityNet_right {
+    width: 55%;
+    // height: 290px;
   }
 }
 @media (min-width: 835px) {
