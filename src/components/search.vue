@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import Search from '@/assets/svgs/search.svg'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+
+const { home } = useStore()
+const { theme } = storeToRefs(home)
 const props = defineProps({
   isfocus: {
     type: Boolean,
@@ -13,7 +18,15 @@ const handleClick = () => {
 }
 </script>
 <template>
-  <div class="ut_search"><Search /></div>
+  <div class="ut_search">
+    <img
+      :style="{
+        filter: theme ? 'brightness(100%)' : 'brightness(0%)'
+      }"
+      src="/src/assets/svgs/search.svg"
+      alt=""
+    />
+  </div>
 </template>
 <style scoped lang="less">
 .ut_search {
@@ -23,7 +36,7 @@ const handleClick = () => {
   height: 43px;
   flex-shrink: 0; // 不可缩小
   border-radius: 28px;
-  border: 1px solid var(--Light-dark, rgba(255, 254, 251, 0.2));
+  border: 1px solid var(--search-ut_search-border);
   display: flex;
   justify-content: center;
   align-items: center;

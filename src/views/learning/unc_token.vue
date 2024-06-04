@@ -23,8 +23,7 @@ const optionsList = [
     link: 'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a'
   },
   {
-    image:
-      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options_item2.png',
+    image: '/src/assets/images/unc_token_options_item2.svg',
     title: 'Hotcoin Global',
     text: 'utilityNetwork.digital_asset_trading',
     link: 'https://www.hotcoin.com/'
@@ -129,35 +128,46 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-  <div class="container">
-    <div class="header">
-      <div class="header_content">
-        <div class="header_content_header">
-          {{ $t('learning_center.What_is_UNC') }}
-        </div>
-        <div class="header_content_text">
-          {{ $t('learning_center.How_to_understand') }}
-        </div>
-        <div class="header_content_box">
-          <div class="CURRENT_UNC_PRICe">CURRENT UNC PRICE (USD)</div>
-          <div class="money">$0.1</div>
-          <div class="LAST_24_HQURS">
-            <div class="green">18.62%</div>
-            <greenAarrow />
-            <div class="white">(LAST 24 HQURS)</div>
+  <div class="unc_token_view">
+    <div class="container">
+      <div class="header">
+        <div class="header_content">
+          <div class="header_content_header">
+            {{ $t('learning_center.What_is_UNC') }}
+          </div>
+          <div class="header_content_text">
+            <!-- {{ $t('learning_center.How_to_understand') }} -->
+            UNCs are the only value-anchored carrier credentials in the
+            UtilityNet ecosystem, and users can earn UNC rewards for providing
+            computing resources, driving the rapid expansion of the distributed
+            arithmetic network.
+          </div>
+          <div class="header_content_box">
+            <div class="CURRENT_UNC_PRICe">CURRENT UNC PRICE (USD)</div>
+            <div class="money">$0.1</div>
+            <div class="LAST_24_HQURS">
+              <div class="green">18.62%</div>
+              <greenAarrow />
+              <div class="white">(LAST 24 HQURS)</div>
+            </div>
+          </div>
+          <div class="header_content_button">
+            Gets UNC
+            <img
+              :style="{
+                filter: theme ? 'brightness(100%)' : 'brightness(0%)'
+              }"
+              src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+              alt=""
+            />
           </div>
         </div>
-        <div class="header_content_button">
-          Gets UNC
-          <phaseArrow />
+        <div class="unc_token_header_bg">
+          <img src="@/assets/images/unc_token_header_bg.png" alt="" />
         </div>
       </div>
-      <div class="unc_token_header_bg">
-        <img src="@/assets/images/unc_token_header_bg.png" alt="" />
-      </div>
-    </div>
-    <div class="message">
-      <!-- <div class="main_title_message">
+      <div class="message">
+        <!-- <div class="main_title_message">
         <div class="main_title">
           {{ $t('utilityNetwork.learn_about_unc_token_title') }}
         </div>
@@ -165,211 +175,234 @@ onBeforeUnmount(() => {
           {{ $t('utilityNetwork.learn_about_unc_token_text') }}
         </div>
       </div> -->
-      <div class="subtitle">
-        <div class="subtitle_options" v-if="viewableWidth > 834">
-          <div class="subtitle_options_item">
-            <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
-            <div>
-              <div class="subtitle_options_item_title">About UNC</div>
-              <div class="subtitle_options_item_text">
-                {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
+        <div class="subtitle">
+          <div class="subtitle_options" v-if="viewableWidth > 834">
+            <div class="subtitle_options_item">
+              <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
+              <div>
+                <div class="subtitle_options_item_title">About UNC</div>
+                <div class="subtitle_options_item_text">
+                  <!-- {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }} -->
+                  UtilityNet is currently in the testnet stage. At this stage,
+                  you can also understand that UNC is a value certificate for
+                  early users of UtilityNet. After the mainnet is launched, we
+                  will carry out 1:1 same-proportion mapping. At this stage, the
+                  value of UNC is largely Undervalued, the value of UNC will
+                  gradually be recognized with the development of UtilityNet
+                  distributed chip computing power ecosystem and the
+                  verification of market demand, thereby achieving ideal value
+                  growth!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subtitle_options" v-else>
+            <div class="subtitle_options_item">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png"
+                alt=""
+              />
+              <div>
+                <div class="subtitle_options_item_title">
+                  {{ $t('utilityNetwork.fundamentals_of_blockchain_title') }}
+                </div>
+                <div class="subtitle_options_item_text">
+                  {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
+                </div>
+              </div>
+            </div>
+            <div class="subtitle_options_item">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options2.png"
+                alt=""
+              />
+              <div>
+                <div class="subtitle_options_item_title">
+                  {{
+                    $t(
+                      'utilityNetwork.superb_application_of_smart_contracts_title'
+                    )
+                  }}
+                </div>
+                <div class="subtitle_options_item_text">
+                  {{
+                    $t(
+                      'utilityNetwork.superb_application_of_smart_contracts_text'
+                    )
+                  }}
+                </div>
+              </div>
+            </div>
+            <div class="subtitle_options_item">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options3.png"
+                alt=""
+              />
+              <div>
+                <div class="subtitle_options_item_title">
+                  {{
+                    $t(
+                      'utilityNetwork.incentive_mechanism_for_innovation_title'
+                    )
+                  }}
+                </div>
+                <div class="subtitle_options_item_text">
+                  {{
+                    $t('utilityNetwork.incentive_mechanism_for_innovation_text')
+                  }}
+                </div>
+              </div>
+            </div>
+            <div class="subtitle_options_item">
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options4.png"
+                alt=""
+              />
+              <div>
+                <div class="subtitle_options_item_title">
+                  {{
+                    $t(
+                      'utilityNetwork.digital_interpretation_of_blockchain_governance_title'
+                    )
+                  }}
+                </div>
+                <div class="subtitle_options_item_text">
+                  {{
+                    $t(
+                      'utilityNetwork.digital_interpretation_of_blockchain_governance_text'
+                    )
+                  }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="subtitle_options" v-else>
-          <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png"
-              alt=""
-            />
-            <div>
-              <div class="subtitle_options_item_title">
-                {{ $t('utilityNetwork.fundamentals_of_blockchain_title') }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }}
-              </div>
+        <div class="UNC_Token_Distribution" ref="distributionBox">
+          <div>
+            <div class="UNC_Token_Distribution_title">
+              $UNC Token Distribution
+            </div>
+            <div class="UNC_Token_Distribution_text">
+              The total number of UNCs will eventually reach 500 million through
+              the halving deflation mechanism and the burning mechanism,
+              creating a circular circulation.
             </div>
           </div>
-          <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options2.png"
-              alt=""
-            />
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t(
-                    'utilityNetwork.superb_application_of_smart_contracts_title'
-                  )
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t(
-                    'utilityNetwork.superb_application_of_smart_contracts_text'
-                  )
-                }}
-              </div>
-            </div>
-          </div>
-          <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options3.png"
-              alt=""
-            />
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t('utilityNetwork.incentive_mechanism_for_innovation_title')
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t('utilityNetwork.incentive_mechanism_for_innovation_text')
-                }}
-              </div>
-            </div>
-          </div>
-          <div class="subtitle_options_item">
-            <img
-              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options4.png"
-              alt=""
-            />
-            <div>
-              <div class="subtitle_options_item_title">
-                {{
-                  $t(
-                    'utilityNetwork.digital_interpretation_of_blockchain_governance_title'
-                  )
-                }}
-              </div>
-              <div class="subtitle_options_item_text">
-                {{
-                  $t(
-                    'utilityNetwork.digital_interpretation_of_blockchain_governance_text'
-                  )
-                }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="UNC_Token_Distribution" ref="distributionBox">
-        <div>
-          <div class="UNC_Token_Distribution_title">
-            $UNC Token Distribution
-          </div>
-          <div class="UNC_Token_Distribution_text">
-            The total number of UNCs will eventually reach 500 million through
-            the halving deflation mechanism and the burning mechanism, creating
-            a circular circulation.
-          </div>
-        </div>
 
-        <div class="UNC_Token_Distribution_figure">
-          <div class="figure_round">
-            <div class="figure_round_number">
-              <div class="box-item">
-                <li
-                  :class="{
-                    'number-item': !isNaN(Number(item)),
-                    'mark-item': isNaN(Number(item))
-                  }"
-                  v-for="(item, index) in orderNum"
-                  :key="index"
-                >
-                  <span v-if="!isNaN(Number(item))">
-                    <i
-                      ref="numberItem"
-                      :style="{
-                        transform: 'translateY(-' + Number(item) * 10 + '%)'
-                      }"
-                    >
-                      0123456789
-                    </i>
-                  </span>
-                  <span class="comma" v-else>{{ item }}</span>
-                </li>
+          <div class="UNC_Token_Distribution_figure">
+            <div class="figure_round">
+              <div class="figure_round_number">
+                <div class="box-item">
+                  <li
+                    :class="{
+                      'number-item': !isNaN(Number(item)),
+                      'mark-item': isNaN(Number(item))
+                    }"
+                    v-for="(item, index) in orderNum"
+                    :key="index"
+                  >
+                    <span v-if="!isNaN(Number(item))">
+                      <i
+                        ref="numberItem"
+                        :style="{
+                          transform: 'translateY(-' + Number(item) * 10 + '%)'
+                        }"
+                      >
+                        0123456789
+                      </i>
+                    </span>
+                    <span class="comma" v-else>{{ item }}</span>
+                  </li>
+                </div>
               </div>
+            </div>
+            <div class="Arithmetic_Incentive line_and_border">
+              <div class="UNC_Token_Distribution_border">
+                <div class="UNC_Token_Distribution_border_title">97%</div>
+                <div class="UNC_Token_Distribution_border_text">
+                  Arithmetic Incentive (Miner)
+                </div>
+              </div>
+              <div class="UNC_Token_Distribution_line"></div>
+              <div class="UNC_Token_Distribution_line1"></div>
+            </div>
+            <div class="Arithmetic_Incentive1 line_and_border">
+              <div class="UNC_Token_Distribution_border">
+                <div class="UNC_Token_Distribution_border_title">97%</div>
+                <div class="UNC_Token_Distribution_border_text">
+                  Technology Node Management Fund
+                </div>
+              </div>
+              <div class="UNC_Token_Distribution_line"></div>
+              <div class="UNC_Token_Distribution_line1"></div>
+            </div>
+            <div class="Arithmetic_Incentive2 line_and_border">
+              <div class="UNC_Token_Distribution_border">
+                <div class="UNC_Token_Distribution_border_title">97%</div>
+                <div class="UNC_Token_Distribution_border_text">
+                  DAO organization management distribution
+                </div>
+              </div>
+              <div class="UNC_Token_Distribution_line"></div>
+              <div class="UNC_Token_Distribution_line1"></div>
+            </div>
+            <div class="Arithmetic_Incentive3 line_and_border">
+              <div class="UNC_Token_Distribution_border">
+                <div class="UNC_Token_Distribution_border_title">97%</div>
+                <div class="UNC_Token_Distribution_border_text">
+                  Initial mining of fossil fuel
+                </div>
+              </div>
+              <div class="UNC_Token_Distribution_line"></div>
+              <div class="UNC_Token_Distribution_line1"></div>
             </div>
           </div>
-          <div class="Arithmetic_Incentive line_and_border">
-            <div class="UNC_Token_Distribution_border">
-              <div class="UNC_Token_Distribution_border_title">97%</div>
-              <div class="UNC_Token_Distribution_border_text">
-                Arithmetic Incentive (Miner)
-              </div>
-            </div>
-            <div class="UNC_Token_Distribution_line"></div>
-            <div class="UNC_Token_Distribution_line1"></div>
-          </div>
-          <div class="Arithmetic_Incentive1 line_and_border">
-            <div class="UNC_Token_Distribution_border">
-              <div class="UNC_Token_Distribution_border_title">97%</div>
-              <div class="UNC_Token_Distribution_border_text">
-                Technology Node Management Fund
-              </div>
-            </div>
-            <div class="UNC_Token_Distribution_line"></div>
-            <div class="UNC_Token_Distribution_line1"></div>
-          </div>
-          <div class="Arithmetic_Incentive2 line_and_border">
-            <div class="UNC_Token_Distribution_border">
-              <div class="UNC_Token_Distribution_border_title">97%</div>
-              <div class="UNC_Token_Distribution_border_text">
-                DAO organization management distribution
-              </div>
-            </div>
-            <div class="UNC_Token_Distribution_line"></div>
-            <div class="UNC_Token_Distribution_line1"></div>
-          </div>
-          <div class="Arithmetic_Incentive3 line_and_border">
-            <div class="UNC_Token_Distribution_border">
-              <div class="UNC_Token_Distribution_border_title">97%</div>
-              <div class="UNC_Token_Distribution_border_text">
-                Initial mining of fossil fuel
-              </div>
-            </div>
-            <div class="UNC_Token_Distribution_line"></div>
-            <div class="UNC_Token_Distribution_line1"></div>
+          <div class="UNC_Token_Distribution_img">
+            <img
+              :src="
+                !theme
+                  ? '/src/assets/images/UNC_Token_Distribution_img_white.png'
+                  : '/src/assets/images/UNC_Token_Distribution_img.png'
+              "
+              alt=""
+            />
           </div>
         </div>
-        <div class="UNC_Token_Distribution_img">
-          <img src="@/assets/images/UNC_Token_Distribution_img.png" alt="" />
-        </div>
-      </div>
-      <div class="options_list_father">
-        <div class="options_list_header">Where to get UNC?</div>
-        <div class="options_list_header_text">
-          You can get UNC from decentralized exchanges or centralized exchanges
-          that are currently live.
-        </div>
-        <div class="options_list">
-          <div v-for="(item, index) in optionsList" :key="index">
-            <div class="options_item" @click="openNewPage(item.link)">
-              <img :src="item.image" alt="" />
-              <div class="options_item_header">
-                <div class="options_item_header_title">{{ item.title }}</div>
-                <div class="options_item_header_text">{{ $t(item.text) }}</div>
+        <div class="options_list_father">
+          <div class="options_list_header">Where to get UNC?</div>
+          <div class="options_list_header_text">
+            You can get UNC from decentralized exchanges or centralized
+            exchanges that are currently live.
+          </div>
+          <div class="options_list">
+            <div v-for="(item, index) in optionsList" :key="index">
+              <div class="options_item" @click="openNewPage(item.link)">
+                <img :src="item.image" alt="" />
+                <div class="options_item_header">
+                  <div class="options_item_header_title">{{ item.title }}</div>
+                  <div class="options_item_header_text">
+                    {{ $t(item.text) }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="Join_the_UtilityNet">
-        <div class="Join_the_UtilityNet_left">
-          <div class="Join_the_UtilityNet_title">What is unique about UNC?</div>
-          <div class="Join_the_UtilityNet_text">
-            There are many cryptocurrencies on the market today, but there are
-            some things that only UNC can do, and UNC's value set is based on
-            the worldwide demand for distributed chip arithmetic resources and
-            our innovative POCI protocol.
+        <div class="Join_the_UtilityNet">
+          <div class="Join_the_UtilityNet_left">
+            <div class="Join_the_UtilityNet_title">
+              What is unique about UNC?
+            </div>
+            <div class="Join_the_UtilityNet_text">
+              There are many cryptocurrencies on the market today, but there are
+              some things that only UNC can do, and UNC's value set is based on
+              the worldwide demand for distributed chip arithmetic resources and
+              our innovative POCI protocol.
+            </div>
           </div>
-        </div>
-        <div class="Join_the_UtilityNet_right">
-          <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
+          <div class="Join_the_UtilityNet_right">
+            <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -379,7 +412,9 @@ onBeforeUnmount(() => {
 li {
   list-style: none !important; /* 移除列表项默认的点 */
 }
-
+.unc_token_view {
+  background-color: var(--home-background-color);
+}
 .container {
   width: 100%;
   padding: 0 110px;
@@ -399,7 +434,7 @@ li {
       justify-content: center;
       gap: 30px;
       .header_content_header {
-        color: #fffefb;
+        color: var(--home-title-color);
         font-family: Gilroy-Bold;
         font-size: 60px;
         font-style: normal;
@@ -407,7 +442,7 @@ li {
         line-height: normal;
       }
       .header_content_text {
-        color: #fffefb;
+        color: var(--home-title-color);
         font-family: Gilroy-Medium;
         font-size: 20px;
         font-style: normal;
@@ -420,14 +455,15 @@ li {
         height: 156px;
         flex-shrink: 0;
         border-radius: 12px;
-        border: 0.466px solid #2a3433;
-        background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+        border: 0.466px solid var(--unc-tkoen-header_content_box-border);
+        background: var(--unc-tkoen-header_content_box-background);
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         .CURRENT_UNC_PRICe {
-          color: rgba(255, 254, 251, 0.8);
+          color: var(--home-text-color);
           font-family: Gilroy-Medium;
           font-size: 20px;
           font-style: normal;
@@ -435,7 +471,7 @@ li {
           line-height: 155%; /* 31px */
         }
         .money {
-          color: #fffefb;
+          color: var(--home-title-color);
           text-align: center;
           font-family: Gilroy-Bold;
           font-size: 40px;
@@ -457,7 +493,7 @@ li {
           }
           .white {
             margin-left: 15px;
-            color: rgba(255, 254, 251, 0.8);
+            color: var(--home-text-color);
             font-family: Gilroy-Medium;
             font-size: 20px;
             font-style: normal;
@@ -476,20 +512,18 @@ li {
         align-items: center;
         border-radius: 6px;
         gap: 18px;
-        border: 0.608px solid #00fff5;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 255, 245, 0.2) 0%,
-          rgba(0, 153, 147, 0.2) 100%
-        );
+        border: 0.608px solid var(--home-Join_the_UtilityNet_button-border);
+        background: var(--home-Join_the_UtilityNet_button-background);
+
         //阴影
-        color: #fffefb;
+        color: var(--home-title-color);
         text-align: center;
         font-family: Inter;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: 150%; /* 21px */
+        cursor: pointer;
         &:hover {
           box-shadow: 0px 4px 20px 0px rgba(0, 255, 245, 0.3);
         }
@@ -516,7 +550,7 @@ li {
 
           flex-shrink: 0;
           border-radius: 12px;
-          background: #1a1a1a;
+          background: var(--home-background-color-child);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -530,7 +564,7 @@ li {
           }
 
           .subtitle_options_item_title {
-            color: #fffefb;
+            color: var(--home-title-color);
             font-family: Gilroy-Bold;
             font-size: 50px;
             font-style: normal;
@@ -539,7 +573,7 @@ li {
           }
 
           .subtitle_options_item_text {
-            color: rgba(255, 254, 251, 0.8);
+            color: var(--home-text-color);
             font-family: Gilroy-Medium;
             font-size: 20px;
             font-style: normal;
@@ -554,14 +588,14 @@ li {
       padding: 50px 60px 0 52px;
       width: 100%;
       border-radius: 12px;
-      background: #1b1b1b;
+      background: var(--home-background-color-child);
       margin-bottom: 90px;
       min-height: 830.981px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       .UNC_Token_Distribution_title {
-        color: #fffefb;
+        color: var(--home-title-color);
         font-family: Gilroy-Bold;
         font-size: 50px;
         font-style: normal;
@@ -569,7 +603,7 @@ li {
         line-height: normal;
       }
       .UNC_Token_Distribution_text {
-        color: rgba(255, 254, 251, 0.8);
+        color: var(--home-text-color);
         font-family: Gilroy-Medium;
         font-size: 20px;
         font-style: normal;
@@ -594,7 +628,7 @@ li {
           justify-content: center;
           align-items: center;
           .figure_round_number {
-            color: #00fff5;
+            color: var(--unc-figure_round_number);
             font-family: Gilroy-Bold;
             font-size: 34.09px;
             font-style: normal;
@@ -700,7 +734,7 @@ li {
               line-height: normal;
             }
             .UNC_Token_Distribution_border_text {
-              color: #fff;
+              color: var(--home-title-color);
               font-family: Gilroy-SemiBold;
               font-size: 17.892px;
               font-style: normal;
@@ -780,10 +814,10 @@ li {
       width: 100%;
       flex-shrink: 0;
       border-radius: 12px;
-      background: #1b1b1b;
+      background: var(--home-background-color-child);
       padding: 50px 40px 90px 52px;
       .options_list_header {
-        color: #fffefb;
+        color: var(--home-title-color);
         font-family: Gilroy-Bold;
         font-size: 50px;
         font-style: normal;
@@ -792,7 +826,7 @@ li {
         margin-bottom: 12px;
       }
       .options_list_header_text {
-        color: rgba(255, 254, 251, 0.8);
+        color: var(--home-text-color);
         font-family: Gilroy-Medium;
         font-size: 20px;
         font-style: normal;
@@ -811,10 +845,10 @@ li {
         gap: 15px;
         .options_item {
           // height: 105px;
-          width: 100%;
-          padding: 35px 132px;
+          width: 360px;
+          padding: 35px 0px;
           border-radius: 8px;
-          background: #202022;
+          background: var(--home-background-color-child);
           box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
             0px 161px 64px 0px rgba(0, 0, 0, 0.01),
             0px 90px 54px 0px rgba(0, 0, 0, 0.05),
@@ -822,7 +856,8 @@ li {
             0px 10px 22px 0px rgba(0, 0, 0, 0.1);
           flex-shrink: 0;
           display: flex;
-
+          justify-content: center;
+          align-items: center;
           cursor: pointer;
 
           img {
@@ -873,13 +908,14 @@ li {
       width: 100%;
       flex-shrink: 0;
       border-radius: 12px;
-      background: #1a1a1a;
-      padding: 97px 138px 97px 40px;
+      background: var(--home-background-color-child);
+      padding: 0px 8px 0px 40px;
       display: flex;
       justify-content: space-between;
       .Join_the_UtilityNet_left {
+        margin-top: 97px;
         .Join_the_UtilityNet_title {
-          color: #fffefb;
+          color: var(--home-title-color);
           font-family: Gilroy-Bold;
           font-size: 50px;
           font-style: normal;
@@ -889,7 +925,7 @@ li {
         }
         .Join_the_UtilityNet_text {
           max-width: 760px;
-          color: rgba(255, 254, 251, 0.8);
+          color: var(--home-text-color);
           font-family: Gilroy-Medium;
           font-size: 20px;
           font-style: normal;
@@ -898,9 +934,10 @@ li {
         }
       }
       .Join_the_UtilityNet_right {
-        width: 302px;
-        height: 290px;
-        flex-shrink: 0;
+        width: 40%;
+        // width: 302px;
+        // height: 290px;
+        // flex-shrink: 0;
       }
     }
   }

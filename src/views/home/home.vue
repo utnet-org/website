@@ -1,6 +1,6 @@
 <script setup lang="ts" name="HomeView">
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
-import phaseArrow1 from '@/assets/images/UtilityNet_PHASE_button_arrow1.svg'
+
 import SoftwareDH1 from '@/assets/images/S_D_H_1.svg'
 import Network from '@/assets/images/Network.svg'
 import Storage from '@/assets/images/Storage.svg'
@@ -531,17 +531,20 @@ const UtilityNet_Basic_box_data = ref([
               :class="['Utility_text']"
               :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
-              Utility:
+              UtilityNet:
             </div>
             <div
               class="Welcome_text_title"
               :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
-              {{ $t('home.Welcome_to_utility') }}
+              <!-- {{ $t('home.Welcome_to_utility') }} -->
+              Decentralized Digital Chip Network.
             </div>
           </div>
           <div class="Anapplication">
-            {{ $t('home.An_application') }}
+            <!-- {{ $t('home.An_application') }} -->
+            Providing chip resources for next-generation edge computing and
+            artificial intelligence infrastructure.
           </div>
           <div class="button_father">
             <div
@@ -561,10 +564,11 @@ const UtilityNet_Basic_box_data = ref([
             </div>
             <div
               class="button_right_top"
-              @click="openNewPage('/learning/learning_center')"
+              @click="openNewPage('/learning/unc_token')"
             >
               <div class="text">
-                {{ $t('home.More') }}
+                <!-- {{ $t('home.More') }} -->
+                Gets UNC
               </div>
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/right.svg"
@@ -611,7 +615,8 @@ const UtilityNet_Basic_box_data = ref([
           never happened before in the history of blockchain!
         </div>
         <div class="Software_Defined_Hardware_box">
-          <div class="S_D_H_box_item_one">
+          <img src="@/assets/images/Software_Defined_Hardware_box.png" alt="" />
+          <!-- <div class="S_D_H_box_item_one">
             <div class="S_D_H_box_item_one_btn">Ldentify: value needs</div>
             <div class="S_D_H_box_item_one_btn">Protocol(POCI)</div>
             <div class="S_D_H_box_item_one_btn">Token(UNC)</div>
@@ -681,7 +686,7 @@ const UtilityNet_Basic_box_data = ref([
                 ></div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="POCI_Validation_Logic">
@@ -718,8 +723,19 @@ const UtilityNet_Basic_box_data = ref([
             >
               <div class="UtilityNet_PHASE_button">
                 More on Testnet
-                <phaseArrow v-if="phaseArrowb" />
-                <phaseArrow1 v-if="!phaseArrowb" />
+                <img
+                  :style="{
+                    filter: !theme
+                      ? phaseArrowb
+                        ? 'brightness(0%)'
+                        : 'brightness(0%)'
+                      : phaseArrowb
+                      ? 'brightness(100%)'
+                      : 'brightness(0%)'
+                  }"
+                  src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                  alt=""
+                />
               </div>
             </div>
             <div
@@ -729,8 +745,19 @@ const UtilityNet_Basic_box_data = ref([
             >
               <div class="UtilityNet_PHASE_button">
                 Join Testnet!
-                <phaseArrow v-if="phaseArrowb1" />
-                <phaseArrow1 v-if="!phaseArrowb1" />
+                <img
+                  :style="{
+                    filter: !theme
+                      ? phaseArrowb1
+                        ? 'brightness(0%)'
+                        : 'brightness(0%)'
+                      : phaseArrowb1
+                      ? 'brightness(100%)'
+                      : 'brightness(0%)'
+                  }"
+                  src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -922,13 +949,27 @@ const UtilityNet_Basic_box_data = ref([
               class="Join_the_UtilityNet_button"
               @click="openNewPage('/community')"
             >
-              Join Us <phaseArrow />
+              Join Us
+              <img
+                :style="{
+                  filter: theme ? 'brightness(100%)' : 'brightness(0%)'
+                }"
+                src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                alt=""
+              />
             </div>
             <div
               class="Join_the_UtilityNet_button"
               @click="openNewPage('https://github.com/utnet-org')"
             >
-              Github <phaseArrow />
+              Github
+              <img
+                :style="{
+                  filter: theme ? 'brightness(100%)' : 'brightness(0%)'
+                }"
+                src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -979,7 +1020,7 @@ const UtilityNet_Basic_box_data = ref([
     padding: 0 7px;
     .animation_button_text {
       flex: 1;
-      color: #fffefb;
+      color: var(--home-title-color);
       text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
       font-family: Inter;
       font-size: 16px;
@@ -1203,7 +1244,7 @@ const UtilityNet_Basic_box_data = ref([
     height: 42px;
     border-radius: 6px;
     border: 1px solid #3edfcf;
-
+    cursor: pointer;
     .text {
       font-size: 14px;
       font-weight: 500;
@@ -1224,7 +1265,8 @@ const UtilityNet_Basic_box_data = ref([
   }
 }
 .home_view {
-  // background-color: #22fffb;
+  background-color: var(--home-background-color);
+
   .bg {
     // height: 1100px;
     width: 100%;
@@ -1243,12 +1285,13 @@ const UtilityNet_Basic_box_data = ref([
   }
 }
 .Software_Defined_Hardware {
+  margin-top: 100px;
   padding: 50px 28px 75px 28px;
   width: 100%;
   border-radius: 12px;
-  background: #1b1b1b;
+  background: var(--home-background-color-child);
   .Software_Defined_Hardware_title {
-    color: #fffefb;
+    color: var(--home-title-color);
     font-family: Gilroy-Bold;
     font-size: 50px;
     font-style: normal;
@@ -1256,7 +1299,7 @@ const UtilityNet_Basic_box_data = ref([
     line-height: normal;
   }
   .Software_Defined_Hardware_text {
-    color: rgba(255, 254, 251, 0.8);
+    color: var(--home-text-color);
     font-family: Gilroy-Medium;
     font-size: 20px;
     font-style: normal;
@@ -1269,7 +1312,7 @@ const UtilityNet_Basic_box_data = ref([
     display: flex;
     align-items: center;
     //换行
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     justify-content: center;
     row-gap: 30px;
     .S_D_H_box_item_one {
@@ -1580,10 +1623,10 @@ const UtilityNet_Basic_box_data = ref([
   width: 100%;
   flex-shrink: 0;
   border-radius: 12px;
-  background: #1b1b1b;
+  background: var(--home-background-color-child);
   padding: 50px 40px 70px 40px;
   .POCI_Validation_Logic_title {
-    color: #fffefb;
+    color: var(--home-title-color);
     font-family: Gilroy-Bold;
     font-size: 50px;
     font-style: normal;
@@ -1591,13 +1634,13 @@ const UtilityNet_Basic_box_data = ref([
     line-height: normal;
   }
   .POCI_Validation_Logic_text {
-    color: rgba(255, 254, 251, 0.8);
+    color: var(--home-text-color);
     font-family: Gilroy-Medium;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 155%; /* 31px */
-    margin-bottom: 80px;
+    margin-bottom: 70px;
   }
   .POCI_Validation_Logic_bg {
     width: 100%;
@@ -1620,7 +1663,7 @@ const UtilityNet_Basic_box_data = ref([
   flex-shrink: 0;
   margin: 100px 0;
   border-radius: 12px;
-  background: #1b1b1b;
+  background: var(--home-background-color-child);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1628,7 +1671,7 @@ const UtilityNet_Basic_box_data = ref([
     .UtilityNet_PHASE_title {
       margin-bottom: 20px;
       max-width: 778px;
-      color: #fffefb;
+      color: var(--home-title-color);
       font-family: Gilroy-Bold;
       font-size: 50px;
       font-style: normal;
@@ -1638,7 +1681,7 @@ const UtilityNet_Basic_box_data = ref([
     .UtilityNet_PHASE_text {
       margin-bottom: 60px;
       max-width: 759px;
-      color: rgba(255, 254, 251, 0.8);
+      color: var(--home-text-color);
       font-family: Gilroy-Medium;
       font-size: 20px;
       font-style: normal;
@@ -1656,6 +1699,7 @@ const UtilityNet_Basic_box_data = ref([
         justify-content: center;
         align-items: center;
         background: #b0faff;
+        cursor: pointer;
         &:hover {
           background: conic-gradient(
             from var(--radius),
@@ -1690,9 +1734,8 @@ const UtilityNet_Basic_box_data = ref([
         backdrop-filter: blur(4.66006326675415px);
         color: #000;
         &:hover {
-          color: #fffefb;
-
-          background: #1b1b1b;
+          color: var(--home-title-color);
+          background: var(--home-background-color-child);
         }
       }
     }
@@ -1709,10 +1752,10 @@ const UtilityNet_Basic_box_data = ref([
   height: 1088px;
   flex-shrink: 0;
   margin-bottom: 100px;
-  background: url('@/assets/images/Key_Players_In_bg.png');
+  background: var(--home-Key_Players_In_bg);
   padding: 122px 148px 0px 148px;
   .Key_Players_In_title {
-    color: #fff;
+    color: var(--home-title-color);
     font-family: Gilroy-Bold;
     font-size: 50px;
     font-style: normal;
@@ -1723,7 +1766,7 @@ const UtilityNet_Basic_box_data = ref([
 
   .Key_Players_In_text {
     margin-left: 18px;
-    color: rgba(255, 254, 251, 0.8);
+    color: var(--home-text-color);
     font-family: Gilroy-Medium;
     font-size: 20px;
     font-style: normal;
@@ -1765,7 +1808,7 @@ const UtilityNet_Basic_box_data = ref([
           width: 483.355px;
           height: 221.614px;
           .base_layer {
-            color: #fff;
+            color: var(--home-Key_Players_In_Gear_wheel_button);
             font-family: Gilroy-Bold;
             font-size: 18.24px;
             font-style: normal;
@@ -1782,7 +1825,7 @@ const UtilityNet_Basic_box_data = ref([
               display: flex;
               justify-content: center;
               align-items: center;
-              color: #fff;
+              color: var(--home-Key_Players_In_Gear_wheel_button);
               text-align: center;
               font-family: Gilroy-Medium;
               font-size: 16.416px;
@@ -1945,7 +1988,7 @@ const UtilityNet_Basic_box_data = ref([
 }
 .UtilityNet_Basic_Functions {
   border-radius: 12px;
-  background: #191919;
+  background: var(--home-background-color-child);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1956,13 +1999,14 @@ const UtilityNet_Basic_box_data = ref([
   .UtilityNet_Basic_Functions_title {
     margin-top: 10px;
     margin-left: 16px;
-    color: #fffefb;
+    color: var(--home-title-color);
     text-align: center;
     font-family: Gilroy-Bold;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-bottom: 60px;
   }
   .UtilityNet_Basic_box_father_F {
     display: flex;
@@ -1979,6 +2023,8 @@ const UtilityNet_Basic_box_data = ref([
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        //鼠标变小手
+        cursor: pointer;
 
         .UtilityNet_Basic_box_title {
           width: 262px;
@@ -2116,12 +2162,12 @@ const UtilityNet_Basic_box_data = ref([
 .Recent_Highlights {
   width: 100%;
   flex-shrink: 0;
-  padding: 50px 0px 168px 0px;
+  padding: 50px 0px 150px 0px;
   border-radius: 12px;
-  background: #191919;
+  background: var(--home-background-color-child);
   .Recent_Highlights_title {
     margin-left: 56px;
-    color: #fffefb;
+    color: var(--home-title-color);
     font-family: Gilroy-Bold;
     font-size: 50px;
     font-style: normal;
@@ -2135,7 +2181,6 @@ const UtilityNet_Basic_box_data = ref([
 
     .swiper {
       width: 100%;
-
       .swiper-slide {
         display: flex;
         flex-wrap: wrap;
@@ -2185,7 +2230,7 @@ const UtilityNet_Basic_box_data = ref([
       align-items: center;
       position: absolute;
       width: 130px;
-      bottom: 0px;
+      bottom: -20px;
       right: 30px;
 
       .swiper-button-prev,
@@ -2206,10 +2251,10 @@ const UtilityNet_Basic_box_data = ref([
       .swiper-button-prev.swiper-button-disabled,
       .swiper-button-next.swiper-button-disabled {
         pointer-events: auto;
-        border: 1px solid #222222 !important;
+        border: var(--home-swiper-button-disabled-border) !important;
         color: var(--swiper-prev-new-border) !important;
         cursor: not-allowed !important;
-        background-color: #202022 !important;
+        background-color: var(--home-swiper-button-disabled) !important;
       }
 
       .swiper-button-prev::after,
@@ -2231,14 +2276,14 @@ const UtilityNet_Basic_box_data = ref([
   width: 100%;
   flex-shrink: 0;
   border-radius: 12px;
-  background: #1a1a1a;
+  background: var(--home-background-color-child);
   padding: 70px 0px 70px 70px;
   display: flex;
   // justify-content: center;
   align-items: center;
   .Join_the_UtilityNet_left {
     .Join_the_UtilityNet_title {
-      color: #fffefb;
+      color: var(--home-title-color);
       font-family: Gilroy-Bold;
       font-size: 50px;
       font-style: normal;
@@ -2253,19 +2298,17 @@ const UtilityNet_Basic_box_data = ref([
         width: 141px;
         height: 42px;
         flex-shrink: 0;
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 6px;
         gap: 18px;
-        border: 0.608px solid #00fff5;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 255, 245, 0.2) 0%,
-          rgba(0, 153, 147, 0.2) 100%
-        );
+        border: 0.608px solid var(--home-Join_the_UtilityNet_button-border);
+        background: var(--home-Join_the_UtilityNet_button-background);
+
         //阴影
-        color: #fffefb;
+        color: var(--home-title-color);
         text-align: center;
         font-family: Inter;
         font-size: 14px;

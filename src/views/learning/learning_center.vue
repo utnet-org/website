@@ -206,6 +206,10 @@ onUnmounted(() => {
 
 // 计算盒子距离顶部的高度
 const calculateBoxTopDistance = () => {
+  // 初始化所有项的 istext 为 false
+  questionList.value.forEach(item => {
+    item.istext = false
+  })
   // 判断元素是否在视图中的函数
   function isElementInViewport(el: { getBoundingClientRect: () => any }) {
     const rect = el.getBoundingClientRect()
@@ -221,14 +225,15 @@ const calculateBoxTopDistance = () => {
   for (let index = 0; index < sectionRightElement.value.length; index++) {
     const rect1 = sectionRightElement.value[index].getBoundingClientRect() // 获取当前盒子的位置信息
 
-    if (y > rect1.top + (window.pageYOffset - 110)) {
+    // questionList.value[index].istext = true
+    if (y > rect1.top + (window.pageYOffset - 110 - 50 - 100)) {
       // 更新滚动位置后再遍历一次，将不在视图中的项的 istext 属性设置为 false
       for (let i = 0; i < sectionRightElement.value.length; i++) {
         if (!isElementInViewport(sectionRightElement.value[i])) {
           questionList.value[i].istext = false
         }
+        questionList.value[index].istext = true
       }
-      questionList.value[index].istext = true
     }
   }
 }
@@ -239,114 +244,122 @@ const handleScroll = () => {
 }
 </script>
 <template>
-  <div class="container">
-    <div class="header">
-      <div class="header_content">
-        <div class="header_content_header">
-          {{ $t('learning_center.Learning_center') }}
-        </div>
-        <div class="header_content_text">
-          {{ $t('learning_center.A_guide_and_help_center') }}
-        </div>
-        <div
-          class="header_content_button"
-          @click="
-            openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
-          "
-        >
-          <div>White paper</div>
-          <img
-            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
-            alt=""
-            srcset=""
-            style="filter: brightness(var(--learning-center-brightness))"
-          />
+  <div class="home_view">
+    <div class="homeHandDiv">
+      <div class="homeHandBgc"></div>
+      <div class="homeHand"></div>
+    </div>
+    <div class="container">
+      <div class="header">
+        <div class="header_content">
+          <div class="header_content_header">
+            {{ $t('learning_center.Learning_center') }}
+          </div>
+          <div class="header_content_text">
+            {{ $t('learning_center.A_guide_and_help_center') }}
+          </div>
+          <div
+            class="header_content_button"
+            @click="
+              openNewPage('http://oss2.xuanwoo.com/UtilityNetWhitePaper.pdf')
+            "
+          >
+            <div>White paper</div>
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
+              alt=""
+              srcset=""
+              style="filter: brightness(var(--learning-center-brightness))"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="section">
-      <div class="section_side" v-if="viewableWidth > 834">
-        <div class="section_side_opacity"></div>
-        <div class="section_side_message">
-          <div class="text_list">
-            <div
-              v-for="(item, index) in questionList"
-              :key="index"
-              @click="scrollToPosition(questionMessageList[index].id)"
-            >
+      <div class="section">
+        <div class="section_side" v-if="viewableWidth > 834">
+          <div class="section_side_opacity"></div>
+          <div class="section_side_message">
+            <div class="text_list">
               <div
-                class="section_side_text"
-                :class="[item.istext ? 'highlight' : '']"
-              >
-                {{ $t(item.text) }}
-              </div>
-              <div
-                class="section_side_text_c"
-                v-for="(i, index) in item.children"
+                v-for="(item, index) in questionList"
                 :key="index"
+                @click="scrollToPosition(questionMessageList[index].id)"
               >
-                {{ $t(i) }}
+                <div
+                  class="section_side_text"
+                  :class="[item.istext ? 'highlight' : '']"
+                >
+                  {{ $t(item.text) }}
+                </div>
+                <div
+                  class="section_side_text_c"
+                  v-for="(i, index) in item.children"
+                  :key="index"
+                >
+                  {{ $t(i) }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="section_right" ref="sectionRight">
-        <div
-          :id="item.id"
-          ref="sectionRightElement"
-          class="section_right_item"
-          v-for="(item, index) in questionMessageList"
-          :key="index"
-        >
-          <div class="section_right_item_title">
-            {{ $t(item.messageTitle) }}
-          </div>
-          <div class="section_right_item_text">
-            {{ $t(item.messageText) }}
-          </div>
-          <div class="section_right_item_card">
-            <div v-for="(citem, cindex) in item.messageList" :key="cindex">
-              <AnimationBox class="section_right_item_card_item_border">
-                <div
-                  class="section_right_item_card_item"
-                  @click="openNewPage(citem.link)"
-                >
-                  <div class="section_right_item_card_item_header">
-                    <div class="section_right_item_card_item_header_title">
-                      {{ $t(citem.title) }}
+        <div class="section_right" ref="sectionRight">
+          <div
+            :id="item.id"
+            ref="sectionRightElement"
+            class="section_right_item"
+            v-for="(item, index) in questionMessageList"
+            :key="index"
+          >
+            <div class="section_right_item_title">
+              {{ $t(item.messageTitle) }}
+            </div>
+            <div class="section_right_item_text">
+              {{ $t(item.messageText) }}
+            </div>
+            <div class="section_right_item_card">
+              <div v-for="(citem, cindex) in item.messageList" :key="cindex">
+                <AnimationBox class="section_right_item_card_item_border">
+                  <div
+                    class="section_right_item_card_item"
+                    @click="openNewPage(citem.link)"
+                  >
+                    <div class="section_right_item_card_item_header">
+                      <div class="section_right_item_card_item_header_title">
+                        {{ $t(citem.title) }}
+                      </div>
+                      <div style="height: 65px">
+                        <div class="section_right_item_card_item_header_text">
+                          {{ $t(citem.text) }}
+                        </div>
+                      </div>
+                      <div class="section_right_item_card_item_header_img">
+                        <img :src="citem.img" alt="" />
+                      </div>
                     </div>
-                    <div class="section_right_item_card_item_header_text">
-                      {{ $t(citem.text) }}
-                    </div>
-                    <div class="section_right_item_card_item_header_img">
-                      <img :src="citem.img" alt="" />
+                    <div class="section_right_item_card_item_button">
+                      <img
+                        v-if="
+                          firstCheckQuestionMessage === citem.id ||
+                          viewableWidth < 834
+                        "
+                        src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
+                        alt=""
+                      />
+                      <img
+                        v-else
+                        src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
+                        alt=""
+                        class="section_right_item_card_item_button_arrow"
+                      />
+                      <div
+                        @mouseenter="firstCheckQuestionMessage = citem.id"
+                        @mouseleave="firstCheckQuestionMessage = -1"
+                      >
+                        Learn More
+                      </div>
                     </div>
                   </div>
-                  <div class="section_right_item_card_item_button">
-                    <img
-                      v-if="
-                        firstCheckQuestionMessage === citem.id ||
-                        viewableWidth < 834
-                      "
-                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
-                      alt=""
-                    />
-                    <img
-                      v-else
-                      src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter_default.png"
-                      alt=""
-                      class="section_right_item_card_item_button_arrow"
-                    />
-                    <div
-                      @mouseenter="firstCheckQuestionMessage = citem.id"
-                      @mouseleave="firstCheckQuestionMessage = -1"
-                    >
-                      Learn More
-                    </div>
-                  </div>
-                </div>
-              </AnimationBox>
+                </AnimationBox>
+              </div>
             </div>
           </div>
         </div>
@@ -355,14 +368,78 @@ const handleScroll = () => {
   </div>
 </template>
 <style scoped lang="less">
+.homeHandDiv {
+  width: 100%;
+  height: 900px;
+  position: absolute;
+
+  .homeHandBgc {
+    width: 100%;
+    height: 900px;
+    background: #0b0b11;
+    background: url('@/assets/images/learning_center.jpg') no-repeat center
+      center / cover;
+    position: absolute;
+    z-index: -1;
+    // 模糊效果
+    filter: blur(25px);
+  }
+
+  .homeHand {
+    position: absolute;
+    background: #0b0b11;
+    background: url('@/assets/images/learning_center.jpg') no-repeat center
+      center / cover;
+    max-width: 1728px;
+    width: 90%;
+    height: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: -1;
+    /* 添加内阴影 */
+    box-shadow: inset 100px 0 100px -50px rgba(0, 0, 0, 0.8),
+      inset -100px 0 100px -50px rgba(0, 0, 0, 0.8);
+
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   background: linear-gradient(
+    //     to right,
+    //     rgba(11, 11, 17, 1) 0%,
+    //     rgba(11, 11, 17, 0) 8%,
+    //     rgba(11, 11, 17, 0) 92%,
+    //     rgba(11, 11, 17, 1) 100%
+    //   );
+    //   z-index: 1;
+    //   pointer-events: none;
+    // }
+  }
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 900px;
+
+    // background: linear-gradient(79deg, #d57a99 3.81%, #f6c1b9 100%);
+    mix-blend-mode: multiply;
+    position: absolute;
+  }
+}
 .container {
   // background-color: #fffefb;
   padding-top: 70px;
 
   .header {
     width: 100%;
-    height: 972px;
-    background: var(--learning_center-header-bg) no-repeat;
+    height: 830px;
+    // background: var(--learning_center-header-bg) no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -527,8 +604,7 @@ const handleScroll = () => {
           align-items: center;
 
           .section_right_item_card_item {
-            // // height: 246px;
-            padding: 35px 40px 40px;
+            padding: 35px 40px 10px 40px;
 
             // border-radius: 8px;
             // border: 1px solid rgba(115, 255, 247, 0);
@@ -570,7 +646,7 @@ const handleScroll = () => {
                 justify-content: center;
                 align-items: center;
                 img {
-                  width: 90%;
+                  width: 75%;
                 }
               }
               .section_right_item_card_item_header_text {
@@ -580,7 +656,18 @@ const handleScroll = () => {
                 font-weight: 400;
                 line-height: 150%;
                 /* 21px */
-                opacity: 0.8;
+                //显示省略号
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+
+                &:hover {
+                  // background: rgba(55, 216, 195, 0.648);
+                  overflow: visible;
+                  -webkit-line-clamp: 10;
+                  opacity: 0.99999;
+                }
               }
             }
 
@@ -641,6 +728,21 @@ const handleScroll = () => {
 }
 
 @media (max-width: 834px) {
+  .homeHandDiv {
+    height: 574px !important;
+
+    .homeHandBgc {
+      height: 574px !important;
+    }
+
+    .homeHand {
+      height: 574px !important;
+    }
+
+    &::before {
+      height: 574px !important;
+    }
+  }
   .section_right_item_card_item_border {
     width: 350px !important;
     height: 504px;
