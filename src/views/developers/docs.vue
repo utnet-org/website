@@ -91,7 +91,7 @@ const options_list = computed(() => [
       }"
     >
       <div class="header_image">
-        <div class="header_title">Utility Docs</div>
+        <div class="header_title">UtilityNet Docs</div>
         <div class="header_text">
           {{ $t("docs.At_this_stage_UNC") }}
         </div>

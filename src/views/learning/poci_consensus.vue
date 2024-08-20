@@ -25,7 +25,7 @@ const accordionTitle = "Consensus Chip";
 const accordionList = [
   {
     title: "SPACC（Security Protocol Accelerator）",
-    messageTitle: "Strengthen Utility Net",
+    messageTitle: "Strengthen UtilityNet",
     messageText: "poci_consensus.The_SPACC_module_is",
   },
   {
@@ -107,7 +107,7 @@ const changeCheckIndex = (index: any) => {
       </div>
       <div class="options">
         <div class="options_side">
-          <div class="options_side_title">Strengthen Utility Network</div>
+          <div class="options_side_title">Strengthen UtilityNet Network</div>
           <div class="options_side_text">
             {{ $t("poci_consensus.the_introduction_of") }}
           </div>

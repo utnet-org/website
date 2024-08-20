@@ -36,8 +36,8 @@ const res = ref() //^ 数据 和 圆 Data and circles的数据
 const Data_arr = ref() //^ Where to Start的数据
 const width = ref(window.innerWidth)
 const height = ref(window.innerHeight)
-const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力Utility</span> 开源社区，共建革命性应用型Web3`
-const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help Utility</span> open source community to build a revolutionary application Web3`
+const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力UtilityNet</span> 开源社区，共建革命性应用型Web3`
+const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help UtilityNet</span> open source community to build a revolutionary application Web3`
 const updatedWidth = function () {
   width.value = window.innerWidth
   height.value = window.innerHeight
@@ -473,7 +473,7 @@ const UtilityNet_Basic_box_data = ref([
     name: 'UtilityNet_Basic_box_imparity2'
   },
   {
-    title: 'Utility Wallet',
+    title: 'UtilityNet Wallet',
     text: 'Convenient asset management tools available as browser extensions, desktop, and mobile versions.',
     name: 'UtilityNet_Basic_box_imparity1'
   },
@@ -1314,7 +1314,14 @@ const UtilityNet_Basic_box_data = ref([
     //换行
     // flex-wrap: wrap;
     justify-content: center;
-    row-gap: 30px;
+    padding: 50px;
+    border-radius: 8px;
+    background: #202022;
+    box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+      0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+      0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+      0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+      0px 10px 22px 0px rgba(0, 0, 0, 0.1);
     .S_D_H_box_item_one {
       width: 212.707px;
       height: 291.713px;
@@ -1786,8 +1793,8 @@ const UtilityNet_Basic_box_data = ref([
       display: flex;
       justify-content: center;
       .Gear_wheel_bg {
-        width: 224.356px;
-        height: 223.641px;
+        width: 204.356px;
+        height: 203.641px;
         flex-shrink: 0;
         //平移
         transform: translate(0, 80%);
@@ -1852,7 +1859,7 @@ const UtilityNet_Basic_box_data = ref([
 
       .Gear_wheel_line {
         position: absolute;
-        width: 112.374px;
+        width: 90.374px;
         height: 1.5px;
         flex-shrink: 0;
         stroke-width: 0.912px;
@@ -1868,7 +1875,7 @@ const UtilityNet_Basic_box_data = ref([
       }
       .Gear_wheel_line1 {
         position: absolute;
-        width: 85px;
+        width: 40px;
         height: 1.5px;
         flex-shrink: 0;
         stroke-width: 0.912px;
@@ -1877,108 +1884,107 @@ const UtilityNet_Basic_box_data = ref([
       }
       .point_AND_line_father {
         .Gear_wheel_point_left {
-          left: -56%;
-          top: 47%;
+          left: -38%;
+          top: 52%;
         }
         .Gear_wheel_point_right {
-          left: -14%;
-          top: 48%;
+          left: -13%;
+          top: 53%;
         }
         .Gear_wheel_line_long {
           transform: rotate(45deg);
-          left: -18%;
-          top: 69%;
+          left: -14%;
+          top: 73%;
         }
         .Gear_wheel_line_short {
-          left: -51%;
-          top: 49%;
+          left: -32%;
+          top: 55%;
         }
       }
 
       .point_AND_line_father1 {
         .Gear_wheel_point_left {
-          left: -56%;
-          top: 209%;
+          left: -38.6%;
+          top: 200%;
         }
         .Gear_wheel_point_right {
           left: -14%;
-          top: 208%;
+          top: 200%;
         }
         .Gear_wheel_line_long {
           transform: rotate(-45deg);
           left: -17%;
-          top: 191%;
+          top: 186%;
         }
         .Gear_wheel_line_short {
-          left: -51%;
-          top: 211%;
+          left: -33%;
+          top: 203%;
         }
       }
       .point_AND_line_father2 {
         .Gear_wheel_point_left {
-          right: -57.2%;
-          top: 48%;
+          right: -37.6%;
+          top: 50%;
         }
         .Gear_wheel_point_right {
-          right: -14%;
-          top: 48%;
+          right: -13%;
+          top: 51%;
         }
         .Gear_wheel_line_long {
           transform: rotate(135deg);
-          right: -18%;
-          top: 69%;
+          right: -15%;
+          top: 71%;
         }
         .Gear_wheel_line_short {
           transform: rotate(180deg);
-
-          right: -52%;
-          top: 50%;
+          right: -32%;
+          top: 53.5%;
         }
       }
       .point_AND_line_father3 {
         .Gear_wheel_point_left {
-          right: -57.2%;
-          top: 208%;
+          right: -39.6%;
+          top: 202%;
         }
         .Gear_wheel_point_right {
           right: -15%;
-          top: 208%;
+          top: 202%;
         }
         .Gear_wheel_line_long {
           transform: rotate(45deg);
-          right: -18%;
-          top: 191%;
+          right: -17%;
+          top: 187%;
         }
         .Gear_wheel_line_short {
           transform: rotate(180deg);
 
-          right: -52%;
-          top: 210%;
+          right: -34.5%;
+          top: 205%;
         }
       }
 
       .wheel_Rainbow_position {
         position: absolute;
-        left: -270%;
-        top: 2%;
+        left: -273%;
+        top: 4%;
       }
       .wheel_Rainbow_position1 {
         position: absolute;
-        left: -270%;
-        bottom: -162%;
+        left: -274%;
+        bottom: -160%;
       }
       .wheel_Rainbow_position2 {
         position: absolute;
-        right: -272%;
-        top: 2%;
+        right: -274%;
+        top: 4%;
         .Key_Players_In_Gear {
           flex-direction: row-reverse;
         }
       }
       .wheel_Rainbow_position3 {
         position: absolute;
-        right: -272%;
-        bottom: -162%;
+        right: -276%;
+        bottom: -160%;
         .Key_Players_In_Gear {
           flex-direction: row-reverse;
         }

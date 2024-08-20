@@ -20,7 +20,7 @@ const communityOptionsList = [
   {
     image:
       "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
-    title: "Utility Activities",
+    title: "UtilityNet Activities",
     text: "Provide in-depth understanding and participation",
   },
 ];
@@ -64,7 +64,7 @@ const accordionTitle = "community.Consensus Chip";
 const accordionList = [
   {
     title: "Initialize Generation",
-    messageTitle: "Strengthen Utility Net",
+    messageTitle: "Strengthen UtilityNet Net",
     messageText:
       "All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!",
   },

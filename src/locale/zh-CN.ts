@@ -7,24 +7,24 @@ export default {
     Mining: "供应与产出",
     Language: "语言",
     Learning_center: "学习中心",
-    Learning_center_details: "Utility文档索引中心",
-    What_is_Utility: "什么是Utility",
+    Learning_center_details: "UtilityNet 文档索引中心",
+    What_is_Utility: "什么是 UtilityNet",
     What_is_Utility_details: "了解Utility的基础知识",
     UNC_Token: "UNC 代币",
-    UNC_Token_details: "UNC是Utility的基础代币，点此了解更多",
+    UNC_Token_details: "UNC是 UtilityNet 的基础代币，点此了解更多",
     POCI_Consensus: "PoCI 共识",
     POCI_Consensus_details:
-      "Utility使用芯片证明芯片的共识机制，诚信>>>br计算能力证明(PoCI)",
+      "UtilityNet使用芯片证明芯片的共识机制，诚信>>>br计算能力证明(PoCI)",
     White_Paper: "白皮书",
     White_Paper_details: "理论细节和代币经济学",
-    Utility_Wallet: "Utility钱包",
-    Utility_Wallet_details: "链接Utility网络，使用算力资源并管理代币>>>br资产",
+    Utility_Wallet: "UtilityNet钱包",
+    Utility_Wallet_details: "链接UtilityNet网络，使用算力资源并管理代币>>>br资产",
     Hashing_Power: "芯系",
     Hashing_Power_details: "社区化订单评价中心，一键购入丰富能力",
     Mining_Tool: "容器云",
     Mining_Tool_details: "成为供应商，向潜在算力客户提供便捷>>>br容器云服务",
     AI: "AI",
-    AI_details: "Utility芯片资源的现代AI模型和其他能力>>>br实用中心",
+    AI_details: "UtilityNet芯片资源的现代AI模型和其他能力>>>br实用中心",
     Docs: "开发文档",
     Docs_details: "更多专业的SDK和最佳实践",
     Solution_Provider: "Dapps",
@@ -40,8 +40,8 @@ export default {
     Resources: "资源",
     White_Paper: "白皮书",
     Green_Paper: "绿皮书",
-    Use_Utility: "使用Utility",
-    Utility_Wallet: "Utility钱包",
+    Use_Utility: "使用UtilityNet",
+    Utility_Wallet: "UtilityNet钱包",
     Blockchain_Explorer: "区块链浏览器",
     Faucet: "水龙头",
     Ecosystem_dApps: "生态系统dApps",
@@ -50,7 +50,7 @@ export default {
     AI_Model: "AI模型",
     Learning: "学习",
     Learning_Center: "学习中心",
-    What_is_Utility: "什么是Utility",
+    What_is_Utility: "什么是UtilityNet",
     What_is_UNC_Token: "什么是UNC代币",
     What_is_POCI_Consensus: "什么是POCI共识",
     Developers: "开发商",
@@ -61,7 +61,7 @@ export default {
     Community: "社区",
     Community_Hub: "社区中心",
     Online_Community: "在线社区",
-    Utility_Foundation: "Utility基金会",
+    Utility_Foundation: "UtilityNet基金会",
     Activity: "活动",
     Provider: "供应商",
     Chips: "芯片",
@@ -81,7 +81,7 @@ export default {
     Where_to_Start: "快速开始",
     Builder: "共建",
     You_can_try:
-      "和Utility的开发者一道，共建基于算力生态的丰富合约和应用，并提供给给多使用者",
+      "和 UtilityNet 的开发者一道，共建基于算力生态的丰富合约和应用，并提供给给多使用者",
     Build_DOC: "build doc",
     Learn_More: "learn more",
     Explore_Wallet: "explore wallets",
@@ -92,9 +92,9 @@ export default {
     The_UNC_Wallet: "轻松地掌控UNC代币资产",
     Computing_Power_users: "算力生态",
     You_can_rent:
-      "租用Utility提供商的高性能算力，开发并高效使用底层SDK和生态赋能的应用",
+      "租用 UtilityNet 提供商的高性能算力，开发并高效使用底层SDK和生态赋能的应用",
 
-    Utility_Chain_Scaling_Solutions: "Utility 基础能力",
+    Utility_Chain_Scaling_Solutions: "UtilityNet 基础能力",
     UNC_Node: "节点",
     Provides_solutions_for: "可选模式节点，轻易在全节点和剪枝节点间切换",
     Testnet: "开发中",
@@ -126,9 +126,9 @@ export default {
     Arithmetic_demand_explodes: "大型AI模型的算法需求爆发！",
     How_to_face_the: "如何面对全球算术资源短缺的危机?",
 
-    Help_Utility_open: "助力Utility开源社区，共建革命性应用型Web3",
+    Help_Utility_open: "助力 UtilityNet 开源社区，共建革命性应用型Web3",
     Utility_is_a_revolutionary:
-      "Utility是由所有志在构建应用型Web3基石的社区志愿者和开发者们共建的革命性区块链，欢迎成为我们的一员",
+      "UtilityNet 是由所有志在构建应用型Web3基石的社区志愿者和开发者们共建的革命性区块链，欢迎成为我们的一员",
     Developers: "开发者",
     Developers_text1: "将您的项目想法带给多个用户在实用工具生态系统中。",
     Computing_power_supply: "计算能力供应",
@@ -143,28 +143,30 @@ export default {
     Mining: "挖矿",
     Check_Wallet: "检查钱包",
     Rent: "租赁",
-    Utility_Ecosystem: "Utility生态系统",
+    Utility_Ecosystem: "UtilityNet生态系统",
     Utility_Ecosystem_text1: "每个人都可以成为UNC持有者，用于购买实用工具并交换UNC代币。",
   },
   utilityNetwork: {
-    header_title: "实用网络",
+    header_title: "未来边缘计算和人工智能的基础设施",
     header_message:
-      "赋能未来的实用性计算平台。探索去中心化、高效和安全的计算服务。",
-    read_more: "阅读更多",
+      "关于UtilityNet去中心化数字芯片网络的运作方式、核心优势以及完整初学者指南",
+    read_more: "了解更多",
+    WhatIsUtilityNet: '什么是UtilityNet？',
+
     title_text:
-      '"Utility Network"（实用网络）通常指的是一种网络体系结构，旨在提供各种实用性服务，如计算资源、数据存储、算法模型等。是一个基于区块链技术和芯片共识构建的去中心化计算服务平台，旨在解决集中式计算资源的限制，并为用户提供高效、安全和可扩展的计算服务。',
+      '"UtilityNet Network"（实用网络）通常指的是一种网络体系结构，旨在提供各种实用性服务，如计算资源、数据存储、算法模型等。是一个基于区块链技术和芯片共识构建的去中心化计算服务平台，旨在解决集中式计算资源的限制，并为用户提供高效、安全和可扩展的计算服务。',
     decentralized_computing_service_platform: "去中心化计算服务平台",
     decentralized_computing_service_platform_text:
-      " Utility Network 可能是一个通过区块链技术搭建的平台，致力于构建去中心化的计算服务基础设施。这意味着计算资源不再依赖于单一的中心化服务提供商，而是分布在网络中的多个节点上。",
+      " UtilityNet Network 可能是一个通过区块链技术搭建的平台，致力于构建去中心化的计算服务基础设施。这意味着计算资源不再依赖于单一的中心化服务提供商，而是分布在网络中的多个节点上。",
     computing_resources_and_data_management: "计算资源和数据管理",
     computing_resources_and_data_management_text:
-      "Utility Network 可能提供一种机制，使用户能够访问和利用分布式的计算资源。这包括对算力的管理、任务的分发、数据的存储和检索等服务。",
+      "UtilityNet Network 可能提供一种机制，使用户能够访问和利用分布式的计算资源。这包括对算力的管理、任务的分发、数据的存储和检索等服务。",
     blockchain_technology: "区块链技术",
     blockchain_technology_text:
-      "Utility Network 可能使用区块链来记录和验证计算任务、资源交易、数据传输等操作。区块链的不可篡改性和分布式性质有助于提高系统的透明度和安全性。",
+      "UtilityNet Network 可能使用区块链来记录和验证计算任务、资源交易、数据传输等操作。区块链的不可篡改性和分布式性质有助于提高系统的透明度和安全性。",
     economic_model: "经济模型",
     economic_model_text:
-      "Utility Network 可能有一个基于代币或加密货币的经济模型，用于激励网络中的节点提供计算服务。这可能包括挖矿机制、代币奖励、Gas 费用等。",
+      "UtilityNet Network 可能有一个基于代币或加密货币的经济模型，用于激励网络中的节点提供计算服务。这可能包括挖矿机制、代币奖励、Gas 费用等。",
     defining_chips_with_blockchain: "区块链定义芯片",
     defining_chips_with_blockchain_subtitle:
       "区块链定义芯片是一种专门定制的芯片，它旨在优化区块链网络的性能和安全性。通过与区块链技术的深度集成，这种芯片可以提高计算效率、支持加密学操作，并为分布式网络提供更强大的安全性。",
@@ -214,12 +216,12 @@ export default {
       "内测阶段的实施计划采用BEP20标准（币安智能链 BSC），以便测试激励模型。UNC 代币将被用作挖矿的燃料，为去中心化网络中的交易和消息传输提供支持。挖矿奖励将在每个 200 天的出矿周期内产生，随着周期的推移逐步减产，预计90个周期后总量将达到 97 亿 UNC。",
     vajra_age_title: "金刚纪",
     vajra_age_first_text:
-      "第二个纪元，金刚纪（Vajra Age），将标志着测试网 Utility Testnet 的上线和激励计划的公布。这个时期的重点在于奖励早期算力矿工，他们是网络上线时获得奖励的第一批矿工。这也是网络维护的核心群体。",
+      "第二个纪元，金刚纪（Vajra Age），将标志着测试网 UtilityNet Testnet 的上线和激励计划的公布。这个时期的重点在于奖励早期算力矿工，他们是网络上线时获得奖励的第一批矿工。这也是网络维护的核心群体。",
     vajra_age_second_text:
       "激励计划的设计目标在于吸引并奖励早期矿工，以快速集结算力。",
     golem_age_title: "格勒姆纪",
     golem_age_first_text:
-      "格勒姆纪（Golem Age）作为第三纪元的阶段，将见证主网 Utility Mainnet 的上线。",
+      "格勒姆纪（Golem Age）作为第三纪元的阶段，将见证主网 UtilityNet Mainnet 的上线。",
     golem_age_second_text:
       "在这一时期，测试网 UNC 代币将映射到主网 UNC 代币，人工智能去中心化算力时代将正式展开。UNC 生态网络将完全建立起来，为广泛的应用提供支持。",
     maria_age_title: "玛利亚纪",
@@ -236,9 +238,9 @@ export default {
     poci_or_Proof:
       "POCI，即可信计算完整性证明，是一种区块链共识机制，用于证明计算力。它与传统的基于工作量证明（Proof of Work，PoW）的计算力证明不同，PoW 需要通过解决复杂的数学问题来消耗计算资源。相反，POCI依赖于链上的随机数和算力竞争来选举合适的矿工生成新区块",
     the_introduction_of:
-      "POCI的引入也意味着网络的更公平竞争和更高的安全性。通过链上随机数和算力竞争，POCI公平地选举出合适的矿工生成新区块，这不仅确保了算力的有效利用，还保护了网络不受恶意行为的影响。此外，POCI使Utility网络避免了大量无效的计算，这些计算在传统区块链中常用于对抗拜占庭将军问题。这种效率的提高使得99%的运算能力可以被释放出来，用于更实用的服务，如分布式训练和推理计算，从而实现大规模应用。",
+      "POCI的引入也意味着网络的更公平竞争和更高的安全性。通过链上随机数和算力竞争，POCI公平地选举出合适的矿工生成新区块，这不仅确保了算力的有效利用，还保护了网络不受恶意行为的影响。此外，POCI使UtilityNet网络避免了大量无效的计算，这些计算在传统区块链中常用于对抗拜占庭将军问题。这种效率的提高使得99%的运算能力可以被释放出来，用于更实用的服务，如分布式训练和推理计算，从而实现大规模应用。",
     POCI_not_only:
-      "POCI在Utility网络中不仅提高了计算效率和安全性，还促进了网络的公平和透明度，为用户提供了更高效和可靠的服务，推动了区块链技术的进步和应用。",
+      "POCI在UtilityNet网络中不仅提高了计算效率和安全性，还促进了网络的公平和透明度，为用户提供了更高效和可靠的服务，推动了区块链技术的进步和应用。",
     The_use_of_high_performance: "高性能计算芯片的使用：",
     POCI_uses_high_performance:
       "POCI使用高性能的Sophon TPU计算芯片，这些芯片专为人工智能设计，具备每秒万亿次浮点运算的能力，专注于深度学习计算​​。",
@@ -258,7 +260,7 @@ export default {
     How_is_POCI_different:
       "PoCI（可信计算完整性证明）与传统的PoW（工作量证明）有什么不同？",
     Unlike_PoW_which:
-      "传统的工作量证明会消耗芯片大量的算力，当算力被消耗掉，则无法为Utility提供可用的算力。Utility使用PoCI证明，摒弃高成本，高消耗的计算模式，取而代之的是芯片算力拥有权的模式，将计算能力用于实际的计算任务，确保这些任务的执行是完整和正确的，从而为网络提供有价值的服务。",
+      "传统的工作量证明会消耗芯片大量的算力，当算力被消耗掉，则无法为UtilityNet提供可用的算力。UtilityNet使用PoCI证明，摒弃高成本，高消耗的计算模式，取而代之的是芯片算力拥有权的模式，将计算能力用于实际的计算任务，确保这些任务的执行是完整和正确的，从而为网络提供有价值的服务。",
     How_does_POCI_ensure: "POCI如何保证网络的安全性？",
     POCI_ensures_the_security:
       "PoCI通过混合加密技术结合了对称加密和非对称加密，以及EFUSE储存区物理刻蚀的唯一序列号和 128 位AES 安全密钥确保了芯片身份的不可复制性和安全性。同时，PoCI通过确保芯片的唯一性和计算的完整性，为网络提供了一个安全的基础，使得网络能够信任每个参与计算的芯片。",
@@ -274,7 +276,7 @@ export default {
   },
   learning_center: {
     What_is_UtilityNet: "什么是 UtilityNet?",
-    Utlity_Network_has_made: 'Utility Network在传统区块链的基础上做出了很多创新，它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多以及如何与它连接！',
+    Utlity_Network_has_made: 'UtilityNet Network在传统区块链的基础上做出了很多创新，它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多以及如何与它连接！',
     If_you_are_new_start: '如果你是新手，从这里开始，了解为什么UtilityNet很重要',
     UNC_is_the_only_value: "UNC 是UtilityNet生态系统唯一的价值载体！",
     What_is_DePIN: "什么是 DePIN ？",
@@ -282,27 +284,27 @@ export default {
     What_is_POCI_consensus: "什么是 POCI 共识？",
     POCI_stands_for_Proof: 'POCI，即Proof of Computation Integrity（可验证计算完整性证明）',
     How_to_use_UtilityNet: "如何使用UtilityNet？",
-    using_UtilityNet: '对很多人来说，使用UtilityNet意味着很多事情。也许你想登录一个应用程序，证明你的在线身份，或者转移一些UNC或其他加密数字代币。首先你需要一个帐户。创建和访问帐户最简单的方法是使用Utility加密钱包的去中心化应用。',
-    Utility_digital_wallet: "Utility 数字钱包",
-    The_Utility_digital_wallet: "Utility数字钱包是您证明身份和链上访问所需的凭证。",
+    using_UtilityNet: '对很多人来说，使用UtilityNet意味着很多事情。也许你想登录一个应用程序，证明你的在线身份，或者转移一些UNC或其他加密数字代币。首先你需要一个帐户。创建和访问帐户最简单的方法是使用UtilityNet加密钱包的去中心化应用。',
+    Utility_digital_wallet: "UtilityNet 数字钱包",
+    The_Utility_digital_wallet: "UtilityNet 数字钱包是您证明身份和链上访问所需的凭证。",
     core_system: '芯系',
     The_credit_scoring_platform: '集成于UtilityNet生态系统中的信用评分平台，为用户间的算力交易和互动提供信任基础。',
-    Utility_container_cloud: 'Utility 容器云',
-    computing_power_cloud_service_platform: '基于UtilityNet生态系统的算力云服务平台。',
-    Utility_AI_tools: 'Utility AI工具',
+    Utility_container_cloud: 'UtilityNet 容器云',
+    computing_power_cloud_service_platform: '基于 UtilityNet 生态系统的算力云服务平台。',
+    Utility_AI_tools: 'UtilityNet AI工具',
     Combined_with_artificial: "结合人工智能应用，为用户提供了一系列强大的功能，提高决策质量、优化资源分配、增强数据分析能力，推动AI+智能合约和去中心化应用（DApps）的创新。",
-    Utility_block_explorer: 'Utility 区块浏览器',
+    Utility_block_explorer: 'UtilityNet 区块浏览器',
     Providing_users_with_an_intuitive: '为用户提供直观且功能丰富的界面，增加去中心化网络的透明度，允许用户实时监控和审查网络活动。',
-    Utility_Development_Kit: 'Utility 开发套件',
+    Utility_Development_Kit: 'UtilityNet 开发套件',
     Enables_developers_to_easily: '使开发者能够轻松地创建、测试和部署去中心化应用（DApps）和其他区块链解决方案。',
     Strengthening_UtilityNet_Network: '强化UtilityNet网络',
     You_can_help_secure_Ethereum: '你可以通过节点验证和计算资源租赁来帮助保护以太坊并同时获得奖励。根据你的技术知识和拥有的以太币数量，你可以选择不同的质押方案。',
     Running_node: '正在运行的节点',
     Participate_in_running_nodes: '参与运行节点并做出重要贡献。',
     Mining_and_Lease_Supply: '采矿和租赁供应',
-    Learn_how_to_mine_and: "学习如何在Utility网络中采矿和租赁。",
+    Learn_how_to_mine_and: "学习如何在UtilityNet网络中采矿和租赁。",
     Join_the_community: '加入社区',
-    Home_for_Utility_developers: "Utility开发人员、技术专家、设计师、用户和加密爱好者的家园。",
+    Home_for_Utility_developers: "UtilityNet开发人员、技术专家、设计师、用户和加密爱好者的家园。",
 
     What_is_UNC: '什么是 UNC？',
     How_to_understand: '如何理解 DePIN 的概念，简单来说，传统的 CePIN 服务器、传感器、通信网络等物理设施网络要运转需要依赖 AWS、阿里云等中心化算力集群服务，对很多中小企业而言投入成本太高。',
@@ -310,12 +312,12 @@ export default {
     Purchase_U_Platform: 'Purchase U Platform',
     Learning_center: "学习中心",
     A_guide_and_help_center:
-      "给予初学者们在Utility上了解和使用多样化技术的指引和帮助中心",
+      "给予初学者们在UtilityNet上了解和使用多样化技术的指引和帮助中心",
     How_to_use_it: "如何使用它",
-    What_is_Utility: "什么是Utility",
-    Enhance_Utility_Network: "强化Utility网络",
+    What_is_Utility: "什么是UtilityNet",
+    Enhance_Utility_Network: "强化UtilityNet网络",
     Utility_Network_has_made:
-      "Utility Network在传统区块链的基础上做出了很多创新。它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多并开始：",
+      "UtilityNet Network在传统区块链的基础上做出了很多创新。它以不同的方式定义芯片，并且可以有效地利用计算能力。了解更多并开始：",
     Start_from_here: "从这里开始作为初学者",
     What_is_UNC_Token: "什么是 UNC 令牌",
     Start_UNC_Token_UNC:
@@ -323,22 +325,22 @@ export default {
     What_is_POCI_Consensus: "什么是 POCI 共识",
     it_is_a_brand_new:
       "这是一种全新的证明机制，通过拥有可信算力来间接证明算力。",
-    How_to_use_Utility: "如何使用Utility",
+    How_to_use_Utility: "如何使用UtilityNet",
     Utility_can_be_used_in:
       "Utility可以用于多种场景，例如通过计算资源进行支付、训练语言模型等。",
     A_digital_wallet_holds:
       "数字钱包保存着您证明身份和访问重要地点所需的凭证。",
-    the_first_computing_power: "Utility发行的第一个算力租赁平台。",
-    Enhancing_Utility_Network: "增强Utility网络",
+    the_first_computing_power: "UtilityNet发行的第一个算力租赁平台。",
+    Enhancing_Utility_Network: "增强UtilityNet网络",
     Building_Utility_Network:
       "构建Utility网络并通过区块链和计算资源租赁获得奖励（UNC）。",
     Running_Nodes: "正在运行的节点",
     Participate_in_running: "参与运行节点并做出重要贡献。",
     Mining_and_Rental_Supply: "采矿和租赁供应",
-    Learn_how_to_mining: "学习如何在Utility网络中采矿和租赁。",
+    Learn_how_to_mining: "学习如何在UtilityNet网络中采矿和租赁。",
     Join_the_Community: "加入社区",
     A_home_for_Utility_developers:
-      "Utility开发人员、技术专家、设计师、用户和加密货币爱好者的家园。",
+      "UtilityNet开发人员、技术专家、设计师、用户和加密货币爱好者的家园。",
   },
   community: {
     h1_1: "欢迎来到社区",
@@ -416,13 +418,13 @@ export default {
       "此入口提供尤特项目的白皮书，旨在帮助访问者深入了解项目的基础、愿景和技术细节",
   },
   soloutions: {
-    utility_wallet: "Utility钱包",
+    utility_wallet: "UtilityNet钱包",
     about_us_title: "关于我们",
     about_us_text:
-      "Utility Wallet 是一款创新的区块链钱包，专为Utility链设计，提供全面的数字资产管理解决方案。它不仅包括一个易用的网页钱包插件，还有一个功能全面的App钱包。通过这款钱包，用户可以轻松转账、租赁算力、查看租赁订单，并与各种dapp进行互动。此外，Utility Wallet还内置了区块链浏览器，使用户能够实时查看交易和区块链活动。",
+      "UtilityNet Wallet 是一款创新的区块链钱包，专为UtilityNet链设计，提供全面的数字资产管理解决方案。它不仅包括一个易用的网页钱包插件，还有一个功能全面的App钱包。通过这款钱包，用户可以轻松转账、租赁算力、查看租赁订单，并与各种dapp进行互动。此外，UtilityNet Wallet还内置了区块链浏览器，使用户能够实时查看交易和区块链活动。",
     key_features_title: "主要特征",
     key_features_text:
-      "多功能钱包：结合网页插件和移动应用，提供灵活的资产管理。转账与算力租赁：用户可以轻松转账和租赁算力，管理租赁订单。dapp互动：与Utility dapp生态无缝连接，拓展区块链应用的可能性。区块链浏览器：内置浏览器让用户能够实时监控区块链活动，确保交易的透明度。",
+      "多功能钱包：结合网页插件和移动应用，提供灵活的资产管理。转账与算力租赁：用户可以轻松转账和租赁算力，管理租赁订单。dapp互动：与UtilityNet dapp生态无缝连接，拓展区块链应用的可能性。区块链浏览器：内置浏览器让用户能够实时监控区块链活动，确保交易的透明度。",
     asset_management: "资产管理",
     multifunctional_wallet: "多功能钱包",
     dapp_interaction: "dapp互动",
@@ -432,7 +434,7 @@ export default {
     diversified_computing_power: "多样化算力",
     customized_configuration: "定制化配置",
     core_system_about_us_text:
-      "Core System是由Utility推出的创新算力租赁平台，专注于提供算力出租和购买服务。我们的团队由区块链和计算领域的专家组成，他们汇聚了广泛的技术知识和市场洞察，以满足市场对算力资源的多元化需求。在Core System中，我们致力于打造一个简单、高效且透明的平台，使用户能够轻松出租或购买算力。通过引入创新的评分系统和提供多种算力类型，我们旨在为用户提供最优质的服务和最适合的算力资源。",
+      "Core System是由UtilityNet推出的创新算力租赁平台，专注于提供算力出租和购买服务。我们的团队由区块链和计算领域的专家组成，他们汇聚了广泛的技术知识和市场洞察，以满足市场对算力资源的多元化需求。在Core System中，我们致力于打造一个简单、高效且透明的平台，使用户能够轻松出租或购买算力。通过引入创新的评分系统和提供多种算力类型，我们旨在为用户提供最优质的服务和最适合的算力资源。",
     core_system_key_features_text:
       "Core System为用户提供了一系列核心特性，以优化算力租赁体验。平台支持算力的出租和购买，满足不同用户的需求。为了保证服务质量和透明度，引入了订单评分体系，每笔订单完成后，用户可以对服务进行评价，这不仅提升了服务提供者的质量，也帮助其他用户做出更明智的选择。平台提供了多种算力类型供用户租用，从而适应不同的计算需求和预算限制。不论是进行大规模数据处理还是复杂的AI训练，用户都能在Core System中找到合适的算力资源。此外，平台还提供了定制化配置服务，使用户能够根据自己的具体需求，定制想要租用的算力配置。这种灵活性和个性化的服务使Core System成为了一个满足各种计算需求的理想平台，无论用户是初创企业、研究机构还是个人开发者，都能在这里找到所需的算力资源。",
     mining_tools: "Mining管理工具",
@@ -440,9 +442,9 @@ export default {
     mining_tools_options2: "机器运维",
     mining_tools_options3: "租赁透明化",
     mining_tools_about_us_text:
-      "Mining Tool项目专注于为Utility网络的矿工提供一站式的算力管理解决方案。我们的团队由经验丰富的开发者和区块链专家组成，致力于打造一个高效、可靠、易于操作的矿工工具。通过集成最先进的技术和用户友好的界面，我们旨在简化矿工的日常运维任务，提高他们对算力资源的管理效率。",
+      "Mining Tool项目专注于为UtilityNet网络的矿工提供一站式的算力管理解决方案。我们的团队由经验丰富的开发者和区块链专家组成，致力于打造一个高效、可靠、易于操作的矿工工具。通过集成最先进的技术和用户友好的界面，我们旨在简化矿工的日常运维任务，提高他们对算力资源的管理效率。",
     mining_tools_key_features_text:
-      "Mining Tool为Utility网络矿工提供了全面的算力管理解决方案。这款工具能够实现算力的集群调度，让矿工有效分配和管理大量算力资源。工具中的实时监控系统使矿工能够随时了解机器运行状况，及时处理任何问题，保证稳定运行。通过清晰的界面展示，矿工可以轻松查看当前出租和闲置的算力，优化资源配置。还包含机器状态监控功能，帮助矿工监测和维护矿机的健康状况。租赁日志功能则为矿工提供了详细的租赁记录，简化了算力出租过程。网络状态监控保证矿工的网络连接始终处于最佳状态，确保稳定的挖矿活动。Mining Tool通过这些综合功能，极大地提升了矿工管理和优化算力资源的能力。",
+      "Mining Tool为UtilityNet网络矿工提供了全面的算力管理解决方案。这款工具能够实现算力的集群调度，让矿工有效分配和管理大量算力资源。工具中的实时监控系统使矿工能够随时了解机器运行状况，及时处理任何问题，保证稳定运行。通过清晰的界面展示，矿工可以轻松查看当前出租和闲置的算力，优化资源配置。还包含机器状态监控功能，帮助矿工监测和维护矿机的健康状况。租赁日志功能则为矿工提供了详细的租赁记录，简化了算力出租过程。网络状态监控保证矿工的网络连接始终处于最佳状态，确保稳定的挖矿活动。Mining Tool通过这些综合功能，极大地提升了矿工管理和优化算力资源的能力。",
     ai_model: "AI模型",
     ai_model_options1: "AI集市",
     ai_model_options2: "共享",
@@ -450,7 +452,7 @@ export default {
     ai_model_about_us_text:
       "我们打造了一个前沿且庞大的AI模型市场，旨在为用户提供一个平台，让他们不仅能分享和发布自己的AI模型，还能利用市场上的多样化模型进行AI相关的活动和研究。我们的团队深信，通过打破技术壁垒和促进知识共享，可以加速AI技术的发展和应用。我们致力于建设一个包容、创新的社区，让每一个对AI技术有兴趣的个体都能在这个平台上找到所需的资源，从而推动整个AI行业的进步。",
     ai_model_key_features_text:
-      "模型共享：用户可以发布自己的AI模型，与全球范围内的用户和研究者分享。模型使用：市场上拥有丰富多样的AI模型，用户可以根据自己的需求选择和使用这些模型。算力租赁：为了支持AI训练和运算，用户可以在Utility网络上租赁所需的算力资源。创新支持：项目鼓励创新和实验，支持用户在AI领域的探索和发展。AI Model项目不仅是一个模型市场，更是一个促进AI技术发展和应用的创新平台。",
+      "模型共享：用户可以发布自己的AI模型，与全球范围内的用户和研究者分享。模型使用：市场上拥有丰富多样的AI模型，用户可以根据自己的需求选择和使用这些模型。算力租赁：为了支持AI训练和运算，用户可以在UtilityNet网络上租赁所需的算力资源。创新支持：项目鼓励创新和实验，支持用户在AI领域的探索和发展。AI Model项目不仅是一个模型市场，更是一个促进AI技术发展和应用的创新平台。",
     ongoing: "进行中",
     go_to_use: "去使用",
   },

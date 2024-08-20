@@ -85,9 +85,23 @@ const optionsList = [
         //     ' no-repeat'
         //   : '',
         // 'background-size': !theme ? 'cover' : '',
+        background: !theme ? '   #e3f3ef' : '#151c1a'
       }"
     >
       <div class="header_content">
+        <div
+          class="header_content_text_top"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
+          {{ $t('utilityNetwork.header_message') }}
+        </div>
         <div class="header_content_header">
           {{ $t('utilityNetwork.header_title') }}
         </div>
@@ -102,6 +116,7 @@ const optionsList = [
         >
           <div>{{ $t('utilityNetwork.read_more') }}</div>
           <img
+            class="img_sf"
             src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
             alt=""
             style="filter: brightness(var(--learning-center-brightness))"
@@ -125,7 +140,9 @@ const optionsList = [
         >
           <div class="message_card_list_item_title">
             <div class="message_card_list_item_title_line"></div>
-            <div>{{ $t(item.title) }}</div>
+            <div class="message_card_list_item_title1">
+              {{ $t(item.title) }}
+            </div>
           </div>
           <div class="message_card_list_item_text">{{ $t(item.text) }}</div>
         </div>
@@ -171,7 +188,6 @@ const optionsList = [
   .header {
     width: 100%;
     // height: 972px;
-    background: #151c1a;
     // background-size: 100% 100%;
     display: flex;
     justify-content: space-between;
@@ -181,7 +197,10 @@ const optionsList = [
     // justify-content: flex-start;
     .header_content_bg {
       width: 559px;
-      height: 621px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .header_content {
       width: 805px;
@@ -204,18 +223,30 @@ const optionsList = [
 
       .header_content_header {
         color: var(--where-text);
-        font-family: Lantinghei SC;
-        font-size: 28px;
-        font-weight: 700;
+        font-family: 'Lantinghei SC';
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .header_content_text_top {
+        color: var(--where-text);
+
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 145%; /* 29px */
+        margin-bottom: 20px;
       }
 
       .header_content_text {
         color: var(--where-text);
         font-family: Inter;
-        font-size: 14px;
+        font-size: 24px;
+        font-style: normal;
         font-weight: 400;
-        line-height: 145%;
-        opacity: 0.8;
+        line-height: 145%; /* 37.7px */
         margin: 19px 0 30px;
       }
 
@@ -470,36 +501,153 @@ const optionsList = [
     }
   }
 }
-
-@media (max-width: 834px) {
+@media (max-width: 1494px) {
   .container {
     .header {
-      height: 457px;
-      padding: 0 5%;
-      background: var(--utility_explain-bgc-phone);
-
-      // utility_explain-dark
-      background-size: cover;
-      justify-content: center;
-
+      padding: 105px 90px;
+      .header_content_bg {
+        width: 449px !important;
+        height: 621px;
+      }
       .header_content {
-        // width: 350px;
-        width: 100%;
-        height: max-content;
-        flex-shrink: 0;
-        padding: 40px 28px 44px;
-        margin: 0;
-        margin-bottom: 41px;
-
-        box-shadow: var(--unc_token-header_content-shadow);
-        backdrop-filter: blur(var(--unc_token-header_content-filter));
+        width: 605px !important;
+      }
+    }
+  }
+}
+@media (max-width: 1234px) {
+  .container {
+    .header {
+      padding: 80px 50px;
+      .header_content_bg {
+        width: 409px !important;
+      }
+      .header_content {
+        width: 500px !important;
+        .header_content_header {
+          font-size: 40px;
+        }
+        .header_content_text_top {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 145%; /* 29px */
+          margin-bottom: 20px;
+        }
 
         .header_content_text {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1010px) {
+  .container {
+    .header {
+      padding: 80px 40px;
+      .header_content_bg {
+        width: 100px !important;
+      }
+      .header_content {
+        width: 400px !important;
+        .header_content_header {
+          font-size: 40px;
+        }
+        .header_content_text_top {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 145%; /* 29px */
+          margin-bottom: 20px;
+        }
+
+        .header_content_text {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 834px) {
+  .container {
+    padding-top: 0px;
+    .header {
+      height: 377px;
+      width: 100%;
+      padding: 0px 4% !important;
+      justify-content: space-between;
+      // utility_explain-dark
+      background-size: cover;
+
+      justify-content: space-between;
+      align-items: center;
+
+      .header_content_bg {
+        height: 160px !important;
+      }
+      .header_content {
+        // width: 350px;
+        width: 200px !important;
+        height: max-content;
+        flex-shrink: 0;
+        margin: 0;
+        margin-bottom: 0px;
+
+        box-shadow: none;
+        backdrop-filter: none;
+        .header_content_header {
+          color: var(--where-text);
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        .header_content_text_top {
+          color: var(--where-text);
+          /* 15 粗 */
+          font-family: 'PingFang SC';
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 10px;
+          // background: linear-gradient(90deg, #737efb 0%, #73fbf0 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          // -webkit-text-fill-color: transparent;
+        }
+
+        .header_content_text {
+          color: var(--where-text);
           margin: 18px 0 24px;
+
+          /* 10中 */
+          font-family: 'PingFang SC';
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin: 6px 0 10px;
         }
 
         .header_content_button {
+          width: 75px;
+          height: 26px;
           border: 1px solid var(--Utility-title-color) !important;
+
+          /* 10 常规 */
+          font-family: 'PingFang SC';
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          .img_sf {
+            //缩放
+            margin-left: 0px;
+            transform: scale(0.6);
+          }
         }
       }
     }
@@ -525,17 +673,29 @@ const optionsList = [
 
         .message_card_list_item {
           width: 100%;
-          min-height: 257px;
+          max-height: 190px;
           padding: 0 14px;
           background: linear-gradient(
             260deg,
             rgba(149, 235, 227, 0.17) 1.02%,
             rgba(149, 235, 227, 0) 38.87%
           );
+          border-radius: 10px;
+          border: 1px solid var(--Main, #3edfcf);
+          display: flex;
+          justify-content: center;
 
+          background: var(--, rgba(46, 54, 62, 0.7));
           background-size: 100%;
           justify-content: start;
-          padding-top: 20px;
+          padding: 10px;
+        }
+        .message_card_list_item_title1 {
+          background: var(--utility_explain-message_card_list_item_title1);
+
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .message_card_list_item_text {

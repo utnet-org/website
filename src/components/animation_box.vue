@@ -60,7 +60,6 @@
     width: calc(100% - 1px);
     height: calc(100% - 1px);
     border-radius: 11px;
-    // background: #141817;
     background: linear-gradient(
       90deg,
       var(--learning-center-what-bg) 49.96%,
@@ -71,6 +70,17 @@
     .gradient_border_body {
       animation: 3s linear 1s infinite identifier;
     }
+  }
+}
+@media (max-width: 834px) {
+  .gradient_border_body_abs {
+    border-radius: 4px !important;
+    background: linear-gradient(
+      90deg,
+      var(--learning-center-what-bg2) 49.96%,
+      var(--learning-center-what-bg3) 302.95%
+    ) !important;
+    // background: #beefea !important;
   }
 }
 </style>

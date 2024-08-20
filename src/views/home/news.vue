@@ -375,7 +375,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
             />
           </div>
           <div class="author_right">
-            <div class="author_name">Utility Labs</div>
+            <div class="author_name">UtilityNet Labs</div>
             <div class="author_text">Edited by Vincent</div>
           </div>
         </div>
@@ -409,7 +409,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
       <div v-if="windowWidth > 835" class="Carousel_map_f">
         <div class="Carousel_map">
           <!-- ! title -->
-          <div class="title">More News from Utility</div>
+          <div class="title">More News from UtilityNet</div>
           <!-- ! 两个按钮 -->
           <div class="swiper_button">
             <div class="swiper-button-prev"></div>
@@ -458,7 +458,7 @@ Computing has a wide range of uses. In scientific research, computing helps rese
       </div>
       <div v-else class="Carousel_map">
         <!-- ! title -->
-        <div class="title">More News from Utility</div>
+        <div class="title">More News from UtilityNet</div>
 
         <!-- ! 轮播图 -->
         <swiper

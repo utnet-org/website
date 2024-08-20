@@ -245,7 +245,7 @@ const handleScroll = () => {
 </script>
 <template>
   <div class="home_view">
-    <div class="homeHandDiv">
+    <div class="homeHandDiv" v-if="viewableWidth > 834">
       <div class="homeHandBgc"></div>
       <div class="homeHand"></div>
     </div>
@@ -266,16 +266,28 @@ const handleScroll = () => {
           >
             <div>White paper</div>
             <img
+              v-if="viewableWidth > 834"
               src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
               alt=""
               srcset=""
-              style="filter: brightness(var(--learning-center-brightness))"
+              style="filter: brightness(100)"
             />
+            <img
+              v-if="viewableWidth < 834"
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/arrow.svg"
+              alt=""
+              style="
+                transform: scale(0.6);
+                filter: brightness(100);
+                margin-top: 1px;
+              "
+            />
+            <!-- style="filter: brightness(var(--learning-center-brightness))" -->
           </div>
         </div>
       </div>
       <div class="section">
-        <div class="section_side" v-if="viewableWidth > 834">
+        <div class="section_side">
           <div class="section_side_opacity"></div>
           <div class="section_side_message">
             <div class="text_list">
@@ -326,7 +338,11 @@ const handleScroll = () => {
                       <div class="section_right_item_card_item_header_title">
                         {{ $t(citem.title) }}
                       </div>
-                      <div style="height: 65px">
+                      <div
+                        :style="{
+                          height: viewableWidth > 834 ? '65px' : '30px'
+                        }"
+                      >
                         <div class="section_right_item_card_item_header_text">
                           {{ $t(citem.text) }}
                         </div>
@@ -338,11 +354,12 @@ const handleScroll = () => {
                     <div class="section_right_item_card_item_button">
                       <img
                         v-if="
-                          firstCheckQuestionMessage === citem.id ||
-                          viewableWidth < 834
+                          viewableWidth < 834 ||
+                          firstCheckQuestionMessage === citem.id
                         "
                         src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/learning_center_enter.png"
                         alt=""
+                        class="section_right_item_card_item_button_arrow1"
                       />
                       <img
                         v-else
@@ -350,6 +367,7 @@ const handleScroll = () => {
                         alt=""
                         class="section_right_item_card_item_button_arrow"
                       />
+
                       <div
                         @mouseenter="firstCheckQuestionMessage = citem.id"
                         @mouseleave="firstCheckQuestionMessage = -1"
@@ -453,14 +471,17 @@ const handleScroll = () => {
 
       flex-shrink: 0;
       border-radius: 10px;
-      background: var(--learning_center-header-bg-color);
-      box-shadow: var(--unc_token-header-shadow);
+      // background: var(--learning_center-header-bg-color);
+      background: rgba(0, 0, 0, 0.7);
+      // box-shadow: var(--unc_token-header-shadow);
+      box-shadow: 0px 1px 4px 0px rgba(255, 255, 255, 0.2) inset;
       backdrop-filter: blur(4px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       .header_content_header {
         color: var(--where-text);
+        color: #fff;
         font-family: Lantinghei SC;
         font-size: 28px;
         font-weight: 700;
@@ -469,6 +490,8 @@ const handleScroll = () => {
       .header_content_text {
         // width: 398px;
         color: var(--where-text);
+        color: #fff;
+
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -485,7 +508,9 @@ const handleScroll = () => {
         height: 42px;
         border-radius: 6px;
         border: 1px solid var(--Utility-title-color);
+        border: 1px solid #fff;
         color: var(--where-text);
+        color: #fff;
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -744,84 +769,219 @@ const handleScroll = () => {
     }
   }
   .section_right_item_card_item_border {
-    width: 350px !important;
-    height: 504px;
+    width: 82px !important;
+    height: 100px;
     padding: 0px 0px;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-bottom: 16px;
   }
   .container {
+    padding-top: 0;
     .header {
+      width: 100%;
       height: 457px;
       padding: 0 5%;
-      background: var(--learning_center-bgc-phone);
+      // background: var(--learning_center-bgc-phone);
+      background: url('@/assets/images/learning_center.jpg') no-repeat center;
       background-size: cover;
-      justify-content: center;
+      justify-content: left;
 
       .header_content {
-        width: 350px;
-        width: 100%;
-        height: none;
+        width: 150px;
+        // width: 100%;
+        height: 120px;
         flex-shrink: 0;
-        padding: 0 28px;
+        padding: 10px 10px;
         margin: 0;
-        margin-bottom: 41px;
-        box-shadow: var(--unc_token-header_content-shadow);
-        backdrop-filter: blur(var(--unc_token-header_content-filter));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
 
+        // margin-bottom: 41px;
+        // box-shadow: var(--unc_token-header_content-shadow);
+        // backdrop-filter: blur(var(--unc_token-header_content-filter));
+
+        .header_content_header {
+          font-family: 'PingFang SC';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
         .header_content_text {
-          margin: 18px 0 24px;
+          margin: 4px 0 4px;
+          font-family: 'PingFang SC';
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 12px */
         }
         .header_content_button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           border: 1px solid var(--Utility-title-color) !important;
+          width: 87px;
+          height: 20px;
+          flex-shrink: 0;
+          font-family: 'PingFang SC';
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
       }
     }
 
     .section {
+      .section_side {
+        width: 105px;
+        // height: 297px;
+        flex-shrink: 0;
+
+        // filter: drop-shadow(0px 4px 24px rgba(228, 233, 232, 0.021));
+        .section_side_opacity {
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          box-shadow: var(--box-shadow-light);
+          opacity: 0.4;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background: var(--section_side_opacity-bgc);
+        }
+
+        .section_side_message {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 10;
+
+          .text_list {
+            .highlight {
+              color: #3edfcf !important;
+            }
+            .section_side_text_c {
+              color: var(--where-text-c);
+
+              font-size: 8px;
+              // transform: scale(0.8333);
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              margin: 10px 0;
+              margin-left: 6px;
+            }
+            .section_side_text {
+              color: var(--where-text);
+              font-family: Lantinghei SC;
+              font-size: 10px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              margin-bottom: 4px;
+              padding: 0px 0;
+              //箭头变小手
+              cursor: pointer;
+
+              // img {
+              //   width: 11px;
+              //   height: 11px;
+              //   margin-left: 4px;
+              // }
+            }
+          }
+        }
+      }
       .section_right {
         width: 100%;
         padding: 0 0;
-        padding-bottom: 41px;
+
+        padding: 0px 0px 0px 16px;
+        padding-bottom: 26px;
 
         .section_right_item {
-          margin: 0;
-
+          margin-bottom: 20px;
           .section_right_item_title {
-            margin-top: 40px;
-            font-size: 20px;
-            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 600;
           }
 
           .section_right_item_text {
-            padding: 0 20px;
+            padding: 0 0px;
             opacity: 0.8;
-            margin: 16px 0 20px;
+            margin: 10px 0;
             color: var(--unc_token-main_text-color) !important;
+            font-family: 'PingFang SC';
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
           }
 
           .section_right_item_card {
             width: 100%;
-            padding: 0 0px;
+            padding: 0 px;
             display: flex;
-            flex-direction: column;
+            gap: 4px;
             align-items: center;
 
             .section_right_item_card_item {
               // &:hover {
               //   background: none;
               // }
-
+              padding: 6px 0px;
+              // background: #0b0b0b;
               .section_right_item_card_item_header {
                 .section_right_item_card_item_header_title {
-                  font-size: 14px;
+                  font-size: 8px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: normal;
+                  text-align: center;
+
+                  margin-bottom: 0px;
+                }
+                .section_right_item_card_item_header_img {
+                  margin-top: 0px;
+                  // width: 250px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  img {
+                    width: 35%;
+                  }
+                }
+                .section_right_item_card_item_header_text {
+                  font-size: 6px;
+
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
                 }
               }
 
               .section_right_item_card_item_button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .section_right_item_card_item_button_arrow1 {
+                  //缩放
+                  transform: scale(0.5333);
+                  margin-right: 0px;
+                }
+
                 & > div {
                   text-decoration: underline #3edfcf;
                   color: #3edfcf;
+                  font-size: 6px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
                 }
               }
             }

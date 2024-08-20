@@ -530,8 +530,8 @@ li {
       }
     }
     .unc_token_header_bg {
-      width: 537.401px;
-      height: 532.517px;
+      width: 467.401px;
+      height: 502.517px;
       flex-shrink: 0;
     }
   }
@@ -558,8 +558,8 @@ li {
           // gap: 50px;
 
           img {
-            width: 457.025px;
-            height: 455.129px;
+            width: 407.025px;
+            height: 405.129px;
             flex-shrink: 0;
           }
 
@@ -615,8 +615,8 @@ li {
         position: relative;
 
         .figure_round {
-          width: 469.828px;
-          height: 469.829px;
+          width: 409.828px;
+          height: 409.829px;
           flex-shrink: 0;
           position: absolute;
           top: -178px;
@@ -748,64 +748,64 @@ li {
           .UNC_Token_Distribution_line {
             width: 130px;
             rotate: 31deg;
-            left: 30.4%;
-            top: 122px;
+            left: 31.4%;
+            top: 110px;
           }
           .UNC_Token_Distribution_line1 {
-            left: 29.3%;
-            top: 88.6px;
+            left: 30.36%;
+            top: 76px;
           }
           .UNC_Token_Distribution_border {
-            left: 1.6%;
-            top: 13.8px;
+            left: 2.7%;
+            top: 1.8px;
           }
         }
         .Arithmetic_Incentive1 {
           .UNC_Token_Distribution_line {
-            width: 149px;
+            width: 140px;
             rotate: 124deg;
-            right: 28.25%;
-            top: -43px;
+            right: 32.55%;
+            top: -65px;
           }
           .UNC_Token_Distribution_line1 {
-            right: 28.9%;
-            top: -105px;
+            right: 33.1%;
+            top: -122.6px;
           }
           .UNC_Token_Distribution_border {
-            right: 1.3%;
-            top: -179.3px;
+            right: 5.5%;
+            top: -196.3px;
           }
         }
         .Arithmetic_Incentive2 {
           .UNC_Token_Distribution_line {
             width: 84px;
             rotate: 18deg;
-            right: 30.5%;
-            top: 84.5px;
+            right: 34.5%;
+            top: 55.5px;
           }
           .UNC_Token_Distribution_line1 {
-            right: 28.9%;
-            top: 97px;
+            right: 32.9%;
+            top: 68px;
           }
           .UNC_Token_Distribution_border {
-            right: 1.3%;
-            top: 22.8px;
+            right: 5.3%;
+            top: -5.8px;
           }
         }
         .Arithmetic_Incentive3 {
           .UNC_Token_Distribution_line {
-            width: 144px;
+            width: 140px;
             rotate: 56deg;
-            right: 28.6%;
-            top: 157px;
+            right: 32.8%;
+            top: 119px;
           }
           .UNC_Token_Distribution_line1 {
-            right: 29.2%;
-            top: 216.6px;
+            right: 33.3%;
+            top: 177px;
           }
           .UNC_Token_Distribution_border {
-            right: 1.6%;
-            top: 216.6px;
+            right: 5.7%;
+            top: 177.6px;
           }
         }
       }
@@ -934,7 +934,7 @@ li {
         }
       }
       .Join_the_UtilityNet_right {
-        width: 40%;
+        width: 37%;
         // width: 302px;
         // height: 290px;
         // flex-shrink: 0;

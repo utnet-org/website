@@ -1,6 +1,10 @@
 <script lang="ts" setup name="AppTopnav">
 import Logo from '@/assets/images/logo.svg'
+import LogoP from '@/assets/images/logoP.svg'
 import UtilityW from '@/assets/images/utility_white.svg'
+import UtilityB from '@/assets/images/utilityB.svg'
+import UtilityWP from '@/assets/images/UtilityWP.svg'
+import UtilityBP from '@/assets/images/UtilityBP.svg'
 import sun from '@/assets/images/sun.svg'
 import dark from '@/assets/images/dark.svg'
 import { ref, onMounted } from 'vue'
@@ -229,9 +233,12 @@ function seticon(icon: string, isdark: boolean) {
         <div class="container_left">
           <RouterLink to="/">
             <div class="logo_box" @click="selectType = false">
-              <Logo />
-              <UtilityW v-if="theme" />
-              <Utility v-else />
+              <Logo v-if="viewableWidth > 834" />
+              <LogoP v-else />
+              <UtilityW v-if="theme && viewableWidth > 834" />
+              <UtilityWP v-if="theme && viewableWidth < 834" />
+              <UtilityB v-if="!theme && viewableWidth > 834" />
+              <UtilityBP v-if="!theme && viewableWidth < 834" />
               <!-- <span class="logo_text">Utility</span> -->
             </div>
           </RouterLink>
@@ -310,9 +317,9 @@ function seticon(icon: string, isdark: boolean) {
             ? index == 0
               ? locale == 'en'
                 ? '465.69px'
-                : '385.69px'
+                : '415.69px'
               : index == 1
-              ? '359.75px'
+              ? '382.75px'
               : index == 2
               ? '311.75px'
               : index == 5
@@ -388,7 +395,7 @@ function seticon(icon: string, isdark: boolean) {
 
 .mobile_theme_icon {
   margin-right: 15px;
-  height: 69px;
+  height: 55px;
   flex: 1;
   display: flex;
   align-items: center;
@@ -463,7 +470,7 @@ function seticon(icon: string, isdark: boolean) {
 @media (max-width: 834px) {
   .app-topnav {
     .container {
-      // padding: 0 5%;
+      padding: 0 5%;
 
       .list_caption_image {
         width: 32px;

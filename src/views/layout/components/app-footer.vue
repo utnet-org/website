@@ -196,8 +196,7 @@ const top_right = [
             text: 'footer.Github',
             isOut: true,
             link: 'https://github.com/utnet-org'
-          },
-         
+          }
         ]
       }
     ]
@@ -515,16 +514,16 @@ const printWidth = () => {
           gap: 24px;
           max-width: 150px;
 
-          // .icon {
-          //   cursor: pointer;
-          //   filter: var(--app-footer-social-brightness);
-          //   opacity: var(--app-footer-social-opacity);
+          .icon {
+            cursor: pointer;
+            filter: var(--app-footer-social-brightness);
+            opacity: var(--app-footer-social-opacity);
 
-          //   &:hover {
-          //     filter: brightness(100%);
-          //     opacity: 1;
-          //   }
-          // }
+            &:hover {
+              // filter: brightness(100%);
+              opacity: 1;
+            }
+          }
         }
       }
 
