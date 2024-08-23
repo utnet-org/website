@@ -1,6 +1,5 @@
 <script setup lang="ts" name="HomeView">
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
-
 import SoftwareDH1 from '@/assets/images/S_D_H_1.svg'
 import Network from '@/assets/images/Network.svg'
 import Storage from '@/assets/images/Storage.svg'
@@ -79,8 +78,40 @@ onMounted(async () => {
       text: 'home.Computational_Power_Synthesis'
     }
   ]
+  const scrollingImage = document.getElementById(
+    'scrollingImage'
+  ) as HTMLImageElement | null
+  const scrollingImageBottom = document.getElementById(
+    'scrollingImageBottom'
+  ) as HTMLImageElement | null
+  if (scrollingImage) {
+    let isPaused = false
 
-  //^ Utility Chain Scaling Solutions的数据
+    scrollingImage.addEventListener('click', () => {
+      if (isPaused) {
+        scrollingImage.classList.remove('paused')
+      } else {
+        scrollingImage.classList.add('paused')
+      }
+      isPaused = !isPaused
+    })
+  } else {
+    console.error('Element with ID "scrollingImage" not found.')
+  }
+  if (scrollingImageBottom) {
+    let isPaused = false
+
+    scrollingImageBottom.addEventListener('click', () => {
+      if (isPaused) {
+        scrollingImageBottom.classList.remove('paused')
+      } else {
+        scrollingImageBottom.classList.add('paused')
+      }
+      isPaused = !isPaused
+    })
+  } else {
+    console.error('Element with ID "scrollingImage" not found.')
+  }
 })
 
 //! Where to Start 鼠标移入
@@ -458,6 +489,81 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
     ]
   }
 ])
+const Recent_Highlights_data1 = ref([
+  {
+    id: 0,
+    img: '/src/assets/images/Recent_Highlights2.png',
+    title: 'Calculate demand analysis and the next tuyere1',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 1,
+    img: '/src/assets/images/Recent_Highlights3.png',
+    title: 'Calculate demand analysis and the next tuyere2',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 2,
+    img: '/src/assets/images/Recent_Highlights1.png',
+    title: 'Calculate demand analysis and the next tuyere3',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 3,
+    img: '/src/assets/images/Recent_Highlights2.png',
+    title: 'Calculate demand analysis and the next tuyere4',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 4,
+    img: '/src/assets/images/Recent_Highlights3.png',
+    title: 'Calculate demand analysis and the next tuyere5',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 5,
+    img: '/src/assets/images/Recent_Highlights1.png',
+    title: 'Calculate demand analysis and the next tuyere6',
+    time: 'September 21, 2023'
+  },
+
+  {
+    id: 6,
+    img: '/src/assets/images/Recent_Highlights2.png',
+    title: 'Calculate demand analysis and the next tuyere1',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 7,
+    img: '/src/assets/images/Recent_Highlights3.png',
+    title: 'Calculate demand analysis and the next tuyere2',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 8,
+    img: '/src/assets/images/Recent_Highlights1.png',
+    title: 'Calculate demand analysis and the next tuyere3',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 9,
+    img: '/src/assets/images/Recent_Highlights2.png',
+    title: 'Calculate demand analysis and the next tuyere4',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 10,
+    img: '/src/assets/images/Recent_Highlights3.png',
+    title: 'Calculate demand analysis and the next tuyere5',
+    time: 'September 21, 2023'
+  },
+  {
+    id: 11,
+    img: '/src/assets/images/Recent_Highlights1.png',
+    title: 'Calculate demand analysis and the next tuyere6',
+    time: 'September 21, 2023'
+  }
+])
 export interface RecentHighlights {
   item: Array<{ id: number; img: string; title: string; time: string }>
 }
@@ -615,7 +721,18 @@ const UtilityNet_Basic_box_data = ref([
           never happened before in the history of blockchain!
         </div>
         <div class="Software_Defined_Hardware_box">
-          <img src="@/assets/images/Software_Defined_Hardware_box.png" alt="" />
+          <img
+            v-if="width > 834"
+            src="@/assets/images/Software_Defined_Hardware_box.png"
+            alt=""
+          />
+          <img
+            class="scrolling-image"
+            v-else
+            src="@/assets/images/carouseltop.png"
+            alt=""
+            id="scrollingImage"
+          />
           <!-- <div class="S_D_H_box_item_one">
             <div class="S_D_H_box_item_one_btn">Ldentify: value needs</div>
             <div class="S_D_H_box_item_one_btn">Protocol(POCI)</div>
@@ -700,70 +817,86 @@ const UtilityNet_Basic_box_data = ref([
           never happened before in the history of blockchain!
         </div>
         <div class="POCI_Validation_Logic_bg">
-          <img src="@/assets/images/POCI_Validation_Logic_bg.png" alt="" />
+          <img
+            v-if="width > 834"
+            src="@/assets/images/POCI_Validation_Logic_bg.png"
+            alt=""
+          />
+          <img
+            class="scrolling-image"
+            v-else
+            src="@/assets/images/carouselbottom.png"
+            alt=""
+            id="scrollingImageBottom"
+          />
         </div>
       </div>
       <div class="UtilityNet_PHASE">
-        <div class="UtilityNet_PHASE_left">
-          <div class="UtilityNet_PHASE_title">
-            UtilityNet PHASE-1 Testnet is now launched！
-          </div>
-          <div class="UtilityNet_PHASE_text">
-            The current test site is open source, with hundreds of code
-            contributors. Together, we are building UtilityNet into a powerful
-            distributed computing resource network.You can suggest edits for any
-            content on this site, propose outstanding new features, or help us
-            troubleshoot errors.
-          </div>
-          <div class="UtilityNet_PHASE_button_father">
-            <div
-              class="Rainbow"
-              @mouseenter="phaseArrowb = true"
-              @mouseleave="phaseArrowb = false"
-            >
-              <div class="UtilityNet_PHASE_button">
-                More on Testnet
-                <img
-                  :style="{
-                    filter: !theme
-                      ? phaseArrowb
-                        ? 'brightness(0%)'
-                        : 'brightness(0%)'
-                      : phaseArrowb
-                      ? 'brightness(100%)'
-                      : 'brightness(0%)'
-                  }"
-                  src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div
-              class="Rainbow"
-              @mouseenter="phaseArrowb1 = true"
-              @mouseleave="phaseArrowb1 = false"
-            >
-              <div class="UtilityNet_PHASE_button">
-                Join Testnet!
-                <img
-                  :style="{
-                    filter: !theme
-                      ? phaseArrowb1
-                        ? 'brightness(0%)'
-                        : 'brightness(0%)'
-                      : phaseArrowb1
-                      ? 'brightness(100%)'
-                      : 'brightness(0%)'
-                  }"
-                  src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
+        <div v-if="width < 834" class="UtilityNet_PHASE_title">
+          UtilityNet PHASE-1 Testnet is now launched！
         </div>
-        <div class="UtilityNet_PHASE_right">
-          <img src="@/assets/images/UtilityNet_PHASE_bg.png" alt="" />
+        <div style="display: flex; justify-content: space-between; width: 100%">
+          <div class="UtilityNet_PHASE_left">
+            <div v-if="width > 834" class="UtilityNet_PHASE_title">
+              UtilityNet PHASE-1 Testnet is now launched！
+            </div>
+            <div class="UtilityNet_PHASE_text">
+              The current test site is open source, with hundreds of code
+              contributors. Together, we are building UtilityNet into a powerful
+              distributed computing resource network.You can suggest edits for
+              any content on this site, propose outstanding new features, or
+              help us troubleshoot errors.
+            </div>
+            <div class="UtilityNet_PHASE_button_father">
+              <div
+                class="Rainbow"
+                @mouseenter="phaseArrowb = true"
+                @mouseleave="phaseArrowb = false"
+              >
+                <div class="UtilityNet_PHASE_button">
+                  More on Testnet
+                  <img
+                    :style="{
+                      filter: !theme
+                        ? phaseArrowb
+                          ? 'brightness(0%)'
+                          : 'brightness(0%)'
+                        : phaseArrowb
+                        ? 'brightness(100%)'
+                        : 'brightness(0%)'
+                    }"
+                    src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div
+                class="Rainbow"
+                @mouseenter="phaseArrowb1 = true"
+                @mouseleave="phaseArrowb1 = false"
+              >
+                <div class="UtilityNet_PHASE_button">
+                  Join Testnet!
+                  <img
+                    :style="{
+                      filter: !theme
+                        ? phaseArrowb1
+                          ? 'brightness(0%)'
+                          : 'brightness(0%)'
+                        : phaseArrowb1
+                        ? 'brightness(100%)'
+                        : 'brightness(0%)'
+                    }"
+                    src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="UtilityNet_PHASE_right">
+            <img src="@/assets/images/UtilityNet_PHASE_bg.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -911,6 +1044,7 @@ const UtilityNet_Basic_box_data = ref([
           </div>
           <!-- ! 轮播图 -->
           <swiper
+            v-if="width > 834"
             :ref="mySwiper"
             :slidesPerView="1"
             :spaceBetween="0"
@@ -936,6 +1070,31 @@ const UtilityNet_Basic_box_data = ref([
               </div>
             </swiper-slide>
           </swiper>
+          <swiper
+            v-if="width < 834"
+            :ref="mySwiper"
+            :slidesPerView="1"
+            :spaceBetween="0"
+            :modules="modules"
+            :loop="false"
+            :navigation="navigation"
+            class="swiper"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide
+              v-for="(item, index) in Recent_Highlights_data1"
+              :key="index"
+              class="swiper-slide"
+            >
+              <img class="swiper_img" :src="item.img" alt="" />
+              <div class="swiper_title">
+                {{ item.title }}
+              </div>
+              <div class="swiper_time">
+                {{ item.time }}
+              </div>
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
       <div class="Join_the_UtilityNet">
@@ -956,6 +1115,7 @@ const UtilityNet_Basic_box_data = ref([
                 }"
                 src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
                 alt=""
+                class="phone_arrow"
               />
             </div>
             <div
@@ -964,6 +1124,7 @@ const UtilityNet_Basic_box_data = ref([
             >
               Github
               <img
+                class="phone_arrow"
                 :style="{
                   filter: theme ? 'brightness(100%)' : 'brightness(0%)'
                 }"
@@ -1674,17 +1835,17 @@ const UtilityNet_Basic_box_data = ref([
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .UtilityNet_PHASE_title {
+    margin-bottom: 20px;
+    max-width: 778px;
+    color: var(--home-title-color);
+    font-family: Gilroy-Bold;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   .UtilityNet_PHASE_left {
-    .UtilityNet_PHASE_title {
-      margin-bottom: 20px;
-      max-width: 778px;
-      color: var(--home-title-color);
-      font-family: Gilroy-Bold;
-      font-size: 50px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
     .UtilityNet_PHASE_text {
       margin-bottom: 60px;
       max-width: 759px;
@@ -2365,6 +2526,9 @@ const UtilityNet_Basic_box_data = ref([
 }
 @media (max-width: 834px) {
   .home_view {
+    .container {
+      padding: 0 12px;
+    }
     .Welcome {
       // padding-top: 24px;
 
@@ -2390,6 +2554,621 @@ const UtilityNet_Basic_box_data = ref([
         font-size: 10px;
         font-style: normal;
         line-height: 15px; /* 15.5px */
+      }
+    }
+    .Software_Defined_Hardware {
+      margin-top: 30px;
+      padding: 20px 10px 25px 10px;
+
+      border-radius: 10px;
+      .Software_Defined_Hardware_title {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+      }
+      .Software_Defined_Hardware_text {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .Software_Defined_Hardware_box {
+        display: flex;
+        align-items: center;
+        //换行
+        // flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 8px;
+        background: #202022;
+        box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+          0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+          0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+          0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+          0px 10px 22px 0px rgba(0, 0, 0, 0.1);
+
+        width: 324px; /* 设置容器的宽度 */
+        height: 200px; /* 设置容器的高度 */
+        overflow: hidden; /* 隐藏溢出的部分 */
+        position: relative;
+        margin: 0 auto;
+
+        .scrolling-image {
+          max-width: none;
+          width: 730px; /* 设置长图片的宽度（要大于容器宽度） */
+          height: 100%; /* 图片高度与容器高度一致 */
+          position: absolute;
+          animation: scroll 4s linear infinite; /* 动画持续时间10秒，线性滚动，循环播放 */
+          animation-direction: alternate;
+        }
+        @keyframes scroll {
+          0% {
+            left: 20px;
+          }
+          100% {
+            left: -430px;
+          }
+        }
+        .paused {
+          animation-play-state: paused;
+        }
+      }
+    }
+    .POCI_Validation_Logic {
+      margin-top: 30px;
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 12px;
+      padding: 20px 10px 20px 10px;
+      .POCI_Validation_Logic_title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .POCI_Validation_Logic_text {
+        font-size: 12px;
+
+        letter-spacing: 0.24px;
+        margin-bottom: 20px;
+      }
+      .POCI_Validation_Logic_bg {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        padding: 20px 30px;
+        border-radius: 8px;
+        background: #202022;
+        box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+          0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+          0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+          0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+          0px 10px 22px 0px rgba(0, 0, 0, 0.1);
+
+        width: 324px; /* 设置容器的宽度 */
+        height: 200px; /* 设置容器的高度 */
+        overflow: hidden; /* 隐藏溢出的部分 */
+        position: relative;
+        margin: 0 auto;
+
+        .scrolling-image {
+          max-width: none;
+          width: 730px; /* 设置长图片的宽度（要大于容器宽度） */
+          height: 100%; /* 图片高度与容器高度一致 */
+          position: absolute;
+          animation: scroll 4s linear infinite; /* 动画持续时间10秒，线性滚动，循环播放 */
+          animation-direction: alternate;
+        }
+        @keyframes scroll {
+          0% {
+            left: 20px;
+          }
+          100% {
+            left: -430px;
+          }
+        }
+        .paused {
+          animation-play-state: paused;
+        }
+      }
+    }
+
+    .UtilityNet_PHASE {
+      width: 100%;
+      height: 100%;
+      padding: 20px 10px;
+      flex-shrink: 0;
+      margin: 30px 0;
+      align-items: start;
+      flex-direction: column;
+      .UtilityNet_PHASE_title {
+        margin-bottom: 16px;
+        max-width: 100%;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .UtilityNet_PHASE_left {
+        .UtilityNet_PHASE_text {
+          margin-bottom: 20px;
+          max-width: 100%;
+          color: var(--home-text-color);
+          font-family: Gilroy-Medium;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 155%; /* 31px */
+        }
+        .UtilityNet_PHASE_button_father {
+          display: flex;
+          gap: 10px;
+          .Rainbow {
+            border-radius: 4px;
+          }
+
+          .UtilityNet_PHASE_button {
+            gap: 5px;
+            // width: 189px;
+            border-radius: 4px;
+            height: 30px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+            text-align: center;
+            font-family: Inter;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%; /* 21px */
+            backdrop-filter: blur(4.66006326675415px);
+            color: #000;
+          }
+        }
+      }
+      .UtilityNet_PHASE_right {
+        max-width: 38%;
+        height: 100%;
+        flex-shrink: 0;
+        margin-right: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .Key_Players_In {
+      width: 100%;
+      height: 300px;
+      flex-shrink: 0;
+      margin-bottom: 30px;
+      background: var(--home-Key_Players_In_bg) no-repeat;
+      background-size: cover;
+
+      padding: 20px 10px 20px 10px;
+      .Key_Players_In_title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+
+      .Key_Players_In_text {
+        margin-left: 10px;
+        font-size: 12px;
+
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      .Key_Players_In_Gear_wheel_father {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .Key_Players_In_Gear_wheel {
+          position: relative;
+          // max-width: 1728px;
+          display: flex;
+          justify-content: center;
+          .Gear_wheel_bg {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            //平移
+            transform: translate(0, 80%);
+          }
+          .Key_Players_In_Gear_wheel_Rainbow {
+            position: absolute;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0);
+            border: gray 1px solid;
+            padding: 1px;
+            flex-shrink: 0;
+            .Key_Players_In_Gear {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              border-radius: 4px;
+              // background: rgba(0, 0, 0);
+              width: 124px;
+              height: 60px;
+              .base_layer {
+                color: var(--home-Key_Players_In_Gear_wheel_button);
+                font-family: Gilroy-Bold;
+                font-size: 8.24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 155%; /* 28.272px */
+              }
+              .Key_Players_In_Gear_wheel_button_father {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                .Key_Players_In_Gear_wheel_button {
+                  font-size: 8px;
+                  width: 58px;
+                  height: 14px;
+                  border-radius: 2px;
+                }
+              }
+            }
+          }
+          .wheel_Rainbow_position {
+            position: absolute;
+            left: -208%;
+            top: 4%;
+          }
+          .wheel_Rainbow_position1 {
+            position: absolute;
+            left: -206%;
+            bottom: -159%;
+          }
+          .wheel_Rainbow_position2 {
+            position: absolute;
+            right: -208%;
+            top: 4%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+          .wheel_Rainbow_position3 {
+            position: absolute;
+            right: -204%;
+            bottom: -159%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+          .Gear_wheel_point {
+            display: none;
+          }
+
+          .Gear_wheel_line {
+            display: none;
+          }
+          .Gear_wheel_line1 {
+            display: none;
+          }
+        }
+      }
+    }
+    .UtilityNet_Basic_Functions {
+      border-radius: 6px;
+      background: var(--home-background-color-child);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      flex-shrink: 0;
+      padding: 20px 10px;
+      margin-bottom: 30px;
+      .UtilityNet_Basic_Functions_title {
+        margin-top: 6px;
+        margin-left: 0px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .UtilityNet_Basic_box_father_F {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        row-gap: 15px;
+        gap: 15px;
+        .UtilityNet_Basic_box_father {
+          .UtilityNet_Basic_box {
+            padding: 20px 8px 12px 10px;
+            width: 152px;
+            height: 204px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            //鼠标变小手
+            cursor: pointer;
+
+            .UtilityNet_Basic_box_title {
+              width: 114px;
+              height: 32px;
+              flex-shrink: 0;
+              border-radius: 4px;
+
+              font-family: Gilroy-Bold;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 155%; /* 46.5px */
+              padding-left: 0px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 22px;
+            }
+            .UtilityNet_Basic_box_text {
+              font-family: Gilroy-Medium;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            .UtilityNet_Basic_box_button_father {
+              display: flex;
+
+              .UtilityNet_Basic_box_button {
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+        }
+        .UtilityNet_Basic_box_imparity1 {
+          .UtilityNet_Basic_box {
+            background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
+            box-shadow: 0px 0px 10.6px 0px rgba(0, 255, 245, 0.58);
+            border-radius: 6px 60px 6px 6px;
+          }
+          .UtilityNet_Basic_box_title {
+            background: #003733;
+            color: #fff;
+          }
+          .UtilityNet_Basic_box_text {
+            color: rgba(0, 0, 0, 0.6);
+          }
+          .UtilityNet_Basic_box_button_father {
+            justify-content: end;
+          }
+          .UtilityNet_Basic_box_button {
+            img {
+              filter: brightness(1);
+            }
+            background-color: #000;
+          }
+        }
+        .UtilityNet_Basic_box_imparity2 {
+          .UtilityNet_Basic_box {
+            background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+            box-shadow: 0px 0px 10.6px 0px rgba(234, 105, 255, 0.58);
+            border-radius: 6px 6px 60px 6px;
+          }
+          .UtilityNet_Basic_box_title {
+            background: #00fffe;
+            color: #000;
+          }
+          .UtilityNet_Basic_box_text {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          .UtilityNet_Basic_box_button_father {
+            justify-content: start;
+          }
+          .UtilityNet_Basic_box_button {
+            img {
+              filter: brightness(0);
+            }
+            background-color: #00fffe;
+          }
+        }
+        .UtilityNet_Basic_box_imparity3 {
+          .UtilityNet_Basic_box {
+            background: linear-gradient(180deg, #24272e 0%, #2b3735 100%);
+            box-shadow: 0px 0px 10.6px 0px rgba(234, 105, 255, 0.58);
+            border-radius: 6px 60px 6px 6px;
+          }
+          .UtilityNet_Basic_box_title {
+            background: #00fffe;
+            color: #000;
+          }
+          .UtilityNet_Basic_box_text {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          .UtilityNet_Basic_box_button_father {
+            justify-content: end;
+          }
+          .UtilityNet_Basic_box_button {
+            img {
+              filter: brightness(0);
+            }
+            background-color: #00fffe;
+          }
+        }
+        .UtilityNet_Basic_box_imparity4 {
+          .UtilityNet_Basic_box {
+            background: linear-gradient(180deg, #00a89e 0%, #00fff5 100%);
+            box-shadow: 0px 0px 10.6px 0px rgba(0, 255, 245, 0.58);
+            border-radius: 6px 6px 6px 6px;
+          }
+          .UtilityNet_Basic_box_title {
+            background: #003733;
+            color: #fff;
+          }
+          .UtilityNet_Basic_box_text {
+            color: rgba(0, 0, 0, 0.6);
+          }
+          .UtilityNet_Basic_box_button_father {
+            justify-content: end;
+          }
+          .UtilityNet_Basic_box_button {
+            img {
+              filter: brightness(1);
+            }
+            background-color: #000;
+          }
+        }
+      }
+    }
+    .Recent_Highlights {
+      padding: 20px 10px 70px 10px;
+      border-radius: 6px;
+      .Recent_Highlights_title {
+        margin-left: 0px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .Recent_Highlights_map {
+        position: relative;
+        width: 100%;
+
+        .swiper {
+          width: 100%;
+          .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+
+            .swiper_time {
+              color: var(--Utility-text-color1);
+              font-size: 10px;
+              margin-left: 8px;
+            }
+
+            .swiper_title {
+              color: var(--home-text-color);
+              font-size: 12px;
+              margin-left: 8px;
+              margin: 10px 0 10px 8px;
+            }
+            .swiper_img {
+              width: 304px;
+              height: 160px;
+              flex-shrink: 0;
+              border-top-left-radius: 6px;
+              border-top-right-radius: 6px;
+            }
+          }
+        }
+
+        .swiper_button {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          width: 80px;
+          bottom: -20px;
+          right: 30px;
+
+          .swiper-button-prev,
+          .swiper-button-next {
+            width: 24px;
+            height: 24px;
+            z-index: 100;
+            border-radius: 50%;
+            margin: 0;
+            cursor: pointer; ///鼠标移上去变成手指
+            background-color: #202022 !important;
+            color: var(--swiper-prev-new-disabled-bg) !important;
+            font-size: 17px !important;
+            opacity: 1 !important; /* 可以设置不透明度来表示禁用状态 */
+            border: 1px solid #515151 !important;
+          }
+
+          .swiper-button-prev.swiper-button-disabled,
+          .swiper-button-next.swiper-button-disabled {
+            pointer-events: auto;
+            border: var(--home-swiper-button-disabled-border) !important;
+            color: var(--swiper-prev-new-border) !important;
+            cursor: not-allowed !important;
+            background-color: var(--home-swiper-button-disabled) !important;
+          }
+
+          .swiper-button-prev::after,
+          .swiper-button-next::after {
+            font-size: 17px !important;
+          }
+          .swiper-button-prev::after {
+            transform: scale(50%);
+            content: url('@/assets/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
+          }
+
+          .swiper-button-next::after {
+            //缩放
+
+            transform: scale(50%);
+            content: url('@/assets/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
+          }
+        }
+      }
+    }
+    .Join_the_UtilityNet {
+      margin: 30px 0;
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 6px;
+      background: var(--home-background-color-child);
+      padding: 10px 0px 10px 10px;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      .Join_the_UtilityNet_left {
+        .Join_the_UtilityNet_title {
+          color: var(--home-title-color);
+          font-family: Gilroy-Bold;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 28px;
+        }
+        .Join_the_UtilityNet_button_father {
+          display: flex;
+          gap: 12px;
+          .Join_the_UtilityNet_button {
+            width: 70px;
+            height: 22px;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            gap: 4px;
+            border: 0.608px solid var(--home-Join_the_UtilityNet_button-border);
+            background: var(--home-Join_the_UtilityNet_button-background);
+
+            //阴影
+            color: var(--home-title-color);
+            text-align: center;
+            font-family: Inter;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%; /* 21px */
+            .phone_arrow {
+              //缩放
+
+              transform: scale(60%);
+            }
+          }
+        }
+      }
+      .Join_the_UtilityNet_right {
+        width: 65%;
+        // height: 290px;
       }
     }
   }

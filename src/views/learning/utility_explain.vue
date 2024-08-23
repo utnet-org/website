@@ -547,7 +547,7 @@ const optionsList = [
     .header {
       padding: 80px 40px;
       .header_content_bg {
-        width: 100px !important;
+        width: 300px !important;
       }
       .header_content {
         width: 400px !important;

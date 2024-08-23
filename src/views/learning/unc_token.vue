@@ -8,6 +8,7 @@ const { theme } = storeToRefs(home)
 import { getStatistics } from '@/api/home'
 import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
 import greenAarrow from '@/assets/images/green_arrow.svg'
+import greenAarrows from '@/assets/svgs/greenAarrows.svg'
 const unc_price = ref(0)
 onMounted(async () => {
   const { data } = await getStatistics()
@@ -147,7 +148,8 @@ onBeforeUnmount(() => {
             <div class="money">$0.1</div>
             <div class="LAST_24_HQURS">
               <div class="green">18.62%</div>
-              <greenAarrow />
+              <greenAarrow v-if="viewableWidth > 834" />
+              <greenAarrows v-if="viewableWidth < 834" />
               <div class="white">(LAST 24 HQURS)</div>
             </div>
           </div>
@@ -176,7 +178,7 @@ onBeforeUnmount(() => {
         </div>
       </div> -->
         <div class="subtitle">
-          <div class="subtitle_options" v-if="viewableWidth > 834">
+          <div class="subtitle_options">
             <div class="subtitle_options_item">
               <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
               <div>
@@ -196,7 +198,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
           </div>
-          <div class="subtitle_options" v-else>
+          <div class="subtitle_options" v-if="false">
             <div class="subtitle_options_item">
               <img
                 src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/unc_token_options1.png"
@@ -935,6 +937,7 @@ li {
       }
       .Join_the_UtilityNet_right {
         width: 37%;
+        flex-shrink: 0;
         // width: 302px;
         // height: 290px;
         // flex-shrink: 0;
@@ -945,28 +948,41 @@ li {
 
 @media (max-width: 834px) {
   .container {
+    padding: 0 10px;
+    padding-top: 0px;
     .header {
-      height: 480px;
-      padding: 0 5%;
-      background: var(--unc-token-bgc-phone);
-      background-size: cover;
-      justify-content: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2%;
+      // background: var(--unc-token-bgc-phone);
+      // background-size: cover;
+      // justify-content: center;
 
       .header_content {
-        width: 100%;
-        height: 206px;
+        flex: 1;
+        // height: 206px;
         flex-shrink: 0;
-        padding: 28px 18px;
+        padding: 18px 8px;
         margin: 0;
-        margin-bottom: 95px;
+        margin-bottom: 5px;
 
-        box-shadow: var(--unc_token-header_content-shadow);
-        backdrop-filter: blur(var(--unc_token-header_content-filter));
+        // box-shadow: var(--unc_token-header_content-shadow);
+        // backdrop-filter: blur(var(--unc_token-header_content-filter));
 
         .header_content_header {
+          /* 18 粗 */
+          font-family: 'PingFang SC';
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
           .header_content_header_title {
             font-size: 12px;
           }
+        }
+        .header_content_text {
+          font-size: 10px;
         }
 
         .header_content_header_title_div {
@@ -979,10 +995,58 @@ li {
             color: var(--unc_token-header_title_div-color) !important;
           }
         }
+        .header_content_box {
+          width: 124px;
+          height: 60px;
+          flex-shrink: 0;
+          border-radius: 4px;
+          border: 0.3px;
+          .CURRENT_UNC_PRICe {
+            text-align: center;
 
+            font-family: 'PingFang SC';
+            font-size: 8px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .money {
+            text-align: center;
+
+            /* 13粗 */
+            font-family: 'PingFang SC';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+          .LAST_24_HQURS {
+            .green {
+              text-align: center;
+
+              /* 8 常规 */
+              font-family: 'PingFang SC';
+              font-size: 8px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            .white {
+              font-family: 'PingFang SC';
+              font-size: 8px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              margin-left: 5px;
+            }
+          }
+        }
         .header_content_acount {
           font-size: 24px;
           margin-bottom: 24px;
+        }
+        .header_content_text {
+          font-size: 10px;
         }
 
         .header_content_line_chart {
@@ -992,17 +1056,30 @@ li {
         }
 
         .header_content_button {
-          width: 100%;
-          height: 32px;
-          font-size: 12px;
-          padding: 0 14px;
+          gap: 4px;
+          width: 80px;
+          height: 24px;
+          font-size: 8px;
+          padding: 0 6px;
           background-color: #96ebe3;
+          img {
+            width: 18%;
+          }
         }
+      }
+
+      .unc_token_header_bg {
+        flex: 1;
+        // width: 160px;
+        height: 100%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
       }
     }
 
     .message {
-      padding: 32px 5% 37px;
+      padding: 20px 10px;
 
       .main_title_message {
         .main_title {
@@ -1022,22 +1099,37 @@ li {
 
           .subtitle_options_item {
             width: 100%;
-            height: 600px;
-            margin-bottom: 0px;
-            border-radius: 12px;
-            flex-direction: column;
+            // height: 600px;
+            margin-bottom: 10px;
+            border-radius: 3px;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
+            padding: 15px 10px 15px 0 !important;
 
-            &:first-child {
-              background: var(--unc_token-subtitle_options_item-bg);
-              padding: 0 24px;
-
-              img {
-                width: 130px;
-                height: 248px;
-                margin: 38px 0 24px;
-              }
+            background: var(--unc_token-subtitle_options_item-bg);
+            padding: 0 1px;
+            img {
+              width: 45%;
+              height: 45%;
+              flex-shrink: 0;
+              // height: 248px;
+              // margin: 38px 0 24px;
+            }
+            .subtitle_options_item_title {
+              /* 18 粗 */
+              font-family: 'PingFang SC';
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+            .subtitle_options_item_text {
+              /* 10 常规 */
+              font-family: 'PingFang SC';
+              font-size: 10px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
             }
 
             &:nth-child(2) {
@@ -1064,20 +1156,27 @@ li {
               }
             }
 
-            &:last-child {
-              background: var(--unc_token-subtitle_options_item-bg);
+            // &:last-child {
+            //   background: var(--unc_token-subtitle_options_item-bg);
 
-              padding: 0 24px;
+            //   padding: 0 24px;
 
-              img {
-                width: 116px;
-                height: 247px;
-                margin: 8px 0 38px;
-              }
-            }
+            //   // img {
+            //   //   width: 116px;
+            //   //   height: 247px;
+            //   //   margin: 8px 0 38px;
+            //   // }
+            // }
 
             .subtitle_options_item_text {
-              max-width: 100%;
+              max-width: 200px !important;
+
+              /* 10 常规 */
+              font-family: 'PingFang SC';
+              font-size: 10px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
             }
           }
         }
@@ -1121,6 +1220,369 @@ li {
           &:hover {
             background: none;
           }
+        }
+      }
+      .UNC_Token_Distribution {
+        padding: 50px 10px 0 12px;
+        width: 100%;
+        border-radius: 6px;
+        background: var(--home-background-color-child);
+        margin-bottom: 50px;
+        min-height: 350.981px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .UNC_Token_Distribution_title {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+        .UNC_Token_Distribution_text {
+          color: var(--home-text-color);
+
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 0px;
+        }
+        .UNC_Token_Distribution_figure {
+          position: relative;
+
+          .figure_round {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            position: absolute;
+            top: -48px;
+            left: 35.5%;
+            background: url('@/assets/images/UNC_Token_Distribution_round_small.png')
+              no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .figure_round_number {
+              color: var(--unc-figure_round_number);
+              font-family: Gilroy-Bold;
+              font-size: 8px;
+
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-transform: uppercase;
+
+              .box-item {
+                position: relative;
+                writing-mode: vertical-lr;
+                text-orientation: upright;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+              }
+
+              .mark-item {
+                width: 4px;
+                height: 10px;
+                margin-right: -6px;
+                line-height: 10px;
+                font-size: 6px;
+                position: relative;
+                & > span {
+                  position: absolute;
+                  width: 100%;
+                  bottom: 0;
+                  writing-mode: vertical-rl;
+                  text-orientation: upright;
+                }
+              }
+
+              .number-item {
+                width: 6px;
+                height: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & > span {
+                  position: relative;
+                  display: flex;
+                  // justify-content: center;
+                  // align-items: center;
+                  width: 100%;
+                  height: 100%;
+                  writing-mode: tb-rl; // writing-mode 改变文字排列方向
+                  text-orientation: upright; // 文字方向
+                  overflow: hidden;
+                  & > i {
+                    width: 3px;
+                    font-style: normal;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateX(-50%);
+                    transition: transform 0.1s linear;
+                    letter-spacing: 1px; // 字符间距
+                  }
+                }
+              }
+              .number-item:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          .line_and_border {
+            .UNC_Token_Distribution_line {
+              position: absolute;
+
+              height: 1px;
+              background: #00fff5;
+              display: none;
+            }
+            .UNC_Token_Distribution_line1 {
+              position: absolute;
+              width: 8px;
+              height: 1px;
+              background: #00fff5;
+              display: none;
+            }
+            .UNC_Token_Distribution_border {
+              position: absolute;
+              width: 110.675px;
+              height: 22.251px;
+              flex-shrink: 0;
+              background: url('@/assets/images/UNC_Token_Distribution_border.png')
+                no-repeat;
+              background-size: contain;
+              // background: #00fff5;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 2px;
+              .UNC_Token_Distribution_border_title {
+                color: #00fff5;
+                font-family: Gilroy-Bold;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+              .UNC_Token_Distribution_border_text {
+                color: var(--home-title-color);
+                font-family: Gilroy-SemiBold;
+                font-size: 6.892px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                max-width: 104px;
+              }
+            }
+          }
+          .Arithmetic_Incentive {
+            .UNC_Token_Distribution_line {
+              width: 30px;
+              rotate: 31deg;
+              left: 27.6%;
+              top: -0px;
+            }
+            .UNC_Token_Distribution_line1 {
+              left: 25.6%;
+              top: -8px;
+            }
+            .UNC_Token_Distribution_border {
+              left: -1%;
+              top: -0px;
+            }
+          }
+          .Arithmetic_Incentive1 {
+            .UNC_Token_Distribution_line {
+              width: 140px;
+              rotate: 124deg;
+              right: 32.55%;
+              top: -65px;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: 33.1%;
+              top: -122.6px;
+            }
+            .UNC_Token_Distribution_border {
+              right: 0.5%;
+              top: -66.3px;
+            }
+          }
+          .Arithmetic_Incentive2 {
+            .UNC_Token_Distribution_line {
+              width: 84px;
+              rotate: 18deg;
+              right: 34.5%;
+              top: 60.5px;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: 32.9%;
+              top: 68px;
+            }
+            .UNC_Token_Distribution_border {
+              right: 0.5%;
+              top: -20.8px;
+            }
+          }
+          .Arithmetic_Incentive3 {
+            .UNC_Token_Distribution_line {
+              width: 140px;
+              rotate: 56deg;
+              right: 32.8%;
+              top: 119px;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: 33.3%;
+              top: 177px;
+            }
+            .UNC_Token_Distribution_border {
+              right: 0.5%;
+              top: 27.6px;
+            }
+          }
+        }
+      }
+
+      .options_list_father {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 2px;
+        background: var(--home-background-color-child);
+        padding: 20px 10px 20px 10px;
+        .options_list_header {
+          color: var(--home-title-color);
+
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 10px;
+        }
+        .options_list_header_text {
+          color: var(--home-text-color);
+          font-family: Gilroy-Medium;
+
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 20px;
+        }
+
+        .options_list {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          // justify-content: flex-start;
+          justify-content: space-around;
+          width: 100%;
+          gap: 15px;
+          .options_item {
+            // height: 105px;
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: var(--home-background-color-child);
+            box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
+              0px 161px 64px 0px rgba(0, 0, 0, 0.01),
+              0px 90px 54px 0px rgba(0, 0, 0, 0.05),
+              0px 40px 40px 0px rgba(0, 0, 0, 0.09),
+              0px 10px 22px 0px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            img {
+              width: 24px;
+              height: 24px;
+              border-radius: 20px;
+              margin-right: 10px;
+              background-color: #151c1a;
+            }
+
+            .options_item_header {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-start;
+
+              .options_item_header_title {
+                color: var(--where-text);
+                font-family: Inter;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 150%;
+                /* 24px */
+                margin-bottom: 6px;
+              }
+
+              .options_item_header_text {
+                color: var(--where-text);
+                font-family: Inter;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 150%;
+                /* 21px */
+                opacity: 0.8;
+              }
+            }
+
+            &:hover {
+              background: var(--unc_token-options_item-bgc-hover);
+              // border: var(--unc_token-header-border);
+              background-size: cover;
+            }
+          }
+        }
+      }
+      .Join_the_UtilityNet {
+        margin: 30px 0;
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 2px;
+        background: var(--home-background-color-child);
+        padding: 20px 8px 20px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .Join_the_UtilityNet_left {
+          margin-top: 0px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 10px;
+          .Join_the_UtilityNet_title {
+            color: var(--home-title-color);
+            font-family: Gilroy-Bold;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 0px;
+          }
+          .Join_the_UtilityNet_text {
+            max-width: 760px;
+            color: var(--home-text-color);
+            font-family: Gilroy-Medium;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 155%; /* 31px */
+          }
+        }
+        .Join_the_UtilityNet_right {
+          width: 40%;
+          flex-shrink: 0;
+          // width: 302px;
+          // height: 290px;
+          // flex-shrink: 0;
         }
       }
     }
