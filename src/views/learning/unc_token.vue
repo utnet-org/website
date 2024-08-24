@@ -6,9 +6,8 @@ import { storeToRefs } from 'pinia'
 const { home } = useStore()
 const { theme } = storeToRefs(home)
 import { getStatistics } from '@/api/home'
-import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
-import greenAarrow from '@/assets/images/green_arrow.svg'
-import greenAarrows from '@/assets/svgs/greenAarrows.svg'
+import greenAarrow from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/green_arrow.svg'
+import greenAarrows from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/svgs/greenAarrows.svg'
 const unc_price = ref(0)
 onMounted(async () => {
   const { data } = await getStatistics()
@@ -24,7 +23,7 @@ const optionsList = [
     link: 'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a'
   },
   {
-    image: '/src/assets/images/unc_token_options_item2.svg',
+    image: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_options_item2.svg',
     title: 'Hotcoin Global',
     text: 'utilityNetwork.digital_asset_trading',
     link: 'https://www.hotcoin.com/'
@@ -169,13 +168,13 @@ onBeforeUnmount(() => {
               :style="{
                 filter: theme ? 'brightness(100%)' : 'brightness(0%)'
               }"
-              src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_button_arrow.svg"
               alt=""
             />
           </div>
         </div>
         <div class="unc_token_header_bg">
-          <img src="@/assets/images/unc_token_header_bg.png" alt="" />
+          <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_header_bg.png" alt="" />
         </div>
       </div>
       <div class="message">
@@ -190,7 +189,7 @@ onBeforeUnmount(() => {
         <div class="subtitle">
           <div class="subtitle_options">
             <div class="subtitle_options_item">
-              <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
+              <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/subtitle_options_item_bg.png" alt="" />
               <div>
                 <div
                   class="subtitle_options_item_title"
@@ -397,8 +396,8 @@ onBeforeUnmount(() => {
             <img
               :src="
                 !theme
-                  ? '/src/assets/images/UNC_Token_Distribution_img_white.png'
-                  : '/src/assets/images/UNC_Token_Distribution_img.png'
+                  ? 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_img_white.png'
+                  : 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_img.png'
               "
               alt=""
             />
@@ -459,7 +458,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div class="Join_the_UtilityNet_right">
-            <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
+            <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png" alt="" />
           </div>
         </div>
       </div>
@@ -686,7 +685,7 @@ li {
           height: 409.829px;
           flex-shrink: 0;
 
-          background: url('@/assets/images/UNC_Token_Distribution_round.png')
+          background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_round.png')
             no-repeat;
           background-size: cover;
           display: flex;
@@ -781,7 +780,7 @@ li {
             width: 386.675px;
             height: 78.251px;
             flex-shrink: 0;
-            background: url('@/assets/images/UNC_Token_Distribution_border.png')
+            background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_border.png')
               no-repeat;
             background-size: contain;
             // background: #00fff5;
@@ -1720,7 +1719,7 @@ li {
             flex-shrink: 0;
             top: -48px;
             left: 35.5%;
-            background: url('@/assets/images/UNC_Token_Distribution_round_small.png')
+            background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_round_small.png')
               no-repeat;
             background-size: cover;
             display: flex;
@@ -1817,7 +1816,7 @@ li {
               width: 108.675px;
               height: 22.251px;
               flex-shrink: 0;
-              background: url('@/assets/images/UNC_Token_Distribution_border.png')
+              background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_border.png')
                 no-repeat;
               background-size: contain;
               // background: #00fff5;

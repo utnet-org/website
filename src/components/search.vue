@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Search from '@/assets/svgs/search.svg'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
 
@@ -24,7 +23,7 @@ const handleClick = () => {
       :style="{
         filter: theme ? 'brightness(100%)' : 'brightness(0%)'
       }"
-      src="/src/assets/svgs/search.svg"
+      src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/svgs/search.svg"
       alt=""
     />
   </div>

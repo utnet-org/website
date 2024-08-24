@@ -56,28 +56,28 @@ const questionMessageList = [
         id: 1,
         title: 'learning_center.What_is_UtilityNet',
         text: 'learning_center.If_you_are_new_start',
-        img: '/src/assets/images/learning_center_item1.jpg',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item1.jpg',
         link: '/learning/utility_explain'
       },
       {
         id: 2,
         title: 'learning_center.What_is_UNC',
         text: 'learning_center.UNC_is_the_only_value',
-        img: '/src/assets/images/learning_center_item2.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item2.png',
         link: '/learning/unc_token'
       },
       {
         id: 3,
         title: 'learning_center.What_is_DePIN',
         text: 'learning_center.DePIN_is_the_abbreviation',
-        img: '/src/assets/images/learning_center_item4.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item4.png',
         link: '/learning/poci_consensus'
       },
       {
         id: 9,
         title: 'learning_center.What_is_POCI_consensus',
         text: 'learning_center.POCI_stands_for_Proof',
-        img: '/src/assets/images/learning_center_item3.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item3.png',
         link: '/learning/poci_consensus'
       }
     ]
@@ -93,42 +93,42 @@ const questionMessageList = [
         id: 4,
         title: 'learning_center.Utility_digital_wallet',
         text: 'learning_center.The_Utility_digital_wallet',
-        img: '/src/assets/images/learning_center_item5.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item5.png',
         link: '/soloutions/utility_wallet'
       },
       {
         id: 5,
         title: 'learning_center.core_system',
         text: 'learning_center.The_credit_scoring_platform',
-        img: '/src/assets/images/learning_center_item6.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item6.png',
         link: '/get_power'
       },
       {
         id: 10,
         title: 'learning_center.Utility_container_cloud',
         text: 'learning_center.computing_power_cloud_service_platform',
-        img: '/src/assets/images/learning_center_item7.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item7.png',
         link: '/get_power'
       },
       {
         id: 11,
         title: 'learning_center.Utility_AI_tools',
         text: 'learning_center.Combined_with_artificial',
-        img: '/src/assets/images/learning_center_item8.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item8.png',
         link: '/get_power'
       },
       {
         id: 12,
         title: 'learning_center.Utility_block_explorer',
         text: 'learning_center.Providing_users_with_an_intuitive',
-        img: '/src/assets/images/learning_center_item11.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item11.png',
         link: '/get_power'
       },
       {
         id: 13,
         title: 'learning_center.Utility_Development_Kit',
         text: 'learning_center.Enables_developers_to_easily',
-        img: '/src/assets/images/learning_center_item9.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item9.png',
         link: '/get_power'
       }
     ]
@@ -143,21 +143,21 @@ const questionMessageList = [
         id: 6,
         title: 'learning_center.Running_node',
         text: 'learning_center.Participate_in_running_nodes',
-        img: '/src/assets/images/learning_center_item10.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item10.png',
         link: 'https://wiki.utlab.io/docs/node/introduction'
       },
       {
         id: 7,
         title: 'learning_center.Mining_and_Lease_Supply',
         text: 'learning_center.Learn_how_to_mine_and',
-        img: '/src/assets/images/learning_center_item7.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item7.png',
         link: 'https://wiki.utlab.io/docs/computing-power-supplier/introduce'
       },
       {
         id: 8,
         title: 'learning_center.Join_the_community',
         text: 'learning_center.Home_for_Utility_developers',
-        img: '/src/assets/images/learning_center_item13.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item13.png',
         link: '/community'
       }
     ]
@@ -405,7 +405,7 @@ const handleScroll = () => {
     width: 100%;
     height: 900px;
     background: #0b0b11;
-    background: url('@/assets/images/learning_center.jpg') no-repeat center
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center
       center / cover;
     position: absolute;
     z-index: -1;
@@ -416,7 +416,7 @@ const handleScroll = () => {
   .homeHand {
     position: absolute;
     background: #0b0b11;
-    background: url('@/assets/images/learning_center.jpg') no-repeat center
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center
       center / cover;
     max-width: 1728px;
     width: 90%;
@@ -792,7 +792,7 @@ const handleScroll = () => {
       height: 457px;
       padding: 0 5%;
       // background: var(--learning_center-bgc-phone);
-      background: url('@/assets/images/learning_center.jpg') no-repeat center;
+      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center;
       background-size: cover;
       justify-content: left;
 

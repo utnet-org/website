@@ -194,7 +194,7 @@ const changeCheckIndex = (index: any) => {
                   {{ $t(citem.question) }}
                 </div>
               </div>
-              <img src="@/assets/images/Arrow_Right.png" alt="" />
+              <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Arrow_Right.png" alt="" />
             </div>
             <div
               v-if="checkQuestionIndex == cindex"

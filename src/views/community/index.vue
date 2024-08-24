@@ -284,7 +284,7 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url('@/assets/images/community_background.png') no-repeat;
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/community_background.png') no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;

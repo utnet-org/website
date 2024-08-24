@@ -1,6 +1,3 @@
-import CommunityOptions1 from "@/assets/images/community_options1.png";
-import CommunityOptions2 from "@/assets/images/community_options2.png";
-import CommunityOptions3 from "@/assets/images/community_options3.png";
 
 export default {
   nav: {

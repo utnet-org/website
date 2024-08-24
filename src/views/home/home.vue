@@ -1,10 +1,4 @@
 <script setup lang="ts" name="HomeView">
-import phaseArrow from '@/assets/images/UtilityNet_PHASE_button_arrow.svg'
-import SoftwareDH1 from '@/assets/images/S_D_H_1.svg'
-import Network from '@/assets/images/Network.svg'
-import Storage from '@/assets/images/Storage.svg'
-import Computing from '@/assets/images/Computing.svg'
-
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
 import { defineComponent } from 'vue'
 // 导入Swiper和Swiper Vue组件 ，这里是按需导入，虽然看起来没用，但是实际上是用了的
@@ -412,37 +406,37 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
     item: [
       {
         id: 0,
-        img: '/src/assets/images/Recent_Highlights2.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
         title: 'Calculate demand analysis and the next tuyere1',
         time: 'September 21, 2023'
       },
       {
         id: 1,
-        img: '/src/assets/images/Recent_Highlights3.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
         title: 'Calculate demand analysis and the next tuyere2',
         time: 'September 21, 2023'
       },
       {
         id: 2,
-        img: '/src/assets/images/Recent_Highlights1.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
         title: 'Calculate demand analysis and the next tuyere3',
         time: 'September 21, 2023'
       },
       {
         id: 3,
-        img: '/src/assets/images/Recent_Highlights2.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
         title: 'Calculate demand analysis and the next tuyere4',
         time: 'September 21, 2023'
       },
       {
         id: 4,
-        img: '/src/assets/images/Recent_Highlights3.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
         title: 'Calculate demand analysis and the next tuyere5',
         time: 'September 21, 2023'
       },
       {
         id: 5,
-        img: '/src/assets/images/Recent_Highlights1.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
         title: 'Calculate demand analysis and the next tuyere6',
         time: 'September 21, 2023'
       }
@@ -452,37 +446,37 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
     item: [
       {
         id: 6,
-        img: '/src/assets/images/Recent_Highlights2.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
         title: 'Calculate demand analysis and the next tuyere1',
         time: 'September 21, 2023'
       },
       {
         id: 7,
-        img: '/src/assets/images/Recent_Highlights3.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
         title: 'Calculate demand analysis and the next tuyere2',
         time: 'September 21, 2023'
       },
       {
         id: 8,
-        img: '/src/assets/images/Recent_Highlights1.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
         title: 'Calculate demand analysis and the next tuyere3',
         time: 'September 21, 2023'
       },
       {
         id: 9,
-        img: '/src/assets/images/Recent_Highlights2.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
         title: 'Calculate demand analysis and the next tuyere4',
         time: 'September 21, 2023'
       },
       {
         id: 10,
-        img: '/src/assets/images/Recent_Highlights3.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
         title: 'Calculate demand analysis and the next tuyere5',
         time: 'September 21, 2023'
       },
       {
         id: 11,
-        img: '/src/assets/images/Recent_Highlights1.png',
+        img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
         title: 'Calculate demand analysis and the next tuyere6',
         time: 'September 21, 2023'
       }
@@ -492,74 +486,74 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
 const Recent_Highlights_data1 = ref([
   {
     id: 0,
-    img: '/src/assets/images/Recent_Highlights2.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
     title: 'Calculate demand analysis and the next tuyere1',
     time: 'September 21, 2023'
   },
   {
     id: 1,
-    img: '/src/assets/images/Recent_Highlights3.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
     title: 'Calculate demand analysis and the next tuyere2',
     time: 'September 21, 2023'
   },
   {
     id: 2,
-    img: '/src/assets/images/Recent_Highlights1.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
     title: 'Calculate demand analysis and the next tuyere3',
     time: 'September 21, 2023'
   },
   {
     id: 3,
-    img: '/src/assets/images/Recent_Highlights2.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
     title: 'Calculate demand analysis and the next tuyere4',
     time: 'September 21, 2023'
   },
   {
     id: 4,
-    img: '/src/assets/images/Recent_Highlights3.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
     title: 'Calculate demand analysis and the next tuyere5',
     time: 'September 21, 2023'
   },
   {
     id: 5,
-    img: '/src/assets/images/Recent_Highlights1.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
     title: 'Calculate demand analysis and the next tuyere6',
     time: 'September 21, 2023'
   },
 
   {
     id: 6,
-    img: '/src/assets/images/Recent_Highlights2.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
     title: 'Calculate demand analysis and the next tuyere1',
     time: 'September 21, 2023'
   },
   {
     id: 7,
-    img: '/src/assets/images/Recent_Highlights3.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
     title: 'Calculate demand analysis and the next tuyere2',
     time: 'September 21, 2023'
   },
   {
     id: 8,
-    img: '/src/assets/images/Recent_Highlights1.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
     title: 'Calculate demand analysis and the next tuyere3',
     time: 'September 21, 2023'
   },
   {
     id: 9,
-    img: '/src/assets/images/Recent_Highlights2.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
     title: 'Calculate demand analysis and the next tuyere4',
     time: 'September 21, 2023'
   },
   {
     id: 10,
-    img: '/src/assets/images/Recent_Highlights3.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
     title: 'Calculate demand analysis and the next tuyere5',
     time: 'September 21, 2023'
   },
   {
     id: 11,
-    img: '/src/assets/images/Recent_Highlights1.png',
+    img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
     title: 'Calculate demand analysis and the next tuyere6',
     time: 'September 21, 2023'
   }
@@ -733,13 +727,13 @@ const UtilityNet_Basic_box_data = ref([
         <div class="Software_Defined_Hardware_box">
           <img
             v-if="width > 834"
-            src="@/assets/images/Software_Defined_Hardware_box.png"
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Software_Defined_Hardware_box.png"
             alt=""
           />
           <img
             class="scrolling-image"
             v-else
-            src="@/assets/images/carouseltop.png"
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/carouseltop.png"
             alt=""
             id="scrollingImage"
           />
@@ -841,13 +835,13 @@ const UtilityNet_Basic_box_data = ref([
         <div class="POCI_Validation_Logic_bg">
           <img
             v-if="width > 834"
-            src="@/assets/images/POCI_Validation_Logic_bg.png"
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/POCI_Validation_Logic_bg.png"
             alt=""
           />
           <img
             class="scrolling-image"
             v-else
-            src="@/assets/images/carouselbottom.png"
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/carouselbottom.png"
             alt=""
             id="scrollingImageBottom"
           />
@@ -898,7 +892,7 @@ const UtilityNet_Basic_box_data = ref([
                         ? 'brightness(100%)'
                         : 'brightness(0%)'
                     }"
-                    src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                    src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_button_arrow.svg"
                     alt=""
                   />
                 </div>
@@ -920,7 +914,7 @@ const UtilityNet_Basic_box_data = ref([
                         ? 'brightness(100%)'
                         : 'brightness(0%)'
                     }"
-                    src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                    src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_button_arrow.svg"
                     alt=""
                   />
                 </div>
@@ -928,7 +922,7 @@ const UtilityNet_Basic_box_data = ref([
             </div>
           </div>
           <div class="UtilityNet_PHASE_right">
-            <img src="@/assets/images/UtilityNet_PHASE_bg.png" alt="" />
+            <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_bg.png" alt="" />
           </div>
         </div>
       </div>
@@ -956,7 +950,7 @@ const UtilityNet_Basic_box_data = ref([
         <div class="Key_Players_In_Gear_wheel">
           <img
             class="Gear_wheel_bg"
-            src="@/assets/images/Key_Players_In_Gear_wheel_bg.png"
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Key_Players_In_Gear_wheel_bg.png"
             alt=""
           />
           <div
@@ -1078,7 +1072,7 @@ const UtilityNet_Basic_box_data = ref([
               <div class="UtilityNet_Basic_box_button_father">
                 <div class="UtilityNet_Basic_box_button">
                   <img
-                    src="@/assets/images/UtilityNet_Basic_Functions_arrow.png"
+                    src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_Basic_Functions_arrow.png"
                     alt=""
                   />
                 </div>
@@ -1188,7 +1182,7 @@ const UtilityNet_Basic_box_data = ref([
                 :style="{
                   filter: theme ? 'brightness(100%)' : 'brightness(0%)'
                 }"
-                src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_button_arrow.svg"
                 alt=""
                 class="phone_arrow"
               />
@@ -1203,14 +1197,14 @@ const UtilityNet_Basic_box_data = ref([
                 :style="{
                   filter: theme ? 'brightness(100%)' : 'brightness(0%)'
                 }"
-                src="/src/assets/images/UtilityNet_PHASE_button_arrow.svg"
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_button_arrow.svg"
                 alt=""
               />
             </div>
           </div>
         </div>
         <div class="Join_the_UtilityNet_right">
-          <img src="@/assets/images/Join_the_UtilityNet_bg.png" alt="" />
+          <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png" alt="" />
         </div>
       </div>
     </div>
@@ -1703,13 +1697,13 @@ const UtilityNet_Basic_box_data = ref([
         .Colored_arrow {
           width: 58px;
           height: 70px;
-          background: url('@/assets/images/Connector_ine.svg') no-repeat bottom
+          background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Connector_ine.svg') no-repeat bottom
             right;
           background-size: contain;
           .colored {
             width: 55%;
             height: 50%;
-            background: url('@/assets/images/Connector_ine1.svg');
+            background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Connector_ine1.svg');
           }
         }
       }
@@ -1737,7 +1731,7 @@ const UtilityNet_Basic_box_data = ref([
       }
     }
     .S_D_H_box_item_four {
-      background: url('@/assets/images/S_D_H_2.svg') no-repeat center;
+      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/S_D_H_2.svg') no-repeat center;
       background-size: contain;
       width: 238.23px;
       height: 148.21px;
@@ -2504,11 +2498,11 @@ const UtilityNet_Basic_box_data = ref([
         font-size: 17px !important;
       }
       .swiper-button-prev::after {
-        content: url('@/assets/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
+        content: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
       }
 
       .swiper-button-next::after {
-        content: url('@/assets/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
+        content: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
       }
     }
   }
@@ -3690,14 +3684,14 @@ const UtilityNet_Basic_box_data = ref([
           }
           .swiper-button-prev::after {
             transform: scale(50%);
-            content: url('@/assets/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
+            content: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights_left.svg'); /* 使用 SVG 图标作为箭头 */
           }
 
           .swiper-button-next::after {
             //缩放
 
             transform: scale(50%);
-            content: url('@/assets/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
+            content: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights_right.svg'); /* 使用 SVG 图标作为箭头 */
           }
         }
       }

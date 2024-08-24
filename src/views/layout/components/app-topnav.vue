@@ -1,12 +1,12 @@
 <script lang="ts" setup name="AppTopnav">
-import Logo from '@/assets/images/logo.svg'
-import LogoP from '@/assets/images/logoP.svg'
-import UtilityW from '@/assets/images/utility_white.svg'
-import UtilityB from '@/assets/images/utilityB.svg'
-import UtilityWP from '@/assets/images/UtilityWP.svg'
-import UtilityBP from '@/assets/images/UtilityBP.svg'
-import sun from '@/assets/images/sun.svg'
-import dark from '@/assets/images/dark.svg'
+import Logo from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logo.svg'
+import LogoP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logoP.svg'
+import UtilityW from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg'
+import UtilityB from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utilityB.svg'
+import UtilityWP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityWP.svg'
+import UtilityBP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityBP.svg'
+import sun from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/sun.svg'
+import dark from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/dark.svg'
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import {
@@ -282,14 +282,14 @@ function seticon(icon: string, isdark: boolean) {
         <img
           v-if="width < 834 && theme && selectType"
           class="list_caption_image"
-          src="@/assets/images/apptop.png"
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptop.png"
           alt=""
           @click="blockSelect"
         />
         <img
           v-if="width < 834 && theme && !selectType"
           class="list_caption_image"
-          src="@/assets/images/apptopc.png"
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptopc.png"
           alt=""
           @click="blockSelect"
         />

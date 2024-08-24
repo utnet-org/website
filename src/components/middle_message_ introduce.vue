@@ -101,7 +101,7 @@ const openLinkUrl = (url: string) => {
   .header {
     width: 100%;
     height: 479px;
-    background: url("@/assets/images/components_middle_background1.png") no-repeat;
+    background: url("https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/components_middle_background1.png") no-repeat;
     background-size: cover;
     text-align: center;
     display: flex;
