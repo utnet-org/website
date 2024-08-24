@@ -1,12 +1,4 @@
 <script lang="ts" setup name="AppTopnav">
-import Logo from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logo.svg'
-import LogoP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logoP.svg'
-import UtilityW from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg'
-import UtilityB from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utilityB.svg'
-import UtilityWP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityWP.svg'
-import UtilityBP from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityBP.svg'
-import sun from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/sun.svg'
-import dark from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/dark.svg'
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import {
@@ -233,18 +225,33 @@ function seticon(icon: string, isdark: boolean) {
         <div class="container_left">
           <RouterLink to="/">
             <div class="logo_box" @click="selectType = false">
-              <Logo class="logo_img" v-if="viewableWidth > 834" />
-              <LogoP v-else />
-              <UtilityW
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logo.svg"
+                class="logo_img"
+                v-if="viewableWidth > 834"
+              />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logoP.svg"
+                v-else
+              />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg"
                 class="logo_img_U"
                 v-if="theme && viewableWidth > 834"
               />
-              <UtilityWP v-if="theme && viewableWidth < 834" />
-              <UtilityB
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityWP.svg"
+                v-if="theme && viewableWidth < 834"
+              />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityB.svg"
                 class="logo_img_U"
                 v-if="!theme && viewableWidth > 834"
               />
-              <UtilityBP v-if="!theme && viewableWidth < 834" />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityBP.svg"
+                v-if="!theme && viewableWidth < 834"
+              />
               <!-- <span class="logo_text">Utility</span> -->
             </div>
           </RouterLink>
@@ -257,15 +264,31 @@ function seticon(icon: string, isdark: boolean) {
             class="theme"
             :style="{ background: theme ? '' : '' }"
           >
-            <sun v-if="!theme" style="width: 24px; height: 24px" />
-            <dark v-else style="width: 24px; height: 24px" />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/sun.svg"
+              v-if="!theme"
+              style="width: 24px; height: 24px"
+            />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/dark.svg"
+              v-else
+              style="width: 24px; height: 24px"
+            />
           </div>
           <SETLANGUAGE />
         </div>
         <div v-else class="mobile_theme_icon">
           <div @click="setTheme" style="width: 24px; height: 24px">
-            <sun v-if="!theme" style="width: 24px; height: 24px" />
-            <dark v-else style="width: 24px; height: 24px" />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/sun.svg"
+              v-if="!theme"
+              style="width: 24px; height: 24px"
+            />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/dark.svg"
+              v-else
+              style="width: 24px; height: 24px"
+            />
           </div>
         </div>
         <img
@@ -282,14 +305,14 @@ function seticon(icon: string, isdark: boolean) {
         <img
           v-if="width < 834 && theme && selectType"
           class="list_caption_image"
-          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptop.png"
+          src="@/assets/images/apptop.png"
           alt=""
           @click="blockSelect"
         />
         <img
           v-if="width < 834 && theme && !selectType"
           class="list_caption_image"
-          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptopc.png"
+          src="@/assets/images/apptopc.png"
           alt=""
           @click="blockSelect"
         />
@@ -451,19 +474,6 @@ function seticon(icon: string, isdark: boolean) {
       align-items: center;
       gap: 10px;
       margin-right: 20px;
-
-      img {
-        height: 37px;
-      }
-
-      .logo_text {
-        color: var(--Light-dark, rgba(21, 28, 26, 0.9));
-        font-family: Hiragino Kaku Gothic ProN;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
     }
 
     .right {
@@ -521,12 +531,11 @@ function seticon(icon: string, isdark: boolean) {
           //缩放
           transform: scale(0.9);
         }
-        .logo_img_U {
-          transform: scale(0.9);
-        }
 
-        img {
-          height: 37px;
+        .logo_img_U {
+          // transform: scale(0.9);
+          width: 100px;
+          height: 30px !important;
         }
       }
 

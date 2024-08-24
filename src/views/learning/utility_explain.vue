@@ -124,10 +124,7 @@ const optionsList = [
         </div>
       </div>
       <div class="header_content_bg">
-        <img
-          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item1.jpg"
-          alt=""
-        />
+        <img src="@/assets/images/learning_center_item1.jpg" alt="" />
       </div>
     </div>
     <div class="message">
@@ -576,19 +573,20 @@ const optionsList = [
   .container {
     padding-top: 0px;
     .header {
-      height: 377px;
       width: 100%;
-      padding: 0px 10px !important;
+      padding: 90px 10px 20px 10px !important;
+
       justify-content: space-between;
       // utility_explain-dark
       background-size: cover;
+      margin-bottom: 20px;
 
       justify-content: space-between;
       align-items: center;
 
       .header_content_bg {
         width: 100px !important;
-        height: 160px !important;
+        height: 100px !important;
       }
       .header_content {
         // width: 350px;

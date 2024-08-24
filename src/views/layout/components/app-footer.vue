@@ -1,16 +1,6 @@
 <script lang="ts" setup name="AppFooter">
 import { ref } from 'vue'
 import { openNewPage } from '@/utils/request'
-import Utility from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility.svg'
-import Utility1 from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Utility1.svg'
-import UtilityW from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg'
-import F_Twitter from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Twitter.svg'
-import F_discord from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_discord.svg'
-import F_telegram from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_telegram.svg'
-import F_Github from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Github.svg'
-import F_Youtube from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Youtube.svg'
-import F_medium from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_medium.svg'
-import footerLogo from 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/footer_logo.svg'
 
 const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
 
@@ -295,9 +285,23 @@ const printWidth = () => {
       <div class="top">
         <div class="left">
           <div class="logo">
-            <footerLogo />
-            <Utility v-if="!theme" />
-            <UtilityW v-if="theme" />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logo.svg"
+              class="logo_img"
+              v-if="viewableWidth > 834"
+            />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logoP.svg"
+              v-else
+            />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityB.svg"
+              v-if="!theme"
+            />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg"
+              v-if="theme"
+            />
 
             <!-- <div class="logo_text">Utility</div> -->
           </div>
@@ -306,25 +310,37 @@ const printWidth = () => {
               class="icon"
               @click="openNewPage('https://twitter.com/UtilityNet_')"
             >
-              <F_Twitter />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Twitter.svg"
+              />
             </div>
             <div class="icon">
-              <F_discord />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_discord.svg"
+              />
             </div>
             <div class="icon">
-              <F_telegram />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_telegram.svg"
+              />
             </div>
             <div
               class="icon"
               @click="openNewPage('https://github.com/utnet-org')"
             >
-              <F_Github />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Github.svg"
+              />
             </div>
             <div class="icon">
-              <F_Youtube />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Youtube.svg"
+              />
             </div>
             <div class="icon">
-              <F_medium />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_medium.svg"
+              />
             </div>
           </div>
         </div>
@@ -384,13 +400,24 @@ const printWidth = () => {
     <div class="container">
       <div class="container_top">
         <img
-          src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/svgs/Layer_1.svg"
-          alt=""
-          srcset=""
-          style="margin-right: 10px"
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logo.svg"
+          class="logo_img"
+          v-if="viewableWidth > 834"
         />
-        <Utility v-if="!theme" />
-        <Utility1 v-if="theme" />
+        <img
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/logoP.svg"
+          v-else
+        />
+        <img
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityB.svg"
+          v-if="!theme"
+          class="Utility_BB"
+        />
+        <img
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/utility_white.svg"
+          v-if="theme"
+          class="Utility_BB"
+        />
         <!-- <div class="container_top_title">Utility</div> -->
       </div>
       <div class="container_icon">
@@ -398,25 +425,37 @@ const printWidth = () => {
           class="container_icon_tw"
           @click="openNewPage('https://twitter.com/UtilityNet_')"
         >
-          <F_Twitter />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Twitter.svg"
+          />
         </div>
         <div class="container_icon_tw">
-          <F_discord />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_discord.svg"
+          />
         </div>
         <div class="container_icon_tw">
-          <F_telegram />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_telegram.svg"
+          />
         </div>
         <div
           class="container_icon_tw"
           @click="openNewPage('https://github.com/utnet-org')"
         >
-          <F_Github />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Github.svg"
+          />
         </div>
         <div class="container_icon_tw">
-          <F_Youtube />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_Youtube.svg"
+          />
         </div>
         <div class="container_icon_tw">
-          <F_medium />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/F_medium.svg"
+          />
         </div>
       </div>
 
@@ -645,6 +684,10 @@ const printWidth = () => {
       //border: 1px solid red;
       justify-content: center;
       align-items: center;
+      .Utility_BB {
+        margin-left: 10px;
+        width: 100px;
+      }
 
       .container_top_title {
         color: var(--Light-dark, rgba(21, 28, 26, 0.9));
