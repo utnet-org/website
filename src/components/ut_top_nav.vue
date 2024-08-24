@@ -461,4 +461,18 @@ function seticon(icon: string, isdark: boolean) {
     }
   }
 }
+@media (max-width: 1074px) {
+  .nav_link-wrapper {
+    width: 116px;
+  }
+}
+@media (max-width: 930px) {
+  .nav_link-wrapper {
+    width: 92px;
+    height: 60px;
+  }
+  .nav_link {
+    padding: 6px 0px;
+  }
+}
 </style>

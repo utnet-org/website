@@ -133,7 +133,17 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="header">
         <div class="header_content">
-          <div class="header_content_header">
+          <div
+            class="header_content_header"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
+          >
             {{ $t('learning_center.What_is_UNC') }}
           </div>
           <div class="header_content_text">
@@ -182,7 +192,19 @@ onBeforeUnmount(() => {
             <div class="subtitle_options_item">
               <img src="@/assets/images/subtitle_options_item_bg.png" alt="" />
               <div>
-                <div class="subtitle_options_item_title">About UNC</div>
+                <div
+                  class="subtitle_options_item_title"
+                  :style="{
+                    background: theme
+                      ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                      : '',
+                    'background-clip': theme ? 'text' : '',
+                    '-webkit-background-clip': theme ? 'text' : '',
+                    '-webkit-text-fill-color': theme ? 'transparent' : ''
+                  }"
+                >
+                  About UNC
+                </div>
                 <div class="subtitle_options_item_text">
                   <!-- {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }} -->
                   UtilityNet is currently in the testnet stage. At this stage,
@@ -281,7 +303,17 @@ onBeforeUnmount(() => {
         </div>
         <div class="UNC_Token_Distribution" ref="distributionBox">
           <div>
-            <div class="UNC_Token_Distribution_title">
+            <div
+              class="UNC_Token_Distribution_title"
+              :style="{
+                background: theme
+                  ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                  : '',
+                'background-clip': theme ? 'text' : '',
+                '-webkit-background-clip': theme ? 'text' : '',
+                '-webkit-text-fill-color': theme ? 'transparent' : ''
+              }"
+            >
               $UNC Token Distribution
             </div>
             <div class="UNC_Token_Distribution_text">
@@ -291,72 +323,74 @@ onBeforeUnmount(() => {
             </div>
           </div>
 
-          <div class="UNC_Token_Distribution_figure">
-            <div class="figure_round">
-              <div class="figure_round_number">
-                <div class="box-item">
-                  <li
-                    :class="{
-                      'number-item': !isNaN(Number(item)),
-                      'mark-item': isNaN(Number(item))
-                    }"
-                    v-for="(item, index) in orderNum"
-                    :key="index"
-                  >
-                    <span v-if="!isNaN(Number(item))">
-                      <i
-                        ref="numberItem"
-                        :style="{
-                          transform: 'translateY(-' + Number(item) * 10 + '%)'
-                        }"
-                      >
-                        0123456789
-                      </i>
-                    </span>
-                    <span class="comma" v-else>{{ item }}</span>
-                  </li>
+          <div class="UNC_Token_Distribution_figure_father">
+            <div class="UNC_Token_Distribution_figure">
+              <div class="figure_round">
+                <div class="figure_round_number">
+                  <div class="box-item">
+                    <li
+                      :class="{
+                        'number-item': !isNaN(Number(item)),
+                        'mark-item': isNaN(Number(item))
+                      }"
+                      v-for="(item, index) in orderNum"
+                      :key="index"
+                    >
+                      <span v-if="!isNaN(Number(item))">
+                        <i
+                          ref="numberItem"
+                          :style="{
+                            transform: 'translateY(-' + Number(item) * 10 + '%)'
+                          }"
+                        >
+                          0123456789
+                        </i>
+                      </span>
+                      <span class="comma" v-else>{{ item }}</span>
+                    </li>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="Arithmetic_Incentive line_and_border">
-              <div class="UNC_Token_Distribution_border">
-                <div class="UNC_Token_Distribution_border_title">97%</div>
-                <div class="UNC_Token_Distribution_border_text">
-                  Arithmetic Incentive (Miner)
+              <div class="Arithmetic_Incentive line_and_border">
+                <div class="UNC_Token_Distribution_border">
+                  <div class="UNC_Token_Distribution_border_title">97%</div>
+                  <div class="UNC_Token_Distribution_border_text">
+                    Arithmetic Incentive (Miner)
+                  </div>
                 </div>
+                <div class="UNC_Token_Distribution_line"></div>
+                <div class="UNC_Token_Distribution_line1"></div>
               </div>
-              <div class="UNC_Token_Distribution_line"></div>
-              <div class="UNC_Token_Distribution_line1"></div>
-            </div>
-            <div class="Arithmetic_Incentive1 line_and_border">
-              <div class="UNC_Token_Distribution_border">
-                <div class="UNC_Token_Distribution_border_title">97%</div>
-                <div class="UNC_Token_Distribution_border_text">
-                  Technology Node Management Fund
+              <div class="Arithmetic_Incentive1 line_and_border">
+                <div class="UNC_Token_Distribution_border">
+                  <div class="UNC_Token_Distribution_border_title">1%</div>
+                  <div class="UNC_Token_Distribution_border_text">
+                    Technology Node Management Fund
+                  </div>
                 </div>
+                <div class="UNC_Token_Distribution_line"></div>
+                <div class="UNC_Token_Distribution_line1"></div>
               </div>
-              <div class="UNC_Token_Distribution_line"></div>
-              <div class="UNC_Token_Distribution_line1"></div>
-            </div>
-            <div class="Arithmetic_Incentive2 line_and_border">
-              <div class="UNC_Token_Distribution_border">
-                <div class="UNC_Token_Distribution_border_title">97%</div>
-                <div class="UNC_Token_Distribution_border_text">
-                  DAO organization management distribution
+              <div class="Arithmetic_Incentive2 line_and_border">
+                <div class="UNC_Token_Distribution_border">
+                  <div class="UNC_Token_Distribution_border_title">1%</div>
+                  <div class="UNC_Token_Distribution_border_text">
+                    DAO organization management distribution
+                  </div>
                 </div>
+                <div class="UNC_Token_Distribution_line"></div>
+                <div class="UNC_Token_Distribution_line1"></div>
               </div>
-              <div class="UNC_Token_Distribution_line"></div>
-              <div class="UNC_Token_Distribution_line1"></div>
-            </div>
-            <div class="Arithmetic_Incentive3 line_and_border">
-              <div class="UNC_Token_Distribution_border">
-                <div class="UNC_Token_Distribution_border_title">97%</div>
-                <div class="UNC_Token_Distribution_border_text">
-                  Initial mining of fossil fuel
+              <div class="Arithmetic_Incentive3 line_and_border">
+                <div class="UNC_Token_Distribution_border">
+                  <div class="UNC_Token_Distribution_border_title">1%</div>
+                  <div class="UNC_Token_Distribution_border_text">
+                    Initial mining of fossil fuel
+                  </div>
                 </div>
+                <div class="UNC_Token_Distribution_line"></div>
+                <div class="UNC_Token_Distribution_line1"></div>
               </div>
-              <div class="UNC_Token_Distribution_line"></div>
-              <div class="UNC_Token_Distribution_line1"></div>
             </div>
           </div>
           <div class="UNC_Token_Distribution_img">
@@ -371,7 +405,19 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="options_list_father">
-          <div class="options_list_header">Where to get UNC?</div>
+          <div
+            class="options_list_header"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
+          >
+            Where to get UNC?
+          </div>
           <div class="options_list_header_text">
             You can get UNC from decentralized exchanges or centralized
             exchanges that are currently live.
@@ -392,7 +438,17 @@ onBeforeUnmount(() => {
         </div>
         <div class="Join_the_UtilityNet">
           <div class="Join_the_UtilityNet_left">
-            <div class="Join_the_UtilityNet_title">
+            <div
+              class="Join_the_UtilityNet_title"
+              :style="{
+                background: theme
+                  ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                  : '',
+                'background-clip': theme ? 'text' : '',
+                '-webkit-background-clip': theme ? 'text' : '',
+                '-webkit-text-fill-color': theme ? 'transparent' : ''
+              }"
+            >
               What is unique about UNC?
             </div>
             <div class="Join_the_UtilityNet_text">
@@ -613,16 +669,23 @@ li {
         line-height: 155%; /* 31px */
         margin-bottom: 60px;
       }
+      .UNC_Token_Distribution_figure_father {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .UNC_Token_Distribution_figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
 
         .figure_round {
           width: 409.828px;
           height: 409.829px;
           flex-shrink: 0;
-          position: absolute;
-          top: -178px;
-          left: 33.5%;
+
           background: url('@/assets/images/UNC_Token_Distribution_round.png')
             no-repeat;
           background-size: cover;
@@ -704,7 +767,6 @@ li {
         .line_and_border {
           .UNC_Token_Distribution_line {
             position: absolute;
-
             height: 1px;
             background: #00fff5;
           }
@@ -749,65 +811,65 @@ li {
         .Arithmetic_Incentive {
           .UNC_Token_Distribution_line {
             width: 130px;
-            rotate: 31deg;
-            left: 31.4%;
-            top: 110px;
+            rotate: 34deg;
+            left: -10.6%;
+            top: 65%;
           }
           .UNC_Token_Distribution_line1 {
-            left: 30.36%;
-            top: 76px;
+            left: -13.6%;
+            top: 56%;
           }
           .UNC_Token_Distribution_border {
-            left: 2.7%;
-            top: 1.8px;
+            left: -108%;
+            top: 37.6%;
           }
         }
         .Arithmetic_Incentive1 {
           .UNC_Token_Distribution_line {
             width: 140px;
             rotate: 124deg;
-            right: 32.55%;
-            top: -65px;
+            right: -15.55%;
+            top: 27.6%;
           }
           .UNC_Token_Distribution_line1 {
-            right: 33.1%;
-            top: -122.6px;
+            right: -13.9%;
+            top: 13.6%;
           }
           .UNC_Token_Distribution_border {
-            right: 5.5%;
-            top: -196.3px;
+            right: -108.1%;
+            top: -4.6%;
           }
         }
         .Arithmetic_Incentive2 {
           .UNC_Token_Distribution_line {
             width: 84px;
             rotate: 18deg;
-            right: 34.5%;
-            top: 55.5px;
+            right: -9.55%;
+            top: 49.6%;
           }
           .UNC_Token_Distribution_line1 {
-            right: 32.9%;
-            top: 68px;
+            right: -15%;
+            top: 52.9%;
           }
           .UNC_Token_Distribution_border {
-            right: 5.3%;
-            top: -5.8px;
+            right: -108.9%;
+            top: 34.6%;
           }
         }
         .Arithmetic_Incentive3 {
           .UNC_Token_Distribution_line {
             width: 140px;
             rotate: 56deg;
-            right: 32.8%;
-            top: 119px;
+            right: -16.5%;
+            bottom: 31.6%;
           }
           .UNC_Token_Distribution_line1 {
-            right: 33.3%;
-            top: 177px;
+            right: -14.9%;
+            bottom: 17.4%;
           }
           .UNC_Token_Distribution_border {
-            right: 5.7%;
-            top: 177.6px;
+            right: -108.9%;
+            bottom: 16.8%;
           }
         }
       }
@@ -945,6 +1007,409 @@ li {
     }
   }
 }
+@media (max-width: 1532px) {
+  .container {
+    width: 100%;
+    padding: 0 80px;
+    .message {
+      .UNC_Token_Distribution {
+        padding: 50px 20px 0 22px;
+
+        .UNC_Token_Distribution_figure {
+          .figure_round {
+            width: 319.828px;
+            height: 319.829px;
+
+            .figure_round_number {
+              color: var(--unc-figure_round_number);
+              font-family: Gilroy-Bold;
+              font-size: 24.09px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-transform: uppercase;
+
+              .box-item {
+                position: relative;
+                writing-mode: vertical-lr;
+                text-orientation: upright;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+              }
+
+              .mark-item {
+                width: 10px;
+                height: 20px;
+                margin-right: 0px;
+                line-height: 10px;
+                font-size: 24px;
+                position: relative;
+                & > span {
+                  position: absolute;
+                  width: 100%;
+                  bottom: 0;
+                  writing-mode: vertical-rl;
+                  text-orientation: upright;
+                }
+              }
+
+              .number-item {
+                width: 18px;
+                height: 30px;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & > span {
+                  position: relative;
+                  display: flex;
+                  // justify-content: center;
+                  // align-items: center;
+                  width: 100%;
+                  height: 100%;
+                  writing-mode: tb-rl; // writing-mode 改变文字排列方向
+                  text-orientation: upright; // 文字方向
+                  overflow: hidden;
+                  & > i {
+                    width: 18px;
+
+                    font-style: normal;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateX(-50%);
+                    transition: transform 0.1s linear;
+                    letter-spacing: 10px; // 字符间距
+                  }
+                }
+              }
+              .number-item:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          .line_and_border {
+            .UNC_Token_Distribution_border {
+              width: 248.675px;
+              height: 50.251px;
+              .UNC_Token_Distribution_border_title {
+                font-size: 20.205px;
+              }
+              .UNC_Token_Distribution_border_text {
+                font-size: 12.892px;
+              }
+            }
+          }
+          .Arithmetic_Incentive {
+            .UNC_Token_Distribution_line {
+              width: 102px;
+              rotate: 34deg;
+              left: -10.6%;
+              top: 65%;
+            }
+            .UNC_Token_Distribution_line1 {
+              width: 19px;
+              left: -13.6%;
+              top: 56%;
+            }
+            .UNC_Token_Distribution_border {
+              left: -91%;
+              top: 40.8%;
+            }
+          }
+          .Arithmetic_Incentive1 {
+            .UNC_Token_Distribution_line {
+              width: 100px;
+              rotate: 124deg;
+              right: -12.55%;
+              top: 27.6%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -13%;
+              top: 14.8%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -90.8%;
+              top: -0%;
+            }
+          }
+          .Arithmetic_Incentive2 {
+            .UNC_Token_Distribution_line {
+              width: 66px;
+              rotate: 18deg;
+              right: -9.55%;
+              top: 49.6%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -16.6%;
+              top: 52.6%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -94%;
+              top: 37.8%;
+            }
+          }
+          .Arithmetic_Incentive3 {
+            .UNC_Token_Distribution_line {
+              width: 100px;
+              rotate: 56deg;
+              right: -13.2%;
+              bottom: 28%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -14%;
+              bottom: 15%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -91.8%;
+              bottom: 14.6%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .container {
+    width: 100%;
+    padding: 0 80px;
+
+    .header {
+      justify-content: space-between;
+      padding: 80px 0;
+      .unc_token_header_bg {
+        width: 407.401px;
+        height: 402.517px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+@media (max-width: 1320px) {
+  .container {
+    width: 100%;
+    padding: 0 70px;
+
+    .header {
+      justify-content: space-between;
+      padding: 80px 0;
+      .header_content {
+        .header_content_header {
+          font-size: 48px;
+        }
+        .header_content_text {
+          max-width: 700px;
+        }
+      }
+      .unc_token_header_bg {
+        width: 307.401px;
+        height: 302.517px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+@media (max-width: 1080px) {
+  .container {
+    width: 100%;
+    padding: 0 30px;
+
+    .header {
+      justify-content: space-between;
+      padding: 60px 0;
+      .header_content {
+        .header_content_header {
+          font-size: 42px;
+        }
+        .header_content_text {
+          max-width: 500px;
+          font-size: 18px;
+        }
+        .header_content_box {
+          width: 350px;
+        }
+      }
+      .unc_token_header_bg {
+        width: 267.401px;
+        height: 262.517px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+@media (max-width: 990px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    .message {
+      .UNC_Token_Distribution {
+        padding: 50px 10px 0 10px;
+
+        .UNC_Token_Distribution_figure {
+          .figure_round {
+            width: 280.828px;
+            height: 280.829px;
+
+            .figure_round_number {
+              color: var(--unc-figure_round_number);
+              font-family: Gilroy-Bold;
+              font-size: 14.09px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-transform: uppercase;
+
+              .box-item {
+                position: relative;
+                writing-mode: vertical-lr;
+                text-orientation: upright;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+              }
+
+              .mark-item {
+                width: 10px;
+                height: 14px;
+                margin-left: -5px;
+                margin-right: -4px;
+                line-height: 10px;
+                font-size: 20px;
+                position: relative;
+                & > span {
+                  position: absolute;
+                  width: 100%;
+                  bottom: 0;
+                  writing-mode: vertical-rl;
+                  text-orientation: upright;
+                }
+              }
+
+              .number-item {
+                width: 14px;
+                height: 20px;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & > span {
+                  position: relative;
+                  display: flex;
+                  // justify-content: center;
+                  // align-items: center;
+                  width: 100%;
+                  height: 100%;
+                  writing-mode: tb-rl; // writing-mode 改变文字排列方向
+                  text-orientation: upright; // 文字方向
+                  overflow: hidden;
+                  & > i {
+                    width: 18px;
+
+                    font-style: normal;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateX(-50%);
+                    transition: transform 0.1s linear;
+                    letter-spacing: 10px; // 字符间距
+                  }
+                }
+              }
+              .number-item:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          .line_and_border {
+            .UNC_Token_Distribution_border {
+              width: 216.675px;
+              height: 42.251px;
+              .UNC_Token_Distribution_border_title {
+                font-size: 14.205px;
+              }
+              .UNC_Token_Distribution_border_text {
+                font-size: 10.892px;
+              }
+            }
+          }
+          .Arithmetic_Incentive {
+            .UNC_Token_Distribution_line {
+              width: 92px;
+              rotate: 34deg;
+              left: -10.6%;
+              top: 65%;
+            }
+            .UNC_Token_Distribution_line1 {
+              width: 14px;
+              left: -12.6%;
+              top: 56%;
+            }
+            .UNC_Token_Distribution_border {
+              left: -89%;
+              top: 41.4%;
+            }
+          }
+          .Arithmetic_Incentive1 {
+            .UNC_Token_Distribution_line {
+              width: 80px;
+              rotate: 124deg;
+              right: -11.05%;
+              top: 28.9%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -13%;
+              top: 17%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -90.2%;
+              top: 3%;
+            }
+          }
+          .Arithmetic_Incentive2 {
+            .UNC_Token_Distribution_line {
+              width: 46px;
+              rotate: 18deg;
+              right: -4.55%;
+              top: 49.6%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -12.6%;
+              top: 52%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -90%;
+              top: 37.8%;
+            }
+          }
+          .Arithmetic_Incentive3 {
+            .UNC_Token_Distribution_line {
+              width: 90px;
+              rotate: 56deg;
+              right: -13.2%;
+              bottom: 28%;
+            }
+            .UNC_Token_Distribution_line1 {
+              right: -14%;
+              bottom: 15%;
+            }
+            .UNC_Token_Distribution_border {
+              right: -90.8%;
+              bottom: 14.6%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 834px) {
   .container {
@@ -960,12 +1425,13 @@ li {
       // justify-content: center;
 
       .header_content {
-        flex: 1;
+        flex: 2;
         // height: 206px;
         flex-shrink: 0;
         padding: 18px 8px;
         margin: 0;
         margin-bottom: 5px;
+        gap: 8px;
 
         // box-shadow: var(--unc_token-header_content-shadow);
         // backdrop-filter: blur(var(--unc_token-header_content-filter));
@@ -1248,13 +1714,10 @@ li {
           margin-bottom: 0px;
         }
         .UNC_Token_Distribution_figure {
-          position: relative;
-
           .figure_round {
             width: 80px;
             height: 80px;
             flex-shrink: 0;
-            position: absolute;
             top: -48px;
             left: 35.5%;
             background: url('@/assets/images/UNC_Token_Distribution_round_small.png')
@@ -1351,7 +1814,7 @@ li {
             }
             .UNC_Token_Distribution_border {
               position: absolute;
-              width: 110.675px;
+              width: 108.675px;
               height: 22.251px;
               flex-shrink: 0;
               background: url('@/assets/images/UNC_Token_Distribution_border.png')
@@ -1359,7 +1822,7 @@ li {
               background-size: contain;
               // background: #00fff5;
               display: flex;
-              justify-content: center;
+              justify-content: space-between;
               align-items: center;
               gap: 2px;
               .UNC_Token_Distribution_border_title {
@@ -1382,67 +1845,27 @@ li {
             }
           }
           .Arithmetic_Incentive {
-            .UNC_Token_Distribution_line {
-              width: 30px;
-              rotate: 31deg;
-              left: 27.6%;
-              top: -0px;
-            }
-            .UNC_Token_Distribution_line1 {
-              left: 25.6%;
-              top: -8px;
-            }
             .UNC_Token_Distribution_border {
-              left: -1%;
-              top: -0px;
+              left: -136%;
+              top: 50%;
             }
           }
           .Arithmetic_Incentive1 {
-            .UNC_Token_Distribution_line {
-              width: 140px;
-              rotate: 124deg;
-              right: 32.55%;
-              top: -65px;
-            }
-            .UNC_Token_Distribution_line1 {
-              right: 33.1%;
-              top: -122.6px;
-            }
             .UNC_Token_Distribution_border {
-              right: 0.5%;
-              top: -66.3px;
+              right: -123%;
+              top: -10px;
             }
           }
           .Arithmetic_Incentive2 {
-            .UNC_Token_Distribution_line {
-              width: 84px;
-              rotate: 18deg;
-              right: 34.5%;
-              top: 60.5px;
-            }
-            .UNC_Token_Distribution_line1 {
-              right: 32.9%;
-              top: 68px;
-            }
             .UNC_Token_Distribution_border {
-              right: 0.5%;
-              top: -20.8px;
+              right: -135%;
+              top: 26.8px;
             }
           }
           .Arithmetic_Incentive3 {
-            .UNC_Token_Distribution_line {
-              width: 140px;
-              rotate: 56deg;
-              right: 32.8%;
-              top: 119px;
-            }
-            .UNC_Token_Distribution_line1 {
-              right: 33.3%;
-              top: 177px;
-            }
             .UNC_Token_Distribution_border {
-              right: 0.5%;
-              top: 27.6px;
+              right: -125%;
+              top: 66.8px;
             }
           }
         }
@@ -1462,6 +1885,7 @@ li {
           font-weight: 600;
           line-height: normal;
           margin-bottom: 10px;
+          text-align: left;
         }
         .options_list_header_text {
           color: var(--home-text-color);

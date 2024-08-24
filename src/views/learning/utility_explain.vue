@@ -575,7 +575,7 @@ const optionsList = [
     .header {
       height: 377px;
       width: 100%;
-      padding: 0px 4% !important;
+      padding: 0px 10px !important;
       justify-content: space-between;
       // utility_explain-dark
       background-size: cover;
@@ -584,6 +584,7 @@ const optionsList = [
       align-items: center;
 
       .header_content_bg {
+        width: 100px !important;
         height: 160px !important;
       }
       .header_content {
@@ -653,7 +654,7 @@ const optionsList = [
     }
 
     .message {
-      padding: 32px 5% 28px;
+      padding: 3px 10px 10px 10px;
 
       .first_level_title {
         .title {

@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { locale_zh } = storeToRefs(home);
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t, locale } = useI18n()
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { locale_zh } = storeToRefs(home)
 
-home.setlocale(locale.value);
+home.setlocale(locale.value)
 
 const changeLang = (lang: string) => {
-  locale.value = lang;
-  home.setlocale(locale.value);
-  localStorage.setItem("upaclang", lang);
+  locale.value = lang
+  home.setlocale(locale.value)
+  localStorage.setItem('upaclang', lang)
   document
-    .querySelector("html")!
-    .setAttribute("lang", localStorage.getItem("upaclang") || "en");
-  show.value = false;
-};
-const show = ref(false);
+    .querySelector('html')!
+    .setAttribute('lang', localStorage.getItem('upaclang') || 'en')
+  show.value = false
+}
+const show = ref(false)
 const setLang = () => {
-  if (locale.value === "en") {
-    changeLang("zh");
+  if (locale.value === 'en') {
+    changeLang('zh')
   } else {
-    changeLang("en");
+    changeLang('en')
   }
-};
+}
 </script>
 <template>
   <div class="setlanguage_div">
@@ -35,7 +35,7 @@ const setLang = () => {
       @mouseleave="show = false"
     >
       <div class="text" :style="{ fontWeight: locale == 'en' ? 700 : 500 }">
-        {{ locale === "en" ? "English" : "中文简体" }}
+        {{ locale === 'en' ? 'English' : '中文简体' }}
         <el-icon class="icon"><ArrowDownBold /></el-icon>
       </div>
     </div>
@@ -47,7 +47,7 @@ const setLang = () => {
         border: show ? `1px solid rgba(21, 28, 26, 0.15)` : `none`,
         transition: show
           ? 'height 0.1s cubic-bezier(0.07, 0.69, 0.14, 0.8)'
-          : 'height 0.1s cubic-bezier(0.7, 0.08, 0.82, 0.16)',
+          : 'height 0.1s cubic-bezier(0.7, 0.08, 0.82, 0.16)'
       }"
       @mouseenter="show = true"
       @mouseleave="show = false"
@@ -88,7 +88,7 @@ const setLang = () => {
 .hover {
   .text {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       width: 100%;

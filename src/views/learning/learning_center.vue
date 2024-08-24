@@ -321,7 +321,17 @@ const handleScroll = () => {
             v-for="(item, index) in questionMessageList"
             :key="index"
           >
-            <div class="section_right_item_title">
+            <div
+              class="section_right_item_title"
+              :style="{
+                background: theme
+                  ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                  : '',
+                'background-clip': theme ? 'text' : '',
+                '-webkit-background-clip': theme ? 'text' : '',
+                '-webkit-text-fill-color': theme ? 'transparent' : ''
+              }"
+            >
               {{ $t(item.messageTitle) }}
             </div>
             <div class="section_right_item_text">

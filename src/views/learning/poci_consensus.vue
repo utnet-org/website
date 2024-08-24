@@ -1,79 +1,79 @@
 <script setup lang="ts">
-import { number } from "echarts";
-import { title } from "process";
-import { ref } from "vue";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
-const width = ref(window.innerWidth);
+import { number } from 'echarts'
+import { title } from 'process'
+import { ref } from 'vue'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
+const width = ref(window.innerWidth)
 const optionsList = [
   {
-    title: "poci_consensus.The_use_of_high_performance",
-    text: "poci_consensus.POCI_uses_high_performance",
+    title: 'poci_consensus.The_use_of_high_performance',
+    text: 'poci_consensus.POCI_uses_high_performance'
   },
   {
-    title: "poci_consensus.Computing_power_ownership",
-    text: "poci_consensus.POCI_abandons_the",
+    title: 'poci_consensus.Computing_power_ownership',
+    text: 'poci_consensus.POCI_abandons_the'
   },
   {
-    title: "poci_consensus.On_chain_random_number",
-    text: "poci_consensus.POCI_selects_appropriate",
-  },
-];
-const accordionTitle = "Consensus Chip";
+    title: 'poci_consensus.On_chain_random_number',
+    text: 'poci_consensus.POCI_selects_appropriate'
+  }
+]
+const accordionTitle = 'Consensus Chip'
 const accordionList = [
   {
-    title: "SPACC（Security Protocol Accelerator）",
-    messageTitle: "Strengthen UtilityNet",
-    messageText: "poci_consensus.The_SPACC_module_is",
+    title: 'SPACC（Security Protocol Accelerator）',
+    messageTitle: 'Strengthen UtilityNet',
+    messageText: 'poci_consensus.The_SPACC_module_is'
   },
   {
-    title: "PKA（Public Key Accelerator）",
-    messageTitle: "Data Transmission",
-    messageText: "poci_consensus.The_PKA_module_is_responsible",
+    title: 'PKA（Public Key Accelerator）',
+    messageTitle: 'Data Transmission',
+    messageText: 'poci_consensus.The_PKA_module_is_responsible'
   },
   {
-    title: "Efuse Storage area",
-    messageTitle: "Data Validation",
-    messageText: "poci_consensus.The_Efuse_storage_area",
-  },
-];
+    title: 'Efuse Storage area',
+    messageTitle: 'Data Validation',
+    messageText: 'poci_consensus.The_Efuse_storage_area'
+  }
+]
 const questionList = [
   {
-    id: "01",
-    question: "poci_consensus.How_is_POCI_different",
-    answer: "poci_consensus.Unlike_PoW_which",
+    id: '01',
+    question: 'poci_consensus.How_is_POCI_different',
+    answer: 'poci_consensus.Unlike_PoW_which'
   },
   {
-    id: "02",
-    question: "poci_consensus.How_does_POCI_ensure",
-    answer: "poci_consensus.POCI_ensures_the_security",
+    id: '02',
+    question: 'poci_consensus.How_does_POCI_ensure',
+    answer: 'poci_consensus.POCI_ensures_the_security'
   },
   {
-    id: "03",
-    question: "poci_consensus.How_does_POCI_contribute",
-    answer: "poci_consensus.POCI_contributes_to",
+    id: '03',
+    question: 'poci_consensus.How_does_POCI_contribute',
+    answer: 'poci_consensus.POCI_contributes_to'
   },
   {
-    id: "04",
-    question: "poci_consensus.How_does_POCI_support",
-    answer: "poci_consensus.POCI_supports_decentralized",
+    id: '04',
+    question: 'poci_consensus.How_does_POCI_support',
+    answer: 'poci_consensus.POCI_supports_decentralized'
   },
   {
-    id: "05",
-    question: "poci_consensus.What_role_does_POCI",
-    answer: "poci_consensus.As_an_efficient_and_environmentally",
-  },
-];
-const checkQuestionIndex = ref(-1);
+    id: '05',
+    question: 'poci_consensus.What_role_does_POCI',
+    answer: 'poci_consensus.As_an_efficient_and_environmentally'
+  }
+]
+const checkQuestionIndex = ref(-1)
 const changeCheckIndex = (index: any) => {
   if (checkQuestionIndex.value == index) {
-    checkQuestionIndex.value = -1;
-    return;
+    checkQuestionIndex.value = -1
+    return
   }
-  checkQuestionIndex.value = index;
-};
+  checkQuestionIndex.value = index
+}
 </script>
 <template>
   <div>
@@ -91,9 +91,21 @@ const changeCheckIndex = (index: any) => {
         }"
       >
         <div class="header_content">
-          <div class="header_content_header">POCI Consensus</div>
+          <div
+            class="header_content_header"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
+          >
+            POCI Consensus
+          </div>
           <div class="header_content_text">
-            {{ $t("poci_consensus.poci_or_Proof") }}
+            {{ $t('poci_consensus.poci_or_Proof') }}
           </div>
           <div class="header_content_button">
             <div>Read More</div>
@@ -107,12 +119,24 @@ const changeCheckIndex = (index: any) => {
       </div>
       <div class="options">
         <div class="options_side">
-          <div class="options_side_title">Strengthen UtilityNet Network</div>
-          <div class="options_side_text">
-            {{ $t("poci_consensus.the_introduction_of") }}
+          <div
+            class="options_side_title"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
+          >
+            Strengthen UtilityNet Network
           </div>
           <div class="options_side_text">
-            {{ $t("poci_consensus.POCI_not_only") }}
+            {{ $t('poci_consensus.the_introduction_of') }}
+          </div>
+          <div class="options_side_text">
+            {{ $t('poci_consensus.POCI_not_only') }}
           </div>
         </div>
         <div class="options_list">
@@ -158,7 +182,7 @@ const changeCheckIndex = (index: any) => {
                     color:
                       checkQuestionIndex == cindex && width > 834
                         ? 'var(--poci_faq-color)'
-                        : 'var(--where-text)',
+                        : 'var(--where-text)'
                   }"
                 >
                   {{ citem.id }}/
@@ -304,7 +328,7 @@ const changeCheckIndex = (index: any) => {
         height: 126px;
         padding: 0 44px;
         border-radius: 10px;
-        background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
+        background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png')
           no-repeat;
 
         background-size: cover;
@@ -525,7 +549,7 @@ const changeCheckIndex = (index: any) => {
           border: none;
 
           &:hover {
-            background: url("https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png")
+            background: url('https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/poci_consensus_options_default.png')
               no-repeat;
             background-color: var(--poci-bgc);
             background-size: cover;

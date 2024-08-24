@@ -709,7 +709,17 @@ const UtilityNet_Basic_box_data = ref([
 
     <div class="container" style="overflow: hidden">
       <div class="Software_Defined_Hardware">
-        <div class="Software_Defined_Hardware_title">
+        <div
+          class="Software_Defined_Hardware_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
           Software-Defined Hardware
         </div>
         <div class="Software_Defined_Hardware_text">
@@ -807,7 +817,19 @@ const UtilityNet_Basic_box_data = ref([
         </div>
       </div>
       <div class="POCI_Validation_Logic">
-        <div class="POCI_Validation_Logic_title">POCI Validation Logic</div>
+        <div
+          class="POCI_Validation_Logic_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
+          POCI Validation Logic
+        </div>
         <div class="POCI_Validation_Logic_text">
           Developers can flexibly program hardware with software to create
           personalized and efficient solutions. The value starting point of
@@ -832,7 +854,18 @@ const UtilityNet_Basic_box_data = ref([
         </div>
       </div>
       <div class="UtilityNet_PHASE">
-        <div v-if="width < 834" class="UtilityNet_PHASE_title">
+        <div
+          v-if="width < 834"
+          class="UtilityNet_PHASE_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
           UtilityNet PHASE-1 Testnet is now launched！
         </div>
         <div style="display: flex; justify-content: space-between; width: 100%">
@@ -901,7 +934,17 @@ const UtilityNet_Basic_box_data = ref([
       </div>
     </div>
     <div class="Key_Players_In">
-      <div class="Key_Players_In_title">
+      <div
+        class="Key_Players_In_title"
+        :style="{
+          background: theme
+            ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+            : '',
+          'background-clip': theme ? 'text' : '',
+          '-webkit-background-clip': theme ? 'text' : '',
+          '-webkit-text-fill-color': theme ? 'transparent' : ''
+        }"
+      >
         Key Players In The Utilitynet Ecosystem
       </div>
       <div class="Key_Players_In_text">
@@ -1005,7 +1048,17 @@ const UtilityNet_Basic_box_data = ref([
     </div>
     <div class="container" style="overflow: hidden">
       <div class="UtilityNet_Basic_Functions">
-        <div class="UtilityNet_Basic_Functions_title">
+        <div
+          class="UtilityNet_Basic_Functions_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
           UtilityNet Basic Functions
         </div>
         <div class="UtilityNet_Basic_box_father_F">
@@ -1035,7 +1088,19 @@ const UtilityNet_Basic_box_data = ref([
         </div>
       </div>
       <div class="Recent_Highlights">
-        <div class="Recent_Highlights_title">RECENT HIGHLIGHTS</div>
+        <div
+          class="Recent_Highlights_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
+          RECENT HIGHLIGHTS
+        </div>
         <div class="Recent_Highlights_map">
           <!-- ! 两个按钮 -->
           <div class="swiper_button">
@@ -1099,7 +1164,17 @@ const UtilityNet_Basic_box_data = ref([
       </div>
       <div class="Join_the_UtilityNet">
         <div class="Join_the_UtilityNet_left">
-          <div class="Join_the_UtilityNet_title">
+          <div
+            class="Join_the_UtilityNet_title"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
+          >
             Join the UtilityNet open source community to accelerate building the
             future!
           </div>
@@ -2524,6 +2599,519 @@ const UtilityNet_Basic_box_data = ref([
     }
   }
 }
+@media (max-width: 1338px) {
+  .container {
+    padding: 0 80px !important;
+  }
+  .home_view {
+    .Key_Players_In {
+      height: 908px !important;
+    }
+    .UtilityNet_PHASE {
+      .UtilityNet_PHASE_left {
+        .UtilityNet_PHASE_title {
+          font-size: 42px;
+        }
+      }
+      .UtilityNet_PHASE_right {
+        width: 427.401px;
+        height: 427.517px;
+        flex-shrink: 0;
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .Join_the_UtilityNet {
+      .Join_the_UtilityNet_left {
+        .Join_the_UtilityNet_title {
+          font-size: 40px;
+        }
+      }
+    }
+    .Key_Players_In {
+      width: 100%;
+      height: 1088px;
+      flex-shrink: 0;
+      margin-bottom: 100px;
+      background: var(--home-Key_Players_In_bg);
+      padding: 100px 88px 0px 88px;
+      .Key_Players_In_title {
+        color: var(--home-title-color);
+        font-family: Gilroy-Bold;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 0px;
+      }
+
+      .Key_Players_In_text {
+        margin-left: 0px;
+        color: var(--home-text-color);
+        font-family: Gilroy-Medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155%; /* 31px */
+        max-width: 1149px;
+        margin-bottom: 110px;
+      }
+      .Key_Players_In_Gear_wheel_father {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .Key_Players_In_Gear_wheel {
+          position: relative;
+          // max-width: 1728px;
+          display: flex;
+          justify-content: center;
+          .Gear_wheel_bg {
+            width: 174.356px;
+            height: 174.641px;
+            flex-shrink: 0;
+            //平移
+            transform: translate(0, 80%);
+          }
+          .Key_Players_In_Gear_wheel_Rainbow {
+            position: absolute;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0);
+            border: gray 1px solid;
+            padding: 0px;
+            flex-shrink: 0;
+            .Key_Players_In_Gear {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              border-radius: 12px;
+              // background: rgba(0, 0, 0);
+              width: 343.355px;
+              height: 150.614px;
+              .base_layer {
+                color: var(--home-Key_Players_In_Gear_wheel_button);
+                font-family: Gilroy-Bold;
+                font-size: 18.24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 155%; /* 28.272px */
+              }
+              .Key_Players_In_Gear_wheel_button_father {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                .Key_Players_In_Gear_wheel_button {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: var(--home-Key_Players_In_Gear_wheel_button);
+                  text-align: center;
+                  font-family: Gilroy-Medium;
+                  font-size: 14.416px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 155%; /* 25.445px */
+                  width: 160.949px;
+                  height: 40.599px;
+                  flex-shrink: 0;
+                  border-radius: 8px;
+                  border: 0.912px solid gray;
+                }
+              }
+            }
+          }
+          .Gear_wheel_point {
+            position: absolute;
+            width: 8.856px;
+            height: 8.856px;
+            flex-shrink: 0;
+            background: #00fffe;
+            border-radius: 50%;
+          }
+
+          .Gear_wheel_line {
+            position: absolute;
+            width: 76.374px;
+            height: 1.5px;
+            flex-shrink: 0;
+            stroke-width: 0.912px;
+            stroke: #fff;
+            //旋转
+            background: linear-gradient(
+              to right,
+              #ffffff,
+              #ca00c1,
+              #00f7e4,
+              #00f7e4
+            );
+          }
+          .Gear_wheel_line1 {
+            position: absolute;
+            width: 25px;
+            height: 1.5px;
+            flex-shrink: 0;
+            stroke-width: 0.912px;
+            stroke: #fff;
+            background: linear-gradient(to left, #ffffff, #ca00c1, #ca00c1);
+          }
+          .point_AND_line_father {
+            .Gear_wheel_point_left {
+              left: -30.8%;
+              top: 53%;
+            }
+            .Gear_wheel_point_right {
+              left: -12%;
+              top: 53%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(45deg);
+              left: -14%;
+              top: 73%;
+            }
+            .Gear_wheel_line_short {
+              left: -26%;
+              top: 55%;
+            }
+          }
+
+          .point_AND_line_father1 {
+            .Gear_wheel_point_left {
+              left: -30.8%;
+              top: 200%;
+            }
+            .Gear_wheel_point_right {
+              left: -12%;
+              top: 200%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(-45deg);
+              left: -14%;
+              top: 186%;
+            }
+            .Gear_wheel_line_short {
+              left: -26%;
+              top: 203%;
+            }
+          }
+          .point_AND_line_father2 {
+            .Gear_wheel_point_left {
+              right: -31.6%;
+              top: 51%;
+            }
+            .Gear_wheel_point_right {
+              right: -12%;
+              top: 51%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(135deg);
+              right: -14%;
+              top: 71%;
+            }
+            .Gear_wheel_line_short {
+              transform: rotate(180deg);
+              right: -26%;
+              top: 53.5%;
+            }
+          }
+          .point_AND_line_father3 {
+            .Gear_wheel_point_left {
+              right: -31.6%;
+              top: 202%;
+            }
+            .Gear_wheel_point_right {
+              right: -12%;
+              top: 202%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(45deg);
+              right: -14%;
+              top: 187%;
+            }
+            .Gear_wheel_line_short {
+              transform: rotate(180deg);
+
+              right: -26%;
+              top: 205%;
+            }
+          }
+
+          .wheel_Rainbow_position {
+            position: absolute;
+            left: -226%;
+            top: 12%;
+          }
+          .wheel_Rainbow_position1 {
+            position: absolute;
+            left: -226%;
+            bottom: -148%;
+          }
+          .wheel_Rainbow_position2 {
+            position: absolute;
+            right: -226.5%;
+            top: 12%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+          .wheel_Rainbow_position3 {
+            position: absolute;
+            right: -226.5%;
+            bottom: -148%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 968px) {
+  .home_view {
+    .Key_Players_In {
+      width: 100%;
+      height: 868px;
+      flex-shrink: 0;
+      margin-bottom: 100px;
+      background: var(--home-Key_Players_In_bg);
+      padding: 60px 58px 0px 58px;
+      .Key_Players_In_title {
+        color: var(--home-title-color);
+        font-family: Gilroy-Bold;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 0px;
+      }
+
+      .Key_Players_In_text {
+        margin-left: 0px;
+        color: var(--home-text-color);
+        font-family: Gilroy-Medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 155%; /* 31px */
+        max-width: 1149px;
+        margin-bottom: 60px;
+      }
+      .Key_Players_In_Gear_wheel_father {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .Key_Players_In_Gear_wheel {
+          position: relative;
+          // max-width: 1728px;
+          display: flex;
+          justify-content: center;
+          .Gear_wheel_bg {
+            width: 147.356px;
+            height: 147.641px;
+            flex-shrink: 0;
+            //平移
+            transform: translate(0, 80%);
+          }
+          .Key_Players_In_Gear_wheel_Rainbow {
+            position: absolute;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0);
+            border: gray 1px solid;
+            padding: 0px;
+            flex-shrink: 0;
+            .Key_Players_In_Gear {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              border-radius: 12px;
+              // background: rgba(0, 0, 0);
+              width: 290.355px;
+              height: 120.614px;
+              .base_layer {
+                color: var(--home-Key_Players_In_Gear_wheel_button);
+                font-family: Gilroy-Bold;
+                font-size: 16.24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 155%; /* 28.272px */
+              }
+              .Key_Players_In_Gear_wheel_button_father {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                .Key_Players_In_Gear_wheel_button {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: var(--home-Key_Players_In_Gear_wheel_button);
+                  text-align: center;
+                  font-family: Gilroy-Medium;
+                  font-size: 14.416px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 155%; /* 25.445px */
+                  width: 130.949px;
+                  height: 30.599px;
+                  flex-shrink: 0;
+                  border-radius: 8px;
+                  border: 0.912px solid gray;
+                }
+              }
+            }
+          }
+          .Gear_wheel_point {
+            position: absolute;
+            width: 8.856px;
+            height: 8.856px;
+            flex-shrink: 0;
+            background: #00fffe;
+            border-radius: 50%;
+          }
+
+          .Gear_wheel_line {
+            position: absolute;
+            width: 64.374px;
+            height: 1.5px;
+            flex-shrink: 0;
+            stroke-width: 0.912px;
+            stroke: #fff;
+            //旋转
+            background: linear-gradient(
+              to right,
+              #ffffff,
+              #ca00c1,
+              #00f7e4,
+              #00f7e4
+            );
+          }
+          .Gear_wheel_line1 {
+            position: absolute;
+            width: 20px;
+            height: 1.5px;
+            flex-shrink: 0;
+            stroke-width: 0.912px;
+            stroke: #fff;
+            background: linear-gradient(to left, #ffffff, #ca00c1, #ca00c1);
+          }
+          .point_AND_line_father {
+            .Gear_wheel_point_left {
+              left: -30.8%;
+              top: 53%;
+            }
+            .Gear_wheel_point_right {
+              left: -12%;
+              top: 53%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(45deg);
+              left: -14%;
+              top: 73%;
+            }
+            .Gear_wheel_line_short {
+              left: -26%;
+              top: 55%;
+            }
+          }
+
+          .point_AND_line_father1 {
+            .Gear_wheel_point_left {
+              left: -30.8%;
+              top: 200%;
+            }
+            .Gear_wheel_point_right {
+              left: -12%;
+              top: 200%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(-45deg);
+              left: -14%;
+              top: 186%;
+            }
+            .Gear_wheel_line_short {
+              left: -26%;
+              top: 203%;
+            }
+          }
+          .point_AND_line_father2 {
+            .Gear_wheel_point_left {
+              right: -31.6%;
+              top: 51%;
+            }
+            .Gear_wheel_point_right {
+              right: -12%;
+              top: 51%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(135deg);
+              right: -14%;
+              top: 71%;
+            }
+            .Gear_wheel_line_short {
+              transform: rotate(180deg);
+              right: -26%;
+              top: 53.5%;
+            }
+          }
+          .point_AND_line_father3 {
+            .Gear_wheel_point_left {
+              right: -31.6%;
+              top: 202%;
+            }
+            .Gear_wheel_point_right {
+              right: -12%;
+              top: 202%;
+            }
+            .Gear_wheel_line_long {
+              transform: rotate(45deg);
+              right: -14%;
+              top: 187%;
+            }
+            .Gear_wheel_line_short {
+              transform: rotate(180deg);
+
+              right: -26%;
+              top: 205%;
+            }
+          }
+
+          .wheel_Rainbow_position {
+            position: absolute;
+            left: -226%;
+            top: 12%;
+          }
+          .wheel_Rainbow_position1 {
+            position: absolute;
+            left: -226%;
+            bottom: -148%;
+          }
+          .wheel_Rainbow_position2 {
+            position: absolute;
+            right: -226.5%;
+            top: 12%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+          .wheel_Rainbow_position3 {
+            position: absolute;
+            right: -226.5%;
+            bottom: -148%;
+            .Key_Players_In_Gear {
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 834px) {
   .home_view {
     .container {
@@ -3167,7 +3755,7 @@ const UtilityNet_Basic_box_data = ref([
         }
       }
       .Join_the_UtilityNet_right {
-        width: 65%;
+        width: 100%;
         // height: 290px;
       }
     }

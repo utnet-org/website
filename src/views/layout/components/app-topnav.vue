@@ -233,11 +233,17 @@ function seticon(icon: string, isdark: boolean) {
         <div class="container_left">
           <RouterLink to="/">
             <div class="logo_box" @click="selectType = false">
-              <Logo v-if="viewableWidth > 834" />
+              <Logo class="logo_img" v-if="viewableWidth > 834" />
               <LogoP v-else />
-              <UtilityW v-if="theme && viewableWidth > 834" />
+              <UtilityW
+                class="logo_img_U"
+                v-if="theme && viewableWidth > 834"
+              />
               <UtilityWP v-if="theme && viewableWidth < 834" />
-              <UtilityB v-if="!theme && viewableWidth > 834" />
+              <UtilityB
+                class="logo_img_U"
+                v-if="!theme && viewableWidth > 834"
+              />
               <UtilityBP v-if="!theme && viewableWidth < 834" />
               <!-- <span class="logo_text">Utility</span> -->
             </div>
@@ -467,6 +473,82 @@ function seticon(icon: string, isdark: boolean) {
   }
 }
 
+@media (max-width: 1172px) {
+  .app-topnav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    z-index: 999;
+    // background: var(--background-color);
+    // box-shadow: var(--box-shadow-light);
+    flex-shrink: 0; // 防止被 flex 容器压缩
+    height: 66px;
+    width: 100vw;
+    .app_topnav_f {
+      margin: 0 10px;
+      background: var(--topnav-background-color);
+      border-radius: 18px;
+    }
+    .container {
+      padding: 0 20px 0 20px;
+    }
+  }
+}
+@media (max-width: 1074px) {
+  .app-topnav {
+    position: fixed;
+    top: 20px;
+
+    height: 64px;
+
+    .app_topnav_f {
+      margin: 0 10px;
+      border-radius: 16px;
+    }
+    .container {
+      padding: 0 20px 0 20px;
+      .container_left {
+        display: flex;
+        align-items: center;
+      }
+      .logo_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-right: 0px;
+        .logo_img {
+          //缩放
+          transform: scale(0.9);
+        }
+        .logo_img_U {
+          transform: scale(0.9);
+        }
+
+        img {
+          height: 37px;
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .theme {
+    margin-right: 6px;
+    cursor: pointer;
+    width: 24px;
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+}
 @media (max-width: 834px) {
   .app-topnav {
     .container {

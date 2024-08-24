@@ -20,6 +20,7 @@ const handleClick = () => {
 <template>
   <div class="ut_search">
     <img
+      class="small_icon"
       :style="{
         filter: theme ? 'brightness(100%)' : 'brightness(0%)'
       }"
@@ -41,5 +42,23 @@ const handleClick = () => {
   justify-content: center;
   align-items: center;
   cursor: pointer; // 鼠标移入变成手指
+}
+@media (max-width: 1020px) {
+  .ut_search {
+    width: 45px !important;
+    height: 30px !important;
+    border-radius: 20px !important;
+
+    .small_icon {
+      width: 18px !important;
+    }
+  }
+}
+@media (max-width: 968px) {
+  .ut_search {
+    transform: translateX(-20%);
+    width: 40px !important;
+    height: 28px !important;
+  }
 }
 </style>

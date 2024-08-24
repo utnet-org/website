@@ -1,114 +1,120 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
+import { ref } from 'vue'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
 const communityOptionsList = [
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png",
-    title: "Join Online Community",
-    text: "Join our community to discuss, learn and share with us",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png',
+    title: 'Join Online Community',
+    text: 'Join our community to discuss, learn and share with us'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png",
-    title: "Contribute to the Project",
-    text: "Interested individuals and teams are welcome to contribute to our projects and realize our vision together.",
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png',
+    title: 'Contribute to the Project',
+    text: 'Interested individuals and teams are welcome to contribute to our projects and realize our vision together.'
   },
   {
     image:
-      "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png",
-    title: "UtilityNet Activities",
-    text: "Provide in-depth understanding and participation",
-  },
-];
-const hoverCheckIndex = ref(-1);
+      'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png',
+    title: 'UtilityNet Activities',
+    text: 'Provide in-depth understanding and participation'
+  }
+]
+const hoverCheckIndex = ref(-1)
 const toggleMenuList = [
   {
-    firstTitle: "community.toggleMenuList[0].firstTitle",
-    secondTitle: "community.toggleMenuList[0].secondTitle",
-    text: "community.toggleMenuList[0].text",
+    firstTitle: 'community.toggleMenuList[0].firstTitle',
+    secondTitle: 'community.toggleMenuList[0].secondTitle',
+    text: 'community.toggleMenuList[0].text'
   },
   {
-    firstTitle: "community.toggleMenuList[1].firstTitle",
-    secondTitle: "community.toggleMenuList[1].secondTitle",
-    text: "community.toggleMenuList[1].text",
+    firstTitle: 'community.toggleMenuList[1].firstTitle',
+    secondTitle: 'community.toggleMenuList[1].secondTitle',
+    text: 'community.toggleMenuList[1].text'
   },
   {
-    firstTitle: "community.toggleMenuList[2].firstTitle",
-    secondTitle: "community.toggleMenuList[2].secondTitle",
-    text: "community.toggleMenuList[2].text",
+    firstTitle: 'community.toggleMenuList[2].firstTitle',
+    secondTitle: 'community.toggleMenuList[2].secondTitle',
+    text: 'community.toggleMenuList[2].text'
   },
   {
-    firstTitle: "community.toggleMenuList[3].firstTitle",
-    secondTitle: "community.toggleMenuList[3].secondTitle",
-    text: "community.toggleMenuList[3].text",
-  },
-];
+    firstTitle: 'community.toggleMenuList[3].firstTitle',
+    secondTitle: 'community.toggleMenuList[3].secondTitle',
+    text: 'community.toggleMenuList[3].text'
+  }
+]
 const stepsList = [
   {
-    time: "2023 10/31 8:00（UTC+8）",
-    message: "PoCI、PIEE 和 CAT 深入分析",
-    reason: "Online Meeting",
+    time: '2023 10/31 8:00（UTC+8）',
+    message: 'PoCI、PIEE 和 CAT 深入分析',
+    reason: 'Online Meeting'
   },
   {
-    time: "2023 10/29/ 8:00（UTC+8）",
-    message: "In-depth Analysis of PoCI, PIEE & CAT",
-    reason: "Online Meeting",
-  },
-];
-const viewableWidth = ref(document.documentElement.clientWidth ?? 0);
-const accordionTitle = "community.Consensus Chip";
+    time: '2023 10/29/ 8:00（UTC+8）',
+    message: 'In-depth Analysis of PoCI, PIEE & CAT',
+    reason: 'Online Meeting'
+  }
+]
+const viewableWidth = ref(document.documentElement.clientWidth ?? 0)
+const accordionTitle = 'community.Consensus Chip'
 const accordionList = [
   {
-    title: "Initialize Generation",
-    messageTitle: "Strengthen UtilityNet Net",
+    title: 'Initialize Generation',
+    messageTitle: 'Strengthen UtilityNet Net',
     messageText:
-      "All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!",
+      'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
   },
   {
-    title: "Data Transmission",
-    messageTitle: "Data Transmission",
+    title: 'Data Transmission',
+    messageTitle: 'Data Transmission',
     messageText:
-      "All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!",
+      'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
   },
   {
-    title: "Data Validation",
-    messageTitle: "Data Validation",
+    title: 'Data Validation',
+    messageTitle: 'Data Validation',
     messageText:
-      "All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!",
-  },
-];
+      'All of us are free from birth, no matter how strong the person who stands in the way of this, whether it is the water of fire, the land of ice, whatever! Surely those who see these things are the freest people in the world!'
+  }
+]
 </script>
 <template>
   <div>
     <div class="container">
-      <div class="header" :style="{
-        background:
-          !theme && viewableWidth > 834
-            ? 'url(' +
-            'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
-            ')' +
-            ' no-repeat'
-            : '',
-        'background-size': !theme ? 'cover' : '',
-      }">
+      <div
+        class="header"
+        :style="{
+          background:
+            !theme && viewableWidth > 834
+              ? 'url(' +
+                'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_background.png' +
+                ')' +
+                ' no-repeat'
+              : '',
+          'background-size': !theme ? 'cover' : ''
+        }"
+      >
         <div class="header_content">
-          <div class="header_content_header">{{ $t("community.h1_1") }}</div>
-          <div class="header_content_text">{{ $t("community.h1_2") }}</div>
+          <div class="header_content_header">{{ $t('community.h1_1') }}</div>
+          <div class="header_content_text">{{ $t('community.h1_2') }}</div>
           <div class="header_content_button">
-            <div>{{ $t("community.h1_3") }}</div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png" alt="" />
+            <div>{{ $t('community.h1_3') }}</div>
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
       <div class="swiper">
         <div class="swiper_side">
-          <div class="swiper_side_title">{{ $t("community.h2_1") }}</div>
+          <div class="swiper_side_title">{{ $t('community.h2_1') }}</div>
           <div class="swiper_side_text">
-            {{ $t("community.h2_2") }}
+            {{ $t('community.h2_2') }}
           </div>
         </div>
         <div class="swiper_right">
@@ -116,7 +122,10 @@ const accordionList = [
             <div class="lowest_level"></div>
             <div class="middle_level"></div>
             <div class="upper_level"></div>
-            <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png" alt="" />
+            <img
+              src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/communtity_swiper_images1.png"
+              alt=""
+            />
           </div>
           <div class="swiper_rightmost">
             <div></div>
@@ -127,35 +136,44 @@ const accordionList = [
       </div>
       <div class="community_options">
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options1.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
-              {{ $t("community.optionsList1.title") }}
+              {{ $t('community.optionsList1.title') }}
             </div>
             <div class="community_options_item_text">
-              {{ $t("community.optionsList1.text") }}
+              {{ $t('community.optionsList1.text') }}
             </div>
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options2.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
-              {{ $t("community.optionsList2.title") }}
+              {{ $t('community.optionsList2.title') }}
             </div>
             <div class="community_options_item_text">
-              {{ $t("community.optionsList2.text") }}
+              {{ $t('community.optionsList2.text') }}
             </div>
           </div>
         </div>
         <div class="community_options_item">
-          <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png" alt="" />
+          <img
+            src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_options3.png"
+            alt=""
+          />
           <div>
             <div class="community_options_item_title">
-              {{ $t("community.optionsList3.title") }}
+              {{ $t('community.optionsList3.title') }}
             </div>
             <div class="community_options_item_text">
-              {{ $t("community.optionsList3.text") }}
+              {{ $t('community.optionsList3.text') }}
             </div>
           </div>
         </div>
@@ -171,47 +189,81 @@ const accordionList = [
         <div>
           <div class="toggle_menu_header" v-if="viewableWidth > 834">
             <div class="toggle_menu_header_title">
-              {{ $t("community.voice_from_our_partners_title") }}
+              {{ $t('community.voice_from_our_partners_title') }}
             </div>
             <div class="toggle_menu_header_icon">
-              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 1"
-                @mouseleave="hoverCheckIndex = -1">
-                <img v-if="hoverCheckIndex == 1"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
-                  alt="" />
+              <div
+                class="toggle_menu_header_icon_item"
+                @mouseenter="hoverCheckIndex = 1"
+                @mouseleave="hoverCheckIndex = -1"
+              >
+                <img
+                  v-if="hoverCheckIndex == 1"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/previous_default.png"
+                  alt=""
+                />
               </div>
-              <div class="toggle_menu_header_icon_item" @mouseenter="hoverCheckIndex = 2"
-                @mouseleave="hoverCheckIndex = -1">
-                <img v-if="hoverCheckIndex == 2"
-                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png" alt="" />
-                <img v-else src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png" alt="" />
+              <div
+                class="toggle_menu_header_icon_item"
+                @mouseenter="hoverCheckIndex = 2"
+                @mouseleave="hoverCheckIndex = -1"
+              >
+                <img
+                  v-if="hoverCheckIndex == 2"
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_check.png"
+                  alt=""
+                />
+                <img
+                  v-else
+                  src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/next_default.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
           <div class="toggle_menu_list" v-if="viewableWidth > 834">
-            <div class="toggle_menu_list_item" v-for="(item, index) in toggleMenuList" :key="index">
+            <div
+              class="toggle_menu_list_item"
+              v-for="(item, index) in toggleMenuList"
+              :key="index"
+            >
               <div class="item_first_title">{{ $t(item.firstTitle) }}</div>
               <div class="item_second_title">{{ $t(item.secondTitle) }}</div>
-              <img src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png" alt="" />
+              <img
+                src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/toggle_menu_icon.png"
+                alt=""
+              />
               <div class="item_text">{{ $t(item.text) }}</div>
             </div>
           </div>
         </div>
-        <Accordion :accordionTitle="accordionTitle" :fromPage="'community'" :accordionList="accordionList"
-          v-if="viewableWidth < 834" />
+        <Accordion
+          :accordionTitle="accordionTitle"
+          :fromPage="'community'"
+          :accordionList="accordionList"
+          v-if="viewableWidth < 834"
+        />
         <div class="steps">
           <div class="steps_title">
-            {{ $t("community.utility_activities_title") }}
+            {{ $t('community.utility_activities_title') }}
           </div>
           <div class="steps_text">
             <div>
-              {{ $t("community.utility_activities_text")
+              {{ $t('community.utility_activities_text')
               }}<span>leon@utnet.org</span>
             </div>
             <!-- <div>Community Slack</div> -->
           </div>
-          <div v-for="(stepsItem, stepsIndex) in stepsList" :key="stepsIndex" class="steps_item">
+          <div
+            v-for="(stepsItem, stepsIndex) in stepsList"
+            :key="stepsIndex"
+            class="steps_item"
+          >
             <div class="dots"></div>
             <div class="message_text">
               <div>{{ stepsItem.time }}</div>
@@ -232,7 +284,7 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url("@/assets/images/community_background.png") no-repeat;
+    background: url('@/assets/images/community_background.png') no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -244,9 +296,11 @@ const accordionList = [
       height: 310px;
       flex-shrink: 0;
       border-radius: 10px;
-      background: linear-gradient(180deg,
-          rgba(244, 248, 248, 0.05) 0.13%,
-          rgba(244, 248, 248, 0) 99.87%);
+      background: linear-gradient(
+        180deg,
+        rgba(244, 248, 248, 0.05) 0.13%,
+        rgba(244, 248, 248, 0) 99.87%
+      );
       backdrop-filter: blur(4px);
       margin: 0 0 94px 140px;
       padding-left: 60px;
@@ -440,7 +494,7 @@ const accordionList = [
         border-top-right-radius: 12px;
       }
 
-      &>div {
+      & > div {
         margin: 29px 40px 0 44px;
 
         .community_options_item_title {
@@ -536,7 +590,9 @@ const accordionList = [
           border: var(--unc_token-subtitle-border1);
           box-shadow: var(--community-toggle_menu_list_item-shadow);
           background: var(--community-toggle_menu_list_item-hover);
-          transform: translateY(var(--community-toggle_menu_list_item-transform));
+          transform: translateY(
+            var(--community-toggle_menu_list_item-transform)
+          );
           /* 向上移动5px */
         }
 
@@ -668,6 +724,92 @@ const accordionList = [
   }
 }
 
+@media (max-width: 1554px) {
+  .container {
+    padding: 0 80px !important;
+  }
+  .toggle_menu {
+    padding: 100px 0 !important;
+  }
+}
+@media (max-width: 1110px) {
+  .container {
+    padding: 0 80px !important;
+    .swiper {
+      padding: 120px 10px;
+      .swiper_side {
+        margin-right: 20px;
+      }
+      .swiper_right {
+        .swiper_section {
+          width: 478px;
+          height: 379px;
+
+          .lowest_level {
+            width: 403.779px;
+            height: 341.419px;
+          }
+
+          .middle_level {
+            width: 441.817px;
+            height: 341.389px;
+          }
+
+          .upper_level {
+            width: 478px;
+            height: 342px;
+          }
+
+          img {
+            width: 255px;
+            height: 269px;
+            bottom: 32px;
+            left: 112px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 910px) {
+  .container {
+    padding: 0 80px !important;
+    .swiper {
+      padding: 100px 10px;
+      .swiper_side {
+        margin-right: 10px;
+      }
+      .swiper_right {
+        .swiper_section {
+          width: 378px;
+          height: 329px;
+
+          .lowest_level {
+            width: 303.779px;
+            height: 291.419px;
+          }
+
+          .middle_level {
+            width: 341.817px;
+            height: 291.389px;
+          }
+
+          .upper_level {
+            width: 378px;
+            height: 292px;
+          }
+
+          img {
+            width: 205px;
+            height: 219px;
+            bottom: 42px;
+            left: 80px;
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 834px) {
   .container {
     .header {
@@ -823,7 +965,7 @@ const accordionList = [
           height: 234px;
         }
 
-        &>div {
+        & > div {
           margin: 24px 14px 37px;
 
           .community_options_item_title {
