@@ -124,7 +124,10 @@ const optionsList = [
         </div>
       </div>
       <div class="header_content_bg">
-        <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item1.jpg" alt="" />
+        <img
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center_item1.jpg"
+          alt=""
+        />
       </div>
     </div>
     <div class="message">
