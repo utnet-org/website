@@ -3109,7 +3109,7 @@ const UtilityNet_Basic_box_data = ref([
 @media (max-width: 834px) {
   .home_view {
     .container {
-      padding: 0 12px;
+      padding: 0 12px !important;
     }
     .Welcome {
       // padding-top: 24px;
@@ -3318,7 +3318,7 @@ const UtilityNet_Basic_box_data = ref([
 
     .Key_Players_In {
       width: 100%;
-      height: 300px;
+      height: 330px !important;
       flex-shrink: 0;
       margin-bottom: 30px;
       background: var(--home-Key_Players_In_bg) no-repeat;

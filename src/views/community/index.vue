@@ -812,6 +812,7 @@ const accordionList = [
 }
 @media (max-width: 834px) {
   .container {
+  padding: 0 10px !important;
     .header {
       height: 516px;
       padding: 0 5%;

@@ -305,14 +305,14 @@ function seticon(icon: string, isdark: boolean) {
         <img
           v-if="width < 834 && theme && selectType"
           class="list_caption_image"
-          src="@/assets/images/apptop.png"
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptop.png"
           alt=""
           @click="blockSelect"
         />
         <img
           v-if="width < 834 && theme && !selectType"
           class="list_caption_image"
-          src="@/assets/images/apptopc.png"
+          src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/apptopc.png"
           alt=""
           @click="blockSelect"
         />
