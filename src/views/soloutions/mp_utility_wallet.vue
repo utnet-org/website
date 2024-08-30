@@ -5,17 +5,17 @@
       <div class="header_content">
         <div class="header_content_bg"></div>
         <div class="header_content_header">
-          {{ $t("soloutions.utility_wallet") }}
+          {{ $t('soloutions.utility_wallet') }}
         </div>
         <div class="header_content_button">
           <div class="header_content_button_one all">
-            {{ $t("soloutions.asset_management") }}
+            {{ $t('soloutions.asset_management') }}
           </div>
           <div class="header_content_button_two all">
-            {{ $t("soloutions.multifunctional_wallet") }}
+            {{ $t('soloutions.multifunctional_wallet') }}
           </div>
           <div class="header_content_button_three all">
-            {{ $t("soloutions.dapp_interaction") }}
+            {{ $t('soloutions.dapp_interaction') }}
           </div>
           <!--          <div class="header_content_button_four all">COIWN </div>-->
         </div>
@@ -23,18 +23,18 @@
     </div>
     <div class="section">
       <div class="section_title">
-        {{ $t("soloutions.about_us_title") }}
+        {{ $t('soloutions.about_us_title') }}
       </div>
       <div class="section_text">
-        {{ $t("soloutions.about_us_text") }}
+        {{ $t('soloutions.about_us_text') }}
       </div>
     </div>
     <div class="section">
       <div class="section_title">
-        {{ $t("soloutions.key_features_title") }}
+        {{ $t('soloutions.key_features_title') }}
       </div>
       <div class="section_text">
-        {{ $t("soloutions.key_features_text") }}
+        {{ $t('soloutions.key_features_text') }}
       </div>
       <div class="text_img">
         <img
@@ -59,7 +59,7 @@
 
     .header {
       width: 100%;
-      height: 380px;
+      // height: 380px;
       padding: 0 20px;
       background-size: cover;
       display: flex;

@@ -1,80 +1,80 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
-import useStore from "@/store";
-import { storeToRefs } from "pinia";
-const { home } = useStore();
-const { theme } = storeToRefs(home);
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+const { home } = useStore()
+const { theme } = storeToRefs(home)
 
-const width = ref(window.innerWidth);
-const height = ref(window.innerHeight);
+const width = ref(window.innerWidth)
+const height = ref(window.innerHeight)
 const updatedWidth = function () {
-  width.value = window.innerWidth;
-  height.value = window.innerHeight;
-};
+  width.value = window.innerWidth
+  height.value = window.innerHeight
+}
 onMounted(async () => {
-  window.addEventListener("resize", updatedWidth);
-});
+  window.addEventListener('resize', updatedWidth)
+})
 onUnmounted(() => {
-  window.removeEventListener("resize", updatedWidth);
-});
+  window.removeEventListener('resize', updatedWidth)
+})
 const options_list = computed(() => [
   {
-    title: "Run a node",
-    text: "docs.Empower_the_Network",
+    title: 'Run a node',
+    text: 'docs.Empower_the_Network',
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_1_docs.png"
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png",
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_1_docs.png'
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image1.png',
     style: !theme.value
       ? width.value > 835
-        ? "width: 87px; height: 100px; margin: 50px"
-        : "width: 87px; height: 100px; margin: 50px 0 25px 0"
+        ? 'width: 87px; height: 100px; margin: 50px'
+        : 'width: 87px; height: 100px; margin: 50px 0 25px 0'
       : width.value > 835
-      ? "width: 152px; height: 151px; margin:24px 0 23px 16px;"
-      : "width: 152px; height: 151px; margin-top:26px;",
+      ? 'width: 152px; height: 151px; margin:24px 0 23px 16px;'
+      : 'width: 152px; height: 151px; margin-top:26px;'
   },
   {
-    title: "Provide my hashing power",
-    text: "docs.Contribute_Computing_Power",
+    title: 'Provide my hashing power',
+    text: 'docs.Contribute_Computing_Power',
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_2_docs.png "
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png",
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_2_docs.png '
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image2.png',
     style: !theme.value
       ? width.value > 835
-        ? "width: 88px; height: 123px;margin: 50px "
-        : "width: 88px; height: 123px; margin: 50px 0 28px 0"
+        ? 'width: 88px; height: 123px;margin: 50px '
+        : 'width: 88px; height: 123px; margin: 50px 0 28px 0'
       : width.value > 835
-      ? "width: 152px; height: 151px; margin:48px 0 23px 18px;"
-      : "width: 152px; height: 151px; margin-top:50px;",
+      ? 'width: 152px; height: 151px; margin:48px 0 23px 18px;'
+      : 'width: 152px; height: 151px; margin-top:50px;'
   },
   {
-    title: "build a dapp",
-    text: "docs.Innovate_with_Us",
+    title: 'build a dapp',
+    text: 'docs.Innovate_with_Us',
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_3_docs.png"
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png",
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_3_docs.png'
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image3.png',
     style: !theme.value
       ? width.value > 835
-        ? "width: 100px; height: 95px; margin: 50px"
-        : "width: 100px; height: 95px; margin: 50px 0 28px 0"
+        ? 'width: 100px; height: 95px; margin: 50px'
+        : 'width: 100px; height: 95px; margin: 50px 0 28px 0'
       : width.value > 835
-      ? "width: 152px; height: 151px; margin: 22px"
-      : "width: 152px; height: 151px; margin-top:24px;",
+      ? 'width: 152px; height: 151px; margin: 22px'
+      : 'width: 152px; height: 151px; margin-top:24px;'
   },
   {
-    title: "White Paper",
-    text: "docs.Explore_Our_Foundation",
+    title: 'White Paper',
+    text: 'docs.Explore_Our_Foundation',
     images: !theme.value
-      ? "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_4_docs.png"
-      : "https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png",
+      ? 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/Layer_4_docs.png'
+      : 'https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/options_image4.png',
     style: !theme.value
       ? width.value > 835
-        ? "width: 87px; height: 100px;margin: 50px "
-        : "width: 87px; height: 100px;margin: 50px 0 28px 0"
+        ? 'width: 87px; height: 100px;margin: 50px '
+        : 'width: 87px; height: 100px;margin: 50px 0 28px 0'
       : width.value > 835
-      ? "width: 152px; height: 151px; margin:24px 0 24px 17px;"
-      : "width: 152px; height: 151px; margin-top:26px;",
-  },
-]);
+      ? 'width: 152px; height: 151px; margin:24px 0 24px 17px;'
+      : 'width: 152px; height: 151px; margin-top:26px;'
+  }
+])
 </script>
 <template>
   <div class="container">
@@ -93,7 +93,7 @@ const options_list = computed(() => [
       <div class="header_image">
         <div class="header_title">UtilityNet Docs</div>
         <div class="header_text">
-          {{ $t("docs.At_this_stage_UNC") }}
+          {{ $t('docs.At_this_stage_UNC') }}
         </div>
       </div>
     </div>
@@ -113,11 +113,6 @@ const options_list = computed(() => [
   </div>
 </template>
 <style scoped lang="less">
-.container {
-  // background: #fffefb;
-  padding-top: 70px;
-}
-
 @media (min-width: 835px) {
   .header {
     width: 100%;
@@ -203,13 +198,13 @@ const options_list = computed(() => [
 @media (max-width: 835px) {
   .header {
     width: 100%;
-    height: 430px;
+    height: 500px;
     background: var(--docs-bgc-phone);
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     padding: 0 20px 30px 20px;
 
     .header_image {

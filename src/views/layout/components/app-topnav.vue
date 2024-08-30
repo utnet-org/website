@@ -341,22 +341,22 @@ function seticon(icon: string, isdark: boolean) {
         class="list_caption_select_item"
         v-for="(item, index) in nav_arr"
         :key="index"
-        :style="{
+      >
+        <!-- :style="{
           height: item.show
             ? index == 0
               ? locale == 'en'
-                ? '465.69px'
-                : '415.69px'
+                ? '505.69px'
+                : '435.69px'
               : index == 1
               ? '382.75px'
               : index == 2
-              ? '311.75px'
+              ? '351.75px'
               : index == 5
               ? '168px'
               : ''
             : 0
-        }"
-      >
+        }" -->
         <div
           class="list_caption_select_item_header"
           @click="changeSelectIndex(item, index)"
@@ -589,12 +589,12 @@ function seticon(icon: string, isdark: boolean) {
     // border-bottom: 1px solid #e5e5e5;
 
     .list_caption_select_item {
-      padding: 20px 20px 0;
+      padding: 0 20px;
+      padding-top: 20px;
       overflow: hidden;
       transition: all 0.3s ease-in-out;
       display: flex;
       flex-direction: column;
-      padding-bottom: 20px;
 
       .list_caption_select_item_header {
         display: flex;
@@ -663,6 +663,14 @@ function seticon(icon: string, isdark: boolean) {
           }
         }
       }
+    }
+    .list_caption_select_item:nth-child(4),
+    .list_caption_select_item:nth-child(5),
+    .list_caption_select_item:nth-child(6) {
+      padding-top: 10px;
+    }
+    .list_caption_select_item:nth-child(5) {
+      padding-bottom: 0;
     }
   }
 }

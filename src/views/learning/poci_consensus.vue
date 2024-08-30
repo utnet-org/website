@@ -194,7 +194,10 @@ const changeCheckIndex = (index: any) => {
                   {{ $t(citem.question) }}
                 </div>
               </div>
-              <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Arrow_Right.png" alt="" />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Arrow_Right.png"
+                alt=""
+              />
             </div>
             <div
               v-if="checkQuestionIndex == cindex"
@@ -211,7 +214,7 @@ const changeCheckIndex = (index: any) => {
 <style scoped lang="less">
 .container {
   // background-color: #fffefb;
-  padding-top: 70px;
+  // padding-top: 70px;
   .header {
     width: 100%;
     height: 578px;
@@ -490,8 +493,9 @@ const changeCheckIndex = (index: any) => {
 @media (max-width: 834px) {
   .container {
     .header {
-      height: 484px;
+      height: 534px;
       padding: 0 5%;
+
       background: var(--poci_consensus-bgc-phone);
 
       background-size: cover;

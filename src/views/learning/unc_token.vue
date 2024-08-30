@@ -21,7 +21,8 @@ const optionsList = [
     link: 'https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x35da89a339de2c78f8fb1c5e1a9a9c6539e2fa8a'
   },
   {
-    image: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_options_item2.svg',
+    image:
+      'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_options_item2.svg',
     title: 'Hotcoin Global',
     text: 'utilityNetwork.digital_asset_trading',
     link: 'https://www.hotcoin.com/'
@@ -106,8 +107,6 @@ const distributionBox = ref<HTMLElement | null>(null)
 
 // 监听滚动事件
 const handleScroll = () => {
-  console.log('distributionBox', distributionBox.value)
-
   if (!distributionBox.value) return
   const rect = distributionBox.value.getBoundingClientRect()
   // 获取 UNC_Token_Distribution 盒子的顶部位置
@@ -178,7 +177,10 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="unc_token_header_bg">
-          <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_header_bg.png" alt="" />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/unc_token_header_bg.png"
+            alt=""
+          />
         </div>
       </div>
       <div class="message">
@@ -193,7 +195,10 @@ onBeforeUnmount(() => {
         <div class="subtitle">
           <div class="subtitle_options">
             <div class="subtitle_options_item">
-              <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/subtitle_options_item_bg.png" alt="" />
+              <img
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/subtitle_options_item_bg.png"
+                alt=""
+              />
               <div>
                 <div
                   class="subtitle_options_item_title"
@@ -462,7 +467,10 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div class="Join_the_UtilityNet_right">
-            <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png" alt="" />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -1751,10 +1759,10 @@ li {
               }
 
               .mark-item {
-                width: 4px;
-                height: 10px;
-                margin-right: -6px;
-                line-height: 10px;
+                width: 6px;
+                height: 8px;
+                margin-right: 0px;
+                line-height: 0px;
                 font-size: 6px;
                 position: relative;
                 & > span {
@@ -1767,7 +1775,7 @@ li {
               }
 
               .number-item {
-                width: 6px;
+                width: 5px;
                 height: 8px;
                 display: flex;
                 justify-content: center;
@@ -1783,7 +1791,7 @@ li {
                   text-orientation: upright; // 文字方向
                   overflow: hidden;
                   & > i {
-                    width: 3px;
+                    width: 4px;
                     font-style: normal;
                     position: absolute;
                     display: flex;
@@ -1817,9 +1825,10 @@ li {
             }
             .UNC_Token_Distribution_border {
               position: absolute;
-              width: 108.675px;
-              height: 22.251px;
+              width: 110.675px;
+              height: 22px;
               flex-shrink: 0;
+              padding-left: 5px;
               background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UNC_Token_Distribution_border.png')
                 no-repeat;
               background-size: contain;
@@ -1839,35 +1848,42 @@ li {
               .UNC_Token_Distribution_border_text {
                 color: var(--home-title-color);
                 font-family: Gilroy-SemiBold;
-                font-size: 6.892px;
+                font-size: 6px;
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 300;
                 line-height: normal;
                 max-width: 104px;
+                //文字超过三行隐藏
+                display: -webkit-box; /* 必须结合使用，用于创建弹性容器 */
+                -webkit-line-clamp: 2; /* 限制显示的行数 */
+                -webkit-box-orient: vertical; /* 设置伸缩盒子的子元素排列方式为垂直排列 */
+                overflow: hidden; /* 隐藏多余文本 */
+                text-overflow: ellipsis; /* 添加省略号 */
+                white-space: normal; /* 强制文本换行 */
               }
             }
           }
           .Arithmetic_Incentive {
             .UNC_Token_Distribution_border {
-              left: -136%;
+              left: -146%;
               top: 50%;
             }
           }
           .Arithmetic_Incentive1 {
             .UNC_Token_Distribution_border {
-              right: -123%;
+              right: -145%;
               top: -10px;
             }
           }
           .Arithmetic_Incentive2 {
             .UNC_Token_Distribution_border {
-              right: -135%;
+              right: -145%;
               top: 26.8px;
             }
           }
           .Arithmetic_Incentive3 {
             .UNC_Token_Distribution_border {
-              right: -125%;
+              right: -145%;
               top: 66.8px;
             }
           }
@@ -1911,7 +1927,7 @@ li {
           gap: 15px;
           .options_item {
             // height: 105px;
-            width: 100%;
+            width: 260px;
             padding: 10px 15px;
             border-radius: 8px;
             background: var(--home-background-color-child);

@@ -678,7 +678,7 @@ const optionsList = [
 
         .message_card_list_item {
           width: 100%;
-          max-height: 190px;
+          height: 100%;
           padding: 0 14px;
           background: linear-gradient(
             260deg,
@@ -713,6 +713,7 @@ const optionsList = [
         padding-bottom: 48px;
 
         .options_header_title {
+          margin-top: 10px;
           margin-bottom: 16px;
         }
 
@@ -733,12 +734,14 @@ const optionsList = [
         grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
         grid-column-gap: 12px;
         /* 项目之间的水平间距 */
-        grid-row-gap: 56px;
+        grid-row-gap: 36px;
+        margin-bottom: 20px;
 
         .options_item {
           width: 100%;
-          height: 280px;
+          height: 100%;
           justify-content: start;
+          padding-bottom: 20px;
 
           border: var(--utility_explain-options_item-options_list-border);
 

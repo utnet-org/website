@@ -284,7 +284,8 @@ const accordionList = [
   .header {
     width: 100%;
     height: 558px;
-    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/community_background.png') no-repeat;
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/community_background.png')
+      no-repeat;
     background-position: right;
     background-size: cover;
     display: flex;
@@ -812,7 +813,7 @@ const accordionList = [
 }
 @media (max-width: 834px) {
   .container {
-  padding: 0 10px !important;
+    padding: 0 0px !important;
     .header {
       height: 516px;
       padding: 0 5%;
@@ -977,7 +978,7 @@ const accordionList = [
     }
 
     .toggle_menu {
-      padding: 0;
+      padding: 0 !important;
 
       .steps {
         padding: 46px 5% 60px;

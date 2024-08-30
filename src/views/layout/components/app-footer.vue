@@ -677,7 +677,7 @@ const printWidth = () => {
   .app_footer {
     width: 100%;
     padding: 28px;
-    min-height: 720px;
+    min-height: 640px;
 
     .container_top {
       display: flex;

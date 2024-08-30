@@ -175,7 +175,7 @@ function scrollToPosition(i: string) {
 
   console.log('距离页面顶部的距离：', distanceToTop)
   window.scrollTo({
-    top: distanceToTop - 100 - 50, // 设置滚动条位置为顶部
+    top: distanceToTop - 100 - 80, // 设置滚动条位置为顶部
     behavior: 'smooth' // 平滑滚动
   })
 
@@ -395,6 +395,7 @@ const handleScroll = () => {
     </div>
   </div>
 </template>
+
 <style scoped lang="less">
 .homeHandDiv {
   width: 100%;
@@ -405,8 +406,8 @@ const handleScroll = () => {
     width: 100%;
     height: 900px;
     background: #0b0b11;
-    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center
-      center / cover;
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg')
+      no-repeat center center / cover;
     position: absolute;
     z-index: -1;
     // 模糊效果
@@ -416,8 +417,8 @@ const handleScroll = () => {
   .homeHand {
     position: absolute;
     background: #0b0b11;
-    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center
-      center / cover;
+    background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg')
+      no-repeat center center / cover;
     max-width: 1728px;
     width: 90%;
     height: 900px;
@@ -545,7 +546,7 @@ const handleScroll = () => {
       position: relative;
       position: -webkit-sticky;
       position: sticky;
-      top: 70px;
+      top: 90px;
       flex-shrink: 0;
 
       .section_side_opacity {
@@ -792,7 +793,8 @@ const handleScroll = () => {
       height: 457px;
       padding: 0 5%;
       // background: var(--learning_center-bgc-phone);
-      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg') no-repeat center;
+      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/learning_center.jpg')
+        no-repeat center;
       background-size: cover;
       justify-content: left;
 
@@ -848,7 +850,7 @@ const handleScroll = () => {
         width: 105px;
         // height: 297px;
         flex-shrink: 0;
-
+        top: 75px;
         // filter: drop-shadow(0px 4px 24px rgba(228, 233, 232, 0.021));
         .section_side_opacity {
           width: 100%;

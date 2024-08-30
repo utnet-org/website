@@ -922,7 +922,10 @@ const UtilityNet_Basic_box_data = ref([
             </div>
           </div>
           <div class="UtilityNet_PHASE_right">
-            <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_bg.png" alt="" />
+            <img
+              src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/UtilityNet_PHASE_bg.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -1204,7 +1207,10 @@ const UtilityNet_Basic_box_data = ref([
           </div>
         </div>
         <div class="Join_the_UtilityNet_right">
-          <img src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png" alt="" />
+          <img
+            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Join_the_UtilityNet_bg.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -1697,8 +1703,8 @@ const UtilityNet_Basic_box_data = ref([
         .Colored_arrow {
           width: 58px;
           height: 70px;
-          background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Connector_ine.svg') no-repeat bottom
-            right;
+          background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Connector_ine.svg')
+            no-repeat bottom right;
           background-size: contain;
           .colored {
             width: 55%;
@@ -1731,7 +1737,8 @@ const UtilityNet_Basic_box_data = ref([
       }
     }
     .S_D_H_box_item_four {
-      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/S_D_H_2.svg') no-repeat center;
+      background: url('https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/S_D_H_2.svg')
+        no-repeat center;
       background-size: contain;
       width: 238.23px;
       height: 148.21px;
@@ -3155,11 +3162,11 @@ const UtilityNet_Basic_box_data = ref([
       }
       .Software_Defined_Hardware_box {
         display: flex;
-        align-items: center;
+        align-items: left;
         //换行
         // flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px;
+        justify-content: left;
+        padding: 0 10px;
         border-radius: 8px;
         background: #202022;
         box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
@@ -3169,29 +3176,19 @@ const UtilityNet_Basic_box_data = ref([
           0px 10px 22px 0px rgba(0, 0, 0, 0.1);
 
         width: 324px; /* 设置容器的宽度 */
-        height: 200px; /* 设置容器的高度 */
         overflow: hidden; /* 隐藏溢出的部分 */
-        position: relative;
+        overflow-x: auto;
+        // position: relative;
         margin: 0 auto;
-
+        overflow-x: auto; /* 启用水平滚动条 */
+        white-space: nowrap; /* 防止图片自动换行 */
         .scrolling-image {
           max-width: none;
-          width: 730px; /* 设置长图片的宽度（要大于容器宽度） */
-          height: 100%; /* 图片高度与容器高度一致 */
-          position: absolute;
-          animation: scroll 4s linear infinite; /* 动画持续时间10秒，线性滚动，循环播放 */
-          animation-direction: alternate;
-        }
-        @keyframes scroll {
-          0% {
-            left: 20px;
-          }
-          100% {
-            left: -430px;
-          }
-        }
-        .paused {
-          animation-play-state: paused;
+          // width: 100%;
+          width: 720px; /* 设置长图片的宽度（要大于容器宽度） */
+          display: block;
+          // height: 170px; /* 图片高度与容器高度一致 */
+          height: auto; /* 保持图片比例 */
         }
       }
     }
@@ -3215,7 +3212,8 @@ const UtilityNet_Basic_box_data = ref([
         width: 100%;
         height: 100%;
         flex-shrink: 0;
-        padding: 20px 30px;
+        justify-content: left;
+        padding: 10px;
         border-radius: 8px;
         background: #202022;
         box-shadow: 0px 251px 70px 0px rgba(0, 0, 0, 0),
@@ -3225,29 +3223,20 @@ const UtilityNet_Basic_box_data = ref([
           0px 10px 22px 0px rgba(0, 0, 0, 0.1);
 
         width: 324px; /* 设置容器的宽度 */
-        height: 200px; /* 设置容器的高度 */
+        height: auto;
         overflow: hidden; /* 隐藏溢出的部分 */
-        position: relative;
+        overflow-x: auto;
+        // position: relative;
         margin: 0 auto;
-
+        overflow-x: auto; /* 启用水平滚动条 */
+        white-space: nowrap; /* 防止图片自动换行 */
         .scrolling-image {
           max-width: none;
-          width: 730px; /* 设置长图片的宽度（要大于容器宽度） */
-          height: 100%; /* 图片高度与容器高度一致 */
-          position: absolute;
-          animation: scroll 4s linear infinite; /* 动画持续时间10秒，线性滚动，循环播放 */
-          animation-direction: alternate;
-        }
-        @keyframes scroll {
-          0% {
-            left: 20px;
-          }
-          100% {
-            left: -430px;
-          }
-        }
-        .paused {
-          animation-play-state: paused;
+          // width: 100%;
+          width: 720px; /* 设置长图片的宽度（要大于容器宽度） */
+          display: block;
+          // height: 170px; /* 图片高度与容器高度一致 */
+          height: auto; /* 保持图片比例 */
         }
       }
     }
