@@ -638,6 +638,7 @@ const UtilityNet_Basic_box_data = ref([
               :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
               <!-- {{ $t('home.Welcome_to_utility') }} -->
+              
               {{ $t('home.Welcome_to_utility2') }}
               <!-- Decentralized Digital Chip Network. -->
             </div>
