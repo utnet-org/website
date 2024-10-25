@@ -78,8 +78,10 @@ export default {
   home: {
     Computational_Power_Synthesis: "Computational Power Synthesis",
     Welcome_to_utility: "Next Generation Edge Computing and AI Infrastructure",
+    Welcome_to_utility2: "Decentralized Digital Chip Network.",
     An_application:
       "A decentralized edge computing blockchain network composed of chips defined through the block chain provides resources for AI-directed computing and a variety of heterogeneous computing.",
+    An_application2:"Providing chip resources for next-generation edge computing and artificial intelligence infrastructure.",
     White_Paper: "White Paper",
     More: "More",
 
@@ -160,6 +162,84 @@ export default {
     Rent: "Rent",
     Utility_Ecosystem: "UtilityNet Ecosystem",
     Utility_Ecosystem_text1: "Everyone can be UNC holder to purchase UtilityNet and exchange UNC token.",
+    Software_Defined_Hardware:'Software-Defined Hardware',
+    POCI_Validation_Logic:'POCI Validation Logic',
+    UtilityNet_PHASE1_Testnet_is_now_launched:'UtilityNet PHASE-1 Testnet is now launched',
+    More_on_Testnet:'More on Testnet',
+    Join_Testnet:'Join Testnet!',
+    Key_Players_In_The_Utilitynet_Ecosystem:'Key Players In The Utilitynet Ecosystem',
+    BASE_LAYER:'BASE LAYER',
+    Miners:'Miners',
+    UtilityNet_Basic_Functions:'UtilityNet Basic Functions',
+    RECENT_HIGHLIGHTS:'RECENT HIGHLIGHTS',
+    UtilityNet_Basic_box_data:{
+      title1:'utilityNetwork',
+      title2:'UNC SCAN',
+      title3:'UtilityNet Wallet',
+      title4:'Container Cloud',
+      title5:'Core Galaxy',
+      title6:'Mining Tools',
+      title7:'AI Model',
+      title8:'SDK/DApps',
+      text1:`A high-performance distributed computing resource network.`,
+      text2:`Block explorer for analyzing and querying computing power orders and transaction tools.`,
+      text3:`Convenient asset management tools available as browser extensions, desktop, and mobile versions.`,
+      text4:`A distributed cloud computing service platform based on the UtilityNet ecosystem.`,
+      text5:`A decentralized ecosystem credit scoring system.`,
+      text6:`Efficient mining utilities, including setup, monitoring, and strategy optimization.`,
+      text7:`A series of pre-trained and customizable AI models supported by UtilityNet.`,
+      text8:`Comprehensive SDKs and decentralized application development environment.`,
+    },
+    Recent_Highlights_data:{
+      title1:'Calculate demand analysis and the next tuyere1',
+      title2:'Calculate demand analysis and the next tuyere2',
+      title3:'Calculate demand analysis and the next tuyere3',
+      title4:'Calculate demand analysis and the next tuyere4',
+      title5:'Calculate demand analysis and the next tuyere5',
+      title6:'Calculate demand analysis and the next tuyere6',
+      title7:'Calculate demand analysis and the next tuyere1',
+      title8:'Calculate demand analysis and the next tuyere2',
+      title9:'Calculate demand analysis and the next tuyere3',
+      title10:'Calculate demand analysis and the next tuyere4',
+      title11:'Calculate demand analysis and the next tuyere5',
+      title12:'Calculate demand analysis and the next tuyere6',
+      time1:'September 21, 2023',
+      time2:'September 21, 2023',
+      time3:'September 21, 2023',
+      time4:'September 21, 2023',
+      time5:'September 21, 2023',
+      time6:'September 21, 2023',
+      time7:'September 21, 2023',
+      time8:'September 21, 2023',
+      time9:'September 21, 2023',
+      time10:'September 21, 2023',
+      time11:'September 21, 2023',
+      time12:'September 21, 2023',
+    },
+    Texts:{
+      text1:`Developers can flexibly program hardware with software to create
+      personalized and efficient solutions. The value starting point of
+      UtilityNet is its token (UNC) and protocol (POCI), which defines the
+      software from the demand side, then shapes the SDK and drivers,
+      ultimately influencing the design of the chip – something that has
+      never happened before in the history of blockchain!`,
+      text2:`Developers can flexibly program hardware with software to create
+      personalized and efficient solutions. The value starting point of
+      UtilityNet is its token (UNC) and protocol (POCI), which defines the
+      software from the demand side, then shapes the SDK and drivers,
+      ultimately influencing the design of the chip – something that has
+      never happened before in the history of blockchain!`,
+      text3:`The current test site is open source, with hundreds of code
+      contributors. Together, we are building UtilityNet into a powerful
+      distributed computing resource network.You can suggest edits for
+      any content on this site, propose outstanding new features, or
+      help us troubleshoot errors.`,
+      text4:` In the UtilityNet ecosystem, UNC tokens, as the core value vehicle
+      within the ecosystem, are key to connecting and incentivizing all
+      participants.`,
+      text5:`Join the UtilityNet open source community to accelerate building the
+      future!`,
+    },
   },
   learning_center: {
     What_is_UtilityNet: "What is UtilityNet?",
@@ -196,6 +276,10 @@ export default {
 
     What_is_UNC: 'What is UNC ?',
     How_to_understand: 'How to understand the concept of DePIN? To put it simply, the operation of traditional CePIN servers, sensors, communication networks and other physical infrastructure networks relies on centralized computing cluster services such as AWS and Alibaba Cloud. The investment cost is too high for many small and medium-sized enterprises.',
+    How_to_understand2:`UNCs are the only value-anchored carrier credentials in the
+    UtilityNet ecosystem, and users can earn UNC rewards for providing
+    computing resources, driving the rapid expansion of the distributed
+    arithmetic network.`,
     U_Wallet: 'U Wallet',
     Purchase_U_Platform: 'Purchase U Platform',
     Learning_center: "Learning centre",
@@ -231,6 +315,8 @@ export default {
     Join_the_Community: "Join community",
     A_home_for_Utility_developers:
       "UtilityNet is the home for developers, technologists, designers, users and cryptocurrency enthusiasts.",
+    CURRENT_UNC_PRICE:'CURRENT UNC PRICE',
+    LAST_24_HQURS:'LAST 24 HQURS',
   },
   utilityNetwork: {
     header_title: "Infrastructure for future edge computing and artificial intelligence",
@@ -269,6 +355,15 @@ export default {
     fundamentals_of_blockchain_title: "Fundamentals of blockchain",
     fundamentals_of_blockchain_text:
       "The UNC Token is built on an efficient consensus mechanism, using proof of Trusted Computing Power (PoCI) and Proof of Lease (RPOI) to ensure a high degree of security and efficiency of the network. This innovative technology breaks through the limitations of traditional blockchains, providing users with faster consensus and block generation.",
+    fundamentals_of_blockchain_text2:`UtilityNet is currently in the testnet stage. At this stage,
+    you can also understand that UNC is a value certificate for
+    early users of UtilityNet. After the mainnet is launched, we
+    will carry out 1:1 same-proportion mapping. At this stage, the
+    value of UNC is largely Undervalued, the value of UNC will
+    gradually be recognized with the development of UtilityNet
+    distributed chip computing power ecosystem and the
+    verification of market demand, thereby achieving ideal value
+    growth!`,
     superb_application_of_smart_contracts_title:
       "Superb application of smart contracts",
     superb_application_of_smart_contracts_text:
@@ -325,6 +420,23 @@ export default {
     complete_economic_system_model_title: "Complete economic system model",
     complete_economic_system_model_text:
       "The Utilty network has a fully developed model of the economic system, divided into different epochal periods, including the Talos Age, Vajra Age, Golem Age, and Maria Age. Through incentive programs in different periods, the development of the network and the participation of users are promoted.",
+    About_UNC:'About UNC',
+    Token_Distribution:'Token Distribution',
+    Token_Distribution_text:` The total number of UNCs will eventually reach 500 million through
+    the halving deflation mechanism and the burning mechanism,
+    creating a circular circulation.`,
+    Arithmetic_Incentive_Miner:'Arithmetic Incentive (Miner)',
+    Technology_Node_Management_Fund:'Technology Node Management Fund',
+    DAO_organization_management_distribution:'DAO organization management distribution',
+    Initial_mining_of_fossil_fuel:'Initial mining of fossil fuel',
+    Where_to_get_UNC:'Where to get UNC?',
+    Where_to_get_UNC_Text:`You can get UNC from decentralized exchanges or centralized
+    exchanges that are currently live.`,
+    What_is_unique_about_UNC:'What is unique about UNC?',
+    What_is_unique_about_UNC_Text:`There are many cryptocurrencies on the market today, but there are
+    some things that only UNC can do, and UNC's value set is based on
+    the worldwide demand for distributed chip arithmetic resources and
+    our innovative POCI protocol.`,
   },
   community: {
     h1_1: "Welcome to Community",
@@ -489,5 +601,6 @@ export default {
       "What role does PoCI play in the future development of blockchain?",
     As_an_efficient_and_environmentally:
       "PoCI is expected to become a key component of future blockchain technology development. This mechanism can be seen as an optimal solution for blockchain computational power verification, helping to form a large, decentralized network of computational resources. It further enhances network security and privacy protection, providing a solid foundation for building a more robust and decentralized blockchain network.",
+    Strengthen_UtilityNet_Network:'Strengthen UtilityNet Network',
   },
 };

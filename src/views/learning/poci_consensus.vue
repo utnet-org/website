@@ -102,13 +102,15 @@ const changeCheckIndex = (index: any) => {
               '-webkit-text-fill-color': theme ? 'transparent' : ''
             }"
           >
-            POCI Consensus
+            <!-- POCI Consensus -->
+            {{ $t('nav.POCI_Consensus') }}
           </div>
           <div class="header_content_text">
             {{ $t('poci_consensus.poci_or_Proof') }}
           </div>
           <div class="header_content_button">
-            <div>Read More</div>
+            <!-- <div>Read More</div> -->
+            <div>{{ $t('community.h1_3') }}</div>
             <img
               src="https://entysquare.oss-cn-shenzhen.aliyuncs.com/unc/images/community_to_bottom.png"
               alt=""
@@ -130,7 +132,8 @@ const changeCheckIndex = (index: any) => {
               '-webkit-text-fill-color': theme ? 'transparent' : ''
             }"
           >
-            Strengthen UtilityNet Network
+            <!-- Strengthen UtilityNet Network -->
+            {{ $t('poci_consensus.Strengthen_UtilityNet_Network') }}
           </div>
           <div class="options_side_text">
             {{ $t('poci_consensus.the_introduction_of') }}

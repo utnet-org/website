@@ -144,13 +144,14 @@ onBeforeUnmount(() => {
           </div>
           <div class="header_content_text">
             <!-- {{ $t('learning_center.How_to_understand') }} -->
-            UNCs are the only value-anchored carrier credentials in the
+            {{ $t('learning_center.How_to_understand2') }}
+            <!-- UNCs are the only value-anchored carrier credentials in the
             UtilityNet ecosystem, and users can earn UNC rewards for providing
             computing resources, driving the rapid expansion of the distributed
-            arithmetic network.
+            arithmetic network. -->
           </div>
           <div class="header_content_box">
-            <div class="CURRENT_UNC_PRICe">CURRENT UNC PRICE (USD)</div>
+            <div class="CURRENT_UNC_PRICe">{{ $t('learning_center.CURRENT_UNC_PRICE') }} (USD)</div>
             <div class="money">$0.1</div>
             <div class="LAST_24_HQURS">
               <div class="green">18.62%</div>
@@ -162,7 +163,7 @@ onBeforeUnmount(() => {
                 src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/svgs/greenAarrows.svg"
                 v-if="viewableWidth < 834"
               />
-              <div class="white">(LAST 24 HQURS)</div>
+              <div class="white">({{ $t('learning_center.LAST_24_HQURS') }})</div>
             </div>
           </div>
           <div class="header_content_button">
@@ -211,11 +212,13 @@ onBeforeUnmount(() => {
                     '-webkit-text-fill-color': theme ? 'transparent' : ''
                   }"
                 >
-                  About UNC
+                  <!-- About UNC -->
+                  {{ $t('utilityNetwork.About_UNC') }}
                 </div>
                 <div class="subtitle_options_item_text">
                   <!-- {{ $t('utilityNetwork.fundamentals_of_blockchain_text') }} -->
-                  UtilityNet is currently in the testnet stage. At this stage,
+                  {{ $t('utilityNetwork.fundamentals_of_blockchain_text2') }}
+                  <!-- UtilityNet is currently in the testnet stage. At this stage,
                   you can also understand that UNC is a value certificate for
                   early users of UtilityNet. After the mainnet is launched, we
                   will carry out 1:1 same-proportion mapping. At this stage, the
@@ -223,7 +226,7 @@ onBeforeUnmount(() => {
                   gradually be recognized with the development of UtilityNet
                   distributed chip computing power ecosystem and the
                   verification of market demand, thereby achieving ideal value
-                  growth!
+                  growth! -->
                 </div>
               </div>
             </div>
@@ -322,12 +325,13 @@ onBeforeUnmount(() => {
                 '-webkit-text-fill-color': theme ? 'transparent' : ''
               }"
             >
-              $UNC Token Distribution
+              $UNC {{ $t('utilityNetwork.Token_Distribution') }}
             </div>
             <div class="UNC_Token_Distribution_text">
-              The total number of UNCs will eventually reach 500 million through
+              {{ $t('utilityNetwork.Token_Distribution_text') }}
+              <!-- The total number of UNCs will eventually reach 500 million through
               the halving deflation mechanism and the burning mechanism,
-              creating a circular circulation.
+              creating a circular circulation. -->
             </div>
           </div>
 
@@ -363,7 +367,8 @@ onBeforeUnmount(() => {
                 <div class="UNC_Token_Distribution_border">
                   <div class="UNC_Token_Distribution_border_title">97%</div>
                   <div class="UNC_Token_Distribution_border_text">
-                    Arithmetic Incentive (Miner)
+                    <!-- Arithmetic Incentive (Miner) -->
+                    {{ $t('utilityNetwork.Arithmetic_Incentive_Miner') }}
                   </div>
                 </div>
                 <div class="UNC_Token_Distribution_line"></div>
@@ -373,7 +378,8 @@ onBeforeUnmount(() => {
                 <div class="UNC_Token_Distribution_border">
                   <div class="UNC_Token_Distribution_border_title">1%</div>
                   <div class="UNC_Token_Distribution_border_text">
-                    Technology Node Management Fund
+                    <!-- Technology Node Management Fund -->
+                    {{ $t('utilityNetwork.Technology_Node_Management_Fund') }}
                   </div>
                 </div>
                 <div class="UNC_Token_Distribution_line"></div>
@@ -383,7 +389,8 @@ onBeforeUnmount(() => {
                 <div class="UNC_Token_Distribution_border">
                   <div class="UNC_Token_Distribution_border_title">1%</div>
                   <div class="UNC_Token_Distribution_border_text">
-                    DAO organization management distribution
+                    <!-- DAO organization management distribution -->
+                    {{ $t('utilityNetwork.DAO_organization_management_distribution') }}
                   </div>
                 </div>
                 <div class="UNC_Token_Distribution_line"></div>
@@ -393,7 +400,8 @@ onBeforeUnmount(() => {
                 <div class="UNC_Token_Distribution_border">
                   <div class="UNC_Token_Distribution_border_title">1%</div>
                   <div class="UNC_Token_Distribution_border_text">
-                    Initial mining of fossil fuel
+                    <!-- Initial mining of fossil fuel -->
+                    {{ $t('utilityNetwork.Initial_mining_of_fossil_fuel') }}
                   </div>
                 </div>
                 <div class="UNC_Token_Distribution_line"></div>
@@ -424,11 +432,14 @@ onBeforeUnmount(() => {
               '-webkit-text-fill-color': theme ? 'transparent' : ''
             }"
           >
-            Where to get UNC?
+            <!-- Where to get UNC? -->
+            {{ $t('utilityNetwork.Where_to_get_UNC') }}
           </div>
           <div class="options_list_header_text">
-            You can get UNC from decentralized exchanges or centralized
-            exchanges that are currently live.
+            <!-- You can get UNC from decentralized exchanges or centralized
+            exchanges that are currently live. -->
+            {{ $t('utilityNetwork.Where_to_get_UNC_Text') }}
+
           </div>
           <div class="options_list">
             <div v-for="(item, index) in optionsList" :key="index">
@@ -457,13 +468,15 @@ onBeforeUnmount(() => {
                 '-webkit-text-fill-color': theme ? 'transparent' : ''
               }"
             >
-              What is unique about UNC?
+              <!-- What is unique about UNC? -->
+              {{ $t('utilityNetwork.What_is_unique_about_UNC') }}
             </div>
             <div class="Join_the_UtilityNet_text">
-              There are many cryptocurrencies on the market today, but there are
+              <!-- There are many cryptocurrencies on the market today, but there are
               some things that only UNC can do, and UNC's value set is based on
               the worldwide demand for distributed chip arithmetic resources and
-              our innovative POCI protocol.
+              our innovative POCI protocol. -->
+              {{ $t('utilityNetwork.What_is_unique_about_UNC_Text') }}
             </div>
           </div>
           <div class="Join_the_UtilityNet_right">

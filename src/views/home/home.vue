@@ -407,38 +407,38 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
       {
         id: 0,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-        title: 'Calculate demand analysis and the next tuyere1',
-        time: 'September 21, 2023'
+        title: 'title1',
+        time: 'time1'
       },
       {
         id: 1,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-        title: 'Calculate demand analysis and the next tuyere2',
-        time: 'September 21, 2023'
+        title: 'title2',
+        time: 'time2'
       },
       {
         id: 2,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-        title: 'Calculate demand analysis and the next tuyere3',
-        time: 'September 21, 2023'
+        title: 'title3',
+        time: 'time3'
       },
       {
         id: 3,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-        title: 'Calculate demand analysis and the next tuyere4',
-        time: 'September 21, 2023'
+        title: 'title4',
+        time: 'time4'
       },
       {
         id: 4,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-        title: 'Calculate demand analysis and the next tuyere5',
-        time: 'September 21, 2023'
+        title: 'title5',
+        time: 'time5'
       },
       {
         id: 5,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-        title: 'Calculate demand analysis and the next tuyere6',
-        time: 'September 21, 2023'
+        title: 'title6',
+        time: 'time6'
       }
     ]
   },
@@ -447,38 +447,38 @@ const Recent_Highlights_data = ref<RecentHighlights[]>([
       {
         id: 6,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-        title: 'Calculate demand analysis and the next tuyere1',
-        time: 'September 21, 2023'
+        title: 'title7',
+        time: 'time7'
       },
       {
         id: 7,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-        title: 'Calculate demand analysis and the next tuyere2',
-        time: 'September 21, 2023'
+        title: 'title8',
+        time: 'time8'
       },
       {
         id: 8,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-        title: 'Calculate demand analysis and the next tuyere3',
-        time: 'September 21, 2023'
+        title: 'title9',
+        time: 'time9'
       },
       {
         id: 9,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-        title: 'Calculate demand analysis and the next tuyere4',
-        time: 'September 21, 2023'
+        title: 'title10',
+        time: 'time10'
       },
       {
         id: 10,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-        title: 'Calculate demand analysis and the next tuyere5',
-        time: 'September 21, 2023'
+        title: 'title11',
+        time: 'time11'
       },
       {
         id: 11,
         img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-        title: 'Calculate demand analysis and the next tuyere6',
-        time: 'September 21, 2023'
+        title: 'title12',
+        time: 'time12'
       }
     ]
   }
@@ -487,75 +487,75 @@ const Recent_Highlights_data1 = ref([
   {
     id: 0,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-    title: 'Calculate demand analysis and the next tuyere1',
-    time: 'September 21, 2023'
+    title: 'title1',
+    time: 'time1'
   },
   {
     id: 1,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-    title: 'Calculate demand analysis and the next tuyere2',
-    time: 'September 21, 2023'
+    title: 'title2',
+    time: 'time2'
   },
   {
     id: 2,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-    title: 'Calculate demand analysis and the next tuyere3',
-    time: 'September 21, 2023'
+    title: 'title3',
+    time: 'time3'
   },
   {
     id: 3,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-    title: 'Calculate demand analysis and the next tuyere4',
-    time: 'September 21, 2023'
+    title: 'title4',
+    time: 'time4'
   },
   {
     id: 4,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-    title: 'Calculate demand analysis and the next tuyere5',
-    time: 'September 21, 2023'
+    title: 'title5',
+    time: 'time5'
   },
   {
     id: 5,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-    title: 'Calculate demand analysis and the next tuyere6',
-    time: 'September 21, 2023'
+    title: 'title6',
+    time: 'time6'
   },
 
   {
     id: 6,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-    title: 'Calculate demand analysis and the next tuyere1',
-    time: 'September 21, 2023'
+    title: 'title7',
+    time: 'time7'
   },
   {
     id: 7,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-    title: 'Calculate demand analysis and the next tuyere2',
-    time: 'September 21, 2023'
+    title: 'title8',
+    time: 'time8'
   },
   {
     id: 8,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-    title: 'Calculate demand analysis and the next tuyere3',
-    time: 'September 21, 2023'
+    title: 'title9',
+    time: 'time9'
   },
   {
     id: 9,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights2.png',
-    title: 'Calculate demand analysis and the next tuyere4',
-    time: 'September 21, 2023'
+    title: 'title10',
+    time: 'time10'
   },
   {
     id: 10,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights3.png',
-    title: 'Calculate demand analysis and the next tuyere5',
-    time: 'September 21, 2023'
+    title: 'title11',
+    time: 'time11'
   },
   {
     id: 11,
     img: 'https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Recent_Highlights1.png',
-    title: 'Calculate demand analysis and the next tuyere6',
-    time: 'September 21, 2023'
+    title: 'title12',
+    time: 'time12'
   }
 ])
 export interface RecentHighlights {
@@ -563,43 +563,43 @@ export interface RecentHighlights {
 }
 const UtilityNet_Basic_box_data = ref([
   {
-    title: 'UtilityNetwork',
-    text: 'A high-performance distributed computing resource network.',
+    title: 'title1',
+    text: 'text1',
     name: 'UtilityNet_Basic_box_imparity1'
   },
   {
-    title: 'UNC SCAN',
-    text: 'Block explorer for analyzing and querying computing power orders and transaction tools.',
+    title: 'title2',
+    text: 'text2',
     name: 'UtilityNet_Basic_box_imparity2'
   },
   {
-    title: 'UtilityNet Wallet',
-    text: 'Convenient asset management tools available as browser extensions, desktop, and mobile versions.',
+    title: 'title3',
+    text: 'text3',
     name: 'UtilityNet_Basic_box_imparity1'
   },
   {
-    title: 'Container Cloud',
-    text: 'A distributed cloud computing service platform based on the UtilityNet ecosystem.',
+    title: 'title4',
+    text: 'text4',
     name: 'UtilityNet_Basic_box_imparity3'
   },
   {
-    title: 'Core Galaxy',
-    text: 'A decentralized ecosystem credit scoring system.',
+    title: 'title5',
+    text: 'text5',
     name: 'UtilityNet_Basic_box_imparity2'
   },
   {
-    title: 'Mining Tools',
-    text: 'Efficient mining utilities, including setup, monitoring, and strategy optimization.',
+    title: 'title6',
+    text: 'text6',
     name: 'UtilityNet_Basic_box_imparity1'
   },
   {
-    title: 'AI Model',
-    text: 'A series of pre-trained and customizable AI models supported by UtilityNet.',
+    title: 'title7',
+    text: 'text7',
     name: 'UtilityNet_Basic_box_imparity2'
   },
   {
-    title: 'SDK/DApps',
-    text: 'Comprehensive SDKs and decentralized application development environment.',
+    title: 'title8',
+    text: 'text8',
     name: 'UtilityNet_Basic_box_imparity4'
   }
 ])
@@ -638,13 +638,15 @@ const UtilityNet_Basic_box_data = ref([
               :style="{ fontSize: width > 996 ? '34px' : '1rem' }"
             >
               <!-- {{ $t('home.Welcome_to_utility') }} -->
-              Decentralized Digital Chip Network.
+              {{ $t('home.Welcome_to_utility2') }}
+              <!-- Decentralized Digital Chip Network. -->
             </div>
           </div>
           <div class="Anapplication">
             <!-- {{ $t('home.An_application') }} -->
-            Providing chip resources for next-generation edge computing and
-            artificial intelligence infrastructure.
+            {{ $t('home.An_application2') }}
+            <!-- Providing chip resources for next-generation edge computing and
+            artificial intelligence infrastructure. -->
           </div>
           <div class="button_father">
             <div
@@ -714,15 +716,11 @@ const UtilityNet_Basic_box_data = ref([
             '-webkit-text-fill-color': theme ? 'transparent' : ''
           }"
         >
-          Software-Defined Hardware
+        {{ $t('home.Software_Defined_Hardware') }}
+          <!-- Software-Defined Hardware -->
         </div>
         <div class="Software_Defined_Hardware_text">
-          Developers can flexibly program hardware with software to create
-          personalized and efficient solutions. The value starting point of
-          UtilityNet is its token (UNC) and protocol (POCI), which defines the
-          software from the demand side, then shapes the SDK and drivers,
-          ultimately influencing the design of the chip – something that has
-          never happened before in the history of blockchain!
+          {{ $t('home.Texts.text1') }}
         </div>
         <div class="Software_Defined_Hardware_box">
           <img
@@ -822,15 +820,11 @@ const UtilityNet_Basic_box_data = ref([
             '-webkit-text-fill-color': theme ? 'transparent' : ''
           }"
         >
-          POCI Validation Logic
+          <!-- POCI Validation Logic -->
+          {{ $t('home.POCI_Validation_Logic') }}
         </div>
         <div class="POCI_Validation_Logic_text">
-          Developers can flexibly program hardware with software to create
-          personalized and efficient solutions. The value starting point of
-          UtilityNet is its token (UNC) and protocol (POCI), which defines the
-          software from the demand side, then shapes the SDK and drivers,
-          ultimately influencing the design of the chip – something that has
-          never happened before in the history of blockchain!
+          {{ $t('home.Texts.text2') }}
         </div>
         <div class="POCI_Validation_Logic_bg">
           <img
@@ -860,19 +854,17 @@ const UtilityNet_Basic_box_data = ref([
             '-webkit-text-fill-color': theme ? 'transparent' : ''
           }"
         >
-          UtilityNet PHASE-1 Testnet is now launched！
+          <!-- UtilityNet PHASE-1 Testnet is now launched！ -->
+          {{ $t('home.UtilityNet_PHASE1_Testnet_is_now_launched') }}
         </div>
         <div style="display: flex; justify-content: space-between; width: 100%">
           <div class="UtilityNet_PHASE_left">
             <div v-if="width > 834" class="UtilityNet_PHASE_title">
-              UtilityNet PHASE-1 Testnet is now launched！
+              <!-- UtilityNet PHASE-1 Testnet is now launched！ -->
+              {{ $t('home.UtilityNet_PHASE1_Testnet_is_now_launched') }}
             </div>
             <div class="UtilityNet_PHASE_text">
-              The current test site is open source, with hundreds of code
-              contributors. Together, we are building UtilityNet into a powerful
-              distributed computing resource network.You can suggest edits for
-              any content on this site, propose outstanding new features, or
-              help us troubleshoot errors.
+              {{ $t('home.Texts.text3') }}
             </div>
             <div class="UtilityNet_PHASE_button_father">
               <div
@@ -881,7 +873,8 @@ const UtilityNet_Basic_box_data = ref([
                 @mouseleave="phaseArrowb = false"
               >
                 <div class="UtilityNet_PHASE_button">
-                  More on Testnet
+                  <!-- More on Testnet -->
+                  {{ $t('home.More_on_Testnet') }}
                   <img
                     :style="{
                       filter: !theme
@@ -903,7 +896,8 @@ const UtilityNet_Basic_box_data = ref([
                 @mouseleave="phaseArrowb1 = false"
               >
                 <div class="UtilityNet_PHASE_button">
-                  Join Testnet!
+                  <!-- Join Testnet! -->
+                  {{ $t('home.Join_Testnet') }}
                   <img
                     :style="{
                       filter: !theme
@@ -942,12 +936,12 @@ const UtilityNet_Basic_box_data = ref([
           '-webkit-text-fill-color': theme ? 'transparent' : ''
         }"
       >
-        Key Players In The Utilitynet Ecosystem
+        <!-- Key Players In The Utilitynet Ecosystem -->
+        {{ $t('home.Key_Players_In_The_Utilitynet_Ecosystem') }}
       </div>
       <div class="Key_Players_In_text">
-        In the UtilityNet ecosystem, UNC tokens, as the core value vehicle
-        within the ecosystem, are key to connecting and incentivizing all
-        participants.
+        {{ $t('home.Texts.text4') }}
+
       </div>
       <div class="Key_Players_In_Gear_wheel_father">
         <div class="Key_Players_In_Gear_wheel">
@@ -960,13 +954,13 @@ const UtilityNet_Basic_box_data = ref([
             class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position"
           >
             <div class="Key_Players_In_Gear">
-              <div class="base_layer">BASE LAYER</div>
+              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
               <div class="Key_Players_In_Gear_wheel_button_father">
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
               </div>
             </div>
@@ -981,13 +975,13 @@ const UtilityNet_Basic_box_data = ref([
             class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position1"
           >
             <div class="Key_Players_In_Gear">
-              <div class="base_layer">BASE LAYER</div>
+              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
               <div class="Key_Players_In_Gear_wheel_button_father">
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
               </div>
             </div>
@@ -1002,13 +996,13 @@ const UtilityNet_Basic_box_data = ref([
             class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position2"
           >
             <div class="Key_Players_In_Gear">
-              <div class="base_layer">BASE LAYER</div>
+              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
               <div class="Key_Players_In_Gear_wheel_button_father">
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
               </div>
             </div>
@@ -1023,13 +1017,13 @@ const UtilityNet_Basic_box_data = ref([
             class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position3"
           >
             <div class="Key_Players_In_Gear">
-              <div class="base_layer">BASE LAYER</div>
+              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
               <div class="Key_Players_In_Gear_wheel_button_father">
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
                 <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">Miners</div>
+                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
                 </div>
               </div>
             </div>
@@ -1056,7 +1050,8 @@ const UtilityNet_Basic_box_data = ref([
             '-webkit-text-fill-color': theme ? 'transparent' : ''
           }"
         >
-          UtilityNet Basic Functions
+          <!-- UtilityNet Basic Functions -->
+          {{ $t('home.UtilityNet_Basic_Functions') }}
         </div>
         <div class="UtilityNet_Basic_box_father_F">
           <div
@@ -1067,9 +1062,10 @@ const UtilityNet_Basic_box_data = ref([
           >
             <div class="UtilityNet_Basic_box">
               <div class="f">
-                <div class="UtilityNet_Basic_box_title">{{ item.title }}</div>
+                <div class="UtilityNet_Basic_box_title">{{ $t(`home.UtilityNet_Basic_box_data.${item.title}`) }}</div>
                 <div class="UtilityNet_Basic_box_text">
-                  {{ item.text }}
+                  <!-- {{ item.text }} -->
+                  {{ $t(`home.UtilityNet_Basic_box_data.${item.text}`) }}
                 </div>
               </div>
               <div class="UtilityNet_Basic_box_button_father">
@@ -1096,7 +1092,8 @@ const UtilityNet_Basic_box_data = ref([
             '-webkit-text-fill-color': theme ? 'transparent' : ''
           }"
         >
-          RECENT HIGHLIGHTS
+          <!-- RECENT HIGHLIGHTS -->
+          {{ $t('home.RECENT_HIGHLIGHTS') }}
         </div>
         <div class="Recent_Highlights_map">
           <!-- ! 两个按钮 -->
@@ -1124,10 +1121,12 @@ const UtilityNet_Basic_box_data = ref([
               <div v-for="i in item.item" :key="i.id" class="swiper_item">
                 <img class="swiper_img" :src="i.img" alt="" />
                 <div class="swiper_title">
-                  {{ i.title }}
+                  <!-- {{ i.title }} -->
+                  {{ $t(`home.Recent_Highlights_data.${i.title}`) }}
                 </div>
                 <div class="swiper_time">
-                  {{ i.time }}
+                  <!-- {{ i.time }} -->
+                  {{ $t(`home.Recent_Highlights_data.${i.time}`) }}
                 </div>
               </div>
             </swiper-slide>
@@ -1150,10 +1149,12 @@ const UtilityNet_Basic_box_data = ref([
             >
               <img class="swiper_img" :src="item.img" alt="" />
               <div class="swiper_title">
-                {{ item.title }}
+                <!-- {{ item.title }} -->
+                {{ $t(`home.Recent_Highlights_data.${item.title}`) }}
               </div>
               <div class="swiper_time">
-                {{ item.time }}
+                <!-- {{ item.time }} -->
+                {{ $t(`home.Recent_Highlights_data.${item.time}`) }}
               </div>
             </swiper-slide>
           </swiper>
@@ -1172,15 +1173,14 @@ const UtilityNet_Basic_box_data = ref([
               '-webkit-text-fill-color': theme ? 'transparent' : ''
             }"
           >
-            Join the UtilityNet open source community to accelerate building the
-            future!
+          {{ $t('home.Texts.text5') }}
           </div>
           <div class="Join_the_UtilityNet_button_father">
             <div
               class="Join_the_UtilityNet_button"
               @click="openNewPage('/community')"
             >
-              Join Us
+             {{ $t('home.Join_us') }}
               <img
                 :style="{
                   filter: theme ? 'brightness(100%)' : 'brightness(0%)'
