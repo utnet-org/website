@@ -1081,7 +1081,7 @@ const UtilityNet_Basic_box_data = ref([
           </div>
         </div>
       </div>
-      <div class="Recent_Highlights">
+      <div v-if="false" class="Recent_Highlights">
         <div
           class="Recent_Highlights_title"
           :style="{
