@@ -925,115 +925,120 @@ const UtilityNet_Basic_box_data = ref([
         </div>
       </div>
     </div>
+   
     <div class="Key_Players_In">
-      <div
-        class="Key_Players_In_title"
-        :style="{
-          background: theme
-            ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
-            : '',
-          'background-clip': theme ? 'text' : '',
-          '-webkit-background-clip': theme ? 'text' : '',
-          '-webkit-text-fill-color': theme ? 'transparent' : ''
-        }"
-      >
-        <!-- Key Players In The Utilitynet Ecosystem -->
-        {{ $t('home.Key_Players_In_The_Utilitynet_Ecosystem') }}
-      </div>
-      <div class="Key_Players_In_text">
-        {{ $t('home.Texts.text4') }}
-
-      </div>
-      <div class="Key_Players_In_Gear_wheel_father">
-        <div class="Key_Players_In_Gear_wheel">
-          <img
-            class="Gear_wheel_bg"
-            src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Key_Players_In_Gear_wheel_bg.png"
-            alt=""
-          />
+      <div class="Key_Players_In_container">
+        <div class="Key_Players_In_bg">
           <div
-            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position"
+            class="Key_Players_In_title"
+            :style="{
+              background: theme
+                ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+                : '',
+              'background-clip': theme ? 'text' : '',
+              '-webkit-background-clip': theme ? 'text' : '',
+              '-webkit-text-fill-color': theme ? 'transparent' : ''
+            }"
           >
-            <div class="Key_Players_In_Gear">
-              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
-              <div class="Key_Players_In_Gear_wheel_button_father">
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
-                </div>
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+            <!-- Key Players In The Utilitynet Ecosystem -->
+            {{ $t('home.Key_Players_In_The_Utilitynet_Ecosystem') }}
+          </div>
+          <div class="Key_Players_In_text">
+            {{ $t('home.Texts.text4') }}
+    
+          </div>
+          <div class="Key_Players_In_Gear_wheel_father">
+            <div class="Key_Players_In_Gear_wheel">
+              <img
+                class="Gear_wheel_bg"
+                src="https://unc-oss.s3.us-west-1.amazonaws.com/v2/images/Key_Players_In_Gear_wheel_bg.png"
+                alt=""
+              />
+              <div
+                class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position"
+              >
+                <div class="Key_Players_In_Gear">
+                  <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
+                  <div class="Key_Players_In_Gear_wheel_button_father">
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="point_AND_line_father">
-            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
-            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
-            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
-            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
-          </div>
-          <div
-            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position1"
-          >
-            <div class="Key_Players_In_Gear">
-              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
-              <div class="Key_Players_In_Gear_wheel_button_father">
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
-                </div>
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+              <div class="point_AND_line_father">
+                <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+                <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+                <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+                <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+              </div>
+              <div
+                class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position1"
+              >
+                <div class="Key_Players_In_Gear">
+                  <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
+                  <div class="Key_Players_In_Gear_wheel_button_father">
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="point_AND_line_father1">
-            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
-            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
-            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
-            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
-          </div>
-          <div
-            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position2"
-          >
-            <div class="Key_Players_In_Gear">
-              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
-              <div class="Key_Players_In_Gear_wheel_button_father">
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
-                </div>
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+              <div class="point_AND_line_father1">
+                <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+                <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+                <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+                <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+              </div>
+              <div
+                class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position2"
+              >
+                <div class="Key_Players_In_Gear">
+                  <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
+                  <div class="Key_Players_In_Gear_wheel_button_father">
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="point_AND_line_father2">
-            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
-            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
-            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
-            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
-          </div>
-          <div
-            class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position3"
-          >
-            <div class="Key_Players_In_Gear">
-              <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
-              <div class="Key_Players_In_Gear_wheel_button_father">
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
-                </div>
-                <div class="background_Rainbow">
-                  <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+              <div class="point_AND_line_father2">
+                <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+                <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+                <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+                <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+              </div>
+              <div
+                class="background_Rainbow Key_Players_In_Gear_wheel_Rainbow wheel_Rainbow_position3"
+              >
+                <div class="Key_Players_In_Gear">
+                  <div class="base_layer">{{ $t('home.BASE_LAYER') }}</div>
+                  <div class="Key_Players_In_Gear_wheel_button_father">
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                    <div class="background_Rainbow">
+                      <div class="Key_Players_In_Gear_wheel_button">{{ $t('home.Miners') }}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="point_AND_line_father3">
+                <div class="Gear_wheel_point Gear_wheel_point_left"></div>
+                <div class="Gear_wheel_line Gear_wheel_line_long"></div>
+                <div class="Gear_wheel_point Gear_wheel_point_right"></div>
+                <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
+              </div>
             </div>
-          </div>
-          <div class="point_AND_line_father3">
-            <div class="Gear_wheel_point Gear_wheel_point_left"></div>
-            <div class="Gear_wheel_line Gear_wheel_line_long"></div>
-            <div class="Gear_wheel_point Gear_wheel_point_right"></div>
-            <div class="Gear_wheel_line1 Gear_wheel_line_short"></div>
           </div>
         </div>
       </div>
@@ -1998,7 +2003,21 @@ const UtilityNet_Basic_box_data = ref([
   flex-shrink: 0;
   margin-bottom: 100px;
   background: var(--home-Key_Players_In_bg);
-  padding: 122px 148px 0px 148px;
+  padding: 122px 0 0px 0;
+  .Key_Players_In_container{
+    width: 100%;
+    max-width: 1728px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 110px;
+    .Key_Players_In_bg{
+      border-radius: 12px;
+      height: 888px;
+      padding: 60px 54px;
+      margin-bottom: 100px;
+      background: var(--home-background-color-child);
+    }
+  }
   .Key_Players_In_title {
     color: var(--home-title-color);
     font-family: Gilroy-Bold;
@@ -2006,7 +2025,7 @@ const UtilityNet_Basic_box_data = ref([
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 18px;
+    // margin-left: 18px;
   }
 
   .Key_Players_In_text {
@@ -2608,6 +2627,16 @@ const UtilityNet_Basic_box_data = ref([
   .home_view {
     .Key_Players_In {
       height: 908px !important;
+      .Key_Players_In_container{
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        .Key_Players_In_bg{
+          height: 100% !important;
+          padding:20px 10px !important;
+        }
+      }
     }
     .UtilityNet_PHASE {
       .UtilityNet_PHASE_left {
@@ -3315,6 +3344,11 @@ const UtilityNet_Basic_box_data = ref([
       background-size: cover;
 
       padding: 20px 10px 20px 10px;
+      .Key_Players_In_container{
+        .Key_Players_In_bg{
+          height: 100% !important;
+        }
+      }
       .Key_Players_In_title {
         font-size: 18px;
         font-weight: 600;
