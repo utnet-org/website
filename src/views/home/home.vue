@@ -14,21 +14,22 @@ import SwiperCore from 'swiper'
 SwiperCore.use([Pagination])
 import 'swiper/less/navigation'
 import 'swiper/css/pagination'
-import { computed, onMounted, onUnmounted, ref, toRef, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, toRef, watch,h } from 'vue'
 import { getStatistics } from '@/api/home'
 import { useI18n } from 'vue-i18n'
 import { openNewPage } from '@/utils/request'
 import router from '@/router'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
-
+import { ElMessage } from 'element-plus'
 const { home } = useStore()
 const { theme } = storeToRefs(home)
-const { locale } = useI18n()
+const { locale,t } = useI18n()
 const res = ref() //^ 数据 和 圆 Data and circles的数据
 const Data_arr = ref() //^ Where to Start的数据
 const width = ref(window.innerWidth)
 const height = ref(window.innerHeight)
+const anchorElement = ref<HTMLElement | null>(null); 
 const text_utility_zh = `<span style='font-weight: 500;font-family: Inter;'>助力UtilityNet</span> 开源社区，共建革命性应用型Web3`
 const text_utility_en = `<span style='font-weight: 500;font-family: Inter;'>Help UtilityNet</span> open source community to build a revolutionary application Web3`
 const updatedWidth = function () {
@@ -38,8 +39,39 @@ const updatedWidth = function () {
 }
 const phaseArrowb = ref(false)
 const phaseArrowb1 = ref(false)
+const messageInstance = ref()
 
 onMounted(async () => {
+  if(!sessionStorage.getItem('firstEessage')){
+    sessionStorage.setItem('firstEessage', '1')
+    messageInstance.value = ElMessage({
+      duration:0,
+      customClass: 'message-box',
+      dangerouslyUseHTMLString: true,
+      showClose: true,
+      offset:110,
+      icon: 'el-icon-info',
+      type: 'warning',
+      message: `${ t('home.Roadmap_Message_Text')} <a id="ErrorMsg" style="color: #99cecd;cursor: pointer;">${ t('home.Roadmap_Message_P')}</a>`
+    })
+    setTimeout(() => {
+      const errorMsgElement = document.getElementById('ErrorMsg');
+      if (errorMsgElement) {
+        // 添加点击事件监听器
+        errorMsgElement.addEventListener('click', handleErrorMsgClick);
+      }
+    }, 100);
+      // 点击事件处理函数
+    function handleErrorMsgClick(event:any) {
+      event.preventDefault(); // 阻止默认行为，如跳转
+      // 在这里添加你想要执行的代码
+      messageInstance.value.close();
+      messageInstance.value = null;
+      if (anchorElement.value) {
+        anchorElement.value.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
   updateUtilityArr() // 初始设置
   const { data } = await getStatistics()
   res.value = data
@@ -106,6 +138,7 @@ onMounted(async () => {
   } else {
     console.error('Element with ID "scrollingImage" not found.')
   }
+  
 })
 
 //! Where to Start 鼠标移入
@@ -1220,8 +1253,73 @@ const UtilityNet_Basic_box_data = ref([
         </div>
       </div>
     </div>
+    <div class="container" style="overflow: hidden" ref="anchorElement">
+      <div class="Software_Defined_Hardware" style="margin-bottom:100px ;">
+        <div
+          class="Software_Defined_Hardware_title"
+          :style="{
+            background: theme
+              ? 'linear-gradient(90deg, #737efb 0%, #73fbf0 100%)'
+              : '',
+            'background-clip': theme ? 'text' : '',
+            '-webkit-background-clip': theme ? 'text' : '',
+            '-webkit-text-fill-color': theme ? 'transparent' : ''
+          }"
+        >
+        {{ $t(`home.Roadmap_Text.title`) }}
+        </div>
+        <div class="Roadmap_Text_Main">
+          <div class="Text_box">
+            <h4>{{ $t(`home.Roadmap_Text.text1`) }}</h4>
+            <div>
+              <h5>{{ $t(`home.Roadmap_Text.text1s.t1`) }}</h5>
+              <ul>
+                <li>{{ $t(`home.Roadmap_Text.text1s.t2`) }}</li>
+                <li>{{ $t(`home.Roadmap_Text.text1s.t3`) }}</li>
+              </ul>
+              <h5>{{ $t(`home.Roadmap_Text.text1s.t4`) }}</h5>
+              <ul>
+                <li>{{ $t(`home.Roadmap_Text.text1s.t5`) }}</li>
+                <li>{{ $t(`home.Roadmap_Text.text1s.t6`) }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="Text_box">
+            <h4>{{ $t(`home.Roadmap_Text.text2`) }}</h4>
+            <div>
+              <h5>{{ $t(`home.Roadmap_Text.text2s.t1`) }}</h5>
+              <ul>
+                <li>{{ $t(`home.Roadmap_Text.text2s.t2`) }}</li>
+                <li>{{ $t(`home.Roadmap_Text.text2s.t3`) }}</li>
+              </ul>
+              <h5>{{ $t(`home.Roadmap_Text.text2s.t4`) }}</h5>
+              <ul>
+                <li>{{ $t(`home.Roadmap_Text.text2s.t5`) }}</li>
+                <li>{{ $t(`home.Roadmap_Text.text2s.t6`) }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   </div>
 </template>
+<style>
+.message-box{
+  background-color: #fffde6;
+  border-radius: 22px;
+}
+@media (max-width: 834px) {
+  .message-box{
+    width: 90%;
+    max-width: 90%;
+  }
+  .message-box>p{
+    line-height: 25px;
+  }
+}
+</style>
 <style scoped lang="less">
 // .background_Rainbow {
 //   // background: conic-gradient(
@@ -1235,6 +1333,7 @@ const UtilityNet_Basic_box_data = ref([
 //   //   #00f7e4 350.5deg 360deg
 //   // );
 // }
+
 .animation_box {
   position: relative;
   background: #000;
@@ -2589,6 +2688,38 @@ const UtilityNet_Basic_box_data = ref([
     // height: 290px;
   }
 }
+.Roadmap_Text_Main{
+  display: flex;
+  justify-content: space-between;
+  
+  .Text_box{
+    border:1px solid;
+    border-color:#707070;
+    padding: 25px 26px;
+    border-radius:18px;
+    width: 49%;
+    margin-top: 77px;
+    color: var(--home-title-color);
+    h4{
+      font-size: 28px;
+      text-align: center;
+    }
+    h5{
+      font-size: 20px;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    ul{
+      padding:0 25px;
+      li{
+        list-style-type:disc;
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
+}
 @media (min-width: 835px) {
   .home_view {
     .Welcome {
@@ -3775,6 +3906,27 @@ const UtilityNet_Basic_box_data = ref([
       .Join_the_UtilityNet_right {
         width: 100%;
         // height: 290px;
+      }
+    }
+  }
+  .Roadmap_Text_Main{
+    flex-direction: column;
+    .Text_box{
+      width: 100%;
+      margin-top: 30px;
+      padding: 16px;
+      h4{
+        font-size: 20px;
+      }
+      h5{
+        font-size: 18px;
+        margin-top: 30px;
+      }
+      ul{
+        padding: 16px;
+        li{
+          font-size: 18px;
+        }
       }
     }
   }

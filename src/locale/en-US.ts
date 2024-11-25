@@ -240,6 +240,29 @@ export default {
       text5:`Join the UtilityNet open source community to accelerate building the
       future!`,
     },
+    Roadmap_Message_Text:'UtilityNet Public Chain Technology Development Roadmap',
+    Roadmap_Message_P:'Click to view',
+    Roadmap_Text:{
+      title:'Below is the UtilityNet Public Chain Technology Development Roadmap based on the above six-month plan, including time points and corresponding key tasks：',
+      text1:'August - November 2024',
+      text2:'December 2024 - February 2025',
+      text1s:{
+        t1:'BDC Chip Support and Integration',
+        t2:'Task: Initiate the development of BDC chip driver and API interface design to ensure the smooth integration of the chip into the nodes.',
+        t3:'Goal: Complete the first version of the chip driver and open the basic API interface. ',
+        t4:'AI Model Phase II Testing',
+        t5:'Task: Design the interaction framework between smart contract and AI model, and formulate the model testing plan. ',
+        t6:'Goal: Complete the design of the AI model integration framework and lay the foundation for the second-stage test. ',
+      },
+      text2s:{
+        t1:'WASM Contract Initial Support',
+        t2:'Task: Complete the preparations for the integration of WASM virtual machines and test the basic operational performance of WASM contracts.',
+        t3:'Goal: Preliminary integration of WASM virtual machine, realize basic contract operation.',
+        t4:'Developer Tools Infrastructure Enhancement',
+        t5:'Task: Initiate modular SDK development and start designing contract debugging tools.',
+        t6:'Goal: Complete SDK architecture design and define modularization scheme.',
+      }
+    }
   },
   learning_center: {
     What_is_UtilityNet: "What is UtilityNet?",
