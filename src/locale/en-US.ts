@@ -243,7 +243,7 @@ export default {
     Roadmap_Message_Text:'UtilityNet Public Chain Technology Development Roadmap',
     Roadmap_Message_P:'Click to view',
     Roadmap_Text:{
-      title:'Below is the UtilityNet Public Chain Technology Development Roadmap based on the above six-month plan, including time points and corresponding key tasks：',
+      title:'RoadMap',
       text1:'August - November 2024',
       text2:'December 2024 - February 2025',
       text1s:{

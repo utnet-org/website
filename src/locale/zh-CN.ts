@@ -211,7 +211,7 @@ export default {
     Roadmap_Message_Text:'UtilityNet 公链技术开发 Roadmap',
     Roadmap_Message_P:'点击查看',
     Roadmap_Text:{
-      title:'以下是基于上述半年规划的 UtilityNet 公链技术开发 Roadmap包含时间节点和对应的关键任务：',
+      title:'RoadMap',
       text1:'2024 年 8月 - 11月',
       text2:'2024 年 12月 -2025年 2月',
       text1s:{
